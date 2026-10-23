@@ -1,0 +1,280 @@
+# Cloud rendering: the owner's PC must carry no load (see "Machine rule" in CLAUDE.md), so every
+# Remotion still/video is rendered here on GitHub's runners and downloaded as an artifact.
+# Trigger:  gh workflow run render.yml -f kind=still -f composition=<id>[,<id>...] -f output=<name> [-f episode=<slug>]
+# Fetch:    gh run download <run-id> -n <name>
+#
+# Narration: pass -f episode=<slug> and the runner synthesizes episodes/<slug>/script.json with
+# the Gemini API TTS (secret GEMINI_API_KEY; owner's free-tier choice 2026-09-25) or, if only that
+# secret exists, Google Cloud TTS (GOOGLE_TTS_KEY) before rendering.
+# Gemini path (2026-09-25): the free tier allows ~10 TTS requests/day, so narration is BATCHED -
+# tts-gemini.mjs sends ~4,000 characters per request and saves the raw take, align_split.py cuts it
+# into per-line WAVs from Whisper word timestamps (and writes out/tts-qa.md), then
+# tts-gemini.mjs --manifest writes vo.json. Takes and raw chunks are cached EVEN WHEN A RUN FAILS,
+# so nothing paid for in quota is ever lost. If the daily quota runs out the run is "partial": the
+# cache keeps what was made, the render is skipped, and the next run continues.
+# -f scenes=cold,l01 voices only those scenes (e.g. the 30-s sample) - other lines get estimates.
+# Without any secret the run falls back to estimated timings (vo-estimate.mjs) - stills only.
+# kind=tts synthesizes only and uploads vo.json (real timings for chapters) - no render.
+name: Render
+
+on:
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: "still (PNG), video (MP4) or tts (narration only)"
+        type: choice
+        options: [still, video, tts]
+        default: still
+      composition:
+        description: "Remotion composition id(s) from studio/src/Root.tsx - comma-separated for several stills"
+        required: false
+        default: brand-frame
+      output:
+        description: "Artifact name (and file name for a video), no extension"
+        required: true
+        default: render
+      episode:
+        description: "Episode slug (episodes/<slug>/script.json) to narrate before rendering - leave blank for brand stills"
+        required: false
+        default: ""
+      scenes:
+        description: "Optional comma list of scene ids to voice (e.g. cold,l01 for the sample); blank = all"
+        required: false
+        default: ""
+      align_only:
+        description: "Narration: no API calls - only cut cached raw takes and rebuild vo.json"
+        type: boolean
+        default: false
+      preview:
+        description: "Half size: small preview encode for videos, half-size PNGs for stills (review)"
+        type: boolean
+        default: false
+      scale:
+        description: "Stills only: render scale, e.g. 3 for 3840x2160 thumbnails from 1280x720 compositions (YouTube's recommended size)"
+        required: false
+        default: ""
+      resplit:
+        description: "Narration: comma list of take prefixes (e.g. l07-05) - the chunk holding each is cut again with the current aligner, no API call"
+        required: false
+        default: ""
+      tts_test:
+        description: "Pipeline test: robotic espeak-ng voice instead of Gemini (no quota used, never cached)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write # final renders are uploaded as assets of the private "renders" release (artifact storage is 500 MB on the free plan)
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    defaults:
+      run:
+        working-directory: studio
+    env:
+      # inputs go through env, never straight into the shell line (avoids script injection)
+      KIND: ${{ inputs.kind }}
+      COMP: ${{ inputs.composition }}
+      OUT: ${{ inputs.output }}
+      EPISODE: ${{ inputs.episode }}
+      TTS_SCENES: ${{ inputs.scenes }}
+      TTS_FAKE: ${{ inputs.tts_test && 'espeak' || '' }}
+      SCALE: ${{ inputs.scale }}
+      PREVIEW: ${{ inputs.preview && 'true' || '' }} # empty when off, so ${PREVIEW:+...} expands only when on
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: studio/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Fonts + licensed images/footage live in assets/manifest.json and are fetched HERE,
+      # never on the owner's PC. Cached by manifest hash so repeat runs cost nothing.
+      - name: Restore fetched assets
+        uses: actions/cache@v5
+        with:
+          path: |
+            studio/public/assets
+            studio/public/fonts
+          key: assets-w1920-${{ hashFiles('studio/assets/manifest.json') }}
+
+      # ffmpeg trims licensed video clips to the seconds used (scripts/fetch-assets.mjs); runner-side only
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && ffmpeg -version | head -1
+
+      - name: Fetch assets
+        run: node scripts/fetch-assets.mjs
+
+      # Takes are named by text hash, so the newest cache for the episode always holds every take made
+      # so far; each run saves a fresh cache (key has the run id) even if it fails - see "Save narration takes".
+      - name: Restore narration takes
+        if: inputs.episode != '' # stills too: committed vo.json points at real takes
+        uses: actions/cache/restore@v4
+        with:
+          path: studio/public/${{ inputs.episode }}/vo
+          key: vo2-${{ inputs.episode }}-${{ github.run_id }}
+          restore-keys: vo2-${{ inputs.episode }}-
+
+      - uses: actions/setup-python@v5
+        if: inputs.episode != ''
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: studio/scripts/requirements-tts.txt
+
+      # the Whisper model (~150 MB) for alignment + audio QA, downloaded once, runner-side only
+      - name: Restore Whisper model
+        if: inputs.episode != ''
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-base.en-v1
+
+      # still renders never call the voice API: they use the committed vo.json, so review frame numbers
+      # computed locally stay valid (commit a run's out/vo.json once real narration exists)
+      - name: Narration
+        id: tts
+        if: inputs.episode != '' && inputs.kind != 'still'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_TTS_KEY: ${{ secrets.GOOGLE_TTS_KEY }}
+          ALIGN_ONLY: ${{ inputs.align_only }}
+          RESPLIT: ${{ inputs.resplit }}
+        run: |
+          mkdir -p out
+          partial=false
+          if [ -n "$TTS_FAKE" ]; then sudo apt-get install -y -qq espeak-ng > /dev/null; fi
+          if [ -n "$GEMINI_API_KEY" ] || [ -n "$TTS_FAKE" ]; then
+            pip install -q -r scripts/requirements-tts.txt
+            if [ "$ALIGN_ONLY" != true ]; then
+              node scripts/tts-gemini.mjs "$EPISODE" || { rc=$?; [ $rc -eq 3 ] && partial=true || exit $rc; }
+            fi
+            # resplit: delete every take of the chunk(s) holding the named lines, so the aligner cuts them again
+            for p in ${RESPLIT//,/ }; do
+              case "$p" in *[!a-z0-9-]*) echo "::error::bad resplit prefix $p"; exit 1 ;; esac
+              for j in $(grep -l "\"$p-" "public/$EPISODE/vo/chunks/"*.json); do
+                node -e 'for (const l of require(require("path").resolve(process.argv[1])).lines) console.log(l.file)' "$j" | while read -r f; do rm -f "public/$EPISODE/vo/$f"; done
+                echo "resplit: re-cutting chunk $(basename "$j" .json) (holds $p)" >> "$GITHUB_STEP_SUMMARY"
+              done
+            done
+            python scripts/align_split.py "$EPISODE"
+            node scripts/tts-gemini.mjs "$EPISODE" --manifest || { rc=$?; [ $rc -eq 3 ] && partial=true || exit $rc; }
+            [ -f out/tts-qa.md ] && cat out/tts-qa.md >> "$GITHUB_STEP_SUMMARY"
+          elif [ -n "$GOOGLE_TTS_KEY" ]; then
+            node scripts/tts-cloud.mjs "$EPISODE"
+          else
+            echo "::warning::no TTS secret (GEMINI_API_KEY / GOOGLE_TTS_KEY) - using ESTIMATED timings, no audio"
+            node scripts/vo-estimate.mjs "$EPISODE"
+          fi
+          echo "partial=$partial" >> "$GITHUB_OUTPUT"
+          cp "src/episodes/$EPISODE/vo.json" out/vo.json
+          if [ "$partial" = true ]; then echo "::warning::narration is PARTIAL - render skipped; re-run after the daily quota resets (midnight Pacific)"; fi
+
+      - name: Save narration takes
+        if: always() && inputs.episode != '' && inputs.kind != 'still' && !inputs.tts_test
+        uses: actions/cache/save@v4
+        with:
+          path: studio/public/${{ inputs.episode }}/vo
+          key: vo2-${{ inputs.episode }}-${{ github.run_id }}
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Render
+        # a preview renders even when some lines are not voiced yet (they play silent, with estimated timing)
+        if: inputs.kind != 'tts' && (steps.tts.outputs.partial != 'true' || inputs.preview)
+        run: |
+          mkdir -p out
+          if [ "$KIND" = "still" ]; then
+            case "$SCALE" in *[!0-9.]*) echo "::error::scale must be a number"; exit 1 ;; esac
+            IFS=',' read -ra IDS <<< "$COMP"
+            # "id" renders frame 0; "id@120" renders frame 120 (review stills of a moving composition)
+            for spec in "${IDS[@]}"; do
+              spec="$(echo "$spec" | xargs)"
+              id="${spec%%@*}"
+              if [ "$spec" = "$id" ]; then
+                npx remotion still src/index.ts "$id" "out/$id.png" ${PREVIEW:+--scale=0.5} ${SCALE:+--scale=$SCALE}
+              else
+                npx remotion still src/index.ts "$id" "out/$id-f${spec#*@}.png" --frame="${spec#*@}" ${PREVIEW:+--scale=0.5}
+              fi
+            done
+          else
+            if [ "$PREVIEW" = true ]; then
+              npx remotion render src/index.ts "$COMP" "out/$OUT.mp4" --scale=0.5 --crf=30 --concurrency=100%
+              (pip install -q numpy && python3 scripts/static-probe.py "out/$OUT.mp4" | tee -a "$GITHUB_STEP_SUMMARY") || echo "::warning::static probe failed"
+              # keep the whole preview for the release (review frames are pulled from it with probe-frames.yml)
+              cp "out/$OUT.mp4" "$RUNNER_TEMP/$OUT.mp4"
+              # phone delivery caps files at 30 MB: split a long preview into ~26 MB parts (stream copy, no re-encode)
+              size=$(stat -c %s "out/$OUT.mp4")
+              if [ "$size" -gt 28000000 ]; then
+                dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "out/$OUT.mp4")
+                seg=$(python3 -c "print(max(60, int(float('$dur') * 26e6 / $size)))")
+                ffmpeg -v error -i "out/$OUT.mp4" -c copy -map 0 -f segment -segment_time "$seg" -reset_timestamps 1 "out/$OUT-part%d.mp4"
+                rm "out/$OUT.mp4"
+                echo "preview split into $(ls out/$OUT-part*.mp4 | wc -l) parts of ~${seg}s" >> "$GITHUB_STEP_SUMMARY"
+              fi
+            else
+              # every core (the default is half: "Concurrency 1x" on these runners); crf 20 is visually clean
+              # for upload - YouTube re-encodes anyway - at ~2/3 the size of crf 18
+              npx remotion render src/index.ts "$COMP" "out/$OUT.mp4" --crf=20 --concurrency=100%
+              (pip install -q numpy && python3 scripts/static-probe.py "out/$OUT.mp4" | tee -a "$GITHUB_STEP_SUMMARY") || echo "::warning::static probe failed"
+            fi
+          fi
+          ls -lh out
+
+      # The half-size preview also goes to the renders release, un-split: one preview render feeds the static
+      # probe (above) AND the review frames (probe-frames.yml -f asset=<output>.mp4) - docs/PROCESS.md stage 4.
+      - name: Publish preview to the renders release
+        if: inputs.kind == 'video' && inputs.preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view renders > /dev/null 2>&1 || gh release create renders --title "Rendered videos" --notes "Final renders from render.yml (private repo). Each re-render overwrites its file."
+          gh release upload renders "$RUNNER_TEMP/$OUT.mp4" --clobber
+          echo "uploaded preview $OUT.mp4 to the renders release" >> "$GITHUB_STEP_SUMMARY"
+
+      # A full episode is hundreds of MB - more than the free plan's 500 MB artifact storage. Final renders
+      # go to the private "renders" release instead (release assets don't count against that quota);
+      # fetch with: gh release download renders -p "<output>.mp4"
+      - name: Publish final render to the renders release
+        if: inputs.kind == 'video' && !inputs.preview && steps.tts.outputs.partial != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # loudness gate: -15..-13 LUFS, <= -1 dBTP; re-masters the audio in place when outside (video copied)
+          bash scripts/loudness-fix.sh "out/$OUT.mp4"
+          # verify before publishing: a video stream, an audio stream, and the duration (written to the run summary)
+          probe=$(ffprobe -v error -show_entries stream=codec_type,width,height:format=duration,size -of compact "out/$OUT.mp4")
+          echo "$probe"
+          echo "$probe" | grep -q "codec_type=audio" || { echo "::error::$OUT.mp4 has no audio stream"; exit 1; }
+          echo "$probe" | grep -q "codec_type=video" || { echo "::error::$OUT.mp4 has no video stream"; exit 1; }
+          { echo '```'; echo "$probe"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          gh release view renders > /dev/null 2>&1 || gh release create renders --title "Rendered videos" --notes "Final renders from render.yml (private repo). Each re-render overwrites its file."
+          gh release upload renders "out/$OUT.mp4" --clobber
+          rm "out/$OUT.mp4"
+          echo "uploaded $OUT.mp4 to the renders release" >> "$GITHUB_STEP_SUMMARY"
+
+      # the same files also go to the renders release as <output>.zip: artifact storage (500 MB) fills up and its
+      # quota is only recalculated every 6-12 h, so a full quota must not lose a run's stills
+      - name: Publish the run's files to the renders release
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -n "$(ls out 2>/dev/null)" ] || exit 0
+          (cd out && zip -q -r "$RUNNER_TEMP/$OUT.zip" .)
+          gh release upload renders "$RUNNER_TEMP/$OUT.zip" --clobber
+
+      - uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: ${{ inputs.output }}
+          path: studio/out/
+          retention-days: 2
+          if-no-files-found: error

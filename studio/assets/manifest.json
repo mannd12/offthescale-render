@@ -1,0 +1,368 @@
+{
+  "_about": "Everything the renderer needs that is NOT code. Fetched by scripts/fetch-assets.mjs on the CI runner (never on the owner's PC) into public/assets and public/fonts. Every image entry is also the licence log: only Public domain / CC0 / CC-BY may appear here, with the Commons page as proof. Videos: Commons originals or NASA image-library renditions, trimmed on the runner to the seconds used (in/out); masters are never committed.",
+  "fonts": [
+    {
+      "file": "anton-400.woff2",
+      "url": "https://cdn.jsdelivr.net/fontsource/fonts/anton@latest/latin-400-normal.woff2",
+      "licence": "OFL-1.1"
+    },
+    {
+      "file": "inter-500.woff2",
+      "url": "https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.woff2",
+      "licence": "OFL-1.1"
+    },
+    {
+      "file": "inter-800.woff2",
+      "url": "https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-800-normal.woff2",
+      "licence": "OFL-1.1"
+    },
+    {
+      "file": "fredoka-600.woff2",
+      "url": "https://cdn.jsdelivr.net/fontsource/fonts/fredoka@latest/latin-600-normal.woff2",
+      "licence": "OFL-1.1"
+    }
+  ],
+  "images": [
+    {
+      "id": "whale-shark",
+      "commons": "Rhincodon typus, western Caribbean - NOAA.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Photo Library"
+    },
+    {
+      "id": "lancetfish",
+      "commons": "Lancetfish Alepisaurus ferox Okeanos 2017.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "comb-jelly",
+      "commons": "Duobrachium sparksae on 10 April 2015.png",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "lizardfish",
+      "commons": "Bathysaurus mollis NOAA.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Okeanos Explorer"
+    },
+    {
+      "id": "titanic-bow",
+      "commons": "Titanic wreck bow.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA / IFE / URI"
+    },
+    {
+      "id": "grideye-fish",
+      "commons": "Ipnops meadi.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "swimming-cucumber",
+      "commons": "Sea cucumber swimming near Puerto Rico April 2015.png",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "brine-pool",
+      "commons": "2018 Gulf of Mexico Brine Pool.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "vent-fauna",
+      "commons": "Fauna on hydrothermal vents.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Photo Library"
+    },
+    {
+      "id": "sixgill-ray",
+      "commons": "Hexatrygon-sept28-2-hires.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "rov-coral",
+      "commons": "ROV and coral - Retriever Seamount.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "deep-wreck",
+      "commons": "GOM2017Wreck15377.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration"
+    },
+    {
+      "id": "trieste-1960",
+      "commons": "Bathyscaphe Trieste with USS Lewis (DE-535) over the Marianas Trench, 23 January 1960 (NH 96797).jpg",
+      "licence": "Public domain",
+      "credit": "U.S. Navy photo NH 96797"
+    },
+    {
+      "id": "trieste-sub",
+      "commons": "USN 1044871 Bathyscaphe Trieste.jpg",
+      "licence": "Public domain",
+      "credit": "U.S. Naval History and Heritage Command"
+    },
+    {
+      "id": "alvin-sub",
+      "commons": "Alvin (DSV-2) and Atlantis II(2).jpg",
+      "licence": "Public domain",
+      "credit": "NOAA"
+    },
+    {
+      "id": "alvin-deck",
+      "commons": "Alvin (DSV-2) aboard support ship Lulu 1971.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Photo Library"
+    },
+    {
+      "id": "footballfish-noaa",
+      "commons": "Himantolophus sp.jpg",
+      "licence": "Public domain",
+      "credit": "Jon Moore / NOAA Ocean Explorer, Bear Seamount 2002",
+      "episode": "L02"
+    },
+    {
+      "id": "anglerfish-lophiodes",
+      "commons": "Lophiodes-hires.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration, Gulf of Mexico 2018",
+      "episode": "L02"
+    },
+    {
+      "id": "loosejaw",
+      "commons": "Malacosteus niger 1.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA NEFSC, 2005",
+      "episode": "L02"
+    },
+    {
+      "id": "isopod-still",
+      "commons": "Bathynomus giganteus hi-res.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration, EX1711",
+      "episode": "L02"
+    },
+    {
+      "id": "siphonophore",
+      "commons": "Physonect siphonophore Puerto Rico April 2015.png",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration, EX1502",
+      "episode": "L02"
+    },
+    {
+      "id": "osedax-aquarium",
+      "commons": "Osedax Japonicus, at Enoshima Aquarium.jpg",
+      "licence": "CC0",
+      "credit": "Syced, CC0 - Osedax japonicus on bone, Enoshima Aquarium, Japan, 2023",
+      "episode": "L02"
+    },
+    {
+      "id": "whale-fall",
+      "commons": "MBNMS Whale Fall Octopuses (49050941487).jpg",
+      "licence": "CC BY 2.0",
+      "credit": "OET/NOAA, via NOAA National Marine Sanctuaries (CC BY 2.0) - whale skeleton in Monterey Bay National Marine Sanctuary, October 2019",
+      "episode": "L02"
+    },
+    {
+      "id": "thrustssc-museum",
+      "commons": "ThrustSSC.jpg",
+      "licence": "Public domain",
+      "credit": "AJB83, Coventry Transport Museum",
+      "episode": "L03"
+    },
+    {
+      "id": "iss-sunrise",
+      "nasa": "iss040e080833",
+      "licence": "Public domain",
+      "credit": "NASA JSC, Expedition 40",
+      "episode": "L03"
+    },
+    {
+      "id": "x1-lakebed",
+      "nasa": "E-1914",
+      "licence": "Public domain",
+      "credit": "NASA Armstrong, 1955",
+      "episode": "L03"
+    },
+    {
+      "id": "schlieren",
+      "nasa": "ARC-1948-A-13146-8",
+      "licence": "Public domain",
+      "credit": "NACA Ames, 1948",
+      "episode": "L03"
+    },
+    {
+      "id": "sr71-takeoff",
+      "nasa": "EC97-44295-29",
+      "licence": "Public domain",
+      "credit": "NASA Armstrong, 1997",
+      "episode": "L03"
+    },
+    {
+      "id": "beaked-whale",
+      "commons": "Cuvier’s Beaked Whale (Ziphius cavirostris).jpg",
+      "licence": "Public domain",
+      "credit": "USGS Western Ecological Research Center (Laney White), aerial survey off California, 2020",
+      "episode": "L01"
+    },
+    {
+      "id": "riftia",
+      "commons": "Riftia tube worm colony Galapagos 2011.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration, Galápagos Rift 2011",
+      "episode": "L01"
+    },
+    {
+      "id": "tubeworms-juan",
+      "commons": "Expl2366 - Flickr - NOAA Photo Library.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Photo Library, Juan de Fuca Ridge",
+      "episode": "L01"
+    },
+    {
+      "id": "dumbo-real",
+      "commons": "Dumbo-hires.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration",
+      "episode": "L01"
+    },
+    {
+      "id": "diver-reef",
+      "commons": "GRNMS - Diver On Reef (32490355423).jpg",
+      "licence": "Public domain",
+      "credit": "NOAA ONMS, Gray's Reef",
+      "episode": "L01"
+    },
+    {
+      "id": "snailfish-hadal",
+      "commons": "Liparidae (10.1007-s12526-022-01294-0) Figure 8.png",
+      "crop": [0, 105, 718, 404],
+      "licence": "CC BY 4.0",
+      "credit": "Linley, Gerringer, Ritchie et al. 2022, Marine Biodiversity 52:56 (CC BY 4.0), Fig. 8a cropped - a hadal snailfish at 6,025 m, Atacama Trench",
+      "episode": "L01"
+    },
+    {
+      "id": "snailfish-liparis",
+      "commons": "Gelatinous Snailfish (Liparis fabricii) swimming.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Alaska Fisheries Science Center",
+      "episode": "L01"
+    },
+    {
+      "id": "sun-sdo",
+      "nasa": "GSFC_20171208_Archive_e001980",
+      "licence": "Public domain",
+      "credit": "NASA/SDO, 8 Sept 2010",
+      "episode": "L03"
+    },
+    {
+      "id": "walker-grassland",
+      "commons": "A man walking out on the Cimarron National Grassland (e3dbbca8814f42a3a4e2c20ea13b7160).JPG",
+      "licence": "Public domain",
+      "credit": "U.S. Forest Service",
+      "episode": "L03"
+    },
+    {
+      "id": "sprinter-usmc",
+      "commons": "Warrior Games USMC Track and Field 130513-M-SO412-285.jpg",
+      "licence": "Public domain",
+      "credit": "U.S. Marine Corps, Warrior Games 2013",
+      "episode": "L03"
+    },
+    {
+      "id": "shuttle-landing-still",
+      "nasa": "STS122-S-091",
+      "licence": "Public domain",
+      "credit": "NASA/Bill Ingalls, STS-122 landing, 20 Feb 2008",
+      "episode": "L03"
+    },
+    {
+      "id": "pelican-eel",
+      "url": "https://oceanexplorer.noaa.gov/wp-content/uploads/2025/05/eel-hires.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration, Journey into Midnight expedition, June 2019",
+      "episode": "L02",
+      "_page": "https://oceanexplorer.noaa.gov/multimedia/explorations-19biolum-logs-jun18-media-eel/"
+    },
+    {
+      "id": "x15-flight",
+      "commons": "X-15 in flight.jpg",
+      "licence": "Public domain",
+      "credit": "NASA",
+      "episode": "L03"
+    },
+    {
+      "id": "x15-pylon",
+      "commons": "X-15 Mounted to B-52 Mothership Pylon in Flight - GPN-2000-000141.jpg",
+      "licence": "Public domain",
+      "credit": "NASA GPN-2000-000141",
+      "episode": "L03"
+    },
+    {
+      "id": "aitken-shed",
+      "commons": "Aitken supercomputer shed.jpg",
+      "licence": "Public domain",
+      "credit": "NASA Ames, 2019",
+      "episode": "L04"
+    },
+    {
+      "id": "pleiades",
+      "commons": "NASA Pleiades Supercomputer (9616175099).jpg",
+      "licence": "CC BY 2.0",
+      "credit": "Steve Jurvetson, CC BY 2.0",
+      "episode": "L04"
+    },
+    {
+      "id": "cable-ship",
+      "commons": "2024-11-26 03 CABLE INNOVATOR - IMO 9101132 – Victoria, BC CAN.jpg",
+      "licence": "CC BY 4.0",
+      "credit": "Gordon Leggett, CC BY 4.0",
+      "episode": "L04"
+    }
+  ],
+  "videos": [
+    {
+      "id": "isopod-swim",
+      "commons": "Bathynomus giganteus.webm",
+      "licence": "Public domain",
+      "credit": "NOAA Ocean Exploration, EX1711",
+      "in": 0,
+      "out": 12,
+      "episode": "L02"
+    },
+    {
+      "id": "cheetah-rozi",
+      "commons": "Rozi the cheetah running at the Cincinnati Zoo.webm",
+      "licence": "CC0",
+      "credit": "HAV0Xunderscore",
+      "in": 0,
+      "out": 8,
+      "episode": "L03"
+    },
+    {
+      "id": "apollo11-liftoff",
+      "nasa": "Apollo_11_Intro_720p",
+      "rendition": "mobile",
+      "licence": "Public domain",
+      "credit": "NASA",
+      "in": 0,
+      "out": 15,
+      "episode": "L03"
+    },
+    {
+      "id": "parker-trailer",
+      "nasa": "GSFC_20180720_Parker_m12911_trailer.en_US",
+      "rendition": "mobile",
+      "licence": "Public domain",
+      "credit": "NASA Goddard (visualisation)",
+      "in": 0,
+      "out": 12,
+      "episode": "L03"
+    }
+  ]
+}

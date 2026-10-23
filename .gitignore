@@ -1,0 +1,26 @@
+# dependencies, model weights, build output - never pushed; CI recreates what it needs
+node_modules/
+studio/models/
+studio/out/
+studio/voice-lab/
+studio/image-lab/
+
+# generated narration and lab audio/image samples
+studio/public/*/vo/
+studio/lab-scripts/**/*.wav
+studio/lab-scripts/image/smoke-output/
+
+# OS / editor noise
+desktop.ini
+Thumbs.db
+*.log
+studio/public/assets/_masters/
+
+# final videos staged for the YouTube upload dialog - never committed, deleted after upload
+channel/upload/
+__pycache__/
+
+# fonts and licensed assets are fetched by the runner (fetch-assets.mjs) - never committed
+studio/public/fonts/
+studio/public/assets/
+studio/.venv-tts/

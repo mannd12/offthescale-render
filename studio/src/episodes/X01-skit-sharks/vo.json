@@ -1,0 +1,110 @@
+[
+  {
+    "scene": "skit",
+    "index": 0,
+    "text": "The internet's down. It's the sharks. They bite the cables under the ocean.",
+    "file": "X01-skit-sharks/vo/skit-00.wav",
+    "seconds": 5,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 1,
+    "text": "Sharks? Somebody actually counted.",
+    "file": "X01-skit-sharks/vo/skit-01.wav",
+    "seconds": 1.73,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 2,
+    "text": "And?",
+    "file": "X01-skit-sharks/vo/skit-02.wav",
+    "seconds": 0.52,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 3,
+    "text": "From 2007 to 2014, fish bites of every kind — sharks included — caused zero cable faults.",
+    "file": "X01-skit-sharks/vo/skit-03.wav",
+    "seconds": 6.31,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 4,
+    "text": "Zero? Then who keeps breaking them?",
+    "file": "X01-skit-sharks/vo/skit-04.wav",
+    "seconds": 2.42,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 5,
+    "text": "Us. Fishing gear and ships' anchors. Seventy to eighty percent of the damage.",
+    "file": "X01-skit-sharks/vo/skit-05.wav",
+    "seconds": 5,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 6,
+    "text": "So when one snaps, it just stays broken?",
+    "file": "X01-skit-sharks/vo/skit-06.wav",
+    "seconds": 3.02,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 7,
+    "text": "No. A ship sails out, drops a hook, hauls the cable up onto the deck, and splices in a new piece.",
+    "file": "X01-skit-sharks/vo/skit-07.wav",
+    "seconds": 7.86,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 8,
+    "text": "With a hook. The whole internet.",
+    "file": "X01-skit-sharks/vo/skit-08.wav",
+    "seconds": 2.42,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 9,
+    "text": "It's about as thick as a garden hose.",
+    "file": "X01-skit-sharks/vo/skit-09.wav",
+    "seconds": 2.92,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 10,
+    "text": "Okay. Then what's actually at the bottom of the internet?",
+    "file": "X01-skit-sharks/vo/skit-10.wav",
+    "seconds": 3.79,
+    "pauseAfter": 0.3,
+    "estimated": true
+  },
+  {
+    "scene": "skit",
+    "index": 11,
+    "text": "Every level of it, all the way down, is linked right here.",
+    "file": "X01-skit-sharks/vo/skit-11.wav",
+    "seconds": 4.49,
+    "pauseAfter": 0.3,
+    "estimated": true
+  }
+]

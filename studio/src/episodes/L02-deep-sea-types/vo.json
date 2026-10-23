@@ -1,0 +1,562 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Every video about the deep sea gives you the same list. The anglerfish. The gulper eel. The giant isopod. Eight animals, in the dark, one after another.",
+    "file": "L02-deep-sea-types/vo/cold-00-dc69a26ec0.wav",
+    "seconds": 8.61,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "This isn't that list. Because down there, the animals aren't the point. The tricks are.",
+    "file": "L02-deep-sea-types/vo/cold-01-7514de6b01.wav",
+    "seconds": 4.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "A thousand metres down, the water presses on you with about a hundred times the weight of the air at the surface. But that isn't the problem that shapes the animals.",
+    "file": "L02-deep-sea-types/vo/cold-02-8aac25b152.wav",
+    "seconds": 7.08,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Below a thousand metres there is no light, almost no food, and nowhere to hide — and every animal that lives there has solved that with one of a handful of strategies. Eight types.",
+    "file": "L02-deep-sea-types/vo/cold-03-df71efe970.wav",
+    "seconds": 8.86,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Learn them, and you can look at any deep-sea creature and know what it's for.",
+    "file": "L02-deep-sea-types/vo/cold-04-2c4fbd863e.wav",
+    "seconds": 3.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Type one is the one you already know. You just don't know why it works.",
+    "file": "L02-deep-sea-types/vo/cold-05-3877fb09ab.wav",
+    "seconds": 3.6100416666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Here's the deep-sea rule that explains almost everything in this video: food is so scarce that chasing it costs more energy than it gives back. So the first strategy is not to chase at all.",
+    "file": "L02-deep-sea-types/vo/l01-00-f569bd8806.wav",
+    "seconds": 9.12,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "A female deep-sea anglerfish grows to about twenty centimetres. Above her mouth hangs a rod — a stretched-out fin spine — and on its tip, a glowing bulb. The light isn't hers.",
+    "file": "L02-deep-sea-types/vo/l01-01-59f381b224.wav",
+    "seconds": 9.54,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "Inside that bulb live bacteria that make their own light, and she gives them a home in exchange for the glow.",
+    "file": "L02-deep-sea-types/vo/l01-02-0a82950ad8.wav",
+    "seconds": 4.9,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "And she is not the only one glowing. NOAA estimates around ninety percent of the animals in the open water column make their own light. Down here, a light is not strange. A light that hangs still is.",
+    "file": "L02-deep-sea-types/vo/l01-03-4ad16e93f7.wav",
+    "seconds": 9.92,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "In water where nothing else shines, a small moving light is the most interesting thing for hundreds of metres. Things come to look. She doesn't move.",
+    "file": "L02-deep-sea-types/vo/l01-04-9130f17447.wav",
+    "seconds": 7.65,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 5,
+    "text": "And the males? About two point eight centimetres. A seventh of her length. He has no lure at all, and he doesn't glow.",
+    "file": "L02-deep-sea-types/vo/l01-05-b9af2c1847.wav",
+    "seconds": 6.560041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 6,
+    "text": "Which creates the same problem the food does: in all that dark, how does he ever find her? In some species, the answer is that once he does, he never lets go.",
+    "file": "L02-deep-sea-types/vo/l01-06-dec964ae14.wav",
+    "seconds": 8.26,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 7,
+    "text": "He latches on — and over time, he fuses into her body, until he is a permanent part of her. Two animals, one bloodstream, one lure.",
+    "file": "L02-deep-sea-types/vo/l01-07-091639a57b.wav",
+    "seconds": 7.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 8,
+    "text": "Type one: make the food come to you. Type two takes the same idea — and cheats.",
+    "file": "L02-deep-sea-types/vo/l01-08-0c69d11d32.wav",
+    "seconds": 5.92,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "Nearly every light in the deep sea is blue. Blue travels best through water, and blue is what deep-sea eyes evolved to see. Which means, down here, red light is effectively invisible: most animals simply cannot see it.",
+    "file": "L02-deep-sea-types/vo/l02-00-7edec4cd19.wav",
+    "seconds": 13.48,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Three kinds of dragonfish — loose-jawed hunters called Malacosteus, Aristostomias and Pachystomias — have a second light under each eye that shines far-red, beyond seven hundred nanometres.",
+    "file": "L02-deep-sea-types/vo/l02-01-38debb9822.wav",
+    "seconds": 11.75,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "And they are among the very few animals down there that can see it.",
+    "file": "L02-deep-sea-types/vo/l02-02-c0fe385b37.wav",
+    "seconds": 3.04,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "So picture it. A hunter with a torch that only it can see, sweeping a beam across the dark, lighting up prey that has no idea it is lit.",
+    "file": "L02-deep-sea-types/vo/l02-03-e2d6a2fd0c.wav",
+    "seconds": 7.55,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "One of them, Malacosteus, sees its own red light using a pigment related to chlorophyll — the green stuff in plants — which it seems to get from its food. A predator, a kilometre down, seeing by borrowed plant chemistry.",
+    "file": "L02-deep-sea-types/vo/l02-04-72d4394bbd.wav",
+    "seconds": 12.47,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "Two types down. The next one doesn't bother with light at all. It bets everything on one bite.",
+    "file": "L02-deep-sea-types/vo/l02-05-9aadf5ab35.wav",
+    "seconds": 4.92,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "If a meal comes past once a week, you cannot afford to miss it. The gulper eel's answer: a mouth that cannot miss.",
+    "file": "L02-deep-sea-types/vo/l03-00-d3fa2cbae0.wav",
+    "seconds": 6.65,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "Its lower jaw is estimated to be a quarter the length of its entire body. It opens like a net and expands into a pouch — the same reason it's also called the pelican eel.",
+    "file": "L02-deep-sea-types/vo/l03-01-dc8030023d.wav",
+    "seconds": 8.49,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "The rest of the animal is almost an afterthought: a thin tail, small eyes, a body that is barely there. Everything the eel is has been spent on the one thing that matters at this depth — never letting a meal get away.",
+    "file": "L02-deep-sea-types/vo/l03-02-85828422c5.wav",
+    "seconds": 11.69,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "And its skin is among the blackest in the ocean. When scientists on a NOAA expedition caught one in 2019, they measured it. A mouth with a shadow attached.",
+    "file": "L02-deep-sea-types/vo/l03-03-b481a34399.wav",
+    "seconds": 9.22,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "Type four goes the opposite way. Instead of being as black as possible — it disappears.",
+    "file": "L02-deep-sea-types/vo/l03-04-bb83004c98.wav",
+    "seconds": 5.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "In the twilight zone there's nowhere to hide: no rock, no weed, no floor. Only water. So a whole class of animals hides in the one place left — inside the water itself, by being transparent.",
+    "file": "L02-deep-sea-types/vo/l04-00-0d5eb1b50c.wav",
+    "seconds": 12.53,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "Biologists call it hiding in plain sight, and it is especially common among animals of the open midwater, exactly where there is nothing to hide behind.",
+    "file": "L02-deep-sea-types/vo/l04-01-fd79014092.wav",
+    "seconds": 8.65,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "In 2023 a NOAA camera off Alaska filmed a glass squid, seven hundred metres down. Almost the whole animal is clear.",
+    "file": "L02-deep-sea-types/vo/l04-02-397c0d5310.wav",
+    "seconds": 7.5,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "The only things you can see are what it can't make transparent: a small red digestive gland in the middle, and two pale gills either side of it. Everything else is water-coloured.",
+    "file": "L02-deep-sea-types/vo/l04-03-28c34d1ae8.wav",
+    "seconds": 9.38,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "It is harder than it sounds. To be transparent, almost nothing inside you can scatter light — so the parts that have to be solid are kept small, and the rest is given up. It is a strategy that costs you a body.",
+    "file": "L02-deep-sea-types/vo/l04-04-17d97d7b3a.wav",
+    "seconds": 11.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 5,
+    "text": "Four types down. And the next one solves the food problem by being enormous.",
+    "file": "L02-deep-sea-types/vo/l04-05-5cfc2fc936.wav",
+    "seconds": 4.44,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "You have met a relative of this animal. The pill bug — the little grey woodlouse that rolls into a ball under a flowerpot. Now imagine one a foot and a half long.",
+    "file": "L02-deep-sea-types/vo/l05-00-e7e414b7ac.wav",
+    "seconds": 8.51,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "That's the giant isopod, Bathynomus giganteus. NOAA has filmed them on the sea floor around a thousand metres down, and eating whatever falls from above — including fish heads.",
+    "file": "L02-deep-sea-types/vo/l05-01-8af2422070.wav",
+    "seconds": 9.89,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "They live from a couple of hundred metres down to more than two thousand, in water of about four degrees. Fourteen legs, and — like the pill bug — it curls into a ball when bothered.",
+    "file": "L02-deep-sea-types/vo/l05-02-379d079821.wav",
+    "seconds": 9.4,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "Even their eggs are oversized: just over a centimetre across, among the largest of any marine invertebrate, carried twenty or thirty at a time in a pouch under the mother.",
+    "file": "L02-deep-sea-types/vo/l05-03-9cd747678f.wav",
+    "seconds": 9.030041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "Why so big? This is a pattern across the deep: animals in deep, cold water often grow much larger than their shallow-water relatives.",
+    "file": "L02-deep-sea-types/vo/l05-04-a6ad07c000.wav",
+    "seconds": 7.57,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "Biologists call it deep-sea gigantism. Why it happens is still argued: the usual suspects are the cold, the scarcity of food, and the slow metabolism that comes with both.",
+    "file": "L02-deep-sea-types/vo/l05-05-79cbb61f7f.wav",
+    "seconds": 10.28,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "There are more than twenty species of these giants, and this one is the biggest. What isn't argued is that it happens.",
+    "file": "L02-deep-sea-types/vo/l05-06-187a875da8.wav",
+    "seconds": 5.91,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 7,
+    "text": "And this particular giant has one more trick. The next type is the same animal — and what it can do when the food stops coming.",
+    "file": "L02-deep-sea-types/vo/l05-07-25e888b616.wav",
+    "seconds": 6.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "At Toba Aquarium in Japan, a giant isopod known as Number One arrived in 2007. In January 2009 it ate a meal. Then it stopped.",
+    "file": "L02-deep-sea-types/vo/l06-00-40d4164b43.wav",
+    "seconds": 9.8,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "Keepers offered food for years. It refused all of it. It was found dead on the fourteenth of February, 2014 — more than five years after its last meal.",
+    "file": "L02-deep-sea-types/vo/l06-01-1a89ce78af.wav",
+    "seconds": 8.76,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "Number One was extreme, but not a freak: other captive giant isopods have gone years without eating, then gorged when food finally appeared.",
+    "file": "L02-deep-sea-types/vo/l06-02-6648c73c6d.wav",
+    "seconds": 8.140041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "And in the wild, when there's nothing to eat, they dig into the sediment and stay still — spending as little as possible until the next meal falls.",
+    "file": "L02-deep-sea-types/vo/l06-03-225ec4ea99.wav",
+    "seconds": 7.31,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "That is the sixth strategy, and it may be the most important of all down there: when food arrives once in a great while, you don't need to be fast, or clever, or bright. You need to be able to wait.",
+    "file": "L02-deep-sea-types/vo/l06-04-c6f1f0d533.wav",
+    "seconds": 10.5,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "The deep sea is full of animals whose main talent is doing almost nothing, for an astonishingly long time, and then eating everything.",
+    "file": "L02-deep-sea-types/vo/l06-05-af4be465d4.wav",
+    "seconds": 7.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "Six down. Now the strangest builder in the ocean.",
+    "file": "L02-deep-sea-types/vo/l06-06-fd08cae17d.wav",
+    "seconds": 3.2300416666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "A giant larvacean is a soft animal about five centimetres long — and it lives inside a house it builds itself, out of mucus.",
+    "file": "L02-deep-sea-types/vo/l07-00-2d1d949b36.wav",
+    "seconds": 6.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "Not a small house. Two net-like filters, one inside the other, and the outer one can be up to a metre across.",
+    "file": "L02-deep-sea-types/vo/l07-01-b304f0397e.wav",
+    "seconds": 6.32,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "The animal sits at the centre and beats its tail, pulling water through: the outer net stops the coarse stuff, the inner net traps the tiny particles it actually eats.",
+    "file": "L02-deep-sea-types/vo/l07-02-f0e0ecce16.wav",
+    "seconds": 8.52,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "When the filters clog, the larvacean abandons the whole house and builds another. The old one sinks — and not slowly. A discarded house can drop eight hundred metres in a single day.",
+    "file": "L02-deep-sea-types/vo/l07-03-bef3fdaa4f.wav",
+    "seconds": 9.56,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "Scientists call these houses \"sinkers\", and they carry carbon from the surface down into the deep sea in quantities that turned out to be a missing piece of the ocean's carbon budget.",
+    "file": "L02-deep-sea-types/vo/l07-04-b9ae7e62ed.wav",
+    "seconds": 8.565,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "A strategy of drifting, filtering, and throwing away your home. And it helps run the planet.",
+    "file": "L02-deep-sea-types/vo/l07-05-835f6362db.wav",
+    "seconds": 6.125,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 6,
+    "text": "MBARI found that the same filters collect microplastic particles, and the larvaceans eat them — so the sinking houses are also a pathway carrying plastic into deep-sea food webs.",
+    "file": "L02-deep-sea-types/vo/l07-06-42367d3660.wav",
+    "seconds": 9.74,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 7,
+    "text": "The drifters have a giant of their own, too.",
+    "file": "L02-deep-sea-types/vo/l07-07-3f9e1c0d05.wav",
+    "seconds": 2.19,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 8,
+    "text": "In 2020, off Western Australia, a camera on the research ship Falkor found a siphonophore — a colony of thousands of tiny identical animals, each doing one job, strung together into a single drifting line — estimated at forty-five metres long.",
+    "file": "L02-deep-sea-types/vo/l07-08-b260893ee4.wav",
+    "seconds": 14.98,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 9,
+    "text": "If the estimate holds, it is the longest animal ever recorded. And it hunts by doing nothing: it hangs in the water like a curtain and waits for things to swim into it.",
+    "file": "L02-deep-sea-types/vo/l07-09-93d3a3ca3d.wav",
+    "seconds": 9.23,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 10,
+    "text": "One type left — and it's the one that turns a death into a neighbourhood.",
+    "file": "L02-deep-sea-types/vo/l07-10-86115f17be.wav",
+    "seconds": 3.66,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "When a whale dies and sinks, it lands on a sea floor that has almost never seen that much food at once. Everything comes. And when the flesh is gone, and only the skeleton is left — something arrives that eats bone.",
+    "file": "L02-deep-sea-types/vo/l08-00-3c03168571.wav",
+    "seconds": 11.72,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "They're called Osedax. Worms, found on a whale skeleton nearly three kilometres down on the floor of Monterey Bay, and named in 2004. They have no way to chew.",
+    "file": "L02-deep-sea-types/vo/l08-01-adf1f55429.wav",
+    "seconds": 9.44,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "Instead, the females grow branching, root-like tissues into the bone, and inside those roots live bacteria that break down the fats and oils locked in whale bone — directly — and feed the worm.",
+    "file": "L02-deep-sea-types/vo/l08-02-fb4eb5a504.wav",
+    "seconds": 10.35,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "When scientists described it, it was the first time anyone had seen a fat-digesting bacterium living inside another animal this way.",
+    "file": "L02-deep-sea-types/vo/l08-03-bf2ef713bb.wav",
+    "seconds": 6.44,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "And the males? They are dwarfs — microscopic, living inside the jelly tube around her body — and some of the larger species have been found with more than six hundred of them.",
+    "file": "L02-deep-sea-types/vo/l08-04-e2764d29fc.wav",
+    "seconds": 8.790041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "In a world where meeting a mate is as unlikely as finding a meal, the answer is to bring the whole population to the bone.",
+    "file": "L02-deep-sea-types/vo/l08-05-e2d20b7347.wav",
+    "seconds": 5.64,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "Scientists have since found thirty-two species, from ten metres down to four thousand — and not only on whales. Fish, birds, turtles, even land mammals. Wherever a skeleton lands, something is waiting for it.",
+    "file": "L02-deep-sea-types/vo/l08-06-8cb41b304c.wav",
+    "seconds": 11.670041666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "They aren't alone. Bone-eating snails share the same skeleton. The scavengers strip the soft tissue in a matter of months; the skeleton then feeds a community for years — sometimes decades.",
+    "file": "L02-deep-sea-types/vo/l08-07-612b628292.wav",
+    "seconds": 9.7,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 8,
+    "text": "That's the eighth strategy: don't wait for crumbs. Wait for the whole meal, once — and then build your life on it.",
+    "file": "L02-deep-sea-types/vo/l08-08-c8860cea8e.wav",
+    "seconds": 6.36,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "Eight types. The lure. The red torch. The trap mouth. The glass body. The giant. The faster. The drifter. The bone-eater.",
+    "file": "L02-deep-sea-types/vo/closer-00-63d5ba61c1.wav",
+    "seconds": 8.96,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "Eight answers to the same three problems: no light, no food, nowhere to hide.",
+    "file": "L02-deep-sea-types/vo/closer-01-4f12e544d2.wav",
+    "seconds": 5.07,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "So the next time you see one of these animals — on a screen, in a list, in a museum — don't ask what it is. Ask which trick it's using. You'll usually be able to tell.",
+    "file": "L02-deep-sea-types/vo/closer-02-f8cc76c009.wav",
+    "seconds": 8.81,
+    "pauseAfter": 0.55
+  }
+]

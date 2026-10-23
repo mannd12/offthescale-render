@@ -1,0 +1,62 @@
+# Pull exact frames out of a FINAL in the renders release (the delivered file itself, after encoding) for
+# the last review pass. Frames are numbered as in the composition (30 fps); half size by default.
+# gh workflow run probe-frames.yml -f asset=l01-final.mp4 -f frames=75,291,551 -f output=l01-final-frames
+name: Probe frames
+
+on:
+  workflow_dispatch:
+    inputs:
+      asset: { description: asset name in the renders release, required: true, type: string }
+      frames: { description: comma list of frame numbers, required: true, type: string }
+      output: { description: artifact name, required: true, type: string }
+      width: { description: output width in px, required: false, default: "960", type: string }
+
+permissions:
+  contents: write # frames are uploaded to the renders release
+
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ASSET: ${{ inputs.asset }}
+      FRAMES: ${{ inputs.frames }}
+      WIDTH: ${{ inputs.width }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Extract
+        run: |
+          case "$FRAMES$WIDTH" in *[!0-9,]*) echo "::error::frames must be numbers separated by commas"; exit 1 ;; esac
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          gh release download renders -p "$ASSET" -O in.mp4
+          mkdir -p out
+          python3 - <<'PY'
+          import os, subprocess
+          frames = sorted({int(f) for f in os.environ["FRAMES"].split(",") if f})
+          stem = os.environ["ASSET"].rsplit(".", 1)[0].replace("-final", "")
+          # one decode pass; ffmpeg numbers its outputs 1..N in frame order
+          for k in range(0, len(frames), 120):
+              part = frames[k:k + 120]
+              sel = "+".join(f"eq(n\,{f})" for f in part)
+              subprocess.run(["ffmpeg", "-v", "error", "-i", "in.mp4", "-vf", f"select='{sel}',scale={os.environ['WIDTH']}:-2",
+                              "-vsync", "0", "-start_number", "0", f"out/tmp{k}_%04d.png"], check=True)
+              for i, f in enumerate(part):
+                  os.rename(f"out/tmp{k}_{i:04d}.png", f"out/{stem}-f{f}.png")
+          print(len(frames), "frames extracted")
+          PY
+          ls out | wc -l
+      # frames go to the renders release as <output>.zip (artifact storage can be full; see render.yml)
+      - name: Publish frames to the renders release
+        env:
+          OUTPUT: ${{ inputs.output }}
+        run: |
+          (cd out && zip -q -r "../$OUTPUT.zip" .)
+          gh release upload renders "$OUTPUT.zip" --clobber
+      - uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: ${{ inputs.output }}
+          path: out/
+          retention-days: 2
+          if-no-files-found: error

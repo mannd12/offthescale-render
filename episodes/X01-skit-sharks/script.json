@@ -1,0 +1,77 @@
+{
+  "title": "Skit pilot \u2014 the sharks broke the internet",
+  "_source": "episodes/X01-skit-sharks/script.md (hand-converted; speaker per line)",
+  "engine": "gemini-multispeaker",
+  "voices": {
+    "mia": "TBD by owner",
+    "jo": "TBD by owner"
+  },
+  "scenes": [
+    {
+      "id": "skit",
+      "name": "Skit",
+      "lines": [
+        {
+          "speaker": "mia",
+          "text": "The internet's down. It's the sharks. They bite the cables under the ocean.",
+          "pause": 0.3
+        },
+        {
+          "speaker": "jo",
+          "text": "Sharks? Somebody actually counted.",
+          "pause": 0.3
+        },
+        {
+          "speaker": "mia",
+          "text": "And?",
+          "pause": 0.3
+        },
+        {
+          "speaker": "jo",
+          "text": "From 2007 to 2014, fish bites of every kind \u2014 sharks included \u2014 caused zero cable faults.",
+          "pause": 0.3
+        },
+        {
+          "speaker": "mia",
+          "text": "Zero? Then who keeps breaking them?",
+          "pause": 0.3
+        },
+        {
+          "speaker": "jo",
+          "text": "Us. Fishing gear and ships' anchors. Seventy to eighty percent of the damage.",
+          "pause": 0.3
+        },
+        {
+          "speaker": "mia",
+          "text": "So when one snaps, it just stays broken?",
+          "pause": 0.3
+        },
+        {
+          "speaker": "jo",
+          "text": "No. A ship sails out, drops a hook, hauls the cable up onto the deck, and splices in a new piece.",
+          "pause": 0.3
+        },
+        {
+          "speaker": "mia",
+          "text": "With a hook. The whole internet.",
+          "pause": 0.3
+        },
+        {
+          "speaker": "jo",
+          "text": "It's about as thick as a garden hose.",
+          "pause": 0.3
+        },
+        {
+          "speaker": "mia",
+          "text": "Okay. Then what's actually at the bottom of the internet?",
+          "pause": 0.3
+        },
+        {
+          "speaker": "jo",
+          "text": "Every level of it, all the way down, is linked right here.",
+          "pause": 0.3
+        }
+      ]
+    }
+  ]
+}

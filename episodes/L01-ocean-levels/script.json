@@ -1,0 +1,634 @@
+{
+  "title": "Every Level of the Ocean Explained in 15 Minutes (Real Footage)",
+  "_source": "episodes/L01-ocean-levels/script.md — draft 4, LOCKED 2026-09-20. Text here must match it word for word; `say` changes pronunciation only.",
+  "engine": "google",
+  "voice": "en-US-Chirp3-HD-Aoede",
+  "speed": 1.15,
+  "scenes": [
+    {
+      "id": "cold",
+      "name": "Cold open",
+      "lines": [
+        {
+          "text": "You have never really seen the ocean. You've seen its roof.",
+          "pause": 0.7
+        },
+        {
+          "text": "Everything you picture — every beach, every reef, every shark — is in the top two hundred metres. The bottom is nearly eleven kilometres down.",
+          "pause": 0.5
+        },
+        {
+          "text": "Twelve levels. We're going down all of them, one at a time, with real footage from as deep as cameras can go. And we are not coming back up.",
+          "pause": 0.6
+        },
+        {
+          "text": "Level one is the only one you've ever been to.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l01",
+      "name": "Sunlight zone",
+      "reading": "0–200 m",
+      "lines": [
+        {
+          "text": "Here's the number that puts this whole video in perspective. Forty metres.",
+          "pause": 0.5
+        },
+        {
+          "text": "That's the limit for recreational scuba diving — as deep as a trained holiday diver is ever meant to go.",
+          "pause": 0.4
+        },
+        {
+          "text": "Forty metres. The sea floor is, on average, ninety times deeper than that.",
+          "pause": 0.7
+        },
+        {
+          "text": "This is the sunlight zone, the top two hundred metres, and it's the only part of the sea that behaves the way you expect."
+        },
+        {
+          "text": "Sunlight means plants — mostly ones too small to see, single-celled algae called phytoplankton."
+        },
+        {
+          "text": "And these specks do something enormous. About half of the oxygen produced on Earth is produced in the sea — most of it by drifting life you would need a microscope to see.",
+          "pause": 0.6
+        },
+        {
+          "text": "But the ocean is already taking things away. The first to go is colour."
+        },
+        {
+          "text": "Water swallows red light first, and by a hundred metres, red is completely gone. A bright red fish down here simply looks black.",
+          "pause": 0.4
+        },
+        {
+          "text": "Hold on to that. Four levels from now, it turns into a superpower.",
+          "pause": 0.6
+        },
+        {
+          "text": "Level one of twelve. Let's find the line where the plants stop.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l02",
+      "name": "The last plant",
+      "reading": "200 m",
+      "lines": [
+        {
+          "text": "Two hundred metres. Look up, and there's still a soft blue glow above you. But it's no longer enough."
+        },
+        {
+          "text": "Below this line there isn't enough light for photosynthesis — so from about here to the bottom of the sea, it's animals and microbes only.",
+          "pause": 0.5
+        },
+        {
+          "text": "Welcome to the twilight zone. It runs from here down to a thousand metres: just enough light for animals to see by, far too little for a plant to live on.",
+          "pause": 0.5
+        },
+        {
+          "text": "And that creates a strange problem. There is nowhere to hide."
+        },
+        {
+          "text": "No rocks, no weeds, no sea floor — only open water, and a faint light above that turns your body into a silhouette for anything looking up from below.",
+          "pause": 0.5
+        },
+        {
+          "text": "So the animals here cheat. Hatchetfish and lanternfish carry rows of tiny lamps along their bellies, and they tune the glow to match the light coming down from the surface."
+        },
+        {
+          "text": "From underneath, the shadow simply… disappears.",
+          "pause": 0.6
+        },
+        {
+          "text": "It's called counter-illumination. The first lights in the deep aren't for seeing. They're for not being seen.",
+          "pause": 0.6
+        },
+        {
+          "text": "Two levels down. The next one is the deepest a human being has ever gone on their own.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l03",
+      "name": "The deepest scuba dive",
+      "reading": "332 m",
+      "lines": [
+        {
+          "text": "Three hundred and thirty-two metres. This is as deep as any human has ever gone with scuba tanks."
+        },
+        {
+          "text": "In 2014, an Egyptian diver named Ahmed Gabr descended here, in the Red Sea, to set the world record.",
+          "say": "In twenty fourteen, an Egyptian diver named Ahmed Gabber descended here, in the Red Sea, to set the world record.",
+          "pause": 0.5
+        },
+        {
+          "text": "Getting down took him about fifteen minutes.",
+          "pause": 0.5
+        },
+        {
+          "text": "Getting back up took more than thirteen and a half hours.",
+          "pause": 0.7
+        },
+        {
+          "text": "That's not a mistake — and the reason is the whole problem with the deep.",
+          "pause": 0.4
+        },
+        {
+          "text": "At this pressure, the nitrogen in every breath he takes dissolves into his blood and tissues. The deeper he goes, the more of it goes in."
+        },
+        {
+          "text": "Come up quickly, and that nitrogen comes back out of solution inside him — as bubbles. In the joints. In the spine. In the brain."
+        },
+        {
+          "text": "Divers call it the bends. It can cripple you, and it can be fatal.",
+          "pause": 0.5
+        },
+        {
+          "text": "So the only way home is to stop. And wait. And let his body breathe the nitrogen back out, a little at a time, stop after stop, hanging on a line in the blue for thirteen and a half hours."
+        },
+        {
+          "text": "He trained four years for this and had a team of thirty people. It is a record for professionals, not something to try.",
+          "pause": 0.5
+        },
+        {
+          "text": "The ocean lets you down for free. It charges you to come back.",
+          "pause": 0.7
+        },
+        {
+          "text": "And here's the thing to understand about the ocean. For a human body with tanks, this is more or less the end of the road."
+        },
+        {
+          "text": "For the ocean, we're not even a tenth of the way to the average sea floor.",
+          "pause": 0.5
+        },
+        {
+          "text": "And just below him is something that fooled an entire navy.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l04",
+      "name": "The greatest migration",
+      "reading": "≈500 m",
+      "lines": [
+        {
+          "text": "Around five hundred metres, the navy found a second sea floor. One that should not have been there.",
+          "pause": 0.5
+        },
+        {
+          "text": "During the Second World War, sonar operators hunting submarines kept getting the same impossible reading: solid ground, a few hundred metres down, in places where the charts said the water was kilometres deep."
+        },
+        {
+          "text": "And this floor moved. Every evening it rose toward the surface. Every dawn, it sank back down.",
+          "pause": 0.5
+        },
+        {
+          "text": "They checked the equipment. They suspected the enemy was jamming them. Neither explanation held.",
+          "pause": 0.5
+        },
+        {
+          "text": "In 1945 a scientist named Martin Johnson worked out what it was. It wasn't rock. It was alive.",
+          "say": "In nineteen forty-five a scientist named Martin Johnson worked out what it was. It wasn't rock. It was alive.",
+          "pause": 0.6
+        },
+        {
+          "text": "Billions upon billions of small animals — tiny fish, shrimp, jellies, plankton — spend their days down here in the gloom, where hunters can't see them."
+        },
+        {
+          "text": "At sunset they swim up to the food-rich surface to feed under cover of night. Before sunrise, they all go back down.",
+          "pause": 0.5
+        },
+        {
+          "text": "NOAA calls it the greatest migration on Earth. It happens every day, in every ocean… and the entire thing takes place in the dark.",
+          "say": "Noah calls it the greatest migration on Earth. It happens every day, in every ocean… and the entire thing takes place in the dark.",
+          "pause": 0.6
+        },
+        {
+          "text": "And the scale of it is difficult to hold in your head. Current estimates put it at something like ten billion tonnes of animals, rising and sinking, every single day.",
+          "pause": 0.5
+        },
+        {
+          "text": "It isn't only a commute, either. Every one of those animals feeds up at the surface and then carries that food — that carbon — back down with it into the deep, where a great deal of it stays."
+        },
+        {
+          "text": "The largest daily movement of life on this planet is also one of its great carbon pumps.",
+          "pause": 0.5
+        },
+        {
+          "text": "And we only noticed it because it got in the way of a war.",
+          "pause": 0.7
+        },
+        {
+          "text": "Four levels down, eight to go. And this is where the light finally runs out completely.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l05",
+      "name": "Midnight zone",
+      "reading": "1,000 m",
+      "lines": [
+        {
+          "text": "One thousand metres. This is about as deep as sunlight can be detected at all. Below here, it is night — permanently.",
+          "pause": 0.7
+        },
+        {
+          "text": "And yet it isn't dark.",
+          "pause": 0.6
+        },
+        {
+          "text": "When scientists in California counted every animal in seventeen years of deep-sea robot footage — more than three hundred and fifty thousand of them — they found that three out of four can make their own light."
+        },
+        {
+          "text": "Down here, glowing isn't unusual. Glowing is normal: lures to attract a meal, flashes to find a partner, bursts of light to startle a hunter and slip away.",
+          "pause": 0.5
+        },
+        {
+          "text": "Now look at the colour of it. Nearly all of that light is blue — over and over, the same narrow band of blue."
+        },
+        {
+          "text": "That isn't decoration. Blue is the wavelength that travels furthest through seawater, so a blue flash carries further down here than any other colour could."
+        },
+        {
+          "text": "The sea filtered out red at a hundred metres. Life answered in blue.",
+          "pause": 0.6
+        },
+        {
+          "text": "Which brings us back to that red fish. No red light reaches this world, so an animal that is red has nothing to reflect — it is, effectively, invisible."
+        },
+        {
+          "text": "That's why so many deep-sea animals are red. Down here, red is the best camouflage in the ocean.",
+          "pause": 0.6
+        },
+        {
+          "text": "The water now is around four degrees Celsius, and it will stay about that cold all the way down.",
+          "pause": 0.5
+        },
+        {
+          "text": "Five levels down, seven to go. And the next one breaks a rule everybody thought was unbreakable.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l06",
+      "name": "Life without the Sun",
+      "reading": "2,500 m",
+      "lines": [
+        {
+          "text": "Two and a half kilometres. In February 1977, a three-person submersible called Alvin was exploring a volcanic crack in the sea floor near the Galápagos Islands, looking for hot springs.",
+          "say": "Two and a half kilometres. In February nineteen seventy-seven, a three-person submersible called Alvin was exploring a volcanic crack in the sea floor near the Galapagos Islands, looking for hot springs."
+        },
+        {
+          "text": "It found them. It also found something nobody had predicted: a garden.",
+          "pause": 0.6
+        },
+        {
+          "text": "Clams a foot long. Tube worms as tall as a person, crowded around vents where the water comes out of the rock at more than seven hundred degrees Fahrenheit — about three hundred and seventy Celsius.",
+          "pause": 0.5
+        },
+        {
+          "text": "No sunlight has ever touched this place. So what is everything eating?",
+          "pause": 0.6
+        },
+        {
+          "text": "The answer rewrote the textbooks. Microbes here live on chemicals dissolved in the vent water, and everything else lives on the microbes."
+        },
+        {
+          "text": "It was the first ecosystem ever found on Earth that doesn't run on sunlight. It runs on the planet itself.",
+          "pause": 0.6
+        },
+        {
+          "text": "And the tube worms are stranger than they look. A grown one has no mouth. No stomach. No gut at all."
+        },
+        {
+          "text": "What it has instead is an organ stuffed with bacteria — and in a big worm, that bacterial cargo can be something like a third to a half of its body weight.",
+          "pause": 0.5
+        },
+        {
+          "text": "The worm's whole job is to be a delivery system. That red plume at the top pulls in oxygen and hydrogen sulfide — the rotten-egg chemical that is poisonous to you and me — and its blood carries both down to the bacteria inside."
+        },
+        {
+          "text": "They turn the poison into food.",
+          "pause": 0.5
+        },
+        {
+          "text": "The worm never eats. Not once in its life. It simply breathes, and is fed from within.",
+          "pause": 0.6
+        },
+        {
+          "text": "More than five hundred of these vent fields have been found since — and they're one reason scientists take dark oceans on other worlds so seriously.",
+          "pause": 0.5
+        },
+        {
+          "text": "Six down. Now the record that beats every human being who has ever lived.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l07",
+      "name": "The deepest breath",
+      "reading": "2,992 m",
+      "lines": [
+        {
+          "text": "Sperm whales hunt giant squid more than two kilometres down. But they don't hold the record."
+        },
+        {
+          "text": "That belongs to a shy, medium-sized whale most people have never heard of: Cuvier's beaked whale.",
+          "say": "That belongs to a shy, medium-sized whale most people have never heard of: Koo-vee-ay's beaked whale.",
+          "pause": 0.5
+        },
+        {
+          "text": "In a study off California, scientists tracked one to two thousand nine hundred and ninety-two metres. Nearly three kilometres. Another dive lasted a hundred and thirty-seven minutes.",
+          "pause": 0.5
+        },
+        {
+          "text": "More than two hours. On one breath. In the cold and the dark, under about three hundred times the pressure you're feeling right now.",
+          "pause": 0.6
+        },
+        {
+          "text": "How is that even possible? By giving up on breathing altogether.",
+          "pause": 0.5
+        },
+        {
+          "text": "On the way down, the whale's ribcage folds and its lungs deliberately collapse. That sounds like a catastrophe."
+        },
+        {
+          "text": "It's a defence: with the lungs shut down, nitrogen can't cross into the blood — so the whale simply never gets the problem that cost our record-breaking diver thirteen and a half hours.",
+          "pause": 0.5
+        },
+        {
+          "text": "The oxygen it runs on isn't in its lungs at all. It's stored in its blood and packed into its muscle, which carries roughly ten times more of the oxygen-holding protein than ours does."
+        },
+        {
+          "text": "Its heart rate drops. Blood pulls back from the edges of the body toward the heart and brain.",
+          "pause": 0.5
+        },
+        {
+          "text": "For two hours, it stops being a mammal that breathes, and becomes something much closer to a submarine.",
+          "pause": 0.6
+        },
+        {
+          "text": "Remember Level 3? The best-prepared human diver in history turned around at three hundred and thirty-two metres. This whale goes nine times deeper — for lunch.",
+          "say": "Remember Level three? The best-prepared human diver in history turned around at three hundred and thirty-two metres. This whale goes nine times deeper — for lunch.",
+          "pause": 0.7
+        },
+        {
+          "text": "Seven levels down. And just past the limit of the deepest-diving mammal on Earth, something famous is lying in the dark.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l08",
+      "name": "Titanic",
+      "reading": "3,800 m",
+      "lines": [
+        {
+          "text": "Three thousand eight hundred metres. On the sea floor, about three hundred and seventy miles off Newfoundland, lies the most famous shipwreck in the world."
+        },
+        {
+          "text": "Titanic sank in 1912. Nobody saw her again until the first of September, 1985 — seventy-three years later — in part because it took that long to build machines that could search this deep.",
+          "say": "Titanic sank in nineteen twelve. Nobody saw her again until the first of September, nineteen eighty-five — seventy-three years later — in part because it took that long to build machines that could search this deep.",
+          "pause": 0.6
+        },
+        {
+          "text": "But here's the part that should change how you picture the planet. We have just passed three thousand six hundred and eighty-two metres."
+        },
+        {
+          "text": "That is the average depth of the ocean.",
+          "pause": 0.5
+        },
+        {
+          "text": "Average.",
+          "pause": 1.6
+        },
+        {
+          "text": "Everything so far — the last plant, the record dive, the great migration, the whales — all of it happened above the average sea floor."
+        },
+        {
+          "text": "Picture the ocean floor anywhere in the world, and the honest picture is this: Titanic, in the dark, with nothing around it.",
+          "pause": 0.7
+        },
+        {
+          "text": "And she is being eaten.",
+          "pause": 0.6
+        },
+        {
+          "text": "Those rust-coloured icicles hanging off her railings have a name — rusticles — and they are alive. They are colonies of bacteria and fungi, consuming the iron of the ship itself."
+        },
+        {
+          "text": "One of the species found in them was new to science, and was named after the wreck it was eating: Halomonas titanicae.",
+          "say": "One of the species found in them was new to science, and was named after the wreck it was eating: Halo-moan-as ti-tan-i-kai.",
+          "pause": 0.5
+        },
+        {
+          "text": "Researchers disagree about the timetable. They don't disagree about the direction."
+        },
+        {
+          "text": "Titanic is being digested — and everything we ever learn about the most famous object in the deep sea, we have to learn inside a window that is closing.",
+          "pause": 0.6
+        },
+        {
+          "text": "And we are still only a third of the way down.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l09",
+      "name": "The abyss",
+      "reading": "4,000–6,000 m",
+      "lines": [
+        {
+          "text": "Below four thousand metres the ocean has an honest name: the abyss. The water is a few degrees above freezing. The pressure is four to six hundred times the surface."
+        },
+        {
+          "text": "And the landscape is mostly wide, quiet plains of soft mud.",
+          "pause": 0.5
+        },
+        {
+          "text": "No food is made down here. None. So the abyss lives on leftovers."
+        },
+        {
+          "text": "Far above, things die, and crumbs drift downward — scraps of plankton, dust, waste. Scientists call it marine snow, and some flakes fall for weeks before they land.",
+          "pause": 0.5
+        },
+        {
+          "text": "A whole world of animals — sea cucumbers, brittle stars, pale fish — spends its entire life waiting for the snow.",
+          "pause": 0.6
+        },
+        {
+          "text": "And don't picture somewhere small. NOAA puts the abyssal plains at around seventy per cent of the ocean floor.",
+          "say": "And don't picture somewhere small. Noah puts the abyssal plains at around seventy per cent of the ocean floor."
+        },
+        {
+          "text": "Which means this — flat, freezing, permanently dark mud — is the largest habitat on Earth.",
+          "pause": 0.5
+        },
+        {
+          "text": "Not the rainforest. Not the grasslands. This."
+        },
+        {
+          "text": "The default condition of our planet's surface is a dark plain under four kilometres of water, waiting for crumbs to fall.",
+          "pause": 0.7
+        },
+        {
+          "text": "Nine levels down. And here the ordinary sea floor simply ends.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l10",
+      "name": "The trenches",
+      "reading": "6,000 m+",
+      "lines": [
+        {
+          "text": "Six thousand metres is where the ordinary sea floor runs out. To go deeper, you need a trench."
+        },
+        {
+          "text": "This is the hadal zone — named after Hades, the Greek underworld — and it exists only inside these long, narrow scars in the ocean floor.",
+          "pause": 0.5
+        },
+        {
+          "text": "And trenches aren't holes. They're seams."
+        },
+        {
+          "text": "Out here the Pacific plate — old, cold and heavy — is bending downward and sliding underneath its neighbour, back into the mantle. The trench is the crease that makes.",
+          "pause": 0.5
+        },
+        {
+          "text": "The deepest place on Earth is, quite literally, where the sea floor goes to be recycled.",
+          "pause": 0.6
+        },
+        {
+          "text": "You might expect nothing here. Instead, in 2019, a camera lowered into the Java Trench filmed a dumbo octopus — a small octopus that swims by flapping two ear-like fins — calmly going about its day at six thousand nine hundred and fifty-seven metres.",
+          "say": "You might expect nothing here. Instead, in twenty nineteen, a camera lowered into the Java Trench filmed a dumbo octopus — a small octopus that swims by flapping two ear-like fins — calmly going about its day at six thousand nine hundred and fifty-seven metres."
+        },
+        {
+          "text": "It's the deepest octopus ever recorded.",
+          "pause": 0.6
+        },
+        {
+          "text": "Two levels left. And the next one is a line that nothing with a backbone has ever crossed.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l11",
+      "name": "The last fish",
+      "reading": "8,336 m",
+      "lines": [
+        {
+          "text": "Eight thousand three hundred and thirty-six metres. In 2022, in a trench south of Japan, scientists filmed a small, pale snailfish. It is the deepest fish anyone has ever seen.",
+          "say": "Eight thousand three hundred and thirty-six metres. In twenty twenty-two, in a trench south of Japan, scientists filmed a small, pale snailfish. It is the deepest fish anyone has ever seen.",
+          "pause": 0.5
+        },
+        {
+          "text": "And it may be close to the deepest a fish can be.",
+          "pause": 0.6
+        },
+        {
+          "text": "Deep-sea fish hold themselves together with a molecule called TMAO.",
+          "say": "Deep-sea fish hold themselves together with a molecule called T M A O."
+        },
+        {
+          "text": "Think of it as chemical scaffolding: it keeps proteins in shape when pressure tries to fold them, and the deeper a fish lives, the more of it it packs into its cells.",
+          "pause": 0.5
+        },
+        {
+          "text": "But scaffolding has a ceiling. At somewhere around eight thousand two hundred metres, a fish would need so much TMAO that the rest of its body chemistry stops working.",
+          "say": "But scaffolding has a ceiling. At somewhere around eight thousand two hundred metres, a fish would need so much T M A O that the rest of its body chemistry stops working."
+        },
+        {
+          "text": "The wall isn't the pressure itself. The wall is that a fish, built the way fish are built, runs out of the chemistry to answer it.",
+          "pause": 0.6
+        },
+        {
+          "text": "Below that line, as far as anyone has ever found: no fish. Anywhere.",
+          "pause": 0.7
+        },
+        {
+          "text": "There are still more than two and a half kilometres to go.",
+          "pause": 0.8
+        }
+      ]
+    },
+    {
+      "id": "l12",
+      "name": "The bottom",
+      "reading": "10,935 m",
+      "lines": [
+        {
+          "text": "Ten thousand nine hundred and thirty-five metres. Challenger Deep, in the Mariana Trench, south-west of Guam."
+        },
+        {
+          "text": "If you stood Mount Everest in here, its summit would still be about two kilometres under water.",
+          "pause": 0.6
+        },
+        {
+          "text": "The pressure is more than a thousand times the surface — roughly eight tons on every square inch.",
+          "pause": 0.6
+        },
+        {
+          "text": "Humans first came here on the twenty-third of January, 1960. Two men, Jacques Piccard and Don Walsh, inside a steel sphere, sinking for nearly five hours.",
+          "say": "Humans first came here on the twenty-third of January, nineteen sixty. Two men, Jacques Pee-car and Don Walsh, inside a steel sphere, sinking for nearly five hours."
+        },
+        {
+          "text": "On the way down, an outer window cracked with a bang that shook the whole craft. They kept going. They spent twenty minutes on the bottom.",
+          "pause": 0.6
+        },
+        {
+          "text": "Then, for fifty-two years, nobody went back at all. James Cameron went down alone in 2012. And since 2019, a single submarine has carried the great majority of everyone who has ever made the trip.",
+          "say": "Then, for fifty-two years, nobody went back at all. James Cameron went down alone in twenty twelve. And since twenty nineteen, a single submarine has carried the great majority of everyone who has ever made the trip.",
+          "pause": 0.5
+        },
+        {
+          "text": "Today, more than twenty people have stood — or rather, sat — at the deepest place on Earth. That is more people than have ever walked on the Moon.",
+          "pause": 0.6
+        },
+        {
+          "text": "And even here, there is life. Tiny shrimp-like animals called amphipods live in Challenger Deep, feeding on whatever sinks this far — including, of all things, wood.",
+          "pause": 0.9
+        }
+      ]
+    },
+    {
+      "id": "closer",
+      "name": "Closer",
+      "lines": [
+        {
+          "text": "Twelve levels. A sunlit skin we all know. A twilight of animals that hide by glowing. A nightly migration bigger than anything on land. Gardens that never needed the Sun."
+        },
+        {
+          "text": "And eleven kilometres down, in permanent darkness, small animals getting on with their lives.",
+          "pause": 0.7
+        },
+        {
+          "text": "And here's the part that keeps oceanographers up at night. Of that entire eleven-kilometre stack, only about twenty-nine per cent of the sea floor has ever been properly mapped.",
+          "pause": 0.6
+        },
+        {
+          "text": "So — that roof we started on?",
+          "pause": 0.5
+        },
+        {
+          "text": "Most of what's under it is still a blank space on the map.",
+          "pause": 1.2
+        },
+        {
+          "text": "Next: the animals that actually live down here — every type of deep-sea creature, and the trick each one uses to survive.",
+          "pause": 1.0
+        }
+      ]
+    }
+  ]
+}

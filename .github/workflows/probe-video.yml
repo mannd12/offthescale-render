@@ -1,0 +1,36 @@
+# Find static stretches in a final's picture on the runner (the storyboard rule is a visual change at
+# least every ~8 s). One frame per second, 160x90 grey; the mean absolute difference between consecutive
+# seconds is the "change" number. Runs of low change are listed with their times, in the run summary.
+# gh workflow run probe-video.yml -f asset=l01-final.mp4 [-f min_seconds=8]
+name: Probe video
+
+on:
+  workflow_dispatch:
+    inputs:
+      asset: { description: asset name in the renders release, required: true, type: string }
+      min_seconds: { description: shortest static run to report, required: false, default: "8", type: string }
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ASSET: ${{ inputs.asset }}
+      MIN: ${{ inputs.min_seconds }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q numpy
+      - name: Probe
+        run: |
+          case "$MIN" in *[!0-9]*) echo "::error::min_seconds must be a whole number"; exit 1 ;; esac
+          gh release download renders -p "$ASSET" -O in.mp4
+          python studio/scripts/static-probe.py in.mp4 "$MIN" | tee -a "$GITHUB_STEP_SUMMARY"

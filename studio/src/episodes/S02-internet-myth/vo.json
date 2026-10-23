@@ -1,0 +1,66 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "This iceberg is wrong. It says the internet has seven or eight levels, and the bottom ones are too dangerous to name.",
+    "file": "S02-internet-myth/vo/cold-00-d778b3a104.wav",
+    "seconds": 5.92,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Level one: the surface web. Everything a search engine can find.",
+    "file": "S02-internet-myth/vo/cold-01-a1f893a977.wav",
+    "seconds": 3.73,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Level two: the deep web. Your inbox. Your bank. Hidden because it's behind a login, not because it's sinister.",
+    "file": "S02-internet-myth/vo/cold-02-ba0e61b620.wav",
+    "seconds": 6.609958333333333,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Level three: the dark web. Software that bounces you through at least three computers, so nobody can tell who's talking to whom. It was invented by the U.S. Navy.",
+    "file": "S02-internet-myth/vo/cold-03-77398fe594.wav",
+    "seconds": 9.05,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Below that, the picture says: Marianas Web. The Fog. The Primarch System.",
+    "file": "S02-internet-myth/vo/cold-04-6e72efb229.wav",
+    "seconds": 5.52,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "None of them exist. They were made up on a forum.",
+    "file": "S02-internet-myth/vo/cold-05-ec611ca817.wav",
+    "seconds": 2.72,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "But there is something under the dark web. It's real, it's been photographed — and it goes to the bottom of the sea.",
+    "file": "S02-internet-myth/vo/cold-06-44c0040f45.wav",
+    "seconds": 6.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "Every real level, down to the sea floor, is linked right here.",
+    "file": "S02-internet-myth/vo/cold-07-e4b5dead07.wav",
+    "seconds": 3.03,
+    "pauseAfter": 0.55
+  }
+]

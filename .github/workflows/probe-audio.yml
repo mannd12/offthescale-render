@@ -1,0 +1,53 @@
+# Inspect a stretch of a final's audio on the runner (Claude can't listen): a silence map plus a
+# Whisper transcript with timestamps, written to the run summary.
+# gh workflow run probe-audio.yml -f asset=l02-final.mp4 -f start=440 -f duration=80
+name: Probe audio
+
+on:
+  workflow_dispatch:
+    inputs:
+      asset: { description: asset name in the renders release, required: true, type: string }
+      start: { description: start second, required: true, type: string }
+      duration: { description: seconds to inspect, required: true, type: string }
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ASSET: ${{ inputs.asset }}
+      START: ${{ inputs.start }}
+      DUR: ${{ inputs.duration }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q faster-whisper==1.1.1 requests av==14.0.1
+      - name: Probe
+        run: |
+          case "$START$DUR" in *[!0-9.]*) echo "::error::start/duration must be numbers"; exit 1 ;; esac
+          gh release download renders -p "$ASSET" -O in.mp4
+          ffmpeg -v error -ss "$START" -t "$DUR" -i in.mp4 -vn -ac 1 -ar 16000 seg.wav
+          {
+            echo "## $ASSET from ${START}s for ${DUR}s"
+            echo '### Silences (< -40 dB, >= 0.8 s), seconds from segment start'
+            echo '```'
+            ffmpeg -hide_banner -nostats -i seg.wav -af silencedetect=n=-40dB:d=0.8 -f null - 2>&1 | grep -E "silence_(start|end)" || echo "none"
+            echo '```'
+            echo '### Transcript'
+            echo '```'
+            python -c "
+          from faster_whisper import WhisperModel
+          m = WhisperModel('base.en', compute_type='int8')
+          segs, _ = m.transcribe('seg.wav', vad_filter=False)
+          for s in segs: print(f'{s.start:6.1f}-{s.end:6.1f}  {s.text.strip()}')
+          "
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"

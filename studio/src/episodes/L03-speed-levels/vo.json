@@ -1,0 +1,730 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Right now, sitting still, you are moving at about a hundred thousand kilometres an hour around the Sun. You can't feel it. You can't feel any speed — only changes in speed.",
+    "file": "L03-speed-levels/vo/cold-00-ff0e052c6e.wav",
+    "seconds": 8.97,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Which raises a question this video is going to answer twelve times.",
+    "file": "L03-speed-levels/vo/cold-01-4f0b5d7618.wav",
+    "seconds": 3.42,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "How fast is everything? From a walk, to the fastest thing human beings have ever built, to the one speed nothing can pass.",
+    "file": "L03-speed-levels/vo/cold-02-d8b5a3a0ae.wav",
+    "seconds": 6.8,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Twelve levels. Real footage at every one a camera has ever reached. And the gauge only goes up.",
+    "file": "L03-speed-levels/vo/cold-03-80be380d5f.wav",
+    "seconds": 4.92,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Level one is the only one your body was built for.",
+    "file": "L03-speed-levels/vo/cold-04-63245b6aac.wav",
+    "seconds": 2.28,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Here is the speed you actually live at. About five kilometres an hour.",
+    "file": "L03-speed-levels/vo/l01-00-2ea31d5eed.wav",
+    "seconds": 3.45,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "Everything you have ever done on your own two feet — every school run, every walk to the shops — happened inside a range that runs from here to roughly three times this.",
+    "file": "L03-speed-levels/vo/l01-01-b9002cb448.wav",
+    "seconds": 7.980041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "And this pace is astonishing, in one specific way: it is the only speed in this entire video that your body is designed for. Everything above it, we borrowed from an animal, or built.",
+    "file": "L03-speed-levels/vo/l01-02-99effc4642.wav",
+    "seconds": 9.77,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "Let's start by borrowing.",
+    "file": "L03-speed-levels/vo/l01-03-60ba05c2f4.wav",
+    "seconds": 1.1,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "Berlin, August 2009. Usain Bolt runs a hundred metres in nine point five eight seconds, and for a moment between the sixty- and eighty-metre marks he is doing about forty-four kilometres an hour.",
+    "file": "L03-speed-levels/vo/l02-00-a593ae90f0.wav",
+    "seconds": 10.1,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Forty-four. That is the fastest a human being has ever been measured moving under their own power. And he could hold it for about a second.",
+    "file": "L03-speed-levels/vo/l02-01-9743bff259.wav",
+    "seconds": 6.69,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "Roughly nine times your walk. Level two of twelve, and we have already reached the ceiling of what a human body can do. From here on, every rung belongs to something that isn't one.",
+    "file": "L03-speed-levels/vo/l02-02-9e46a68378.wav",
+    "seconds": 8.72,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "You will see higher numbers quoted for a cheetah. Almost none of them were measured on a wild cheetah actually hunting.",
+    "file": "L03-speed-levels/vo/l03-00-3e2852f70e.wav",
+    "seconds": 5.130041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "Then, in 2013, scientists in Botswana fitted five wild cheetahs with collars that recorded position, speed and acceleration — on three hundred and sixty-seven runs, most of them real hunts.",
+    "file": "L03-speed-levels/vo/l03-01-d276357c80.wav",
+    "seconds": 12,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "The fastest run they ever recorded: ninety-three kilometres an hour.",
+    "file": "L03-speed-levels/vo/l03-02-f79dec15e7.wav",
+    "seconds": 3.24,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "That's the honest number, and it's still more than double the fastest human. But the collars found something better than the top speed. Most hunts never went anywhere near it.",
+    "file": "L03-speed-levels/vo/l03-03-4eac8d516e.wav",
+    "seconds": 8.3,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "What made the cheetah deadly wasn't the straight-line speed — it was how violently it could accelerate, brake and turn. Some of the highest values ever measured in any land mammal.",
+    "file": "L03-speed-levels/vo/l03-04-a4fc1f127b.wav",
+    "seconds": 9.05,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "Three levels up. And the next one is where a car does something only aircraft had done before.",
+    "file": "L03-speed-levels/vo/l03-05-8f0345231e.wav",
+    "seconds": 4.9,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "Black Rock Desert, Nevada. The fifteenth of October, 1997.",
+    "file": "L03-speed-levels/vo/l04-00-0e496cbeee.wav",
+    "seconds": 4.58,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "A car called Thrust SSC — two jet engines with a cockpit in between — is driven by a Royal Air Force pilot, Andy Green, across a dry lakebed at seven hundred and sixty-three miles an hour.",
+    "file": "L03-speed-levels/vo/l04-01-9c1c0e9525.wav",
+    "seconds": 11.17,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "One thousand two hundred and twenty-eight kilometres an hour.",
+    "file": "L03-speed-levels/vo/l04-02-8f90b3ea9a.wav",
+    "seconds": 2.56,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "It is still the land speed record. And it is the only time a land vehicle has ever gone faster than sound.",
+    "file": "L03-speed-levels/vo/l04-03-f193910c43.wav",
+    "seconds": 5.61,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "And a record like that isn't one lucky run. The rules say two runs, in opposite directions, and the average is what counts. Thrust SSC's average came out at Mach one point zero one six. Not a fraction under the wall.",
+    "file": "L03-speed-levels/vo/l04-04-4f1b52c255.wav",
+    "seconds": 12.56,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 5,
+    "text": "Through it.",
+    "file": "L03-speed-levels/vo/l04-05-7fda52c5c9.wav",
+    "seconds": 0.45,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 6,
+    "text": "Which brings us to the number itself. Because the next level isn't a machine at all. It's a wall.",
+    "file": "L03-speed-levels/vo/l04-06-6faf7ff3c2.wav",
+    "seconds": 5.36,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "Sound moves through air at about three hundred and forty-three metres a second — roughly one thousand two hundred and thirty-five kilometres an hour, at twenty degrees Celsius. Aviators call that speed Mach one.",
+    "file": "L03-speed-levels/vo/l05-00-b38adbd1ba.wav",
+    "seconds": 10.53,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "And it isn't fixed: it depends on the temperature of the air, so high up, where it's cold, Mach one is slower.",
+    "file": "L03-speed-levels/vo/l05-01-a0fcb65b31.wav",
+    "seconds": 5.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "Here's what happens when something passes it. The air can no longer get out of the way in time.",
+    "file": "L03-speed-levels/vo/l05-02-f6fd86c25b.wav",
+    "seconds": 4.22,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "It piles up in front of the object into shock waves, and those shock waves spread out and reach the ground as a single crack — a sonic boom. About a hundred and ten decibels: like an explosion, or a thunderclap.",
+    "file": "L03-speed-levels/vo/l05-03-477dee5dc9.wav",
+    "seconds": 11.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "And a detail most people get wrong: the boom isn't a one-off, made at the moment something \"breaks\" the barrier.",
+    "file": "L03-speed-levels/vo/l05-04-c4b7e166de.wav",
+    "seconds": 5.42,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "It is made continuously, for the entire length of the supersonic flight, and sweeps along the ground underneath it like a carpet.",
+    "file": "L03-speed-levels/vo/l05-05-3be1c86143.wav",
+    "seconds": 7.35,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "For most of history, nothing built by people had crossed that line on purpose.",
+    "file": "L03-speed-levels/vo/l05-06-d78a24f4c3.wav",
+    "seconds": 4.129958333333334,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 7,
+    "text": "Then, on the fourteenth of October, 1947, an Air Force captain called Chuck Yeager was dropped from the belly of a bomber in a small rocket plane, the Bell X-1, and flew through it.",
+    "file": "L03-speed-levels/vo/l05-07-1192f746d3.wav",
+    "seconds": 11.52,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 8,
+    "text": "The instruments on board had been fitted by the people who would later become NASA.",
+    "file": "L03-speed-levels/vo/l05-08-a2419f1692.wav",
+    "seconds": 3.6,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 9,
+    "text": "Five levels up, seven to go. Next: a plane built to live above this wall.",
+    "file": "L03-speed-levels/vo/l05-09-bbb38d96e3.wav",
+    "seconds": 5.2,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "The SR-71 Blackbird. First flown in 1964, and still the fastest crewed aircraft ever built with air-breathing engines — the kind that need to gulp the atmosphere to work.",
+    "file": "L03-speed-levels/vo/l06-00-0f8b5fa274.wav",
+    "seconds": 10.32,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "It cruised at more than Mach three, at up to eighty-five thousand feet.",
+    "file": "L03-speed-levels/vo/l06-01-667613d2a4.wav",
+    "seconds": 3.68,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "More than three times the speed of sound — with engines that still had to breathe the air they were tearing through.",
+    "file": "L03-speed-levels/vo/l06-02-441bfe6ad7.wav",
+    "seconds": 5.010041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "Here is what that means on a map. In March 1990, on its final flight, one Blackbird was flown from Los Angeles to Washington, D.C. — the whole width of the United States — in one hour, four minutes and twenty seconds.",
+    "file": "L03-speed-levels/vo/l06-03-43c53dc04b.wav",
+    "seconds": 12.43,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "Average speed, three thousand four hundred kilometres an hour. It landed, and went straight into the Smithsonian.",
+    "file": "L03-speed-levels/vo/l06-04-7c58e98256.wav",
+    "seconds": 6.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "But there's a limit to how fast an engine that breathes can go. To go faster, you stop breathing.",
+    "file": "L03-speed-levels/vo/l06-05-b784c5a8d9.wav",
+    "seconds": 5.63,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "The X-15. A rocket with a cockpit, carried up under the wing of a bomber and dropped.",
+    "file": "L03-speed-levels/vo/l07-00-ca7902662b.wav",
+    "seconds": 4.910041666666666,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "On the third of October, 1967, Air Force pilot Pete Knight flew it to four thousand five hundred and twenty miles an hour — seven thousand two hundred and seventy-four kilometres an hour. Mach six point seven.",
+    "file": "L03-speed-levels/vo/l07-01-03da632555.wav",
+    "seconds": 11.99,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "It is still the fastest any aircraft has ever flown with a pilot inside. Nearly sixty years later.",
+    "file": "L03-speed-levels/vo/l07-02-ecf4bc8374.wav",
+    "seconds": 5.47,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "At that speed the problem isn't thrust. It's heat.",
+    "file": "L03-speed-levels/vo/l07-03-49b03913e9.wav",
+    "seconds": 3.23,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "The X-15's skin was a nickel-chrome alloy called Inconel X, chosen because ordinary aircraft metal would have softened: parts of the skin and the leading edges were expected to pass twelve hundred degrees Fahrenheit — around six hundred and fifty Celsius — from air friction alone.",
+    "file": "L03-speed-levels/vo/l07-04-58bdf3c673.wav",
+    "seconds": 15.59,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "The pilot sat in an aluminium cabin insulated from his own aircraft's surface.",
+    "file": "L03-speed-levels/vo/l07-05-24d8781534.wav",
+    "seconds": 4.25,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 6,
+    "text": "The X-15 flew a hundred and ninety-nine times in nine years, and along the way it broke Mach four, Mach five and Mach six. It also went so high — above fifty miles — that eight of its pilots qualified as astronauts.",
+    "file": "L03-speed-levels/vo/l07-06-1336a4d84b.wav",
+    "seconds": 13.3,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 7,
+    "text": "Three of them didn't get their wings until 2005.",
+    "file": "L03-speed-levels/vo/l07-07-06424f35c1.wav",
+    "seconds": 2.79,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 8,
+    "text": "Seven levels up. And the next one isn't a record anyone set on purpose. It's what happens to anything that comes home from space.",
+    "file": "L03-speed-levels/vo/l07-08-a9306e562f.wav",
+    "seconds": 6.87,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "When a Space Shuttle came back from orbit, it hit the top of the atmosphere at more than seventeen thousand miles an hour — over twenty-seven thousand kilometres an hour.",
+    "file": "L03-speed-levels/vo/l08-00-187cf144f7.wav",
+    "seconds": 7.68,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "At that speed, the air in front of it couldn't move aside at all. It compressed, and it heated, until the outside of the orbiter reached as much as three thousand degrees Fahrenheit — around sixteen hundred Celsius.",
+    "file": "L03-speed-levels/vo/l08-01-0000818e84.wav",
+    "seconds": 10.66,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "Well above the melting point of steel.",
+    "file": "L03-speed-levels/vo/l08-02-dd18057240.wav",
+    "seconds": 1.77,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "The whole underside was covered in tiles built for exactly that. This is the level where speed stops being about going somewhere, and starts being about surviving the air.",
+    "file": "L03-speed-levels/vo/l08-03-51cfe31c02.wav",
+    "seconds": 9.02,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "And the fastest any human beings have ever gone, relative to the Earth, was on exactly this kind of homecoming.",
+    "file": "L03-speed-levels/vo/l08-04-ef9b71c45b.wav",
+    "seconds": 5.76,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "In May 1969, coming back from the Moon, the crew of Apollo 10 hit the top of the atmosphere at twenty-four thousand seven hundred and ninety-one miles an hour — nearly forty thousand kilometres an hour.",
+    "file": "L03-speed-levels/vo/l08-05-7203e752a5.wav",
+    "seconds": 10.71,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "Tom Stafford, Gene Cernan and John Young. More than fifty years later, nobody has gone faster.",
+    "file": "L03-speed-levels/vo/l08-06-15f1a4e352.wav",
+    "seconds": 5.45,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "Eight up. Four to go. And the next one is the strangest idea in the whole video: a speed at which you fall, forever, and never land.",
+    "file": "L03-speed-levels/vo/l08-07-ed6cd14d9c.wav",
+    "seconds": 8.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 0,
+    "text": "The International Space Station travels at about five miles a second — roughly eight kilometres every second, around twenty-seven thousand kilometres an hour.",
+    "file": "L03-speed-levels/vo/l09-00-c0862801bf.wav",
+    "seconds": 8.88,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 1,
+    "text": "It circles the entire planet about once every ninety minutes, three hundred and fifty kilometres up.",
+    "file": "L03-speed-levels/vo/l09-01-ad5c598c9e.wav",
+    "seconds": 5.25,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 2,
+    "text": "Which means the crew sees the Sun rise and set fifteen or sixteen times every day. An astronaut who spends a year up there watches more than five thousand sunrises.",
+    "file": "L03-speed-levels/vo/l09-02-cf7ad32c78.wav",
+    "seconds": 8.93,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 3,
+    "text": "On the ground, in the same year, you get three hundred and sixty-five.",
+    "file": "L03-speed-levels/vo/l09-03-9cb1794b1e.wav",
+    "seconds": 3.29,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 4,
+    "text": "And here is the thing about that speed. The station is not floating. It is falling — pulled toward Earth the whole time, just as you are.",
+    "file": "L03-speed-levels/vo/l09-04-6698a82b6d.wav",
+    "seconds": 7.319958333333333,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 5,
+    "text": "It's simply moving sideways so fast that by the time it has fallen, the ground has curved away beneath it. It falls around the world. That is all an orbit is.",
+    "file": "L03-speed-levels/vo/l09-05-b0b12dacf5.wav",
+    "seconds": 9.24,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 6,
+    "text": "Go a little faster still, and the ground never catches up at all.",
+    "file": "L03-speed-levels/vo/l09-06-2005501b7b.wav",
+    "seconds": 2.98,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 0,
+    "text": "Eleven point two kilometres a second. That is Earth's escape velocity: go this fast, straight out, and gravity will slow you but never stop you. You are leaving, and you are not coming back.",
+    "file": "L03-speed-levels/vo/l10-00-b745d0824c.wav",
+    "seconds": 10.68,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 1,
+    "text": "Every spacecraft that has ever gone to the Moon, to Mars, to the outer planets, had to cross this line.",
+    "file": "L03-speed-levels/vo/l10-01-c2974edf55.wav",
+    "seconds": 5.25,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 2,
+    "text": "One of them is still going. Voyager 1 left Earth in September 1977, and today it is moving at seventeen kilometres a second relative to the Sun, out beyond the planets, in interstellar space.",
+    "file": "L03-speed-levels/vo/l10-02-dae20e0ed1.wav",
+    "seconds": 11.6,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 3,
+    "text": "It is so far away now that it sits about one light-day out: a radio message sent from Earth takes a full day to reach it.",
+    "file": "L03-speed-levels/vo/l10-03-f471cb2857.wav",
+    "seconds": 6.07,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 4,
+    "text": "Ten levels up. Two to go. And the next one is the fastest thing our species has ever made.",
+    "file": "L03-speed-levels/vo/l10-04-c4f54253b5.wav",
+    "seconds": 4.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l11",
+    "index": 0,
+    "text": "Parker Solar Probe. Launched in 2018, built to fly through the outer atmosphere of the Sun.",
+    "file": "L03-speed-levels/vo/l11-00-c9cdafd7a3.wav",
+    "seconds": 5.7400416666666665,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l11",
+    "index": 1,
+    "text": "On Christmas Eve, 2024, it made its closest pass yet — just under four million miles above the Sun's surface — moving at four hundred and thirty thousand miles an hour. About seven hundred thousand kilometres an hour.",
+    "file": "L03-speed-levels/vo/l11-01-0eba651138.wav",
+    "seconds": 12.1,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l11",
+    "index": 2,
+    "text": "NASA puts it this way: fast enough to go from Philadelphia to Washington, D.C., in one second.",
+    "file": "L03-speed-levels/vo/l11-02-978382c4ca.wav",
+    "seconds": 5.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l11",
+    "index": 3,
+    "text": "What keeps it alive that close to a star is a shield about eleven centimetres thick — two carbon panels around a core of carbon foam. The face pointed at the Sun runs at nearly fourteen hundred degrees Celsius.",
+    "file": "L03-speed-levels/vo/l11-03-dd5fa825a4.wav",
+    "seconds": 10.59,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l11",
+    "index": 4,
+    "text": "The instruments behind it sit at around thirty. Room temperature, in the Sun's atmosphere.",
+    "file": "L03-speed-levels/vo/l11-04-e25dfbf352.wav",
+    "seconds": 4.74,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l11",
+    "index": 5,
+    "text": "It is the fastest object human beings have ever built. And now straighten the gauge out. Drawn as a plain line, with no tricks of scale, it barely registers.",
+    "file": "L03-speed-levels/vo/l11-05-500430b7e2.wav",
+    "seconds": 10.2,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l11",
+    "index": 6,
+    "text": "The fastest thing we have ever made is moving at about six hundredths of one per cent of the speed of light.",
+    "file": "L03-speed-levels/vo/l11-06-6a3214f1a9.wav",
+    "seconds": 5.16,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l11",
+    "index": 7,
+    "text": "One level left.",
+    "file": "L03-speed-levels/vo/l11-07-37e15e1b31.wav",
+    "seconds": 1.07,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l12",
+    "index": 0,
+    "text": "Two hundred and ninety-nine thousand, seven hundred and ninety-two kilometres every second. The speed of light in a vacuum. Seven and a half times around the Earth in one second.",
+    "file": "L03-speed-levels/vo/l12-00-9eea9bd23e.wav",
+    "seconds": 9.26,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l12",
+    "index": 1,
+    "text": "At this speed, the Moon is one point three seconds away. The Sun is eight minutes and twenty seconds away — so the sunlight on your face left the Sun before you started this level.",
+    "file": "L03-speed-levels/vo/l12-01-90a8095b79.wav",
+    "seconds": 9.11,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l12",
+    "index": 2,
+    "text": "When astronauts go to the Moon, the trip takes about three days. Light does it before you can finish saying \"light\".",
+    "file": "L03-speed-levels/vo/l12-02-b8f7c9abc5.wav",
+    "seconds": 5.85,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l12",
+    "index": 3,
+    "text": "And beyond the Sun? The nearest star after it, Proxima Centauri, is four and a quarter light-years away. Even at the top of this gauge, the fastest anything can go, our closest neighbour is a four-year trip.",
+    "file": "L03-speed-levels/vo/l12-03-5f4d464706.wav",
+    "seconds": 11.58,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l12",
+    "index": 4,
+    "text": "That's how big the gaps are.",
+    "file": "L03-speed-levels/vo/l12-04-e731e2a6a7.wav",
+    "seconds": 1.27,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l12",
+    "index": 5,
+    "text": "It isn't just fast. It is the speed limit of the universe. Nothing — no matter, no energy, no message — can travel faster than this.",
+    "file": "L03-speed-levels/vo/l12-05-172dfc80db.wav",
+    "seconds": 8.56,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l12",
+    "index": 6,
+    "text": "We are so sure of it that we no longer measure the speed of light: we define the metre from it.",
+    "file": "L03-speed-levels/vo/l12-06-fcc9848878.wav",
+    "seconds": 4.38,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l12",
+    "index": 7,
+    "text": "Two hundred and ninety-nine million, seven hundred and ninety-two thousand, four hundred and fifty-eight metres per second, exactly.",
+    "file": "L03-speed-levels/vo/l12-07-36add8e2f2.wav",
+    "seconds": 6.29,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l12",
+    "index": 8,
+    "text": "And light is the only thing on this entire ladder that doesn't have to work for its speed. It cannot go slower. It has never accelerated in its life.",
+    "file": "L03-speed-levels/vo/l12-08-21c8b4288c.wav",
+    "seconds": 8.06,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "Twelve levels. A walk. A sprint that lasts a second. A cat with the brakes of a race car. A car that outran sound. A plane that stopped breathing to go faster. A station falling around the world.",
+    "file": "L03-speed-levels/vo/closer-00-37b17c9aa8.wav",
+    "seconds": 13.51,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "A probe that touches the Sun.",
+    "file": "L03-speed-levels/vo/closer-01-ab54a2e3d9.wav",
+    "seconds": 1.64,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "And at the top, a line nothing crosses.",
+    "file": "L03-speed-levels/vo/closer-02-f888ecb50e.wav",
+    "seconds": 2.72,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "So — that walk you started on? Everything you have ever felt as \"fast\" lives inside the first millimetre of this gauge.",
+    "file": "L03-speed-levels/vo/closer-03-a23bd7797a.wav",
+    "seconds": 7.54,
+    "pauseAfter": 0.55
+  }
+]

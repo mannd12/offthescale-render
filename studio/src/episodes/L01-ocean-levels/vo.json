@@ -1,0 +1,1114 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "You have never really seen the ocean. You've seen its roof.",
+    "file": "L01-ocean-levels/vo/cold-00-e6c929d92c.wav",
+    "seconds": 3.51,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Everything you picture — every beach, every reef, every shark — is in the top two hundred metres. The bottom is nearly eleven kilometres down.",
+    "file": "L01-ocean-levels/vo/cold-01-cbfbaf0519.wav",
+    "seconds": 8.49,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Twelve levels. We're going down all of them, one at a time, with real footage from as deep as cameras can go. And we are not coming back up.",
+    "file": "L01-ocean-levels/vo/cold-02-45dce76eb3.wav",
+    "seconds": 7.91,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Level one is the only one you've ever been to.",
+    "file": "L01-ocean-levels/vo/cold-03-31d503ca88.wav",
+    "seconds": 2.16,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Here's the number that puts this whole video in perspective. Forty metres.",
+    "file": "L01-ocean-levels/vo/l01-00-407bac873c.wav",
+    "seconds": 4.17,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "That's the limit for recreational scuba diving — as deep as a trained holiday diver is ever meant to go.",
+    "file": "L01-ocean-levels/vo/l01-01-c8aa1ad44b.wav",
+    "seconds": 5.07,
+    "pauseAfter": 0.4
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "Forty metres. The sea floor is, on average, ninety times deeper than that.",
+    "file": "L01-ocean-levels/vo/l01-02-8776601dfd.wav",
+    "seconds": 4.35,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "This is the sunlight zone, the top two hundred metres, and it's the only part of the sea that behaves the way you expect.",
+    "file": "L01-ocean-levels/vo/l01-03-5df9a7360d.wav",
+    "seconds": 5.670041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "Sunlight means plants — mostly ones too small to see, single-celled algae called phytoplankton.",
+    "file": "L01-ocean-levels/vo/l01-04-0c1a34f626.wav",
+    "seconds": 5.34,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 5,
+    "text": "And these specks do something enormous. About half of the oxygen produced on Earth is produced in the sea — most of it by drifting life you would need a microscope to see.",
+    "file": "L01-ocean-levels/vo/l01-05-c95fb59df3.wav",
+    "seconds": 8.69,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l01",
+    "index": 6,
+    "text": "But the ocean is already taking things away. The first to go is colour.",
+    "file": "L01-ocean-levels/vo/l01-06-f10bd41c9b.wav",
+    "seconds": 3.74,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 7,
+    "text": "Water swallows red light first, and by a hundred metres, red is completely gone. A bright red fish down here simply looks black.",
+    "file": "L01-ocean-levels/vo/l01-07-148a1f4d4e.wav",
+    "seconds": 7.13,
+    "pauseAfter": 0.4
+  },
+  {
+    "scene": "l01",
+    "index": 8,
+    "text": "Hold on to that. Four levels from now, it turns into a superpower.",
+    "file": "L01-ocean-levels/vo/l01-08-fb621b0528.wav",
+    "seconds": 3.43,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l01",
+    "index": 9,
+    "text": "Level one of twelve. Let's find the line where the plants stop.",
+    "file": "L01-ocean-levels/vo/l01-09-ed8e95ca72.wav",
+    "seconds": 3.51,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "Two hundred metres. Look up, and there's still a soft blue glow above you. But it's no longer enough.",
+    "file": "L01-ocean-levels/vo/l02-00-13c345eb2d.wav",
+    "seconds": 6.48,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Below this line there isn't enough light for photosynthesis — so from about here to the bottom of the sea, it's animals and microbes only.",
+    "file": "L01-ocean-levels/vo/l02-01-a893582895.wav",
+    "seconds": 7.93,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "Welcome to the twilight zone. It runs from here down to a thousand metres: just enough light for animals to see by, far too little for a plant to live on.",
+    "file": "L01-ocean-levels/vo/l02-02-18d617019a.wav",
+    "seconds": 9.54,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "And that creates a strange problem. There is nowhere to hide.",
+    "file": "L01-ocean-levels/vo/l02-03-a75b20930e.wav",
+    "seconds": 3.83,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "No rocks, no weeds, no sea floor — only open water, and a faint light above that turns your body into a silhouette for anything looking up from below.",
+    "file": "L01-ocean-levels/vo/l02-04-c8d8fc0258.wav",
+    "seconds": 9.63,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "So the animals here cheat. Hatchetfish and lanternfish carry rows of tiny lamps along their bellies, and they tune the glow to match the light coming down from the surface.",
+    "file": "L01-ocean-levels/vo/l02-05-96f4fad957.wav",
+    "seconds": 9.12,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 6,
+    "text": "From underneath, the shadow simply… disappears.",
+    "file": "L01-ocean-levels/vo/l02-06-9de516a03d.wav",
+    "seconds": 3.26,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l02",
+    "index": 7,
+    "text": "It's called counter-illumination. The first lights in the deep aren't for seeing. They're for not being seen.",
+    "file": "L01-ocean-levels/vo/l02-07-3d5f01446f.wav",
+    "seconds": 6.73,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l02",
+    "index": 8,
+    "text": "Two levels down. The next one is the deepest a human being has ever gone on their own.",
+    "file": "L01-ocean-levels/vo/l02-08-b425918a4c.wav",
+    "seconds": 4.66,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "Three hundred and thirty-two metres. This is as deep as any human has ever gone with scuba tanks.",
+    "file": "L01-ocean-levels/vo/l03-00-bba5447515.wav",
+    "seconds": 5.150041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "In 2014, an Egyptian diver named Ahmed Gabr descended here, in the Red Sea, to set the world record.",
+    "file": "L01-ocean-levels/vo/l03-01-927bd54aad.wav",
+    "seconds": 7.25,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "Getting down took him about fifteen minutes.",
+    "file": "L01-ocean-levels/vo/l03-02-ca9f6c37dc.wav",
+    "seconds": 1.9100416666666666,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "Getting back up took more than thirteen and a half hours.",
+    "file": "L01-ocean-levels/vo/l03-03-0550cca6aa.wav",
+    "seconds": 3.27,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "That's not a mistake — and the reason is the whole problem with the deep.",
+    "file": "L01-ocean-levels/vo/l03-04-31108fbc57.wav",
+    "seconds": 3.53,
+    "pauseAfter": 0.4
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "At this pressure, the nitrogen in every breath he takes dissolves into his blood and tissues. The deeper he goes, the more of it goes in.",
+    "file": "L01-ocean-levels/vo/l03-05-757542cb33.wav",
+    "seconds": 7.42,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 6,
+    "text": "Come up quickly, and that nitrogen comes back out of solution inside him — as bubbles. In the joints. In the spine. In the brain.",
+    "file": "L01-ocean-levels/vo/l03-06-cf69ff8b30.wav",
+    "seconds": 8.49,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 7,
+    "text": "Divers call it the bends. It can cripple you, and it can be fatal.",
+    "file": "L01-ocean-levels/vo/l03-07-19e4ef1ac9.wav",
+    "seconds": 3.65,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l03",
+    "index": 8,
+    "text": "So the only way home is to stop. And wait. And let his body breathe the nitrogen back out, a little at a time, stop after stop, hanging on a line in the blue for thirteen and a half hours.",
+    "file": "L01-ocean-levels/vo/l03-08-05dc42c40b.wav",
+    "seconds": 12.56,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 9,
+    "text": "He trained four years for this and had a team of thirty people. It is a record for professionals, not something to try.",
+    "file": "L01-ocean-levels/vo/l03-09-8864b91401.wav",
+    "seconds": 6.36,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l03",
+    "index": 10,
+    "text": "The ocean lets you down for free. It charges you to come back.",
+    "file": "L01-ocean-levels/vo/l03-10-fbf15ff9ab.wav",
+    "seconds": 3.48,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l03",
+    "index": 11,
+    "text": "And here's the thing to understand about the ocean. For a human body with tanks, this is more or less the end of the road.",
+    "file": "L01-ocean-levels/vo/l03-11-50783af663.wav",
+    "seconds": 5.78,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 12,
+    "text": "For the ocean, we're not even a tenth of the way to the average sea floor.",
+    "file": "L01-ocean-levels/vo/l03-12-a519a01acd.wav",
+    "seconds": 3.43,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l03",
+    "index": 13,
+    "text": "And just below him is something that fooled an entire navy.",
+    "file": "L01-ocean-levels/vo/l03-13-f709cc9a1c.wav",
+    "seconds": 2.81,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "Around five hundred metres, the navy found a second sea floor. One that should not have been there.",
+    "file": "L01-ocean-levels/vo/l04-00-f7f0061564.wav",
+    "seconds": 4.58,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "During the Second World War, sonar operators hunting submarines kept getting the same impossible reading: solid ground, a few hundred metres down, in places where the charts said the water was kilometres deep.",
+    "file": "L01-ocean-levels/vo/l04-01-620cb6c780.wav",
+    "seconds": 10.58,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "And this floor moved. Every evening it rose toward the surface. Every dawn, it sank back down.",
+    "file": "L01-ocean-levels/vo/l04-02-59becd0955.wav",
+    "seconds": 5.73,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "They checked the equipment. They suspected the enemy was jamming them. Neither explanation held.",
+    "file": "L01-ocean-levels/vo/l04-03-362342859c.wav",
+    "seconds": 5.06,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "In 1945 a scientist named Martin Johnson worked out what it was. It wasn't rock. It was alive.",
+    "file": "L01-ocean-levels/vo/l04-04-0be049c5b8.wav",
+    "seconds": 6.22,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l04",
+    "index": 5,
+    "text": "Billions upon billions of small animals — tiny fish, shrimp, jellies, plankton — spend their days down here in the gloom, where hunters can't see them.",
+    "file": "L01-ocean-levels/vo/l04-05-53bca97dd7.wav",
+    "seconds": 8.7,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 6,
+    "text": "At sunset they swim up to the food-rich surface to feed under cover of night. Before sunrise, they all go back down.",
+    "file": "L01-ocean-levels/vo/l04-06-c448277f40.wav",
+    "seconds": 6.15,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l04",
+    "index": 7,
+    "text": "NOAA calls it the greatest migration on Earth. It happens every day, in every ocean… and the entire thing takes place in the dark.",
+    "file": "L01-ocean-levels/vo/l04-07-3a500a0115.wav",
+    "seconds": 7.93,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l04",
+    "index": 8,
+    "text": "And the scale of it is difficult to hold in your head. Current estimates put it at something like ten billion tonnes of animals, rising and sinking, every single day.",
+    "file": "L01-ocean-levels/vo/l04-08-fa8a46834b.wav",
+    "seconds": 9.03,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l04",
+    "index": 9,
+    "text": "It isn't only a commute, either. Every one of those animals feeds up at the surface and then carries that food — that carbon — back down with it into the deep, where a great deal of it stays.",
+    "file": "L01-ocean-levels/vo/l04-09-d168edaff1.wav",
+    "seconds": 9.89,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 10,
+    "text": "The largest daily movement of life on this planet is also one of its great carbon pumps.",
+    "file": "L01-ocean-levels/vo/l04-10-4cacea923f.wav",
+    "seconds": 4.12,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l04",
+    "index": 11,
+    "text": "And we only noticed it because it got in the way of a war.",
+    "file": "L01-ocean-levels/vo/l04-11-47ba3d31af.wav",
+    "seconds": 2.27,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l04",
+    "index": 12,
+    "text": "Four levels down, eight to go. And this is where the light finally runs out completely.",
+    "file": "L01-ocean-levels/vo/l04-12-e427d9fef6.wav",
+    "seconds": 5.85,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "One thousand metres. This is about as deep as sunlight can be detected at all. Below here, it is night — permanently.",
+    "file": "L01-ocean-levels/vo/l05-00-5978c2ddcb.wav",
+    "seconds": 7.81,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "And yet it isn't dark.",
+    "file": "L01-ocean-levels/vo/l05-01-7d8d76057f.wav",
+    "seconds": 2.0300416666666665,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "When scientists in California counted every animal in seventeen years of deep-sea robot footage — more than three hundred and fifty thousand of them — they found that three out of four can make their own light.",
+    "file": "L01-ocean-levels/vo/l05-02-0747f00639.wav",
+    "seconds": 10.319958333333334,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "Down here, glowing isn't unusual. Glowing is normal: lures to attract a meal, flashes to find a partner, bursts of light to startle a hunter and slip away.",
+    "file": "L01-ocean-levels/vo/l05-03-247d33ff3d.wav",
+    "seconds": 10.73,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "Now look at the colour of it. Nearly all of that light is blue — over and over, the same narrow band of blue.",
+    "file": "L01-ocean-levels/vo/l05-04-42007f7877.wav",
+    "seconds": 7.190041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "That isn't decoration. Blue is the wavelength that travels furthest through seawater, so a blue flash carries further down here than any other colour could.",
+    "file": "L01-ocean-levels/vo/l05-05-c81becca6a.wav",
+    "seconds": 8.03,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "The sea filtered out red at a hundred metres. Life answered in blue.",
+    "file": "L01-ocean-levels/vo/l05-06-73f37c1c4b.wav",
+    "seconds": 4.38,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l05",
+    "index": 7,
+    "text": "Which brings us back to that red fish. No red light reaches this world, so an animal that is red has nothing to reflect — it is, effectively, invisible.",
+    "file": "L01-ocean-levels/vo/l05-07-6868987ad0.wav",
+    "seconds": 8.81,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 8,
+    "text": "That's why so many deep-sea animals are red. Down here, red is the best camouflage in the ocean.",
+    "file": "L01-ocean-levels/vo/l05-08-8c0abd7dea.wav",
+    "seconds": 5.19,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l05",
+    "index": 9,
+    "text": "The water now is around four degrees Celsius, and it will stay about that cold all the way down.",
+    "file": "L01-ocean-levels/vo/l05-09-6e907d5c75.wav",
+    "seconds": 5.01,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l05",
+    "index": 10,
+    "text": "Five levels down, seven to go. And the next one breaks a rule everybody thought was unbreakable.",
+    "file": "L01-ocean-levels/vo/l05-10-97bc6197aa.wav",
+    "seconds": 5.350041666666667,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Two and a half kilometres. In February 1977, a three-person submersible called Alvin was exploring a volcanic crack in the sea floor near the Galápagos Islands, looking for hot springs.",
+    "file": "L01-ocean-levels/vo/l06-00-6c3ea7c090.wav",
+    "seconds": 10.77,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "It found them. It also found something nobody had predicted: a garden.",
+    "file": "L01-ocean-levels/vo/l06-01-464c310860.wav",
+    "seconds": 4.47,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "Clams a foot long. Tube worms as tall as a person, crowded around vents where the water comes out of the rock at more than seven hundred degrees Fahrenheit — about three hundred and seventy Celsius.",
+    "file": "L01-ocean-levels/vo/l06-02-21f131c729.wav",
+    "seconds": 10.42,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "No sunlight has ever touched this place. So what is everything eating?",
+    "file": "L01-ocean-levels/vo/l06-03-dfbc5b9be5.wav",
+    "seconds": 4.3,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "The answer rewrote the textbooks. Microbes here live on chemicals dissolved in the vent water, and everything else lives on the microbes.",
+    "file": "L01-ocean-levels/vo/l06-04-fc679b0f70.wav",
+    "seconds": 7.29,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "It was the first ecosystem ever found on Earth that doesn't run on sunlight. It runs on the planet itself.",
+    "file": "L01-ocean-levels/vo/l06-05-a14f7da045.wav",
+    "seconds": 5.75,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "And the tube worms are stranger than they look. A grown one has no mouth. No stomach. No gut at all.",
+    "file": "L01-ocean-levels/vo/l06-06-822013c4cc.wav",
+    "seconds": 5.52,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 7,
+    "text": "What it has instead is an organ stuffed with bacteria — and in a big worm, that bacterial cargo can be something like a third to a half of its body weight.",
+    "file": "L01-ocean-levels/vo/l06-07-85e8f033d3.wav",
+    "seconds": 7.68,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l06",
+    "index": 8,
+    "text": "The worm's whole job is to be a delivery system. That red plume at the top pulls in oxygen and hydrogen sulfide — the rotten-egg chemical that is poisonous to you and me — and its blood carries both down to the bacteria inside.",
+    "file": "L01-ocean-levels/vo/l06-08-b23c4b0a28.wav",
+    "seconds": 11.94,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 9,
+    "text": "They turn the poison into food.",
+    "file": "L01-ocean-levels/vo/l06-09-7cdc3667ef.wav",
+    "seconds": 1.7,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l06",
+    "index": 10,
+    "text": "The worm never eats. Not once in its life. It simply breathes, and is fed from within.",
+    "file": "L01-ocean-levels/vo/l06-10-ccbd34c6f6.wav",
+    "seconds": 4.56,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l06",
+    "index": 11,
+    "text": "More than five hundred of these vent fields have been found since — and they're one reason scientists take dark oceans on other worlds so seriously.",
+    "file": "L01-ocean-levels/vo/l06-11-46b2ea42eb.wav",
+    "seconds": 6.83,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l06",
+    "index": 12,
+    "text": "Six down. Now the record that beats every human being who has ever lived.",
+    "file": "L01-ocean-levels/vo/l06-12-43dc4332bc.wav",
+    "seconds": 4.28,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "Sperm whales hunt giant squid more than two kilometres down. But they don't hold the record.",
+    "file": "L01-ocean-levels/vo/l07-00-b93429f331.wav",
+    "seconds": 4.42,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "That belongs to a shy, medium-sized whale most people have never heard of: Cuvier's beaked whale.",
+    "file": "L01-ocean-levels/vo/l07-01-eac528520a.wav",
+    "seconds": 5.39,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "In a study off California, scientists tracked one to two thousand nine hundred and ninety-two metres. Nearly three kilometres. Another dive lasted a hundred and thirty-seven minutes.",
+    "file": "L01-ocean-levels/vo/l07-02-c740217666.wav",
+    "seconds": 9.23,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "More than two hours. On one breath. In the cold and the dark, under about three hundred times the pressure you're feeling right now.",
+    "file": "L01-ocean-levels/vo/l07-03-3d116e0bb3.wav",
+    "seconds": 7.13,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "How is that even possible? By giving up on breathing altogether.",
+    "file": "L01-ocean-levels/vo/l07-04-5821a7f9d1.wav",
+    "seconds": 3.69,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "On the way down, the whale's ribcage folds and its lungs deliberately collapse. That sounds like a catastrophe.",
+    "file": "L01-ocean-levels/vo/l07-05-bce4379854.wav",
+    "seconds": 5.6,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 6,
+    "text": "It's a defence: with the lungs shut down, nitrogen can't cross into the blood — so the whale simply never gets the problem that cost our record-breaking diver thirteen and a half hours.",
+    "file": "L01-ocean-levels/vo/l07-06-c68d7c067d.wav",
+    "seconds": 9.3,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l07",
+    "index": 7,
+    "text": "The oxygen it runs on isn't in its lungs at all. It's stored in its blood and packed into its muscle, which carries roughly ten times more of the oxygen-holding protein than ours does.",
+    "file": "L01-ocean-levels/vo/l07-07-e50bc2b867.wav",
+    "seconds": 10.26,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 8,
+    "text": "Its heart rate drops. Blood pulls back from the edges of the body toward the heart and brain.",
+    "file": "L01-ocean-levels/vo/l07-08-2deadee888.wav",
+    "seconds": 4.6,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l07",
+    "index": 9,
+    "text": "For two hours, it stops being a mammal that breathes, and becomes something much closer to a submarine.",
+    "file": "L01-ocean-levels/vo/l07-09-9e083397a9.wav",
+    "seconds": 5.42,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l07",
+    "index": 10,
+    "text": "Remember Level 3? The best-prepared human diver in history turned around at three hundred and thirty-two metres. This whale goes nine times deeper — for lunch.",
+    "file": "L01-ocean-levels/vo/l07-10-bafc52d8bd.wav",
+    "seconds": 9.699958333333333,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l07",
+    "index": 11,
+    "text": "Seven levels down. And just past the limit of the deepest-diving mammal on Earth, something famous is lying in the dark.",
+    "file": "L01-ocean-levels/vo/l07-11-272c143e84.wav",
+    "seconds": 6.26,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Three thousand eight hundred metres. On the sea floor, about three hundred and seventy miles off Newfoundland, lies the most famous shipwreck in the world.",
+    "file": "L01-ocean-levels/vo/l08-00-de6bfafb9c.wav",
+    "seconds": 8.17,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "Titanic sank in 1912. Nobody saw her again until the first of September, 1985 — seventy-three years later — in part because it took that long to build machines that could search this deep.",
+    "file": "L01-ocean-levels/vo/l08-01-fa56ce0b64.wav",
+    "seconds": 10.99,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "But here's the part that should change how you picture the planet. We have just passed three thousand six hundred and eighty-two metres.",
+    "file": "L01-ocean-levels/vo/l08-02-1f41548d7a.wav",
+    "seconds": 6.53,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "That is the average depth of the ocean.",
+    "file": "L01-ocean-levels/vo/l08-03-c6664af5be.wav",
+    "seconds": 1.89,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "Average.",
+    "file": "L01-ocean-levels/vo/l08-04-9b69b36d80.wav",
+    "seconds": 0.52,
+    "pauseAfter": 1.6
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "Everything so far — the last plant, the record dive, the great migration, the whales — all of it happened above the average sea floor.",
+    "file": "L01-ocean-levels/vo/l08-05-762f063e65.wav",
+    "seconds": 7.65,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "Picture the ocean floor anywhere in the world, and the honest picture is this: Titanic, in the dark, with nothing around it.",
+    "file": "L01-ocean-levels/vo/l08-06-d07090d39d.wav",
+    "seconds": 6.640041666666667,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "And she is being eaten.",
+    "file": "L01-ocean-levels/vo/l08-07-802a1ff3af.wav",
+    "seconds": 1.32,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l08",
+    "index": 8,
+    "text": "Those rust-coloured icicles hanging off her railings have a name — rusticles — and they are alive. They are colonies of bacteria and fungi, consuming the iron of the ship itself.",
+    "file": "L01-ocean-levels/vo/l08-08-af9fc715f8.wav",
+    "seconds": 10.280041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 9,
+    "text": "One of the species found in them was new to science, and was named after the wreck it was eating: Halomonas titanicae.",
+    "file": "L01-ocean-levels/vo/l08-09-5fab2221f8.wav",
+    "seconds": 6.45,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l08",
+    "index": 10,
+    "text": "Researchers disagree about the timetable. They don't disagree about the direction.",
+    "file": "L01-ocean-levels/vo/l08-10-38ed33cb28.wav",
+    "seconds": 4.14,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 11,
+    "text": "Titanic is being digested — and everything we ever learn about the most famous object in the deep sea, we have to learn inside a window that is closing.",
+    "file": "L01-ocean-levels/vo/l08-11-a5d9ffe88d.wav",
+    "seconds": 8.26,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l08",
+    "index": 12,
+    "text": "And we are still only a third of the way down.",
+    "file": "L01-ocean-levels/vo/l08-12-2abbb7c18d.wav",
+    "seconds": 2.2,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l09",
+    "index": 0,
+    "text": "Below four thousand metres the ocean has an honest name: the abyss. The water is a few degrees above freezing. The pressure is four to six hundred times the surface.",
+    "file": "L01-ocean-levels/vo/l09-00-6cf4390ed5.wav",
+    "seconds": 10.12,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 1,
+    "text": "And the landscape is mostly wide, quiet plains of soft mud.",
+    "file": "L01-ocean-levels/vo/l09-01-d97af09aa3.wav",
+    "seconds": 3.41,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l09",
+    "index": 2,
+    "text": "No food is made down here. None. So the abyss lives on leftovers.",
+    "file": "L01-ocean-levels/vo/l09-02-feda9a786c.wav",
+    "seconds": 4.15,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 3,
+    "text": "Far above, things die, and crumbs drift downward — scraps of plankton, dust, waste. Scientists call it marine snow, and some flakes fall for weeks before they land.",
+    "file": "L01-ocean-levels/vo/l09-03-cd9895d3d9.wav",
+    "seconds": 10.91,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l09",
+    "index": 4,
+    "text": "A whole world of animals — sea cucumbers, brittle stars, pale fish — spends its entire life waiting for the snow.",
+    "file": "L01-ocean-levels/vo/l09-04-d3100f62c7.wav",
+    "seconds": 6.73,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l09",
+    "index": 5,
+    "text": "And don't picture somewhere small. NOAA puts the abyssal plains at around seventy per cent of the ocean floor.",
+    "file": "L01-ocean-levels/vo/l09-05-7b511451ce.wav",
+    "seconds": 5.62,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 6,
+    "text": "Which means this — flat, freezing, permanently dark mud — is the largest habitat on Earth.",
+    "file": "L01-ocean-levels/vo/l09-06-d874e2e027.wav",
+    "seconds": 6.48,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l09",
+    "index": 7,
+    "text": "Not the rainforest. Not the grasslands. This.",
+    "file": "L01-ocean-levels/vo/l09-07-0190081461.wav",
+    "seconds": 2.67,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 8,
+    "text": "The default condition of our planet's surface is a dark plain under four kilometres of water, waiting for crumbs to fall.",
+    "file": "L01-ocean-levels/vo/l09-08-e7d78e7305.wav",
+    "seconds": 6.040041666666666,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l09",
+    "index": 9,
+    "text": "Nine levels down. And here the ordinary sea floor simply ends.",
+    "file": "L01-ocean-levels/vo/l09-09-44d4ff0e0f.wav",
+    "seconds": 4.48,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l10",
+    "index": 0,
+    "text": "Six thousand metres is where the ordinary sea floor runs out. To go deeper, you need a trench.",
+    "file": "L01-ocean-levels/vo/l10-00-3e26acb84e.wav",
+    "seconds": 5.04,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 1,
+    "text": "This is the hadal zone — named after Hades, the Greek underworld — and it exists only inside these long, narrow scars in the ocean floor.",
+    "file": "L01-ocean-levels/vo/l10-01-7b8cdf597b.wav",
+    "seconds": 7.4,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l10",
+    "index": 2,
+    "text": "And trenches aren't holes. They're seams.",
+    "file": "L01-ocean-levels/vo/l10-02-98acf39a33.wav",
+    "seconds": 2.96,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 3,
+    "text": "Out here the Pacific plate — old, cold and heavy — is bending downward and sliding underneath its neighbour, back into the mantle. The trench is the crease that makes.",
+    "file": "L01-ocean-levels/vo/l10-03-85680f2995.wav",
+    "seconds": 9,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l10",
+    "index": 4,
+    "text": "The deepest place on Earth is, quite literally, where the sea floor goes to be recycled.",
+    "file": "L01-ocean-levels/vo/l10-04-80a3fb00e9.wav",
+    "seconds": 3.94,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l10",
+    "index": 5,
+    "text": "You might expect nothing here. Instead, in 2019, a camera lowered into the Java Trench filmed a dumbo octopus — a small octopus that swims by flapping two ear-like fins — calmly going about its day at six thousand nine hundred and fifty-seven metres.",
+    "file": "L01-ocean-levels/vo/l10-05-23c1dd6c20.wav",
+    "seconds": 14.14,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 6,
+    "text": "It's the deepest octopus ever recorded.",
+    "file": "L01-ocean-levels/vo/l10-06-94a88c7e17.wav",
+    "seconds": 2.03,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l10",
+    "index": 7,
+    "text": "Two levels left. And the next one is a line that nothing with a backbone has ever crossed.",
+    "file": "L01-ocean-levels/vo/l10-07-edf888b999.wav",
+    "seconds": 4.53,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l11",
+    "index": 0,
+    "text": "Eight thousand three hundred and thirty-six metres. In 2022, in a trench south of Japan, scientists filmed a small, pale snailfish. It is the deepest fish anyone has ever seen.",
+    "file": "L01-ocean-levels/vo/l11-00-4616eb06fb.wav",
+    "seconds": 11.97,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l11",
+    "index": 1,
+    "text": "And it may be close to the deepest a fish can be.",
+    "file": "L01-ocean-levels/vo/l11-01-39fa53b10c.wav",
+    "seconds": 2.77,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l11",
+    "index": 2,
+    "text": "Deep-sea fish hold themselves together with a molecule called TMAO.",
+    "file": "L01-ocean-levels/vo/l11-02-7d49358c36.wav",
+    "seconds": 4.13,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l11",
+    "index": 3,
+    "text": "Think of it as chemical scaffolding: it keeps proteins in shape when pressure tries to fold them, and the deeper a fish lives, the more of it it packs into its cells.",
+    "file": "L01-ocean-levels/vo/l11-03-492a51d90a.wav",
+    "seconds": 9.2,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l11",
+    "index": 4,
+    "text": "But scaffolding has a ceiling. At somewhere around eight thousand two hundred metres, a fish would need so much TMAO that the rest of its body chemistry stops working.",
+    "file": "L01-ocean-levels/vo/l11-04-25f5ddfa85.wav",
+    "seconds": 9.37,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l11",
+    "index": 5,
+    "text": "The wall isn't the pressure itself. The wall is that a fish, built the way fish are built, runs out of the chemistry to answer it.",
+    "file": "L01-ocean-levels/vo/l11-05-5fa101d2c8.wav",
+    "seconds": 6.64,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l11",
+    "index": 6,
+    "text": "Below that line, as far as anyone has ever found: no fish. Anywhere.",
+    "file": "L01-ocean-levels/vo/l11-06-c2cc037ac2.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "l11",
+    "index": 7,
+    "text": "There are still more than two and a half kilometres to go.",
+    "file": "L01-ocean-levels/vo/l11-07-2d74d29af7.wav",
+    "seconds": 2.53,
+    "pauseAfter": 0.8
+  },
+  {
+    "scene": "l12",
+    "index": 0,
+    "text": "Ten thousand nine hundred and thirty-five metres. Challenger Deep, in the Mariana Trench, south-west of Guam.",
+    "file": "L01-ocean-levels/vo/l12-00-760f8fe90b.wav",
+    "seconds": 5.91,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l12",
+    "index": 1,
+    "text": "If you stood Mount Everest in here, its summit would still be about two kilometres under water.",
+    "file": "L01-ocean-levels/vo/l12-01-bfc9f9ddc6.wav",
+    "seconds": 5.02,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l12",
+    "index": 2,
+    "text": "The pressure is more than a thousand times the surface — roughly eight tons on every square inch.",
+    "file": "L01-ocean-levels/vo/l12-02-115139eebe.wav",
+    "seconds": 4.96,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l12",
+    "index": 3,
+    "text": "Humans first came here on the twenty-third of January, 1960. Two men, Jacques Piccard and Don Walsh, inside a steel sphere, sinking for nearly five hours.",
+    "file": "L01-ocean-levels/vo/l12-03-e21970b417.wav",
+    "seconds": 9.28,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l12",
+    "index": 4,
+    "text": "On the way down, an outer window cracked with a bang that shook the whole craft. They kept going. They spent twenty minutes on the bottom.",
+    "file": "L01-ocean-levels/vo/l12-04-8ca76dcd75.wav",
+    "seconds": 6.83,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l12",
+    "index": 5,
+    "text": "Then, for fifty-two years, nobody went back at all. James Cameron went down alone in 2012. And since 2019, a single submarine has carried the great majority of everyone who has ever made the trip.",
+    "file": "L01-ocean-levels/vo/l12-05-b96b3647b9.wav",
+    "seconds": 11.32,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "l12",
+    "index": 6,
+    "text": "Today, more than twenty people have stood — or rather, sat — at the deepest place on Earth. That is more people than have ever walked on the Moon.",
+    "file": "L01-ocean-levels/vo/l12-06-f37bd4998d.wav",
+    "seconds": 7.21,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "l12",
+    "index": 7,
+    "text": "And even here, there is life. Tiny shrimp-like animals called amphipods live in Challenger Deep, feeding on whatever sinks this far — including, of all things, wood.",
+    "file": "L01-ocean-levels/vo/l12-07-2dc6572fda.wav",
+    "seconds": 9.67,
+    "pauseAfter": 0.9
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "Twelve levels. A sunlit skin we all know. A twilight of animals that hide by glowing. A nightly migration bigger than anything on land. Gardens that never needed the Sun.",
+    "file": "L01-ocean-levels/vo/closer-00-5457bec922.wav",
+    "seconds": 11.92,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "And eleven kilometres down, in permanent darkness, small animals getting on with their lives.",
+    "file": "L01-ocean-levels/vo/closer-01-61b8497103.wav",
+    "seconds": 5.47,
+    "pauseAfter": 0.7
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "And here's the part that keeps oceanographers up at night. Of that entire eleven-kilometre stack, only about twenty-nine per cent of the sea floor has ever been properly mapped.",
+    "file": "L01-ocean-levels/vo/closer-02-a0fe35f9ed.wav",
+    "seconds": 8.67,
+    "pauseAfter": 0.6
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "So — that roof we started on?",
+    "file": "L01-ocean-levels/vo/closer-03-e0e968b718.wav",
+    "seconds": 2.16,
+    "pauseAfter": 0.5
+  },
+  {
+    "scene": "closer",
+    "index": 4,
+    "text": "Most of what's under it is still a blank space on the map.",
+    "file": "L01-ocean-levels/vo/closer-04-a2f05921cf.wav",
+    "seconds": 3.12,
+    "pauseAfter": 1.2
+  },
+  {
+    "scene": "closer",
+    "index": 5,
+    "text": "Next: the animals that actually live down here — every type of deep-sea creature, and the trick each one uses to survive.",
+    "file": "L01-ocean-levels/vo/closer-05-bd5bdf930d.wav",
+    "seconds": 6.93,
+    "pauseAfter": 1
+  }
+]

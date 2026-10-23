@@ -1,0 +1,4 @@
+faster-whisper==1.1.1
+num2words==0.5.14
+requests>=2.31
+av==14.0.1 # faster-whisper 1.1.1 calls av.open(metadata_errors=...), gone in newer PyAV; 14.4.0 has no Linux wheel (2026-09-30)

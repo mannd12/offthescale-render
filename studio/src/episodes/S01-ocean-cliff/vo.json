@@ -1,0 +1,66 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Nobody shows you the rest of the ocean. So let's go down — and not come back up.",
+    "file": "S01-ocean-cliff/vo/cold-00-cc0835a619.wav",
+    "seconds": 5.2599583333333335,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Forty metres. That's the recreational scuba limit.",
+    "file": "S01-ocean-cliff/vo/cold-01-df73a52b5e.wav",
+    "seconds": 2.83,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Three hundred and thirty-two metres. The deepest anyone has ever gone on scuba. It took him more than thirteen hours to come back up.",
+    "file": "S01-ocean-cliff/vo/cold-02-5852f64f04.wav",
+    "seconds": 7.320041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "One thousand metres. The last of the sunlight is gone. Everything below here lives in the dark.",
+    "file": "S01-ocean-cliff/vo/cold-03-80ba61db71.wav",
+    "seconds": 4.96,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Three thousand eight hundred metres. Titanic. And that's about the average depth of the ocean floor.",
+    "file": "S01-ocean-cliff/vo/cold-04-47e630f879.wav",
+    "seconds": 5.48,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Six thousand metres. The ordinary sea floor runs out here. To go deeper, you need a trench.",
+    "file": "S01-ocean-cliff/vo/cold-05-fc721fb4b0.wav",
+    "seconds": 5.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "And there are still almost five kilometres left.",
+    "file": "S01-ocean-cliff/vo/cold-06-2f9953260d.wav",
+    "seconds": 2.7000416666666665,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "The whole dive, all the way to the bottom, is linked right here.",
+    "file": "S01-ocean-cliff/vo/cold-07-1c55713a57.wav",
+    "seconds": 3.1900416666666667,
+    "pauseAfter": 0.55
+  }
+]

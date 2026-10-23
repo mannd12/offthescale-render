@@ -1,0 +1,28 @@
+{
+  "name": "channel-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Code-rendered video studio: Remotion animation + local Kokoro TTS",
+  "scripts": {
+    "preview": "remotion studio src/index.ts",
+    "tts": "node scripts/tts.mjs",
+    "render": "node scripts/render.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.526",
+    "@remotion/cli": "4.0.526",
+    "@remotion/renderer": "4.0.526",
+    "kokoro-js": "1.2.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.526"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
