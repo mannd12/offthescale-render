@@ -117,34 +117,6 @@ const Fish: React.FC<{ color: string; outline?: string; x: number; y: number; w:
   );
 };
 
-/** red outline first ("the animals you meet"), then filled red ("are red") */
-const Shrimp: React.FC<{ fill: number; x: number; y: number; frame: number; opacity: number }> = ({ fill, x, y, frame, opacity }) => {
-  const twitch = Math.sin(frame / 7) * 4;
-  return (
-    <svg width={260} height={180} viewBox="0 0 200 140" style={{ position: "absolute", left: x, top: y, opacity, overflow: "visible" }}>
-      <path d="M150 34 L196 6 M150 38 L198 22" stroke={RED} strokeWidth={3} fill="none" transform={`rotate(${twitch} 150 36)`} />
-      <path d="M40 104 Q 70 30 150 40" stroke={RED} strokeWidth={40} strokeLinecap="round" fill="none" />
-      <path d="M40 104 Q 70 30 150 40" stroke={B.ink} strokeOpacity={1 - fill} strokeWidth={32} strokeLinecap="round" fill="none" />
-      <path d="M40 104 L14 126 L44 132 Z" fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={3} />
-      {[70, 90, 110, 130].map((lx) => (
-        <path key={lx} d={`M${lx} ${lx < 90 ? 66 : 56} l -6 ${26 + twitch / 2}`} stroke={RED} strokeWidth={4} />
-      ))}
-    </svg>
-  );
-};
-
-const Jelly: React.FC<{ fill: number; x: number; y: number; frame: number; opacity: number }> = ({ fill, x, y, frame, opacity }) => {
-  const pulse = 1 + Math.sin(frame / 9) * 0.04;
-  return (
-    <svg width={200} height={250} viewBox="0 0 160 200" style={{ position: "absolute", left: x, top: y, opacity, overflow: "visible" }}>
-      <path d={`M${80 - 70 * pulse} 80 Q 80 ${-20 / pulse} ${80 + 70 * pulse} 80 Z`} fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={4} />
-      {[30, 55, 80, 105, 130].map((tx, i) => (
-        <path key={tx} d={`M${tx} 82 q ${8 * Math.sin(frame / 8 + i)} 30 0 60 q ${-8 * Math.sin(frame / 8 + i)} 30 0 50`} stroke={RED} strokeWidth={4} fill="none" />
-      ))}
-    </svg>
-  );
-};
-
 const SPECTRUM = ["#E5332A", "#F28A1E", "#F5D332", "#3DBA5A", "#2F7FE0"];
 /** five colour bands of sunlight; red is the one the water takes. `red` 1 = present, 0 = gone */
 const Spectrum: React.FC<{ x: number; y: number; red: number; opacity: number }> = ({ x, y, red, opacity }) => (
@@ -280,8 +252,17 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
               <path d="M152 55 L196 22 L186 55 L196 88 Z" fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={4} />
               <path d="M18 55 C 48 12, 128 8, 160 52 C 128 100, 48 100, 18 55 Z" fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={4} />
             </svg>
-            <Shrimp fill={fill} x={640} y={560 + bob(1)} frame={frame} opacity={on} />
-            <Jelly fill={fill} x={430} y={760 + bob(2)} frame={frame} opacity={on} />
+            {/* two more generic red fish (NOAA #6 names no kinds): a deep-bodied one and a long thin one */}
+            <svg width={230} height={170} viewBox="0 0 200 150" style={{ position: "absolute", left: 660, top: 560 + bob(1), opacity: on, overflow: "visible" }}>
+              <path d={`M150 75 L196 ${36 + Math.sin(frame / 6) * 5} L184 75 L196 ${114 + Math.sin(frame / 6) * 5} Z`} fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={4} />
+              <path d="M14 75 C 30 10, 130 6, 158 72 C 130 144, 30 140, 14 75 Z" fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={4} />
+              <circle cx={42} cy={64} r={7} fill={B.ink} />
+            </svg>
+            <svg width={300} height={90} viewBox="0 0 300 90" style={{ position: "absolute", left: 430, top: 820 + bob(2), opacity: on, overflow: "visible" }}>
+              <path d={`M262 45 L298 ${22 + Math.sin(frame / 5) * 4} L290 45 L298 ${68 + Math.sin(frame / 5) * 4} Z`} fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={4} />
+              <path d="M8 45 C 40 22, 200 20, 266 42 C 200 70, 40 68, 8 45 Z" fill={`rgba(215,38,43,${fill})`} stroke={RED} strokeWidth={4} />
+              <circle cx={30} cy={42} r={5} fill={B.ink} />
+            </svg>
           </>
         );
       })()}
@@ -318,7 +299,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <div style={{ marginTop: 50, fontFamily: F.ui, fontWeight: 800, fontSize: 34, letterSpacing: 3, color: B.gauge }}>EVERY LEVEL OF THE OCEAN</div>
         <div style={{ marginTop: 16, fontFamily: F.caption, fontWeight: 600, fontSize: 56, color: B.paper, textAlign: "center", whiteSpace: "nowrap" }}>the answer: level 5</div>
         <div style={{ marginTop: 4, fontFamily: F.caption, fontWeight: 600, fontSize: 56, color: B.paper, textAlign: "center", whiteSpace: "nowrap" }}>the midnight zone</div>
-        <div style={{ marginTop: 40, fontFamily: F.caption, fontWeight: 600, fontSize: 64, color: B.gauge }}>full video linked below</div>
+        <div style={{ marginTop: 40, fontFamily: F.caption, fontWeight: 600, fontSize: 64, color: B.gauge }}>full video on the channel</div>
         <svg width={120} height={140} viewBox="0 0 120 140" style={{ marginTop: 10 + 10 * Math.sin(frame / 6) }}>
           <path d="M60 10 V118 M18 78 L60 124 L102 78" stroke={B.gauge} strokeWidth={16} fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

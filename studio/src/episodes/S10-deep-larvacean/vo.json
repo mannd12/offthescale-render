@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Five centimetres of animal. A house up to a metre wide.",
+    "file": "S10-deep-larvacean/vo/cold-00.wav",
+    "seconds": 4.13,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "And it builds that house itself — out of mucus.",
+    "file": "S10-deep-larvacean/vo/cold-01.wav",
+    "seconds": 3.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Two filters, one inside the other — and the inner one is fine enough to trap tiny particles.",
+    "file": "S10-deep-larvacean/vo/cold-02.wav",
+    "seconds": 6.55,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "When the filters clog, it simply moves out — and builds a new house.",
+    "file": "S10-deep-larvacean/vo/cold-03.wav",
+    "seconds": 5.18,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "The old one sinks. And not slowly: up to eight hundred metres in a single day.",
+    "file": "S10-deep-larvacean/vo/cold-04.wav",
+    "seconds": 5.95,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Scientists call them sinkers. They carry carbon from the surface down into the deep sea.",
+    "file": "S10-deep-larvacean/vo/cold-05.wav",
+    "seconds": 5.5,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "But scientists found those houses carry something else down with them, too.",
+    "file": "S10-deep-larvacean/vo/cold-06.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "What it is — and every other type of deep-sea creature — is linked right here.",
+    "file": "S10-deep-larvacean/vo/cold-07.wav",
+    "seconds": 5.87,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

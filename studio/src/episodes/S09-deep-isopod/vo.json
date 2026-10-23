@@ -1,0 +1,83 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Picture a pill bug — the woodlouse under a flowerpot. Now make it a foot and a half long.",
+    "file": "S09-deep-isopod/vo/cold-00.wav",
+    "seconds": 6.97,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "That's a giant isopod. A real relative of the pill bug, on the deep-sea floor.",
+    "file": "S09-deep-isopod/vo/cold-01.wav",
+    "seconds": 5.6,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Fourteen legs. And when it's bothered, it curls into a ball, just like its tiny cousin.",
+    "file": "S09-deep-isopod/vo/cold-02.wav",
+    "seconds": 6.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Even its eggs are huge: just over a centimetre across — among the biggest of any marine invertebrate.",
+    "file": "S09-deep-isopod/vo/cold-03.wav",
+    "seconds": 6.55,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "A NOAA camera found one more than a thousand metres down, eating a fish head.",
+    "file": "S09-deep-isopod/vo/cold-04.wav",
+    "seconds": 5.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "In captivity, some giant isopods have gone years without eating anything at all.",
+    "file": "S09-deep-isopod/vo/cold-05.wav",
+    "seconds": 4.74,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Then, when food finally comes, they gorge.",
+    "file": "S09-deep-isopod/vo/cold-06.wav",
+    "seconds": 2.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So how do you survive years with nothing to eat?",
+    "file": "S09-deep-isopod/vo/cold-07.wav",
+    "seconds": 3.61,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "That trick is a type of its own. Every type of deep-sea creature is linked right here.",
+    "file": "S09-deep-isopod/vo/cold-08.wav",
+    "seconds": 6.19,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

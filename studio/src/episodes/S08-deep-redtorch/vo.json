@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Imagine hunting with a torch your prey can't see.",
+    "file": "S08-deep-redtorch/vo/cold-00.wav",
+    "seconds": 3.27,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "In the deep sea, almost every light is blue — because blue is the light that travels best through water.",
+    "file": "S08-deep-redtorch/vo/cold-01.wav",
+    "seconds": 7.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "And most deep-sea animals can't see red at all.",
+    "file": "S08-deep-redtorch/vo/cold-02.wav",
+    "seconds": 3.27,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "But three kinds of loose-jawed dragonfish carry a second light, under each eye. It shines far-red — beyond seven hundred nanometres.",
+    "file": "S08-deep-redtorch/vo/cold-03.wav",
+    "seconds": 7.76,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "And unlike almost everything around them, they can see it.",
+    "file": "S08-deep-redtorch/vo/cold-04.wav",
+    "seconds": 3.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So picture it: a red beam sweeping through the dark, lighting up animals that have no idea they're lit.",
+    "file": "S08-deep-redtorch/vo/cold-05.wav",
+    "seconds": 6.89,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "One of them sees its red light with a pigment you would never expect to find in a fish's eye.",
+    "file": "S08-deep-redtorch/vo/cold-06.wav",
+    "seconds": 7.04,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "What it is, and seven more tricks of the deep, is linked right here.",
+    "file": "S08-deep-redtorch/vo/cold-07.wav",
+    "seconds": 5.18,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
