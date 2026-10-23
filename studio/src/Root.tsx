@@ -15,6 +15,10 @@ import { EpisodeL04, timeline as l04 } from "./episodes/L04-internet-levels/Epis
 import { ThumbL04, ThumbL04B } from "./episodes/L04-internet-levels/Thumbs";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
+import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
+import { ShortS04, timeline as s04 } from "./episodes/S04-ocean-tubeworm/Short";
+import { ShortS05, timeline as s05 } from "./episodes/S05-ocean-whale/Short";
+import { ShortS06, timeline as s06 } from "./episodes/S06-ocean-lastfish/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 
 export const Root: React.FC = () => (
@@ -35,6 +39,10 @@ export const Root: React.FC = () => (
     {/* S01 - the first Short (cliffhanger for L01), vertical, under 60 s */}
     <Composition id="s01-short" component={ShortS01} durationInFrames={s01.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s02-short" component={ShortS02} durationInFrames={s02.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s03-short" component={ShortS03} durationInFrames={s03.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s04-short" component={ShortS04} durationInFrames={s04.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s05-short" component={ShortS05} durationInFrames={s05.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s06-short" component={ShortS06} durationInFrames={s06.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 

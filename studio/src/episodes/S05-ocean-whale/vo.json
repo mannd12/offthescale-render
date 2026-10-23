@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "One hundred and thirty-seven minutes. On a single breath.",
+    "file": "S05-ocean-whale/vo/cold-00.wav",
+    "seconds": 3.45,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "That's the longest dive ever recorded for any mammal — and the deepest belongs to the same kind of whale.",
+    "file": "S05-ocean-whale/vo/cold-01.wav",
+    "seconds": 7.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Not the sperm whale. It hunts giant squid more than two kilometres down, and it still loses.",
+    "file": "S05-ocean-whale/vo/cold-02.wav",
+    "seconds": 6.29,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "This is Cuvier's beaked whale. Scientists off California tracked one to two thousand nine hundred and ninety-two metres.",
+    "file": "S05-ocean-whale/vo/cold-03.wav",
+    "seconds": 6.53,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "The best scuba diver in history stopped at three hundred and thirty-two. This whale goes nine times deeper.",
+    "file": "S05-ocean-whale/vo/cold-04.wav",
+    "seconds": 6.53,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Under about three hundred times the pressure you're feeling right now.",
+    "file": "S05-ocean-whale/vo/cold-05.wav",
+    "seconds": 3.95,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So how does it survive? By doing something to its own lungs that sounds like a catastrophe.",
+    "file": "S05-ocean-whale/vo/cold-06.wav",
+    "seconds": 6.19,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "How it pulls that off is level seven of the full dive, linked right here.",
+    "file": "S05-ocean-whale/vo/cold-07.wav",
+    "seconds": 5.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

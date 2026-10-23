@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Below a certain depth, no fish has ever been found. Anywhere.",
+    "file": "S06-ocean-lastfish/vo/cold-00.wav",
+    "seconds": 4.23,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Eight thousand three hundred and thirty-six metres. In 2022, in a trench south of Japan, scientists filmed a snailfish there.",
+    "file": "S06-ocean-lastfish/vo/cold-01.wav",
+    "seconds": 7.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "It's the deepest fish anyone has ever seen.",
+    "file": "S06-ocean-lastfish/vo/cold-02.wav",
+    "seconds": 2.92,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "And it's right at the edge. Scientists think fish hit a wall at around eight thousand two hundred to eight thousand four hundred metres.",
+    "file": "S06-ocean-lastfish/vo/cold-03.wav",
+    "seconds": 8.59,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "But the ocean doesn't stop there. It keeps going — for more than two and a half kilometres.",
+    "file": "S06-ocean-lastfish/vo/cold-04.wav",
+    "seconds": 6.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And the wall isn't the pressure crushing them.",
+    "file": "S06-ocean-lastfish/vo/cold-05.wav",
+    "seconds": 2.92,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So if it isn't the crush — what stops a fish?",
+    "file": "S06-ocean-lastfish/vo/cold-06.wav",
+    "seconds": 4.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "The answer is level eleven of the full dive, linked right here.",
+    "file": "S06-ocean-lastfish/vo/cold-07.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
