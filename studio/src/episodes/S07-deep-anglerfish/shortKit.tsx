@@ -96,8 +96,10 @@ export const Captions: React.FC<{ t: SceneTiming; hide?: number; top?: number }>
       const from = within(t, i, c.at);
       // (the last chunk of the last line holds to the end: interpolate() needs a finite frame, so use one past the scene)
       const to = j + 1 < chunks.length ? within(t, i, chunks[j + 1].at) : i + 1 < n ? lineAt(t, i + 1) : t.frames + 30;
-      const on = ease(frame, from, 5) * (1 - ease(frame, to, 4));
-      if (on <= 0) return;
+      // hard cut between chunks: a chunk is up only in [from, to), so two chunks are never on screen together (review
+      // 2026-10-22: a 4-frame cross-fade overlaid "She's…" and "He's two point eight" in the same place)
+      if (frame < from || frame >= to) return;
+      const on = 1;
       items.push(
         <div key={`${i}-${j}`} style={{ position: "absolute", left: 70, right: 150, top, height: 300, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", opacity: on * (1 - hide) }}>
           <div style={{ fontFamily: F.caption, fontWeight: 600, fontSize: 60, lineHeight: 1.14, textWrap: "balance", color: B.paper, textShadow: "0 3px 0 #0B1B2B, 0 0 18px rgba(0,0,0,0.9), 0 6px 24px rgba(0,0,0,0.8)" }}>{c.text}</div>

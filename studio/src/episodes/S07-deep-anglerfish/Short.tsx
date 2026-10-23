@@ -60,10 +60,10 @@ const Her: React.FC<{ glow: number; bump?: number; pulse?: number; frame: number
 );
 
 /** Him: a small fish, length 100 local units, facing right (head at x 100). No lure, no light. */
-const Him: React.FC<{ fill?: string }> = ({ fill = "#24506E" }) => (
+const Him: React.FC<{ fill?: string; edge?: number }> = ({ fill = "#24506E", edge = 1 }) => (
   <g>
-    <path d="M0 -13 L 22 0 L 0 13 Z" fill={fill} stroke={HER_EDGE} strokeWidth={2} strokeLinejoin="round" />
-    <ellipse cx={60} cy={0} rx={42} ry={16} fill={fill} stroke={HER_EDGE} strokeWidth={2} />
+    <path d="M0 -13 L 22 0 L 0 13 Z" fill={fill} stroke={HER_EDGE} strokeOpacity={edge} strokeWidth={2} strokeLinejoin="round" />
+    <ellipse cx={60} cy={0} rx={42} ry={16} fill={fill} stroke={HER_EDGE} strokeOpacity={edge} strokeWidth={2} />
     <circle cx={88} cy={-4} r={3} fill="#9FB3C4" />
   </g>
 );
@@ -153,7 +153,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const fuse = smooth(frame, fusesAt, fusesAt + 40);
   const vessel = smooth(frame, bloodAt, bloodAt + 30);
   const himFill = `rgb(${Math.round(lerp(0x24, 0x14, fuse))}, ${Math.round(lerp(0x50, 0x36, fuse))}, ${Math.round(lerp(0x6e, 0x4f, fuse))})`;
-  const zoom3 = 1 + 0.05 * lin(frame, L(3), L(4));
+  const zoom3 = 1.05 + 0.1 * lin(frame, L(3), L(4)); // a slow push in on the join
 
   // line 4: zoom out on her, the bump where he was
   const s4scale = lerp(1.2, 1.05, smooth(frame, L(4), L(5)));
@@ -215,22 +215,30 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Note x={180} y={262} rows={["in some deep-sea anglerfish"]} opacity={s2} />
       <Note x={645} y={890} rows={["never lets go"]} opacity={s2 * ease(frame, neverAt, 10)} color={B.gauge} size={28} />
 
-      {/* ---- line 3: drawn close-up of the join - the seam dissolves, then one blood supply runs through both */}
+      {/* ---- line 3: the same two drawings as line 2 (same scale), him attached under her belly. They merge: his colour
+          blends into hers and both outlines at the join fade; then one blood supply runs from her body down into his and back */}
       <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity: s3 }}>
-        <g transform={`translate(540 600) scale(${zoom3}) translate(-540 -600)`}>
-          <path d="M 160 200 L 920 200 L 920 520 C 760 600, 320 600, 160 520 Z" fill={HER_FILL} stroke={HER_EDGE} strokeWidth={5} />
-          <path d="M 540 940 L 486 1032 L 594 1032 Z" fill={himFill} stroke={HER_EDGE} strokeWidth={4} strokeLinejoin="round" />
-          <ellipse cx={540} cy={760} rx={70} ry={190} fill={himFill} stroke={HER_EDGE} strokeWidth={4} />
-          {/* the seam: his outline and hers, gone as they fuse */}
-          <ellipse cx={540} cy={592} rx={78} ry={10 + 34 * fuse} fill={HER_FILL} opacity={fuse} />
-          <path d="M 470 576 Q 540 600 610 576" fill="none" stroke={B.paper} strokeWidth={5} strokeDasharray="12 10" opacity={1 - fuse} />
+        <g transform={`translate(${attach.x} 800) scale(${zoom3}) translate(${-attach.x} -800)`}>
+          <g transform={`translate(${herS2.x} ${herS2.y}) scale(${herS2.s})`}>
+            <Her glow={0.6} frame={frame} />
+          </g>
+          <g transform={`translate(${attach.x} ${attach.y}) rotate(-90) translate(-100 0)`}>
+            <Him fill={himFill} edge={1 - 0.85 * fuse} />
+          </g>
+          {/* the seam: covered in her colour as they fuse */}
+          <ellipse cx={attach.x} cy={attach.y + 2} rx={20} ry={5 + 10 * fuse} fill={HER_FILL} opacity={fuse} />
+          <path d={`M ${attach.x - 18} ${attach.y} Q ${attach.x} ${attach.y + 6} ${attach.x + 18} ${attach.y}`} fill="none" stroke={B.paper} strokeWidth={3} strokeDasharray="6 5" opacity={1 - fuse} />
           {/* the blood supply: drawn in, then flowing */}
-          <path d="M 380 300 C 430 500, 500 650, 515 880 Q 540 920 565 880 C 580 650, 650 500, 700 300" pathLength={1} fill="none" stroke="#E8322B" strokeWidth={10} strokeLinecap="round" strokeDasharray="1 1" strokeDashoffset={1 - vessel} />
-          <path d="M 380 300 C 430 500, 500 650, 515 880 Q 540 920 565 880 C 580 650, 650 500, 700 300" pathLength={1} fill="none" stroke="#FFB0A8" strokeWidth={6} strokeLinecap="round" strokeDasharray="0.015 0.05" strokeDashoffset={-frame / 220} opacity={ease(frame, joinsAt, 12)} />
+          {[
+            { stroke: "#E8322B", w: 6, dash: "1 1", off: 1 - vessel, op: 1 },
+            { stroke: "#FFB0A8", w: 3, dash: "0.015 0.05", off: -frame / 220, op: ease(frame, joinsAt, 12) },
+          ].map((s) => (
+            <path key={s.stroke} d={`M 420 760 C 470 800, ${attach.x - 6} 830, ${attach.x - 6} ${attach.y} L ${attach.x - 6} ${attach.y + 66} Q ${attach.x} ${attach.y + 80} ${attach.x + 6} ${attach.y + 66} L ${attach.x + 6} ${attach.y} C ${attach.x + 6} 830, 560 800, 620 760`} pathLength={1} fill="none" stroke={s.stroke} strokeWidth={s.w} strokeLinecap="round" strokeDasharray={s.dash} strokeDashoffset={s.off} opacity={s.op} />
+          ))}
         </g>
       </svg>
       <Note x={180} y={1086} rows={["his body fuses into hers"]} opacity={s3 * ease(frame, fusesAt, 10)} />
-      <Note x={640} y={640} rows={["one blood supply"]} opacity={s3 * ease(frame, joinsAt, 10)} color="#FF8A80" size={28} />
+      <Note x={580} y={950} rows={["one blood supply"]} opacity={s3 * ease(frame, joinsAt, 10)} color="#FF8A80" size={28} />
 
       {/* ---- line 4: drawn - zooming out on her; he is now a bump on her belly */}
       <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity: s4 }}>

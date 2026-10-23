@@ -59,7 +59,10 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const end = ease(frame, builtAt, 12);
 
   // the switch-off
-  const off = ease(frame, offAt, 8);
+  // the Sun is shown bright and whole first (review 2026-10-22: it read as black from frame 1); it dims on "switched off",
+  // never before ~1.5 s, so there is always a visible Sun to switch off
+  const offFrom = Math.max(offAt, 45);
+  const off = ease(frame, offFrom, 10);
   // the countdown: 8:20 when it is said, then time-lapsed down to 0:00
   const k = lin(frame, eightAt, zeroAt); // 0..1 of the 8 min 20 s gone
   const remaining = TOTAL_S * (1 - k);
@@ -80,7 +83,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const hopX = hopF < 0 || hopF > MOON_FRAMES ? -1 : lerp(EARTH.x + EARTH.r, MOON.x - MOON.r, hopF / MOON_FRAMES);
 
   const chip =
-    frame < offAt
+    frame < offFrom
       ? "drawn · Sun photo: NASA/SDO, 8 Sept 2010"
       : cur <= 1
         ? "switch-off imagined · Sun: NASA/SDO, 2010"
@@ -90,7 +93,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
     <AbsoluteFill style={{ backgroundColor: "#04070D" }}>
       {/* the Sun (NASA/SDO), the top band - "switched off" by darkening it */}
       <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: SUN_H, overflow: "hidden" }}>
-        <Img src={staticFile("assets/sun-sdo.jpg")} style={{ width: 1080, height: SUN_H, objectFit: "cover", transform: `scale(${1.04 + 0.06 * lin(frame, 0, L(2))})`, transformOrigin: "50% 50%", filter: `brightness(${lerp(1, 0.07, off)}) saturate(${lerp(1, 0.3, off)})` }} />
+        <Img src={staticFile("assets/sun-sdo.jpg")} style={{ width: 1080, height: SUN_H, objectFit: "cover", transform: `scale(${1.04 + 0.06 * lin(frame, 0, L(2))})`, transformOrigin: "50% 50%", filter: `brightness(${lerp(1.15, 0.07, off)}) saturate(${lerp(1.1, 0.3, off)})` }} />
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 220, background: "linear-gradient(transparent, #04070D)" }} />
       </div>
       <div style={{ position: "absolute", left: 640, top: 300, padding: "4px 24px", border: `7px solid ${B.tease}`, borderRadius: 14, color: B.tease, fontFamily: F.headline, fontSize: 110, lineHeight: 1.05, letterSpacing: 4, whiteSpace: "nowrap", transform: `rotate(-8deg) scale(${lerp(1.5, 1, off)})`, opacity: off * (1 - ease(frame, L(1), 10)) }}>OFF</div>
@@ -154,7 +157,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Captions t={t} hide={end} />
       <SeriesPill text="EVERY LEVEL OF SPEED" opacity={1 - end} />
       <Note x={40} y={156} rows={["level 12 · the speed of light"]} opacity={1 - end} color={B.gauge} size={24} />
-      <EndCard opacity={end} series="EVERY LEVEL OF SPEED" line="the fastest thing ever built" />
+      <EndCard opacity={end} series="EVERY LEVEL OF SPEED" line="level 12: the speed of light" />
     </AbsoluteFill>
   );
 };

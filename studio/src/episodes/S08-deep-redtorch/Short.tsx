@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { loadBrandFonts } from "../../brand/fonts";
 import { CreditChip } from "../../brand/kit";
@@ -12,10 +12,10 @@ import vo from "./vo.json";
 loadBrandFonts();
 
 /**
- * S08 - a torch its prey can't see (episodes/S08-deep-redtorch). Video 2's second Short: TYPE 2 Â· THE RED TORCH.
+ * S08 - a torch its prey can't see (episodes/S08-deep-redtorch). Video 2's second Short: TYPE 2 · THE RED TORCH.
  * Vertical 1080x1920; rail on the left, content x 160-930, chip y ~1,170-1,216, captions y 1,290-1,590 (shortKit).
- * Lines: 0 the beam (drawn) Â· 1 blue light (comb-jelly plate + spectrum) Â· 2 red unseen Â· 3 the loosejaw + its lamp Â·
- * 4 they can see it Â· 5 the beam again, wider Â· 6 a pigment...? Â· 7 end card.
+ * Lines: 0 the beam (drawn) · 1 blue light (comb-jelly plate + spectrum) · 2 red unseen · 3 the loosejaw + its lamp ·
+ * 4 they can see it · 5 the beam again, wider · 6 a pigment...? · 7 end card.
  * Honesty: every beam and lamp is drawn (chip ILLUSTRATION whenever one is up - here, every line). The line-1/2 plate
  * is a comb jelly (Duobrachium sparksae, NOAA 2015) - said on the picture from its first frame. The loosejaw plate is
  * a Malacosteus niger TRAWLED from 1,500 m (2005), a 1956x504 strip with the head on the left: shown as a band, and
@@ -127,7 +127,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const bandZoom = cur === 6 ? 1 + 0.35 * smooth(frame, L(6), pigmentAt + 20) : 1 + 0.04 * lin(frame, L(3), L(5));
   const blur = ease(frame, pigmentAt, 14);
 
-  const chip = cur === 1 || cur === 2 ? "drawn lights Â· NOAA photo: a comb jelly, 2015" : cur === 3 || cur === 4 || cur === 6 ? "drawn light Â· NOAA NEFSC photo: loosejaw, 1,500 m" : undefined;
+  const chip = cur === 1 || cur === 2 ? "drawn lights · NOAA photo: a comb jelly, 2015" : cur === 3 || cur === 4 || cur === 6 ? "drawn light · NOAA NEFSC photo: loosejaw, 1,500 m" : undefined;
 
   // blue sparks over the jelly plate (drawn bioluminescence)
   const sparks = Array.from({ length: 22 }, (_, i) => {
@@ -152,7 +152,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {jelly > 0 ? <PlateFade /> : null}
       <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity: jelly * (1 - 0.6 * ease(frame, L(2), 16)) }}>{sparks}</svg>
-      <Note x={180} y={230} rows={["shown: a comb jelly Â· NOAA, 2015"]} opacity={jelly} />
+      <Note x={180} y={230} rows={["shown: a comb jelly · NOAA, 2015"]} opacity={jelly} />
 
       {/* the spectrum (x 180-900, y 880-950): blue boxed on "is blue", the red end shaded on "can't see red" */}
       <div style={{ position: "absolute", left: 180, top: 880, width: 720, opacity: spec }}>
@@ -174,7 +174,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Img src={staticFile("assets/loosejaw.jpg")} style={{ display: "block", width: BAND.w, height: BAND.h, objectFit: "cover", objectPosition: "0% 55%", transform: `scale(${bandZoom})`, transformOrigin: "12% 50%", filter: "brightness(1.08)" }} />
         </div>
       ) : null}
-      <Note x={176} y={576} rows={["loosejaw Â· trawled from 1,500 m, 2005"]} opacity={band} />
+      <Note x={176} y={576} rows={["loosejaw · trawled from 1,500 m, 2005"]} opacity={band} />
       <Card x={180} y={662} big={["3 KINDS"]} small={["loose-jawed dragonfish"]} opacity={span(frame, L(3), L(4))} />
       <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity: head }}>
         <g transform={`translate(180 ${985 + 4 * Math.sin(frame / 13)})`}>

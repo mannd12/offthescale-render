@@ -26,6 +26,9 @@ const LINES = vo as VoLine[];
 export const timeline = buildTimeline(LINES);
 
 const CLIP_FRAMES = 360; // isopod-swim is trimmed on the runner to seconds 0-12
+const CLIP_CLEAN = 216; // NOAA's title card ends before this frame (L02 Types5to8.tsx uses the clip from here)
+const CLIP_RATE = 0.75;
+const CLIP_RUN = Math.floor((CLIP_FRAMES - CLIP_CLEAN) / CLIP_RATE); // 192 frames of clean footage on screen
 
 /** a pill bug, seen from above, head to the right; local length 100 (x -50..50). curl 0..1 rolls it into a ball. */
 const PillBug: React.FC<{ curl?: number; legs?: number; antennae?: number; frame: number }> = ({ curl = 0, legs = 1, antennae = 1, frame }) => {
@@ -100,14 +103,17 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const pot = 1 - ease(frame, makeAt, 12);
 
   // ---- clips (lines 1 and 4) and the still (2, 5, 6, 7)
-  const clip1 = span(frame, L(1), L(2));
+  // The clip opens on NOAA's own title card (logo, "GIANT ISOPOD", "Gulf of Mexico 2017"): it is used only from frame
+  // CLIP_CLEAN on (as L02 does), slowed to 0.75 so its 144 clean frames cover line 1; the still waits underneath and
+  // takes over if the voiced line 1 runs longer. Line 4 uses the still (no second pass through the clip).
+  const line1 = span(frame, L(1), L(2));
   const clip4 = span(frame, L(4), L(5));
-  const still = span(frame, L(2), L(3)) + span(frame, L(5), endAt);
-  const dur4 = L(5) - L(4) + 12;
-  const trim4 = Math.max(0, CLIP_FRAMES - dur4 - 4);
+  const clipEnd = L(1) + CLIP_RUN - 8;
+  const clip1 = line1 * (1 - ease(frame, clipEnd, 8));
+  const still = Math.min(1, line1 + span(frame, L(2), L(3)) + clip4 + span(frame, L(5), endAt));
   const grey = cur === 5 ? lin(frame, L(5), L(6)) : cur === 6 ? 1 - ease(frame, foodAt, 14) : 0;
   const dark = cur === 7 ? ease(frame, L(7), 16) : 0;
-  const stillMove = cur === 2 ? { s: 1.12 + 0.1 * lin(frame, L(2), L(3)), o: "40% 92%" } : { s: 1.1 + 0.12 * lin(frame, L(5), endAt), o: "38% 62%" };
+  const stillMove = cur === 1 ? { s: 1.08 + 0.06 * lin(frame, L(1), L(2)), o: "60% 50%" } : cur === 4 ? { s: 1.15 + 0.08 * lin(frame, L(4), L(5)), o: "45% 60%" } : cur === 2 ? { s: 1.12 + 0.1 * lin(frame, L(2), L(3)), o: "40% 92%" } : { s: 1.1 + 0.12 * lin(frame, L(5), endAt), o: "38% 62%" };
 
   // line 2: fourteen legs counted, then the drawn curl
   const legCount = Math.round(14 * lin(frame, L(2) + 4, L(2) + 34));
@@ -129,7 +135,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       : cur === 2 && frame >= curlAt
         ? { kind: "illustration" as const, source: "inset drawn · photo: NOAA Ocean Exploration, EX1711" }
         : cur === 4
-          ? { kind: "illustration" as const, source: "fish head drawn · clip: NOAA, EX1711" }
+          ? { kind: "illustration" as const, source: "fish head drawn · photo: NOAA, EX1711" }
           : cur === 6
             ? { kind: "illustration" as const, source: "fish head drawn · photo: NOAA, EX1711" }
             : { kind: "real" as const, source: "NOAA Ocean Exploration · EX1711" };
@@ -154,33 +160,26 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Note x={180} y={1018} rows={["0"]} opacity={s0} size={26} />
       <Note x={540} y={1018} rows={["1½ ft · 45 cm"]} opacity={s0 * ease(frame, footAt, 10)} color={B.gauge} size={34} />
 
-      {/* ---- line 1 and line 4: the NOAA clip (EX1711) */}
-      {clip1 > 0 ? (
-        <Sequence from={L(1)} durationInFrames={L(2) - L(1) + 12} layout="none">
-          <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1180, opacity: clip1 }}>
-            <OffthreadVideo src={staticFile("assets/isopod-swim.mp4")} muted style={{ width: 1080, height: 1180, objectFit: "cover", filter: "brightness(0.9)" }} />
-          </div>
-        </Sequence>
-      ) : null}
-      {clip4 > 0 ? (
-        <Sequence from={L(4)} durationInFrames={dur4} layout="none">
-          <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1180, opacity: clip4 }}>
-            <OffthreadVideo src={staticFile("assets/isopod-swim.mp4")} trimBefore={trim4} muted style={{ width: 1080, height: 1180, objectFit: "cover", filter: "brightness(0.8)" }} />
-          </div>
-        </Sequence>
-      ) : null}
-
-      {/* ---- the still (lines 2, 5-7) */}
+      {/* ---- the still (under the clip on line 1; lines 2, 4-7) */}
       {still > 0 ? (
         <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1180, overflow: "hidden", opacity: still }}>
           <Img src={staticFile("assets/isopod-still.jpg")} style={{ width: 1080, height: 1180, objectFit: "cover", objectPosition: "40% 55%", transform: `scale(${stillMove.s})`, transformOrigin: stillMove.o, filter: `saturate(${1 - 0.9 * grey}) brightness(${(0.88 - 0.25 * grey) * (1 - 0.55 * dark)})` }} />
         </div>
       ) : null}
-      {clip1 + clip4 + still > 0 ? <PlateFade /> : null}
+
+      {/* ---- line 1: the NOAA clip (EX1711), past its title card */}
+      {clip1 > 0 ? (
+        <Sequence from={L(1)} durationInFrames={CLIP_RUN} layout="none">
+          <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1180, opacity: clip1 }}>
+            <OffthreadVideo src={staticFile("assets/isopod-swim.mp4")} trimBefore={CLIP_CLEAN} playbackRate={CLIP_RATE} muted style={{ width: 1080, height: 1180, objectFit: "cover", filter: "brightness(0.9)" }} />
+          </div>
+        </Sequence>
+      ) : null}
+      {clip1 + still > 0 ? <PlateFade /> : null}
 
       {/* line 1 */}
-      <Card x={180} y={850} big={["GIANT ISOPOD"]} opacity={clip1 * ease(frame, isopodAt, 10)} />
-      <Note x={180} y={980} rows={["a real relative of the pill bug"]} opacity={clip1 * ease(frame, relAt, 10)} color={B.gauge} size={30} />
+      <Card x={180} y={850} big={["GIANT ISOPOD"]} opacity={line1 * ease(frame, isopodAt, 10)} />
+      <Note x={180} y={980} rows={["a real relative of the pill bug"]} opacity={line1 * ease(frame, relAt, 10)} color={B.gauge} size={30} />
 
       {/* line 2: fourteen legs, counted; then the drawn curl in an inset */}
       <div style={{ position: "absolute", left: 180, top: 790, opacity: span(frame, L(2), L(3)) }}>
@@ -217,7 +216,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Note x={180} y={330} rows={["among the biggest", "of any marine invertebrate"]} opacity={s3 * ease(frame, biggestAt, 10)} color={B.gauge} size={30} />
 
       {/* ---- line 4: the clip is NOT the fish-head dive - said on the picture from its first frame */}
-      <Note x={180} y={250} rows={["this clip: a different NOAA dive, 2017"]} opacity={clip4} />
+      <Note x={180} y={250} rows={["shown: a different NOAA dive, 2017"]} opacity={clip4} />
       <Card x={180} y={830} big={["> 1,000 m"]} opacity={clip4 * ease(frame, thousandAt, 10)} />
       <Note x={180} y={980} rows={["eating a fish head"]} opacity={clip4 * ease(frame, headAt, 10)} color={B.gauge} size={30} />
       <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity: clip4 * ease(frame, headAt, 10) }}>
