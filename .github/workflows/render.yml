@@ -269,6 +269,7 @@ jobs:
         run: |
           [ -n "$(ls out 2>/dev/null)" ] || exit 0
           (cd out && zip -q -r "$RUNNER_TEMP/$OUT.zip" .)
+          gh release view renders > /dev/null 2>&1 || gh release create renders --title "Rendered videos" --notes "Rendered files (stills, frames, videos)."
           gh release upload renders "$RUNNER_TEMP/$OUT.zip" --clobber
 
       - uses: actions/upload-artifact@v4
