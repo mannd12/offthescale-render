@@ -3,72 +3,64 @@
     "scene": "cold",
     "index": 0,
     "text": "No mouth. No stomach. No gut at all.",
-    "file": "S04-ocean-tubeworm/vo/cold-00.wav",
-    "seconds": 3.28,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-00-99bd56c1c2.wav",
+    "seconds": 3.5,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "And a grown one stands up to about two metres tall.",
-    "file": "S04-ocean-tubeworm/vo/cold-01.wav",
-    "seconds": 3.95,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-01-7e50446f13.wav",
+    "seconds": 2.57,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "It was found in 1977, two and a half kilometres down, near the Galápagos Islands, by the submersible Alvin.",
-    "file": "S04-ocean-tubeworm/vo/cold-02.wav",
-    "seconds": 6.99,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-02-3479906eed.wav",
+    "seconds": 5.82,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Its home is a crack in the sea floor, where the water comes out of the rock at more than seven hundred degrees Fahrenheit.",
-    "file": "S04-ocean-tubeworm/vo/cold-03.wav",
-    "seconds": 8.51,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-03-ca96b68b21.wav",
+    "seconds": 5.36,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "No sunlight has ever reached this place. And a grown worm never eats at all.",
-    "file": "S04-ocean-tubeworm/vo/cold-04.wav",
-    "seconds": 5.5,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-04-58cbd980cc.wav",
+    "seconds": 4.38,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "And it wasn't alone. The same discovery turned up clams a foot long.",
-    "file": "S04-ocean-tubeworm/vo/cold-05.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-05-de451c6e74.wav",
+    "seconds": 3.75,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "So what is feeding all of them — in a place the Sun has never touched?",
-    "file": "S04-ocean-tubeworm/vo/cold-06.wav",
-    "seconds": 5.77,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-06-e32c0809e4.wav",
+    "seconds": 3.81,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "The answer is level six of the full dive, linked right here.",
-    "file": "S04-ocean-tubeworm/vo/cold-07.wav",
-    "seconds": 4.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S04-ocean-tubeworm/vo/cold-07-7389c0f082.wav",
+    "seconds": 3.4400416666666667,
+    "pauseAfter": 0.55
   }
 ]
