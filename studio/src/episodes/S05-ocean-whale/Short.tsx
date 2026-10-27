@@ -11,10 +11,10 @@ loadBrandFonts();
 
 /**
  * S05 - "two hours on one breath" (episodes/S05-ocean-whale). Cliffhanger for L01 level 7 (8:15):
- * Cuvier's beaked whale holds the longest (137.5 min) and the deepest (2,992 m) mammal dives - how
+ * Cuvier's beaked whale holds the longest (222 min, Quick et al. 2020) and the deepest (2,992 m, Schorr et al. 2014) mammal dives - how
  * does it survive? (Not answered: the lungs only flash and get a "?".)
  * Vertical 1080x1920; everything important in x 70-930 and above y 1,600 (Shorts UI).
- * Lines: 0 137 minutes · 1 two records · 2 not the sperm whale · 3 Cuvier's, 2,992 m · 4 vs the 332 m
+ * Lines: 0 3 h 42 min · 1 two records · 2 not the sperm whale · 3 Cuvier's, 2,992 m · 4 vs the 332 m
  * scuba record, 9x · 5 ~300x pressure · 6 its lungs? · 7 end card.
  * The only whale photo is `beaked-whale` (USGS, near the surface, from the air - not the tagged whale);
  * the sperm whale, the diver and the lungs are drawn. In the L01 plate frame the whale sits at about
@@ -148,14 +148,14 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <Gauge x={30} top={G_TOP} height={G_H} stops={stops} position={posOf(depth)} reading={`${Math.round(depth).toLocaleString("en-US")} m`} />
       </div>
 
-      {/* line 0: the count to 137 minutes, and a running stopwatch (drawn) */}
+      {/* line 0: the count to 3 h 42 min (222 minutes), and a running stopwatch (drawn) */}
       {(() => {
         const on = win(0, L(1), 1, 8);
         const minutesAt = cue(t, 0, "minutes");
-        const count = Math.round(137 * ease(frame, 1, Math.max(12, minutesAt)));
+        const count = Math.round(222 * ease(frame, 1, Math.max(12, minutesAt)));
         return (
           <div style={{ position: "absolute", left: 380, top: 180, opacity: on }}>
-            <div style={{ fontFamily: F.headline, fontSize: 150, lineHeight: 1, color: B.paper, whiteSpace: "nowrap", textShadow: "0 4px 20px rgba(0,0,0,0.8)" }}>{count} min</div>
+            <div style={{ fontFamily: F.headline, fontSize: 112, lineHeight: 1, color: B.paper, whiteSpace: "nowrap", textShadow: "0 4px 20px rgba(0,0,0,0.8)" }}>{Math.floor(count / 60)} h {count % 60} min</div>
             <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 36, letterSpacing: 2, color: B.gauge, whiteSpace: "nowrap", textShadow: "0 2px 10px rgba(0,0,0,0.9)", opacity: ease(frame, cue(t, 0, "On a single"), 8) }}>ON A SINGLE BREATH</div>
           </div>
         );
@@ -182,7 +182,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         const b = cue(t, 1, "the deepest");
         return (
           <>
-            <Card label="LONGEST MAMMAL DIVE" value="137.5 min" x={380} y={180} opacity={on * ease(frame, a, 8)} slide={ease(frame, a, 12)} />
+            <Card label="LONGEST MAMMAL DIVE" value="222 min" x={380} y={180} opacity={on * ease(frame, a, 8)} slide={ease(frame, a, 12)} />
             <Card label="DEEPEST MAMMAL DIVE" value="?" x={380} y={300} opacity={on * ease(frame, b, 8)} slide={ease(frame, b, 12)} />
           </>
         );
