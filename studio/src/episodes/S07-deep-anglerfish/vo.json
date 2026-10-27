@@ -3,72 +3,64 @@
     "scene": "cold",
     "index": 0,
     "text": "She's twenty centimetres long. He's two point eight.",
-    "file": "S07-deep-anglerfish/vo/cold-00.wav",
-    "seconds": 3.1,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-00-7bebf6229d.wav",
+    "seconds": 3.55,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Above her mouth hangs a glowing lure. He has no lure — and no light at all.",
-    "file": "S07-deep-anglerfish/vo/cold-01.wav",
-    "seconds": 6.29,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-01-549e01ec7d.wav",
+    "seconds": 5.55,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "In some deep-sea anglerfish, when he finds her, he latches on. And he never lets go.",
-    "file": "S07-deep-anglerfish/vo/cold-02.wav",
-    "seconds": 6.05,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-02-758081942a.wav",
+    "seconds": 5.619958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Over time, his body fuses into hers. Their blood supply joins up.",
-    "file": "S07-deep-anglerfish/vo/cold-03.wav",
-    "seconds": 4.57,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-03-4495b07164.wav",
+    "seconds": 4.41,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "He becomes a permanent part of her — for the rest of both their lives.",
-    "file": "S07-deep-anglerfish/vo/cold-04.wav",
-    "seconds": 5.42,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-04-fd359fb245.wav",
+    "seconds": 3.92,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Two animals. One bloodstream. One lure.",
-    "file": "S07-deep-anglerfish/vo/cold-05.wav",
-    "seconds": 2.6,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-05-9162c44598.wav",
+    "seconds": 2.99,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "And that lure — the light she fishes with? It isn't even hers.",
-    "file": "S07-deep-anglerfish/vo/cold-06.wav",
-    "seconds": 4.92,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-06-6ea81087aa.wav",
+    "seconds": 3.84,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "Whose light it is, and seven more ways to live in the dark, is linked right here.",
-    "file": "S07-deep-anglerfish/vo/cold-07.wav",
-    "seconds": 6.21,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S07-deep-anglerfish/vo/cold-07-50d9328575.wav",
+    "seconds": 4.02,
+    "pauseAfter": 0.55
   }
 ]
