@@ -3,72 +3,64 @@
     "scene": "cold",
     "index": 0,
     "text": "There's a worm that eats bone. And it has no way to chew.",
-    "file": "S11-deep-boneeater/vo/cold-00.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-00-97a302e488.wav",
+    "seconds": 3.75,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "When a whale dies and sinks, scavengers strip the flesh in a matter of months. Then the skeleton is left.",
-    "file": "S11-deep-boneeater/vo/cold-01.wav",
-    "seconds": 7.32,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-01-c265de0724.wav",
+    "seconds": 6.25,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "That's when Osedax moves in. The female grows branching roots into the bone.",
-    "file": "S11-deep-boneeater/vo/cold-02.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-02-fb7408ae8d.wav",
+    "seconds": 5.0099583333333335,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Inside those roots live bacteria that break down the fats locked in the bone — and feed the worm.",
-    "file": "S11-deep-boneeater/vo/cold-03.wav",
-    "seconds": 6.79,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-03-f94de77b79.wav",
+    "seconds": 5.02,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "It was first found on a whale skeleton almost three kilometres down, in Monterey Bay.",
-    "file": "S11-deep-boneeater/vo/cold-04.wav",
-    "seconds": 5.42,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-04-f5ae7065ad.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Since then, scientists have found thirty-two species — on the bones of whales, fish, birds, turtles, even land mammals.",
-    "file": "S11-deep-boneeater/vo/cold-05.wav",
-    "seconds": 7.29,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-05-374573eb3d.wav",
+    "seconds": 7.12,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "So far, that's all about the female. The males are a whole different story.",
-    "file": "S11-deep-boneeater/vo/cold-06.wav",
-    "seconds": 5.26,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-06-58b88de7bb.wav",
+    "seconds": 3.69,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "Where they are — and seven more ways to live in the deep — is linked right here.",
-    "file": "S11-deep-boneeater/vo/cold-07.wav",
-    "seconds": 6.55,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S11-deep-boneeater/vo/cold-07-a649010973.wav",
+    "seconds": 3.8200416666666666,
+    "pauseAfter": 0.55
   }
 ]

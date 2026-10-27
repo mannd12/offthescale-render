@@ -3,54 +3,48 @@
     "scene": "cold",
     "index": 0,
     "text": "Imagine the Sun switched off. Right now. You wouldn't know.",
-    "file": "S12-speed-sun/vo/cold-00.wav",
-    "seconds": 3.97,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S12-speed-sun/vo/cold-00-6d985dd21a.wav",
+    "seconds": 3.37,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "The light already on its way would keep arriving for eight minutes and twenty seconds.",
-    "file": "S12-speed-sun/vo/cold-01.wav",
-    "seconds": 5.32,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S12-speed-sun/vo/cold-01-cd94ac03fd.wav",
+    "seconds": 4.16,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "That light could cross from the Earth to the Moon in one point three seconds.",
-    "file": "S12-speed-sun/vo/cold-02.wav",
-    "seconds": 5.32,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S12-speed-sun/vo/cold-02-bb586191ae.wav",
+    "seconds": 3.7700416666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Nothing in the universe goes faster. No matter, no energy, no message.",
-    "file": "S12-speed-sun/vo/cold-03.wav",
-    "seconds": 4.67,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S12-speed-sun/vo/cold-03-a04a5ca3f9.wav",
+    "seconds": 4.05,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "And still, from the Sun, it takes eight minutes.",
-    "file": "S12-speed-sun/vo/cold-04.wav",
-    "seconds": 3.47,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S12-speed-sun/vo/cold-04-d2f4acb9de.wav",
+    "seconds": 2.57,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "So how close have we ever got to that speed? The fastest thing people have ever built is linked right here.",
-    "file": "S12-speed-sun/vo/cold-05.wav",
-    "seconds": 7.56,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S12-speed-sun/vo/cold-05-7f1638cf7a.wav",
+    "seconds": 5.58,
+    "pauseAfter": 0.55
   }
 ]
