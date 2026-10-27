@@ -4,7 +4,7 @@
     "index": 0,
     "text": "You have seen this picture. The internet as an iceberg: the little tip you can search, and the enormous dark mass underneath.",
     "file": "L04-internet-levels/vo/cold-00-d5feaa3f42.wav",
-    "seconds": 7.379958333333334,
+    "seconds": 7.55,
     "pauseAfter": 0.25
   },
   {
@@ -12,7 +12,7 @@
     "index": 1,
     "text": "Every video about it tells you there are seven or eight levels, and that the bottom ones are too dangerous to name.",
     "file": "L04-internet-levels/vo/cold-01-ea49606ab3.wav",
-    "seconds": 5.76,
+    "seconds": 5.88,
     "pauseAfter": 0.55
   },
   {
@@ -20,7 +20,7 @@
     "index": 2,
     "text": "Most of that picture is a meme. Three of the levels are real. The rest were invented on a forum.",
     "file": "L04-internet-levels/vo/cold-02-d6d298a2f2.wav",
-    "seconds": 4.999958333333334,
+    "seconds": 5.23,
     "pauseAfter": 0.55
   },
   {
@@ -28,7 +28,7 @@
     "index": 3,
     "text": "So here is the honest version. We go down the real levels, we stop at the exact line where the myth begins — and then we keep going. Because there is something under the dark web. It just isn't what they told you.",
     "file": "L04-internet-levels/vo/cold-03-670430a9b3.wav",
-    "seconds": 11.02,
+    "seconds": 12.73,
     "pauseAfter": 0.55
   },
   {
@@ -36,7 +36,7 @@
     "index": 4,
     "text": "Level one is the only part of the internet you have ever searched.",
     "file": "L04-internet-levels/vo/cold-04-ea6b8c62b3.wav",
-    "seconds": 2.95,
+    "seconds": 3.3200416666666666,
     "pauseAfter": 0.55
   },
   {
@@ -44,7 +44,7 @@
     "index": 0,
     "text": "The surface web is everything a search engine can find. If you can type it into a search box and get it back, it's here: news, shops, videos, this one.",
     "file": "L04-internet-levels/vo/l01-00-6a1480771f.wav",
-    "seconds": 8.560041666666667,
+    "seconds": 9.1,
     "pauseAfter": 0.55
   },
   {
@@ -52,7 +52,7 @@
     "index": 1,
     "text": "How does it find them? Google's own explanation: automated programs called crawlers download pages and follow the links on them, much as you would if you were browsing.",
     "file": "L04-internet-levels/vo/l01-01-a6faa592a8.wav",
-    "seconds": 8.72,
+    "seconds": 9.59,
     "pauseAfter": 0.25
   },
   {
@@ -60,7 +60,7 @@
     "index": 2,
     "text": "Everything they read goes into an index — in Google's words, like the index in the back of a book, with an entry for every word seen on every page.",
     "file": "L04-internet-levels/vo/l01-02-0c9894bfc9.wav",
-    "seconds": 7.41,
+    "seconds": 7.97,
     "pauseAfter": 0.55
   },
   {
@@ -68,7 +68,7 @@
     "index": 3,
     "text": "That index covers hundreds of billions of pages and is well over a hundred million gigabytes, kept in a database spread across thousands of computers.",
     "file": "L04-internet-levels/vo/l01-03-aad084b1a7.wav",
-    "seconds": 7.4,
+    "seconds": 8.300041666666667,
     "pauseAfter": 0.25
   },
   {
@@ -76,7 +76,7 @@
     "index": 4,
     "text": "And even then, Google says plainly that indexing isn't guaranteed: not every page it reads makes the cut.",
     "file": "L04-internet-levels/vo/l01-04-f2f91b09a2.wav",
-    "seconds": 5.7000416666666665,
+    "seconds": 5.59,
     "pauseAfter": 0.55
   },
   {
@@ -84,7 +84,7 @@
     "index": 5,
     "text": "So when you search, you aren't searching the internet. You're searching a book index that somebody built of the part of it they were allowed to read.",
     "file": "L04-internet-levels/vo/l01-05-f3050d8dd2.wav",
-    "seconds": 6.13,
+    "seconds": 6.67,
     "pauseAfter": 0.55
   },
   {
@@ -92,7 +92,7 @@
     "index": 6,
     "text": "It feels like everything. It isn't.",
     "file": "L04-internet-levels/vo/l01-06-be33fc6184.wav",
-    "seconds": 2.11,
+    "seconds": 2.06,
     "pauseAfter": 0.25
   },
   {
@@ -100,7 +100,7 @@
     "index": 7,
     "text": "In 2001 a researcher named Michael Bergman published the paper that gave the layer below its name — \"the deep web\" — and estimated it at something like five hundred times the size of the searchable web.",
     "file": "L04-internet-levels/vo/l01-07-ec31a52371.wav",
-    "seconds": 9.9,
+    "seconds": 10.43,
     "pauseAfter": 0.25
   },
   {
@@ -108,7 +108,7 @@
     "index": 8,
     "text": "That was one estimate, a quarter of a century ago, and nobody has properly measured it since. But the point survives: the part you can search is the small part.",
     "file": "L04-internet-levels/vo/l01-08-8febcb012f.wav",
-    "seconds": 8.12,
+    "seconds": 8.135,
     "pauseAfter": 0.55
   },
   {
@@ -116,7 +116,7 @@
     "index": 9,
     "text": "Level one of seven. The next one is where most of your own life online actually is.",
     "file": "L04-internet-levels/vo/l01-09-def3335f84.wav",
-    "seconds": 5.04,
+    "seconds": 5.955,
     "pauseAfter": 0.55
   },
   {
@@ -124,7 +124,7 @@
     "index": 0,
     "text": "The deep web is everything a search engine can't reach — and almost all of it is boring. Your email inbox. Your bank's account page. A hospital's patient records. The inside of a paywall. A company database.",
     "file": "L04-internet-levels/vo/l02-00-48a2deab48.wav",
-    "seconds": 12.08,
+    "seconds": 11.73,
     "pauseAfter": 0.25
   },
   {
@@ -132,7 +132,7 @@
     "index": 1,
     "text": "A page that only exists when you fill in a form.",
     "file": "L04-internet-levels/vo/l02-01-0a8a6dd7a5.wav",
-    "seconds": 2.54,
+    "seconds": 2.2,
     "pauseAfter": 0.55
   },
   {
@@ -140,7 +140,7 @@
     "index": 2,
     "text": "None of that is hidden because it's sinister. It's hidden because it's yours, or theirs, and it sits behind a login.",
     "file": "L04-internet-levels/vo/l02-02-ce5cefb2ca.wav",
-    "seconds": 6.08,
+    "seconds": 5.9,
     "pauseAfter": 0.55
   },
   {
@@ -148,7 +148,7 @@
     "index": 3,
     "text": "Every video puts a skull on this level. You use it every day.",
     "file": "L04-internet-levels/vo/l02-03-a0135e490f.wav",
-    "seconds": 3.55,
+    "seconds": 3.25,
     "pauseAfter": 0.55
   },
   {
@@ -156,7 +156,7 @@
     "index": 4,
     "text": "Two levels down. Now the one that earned the skull.",
     "file": "L04-internet-levels/vo/l02-04-a959bebb4e.wav",
-    "seconds": 3.08,
+    "seconds": 2.73,
     "pauseAfter": 0.55
   },
   {
@@ -164,7 +164,7 @@
     "index": 0,
     "text": "The dark web is the part you can't reach with a normal browser at all.",
     "file": "L04-internet-levels/vo/l03-00-cd4fdcd961.wav",
-    "seconds": 2.98,
+    "seconds": 3.16,
     "pauseAfter": 0.25
   },
   {
@@ -172,7 +172,7 @@
     "index": 1,
     "text": "You need special software that routes your connection through at least three other computers, encrypting it at each step, so that nobody watching the network can tell who is talking to whom.",
     "file": "L04-internet-levels/vo/l03-01-ae429a7dc8.wav",
-    "seconds": 8.66,
+    "seconds": 8.97,
     "pauseAfter": 0.55
   },
   {
@@ -180,7 +180,7 @@
     "index": 2,
     "text": "The best-known version is called Tor. And its origin is the opposite of what you'd guess.",
     "file": "L04-internet-levels/vo/l03-02-3a3cc00e70.wav",
-    "seconds": 4.25,
+    "seconds": 4.28,
     "pauseAfter": 0.25
   },
   {
@@ -188,7 +188,7 @@
     "index": 3,
     "text": "In 1995, three researchers at the U.S. Naval Research Laboratory — David Goldschlag, Michael Reed and Paul Syverson — asked whether internet connections could be built that didn't reveal who was talking to whom, even to someone monitoring the wire.",
     "file": "L04-internet-levels/vo/l03-03-4e23c76fbc.wav",
-    "seconds": 13.34,
+    "seconds": 13.09,
     "pauseAfter": 0.25
   },
   {
@@ -196,7 +196,7 @@
     "index": 4,
     "text": "Their answer was \"onion routing.\"",
     "file": "L04-internet-levels/vo/l03-04-879c651ed4.wav",
-    "seconds": 1.72,
+    "seconds": 1.56,
     "pauseAfter": 0.55
   },
   {
@@ -204,7 +204,7 @@
     "index": 5,
     "text": "In October 2002 the Tor network went live, with its code released free and open. By the end of 2003 it had about a dozen volunteer computers, mostly in America and one in Germany.",
     "file": "L04-internet-levels/vo/l03-05-2edec49cb4.wav",
-    "seconds": 10.63,
+    "seconds": 10.36,
     "pauseAfter": 0.25
   },
   {
@@ -212,7 +212,7 @@
     "index": 6,
     "text": "By 2007 it was building bridges to get people past government firewalls; by the Arab Spring, it was how people in blocked countries reached the open web.",
     "file": "L04-internet-levels/vo/l03-06-5e2958a19a.wav",
-    "seconds": 8.09,
+    "seconds": 8.27,
     "pauseAfter": 0.55
   },
   {
@@ -220,7 +220,7 @@
     "index": 7,
     "text": "Yes, the same anonymity protects criminals — and that is the part the other videos stop at. But the network was built by the Navy, funded by a digital-rights group, and used by journalists and dissidents. It's a tool.",
     "file": "L04-internet-levels/vo/l03-07-7a21f47ff1.wav",
-    "seconds": 12.25,
+    "seconds": 11.39,
     "pauseAfter": 0.25
   },
   {
@@ -228,7 +228,7 @@
     "index": 8,
     "text": "What people do with it is what people do.",
     "file": "L04-internet-levels/vo/l03-08-56bb5fda75.wav",
-    "seconds": 2.09,
+    "seconds": 1.83,
     "pauseAfter": 0.55
   },
   {
@@ -236,7 +236,7 @@
     "index": 9,
     "text": "Three levels. That's the whole real iceberg. And here is where every other video keeps going.",
     "file": "L04-internet-levels/vo/l03-09-d8dbdcf17a.wav",
-    "seconds": 5.57,
+    "seconds": 5.03,
     "pauseAfter": 0.55
   },
   {
@@ -244,7 +244,7 @@
     "index": 0,
     "text": "Below the dark web, the iceberg pictures list more levels. \"Marianas Web.\" \"The Fog.\" \"The Primarch System.\" Levels so deep, they say, that you'd need a quantum computer to reach them.",
     "file": "L04-internet-levels/vo/s4-00-cf1656373a.wav",
-    "seconds": 11.56,
+    "seconds": 11.37,
     "pauseAfter": 0.55
   },
   {
@@ -252,7 +252,7 @@
     "index": 1,
     "text": "None of them exist. They come from a picture — an iceberg chart — that spread on forums in the early 2010s, and the names were made up as it spread. There is no verifiable layer below the dark web.",
     "file": "L04-internet-levels/vo/s4-01-88abfba023.wav",
-    "seconds": 10.91,
+    "seconds": 10.57,
     "pauseAfter": 0.25
   },
   {
@@ -260,7 +260,7 @@
     "index": 2,
     "text": "Even the blogs that promote the idea call it a rumour.",
     "file": "L04-internet-levels/vo/s4-02-8b77f6f1f5.wav",
-    "seconds": 2.33,
+    "seconds": 2.32,
     "pauseAfter": 0.55
   },
   {
@@ -268,7 +268,7 @@
     "index": 3,
     "text": "So this is where honest videos should end. Except — the iceberg isn't finished. Look down.",
     "file": "L04-internet-levels/vo/s4-03-0037bfb133.wav",
-    "seconds": 6.53,
+    "seconds": 5.79,
     "pauseAfter": 0.55
   },
   {
@@ -276,7 +276,7 @@
     "index": 4,
     "text": "The internet isn't a stack of secret websites. It's a machine. And the machine goes all the way to the bottom of the sea.",
     "file": "L04-internet-levels/vo/s4-04-dd3d7bc64a.wav",
-    "seconds": 6.000041666666666,
+    "seconds": 6.39,
     "pauseAfter": 0.55
   },
   {
@@ -284,7 +284,7 @@
     "index": 0,
     "text": "Everything you have looked at so far lives on somebody's computer, somewhere else. To get to it, your data leaves your home network, reaches your internet provider — and then has to cross into other networks.",
     "file": "L04-internet-levels/vo/l04-00-60059ae3dd.wav",
-    "seconds": 9.790041666666667,
+    "seconds": 9.890041666666667,
     "pauseAfter": 0.25
   },
   {
@@ -292,7 +292,7 @@
     "index": 1,
     "text": "That happens in specific buildings.",
     "file": "L04-internet-levels/vo/l04-01-2f8df08cd6.wav",
-    "seconds": 1.96,
+    "seconds": 1.72,
     "pauseAfter": 0.55
   },
   {
@@ -300,7 +300,7 @@
     "index": 2,
     "text": "They're called internet exchanges. Networks bring their cables into the same room and connect to each other. Physically, it's less mysterious than it sounds.",
     "file": "L04-internet-levels/vo/l04-02-cd4e1e42d2.wav",
-    "seconds": 7.31,
+    "seconds": 7.24,
     "pauseAfter": 0.25
   },
   {
@@ -308,7 +308,7 @@
     "index": 3,
     "text": "At the heart of an exchange are switches, and every network plugs into them through its own port — some of those ports carrying four hundred gigabits a second.",
     "file": "L04-internet-levels/vo/l04-03-05a53ba2f7.wav",
-    "seconds": 7.16,
+    "seconds": 7.37,
     "pauseAfter": 0.55
   },
   {
@@ -316,7 +316,7 @@
     "index": 4,
     "text": "Why bother? Without an exchange, your data hops through a chain of other people's networks to get anywhere, and every hop adds delay. At an exchange, the two networks hand the traffic across directly. One step.",
     "file": "L04-internet-levels/vo/l04-04-3c804b337c.wav",
-    "seconds": 11.22,
+    "seconds": 11.65,
     "pauseAfter": 0.25
   },
   {
@@ -324,7 +324,7 @@
     "index": 5,
     "text": "The industry's word for that handshake is \"peering.\"",
     "file": "L04-internet-levels/vo/l04-05-f2d5f75b0b.wav",
-    "seconds": 2.1,
+    "seconds": 2.2200416666666665,
     "pauseAfter": 0.55
   },
   {
@@ -332,7 +332,7 @@
     "index": 6,
     "text": "The biggest in Europe is in Frankfurt, and on the eighth of July, 2026, during a World Cup match, it set a record: nineteen point six terabits a second through one exchange.",
     "file": "L04-internet-levels/vo/l04-06-72e9ae5a8e.wav",
-    "seconds": 9.52,
+    "seconds": 9.75,
     "pauseAfter": 0.25
   },
   {
@@ -340,7 +340,7 @@
     "index": 7,
     "text": "Across that company's exchanges worldwide, twenty-nine and a half.",
     "file": "L04-internet-levels/vo/l04-07-ca0f61edbd.wav",
-    "seconds": 3.02,
+    "seconds": 3.39,
     "pauseAfter": 0.55
   },
   {
@@ -348,7 +348,7 @@
     "index": 8,
     "text": "The Frankfurt exchange isn't one building, either: more than a thousand networks are plugged in, and you can reach it from more than thirty data centres around the city. London's has about nine hundred members.",
     "file": "L04-internet-levels/vo/l04-08-e221bcbd49.wav",
-    "seconds": 8.88,
+    "seconds": 9.57,
     "pauseAfter": 0.55
   },
   {
@@ -356,7 +356,7 @@
     "index": 9,
     "text": "That's a level of the internet nobody puts on the iceberg. It's a room.",
     "file": "L04-internet-levels/vo/l04-09-eab4f2e1ca.wav",
-    "seconds": 3.76,
+    "seconds": 3.46,
     "pauseAfter": 0.55
   },
   {
@@ -364,7 +364,7 @@
     "index": 0,
     "text": "And the pages themselves? They live in buildings full of machines, kept cold, kept powered, kept copied. A data centre.",
     "file": "L04-internet-levels/vo/l05-00-fea0d7fe41.wav",
-    "seconds": 7.22,
+    "seconds": 8.73,
     "pauseAfter": 0.55
   },
   {
@@ -372,7 +372,7 @@
     "index": 1,
     "text": "Here is one you can look at, because it belongs to the public: NASA's Pleiades, at the Ames Research Center in California. A hundred and fifty-three racks.",
     "file": "L04-internet-levels/vo/l05-01-02e21de383.wav",
-    "seconds": 8.21,
+    "seconds": 8.18,
     "pauseAfter": 0.25
   },
   {
@@ -380,7 +380,7 @@
     "index": 2,
     "text": "Ten thousand seven hundred and twenty-eight computers, wired together as one. Two hundred and thirty-two thousand processor cores, and nine hundred terabytes of memory.",
     "file": "L04-internet-levels/vo/l05-02-f44a8ab602.wav",
-    "seconds": 8.8,
+    "seconds": 8.9,
     "pauseAfter": 0.25
   },
   {
@@ -388,7 +388,7 @@
     "index": 3,
     "text": "It ran from 2008 until it was switched off in December 2025. The machines that hold your pages look like this — just more of them, and you're not allowed in.",
     "file": "L04-internet-levels/vo/l05-03-25989f4899.wav",
-    "seconds": 8.94,
+    "seconds": 8.41,
     "pauseAfter": 0.55
   },
   {
@@ -396,7 +396,7 @@
     "index": 4,
     "text": "The video you're watching right now is sitting on a drive in one of them. So is your email. So is the \"deep web\" page you were told to fear — it's a row of servers with a badge reader on the door.",
     "file": "L04-internet-levels/vo/l05-04-68a2518987.wav",
-    "seconds": 9.55,
+    "seconds": 9.19,
     "pauseAfter": 0.55
   },
   {
@@ -404,7 +404,7 @@
     "index": 5,
     "text": "Two levels left. And the next one is where the internet goes into the water.",
     "file": "L04-internet-levels/vo/l05-05-44ec49ca38.wav",
-    "seconds": 3.68,
+    "seconds": 3.78,
     "pauseAfter": 0.55
   },
   {
@@ -412,7 +412,7 @@
     "index": 0,
     "text": "If the page you want is on another continent, your data has almost certainly gone under an ocean to get there. Not by satellite. By cable.",
     "file": "L04-internet-levels/vo/l06-00-6aa60a5845.wav",
-    "seconds": 7.03,
+    "seconds": 6.8,
     "pauseAfter": 0.55
   },
   {
@@ -420,7 +420,7 @@
     "index": 1,
     "text": "The cables come ashore at landing stations — quiet buildings near beaches — and near the shore they're buried under the seabed for protection, which is why you never see them at the beach.",
     "file": "L04-internet-levels/vo/l06-01-136e5f8fb1.wav",
-    "seconds": 8.98,
+    "seconds": 8.03,
     "pauseAfter": 0.25
   },
   {
@@ -428,7 +428,7 @@
     "index": 2,
     "text": "The shore end also wears extra armour, because this is where a cable is most at risk: it's where the fishing boats work and where ships drop anchor.",
     "file": "L04-internet-levels/vo/l06-02-74d5377a82.wav",
-    "seconds": 6.86,
+    "seconds": 6.52,
     "pauseAfter": 0.55
   },
   {
@@ -436,7 +436,7 @@
     "index": 3,
     "text": "But the landing station does more than take the cable out of the water. The building holds the power-feeding equipment — the gear that feeds electricity into the cable. A cable isn't only glass; it's wired.",
     "file": "L04-internet-levels/vo/l06-03-5062997775.wav",
-    "seconds": 10.61,
+    "seconds": 9.79,
     "pauseAfter": 0.55
   },
   {
@@ -444,7 +444,7 @@
     "index": 4,
     "text": "It needs to be, because light fades in glass.",
     "file": "L04-internet-levels/vo/l06-04-2f8237e2f6.wav",
-    "seconds": 2.32,
+    "seconds": 2.05,
     "pauseAfter": 0.25
   },
   {
@@ -452,7 +452,7 @@
     "index": 5,
     "text": "So every sixty to eighty kilometres along the sea floor sits a repeater — a device that amplifies the signal so it can make the next leg — and a route across an ocean needs dozens of them.",
     "file": "L04-internet-levels/vo/l06-05-7586c32281.wav",
-    "seconds": 10.08,
+    "seconds": 8.97,
     "pauseAfter": 0.25
   },
   {
@@ -460,7 +460,7 @@
     "index": 6,
     "text": "And the whole thing is built to stay down there for at least twenty-five years — that's the minimum design life.",
     "file": "L04-internet-levels/vo/l06-06-681c58b259.wav",
-    "seconds": 5.59,
+    "seconds": 4.92,
     "pauseAfter": 0.55
   },
   {
@@ -468,7 +468,7 @@
     "index": 7,
     "text": "Then they head out.",
     "file": "L04-internet-levels/vo/l06-07-9eede386c0.wav",
-    "seconds": 1.05,
+    "seconds": 1.81,
     "pauseAfter": 0.55
   },
   {
@@ -476,7 +476,7 @@
     "index": 0,
     "text": "As of 2026 there are more than six hundred submarine cables active or planned, and over one and a half million kilometres of cable in service.",
     "file": "L04-internet-levels/vo/l07-00-1cb223f5a9.wav",
-    "seconds": 8.2,
+    "seconds": 7.82,
     "pauseAfter": 0.25
   },
   {
@@ -484,7 +484,7 @@
     "index": 1,
     "text": "Some are short — a hundred and thirty-one kilometres between Ireland and Britain. Some run twenty thousand.",
     "file": "L04-internet-levels/vo/l07-01-e26a2a38f4.wav",
-    "seconds": 5.66,
+    "seconds": 5.49,
     "pauseAfter": 0.55
   },
   {
@@ -492,7 +492,7 @@
     "index": 2,
     "text": "And for most of the way across an ocean, the whole thing is about as thick as a garden hose. Inside it, the fibres that carry the light are about the width of a human hair.",
     "file": "L04-internet-levels/vo/l07-02-d191398e3f.wav",
-    "seconds": 8.57,
+    "seconds": 8.33,
     "pauseAfter": 0.25
   },
   {
@@ -500,7 +500,7 @@
     "index": 3,
     "text": "In the deep sea, the cable is simply laid on the floor.",
     "file": "L04-internet-levels/vo/l07-03-aefaec4b57.wav",
-    "seconds": 2.72,
+    "seconds": 2.49,
     "pauseAfter": 0.55
   },
   {
@@ -508,7 +508,7 @@
     "index": 4,
     "text": "Which means it breaks. The industry's own count is a hundred and fifty to two hundred cable faults a year, worldwide.",
     "file": "L04-internet-levels/vo/l07-04-3c50fbb6a1.wav",
-    "seconds": 6.6,
+    "seconds": 6.25,
     "pauseAfter": 0.25
   },
   {
@@ -516,7 +516,7 @@
     "index": 5,
     "text": "Not sharks — for the years 2007 to 2014, fish bites of every kind, sharks included, caused exactly zero faults.",
     "file": "L04-internet-levels/vo/l07-05-1ea1eec411.wav",
-    "seconds": 8.36,
+    "seconds": 7.76,
     "pauseAfter": 0.25
   },
   {
@@ -524,7 +524,7 @@
     "index": 6,
     "text": "Seventy to eighty percent of the damage is us: fishing gear and ships' anchors, dragged across a cable by accident.",
     "file": "L04-internet-levels/vo/l07-06-93867f8f2a.wav",
-    "seconds": 6.24,
+    "seconds": 5.77,
     "pauseAfter": 0.55
   },
   {
@@ -532,7 +532,7 @@
     "index": 7,
     "text": "And the fix is surprisingly hands-on. A repair ship sails to the spot, lowers a hook, snags the cable on the sea floor, and hauls it slowly up onto the deck.",
     "file": "L04-internet-levels/vo/l07-07-0fc840bd91.wav",
-    "seconds": 9.28,
+    "seconds": 8.48,
     "pauseAfter": 0.25
   },
   {
@@ -540,7 +540,7 @@
     "index": 8,
     "text": "The damaged piece is cut out and replaced with spare cable the ship carries on board. When two cables were damaged in the Baltic Sea in November 2024, both were back in service within two weeks.",
     "file": "L04-internet-levels/vo/l07-08-81eb1739ba.wav",
-    "seconds": 9.78,
+    "seconds": 9.66,
     "pauseAfter": 0.55
   },
   {
@@ -548,7 +548,7 @@
     "index": 9,
     "text": "Here's the strange part. Since 2014 the network has grown from about a million kilometres of cable to about one point seven million — and the number of faults each year hasn't moved.",
     "file": "L04-internet-levels/vo/l07-09-d03c2ff72e.wav",
-    "seconds": 10.01,
+    "seconds": 9.340041666666666,
     "pauseAfter": 0.55
   },
   {
@@ -556,7 +556,7 @@
     "index": 10,
     "text": "The light inside travels a third slower than light in a vacuum, because it's moving through glass. New York to London and back, at that speed, in theory, is a few hundredths of a second.",
     "file": "L04-internet-levels/vo/l07-10-d0c6dbde87.wav",
-    "seconds": 9.480041666666667,
+    "seconds": 9.85,
     "pauseAfter": 0.25
   },
   {
@@ -564,7 +564,7 @@
     "index": 11,
     "text": "When you tap a link and the page arrives, a pulse of light has gone under the Atlantic and come back before your finger has left the screen.",
     "file": "L04-internet-levels/vo/l07-11-184696f891.wav",
-    "seconds": 6.52,
+    "seconds": 6.44,
     "pauseAfter": 0.55
   },
   {
@@ -572,7 +572,7 @@
     "index": 12,
     "text": "That's the bottom of the iceberg. Not a secret website. A glass hair on the sea floor, carrying almost everything.",
     "file": "L04-internet-levels/vo/l07-12-ee24e4f775.wav",
-    "seconds": 7.05,
+    "seconds": 6.21,
     "pauseAfter": 0.55
   },
   {
@@ -580,7 +580,7 @@
     "index": 0,
     "text": "Seven levels. Three of them are websites. Everything drawn in between is a myth. And four are the machine — a room, a building, a beach, a cable — that every video about \"the levels of the internet\" forgot to mention.",
     "file": "L04-internet-levels/vo/closer-00-f10724f7ad.wav",
-    "seconds": 13.51,
+    "seconds": 13.88,
     "pauseAfter": 0.55
   },
   {
@@ -588,7 +588,7 @@
     "index": 1,
     "text": "None of the real bottom is hidden. The exchange has a door. The data centre has a badge reader. The beach is a beach. And the cable is a garden hose that a fishing boat can snag, and a ship with a hook can mend.",
     "file": "L04-internet-levels/vo/closer-01-280470141b.wav",
-    "seconds": 11.22,
+    "seconds": 11.94,
     "pauseAfter": 0.55
   },
   {
@@ -596,7 +596,7 @@
     "index": 2,
     "text": "So the next time you see the iceberg picture: the scary part at the bottom isn't there. Something better is.",
     "file": "L04-internet-levels/vo/closer-02-6c47f607fa.wav",
-    "seconds": 5.91,
+    "seconds": 5.93,
     "pauseAfter": 0.55
   }
 ]

@@ -3,63 +3,56 @@
     "scene": "cold",
     "index": 0,
     "text": "A hundred metres down, a bright red fish turns black.",
-    "file": "S03-ocean-red/vo/cold-00.wav",
-    "seconds": 3.71,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S03-ocean-red/vo/cold-00-cfa188078d.wav",
+    "seconds": 3.53,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Nothing happened to the fish. Water swallows red light first — and by a hundred metres, the red is completely gone.",
-    "file": "S03-ocean-red/vo/cold-01.wav",
-    "seconds": 7.76,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S03-ocean-red/vo/cold-01-82845ca41c.wav",
+    "seconds": 6.4,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "So a red fish has no red light left to reflect. To anything looking at it, it's simply black.",
-    "file": "S03-ocean-red/vo/cold-02.wav",
-    "seconds": 6.97,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S03-ocean-red/vo/cold-02-64fcd167df.wav",
+    "seconds": 5.34,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "And a hundred metres isn't deep. You're still in the sunlight zone. That runs to two hundred.",
-    "file": "S03-ocean-red/vo/cold-03.wav",
-    "seconds": 6.37,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S03-ocean-red/vo/cold-03-40d7684a2e.wav",
+    "seconds": 4.75,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "Now here's the strange part. Keep going down, and a lot of the animals you meet are red.",
-    "file": "S03-ocean-red/vo/cold-04.wav",
-    "seconds": 6.63,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S03-ocean-red/vo/cold-04-7c5e85ef27.wav",
+    "seconds": 4.71,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "In a world with no red light at all — why would anything be red?",
-    "file": "S03-ocean-red/vo/cold-05.wav",
-    "seconds": 5.42,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S03-ocean-red/vo/cold-05-8d70feb390.wav",
+    "seconds": 3.63,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "The answer is at level five. The whole dive is linked right here.",
-    "file": "S03-ocean-red/vo/cold-06.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S03-ocean-red/vo/cold-06-00cee35bf0.wav",
+    "seconds": 3.33,
+    "pauseAfter": 0.55
   }
 ]
