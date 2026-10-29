@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Los Angeles to Washington, D.C. One hour, four minutes and twenty seconds.",
+    "file": "S14-speed-blackbird/vo/cold-00.wav",
+    "seconds": 4.85,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "March 1990. An SR-71 Blackbird, on its final flight.",
+    "file": "S14-speed-blackbird/vo/cold-01.wav",
+    "seconds": 3.55,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Across the country, averaging about three thousand four hundred kilometres an hour.",
+    "file": "S14-speed-blackbird/vo/cold-02.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "It was built to cruise at more than three times the speed of sound, at up to eighty-five thousand feet.",
+    "file": "S14-speed-blackbird/vo/cold-03.wav",
+    "seconds": 7.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That plane now belongs to the Smithsonian.",
+    "file": "S14-speed-blackbird/vo/cold-04.wav",
+    "seconds": 2.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And the SR-71 still holds a record: the fastest crewed aircraft ever built with engines that breathe air.",
+    "file": "S14-speed-blackbird/vo/cold-05.wav",
+    "seconds": 6.45,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "But it is not the fastest aircraft ever flown.",
+    "file": "S14-speed-blackbird/vo/cold-06.wav",
+    "seconds": 3.27,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So what beat it? That answer is a level of its own, and the full video is linked right here.",
+    "file": "S14-speed-blackbird/vo/cold-07.wav",
+    "seconds": 7.32,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

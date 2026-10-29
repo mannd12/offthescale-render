@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Forget the cheetah speed you've heard. Almost none of those numbers came from a wild cheetah, actually hunting.",
+    "file": "S13-speed-cheetah/vo/cold-00.wav",
+    "seconds": 6.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "A study published in 2013 put collars on five wild cheetahs in Botswana.",
+    "file": "S13-speed-cheetah/vo/cold-01.wav",
+    "seconds": 4.64,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "The collars logged position, speed and acceleration, on three hundred and sixty-seven runs, most of them real hunts.",
+    "file": "S13-speed-cheetah/vo/cold-02.wav",
+    "seconds": 6.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "They caught a top speed. And it is lower than the number you've heard.",
+    "file": "S13-speed-cheetah/vo/cold-03.wav",
+    "seconds": 5.16,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Then the bigger surprise: most of the hunts never came anywhere near it.",
+    "file": "S13-speed-cheetah/vo/cold-04.wav",
+    "seconds": 4.74,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So how fast is a wild cheetah, really? The measured number is in the full video. Tap the link.",
+    "file": "S13-speed-cheetah/vo/cold-05.wav",
+    "seconds": 7.15,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

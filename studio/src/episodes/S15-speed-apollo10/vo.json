@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Three men hold a speed record that nobody has broken in more than fifty years.",
+    "file": "S15-speed-apollo10/vo/cold-00.wav",
+    "seconds": 5.32,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Tom Stafford, Gene Cernan and John Young: the crew of Apollo 10.",
+    "file": "S15-speed-apollo10/vo/cold-01.wav",
+    "seconds": 4.49,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "In May 1969, coming home from the Moon, they hit the top of the atmosphere at twenty-four thousand, seven hundred and ninety-one miles an hour.",
+    "file": "S15-speed-apollo10/vo/cold-02.wav",
+    "seconds": 9.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "That's nearly forty thousand kilometres an hour.",
+    "file": "S15-speed-apollo10/vo/cold-03.wav",
+    "seconds": 2.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "No human beings have ever gone faster, relative to the Earth.",
+    "file": "S15-speed-apollo10/vo/cold-04.wav",
+    "seconds": 4.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So what does hitting the air that fast do to a spacecraft? Find out in the full video. It's linked right here.",
+    "file": "S15-speed-apollo10/vo/cold-05.wav",
+    "seconds": 8.08,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

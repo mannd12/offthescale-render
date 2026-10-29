@@ -25,6 +25,10 @@ import { ShortS09, timeline as s09 } from "./episodes/S09-deep-isopod/Short";
 import { ShortS10, timeline as s10 } from "./episodes/S10-deep-larvacean/Short";
 import { ShortS11, timeline as s11 } from "./episodes/S11-deep-boneeater/Short";
 import { ShortS12, timeline as s12 } from "./episodes/S12-speed-sun/Short";
+import { ShortS13, timeline as s13 } from "./episodes/S13-speed-cheetah/Short";
+import { ShortS14, timeline as s14 } from "./episodes/S14-speed-blackbird/Short";
+import { ShortS15, timeline as s15 } from "./episodes/S15-speed-apollo10/Short";
+import { ShortS16, timeline as s16 } from "./episodes/S16-speed-sunrises/Short";
 import { ShortS17, timeline as s17 } from "./episodes/S17-internet-navy/Short";
 import { ShortS18, timeline as s18 } from "./episodes/S18-internet-anchors/Short";
 import { ShortS19, timeline as s19 } from "./episodes/S19-internet-frankfurt/Short";
@@ -59,6 +63,10 @@ export const Root: React.FC = () => (
     <Composition id="s10-short" component={ShortS10} durationInFrames={s10.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s11-short" component={ShortS11} durationInFrames={s11.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s12-short" component={ShortS12} durationInFrames={s12.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s13-short" component={ShortS13} durationInFrames={s13.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s14-short" component={ShortS14} durationInFrames={s14.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s15-short" component={ShortS15} durationInFrames={s15.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s16-short" component={ShortS16} durationInFrames={s16.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s17-short" component={ShortS17} durationInFrames={s17.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s18-short" component={ShortS18} durationInFrames={s18.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s19-short" component={ShortS19} durationInFrames={s19.totalFrames} fps={FPS} width={1080} height={1920} />

@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "You got one sunrise today. The crew of the space station got fifteen or sixteen.",
+    "file": "S16-speed-sunrises/vo/cold-00.wav",
+    "seconds": 5.5,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Because the station goes all the way around the planet about once every ninety-two minutes.",
+    "file": "S16-speed-sunrises/vo/cold-01.wav",
+    "seconds": 5.32,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "That takes a speed of around twenty-seven thousand seven hundred kilometres an hour.",
+    "file": "S16-speed-sunrises/vo/cold-02.wav",
+    "seconds": 4.64,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Roughly eight kilometres, every second.",
+    "file": "S16-speed-sunrises/vo/cold-03.wav",
+    "seconds": 1.99,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Here's the strange part. The station isn't floating up there. It's falling, the whole time.",
+    "file": "S16-speed-sunrises/vo/cold-04.wav",
+    "seconds": 5.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So why doesn't it ever hit the ground? The answer is a speed, and it's in the full video. The link's right here.",
+    "file": "S16-speed-sunrises/vo/cold-05.wav",
+    "seconds": 8.53,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
