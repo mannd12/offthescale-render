@@ -304,6 +304,22 @@
       "episode": "L03"
     },
     {
+      "id": "apollo10-crew",
+      "nasa": "s69-34385",
+      "licence": "Public domain",
+      "credit": "NASA JSC, S69-34385, 13 May 1969",
+      "episode": "S15",
+      "_page": "https://images.nasa.gov/details/s69-34385 - 'the prime crew of the Apollo 10 lunar orbit mission. Left to right, are Eugene A. Cernan... John W. Young... Thomas P. Stafford'; the Apollo 10 vehicle on Pad B behind them"
+    },
+    {
+      "id": "apollo10-earth",
+      "nasa": "as10-34-5013",
+      "licence": "Public domain",
+      "credit": "NASA JSC, AS10-34-5013, 18 May 1969",
+      "episode": "S15",
+      "_page": "https://images.nasa.gov/details/as10-34-5013 - 'A view of Earth from 36,000 nautical miles away as photographed from the Apollo 10 spacecraft during its trans-lunar journey toward the moon' (taken on the way OUT, not on re-entry)"
+    },
+    {
       "id": "aitken-shed",
       "commons": "Aitken supercomputer shed.jpg",
       "licence": "Public domain",

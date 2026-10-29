@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "What keeps breaking the internet's undersea cables? It isn't sharks.",
+    "file": "S18-internet-anchors/vo/cold-00.wav",
+    "seconds": 3.79,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Between 2007 and 2014, fish bites, sharks included, caused exactly zero cable faults.",
+    "file": "S18-internet-anchors/vo/cold-01.wav",
+    "seconds": 4.94,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Yet there are a hundred and fifty to two hundred faults every year, worldwide.",
+    "file": "S18-internet-anchors/vo/cold-02.wav",
+    "seconds": 5.08,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Seventy to eighty percent of them are us: fishing gear and ships' anchors, dragged across a cable by accident.",
+    "file": "S18-internet-anchors/vo/cold-03.wav",
+    "seconds": 6.89,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Out in the deep, the cable is about as thick as a garden hose, lying on the sea floor.",
+    "file": "S18-internet-anchors/vo/cold-04.wav",
+    "seconds": 6.89,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So when one breaks out there, how do you fix it?",
+    "file": "S18-internet-anchors/vo/cold-05.wav",
+    "seconds": 4.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "The answer involves a hook. It's level seven of the full video, linked below.",
+    "file": "S18-internet-anchors/vo/cold-06.wav",
+    "seconds": 5.26,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
