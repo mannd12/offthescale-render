@@ -3,54 +3,48 @@
     "scene": "cold",
     "index": 0,
     "text": "A U.S. Navy lab came up with the idea behind the dark web's best-known network.",
-    "file": "S17-internet-navy/vo/cold-00.wav",
-    "seconds": 5.68,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S17-internet-navy/vo/cold-00-05c3d6f8f1.wav",
+    "seconds": 4.089958333333334,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Nineteen ninety-five. Three researchers at the Naval Research Laboratory called it onion routing.",
-    "file": "S17-internet-navy/vo/cold-01.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S17-internet-navy/vo/cold-01-4cbb3718c8.wav",
+    "seconds": 4.7,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "Your connection gets wrapped in layers and passed through at least three other computers, so nobody watching can tell who's talking to whom.",
-    "file": "S17-internet-navy/vo/cold-02.wav",
-    "seconds": 8.17,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S17-internet-navy/vo/cold-02-660c2e6708.wav",
+    "seconds": 6.559958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "In 2002 it went live as a free network, named Tor: The Onion Routing.",
-    "file": "S17-internet-navy/vo/cold-03.wav",
-    "seconds": 5.18,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S17-internet-navy/vo/cold-03-ef38955d1f.wav",
+    "seconds": 4.769958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "So why would a navy build a way to hide on the internet? And who actually uses it?",
-    "file": "S17-internet-navy/vo/cold-04.wav",
-    "seconds": 6.53,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S17-internet-navy/vo/cold-04-8bbbb8d161.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Both answers are in level three of the full video. Tap the link.",
-    "file": "S17-internet-navy/vo/cold-05.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S17-internet-navy/vo/cold-05-846ddcb3af.wav",
+    "seconds": 3.05,
+    "pauseAfter": 0.55
   }
 ]

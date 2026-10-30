@@ -3,63 +3,56 @@
     "scene": "cold",
     "index": 0,
     "text": "The pages you load live in buildings full of machines.",
-    "file": "S20-internet-pleiades/vo/cold-00.wav",
-    "seconds": 3.61,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S20-internet-pleiades/vo/cold-00-82f9de54d2.wav",
+    "seconds": 2.75,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Here's one machine you're allowed to see: NASA's Pleiades supercomputer, in California.",
-    "file": "S20-internet-pleiades/vo/cold-01.wav",
-    "seconds": 4.49,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S20-internet-pleiades/vo/cold-01-b67c80ab42.wav",
+    "seconds": 4.35,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "A hundred and fifty-three racks. Ten thousand seven hundred and twenty-eight computers, wired together as one.",
-    "file": "S20-internet-pleiades/vo/cold-02.wav",
-    "seconds": 5.95,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S20-internet-pleiades/vo/cold-02-0e39e85d35.wav",
+    "seconds": 5.18,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Two hundred and thirty-two thousand processor cores, and nine hundred terabytes of memory.",
-    "file": "S20-internet-pleiades/vo/cold-03.wav",
-    "seconds": 4.74,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S20-internet-pleiades/vo/cold-03-7d09d9a42a.wav",
+    "seconds": 4.59,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "It ran from 2008 until December 2025. Then it was switched off.",
-    "file": "S20-internet-pleiades/vo/cold-04.wav",
-    "seconds": 4.47,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S20-internet-pleiades/vo/cold-04-fc4f7d71e5.wav",
+    "seconds": 4.26,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "So where is the video you're watching right now, and who's allowed in?",
-    "file": "S20-internet-pleiades/vo/cold-05.wav",
-    "seconds": 4.74,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S20-internet-pleiades/vo/cold-05-eb0f8a0fda.wav",
+    "seconds": 3.5,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "Level five of the full video goes inside. The link is just below.",
-    "file": "S20-internet-pleiades/vo/cold-06.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S20-internet-pleiades/vo/cold-06-9e3ae61b83.wav",
+    "seconds": 3.45,
+    "pauseAfter": 0.55
   }
 ]

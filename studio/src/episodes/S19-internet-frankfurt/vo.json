@@ -3,54 +3,48 @@
     "scene": "cold",
     "index": 0,
     "text": "The eighth of July, 2026. A World Cup match is on, and one place in Frankfurt breaks a record.",
-    "file": "S19-internet-frankfurt/vo/cold-00.wav",
-    "seconds": 7.07,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S19-internet-frankfurt/vo/cold-00-a16377e23e.wav",
+    "seconds": 5.659958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Nineteen point six terabits of data a second, through a single internet exchange.",
-    "file": "S19-internet-frankfurt/vo/cold-01.wav",
-    "seconds": 4.74,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S19-internet-frankfurt/vo/cold-01-d4fc6fb346.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "More than a thousand networks plug into its switches and hand traffic straight across.",
-    "file": "S19-internet-frankfurt/vo/cold-02.wav",
-    "seconds": 4.98,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S19-internet-frankfurt/vo/cold-02-36b4c4091f.wav",
+    "seconds": 3.89,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Without places like it, your data often takes a longer path, through other people's networks, and every hop adds delay.",
-    "file": "S19-internet-frankfurt/vo/cold-03.wav",
-    "seconds": 7.34,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S19-internet-frankfurt/vo/cold-03-8137681f3b.wav",
+    "seconds": 6.279958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "So what is actually in an internet exchange, and why does your data go there?",
-    "file": "S19-internet-frankfurt/vo/cold-04.wav",
-    "seconds": 5.42,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S19-internet-frankfurt/vo/cold-04-1365b61ed2.wav",
+    "seconds": 3.75,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Level four of the full video opens the door. It's linked right here.",
-    "file": "S19-internet-frankfurt/vo/cold-05.wav",
-    "seconds": 4.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S19-internet-frankfurt/vo/cold-05-5b63e02344.wav",
+    "seconds": 3.33,
+    "pauseAfter": 0.55
   }
 ]
