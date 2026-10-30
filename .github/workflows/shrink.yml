@@ -1,0 +1,38 @@
+# Re-encode a final's video stream to fit the 10 MB browser-upload cap; audio is copied, never touched.
+# gh workflow run shrink.yml -f asset=s13-final.mp4 -f crf=23   -> uploads s13-final-small.mp4 to the renders release
+name: Shrink final
+
+on:
+  workflow_dispatch:
+    inputs:
+      asset:
+        description: mp4 asset name in the renders release
+        required: true
+        type: string
+      crf:
+        description: x264 CRF (render.yml finals use 20)
+        required: false
+        default: "23"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  shrink:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ASSET: ${{ inputs.asset }}
+      CRF: ${{ inputs.crf }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+      - run: |
+          gh release download renders -p "$ASSET" -D work --clobber
+          out="${ASSET%.mp4}-small.mp4"
+          ffmpeg -hide_banner -y -i "work/$ASSET" -c:v libx264 -crf "$CRF" -preset slow -pix_fmt yuv420p -c:a copy -movflags +faststart "work/$out"
+          ffprobe -v error -show_entries stream=codec_type,width,height,duration -of compact "work/$out"
+          ls -l work
+          gh release upload renders "work/$out" --clobber
