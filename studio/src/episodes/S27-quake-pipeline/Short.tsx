@@ -43,7 +43,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const line = span(frame, planAt, howAt + 2);
   const lineFill = smooth(frame, planAt + 6, planAt + 50);
 
-  const chip = frame >= shiftAt && frame < heldAt ? { kind: "illustration" as const, source: "the shift, drawn, not to scale" } : { kind: "real" as const, source: "USGS, Nov 2002" };
+  const chip = frame >= shiftAt && frame < heldAt ? { kind: "illustration" as const, source: "the shift, drawn, not to scale" } : frame >= planAt && frame < howAt ? { kind: "illustration" as const, source: "line drawn · photo: USGS, 2002" } : { kind: "real" as const, source: "USGS, Nov 2002" };
 
   // pipe across the fault: straight, then an S between the two sides as the far side moves
   const cx = PANEL.w / 2 - 90;
@@ -56,7 +56,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 200, background: `linear-gradient(transparent, ${B.ink})` }} />
       </div>
 
-      <Card x={40} y={210} big={["14 FEET. NOT BROKEN."]} size={100} opacity={1 - ease(frame, L(1), 10)} />
+      <Card x={40} y={210} big={["ABOUT 14 FEET. NOT BROKEN."]} size={80} opacity={1 - ease(frame, L(1), 10)} />
       <Note x={40} y={214} rows={["real photo · Trans-Alaska Pipeline", "M7.9 · November 2002"]} size={28} opacity={span(frame, L(1), shiftAt)} />
       <Card x={40} y={330} big={["M7.9"]} size={110} opacity={span(frame, L(1) + 12, shiftAt)} />
 
@@ -75,7 +75,6 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <line x1={0} y1={FAULT_Y} x2={PANEL.w} y2={FAULT_Y} stroke={B.tease} strokeWidth={8} strokeDasharray="26 14" />
           <path d={pipe} stroke={B.paper} strokeWidth={26} fill="none" strokeLinecap="round" />
           <path d={pipe} stroke="#8CA0B3" strokeWidth={10} fill="none" strokeLinecap="round" />
-          <path d={`M${cx} ${FAULT_Y - 150} H${cx + Math.max(d - 16, 0)}`} stroke={B.gauge} strokeWidth={0} />
         </svg>
         <div style={{ position: "absolute", left: cx + SHIFT + 40, top: 40, fontFamily: F.headline, fontSize: 84, color: B.gauge, whiteSpace: "nowrap", opacity: ease(frame, shiftAt + 40, 10) }}>~14 FT</div>
         <div style={{ position: "absolute", left: cx + SHIFT + 44, top: 136, fontFamily: F.ui, fontWeight: 800, fontSize: 28, color: B.paper, letterSpacing: 1, whiteSpace: "nowrap", opacity: ease(frame, shiftAt + 40, 10) }}>SIDEWAYS</div>

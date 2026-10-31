@@ -91,13 +91,20 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
       {/* the squares: each to scale by energy */}
       <svg width={1080} height={1200} style={{ position: "absolute", left: 0, top: 0, opacity: squares * (1 - ease(frame, endAt, 8)) }}>
+        <defs>
+          <clipPath id="s30win">
+            <rect x={40} y={340} width={860} height={780} rx={18} />
+          </clipPath>
+        </defs>
+        <g clipPath="url(#s30win)">
         {[...LEVELS].reverse().map((k) => {
           const s = FRAME_S * Math.pow(STEP, k - m - past) * lerp(0.42, 1, open);
           if (s < 0.5 || s > 3200) return null;
           return <rect key={k} x={C.x - s / 2} y={C.y - s / 2} width={s} height={s} fill={COLOUR(k)} stroke="rgba(5,14,24,0.55)" strokeWidth={3} />;
         })}
+        </g>
         {dashed > 0 ? (
-          <rect x={C.x - 410} y={C.y - 410} width={820} height={820} fill="none" stroke={B.paper} strokeWidth={8} strokeDasharray="30 20" opacity={dashed} />
+          <rect x={C.x - 380} y={C.y - 380} width={760} height={760} fill="none" stroke={B.paper} strokeWidth={8} strokeDasharray="30 20" opacity={dashed} />
         ) : null}
       </svg>
 

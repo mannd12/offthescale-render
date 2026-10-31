@@ -66,8 +66,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {/* hook clock */}
       <div style={{ position: "absolute", left: 40, top: 240, opacity: 1 - ease(frame, whereAt, 8) }}>
         <div style={{ fontFamily: F.headline, fontSize: 240, lineHeight: 1, color: B.gauge, whiteSpace: "nowrap", textShadow: "0 6px 30px rgba(0,0,0,0.9)" }}>+{count} SEC</div>
-        <Card x={0} y={250} big={["THE MOUNTAIN SLIDES"]} size={88} bg={B.tease} ink={B.paper} opacity={ease(frame, Math.max(whereAt - 40, 0), 8)} />
-        <div style={{ position: "absolute", left: 0, top: 380, width: 900, opacity: 0 }} />
+        <Card x={0} y={250} big={["THE MOUNTAIN SLIDES"]} size={88} bg={B.tease} ink={B.paper} />
       </div>
       <Note x={40} y={1096} rows={["clock not real time · about 10 s"]} size={22} color={B.mute} opacity={1 - ease(frame, whereAt, 8)} />
 

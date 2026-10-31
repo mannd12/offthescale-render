@@ -70,7 +70,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {/* the lid: one M10 */}
       <svg width={1080} height={1200} style={{ position: "absolute", left: 0, top: 0 }}>
         <rect x={COL.x} y={COL.top} width={COL.w} height={COL_H} fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth={4} />
-        <line x1={COL.x - 10} y1={COL.top} x2={COL.x + COL.w + 26} y2={COL.top} stroke={B.gauge} strokeWidth={8} strokeDasharray="22 14" />
+        <line x1={COL.x - 10} y1={COL.top} x2={COL.x + COL.w + 26} y2={COL.top} stroke={B.gauge} strokeWidth={8} strokeDasharray="22 14" strokeDashoffset={-frame * 1.5} />
         <line x1={COL.x + COL.w} y1={COL.bottom - fillPx} x2={COL.x + COL.w + 26} y2={COL.bottom - fillPx} stroke={B.paper} strokeWidth={5} opacity={ease(frame, totalAt, 10)} />
       </svg>
 

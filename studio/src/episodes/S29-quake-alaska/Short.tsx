@@ -62,7 +62,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Card x={40} y={214} big={["MARCH 1964", "LARGEST IN US HISTORY"]} size={92} opacity={span(frame, yearAt, globeAt)} />
 
       {/* the schematic globe */}
-      <svg width={1080} height={1200} style={{ position: "absolute", left: 0, top: 0, opacity: globe * (1 - ease(frame, endAt, 8)) }}>
+      <svg width={1080} height={1280} style={{ position: "absolute", left: 0, top: 0, opacity: globe * (1 - ease(frame, endAt, 8)) }}>
         <defs>
           <radialGradient id="s29globe" cx="0.4" cy="0.3" r="0.85">
             <stop offset="0" stopColor="#3C86BC" />
@@ -86,7 +86,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         </g>
         {/* the bell: rings round the whole planet */}
         {rings.map((p, i) => (
-          <circle key={`b${i}`} cx={G.x} cy={G.y} r={G.r + p * 170} fill="none" stroke={B.gauge} strokeWidth={8} opacity={bell * (1 - p)} />
+          <circle key={`b${i}`} cx={G.x} cy={G.y} r={G.r + p * 100} fill="none" stroke={B.gauge} strokeWidth={8} opacity={bell * (1 - p)} />
         ))}
         {/* the tank: water sloshing, at the Texas dot */}
         <g transform={`translate(${TX.x + 40} ${TX.y - 40})`} opacity={span(frame, globeAt + 10, statesAt)}>
@@ -104,6 +104,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       </svg>
       <Note x={AK.x - 110} y={AK.y - 76} rows={["Alaska"]} size={30} color={B.tease} opacity={globe * (1 - bell)} />
       <Note x={TX.x + 34} y={TX.y + 82} rows={["Texas, Louisiana"]} size={28} color={B.aqua} opacity={span(frame, globeAt + 10, statesAt)} />
+      <Note x={SEA.x + 110} y={SEA.y - 30} rows={["Seattle"]} size={28} opacity={span(frame, seaAt, bellAt)} />
       <Card x={40} y={214} big={["WATER SLOSHED"]} size={92} opacity={span(frame, globeAt, statesAt)} />
       <Card x={40} y={214} big={[`${count} STATES`]} small={["water-level recorders registered it"]} size={120} opacity={span(frame, statesAt, seaAt)} />
       <Card x={40} y={214} big={["THE SPACE NEEDLE SWAYED"]} small={["seattle · more than 1,200 miles away"]} size={72} opacity={span(frame, seaAt, bellAt)} />
