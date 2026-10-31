@@ -241,7 +241,12 @@
     {
       "id": "snailfish-hadal",
       "commons": "Liparidae (10.1007-s12526-022-01294-0) Figure 8.png",
-      "crop": [0, 105, 718, 404],
+      "crop": [
+        0,
+        105,
+        718,
+        404
+      ],
       "licence": "CC BY 4.0",
       "credit": "Linley, Gerringer, Ritchie et al. 2022, Marine Biodiversity 52:56 (CC BY 4.0), Fig. 8a cropped - a hadal snailfish at 6,025 m, Atacama Trench",
       "episode": "L01"
@@ -339,6 +344,132 @@
       "licence": "CC BY 4.0",
       "credit": "Gordon Leggett, CC BY 4.0",
       "episode": "L04"
+    },
+    {
+      "id": "l05-cumulus",
+      "commons": "Cumulus6 - NOAA.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Photo Library",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-balloon-topeka",
+      "commons": "Wea01144 - Flickr - NOAA Photo Library.jpg",
+      "licence": "Public domain",
+      "credit": "NOAA Photo Library, Topeka 1988",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-everest-iss",
+      "commons": "Everest and Himalayas from ISS.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, ISS 2023",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-dc8",
+      "commons": "Douglas DC-8 producing contrails at a biofuel test.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, 2013",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-vulture",
+      "commons": "Gyps rueppelli 95505669.jpg",
+      "licence": "CC BY 4.0",
+      "credit": "Christoph Moning, CC BY 4.0",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-er2",
+      "commons": "NASA Lockheed ER-2 in flight 1.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, 1981",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-sr71b",
+      "commons": "SR-71B NASA in flight 1991.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, 1991",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-balloon-ice",
+      "commons": "NASA Scientific Balloon in Antarctica (6648960945).jpg",
+      "licence": "Public domain",
+      "credit": "NASA Goddard, 2011",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-meteor",
+      "commons": "Looking Down on a Shooting Star.JPG",
+      "licence": "Public domain",
+      "credit": "NASA, ISS crew, 2011",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-nlc",
+      "commons": "ISS 17 - Noctilucent clouds over Asia.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, ISS 2008",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-x15",
+      "commons": "X-15 in flight.jpg",
+      "licence": "Public domain",
+      "credit": "NASA",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-iss",
+      "commons": "STS-134 International Space Station after undocking.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, 2011",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-aurora",
+      "commons": "Iss072e147641 (Nov 9, 2024) -- A green and red aurora streaks through Earth's atmosphere as the International Space Station orbited 258 miles above Winnipeg.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, ISS 2024",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-gps-art",
+      "commons": "Navstar-2F.jpg",
+      "licence": "Public domain",
+      "credit": "US Air Force artwork",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-goes",
+      "commons": "NASA GOES-13 Full Disk view of Earth May 28, 2010 (4647159387).jpg",
+      "licence": "CC BY 2.0",
+      "credit": "NASA Goddard / NOAA GOES-13, CC BY 2.0",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-orion",
+      "commons": "Orion, the Moon, Earth (art002e016277).jpg",
+      "licence": "Public domain",
+      "credit": "NASA, Artemis II, 2026",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-earthrise",
+      "commons": "Earthrise - AS08-14-2383.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, Apollo 8, B. Anders",
+      "episode": "L05"
+    },
+    {
+      "id": "l05-geocorona",
+      "commons": "EXPERIMENT - APOLLO XVI (UV) (S72-40818).jpg",
+      "licence": "Public domain",
+      "credit": "NASA / NRL, Apollo 16, S72-40818",
+      "episode": "L05"
     }
   ],
   "videos": [
@@ -379,6 +510,35 @@
       "in": 0,
       "out": 12,
       "episode": "L03"
+    },
+    {
+      "id": "l05-clip-balloon",
+      "nasa": "GSFC_20160519_SPB_m12262_Balloons",
+      "rendition": "medium",
+      "licence": "Public domain",
+      "credit": "NASA Goddard, Wanaka 2016",
+      "in": 0,
+      "out": 84,
+      "episode": "L05"
+    },
+    {
+      "id": "l05-clip-er2",
+      "nasa": "AFRC_2023_13906_01_ER2_IMPACTS_BROLL_4KMASTER",
+      "rendition": "mobile",
+      "licence": "Public domain",
+      "credit": "NASA Armstrong, 2023",
+      "in": 0,
+      "out": 480,
+      "episode": "L05"
+    },
+    {
+      "id": "l05-clip-orbit",
+      "commons": "Five Minutes in Orbit (154728).webm",
+      "licence": "Public domain",
+      "credit": "NASA Earth Observatory",
+      "in": 0,
+      "out": 120,
+      "episode": "L05"
     }
   ]
 }

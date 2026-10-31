@@ -13,6 +13,7 @@ import { ThumbL02, ThumbL02B } from "./episodes/L02-deep-sea-types/Thumbs";
 import { ThumbL03, ThumbL03B, ThumbL03C } from "./episodes/L03-speed-levels/Thumbs";
 import { EpisodeL04, timeline as l04 } from "./episodes/L04-internet-levels/Episode";
 import { ThumbL04, ThumbL04B, ThumbL04C } from "./episodes/L04-internet-levels/Thumbs";
+import { ClipCheckL05 } from "./episodes/L05-sky-levels/ClipCheck";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
 import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
@@ -74,6 +75,7 @@ export const Root: React.FC = () => (
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 
+    <Still id="l05-clipcheck" component={ClipCheckL05} width={1920} height={1080} />
     <Still id="l01-thumb" component={ThumbL01} width={1280} height={720} />
     <Still id="l01-thumb-c" component={ThumbL01C} width={1280} height={720} />
     <Still id="l02-thumb" component={ThumbL02} width={1280} height={720} />

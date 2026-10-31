@@ -1,0 +1,596 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Look straight up. Where does that stop?",
+    "file": "L05-sky-levels/vo/cold-00.wav",
+    "seconds": 2.57,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Not the clouds. Not the blue. The sky itself: the actual last piece of Earth's atmosphere. Most people would say about a hundred kilometres. That number turns out to have been chosen partly because it was round.",
+    "file": "L05-sky-levels/vo/cold-01.wav",
+    "seconds": 12.68,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "The real answer is much, much further away than that, and there's a photograph of it, taken in 1972.",
+    "file": "L05-sky-levels/vo/cold-02.wav",
+    "seconds": 6.48,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "So we're going up. Ten levels, in order, on real pictures wherever a camera has been. And the gauge only rises.",
+    "file": "L05-sky-levels/vo/cold-03.wav",
+    "seconds": 7.37,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "You live at the bottom of an ocean of air. And like any ocean, it's heaviest at the bottom, because all the rest is pressing down on it.",
+    "file": "L05-sky-levels/vo/l01-00.wav",
+    "seconds": 9.4,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "It's far more bottom-heavy than you'd guess. Half of all the air in the atmosphere sits below five point six kilometres. Half the sky, in a layer you could walk across in about an hour.",
+    "file": "L05-sky-levels/vo/l01-01.wav",
+    "seconds": 11.69,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "And almost all the weather you have ever seen happens in the lowest layer.",
+    "file": "L05-sky-levels/vo/l01-02.wav",
+    "seconds": 4.6,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "So the first surprise is how quickly the sky starts to run out.",
+    "file": "L05-sky-levels/vo/l01-03.wav",
+    "seconds": 4.29,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "The top of Everest is eight thousand, eight hundred and forty-eight metres up. This picture of it was taken from orbit, and we'll get up there soon.",
+    "file": "L05-sky-levels/vo/l02-00.wav",
+    "seconds": 9.09,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Look at where the halfway line sits. It's three kilometres below the summit. So the tallest mountain on Earth pokes out above half the atmosphere.",
+    "file": "L05-sky-levels/vo/l02-01.wav",
+    "seconds": 8.43,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "Stand on top, and half the sky is already underneath your boots. And there are still eight levels above you.",
+    "file": "L05-sky-levels/vo/l02-02.wav",
+    "seconds": 6.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "Most airliners cruise between about nine and twelve and a half kilometres up. That's up where the jet stream runs, a river of air that can pass four hundred and forty kilometres an hour.",
+    "file": "L05-sky-levels/vo/l03-00.wav",
+    "seconds": 11.2,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "Here's a strange way to picture that height. In the first video on this channel we went to the bottom of the ocean: Challenger Deep, just under eleven kilometres down.",
+    "file": "L05-sky-levels/vo/l03-01.wav",
+    "seconds": 10.03,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "A plane at thirty-six thousand feet is as far above the sea as that is below it. Your window seat and the deepest place on Earth are mirror images.",
+    "file": "L05-sky-levels/vo/l03-02.wav",
+    "seconds": 9.52,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "Now, what's the highest thing up here that's alive and flying? A vulture. In 1973, a Rüppell's vulture hit a passenger plane over Abidjan, in West Africa, at eleven thousand three hundred metres. The plane landed safely.",
+    "file": "L05-sky-levels/vo/l03-03.wav",
+    "seconds": 12.8,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "That bird was higher than the ocean is deep.",
+    "file": "L05-sky-levels/vo/l03-04.wav",
+    "seconds": 3.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "That's as high as any bird has been recorded. From here up, nearly everything that flies, we built.",
+    "file": "L05-sky-levels/vo/l03-05.wav",
+    "seconds": 6.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "NASA's ER-2 is a long-winged research plane that works at up to twenty-one kilometres. That's so high that about ninety-five percent of the atmosphere is below it.",
+    "file": "L05-sky-levels/vo/l04-00.wav",
+    "seconds": 8.89,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "Scientists fly it up here because it can look down at the air instead of through it.",
+    "file": "L05-sky-levels/vo/l04-01.wav",
+    "seconds": 5.55,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "The SR-71 Blackbird went higher, past twenty-five kilometres, and it did that at more than three times the speed of sound.",
+    "file": "L05-sky-levels/vo/l04-02.wav",
+    "seconds": 7.01,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "Wings need air, and jets need air, and up here there's hardly any left. So the next thing to climb higher doesn't use wings at all.",
+    "file": "L05-sky-levels/vo/l04-03.wav",
+    "seconds": 8.77,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "It's a balloon. And here's the part that seems wrong: an ordinary weather balloon, the kind the Weather Service sends up, beats the Blackbird.",
+    "file": "L05-sky-levels/vo/l05-00.wav",
+    "seconds": 8.24,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "It starts about a metre and a half wide, swells to as much as eight metres as the air thins around it, and climbs past thirty-five kilometres.",
+    "file": "L05-sky-levels/vo/l05-01.wav",
+    "seconds": 8.91,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "This is also where the ozone layer lives, and it's thinner than you think. Ninety percent of it is in the stratosphere, the layer we're climbing through.",
+    "file": "L05-sky-levels/vo/l05-02.wav",
+    "seconds": 9.09,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "But squeeze it all down to sea-level pressure, and the layer protecting the whole planet would be about as thick as two pennies.",
+    "file": "L05-sky-levels/vo/l05-03.wav",
+    "seconds": 7.54,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "Two people have stepped out of balloons up here and fallen back to Earth. Felix Baumgartner in 2012, from almost thirty-nine kilometres. And Alan Eustace two years later, from about forty-one.",
+    "file": "L05-sky-levels/vo/l05-04.wav",
+    "seconds": 10.53,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "Those jumps were filmed, but that footage isn't free to show, so you're looking at other balloons.",
+    "file": "L05-sky-levels/vo/l05-05.wav",
+    "seconds": 5.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "The highest balloon of all had nobody on board. In 2013, a Japanese balloon made of plastic film reached fifty-three point seven kilometres. That's the record for a balloon.",
+    "file": "L05-sky-levels/vo/l05-06.wav",
+    "seconds": 9.8,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Look at this picture carefully. That streak is a shooting star. And the camera is above it, looking down.",
+    "file": "L05-sky-levels/vo/l06-00.wav",
+    "seconds": 6.64,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "Because this is where shooting stars actually happen. The air up here is almost nothing, but it's thick enough to slow down a rock from space. About forty-four tonnes of that material lands on Earth every single day.",
+    "file": "L05-sky-levels/vo/l06-01.wav",
+    "seconds": 12.64,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "It's a constant, gentle rain.",
+    "file": "L05-sky-levels/vo/l06-02.wav",
+    "seconds": 1.86,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "And it leaves something behind. These clouds form at the edge of space, glowing after sunset, as high as eighty-six kilometres. They grow on the dust that meteors leave.",
+    "file": "L05-sky-levels/vo/l06-03.wav",
+    "seconds": 9.9,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "So some of the clouds above you are built on the remains of shooting stars.",
+    "file": "L05-sky-levels/vo/l06-04.wav",
+    "seconds": 4.92,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "Which brings us to a line that's on every diagram of the sky.",
+    "file": "L05-sky-levels/vo/l06-05.wav",
+    "seconds": 4.29,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "Space begins at a hundred kilometres. You've heard that. Here's where it comes from: a calculation of where a wing stops being able to hold anything up.",
+    "file": "L05-sky-levels/vo/l07-00.wav",
+    "seconds": 9.17,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "The result was an awkward number, close to a hundred, so a hundred it became, because it was, in the words of the air-sports federation that uses it, \"very round\".",
+    "file": "L05-sky-levels/vo/l07-01.wav",
+    "seconds": 10.15,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "And not everyone agrees. In 2018, an astronomer named Jonathan McDowell went back through the numbers and argued the line belongs nearer eighty kilometres.",
+    "file": "L05-sky-levels/vo/l07-02.wav",
+    "seconds": 8.04,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "The United States had been using fifty miles, about eighty kilometres, for decades.",
+    "file": "L05-sky-levels/vo/l07-03.wav",
+    "seconds": 4.49,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "This matters to real people. In the 1960s, the X-15 rocket plane took five pilots high enough to count as astronauts on the American line, but not on the hundred-kilometre one.",
+    "file": "L05-sky-levels/vo/l07-04.wav",
+    "seconds": 10.35,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "Bob White reached ninety-five kilometres in 1962. Was he in space? It depends on whose line you use. There's nothing up there to tell you. Joe Walker's highest flight, at a hundred and eight, cleared them all.",
+    "file": "L05-sky-levels/vo/l07-05.wav",
+    "seconds": 12.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 6,
+    "text": "No wall, no edge. Just a line somebody drew, in air that keeps on going. And it does keep going.",
+    "file": "L05-sky-levels/vo/l07-06.wav",
+    "seconds": 7.06,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "The International Space Station orbits about four hundred and fifteen kilometres up. It sounds like the far edge of everything. On a thirty-centimetre desk globe, it's about one centimetre off the surface.",
+    "file": "L05-sky-levels/vo/l08-00.wav",
+    "seconds": 10.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "Gravity up here hasn't gone anywhere. It's about ninety percent as strong as it is on the ground.",
+    "file": "L05-sky-levels/vo/l08-01.wav",
+    "seconds": 6.04,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "The crew floats because the whole station is falling, all the time, and moving sideways so fast, about eight kilometres every second, that it keeps missing the planet.",
+    "file": "L05-sky-levels/vo/l08-02.wav",
+    "seconds": 9.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "But here's what matters for our question. There's still air here. Not much. But enough that it drags on the station and slowly pulls it down. Without regular boosts, it would come down in about one to two years.",
+    "file": "L05-sky-levels/vo/l08-03.wav",
+    "seconds": 13.32,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "And the northern lights are at this height too. They form from eighty to five hundred kilometres up, so the station flies through their height band, and the crew can look across at them.",
+    "file": "L05-sky-levels/vo/l08-04.wav",
+    "seconds": 11.3,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "So three hundred kilometres past the famous \"edge of space\", we are still inside the sky.",
+    "file": "L05-sky-levels/vo/l08-05.wav",
+    "seconds": 5.33,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 0,
+    "text": "The gauge has to change scale now, because the numbers are about to stop looking like the ones before them.",
+    "file": "L05-sky-levels/vo/l09-00.wav",
+    "seconds": 6.6,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 1,
+    "text": "Your phone's location comes from here: twenty thousand two hundred kilometres up, with at least four GPS satellites in view from almost anywhere. And they have an odd problem. Their clocks run fast.",
+    "file": "L05-sky-levels/vo/l09-01.wav",
+    "seconds": 11.16,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 2,
+    "text": "Thirty-eight millionths of a second a day: the weaker gravity and the high speed both change how fast time passes up there. It sounds like nothing. But uncorrected, it would add up to kilometres of error in a single day.",
+    "file": "L05-sky-levels/vo/l09-02.wav",
+    "seconds": 13.37,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 3,
+    "text": "Keep climbing to thirty-five thousand seven hundred and eighty-six kilometres, and something else strange happens.",
+    "file": "L05-sky-levels/vo/l09-03.wav",
+    "seconds": 5.02,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 4,
+    "text": "A satellite here goes around at the same rate that Earth turns, so it appears to hang over one fixed spot.",
+    "file": "L05-sky-levels/vo/l09-04.wav",
+    "seconds": 6.91,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 5,
+    "text": "That's a real picture from one of them: the entire planet, from a weather satellite that never moves across the sky.",
+    "file": "L05-sky-levels/vo/l09-05.wav",
+    "seconds": 7.01,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 6,
+    "text": "Surely that's beyond the air. Almost, but not quite. And there's one more level.",
+    "file": "L05-sky-levels/vo/l09-06.wav",
+    "seconds": 5.06,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 0,
+    "text": "The Moon is three hundred and eighty-four thousand four hundred kilometres away. You could line up thirty Earths in that gap.",
+    "file": "L05-sky-levels/vo/l10-00.wav",
+    "seconds": 6.99,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 1,
+    "text": "Only twenty-eight people have ever made the trip: twenty-four on Apollo, and four on Artemis II, who in April 2026 went around the far side and reached four hundred and six thousand seven hundred and seventy kilometres, the farthest any humans have ever been.",
+    "file": "L05-sky-levels/vo/l10-01.wav",
+    "seconds": 14.47,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 2,
+    "text": "This was taken from their spacecraft. The Moon, and past it, the Earth.",
+    "file": "L05-sky-levels/vo/l10-02.wav",
+    "seconds": 4.67,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 3,
+    "text": "So surely that's it. The Moon is where the sky has definitely stopped.",
+    "file": "L05-sky-levels/vo/l10-03.wav",
+    "seconds": 4.47,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 0,
+    "text": "This picture was taken standing on the Moon, in April 1972, with a camera that sees ultraviolet. That's Earth. And that glow around it is Earth's atmosphere: a thin cloud of hydrogen called the geocorona.",
+    "file": "L05-sky-levels/vo/s11-00.wav",
+    "seconds": 11.89,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 1,
+    "text": "Measurements from a space telescope later traced how far it goes. Six hundred and thirty thousand kilometres. Fifty Earths across. More than one and a half times the distance to the Moon.",
+    "file": "L05-sky-levels/vo/s11-01.wav",
+    "seconds": 10.83,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 2,
+    "text": "Which means the Moon is inside it. The Moon flies through Earth's atmosphere.",
+    "file": "L05-sky-levels/vo/s11-02.wav",
+    "seconds": 4.47,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 3,
+    "text": "Now, be fair about what \"atmosphere\" means out there. At the Moon, it's about nought point two atoms in every cubic centimetre. As the scientists themselves put it: on Earth, we would call that a vacuum.",
+    "file": "L05-sky-levels/vo/s11-03.wav",
+    "seconds": 12.31,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 4,
+    "text": "Other definitions stop the atmosphere far lower.",
+    "file": "L05-sky-levels/vo/s11-04.wav",
+    "seconds": 2.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 5,
+    "text": "But that's the answer. There's no edge. The sky just gets thinner and thinner, and it never quite decides to end, until you are well past the Moon.",
+    "file": "L05-sky-levels/vo/s11-05.wav",
+    "seconds": 9.58,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 6,
+    "text": "When you looked straight up at the start of this video, you were looking through something that reaches farther than any human has ever been.",
+    "file": "L05-sky-levels/vo/s11-06.wav",
+    "seconds": 8.17,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s11",
+    "index": 7,
+    "text": "Word count: to be measured against script.json once converted.",
+    "file": "L05-sky-levels/vo/s11-07.wav",
+    "seconds": 3.3,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
