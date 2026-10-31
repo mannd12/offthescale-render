@@ -31,8 +31,8 @@ export const Corona: React.FC<{ t: SceneTiming }> = ({ t }) => {
   let log = mix(T.lightning, T.sunFace, ease(frame, surfAt, 14));
   log = mix(log, T.corona, ease(frame, twoAt, 24));
   log = mix(log, T.sunCore, ease(frame, fifteenAt, 24));
-  const reading = frame >= fifteenAt ? "15 million °C" : frame >= twoAt ? "2 million °C" : frame >= surfAt ? "5,500 °C" : "about 28,000 °C";
-  const sub = frame >= fifteenAt ? "the Sun's centre" : frame >= twoAt ? "the corona" : frame >= surfAt ? "the Sun's surface" : "lightning";
+  const reading = frame >= fifteenAt ? "15 million °C" : frame >= twoAt ? "2 million °C" : frame >= surfAt ? "5,500 °C" : "";
+  const sub = frame >= fifteenAt ? "the Sun's centre" : frame >= twoAt ? "the corona" : frame >= surfAt ? "the Sun's surface" : undefined;
 
   const eclipse = 1 - ease(frame, expectAt + 4, 10);
   const profile = ease(frame, expectAt, 10) * (1 - ease(frame, parkerAt - 4, 8));
@@ -72,7 +72,9 @@ export const Corona: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {/* Parker's own camera; the frame's small "Sun" diagram is NASA's. */}
       <Clip id="l08-clip-wispr" seconds={20} from={parkerAt - 4} to={ruleAt + 8} start={30} bright={1.25} fit="contain" scale={1.1} origin="55% 50%" />
-      <Pill x={60} y={200} size={28} opacity={wispr}>Parker Solar Probe's own camera, inside the corona</Pill>
+      {/* NASA's burned-in "not to scale" runs off the frame behind the gauge: masked, and said in the label instead */}
+      {wispr > 0 ? <div style={{ position: "absolute", left: 1500, top: 980, width: 420, height: 100, background: "#000", opacity: wispr }} /> : null}
+      <Pill x={60} y={200} size={28} opacity={wispr}>Parker Solar Probe's own camera, inside the corona · Sun icon not to scale</Pill>
       <Card x={60} y={760} big="about 6 million km" small="from the Sun" size={70} opacity={ease(frame, kmAt, 8) * wispr * (1 - ease(frame, shieldAt, 8))} />
       <Card x={60} y={760} big="over a thousand degrees" small="on its shield, instead of millions" size={66} color={B.tease} ink={B.paper} opacity={ease(frame, shieldAt, 8) * wispr} />
       <Pill x={760} y={830} size={28} color={B.aqua} opacity={ease(frame, thinAt, 8) * wispr}>the corona is that thin</Pill>
@@ -125,17 +127,17 @@ export const Fusion: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const CX = 660;
   const CY = 560;
   return (
-    <RungShell t={t} index={9} log={log} reading={frame >= heldAt ? "100 million °C" : ""} sub={frame >= heldAt ? "KSTAR, held 48 s" : undefined} chips={chips}>
+    <RungShell t={t} index={9} log={log} reading={frame >= heldAt ? "100 million °C" : ""} sub={frame >= secAt ? "KSTAR, held 48 s" : frame >= heldAt ? "KSTAR" : undefined} chips={chips}>
       <Plate id="l08-nstx" from={0} to={whyAt + 8} s0={1.02} s1={1.3} o0={[50, 48]} bright={0.72} />
       <Pill x={60} y={200} size={30} color={B.gauge} opacity={photo}>not KSTAR: another fusion machine, NSTX-U in the US, seen from above</Pill>
       <Card x={60} y={740} big="100 million °C" small="KSTAR, South Korea" size={86} opacity={ease(frame, heldAt, 8) * photo} />
       {frame >= secAt ? <Card x={640} y={740} big={`${count} s`} small="held" size={86} color={B.paper} opacity={photo * ease(frame, secAt, 8)} /> : null}
       {/* "several times hotter": the Sun's core drawn as one bar, the machine as its own, same scale (15 vs 100 million) */}
-      <div style={{ position: "absolute", left: 60, top: 300, opacity: photo * ease(frame, severalAt, 8) }}>
+      <div style={{ position: "absolute", left: 60, top: 290, padding: 10, borderRadius: 12, background: "rgba(5,14,24,0.85)", opacity: photo * ease(frame, severalAt, 8) }}>
         <div style={{ width: 150, height: 44, background: B.mute, borderRadius: 8, marginBottom: 8 }} />
         <div style={{ width: 1000 * ease(frame, severalAt, 24), height: 44, background: B.tease, borderRadius: 8 }} />
       </div>
-      <Pill x={60} y={410} size={28} opacity={photo * ease(frame, severalAt, 8)}>the Sun's core, and this machine</Pill>
+      <Pill x={60} y={424} size={28} opacity={photo * ease(frame, severalAt, 8)}>the Sun's core, and this machine</Pill>
       {trade > 0 ? (
         <>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: trade }}>
@@ -219,7 +221,7 @@ export const Hottest: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Plate id="l08-star" from={bnlAt - 4} to={lhcAt + 6} s0={2.05} s1={2.2} o0={[0, 0]} bright={0.55} />
           <Plate id="l08-gold" from={bnlAt} to={lhcAt + 6} box={{ x: 100, y: 180, w: 640, h: 494 }} s0={1} s1={1.1} bright={1.05} />
           <Pill x={100} y={684} size={26} opacity={rhic}>real tracks from one gold collision, at Brookhaven</Pill>
-          <Pill x={780} y={200} size={26} color={B.gauge} opacity={rhic}>a different machine: RHIC's STAR detector</Pill>
+          <Pill x={780} y={330} size={26} color={B.gauge} opacity={rhic}>a different machine: RHIC's STAR detector</Pill>
           <Card x={100} y={750} big="about 4 trillion °C" small={frame >= quarterAt ? "more than 250,000 times the Sun's core" : "gold ions, New York"} size={80} opacity={rhic * ease(frame, fourAt, 8)} />
         </>
       ) : null}
@@ -342,13 +344,21 @@ export const PastTheTop: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Pill x={INF + 180} y={LY + 44} size={34} color={B.tease} opacity={line * ease(frame, wordsAt + 20, 8)}>negative values</Pill>
         </>
       ) : null}
+      {/* line 1: "a gas of about a hundred thousand atoms", a handful of them drawn, moving, so the line isn't a held frame */}
+      {line > 0 && frame >= gasAt && frame < exceptAt + 8 ? (
+        <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: ease(frame, gasAt, 10) * (1 - ease(frame, exceptAt - 4, 10)) }}>
+          {Array.from({ length: 80 }, (_, i) => (
+            <circle key={i} cx={640 + rnd(i) * 900 + Math.sin(frame * (0.05 + rnd(i + 7) * 0.05) + i) * 70} cy={200 + rnd(i + 200) * 250 + Math.cos(frame * (0.06 + rnd(i + 9) * 0.05) + i * 2) * 50} r={13} fill={B.aqua} opacity={0.85} />
+          ))}
+        </svg>
+      ) : null}
       {/* line 3: the hill. Our own drawing of the balls-on-a-hill idea. */}
       {hill > 0 ? (
         <>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: hill }}>
             <path d={`${hillPath} V 900 H 180 Z`} fill="#1F3148" />
             <path d={hillPath} stroke={B.paper} strokeWidth={6} fill="none" />
-            <line x1={160} y1={330} x2={1280} y2={330} stroke={B.tease} strokeWidth={6} strokeDasharray="18 12" opacity={ease(frame, ceilingAt + 6, 10)} />
+            <line x1={160} y1={270} x2={1280} y2={270} stroke={B.tease} strokeWidth={6} strokeDasharray="18 12" opacity={ease(frame, ceilingAt + 6, 10)} />
             {Array.from({ length: 24 }, (_, i) => {
               const homeX = 200 + rnd(i) * 120 + (i % 2 ? 900 : 0);
               const topX = 720 + (i - 12) * 7;
@@ -357,7 +367,7 @@ export const PastTheTop: React.FC<{ t: SceneTiming }> = ({ t }) => {
               return <circle key={i} cx={x} cy={y} r={15} fill={i % 2 ? B.gauge : B.tease} stroke={B.ink} strokeWidth={3} />;
             })}
           </svg>
-          <Pill x={1000} y={270} size={32} color={B.tease} opacity={hill * ease(frame, ceilingAt + 6, 10)}>an energy ceiling</Pill>
+          <Pill x={1000} y={206} size={32} color={B.tease} opacity={hill * ease(frame, ceilingAt + 6, 10)}>an energy ceiling</Pill>
           <Pill x={200} y={200} size={32} color={B.gauge} opacity={hill * ease(frame, pileAt, 10)}>most atoms pile up at the top</Pill>
           <Pill x={200} y={930} size={32} color={B.aqua} opacity={hill * ease(frame, waterAt, 8)}>water can never do this</Pill>
         </>

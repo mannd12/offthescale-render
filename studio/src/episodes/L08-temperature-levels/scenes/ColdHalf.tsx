@@ -58,12 +58,12 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Card x={590} y={470} big="27 km" size={92} opacity={ease(frame, kmAt, 12) * (1 - ease(frame, hotAt - 8, 10))} />
       {/* the real place: the ring marked on a satellite image; an inset because the file is 1026 px */}
       <Plate id="l08-aster" from={kmAt + 16} to={hotAt} box={{ x: 1330, y: 640, w: 300, h: 277 }} s0={1} s1={1.12} bright={1} />
-      <Pill x={1330} y={925} size={24} opacity={ease(frame, kmAt + 16, 12) * (1 - ease(frame, hotAt - 12, 10))}>a real satellite view · NASA/METI/AIST</Pill>
+      <Pill x={1730} y={925} align="right" size={24} opacity={ease(frame, kmAt + 16, 12) * (1 - ease(frame, hotAt - 12, 10))}>a real satellite view · NASA/METI/AIST</Pill>
       <Pill x={700} y={240} align="center" color={B.aqua} size={34} opacity={ease(frame, spaceAt - 6, 10) * (1 - ease(frame, hotAt, 8))}>colder than outer space</Pill>
       <Card x={120} y={40} big="more than 100,000 times" small="hotter than the centre of the Sun" size={72} color={B.tease} ink={B.paper} opacity={ease(frame, timesAt, 10) * (1 - ease(frame, oneAt - 6, 10))} />
       {/* line 2: both ends named on the same drawing, and bracketed on the tube */}
-      <Pill x={700} y={240} align="center" color={B.aqua} size={34} opacity={ease(frame, oneAt, 10) * ringOn}>the coldest: its magnets</Pill>
-      <Pill x={RING_FRONT.x} y={RING_FRONT.y + 110} align="center" color={B.tease} size={34} opacity={ease(frame, oneAt + 8, 10) * ringOn}>the hottest: its collisions</Pill>
+      <Pill x={700} y={240} align="center" color={B.aqua} size={34} opacity={ease(frame, oneAt, 10) * ringOn}>its coldest: the magnets</Pill>
+      <Pill x={RING_FRONT.x} y={RING_FRONT.y + 110} align="center" color={B.tease} size={34} opacity={ease(frame, oneAt + 8, 10) * ringOn}>its hottest: the collisions</Pill>
 
       {frame >= climbAt && frame < floorAt ? (
         <>
@@ -272,8 +272,8 @@ export const ColderThanSpace: React.FC<{ t: SceneTiming }> = ({ t }) => {
   let log = mix(T.coldest, T.space, ease(frame, twoAt - 6, 30));
   log = mix(log, T.boomerang, ease(frame, oneAt, 20));
   log = mix(log, T.lhc, ease(frame, nineAt, 20));
-  const reading = frame >= nineAt ? "1.9 K" : frame >= oneAt ? "about 1 K" : frame >= twoAt ? "about 2.7 K" : "";
-  const sub = frame >= nineAt ? "the LHC's main magnets" : frame >= oneAt ? "Boomerang Nebula" : frame >= twoAt ? "deep space" : undefined;
+  const reading = frame >= nineAt ? "1.9 K" : frame >= ringAt ? "" : frame >= oneAt ? "about 1 K" : frame >= twoAt ? "about 2.7 K" : "";
+  const sub = frame >= nineAt ? "the LHC's main magnets" : frame >= ringAt ? undefined : frame >= oneAt ? "Boomerang Nebula" : frame >= twoAt ? "deep space" : undefined;
 
   const ring = clamp01(ease(frame, ringAt, 12) * (1 - ease(frame, photoFrom, 10)) + ease(frame, tunnelAt, 12));
   const photo = frame >= photoFrom && frame < heAt;
@@ -365,9 +365,9 @@ export const Moon: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
   let log = mix(T.lhc, T.pluto, ease(frame, avgAt, 24));
   log = mix(log, T.hermite, ease(frame, minusAt, 20));
-  const reading = frame >= minusAt ? "−248 °C" : frame >= avgAt ? "about −232 °C" : "";
-  const sub = frame >= minusAt ? "Hermite Crater · reported 2010" : frame >= avgAt ? "Pluto's average" : undefined;
-  const chips: ChipSpec[] = frame >= hermAt - 10 ? [{ kind: "REAL FOOTAGE", source: "NASA/GSFC/Arizona State University, LRO" }] : [{ kind: "REAL FOOTAGE", source: "NASA/JHU APL/SwRI, New Horizons" }];
+  const reading = frame >= minusAt ? "−248 °C" : frame >= hermAt - 10 ? "" : frame >= avgAt ? "about −232 °C" : "";
+  const sub = frame >= minusAt ? "Hermite Crater · reported 2010" : frame >= hermAt - 10 ? undefined : frame >= avgAt ? "Pluto's average" : undefined;
+  const chips: ChipSpec[] = frame >= listAt ? [{ kind: "REAL FOOTAGE", source: "LRO: NASA/GSFC/ASU · Pluto: NASA/JHU APL/SwRI · not to scale" }] : frame >= hermAt - 10 ? [{ kind: "REAL FOOTAGE", source: "NASA/GSFC/Arizona State University, LRO" }] : [{ kind: "REAL FOOTAGE", source: "NASA/JHU APL/SwRI, New Horizons" }];
 
   // Hermite's dark floor is at (50 %, 25 %) of the frame, name burned in; the camera's origin sits there, so the ring stays on it.
   const pinX = 960;
@@ -435,7 +435,7 @@ export const EarthColdest: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const beam = (frame % 40) / 40;
 
   return (
-    <RungShell t={t} index={3} log={log} reading={reading} sub={sub} chips={[map > 0.5 ? { kind: "SATELLITE COMPOSITE", source: "NASA Blue Marble · projection Dave Pape" } : ILLU("two readings, drawn")]} bracket={frame >= climbAt ? { from: T.coldest, to: T.vostok, opacity: ease(frame, climbAt, 10) } : undefined}>
+    <RungShell t={t} index={3} log={log} reading={reading} sub={sub} chips={[map > 0.5 ? { kind: "SATELLITE COMPOSITE", source: "NASA Blue Marble · projection Dave Pape" } : ILLU(frame >= climbAt ? "the thermometer · log scale" : "two readings, drawn")]} bracket={frame >= climbAt ? { from: T.coldest, to: T.vostok, opacity: ease(frame, climbAt, 10) } : undefined}>
       {map > 0 ? (
         <AbsoluteFill style={{ opacity: map, backgroundColor: "#05082C", overflow: "hidden" }}>
           <Img src={staticFile("assets/l08-antarctica.jpg")} style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, objectFit: "cover", transform: `translateX(${dx}px) scale(${s})`, transformOrigin: "50% 50%", filter: "brightness(0.9)" }} />
@@ -449,7 +449,7 @@ export const EarthColdest: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <circle cx={pinX} cy={pinY} r={18 + ((frame % 40) / 40) * 50} fill="none" stroke={B.tease} strokeWidth={4} opacity={1 - (frame % 40) / 40} />
         </svg>
       ) : null}
-      {frame >= vostokAt ? <Pill x={pinX - 30} y={pinY + 30} size={30} opacity={map}>Vostok Station · marked roughly</Pill> : null}
+      {frame >= vostokAt ? <Pill x={pinX + 160} y={pinY + 30} align="right" size={30} opacity={map}>{frame >= minusAt ? "Vostok and the plateau · marked roughly" : "Vostok Station · marked roughly"}</Pill> : null}
       <Card x={60} y={740} big="−89.2 °C" small={frame >= julyAt ? "official air record · July 1983" : "official air record"} size={90} color={B.aqua} opacity={ease(frame, airAt, 10) * map} />
       <Plate id="l08-vostok" ext="png" from={julyAt} to={satAt} box={{ x: 60, y: 190, w: 500, h: 282 }} s0={1} s1={1.08} bright={1} />
       <Pill x={60} y={480} size={24} opacity={ease(frame, julyAt, 10) * (1 - ease(frame, satAt, 8))}>real: Vostok's new building, 2024 · AARI, CC BY 4.0</Pill>
@@ -479,7 +479,7 @@ export const EarthColdest: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {frame >= climbAt ? (
         <>
           <Card x={160} y={260} big="almost 13 powers of ten" size={84} opacity={ease(frame, climbAt, 10)} />
-          <Pill x={160} y={400} size={36} color={B.aqua} opacity={ease(frame, freezerAt, 10)}>and still below a freezer</Pill>
+          <Pill x={160} y={400} size={36} color={B.aqua} opacity={ease(frame, freezerAt, 10)}>and still at −89 °C</Pill>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: ease(frame, hotAt - 10, 12) }}>
             {Array.from({ length: 14 }, (_, i) => <path key={i} d={`M${160 + i * 90} ${1000 - ((frame * 5 + i * 67) % 340)} q 18 -30 0 -60`} stroke={B.tease} strokeWidth={8} fill="none" opacity={0.6} />)}
           </svg>

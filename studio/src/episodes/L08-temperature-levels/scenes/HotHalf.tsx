@@ -151,7 +151,8 @@ export const SunFace: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const squeezeAt = cue(t, 2, "They squeezed");
   const laserAt = cue(t, 2, "heated them");
   const workedAt = cue(t, 2, "and worked");
-  const log = mix(T.lava, T.sunFace, ease(frame, 0, 30));
+  const faceAt = cue(t, 0, "about five");
+  const log = mix(T.lava, T.sunFace, ease(frame, faceAt, 24));
   const photo = 1 - ease(frame, downAt, 10);
   const anvil = ease(frame, squeezeAt - 6, 10);
   const earth = ease(frame, downAt, 14) * (1 - ease(frame, squeezeAt - 8, 8));
@@ -162,10 +163,10 @@ export const SunFace: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const glow = 0.5 + 0.5 * Math.sin(frame / 12);
   const press = ease(frame, squeezeAt + 6, 30);
   return (
-    <RungShell t={t} index={6} log={log} reading="about 5,500 °C" sub="the Sun's visible surface" chips={chips}>
+    <RungShell t={t} index={6} log={log} reading={frame >= faceAt ? "about 5,500 °C" : ""} sub={frame >= faceAt ? "the Sun's visible surface" : undefined} chips={chips}>
       <Plate id="l08-sun-white" from={0} to={downAt + 8} box={{ x: 330, y: 120, w: 900, h: 900 }} s0={1} s1={1.35} o0={[60, 50]} bright={0.95} />
       <Pill x={60} y={200} size={28} opacity={photo}>the Sun's visible surface, in white light</Pill>
-      <Card x={60} y={760} big="about 5,500 °C" size={100} color={B.gauge} opacity={ease(frame, 20, 10) * photo} />
+      <Card x={60} y={760} big="about 5,500 °C" size={100} color={B.gauge} opacity={ease(frame, faceAt, 10) * photo} />
       {earth > 0 ? (
         <>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: earth }}>
@@ -233,9 +234,11 @@ export const Lightning: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const suns = Math.min(5, Math.floor(lin(frame, fiveAt, fiveAt + 40) * 5.99));
   const dot = (cx: number, cy: number, i: number, spd: number, color: string, r = 11) => {
     const a = rnd(i) * Math.PI * 2;
-    const R = 180;
-    const x = cx + ((Math.cos(a) * frame * spd + rnd(i + 11) * 2 * R) % (2 * R)) * (Math.cos(a) > 0 ? 1 : 1) - R * (Math.cos(a) > 0 ? 1 : -1);
-    const y = cy + ((Math.sin(a) * frame * spd + rnd(i + 23) * 2 * R) % (2 * R)) - R * (Math.sin(a) > 0 ? 1 : -1);
+    const R = 270;
+    // wraps inside a square of side 2R, so no dot leaves the footage's frame
+    const wrap = (v: number) => ((v % (2 * R)) + 2 * R) % (2 * R) - R;
+    const x = cx + wrap(Math.cos(a) * frame * spd + rnd(i + 11) * 2 * R);
+    const y = cy + wrap(Math.sin(a) * frame * spd + rnd(i + 23) * 2 * R);
     return <circle key={i} cx={x} cy={y} r={r} fill={color} />;
   };
   return (
@@ -256,7 +259,7 @@ export const Lightning: React.FC<{ t: SceneTiming }> = ({ t }) => {
             {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
               const yy = 370 + i * 50;
               const xx = 190 + ((frame * (6 + i) + i * 70) % 460);
-              return <g key={i}><path d={`M${xx - 40} ${yy} H${xx}`} stroke={B.tease} strokeWidth={5} /><circle cx={xx} cy={yy} r={11} fill={B.tease} /></g>;
+              return <g key={i}><path d={`M${Math.max(170, xx - 40)} ${yy} H${xx}`} stroke={B.tease} strokeWidth={5} /><circle cx={xx} cy={yy} r={11} fill={B.tease} /></g>;
             })}
             {frame >= heatAt ? [0, 1, 2, 3, 4, 5].map((i) => {
               const k = ((frame + i * 18) % 60) / 60;
@@ -269,15 +272,15 @@ export const Lightning: React.FC<{ t: SceneTiming }> = ({ t }) => {
           {frame < notAt ? <Caption bottom={460} size={84} color={B.paper}>hold on to this</Caption> : null}
         </>
       ) : null}
-      {/* the ISS clip opens with a black wedge at top left: cropped out by the zoom and origin */}
-      <Clip id="l08-clip-iss" seconds={60} from={upAt - 4} to={t.frames + 30} start={120} scale={1.2} origin="85% 90%" bright={0.95} box={{ x: 60, y: 150, w: 1300, h: 731 }} />
+      {/* the source film holds a Galileo quote card, then black, until about 14 s: entered at 14.7 s. Its black wedge at top left is cropped by the zoom and origin */}
+      <Clip id="l08-clip-iss" seconds={60} from={upAt - 4} to={t.frames + 30} start={440} scale={1.2} origin="85% 90%" bright={0.95} box={{ x: 60, y: 150, w: 1300, h: 731 }} />
       <Pill x={80} y={170} size={28} opacity={space}>the real view from the Space Station</Pill>
       <Card x={80} y={240} big="2,000 °C or more" small="the upper atmosphere" size={72} color={B.tease} ink={B.paper} opacity={ease(frame, upAt + 6, 10) * (1 - ease(frame, lastAt, 10))} />
       <Pill x={80} y={410} size={30} opacity={ease(frame, issAt, 10) * (1 - ease(frame, lastAt, 10))}>the Station orbits in that layer</Pill>
       <Pill x={80} y={475} size={30} color={B.aqua} opacity={ease(frame, thinAt + 20, 10) * (1 - ease(frame, lastAt, 10))}>air so thin we call it outer space</Pill>
       {frame >= thinAt ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: ease(frame, thinAt, 10) }}>
-          {[0, 1, 2, 3, 4, 5].map((i) => dot(1060, 560, i, 2.4, B.tease))}
+          {[0, 1, 2, 3, 4, 5].map((i) => dot(1040, 540, i, 2.4, B.tease))}
         </svg>
       ) : null}
       <div style={{ opacity: ease(frame, lastAt, 8) }}>

@@ -31,7 +31,7 @@ export const Thermo: React.FC<{
   const y = gaugeY(log);
   const ticks: number[] = [];
   for (let m = Math.ceil(LOG_MIN); m <= Math.floor(LOG_MAX); m++) ticks.push(m);
-  const pillY = Math.max(190, Math.min(880, y - 44));
+  const pillY = Math.max(208, Math.min(880, y - 44)); // 208: clears the title bar's thumbnail row
   return (
     <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
