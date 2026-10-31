@@ -1,0 +1,533 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "The Saturn V had seven and a half million pounds of thrust. And about ninety percent of its weight on the pad was fuel. So what was all that power really lifting?",
+    "file": "L10-rocket-levels/vo/cold-00.wav",
+    "seconds": 10.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "To find out, let's climb every level of rocket, from an engine that pushes about as hard as a sheet of paper in your hand, up about eight hundred million times, so each mark on this tape is ten times the last.",
+    "file": "L10-rocket-levels/vo/cold-01.wav",
+    "seconds": 13.84,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Next to it is a tank. It shows how much of the machine is fuel, and it only fills where the numbers exist.",
+    "file": "L10-rocket-levels/vo/cold-02.wav",
+    "seconds": 7.72,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Start with Dawn's ion engine. It makes ninety-one millinewtons at most, and NASA says that's about the force of holding a single sheet of notebook paper in your hand.",
+    "file": "L10-rocket-levels/vo/l01-00.wav",
+    "seconds": 9.62,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "At full throttle, it would take four days to go from zero to sixty miles an hour.",
+    "file": "L10-rocket-levels/vo/l01-01.wav",
+    "seconds": 5.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "So what's the point of it? Look at how it spends. In twenty-four hours it uses about ten ounces of xenon, and those ions leave seven to ten times faster than a chemical engine's exhaust. And it doesn't stop.",
+    "file": "L10-rocket-levels/vo/l01-02.wav",
+    "seconds": 13.14,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "The plan was about two thousand days of thrusting.",
+    "file": "L10-rocket-levels/vo/l01-03.wav",
+    "seconds": 3.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "Now the tank. Dawn, the spacecraft, was about thirty-nine percent propellant at launch. Remember that. We're coming back.",
+    "file": "L10-rocket-levels/vo/l01-04.wav",
+    "seconds": 6.6,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "Ten point seven newtons. That's the peak from an Estes A8 model rocket motor, more than a hundred times the ion engine, and it burns for less than a second.",
+    "file": "L10-rocket-levels/vo/l02-00.wav",
+    "seconds": 10.03,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Here's the odd part. It carries about four grams of propellant, and the most it's rated to lift is eighty-five grams. So at its limit, this rocket is only about five percent fuel. The tank went down.",
+    "file": "L10-rocket-levels/vo/l02-01.wav",
+    "seconds": 12.6,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "Now look back. The first liquid-fuel rocket flew in 1926, on gasoline and liquid oxygen. It rose forty-one feet, in two and a half seconds.",
+    "file": "L10-rocket-levels/vo/l02-02.wav",
+    "seconds": 8.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "Now the tape jumps. A Terrier-Black Brant nine has two stages. The first gives eighty-nine thousand newtons for six seconds, the second eighty-one thousand for thirty-four.",
+    "file": "L10-rocket-levels/vo/l03-00.wav",
+    "seconds": 8.85,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "Forty-six seconds after launch, the burning is over.",
+    "file": "L10-rocket-levels/vo/l03-01.wav",
+    "seconds": 2.81,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "And that typically carries about three hundred and sixty kilograms up to four hundred kilometres. That's above the atmosphere. So is that it? Not for long.",
+    "file": "L10-rocket-levels/vo/l03-02.wav",
+    "seconds": 8.93,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "Most of these flights last fifteen to twenty minutes, and only five or six of those minutes are spent observing from above the atmosphere. One NASA flight took fifteen hundred pictures of the Sun in five minutes.",
+    "file": "L10-rocket-levels/vo/l03-03.wav",
+    "seconds": 12.14,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "These are suborbital rockets. Height alone doesn't keep you up there.",
+    "file": "L10-rocket-levels/vo/l03-04.wav",
+    "seconds": 3.83,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "The Mercury-Redstone stood eighty-three feet tall with its spacecraft on top, burning liquid oxygen and a kerosene called R P one. It made seventy-eight thousand pounds of thrust.",
+    "file": "L10-rocket-levels/vo/l04-00.wav",
+    "seconds": 9.3,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "And here's one flight, with nobody aboard. In November 1960, at launch, it rose a few inches. The engines shut down, and it settled back on the pad.",
+    "file": "L10-rocket-levels/vo/l04-01.wav",
+    "seconds": 9.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "The cause wasn't the engines. Power and control connectors had come away from the ground equipment too early. Seventy-eight thousand pounds of thrust, and a height you could measure with a ruler.",
+    "file": "L10-rocket-levels/vo/l04-02.wav",
+    "seconds": 10.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "Orbit is a different job, and this is where the bill arrives. The Titan two that launched Gemini stood a hundred and nine feet, with about four hundred and thirty thousand pounds of thrust.",
+    "file": "L10-rocket-levels/vo/l05-00.wav",
+    "seconds": 11.3,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "The ideal rocket equation, as NASA sets it out, says the speed you can gain depends on two things: how fast your exhaust leaves, and the logarithm of your full weight over your empty weight.",
+    "file": "L10-rocket-levels/vo/l05-01.wav",
+    "seconds": 11.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "That logarithm is the trap. To double the speed you gain, you don't double that ratio. You square it.",
+    "file": "L10-rocket-levels/vo/l05-02.wav",
+    "seconds": 6.64,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "So in NASA's ideal case, a rocket going to orbit is ninety percent propellant, and about one percent payload.",
+    "file": "L10-rocket-levels/vo/l05-03.wav",
+    "seconds": 6.38,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Here's how you buy more thrust without building a bigger engine. On the version of the Delta two that launched NASA's Phoenix, the main engine gives two hundred thousand pounds.",
+    "file": "L10-rocket-levels/vo/l06-00.wav",
+    "seconds": 9.93,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "Around it are nine solid boosters, each adding about a hundred thousand.",
+    "file": "L10-rocket-levels/vo/l06-01.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "Six of them light on the pad. Add it up, and that's about eight hundred thousand pounds at liftoff. That's our own sum, not a figure NASA states.",
+    "file": "L10-rocket-levels/vo/l06-02.wav",
+    "seconds": 9.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "And this is a real launch from 2007. It's a Heavy version, with larger boosters, carrying a spacecraft you've already met. This is how Dawn left Earth.",
+    "file": "L10-rocket-levels/vo/l06-03.wav",
+    "seconds": 9.27,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "Or skip the solids altogether, and just keep adding engines. Falcon Heavy lights twenty-seven of them at once, for more than five million pounds of thrust.",
+    "file": "L10-rocket-levels/vo/l07-00.wav",
+    "seconds": 8.77,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "Divide that up, and each engine averages about a hundred and eighty-five thousand pounds or more. That's close to the Delta's main engine, twenty-seven times over.",
+    "file": "L10-rocket-levels/vo/l07-01.wav",
+    "seconds": 8.77,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "This is the launch of NASA's Roman Space Telescope, on the thirtieth of August, twenty twenty-six.",
+    "file": "L10-rocket-levels/vo/l07-02.wav",
+    "seconds": 5.43,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Back to the Saturn V, and now you can read the tank. These are the numbers for one flight, Apollo 4. Three hundred and sixty-three feet tall, six point two two million pounds on the pad.",
+    "file": "L10-rocket-levels/vo/l08-00.wav",
+    "seconds": 12.21,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "And about five and a half million of those pounds were propellant. About ninety percent.",
+    "file": "L10-rocket-levels/vo/l08-01.wav",
+    "seconds": 5.1,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "So seven and a half million pounds of thrust against six point two two million pounds of rocket. That's only about one point two to one, which is why it rises so slowly.",
+    "file": "L10-rocket-levels/vo/l08-02.wav",
+    "seconds": 10.88,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "And about ninety percent of what it's holding up is fuel.",
+    "file": "L10-rocket-levels/vo/l08-03.wav",
+    "seconds": 3.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "Then it starts to go. The five first-stage engines burn about fifteen tons a second, for around a hundred and fifty seconds.",
+    "file": "L10-rocket-levels/vo/l08-04.wav",
+    "seconds": 7.41,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "By then, it's about thirty-eight miles up and doing about six thousand one hundred miles an hour, and it weighs under a third of what it did.",
+    "file": "L10-rocket-levels/vo/l08-05.wav",
+    "seconds": 8.91,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "This is that moment, filmed on Apollo 4 from on board: the spent first stage falling away.",
+    "file": "L10-rocket-levels/vo/l08-06.wav",
+    "seconds": 5.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "And the part that came home? For Apollo 11, only the command module returned. Nine thousand one hundred and thirty pounds. About point one four percent of the launch weight.",
+    "file": "L10-rocket-levels/vo/l08-07.wav",
+    "seconds": 10.29,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 0,
+    "text": "The Space Shuttle looks like a different idea. Two solid boosters give most of the thrust at liftoff, and the three main engines add more than one point two million pounds.",
+    "file": "L10-rocket-levels/vo/l09-00.wav",
+    "seconds": 10.25,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 1,
+    "text": "NASA's reference page puts the total at seven point eight million pounds, just above the Saturn V. But that same page gives lower figures for the boosters too. So call it too close to rank. It isn't a clean win.",
+    "file": "L10-rocket-levels/vo/l09-01.wav",
+    "seconds": 13.45,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 2,
+    "text": "Now look at the tank. Four and a half million pounds at liftoff. Each booster holds about 1.1 million pounds of propellant, and the big tank about 1.6 million. That comes to about eighty-four percent.",
+    "file": "L10-rocket-levels/vo/l09-02.wav",
+    "seconds": 12.23,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 3,
+    "text": "A very different shape, and almost the same share. And all of it gets reused except that tank.",
+    "file": "L10-rocket-levels/vo/l09-03.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 0,
+    "text": "NASA's S L S, the Block 1 version, is shorter than the Saturn V, at three hundred and twenty-two feet, and lighter, at five point seven five million pounds.",
+    "file": "L10-rocket-levels/vo/l10-00.wav",
+    "seconds": 9.84,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 1,
+    "text": "But it reaches eight point eight million pounds of maximum thrust, about fifteen percent more, as NASA puts it.",
+    "file": "L10-rocket-levels/vo/l10-01.wav",
+    "seconds": 6.38,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 2,
+    "text": "The share hardly moves. About eighty-six percent propellant, not counting the upper stage. Each booster burns about six tons a second, and it's the largest solid booster NASA says has ever flown.",
+    "file": "L10-rocket-levels/vo/l10-02.wav",
+    "seconds": 10.85,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 3,
+    "text": "And more thrust doesn't automatically mean more to the Moon. This version sends over twenty-seven metric tons there. The Saturn V could send forty-eight tons.",
+    "file": "L10-rocket-levels/vo/l10-03.wav",
+    "seconds": 8.43,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 4,
+    "text": "Those are different units and very different mission designs, and later versions are planned to carry more.",
+    "file": "L10-rocket-levels/vo/l10-04.wav",
+    "seconds": 5.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 5,
+    "text": "One more thing about how it launches. Roughly four hundred thousand gallons of water gets dumped on the pad in under thirty seconds. What's it for? Sound.",
+    "file": "L10-rocket-levels/vo/l10-05.wav",
+    "seconds": 9.25,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 0,
+    "text": "And here's the biggest number on this ladder, with a warning attached: the Super Heavy booster, under Starship.",
+    "file": "L10-rocket-levels/vo/l11-00.wav",
+    "seconds": 6.16,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 1,
+    "text": "A draft FAA environmental document lists it at seventy-four meganewtons in the 2022 assessment. That's about sixteen and a half million pounds.",
+    "file": "L10-rocket-levels/vo/l11-01.wav",
+    "seconds": 7.31,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 2,
+    "text": "And it lists an upgraded design at a hundred and three, which is why the top of the tape is dashed.",
+    "file": "L10-rocket-levels/vo/l11-02.wav",
+    "seconds": 6.91,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 3,
+    "text": "The propellant in that older design's booster alone is thirty-seven hundred metric tons. That's more than an entire fuelled S L S, and the ship on top carries more.",
+    "file": "L10-rocket-levels/vo/l11-03.wav",
+    "seconds": 9.62,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 4,
+    "text": "These are paper figures. We didn't find a primary source for the thrust it has actually delivered in flight, and without a total weight, the tank stays blank.",
+    "file": "L10-rocket-levels/vo/l11-04.wav",
+    "seconds": 9.4,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 5,
+    "text": "The latest report we read, on its thirteenth test flight, on the twenty-fourth of July, twenty twenty-six, describes a suborbital trajectory.",
+    "file": "L10-rocket-levels/vo/l11-05.wav",
+    "seconds": 7.21,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "So that's about nine powers of ten. Now watch the tape drop, all the way back to the sheet of paper.",
+    "file": "L10-rocket-levels/vo/closer-00.wav",
+    "seconds": 7.09,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "Remember that Delta two, throwing Dawn off the Earth? NASA expected the paper-force engine, over the mission, to give a total speed change comparable to the push from that entire rocket.",
+    "file": "L10-rocket-levels/vo/closer-01.wav",
+    "seconds": 10.45,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "JPL's forecast was more than twenty-four thousand miles an hour. And it carried Dawn to Vesta and Ceres, in the asteroid belt.",
+    "file": "L10-rocket-levels/vo/closer-02.wav",
+    "seconds": 7.41,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "And look at the two tanks. Ninety percent on the Saturn V. Thirty-nine on Dawn, the spacecraft. That's the equation from rung five: exhaust speed counts too, and Dawn's leaves seven to ten times faster.",
+    "file": "L10-rocket-levels/vo/closer-03.wav",
+    "seconds": 12.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 4,
+    "text": "So that's where all that power goes. Mostly, it lifts fuel. Thrust gets you off the ground. How far you go depends on the fuel, and how fast you throw it away.",
+    "file": "L10-rocket-levels/vo/closer-04.wav",
+    "seconds": 11.03,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

@@ -23,6 +23,8 @@ import { EpisodeL07, timeline as l07 } from "./episodes/L07-volcano-levels/Episo
 import { ThumbL07 } from "./episodes/L07-volcano-levels/Thumbs";
 import { EpisodeL09, timeline as l09 } from "./episodes/L09-asteroid-levels/Episode";
 import { ThumbL09 } from "./episodes/L09-asteroid-levels/Thumbs";
+import { EpisodeL10, timeline as l10 } from "./episodes/L10-rocket-levels/Episode";
+import { ThumbL10 } from "./episodes/L10-rocket-levels/Thumbs";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
 import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
@@ -85,6 +87,9 @@ export const Root: React.FC = () => (
     {/* L09 - Every Size of Asteroid (script draft 1, estimated timings) */}
     <Composition id="l09" component={EpisodeL09} durationInFrames={l09.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
 
+    {/* L10 - Every Level of Rocket (script draft 1, estimated timings) */}
+    <Composition id="l10" component={EpisodeL10} durationInFrames={l10.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+
     {/* S01 - the first Short (cliffhanger for L01), vertical, under 60 s */}
     <Composition id="s01-short" component={ShortS01} durationInFrames={s01.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s02-short" component={ShortS02} durationInFrames={s02.totalFrames} fps={FPS} width={1080} height={1920} />
@@ -119,6 +124,7 @@ export const Root: React.FC = () => (
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 
+    <Still id="l10-thumb" component={ThumbL10} width={1280} height={720} />
     <Still id="l09-thumb" component={ThumbL09} width={1280} height={720} />
     <Still id="l07-thumb" component={ThumbL07} width={1280} height={720} />
     <Still id="l06-thumb" component={ThumbL06} width={1280} height={720} />

@@ -969,6 +969,62 @@
       "licence": "Public domain",
       "credit": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA/PSI",
       "episode": "L09"
+    },
+    {
+      "id": "l10-ion",
+      "commons": "The Engine Burns Blue.jpeg",
+      "licence": "Public domain",
+      "credit": "NASA/JPL-Caltech; a later thruster in development, not Dawn's own (caption read)",
+      "episode": "L10"
+    },
+    {
+      "id": "l10-model",
+      "commons": "An photograph of a model rocket being launched, taken in 2019.jpg",
+      "licence": "CC BY 2.0",
+      "credit": "newmexico.photographer, CC BY 2.0",
+      "episode": "L10"
+    },
+    {
+      "id": "l10-bb9",
+      "commons": "Hi-C experiment launch on Black Brant IX Wff-2024-021-484.jpg",
+      "licence": "Public domain",
+      "credit": "NASA / Lee Wingfield, 2024",
+      "episode": "L10"
+    },
+    {
+      "id": "l10-mr3",
+      "commons": "Mercury-Redstone 3 Launch S61-01908.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, MR-3, 1961",
+      "episode": "L10"
+    },
+    {
+      "id": "l10-titan",
+      "commons": "Gemini-Titan 11 Launch - GPN-2000-001020.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/KSC, Gemini 11, 1966",
+      "episode": "L10"
+    },
+    {
+      "id": "l10-dawn",
+      "commons": "Delta II Dawn liftoff 2.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/Sandra Joseph and Rafael Hernandez, 2007",
+      "episode": "L10"
+    },
+    {
+      "id": "l10-a4",
+      "commons": "Apollo 4 Launch - GPN-2000-000044.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, Apollo 4, 1967",
+      "episode": "L10"
+    },
+    {
+      "id": "l10-starship",
+      "commons": "SpaceX Starship ignition during IFT-5.jpg",
+      "licence": "CC BY 2.0",
+      "credit": "Steve Jurvetson, CC BY 2.0, 2024",
+      "episode": "L10"
     }
   ],
   "videos": [
@@ -1145,6 +1201,78 @@
       "in": 0,
       "out": 8.4,
       "episode": "L09"
+    },
+    {
+      "id": "l10-clip-e8",
+      "commons": "Apollo 11 launch, video of engines at 500 fps (camera E-8).ogv",
+      "licence": "Public domain",
+      "credit": "NASA/KSC, Apollo 11, camera E-8, 500 fps (1280 px: inset)",
+      "in": 60,
+      "out": 100,
+      "episode": "L10"
+    },
+    {
+      "id": "l10-clip-sr",
+      "commons": "Australia Sounding Rocket Campaign Press Kit (SVS14164 - LiftOff-Full).webm",
+      "licence": "Public domain",
+      "credit": "NASA SVS, NASA/WFF/Keith Koehler",
+      "in": 3,
+      "out": 23,
+      "episode": "L10"
+    },
+    {
+      "id": "l10-clip-grail",
+      "commons": "Launch of Gravity Recovery and Interior Laboratory (GRAIL).webm",
+      "licence": "Public domain",
+      "credit": "NASA/KSC, Delta II Heavy, GRAIL, 2011",
+      "in": 20,
+      "out": 60,
+      "episode": "L10"
+    },
+    {
+      "id": "l10-clip-roman",
+      "commons": "Nancy Grace Roman Space Telescope High Speed Footage (KSC-20260830-MH-CSH01-0001-Roman Space Telescope Launch High Speed Footage).webm",
+      "licence": "Public domain",
+      "credit": "NASA Kennedy, Roman launch, high speed, 2026",
+      "in": 14,
+      "out": 57,
+      "episode": "L10"
+    },
+    {
+      "id": "l10-clip-sep",
+      "commons": "Separation of Rocket Stages During Apollo 4.webm",
+      "licence": "Public domain",
+      "credit": "NASA, Apollo 4, on-board camera, 1967",
+      "in": 40,
+      "out": 70,
+      "episode": "L10"
+    },
+    {
+      "id": "l10-clip-sts",
+      "commons": "STS-132 Liftoff Space Shuttle Atlantis.ogv",
+      "licence": "Public domain",
+      "credit": "NASA, STS-132, 2010",
+      "in": 5,
+      "out": 45,
+      "episode": "L10"
+    },
+    {
+      "id": "l10-clip-slo",
+      "commons": "Artemis I Launch from NASA Causeway (Slo Mo) (GX010506).webm",
+      "licence": "Public domain",
+      "credit": "NASA Marshall, Artemis I, slow motion, 2022",
+      "in": 30,
+      "out": 90,
+      "episode": "L10"
+    },
+    {
+      "id": "l10-clip-star",
+      "commons": "Starship IFT2 NASA Video 2 Part 1.webm",
+      "licence": "Public domain",
+      "credit": "NASA tracking film, 18 Nov 2023; trimmed before stage separation (1280 px: inset)",
+      "in": 25,
+      "out": 60,
+      "episode": "L10"
     }
   ]
 }
