@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Earthquakes can have a negative magnitude.",
+    "file": "S30-quake-negative/vo/cold-00.wav",
+    "seconds": 2.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Magnitude minus one is real. Far too small for any person to feel.",
+    "file": "S30-quake-negative/vo/cold-01.wav",
+    "seconds": 4.82,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Its energy? About half a gram of TNT.",
+    "file": "S30-quake-negative/vo/cold-02.wav",
+    "seconds": 3.1,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Now climb. Every whole step is about thirty-two times the last.",
+    "file": "S30-quake-negative/vo/cold-03.wav",
+    "seconds": 4.13,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Magnitude one, half a kilo. Magnitude three, about four hundred and eighty kilos. Magnitude five, about four hundred and eighty tonnes.",
+    "file": "S30-quake-negative/vo/cold-04.wav",
+    "seconds": 8.04,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Magnitude seven, about four hundred and eighty kilotons. Magnitude nine, about four hundred and eighty megatons.",
+    "file": "S30-quake-negative/vo/cold-05.wav",
+    "seconds": 6.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "And nothing in the scale itself says stop. It has no upper limit.",
+    "file": "S30-quake-negative/vo/cold-06.wav",
+    "seconds": 4.82,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So where does it actually stop? That's in the full video, linked right here.",
+    "file": "S30-quake-negative/vo/cold-07.wav",
+    "seconds": 5.26,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

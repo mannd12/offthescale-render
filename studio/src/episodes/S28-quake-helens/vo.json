@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "About ten seconds after this earthquake, the side of a mountain began to slide away.",
+    "file": "S28-quake-helens/vo/cold-00.wav",
+    "seconds": 5.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Mount St. Helens. 8:32 in the morning, the eighteenth of May, 1980.",
+    "file": "S28-quake-helens/vo/cold-01.wav",
+    "seconds": 4.95,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "And the quake was only a magnitude five point one.",
+    "file": "S28-quake-helens/vo/cold-02.wav",
+    "seconds": 3.61,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Put that next to the largest earthquake in United States history. That one released about one point four million times the energy.",
+    "file": "S28-quake-helens/vo/cold-03.wav",
+    "seconds": 7.9,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Draw them both to scale, and the five point one is a square too small to see.",
+    "file": "S28-quake-helens/vo/cold-04.wav",
+    "seconds": 6.11,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And yet the slide released the pressure, and the volcano erupted.",
+    "file": "S28-quake-helens/vo/cold-05.wav",
+    "seconds": 4.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what was already inside that mountain? That's magnitude five, and the full video is linked right here.",
+    "file": "S28-quake-helens/vo/cold-06.wav",
+    "seconds": 6.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

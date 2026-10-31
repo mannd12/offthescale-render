@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Every earthquake on Earth, in about a hundred and ten years, adds up to less than one magnitude ten.",
+    "file": "S26-quake-total/vo/cold-00.wav",
+    "seconds": 6.89,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "There are about half a million detectable earthquakes a year. Pour all of them in.",
+    "file": "S26-quake-total/vo/cold-01.wav",
+    "seconds": 5.5,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "The total comes to the equivalent of one magnitude nine point nine five.",
+    "file": "S26-quake-total/vo/cold-02.wav",
+    "seconds": 4.64,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "And the line it falls short of is a quake no known fault can produce.",
+    "file": "S26-quake-total/vo/cold-03.wav",
+    "seconds": 5.32,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Now the strange part. One single earthquake is somewhere between a tenth and a fifth of that entire total.",
+    "file": "S26-quake-total/vo/cold-04.wav",
+    "seconds": 6.87,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So which one was it? And could a ten ever happen? That's in the full video, linked right here.",
+    "file": "S26-quake-total/vo/cold-05.wav",
+    "seconds": 7.15,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

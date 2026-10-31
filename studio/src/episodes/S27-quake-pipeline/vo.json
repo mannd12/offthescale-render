@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "The ground moved about fourteen feet under this pipeline. It didn't break.",
+    "file": "S27-quake-pipeline/vo/cold-00.wav",
+    "seconds": 4.47,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "This is the Trans-Alaska Pipeline, in November 2002, after a magnitude seven point nine.",
+    "file": "S27-quake-pipeline/vo/cold-01.wav",
+    "seconds": 5.18,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "One side of the fault shifted about fourteen feet sideways, and two and a half feet vertically.",
+    "file": "S27-quake-pipeline/vo/cold-02.wav",
+    "seconds": 6.11,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "A few of the supports were damaged. But the pipe did not break.",
+    "file": "S27-quake-pipeline/vo/cold-03.wav",
+    "seconds": 4.82,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Look how it sits here. Not straight. A zigzag, up on supports.",
+    "file": "S27-quake-pipeline/vo/cold-04.wav",
+    "seconds": 4.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "The people who planned this were working in the nineteen seventies.",
+    "file": "S27-quake-pipeline/vo/cold-05.wav",
+    "seconds": 3.95,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So how did they know, decades ahead, what this fault could do? That's magnitude seven, and the full video is linked right here.",
+    "file": "S27-quake-pipeline/vo/cold-06.wav",
+    "seconds": 8.55,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

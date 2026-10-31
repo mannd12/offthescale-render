@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "An earthquake in Alaska made water slosh on the coast of Texas.",
+    "file": "S29-quake-alaska/vo/cold-00.wav",
+    "seconds": 4.29,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "March 1964. The largest earthquake in United States history.",
+    "file": "S29-quake-alaska/vo/cold-01.wav",
+    "seconds": 3.45,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "And not just Texas. Waterways sloshed as far as the coast of Louisiana.",
+    "file": "S29-quake-alaska/vo/cold-02.wav",
+    "seconds": 4.82,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Water-level recorders in forty-seven states registered it.",
+    "file": "S29-quake-alaska/vo/cold-03.wav",
+    "seconds": 2.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "In Seattle, more than twelve hundred miles away, the Space Needle swayed.",
+    "file": "S29-quake-alaska/vo/cold-04.wav",
+    "seconds": 4.49,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And the US Geological Survey says it made the entire Earth ring like a bell.",
+    "file": "S29-quake-alaska/vo/cold-05.wav",
+    "seconds": 5.32,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So how big does an earthquake have to be to make a whole planet ring? The number's in the full video, linked right here.",
+    "file": "S29-quake-alaska/vo/cold-06.wav",
+    "seconds": 8.69,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
