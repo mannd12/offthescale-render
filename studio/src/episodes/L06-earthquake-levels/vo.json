@@ -3,594 +3,528 @@
     "scene": "cold",
     "index": 0,
     "text": "Every step up this scale is about thirty-two times the energy of the one before. Not twice as big. Thirty-two times.",
-    "file": "L06-earthquake-levels/vo/cold-00.wav",
-    "seconds": 7.17,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/cold-00-ed5a2a0d7e.wav",
+    "seconds": 7.119958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "That means the numbers you hear on the news hide something enormous. A magnitude seven doesn't sound far from a five. It's about a thousand times the energy.",
-    "file": "L06-earthquake-levels/vo/cold-01.wav",
-    "seconds": 9.38,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/cold-01-0efa027d51.wav",
+    "seconds": 8.31,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "So we're climbing all of it, one step at a time, on real earthquakes. And at the top, we'll find one that nearly broke the scale, and the place where the planet itself runs out of room.",
-    "file": "L06-earthquake-levels/vo/cold-02.wav",
-    "seconds": 12.44,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/cold-02-709f8664c8.wav",
+    "seconds": 9.07,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Let's start with the ones you will never notice.",
-    "file": "L06-earthquake-levels/vo/cold-03.wav",
-    "seconds": 3.02,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/cold-03-22003310fd.wav",
+    "seconds": 2.1,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 0,
     "text": "A magnitude one releases about the energy of half a kilo of TNT, spread through rock, far underground. Nobody feels it. Only instruments do.",
-    "file": "L06-earthquake-levels/vo/l01-00.wav",
-    "seconds": 8.32,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l01-00-368b0bb77a.wav",
+    "seconds": 8.49,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 1,
     "text": "And the scale doesn't even stop at the bottom here. It goes below zero. A magnitude minus one is a real thing, far too small for anyone to feel.",
-    "file": "L06-earthquake-levels/vo/l01-01.wav",
-    "seconds": 9.8,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l01-01-24f0cbed0a.wav",
+    "seconds": 8.07,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 2,
     "text": "So here is a question to carry up with you. If it can go below zero, how high can it go?",
-    "file": "L06-earthquake-levels/vo/l01-02.wav",
-    "seconds": 7.09,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l01-02-6c77c3ac0e.wav",
+    "seconds": 5.2,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 0,
     "text": "Now the energy of about fifteen kilos of TNT, and still, generally, you feel nothing.",
-    "file": "L06-earthquake-levels/vo/l02-00.wav",
-    "seconds": 5.22,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l02-00-6b6c20eeff.wav",
+    "seconds": 4.73,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 1,
     "text": "These are happening all the time. Yellowstone alone typically records between fifteen hundred and twenty-five hundred earthquakes every year, and most of them are magnitude two or smaller.",
-    "file": "L06-earthquake-levels/vo/l02-01.wav",
-    "seconds": 9.3,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l02-01-e80b3a3724.wav",
+    "seconds": 9.68,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l02",
     "index": 2,
     "text": "You could stand in the park through hundreds of them and never know.",
-    "file": "L06-earthquake-levels/vo/l02-02.wav",
-    "seconds": 4.29,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l02-02-58ef99359e.wav",
+    "seconds": 2.57,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 0,
     "text": "Magnitude three is roughly the line where people start to notice.",
-    "file": "L06-earthquake-levels/vo/l03-00.wav",
-    "seconds": 3.65,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l03-00-c342c0cac2.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 1,
     "text": "Southern California gets about ten thousand earthquakes a year. Only several hundred of them are bigger than this.",
-    "file": "L06-earthquake-levels/vo/l03-01.wav",
-    "seconds": 6.04,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l03-01-16083ce56b.wav",
+    "seconds": 5.41,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l03",
     "index": 2,
     "text": "Worldwide, there are about half a million detectable earthquakes a year, and only about a hundred thousand of them can be felt at all. So nearly everything on the planet's list sits below this line, or barely on it.",
-    "file": "L06-earthquake-levels/vo/l03-02.wav",
-    "seconds": 12.98,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l03-02-88be1ed087.wav",
+    "seconds": 10.74,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 0,
     "text": "At magnitude four, we reach about fifteen tonnes of TNT, and now people in the area feel it. One of the largest at Yellowstone in recent years was a four point eight, near Norris Geyser Basin.",
-    "file": "L06-earthquake-levels/vo/l04-00.wav",
-    "seconds": 12.03,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l04-00-f8c04cc075.wav",
+    "seconds": 10.87,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 1,
     "text": "Southern California gets only about fifteen to twenty a year above four.",
-    "file": "L06-earthquake-levels/vo/l04-01.wav",
-    "seconds": 3.97,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l04-01-8a96e8ccfe.wav",
+    "seconds": 3.46,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 2,
     "text": "Remember how fast this climbs. It would take a thousand of these to match the energy of a single magnitude six. That's two steps away, and we're about to get there.",
-    "file": "L06-earthquake-levels/vo/l04-02.wav",
-    "seconds": 10.43,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l04-02-53582e5ba6.wav",
+    "seconds": 9.97,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 0,
     "text": "This is where the number starts to mislead you, because what it does depends on where it happens.",
-    "file": "L06-earthquake-levels/vo/l05-00.wav",
-    "seconds": 5.96,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l05-00-5f8cc8ba25.wav",
+    "seconds": 5.16,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 1,
     "text": "At 8:32 in the morning on the eighteenth of May, 1980, a magnitude five point one struck beneath Mount St. Helens. For two months, magma had been pushing into the mountain, swelling its north side.",
-    "file": "L06-earthquake-levels/vo/l05-01.wav",
-    "seconds": 12.09,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l05-01-a1dd964180.wav",
+    "seconds": 10.96,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 2,
     "text": "About ten seconds after the quake, that whole side began to slide away, and with the pressure gone, the volcano erupted. The earthquake didn't have the power.",
-    "file": "L06-earthquake-levels/vo/l05-02.wav",
-    "seconds": 9.19,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l05-02-1841c5d172.wav",
+    "seconds": 9.05,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 3,
     "text": "The mountain was already loaded, and it just pulled the trigger.",
-    "file": "L06-earthquake-levels/vo/l05-03.wav",
-    "seconds": 3.75,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l05-03-6fd8cd1c15.wav",
+    "seconds": 3.26,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 4,
     "text": "Then there's Virginia in 2011. A five point eight, and nearly a hundred and fifty thousand people reported feeling it, from Florida to Canada.",
-    "file": "L06-earthquake-levels/vo/l05-04.wav",
-    "seconds": 8.14,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l05-04-17c882c9fb.wav",
+    "seconds": 8,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 5,
     "text": "It was likely felt by more people than any earthquake in North American history, because the older, harder rock in the east carries the waves so well.",
-    "file": "L06-earthquake-levels/vo/l05-05.wav",
-    "seconds": 8.91,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l05-05-126304ec40.wav",
+    "seconds": 8.01,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 6,
     "text": "It even cracked stones on the Washington Monument, which has since been repaired.",
-    "file": "L06-earthquake-levels/vo/l05-06.wav",
-    "seconds": 4.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l05-06-50a79e6765.wav",
+    "seconds": 3.7500416666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 0,
     "text": "So let's say it properly. An earthquake has one magnitude, but its shaking varies from place to place. They are two different things, with two different scales.",
-    "file": "L06-earthquake-levels/vo/l06-00.wav",
-    "seconds": 9.27,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-00-08aab6060f.wav",
+    "seconds": 8.81,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 1,
     "text": "One large quake can produce reports across the entire range of the shaking scale, from places where it's barely felt to places with heavy damage.",
-    "file": "L06-earthquake-levels/vo/l06-01.wav",
-    "seconds": 8.17,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-01-6a3a3e81c2.wav",
+    "seconds": 7.36,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 2,
     "text": "Here's the proof. In 1994, the magnitude six point seven at Northridge shook harder, over a wider area, than a slightly larger six point eight at Nisqually in 2001.",
-    "file": "L06-earthquake-levels/vo/l06-02.wav",
-    "seconds": 9.82,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-02-90620841e0.wav",
+    "seconds": 10.32,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 3,
     "text": "The smaller one was shallower: three to eleven miles down, against thirty to thirty-six. And soft ground shakes far more than solid rock.",
-    "file": "L06-earthquake-levels/vo/l06-03.wav",
-    "seconds": 7.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-03-629498a790.wav",
+    "seconds": 7.72,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 4,
     "text": "There's something else the movies get wrong. This line through a vineyard in Napa is a real fault rupture, from a magnitude six in 2014. Look how it isn't a chasm. Faults don't gape open and swallow things.",
-    "file": "L06-earthquake-levels/vo/l06-04.wav",
-    "seconds": 12.82,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-04-fc35bd23f2.wav",
+    "seconds": 11.72,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 5,
     "text": "The two sides slide past each other.",
-    "file": "L06-earthquake-levels/vo/l06-05.wav",
-    "seconds": 2.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-05-5e50fefb8a.wav",
+    "seconds": 1.75,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 6,
     "text": "Picture how far this has climbed. One magnitude six holds the energy of thirty-two magnitude fives, a thousand fours, or thirty-two thousand threes. About a hundred earthquakes in the upper sixes happen every year.",
-    "file": "L06-earthquake-levels/vo/l06-06.wav",
-    "seconds": 11.48,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-06-8d3c77a3be.wav",
+    "seconds": 12.74,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 7,
     "text": "And each step up now gets rarer.",
-    "file": "L06-earthquake-levels/vo/l06-07.wav",
-    "seconds": 2.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l06-07-4a115a5497.wav",
+    "seconds": 2.24,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 0,
     "text": "Ten to fifteen a year reach magnitude seven. This is where a quake rearranges the landscape.",
-    "file": "L06-earthquake-levels/vo/l07-00.wav",
-    "seconds": 5.41,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l07-00-1f38b51fad.wav",
+    "seconds": 5.18,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 1,
     "text": "In 1959, a seven point three at Hebgen Lake, Montana, lifted fault scarps up to about six metres high.",
-    "file": "L06-earthquake-levels/vo/l07-01.wav",
-    "seconds": 6.48,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l07-01-f599e57070.wav",
+    "seconds": 6.840041666666667,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 2,
     "text": "It set off the largest earthquake-triggered landslide in recorded North American history, which dammed a river and made a new lake.",
-    "file": "L06-earthquake-levels/vo/l07-02.wav",
-    "seconds": 6.91,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l07-02-d937e30bd3.wav",
+    "seconds": 6.63,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 3,
     "text": "And the next day, in Yellowstone, at least two hundred and eighty-nine springs erupted as geysers. A hundred and sixty of them had no record of ever erupting before.",
-    "file": "L06-earthquake-levels/vo/l07-03.wav",
-    "seconds": 9.72,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l07-03-8f2918dc35.wav",
+    "seconds": 8.81,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 4,
     "text": "Now look at this. It's the Trans-Alaska Pipeline. In 2002, a magnitude seven point nine moved the ground directly beneath it about four metres sideways. And the pipe didn't break.",
-    "file": "L06-earthquake-levels/vo/l07-04.wav",
-    "seconds": 10.29,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l07-04-8667955e7e.wav",
+    "seconds": 11.530041666666667,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 5,
     "text": "Back in the 1970s, geologists had predicted where this fault was and how big it could get, so the pipe was laid on sliding shoes, on long steel beams. A few supports were damaged. The pipeline held.",
-    "file": "L06-earthquake-levels/vo/l07-05.wav",
-    "seconds": 12.52,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l07-05-5b96c95f49.wav",
+    "seconds": 11.46,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 6,
     "text": "Alaska alone has a magnitude seven almost every year, so it needed to.",
-    "file": "L06-earthquake-levels/vo/l07-06.wav",
-    "seconds": 4.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l07-06-e9b3463ecf.wav",
+    "seconds": 4.44,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 0,
     "text": "A magnitude eight happens once every year or two. And this is the rung where the famous scale breaks down.",
-    "file": "L06-earthquake-levels/vo/l08-00.wav",
-    "seconds": 6.68,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l08-00-2f12d89cd3.wav",
+    "seconds": 5.7,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 1,
     "text": "You've heard of the Richter scale. News reports still use the name, usually for something else.",
-    "file": "L06-earthquake-levels/vo/l08-01.wav",
-    "seconds": 5.51,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l08-01-6584bb45d1.wav",
+    "seconds": 4.890041666666667,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 2,
     "text": "Charles Richter introduced magnitude in 1935, and his original version only worked for California earthquakes, near one kind of instrument. It's rarely used now, except for small local quakes.",
-    "file": "L06-earthquake-levels/vo/l08-02.wav",
-    "seconds": 9.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l08-02-785aac3805.wav",
+    "seconds": 10.475,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 3,
     "text": "The trouble with older scales built on wave size is that they saturate. One of them tends to stop climbing at about eight point three, however much bigger the quake gets.",
-    "file": "L06-earthquake-levels/vo/l08-03.wav",
-    "seconds": 10.25,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l08-03-d8c20457e2.wav",
+    "seconds": 9.315,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 4,
     "text": "So seismologists moved to moment magnitude, which is based on the size of the rupture itself.",
-    "file": "L06-earthquake-levels/vo/l08-04.wav",
-    "seconds": 5.33,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l08-04-805fae7f2a.wav",
+    "seconds": 4.71,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 5,
     "text": "And that's why we can say this: Chile's earthquake in 2010 was an eight point eight, tied for the sixth largest ever recorded.",
-    "file": "L06-earthquake-levels/vo/l08-05.wav",
-    "seconds": 7.64,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l08-05-9f2bad5982.wav",
+    "seconds": 7.28,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 6,
     "text": "Moving that much rock is calculated to have shortened Earth's day by a little over a millionth of a second. It's far too small to measure directly, but that's the scale we've reached.",
-    "file": "L06-earthquake-levels/vo/l08-06.wav",
-    "seconds": 10.88,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l08-06-c4ef160ce4.wav",
+    "seconds": 9.57,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 0,
     "text": "In March 1964, Alaska was hit by a magnitude nine point two, the largest in United States history.",
-    "file": "L06-earthquake-levels/vo/l09-00.wav",
-    "seconds": 6.06,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-00-09d64ed08f.wav",
+    "seconds": 6.22,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 1,
     "text": "The shaking lasted about four and a half minutes. In about four minutes, a section of fault nine hundred kilometres long ruptured. Parts of the coast rose by more than nine metres, others sank.",
-    "file": "L06-earthquake-levels/vo/l09-01.wav",
-    "seconds": 11.48,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-01-f6eb010edc.wav",
+    "seconds": 10.15,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 2,
     "text": "Much of coastal Alaska moved at least fifteen metres toward the sea. The ground itself ended up in a new place.",
-    "file": "L06-earthquake-levels/vo/l09-02.wav",
-    "seconds": 6.99,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-02-bd56f85ac5.wav",
+    "seconds": 5.64,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 3,
     "text": "And then it left Alaska. Waterways sloshed as far away as the coasts of Texas and Louisiana. Water-level recorders in forty-seven states registered it.",
-    "file": "L06-earthquake-levels/vo/l09-03.wav",
-    "seconds": 8.12,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-03-3de8cb988f.wav",
+    "seconds": 9.69,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 4,
     "text": "In Seattle, more than nineteen hundred kilometres away, the Space Needle swayed.",
-    "file": "L06-earthquake-levels/vo/l09-04.wav",
-    "seconds": 4.17,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-04-a0f12bd4f3.wav",
+    "seconds": 4.27,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 5,
     "text": "The United States Geological Survey puts it like this: it caused the entire Earth to ring like a bell. Compare that with the five point one at Mount St. Helens.",
-    "file": "L06-earthquake-levels/vo/l09-05.wav",
-    "seconds": 10.11,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-05-34b5cd13ab.wav",
+    "seconds": 8.57,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 6,
     "text": "Alaska's earthquake released about one point four million times the energy.",
-    "file": "L06-earthquake-levels/vo/l09-06.wav",
-    "seconds": 3.65,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-06-99e2a13b76.wav",
+    "seconds": 3.69,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 7,
     "text": "Forty years later, off Sumatra, a rupture ran for about five hundred seconds, more than eight minutes, longer than any known earthquake. And neither of those is the record.",
-    "file": "L06-earthquake-levels/vo/l09-07.wav",
-    "seconds": 9.92,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l09-07-980f5ff51f.wav",
+    "seconds": 9.12,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 8,
     "text": "Alaska is only the second largest ever recorded with modern instruments.",
-    "file": "L06-earthquake-levels/vo/l09-08.wav",
+    "file": "L06-earthquake-levels/vo/l09-08-319dd10cc6.wav",
     "seconds": 3.65,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "pauseAfter": 0.55
   },
   {
     "scene": "l10",
     "index": 0,
     "text": "The twenty-second of May, 1960. Chile. About nine point five, the largest earthquake ever recorded by instruments. And \"about\" is honest: re-analysis puts it somewhere around that number.",
-    "file": "L06-earthquake-levels/vo/l10-00.wav",
-    "seconds": 9.86,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l10-00-71e7d1bb24.wav",
+    "seconds": 11.55,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l10",
     "index": 1,
     "text": "More than nine hundred kilometres of fault ruptured, and along one stretch, the two sides moved more than thirty metres. Its tsunami crossed every ocean on Earth.",
-    "file": "L06-earthquake-levels/vo/l10-01.wav",
-    "seconds": 9.09,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l10-01-be6c593652.wav",
+    "seconds": 9.485,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l10",
     "index": 2,
     "text": "A strain recorder in California gave the first observations of the whole planet ringing.",
-    "file": "L06-earthquake-levels/vo/l10-02.wav",
-    "seconds": 4.6,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l10-02-6b701a6e1b.wav",
+    "seconds": 4.22,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l10",
     "index": 3,
     "text": "The energy was about two point seven gigatons of TNT. That's well over half of all the electricity the United States generates in a year, in one event.",
-    "file": "L06-earthquake-levels/vo/l10-03.wav",
-    "seconds": 9.3,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l10-03-cae32425cf.wav",
+    "seconds": 8.7,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l10",
     "index": 4,
     "text": "Now try this. Add up every earthquake on Earth over about a hundred and ten years. All of them. It comes to the equivalent of one magnitude nine point nine five.",
-    "file": "L06-earthquake-levels/vo/l10-04.wav",
-    "seconds": 10.51,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l10-04-fc03d78dec.wav",
+    "seconds": 10,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l10",
     "index": 5,
     "text": "And this single earthquake is somewhere between a tenth and a fifth of that entire total.",
-    "file": "L06-earthquake-levels/vo/l10-05.wav",
-    "seconds": 5.23,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/l10-05-e8c706e691.wav",
+    "seconds": 4.88,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s11",
     "index": 0,
     "text": "So back to the question. How high can it go?",
-    "file": "L06-earthquake-levels/vo/s11-00.wav",
-    "seconds": 3.52,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/s11-00-38791e376e.wav",
+    "seconds": 2.57,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s11",
     "index": 1,
     "text": "The scale itself has no upper limit. The limit is the planet.",
-    "file": "L06-earthquake-levels/vo/s11-01.wav",
-    "seconds": 4.15,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/s11-01-83b90c5cb7.wav",
+    "seconds": 3.76,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s11",
     "index": 2,
     "text": "A magnitude ten would need a fault about fourteen thousand kilometres long, slipping thirty metres on average. No known fault can do it.",
-    "file": "L06-earthquake-levels/vo/s11-02.wav",
-    "seconds": 7.72,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/s11-02-43c23a6ffd.wav",
+    "seconds": 8.35,
+    "pauseAfter": 0.25
   },
   {
     "scene": "s11",
     "index": 3,
     "text": "Even the entire South American subduction zone, rupturing end to end, comes to about nine point eight six. Even the San Andreas, all of it, only reaches about eight and a half.",
-    "file": "L06-earthquake-levels/vo/s11-03.wav",
-    "seconds": 10.87,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/s11-03-44976e29a1.wav",
+    "seconds": 10.68,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s11",
     "index": 4,
     "text": "And a ten and a half? That takes about eighty thousand kilometres of fault. The whole circumference of the Earth is forty thousand.",
-    "file": "L06-earthquake-levels/vo/s11-04.wav",
-    "seconds": 7.8,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/s11-04-6458648060.wav",
+    "seconds": 6.875,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s11",
     "index": 5,
     "text": "An earthquake that size doesn't fit on the planet. Thirty-two times, thirty-two times, thirty-two times, and at last the number runs out of world.",
-    "file": "L06-earthquake-levels/vo/s11-05.wav",
-    "seconds": 8.24,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L06-earthquake-levels/vo/s11-05-d46ab8ee09.wav",
+    "seconds": 10.665,
+    "pauseAfter": 0.55
   }
 ]
