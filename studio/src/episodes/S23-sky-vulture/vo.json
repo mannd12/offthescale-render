@@ -3,63 +3,56 @@
     "scene": "cold",
     "index": 0,
     "text": "Nineteen seventy-three, over Abidjan. A passenger plane hits a vulture.",
-    "file": "S23-sky-vulture/vo/cold-00.wav",
-    "seconds": 3.89,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S23-sky-vulture/vo/cold-00-2c32c8cf37.wav",
+    "seconds": 4.27,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Altitude: eleven thousand three hundred metres.",
-    "file": "S23-sky-vulture/vo/cold-01.wav",
-    "seconds": 2.34,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S23-sky-vulture/vo/cold-01-3bc149bed9.wav",
+    "seconds": 2.68,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "The plane landed safely. And no bird has been recorded higher.",
-    "file": "S23-sky-vulture/vo/cold-02.wav",
-    "seconds": 4.13,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S23-sky-vulture/vo/cold-02-c772ba60ec.wav",
+    "seconds": 3.2900416666666668,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Now flip that upside down. The deepest point in the ocean, Challenger Deep, is ten thousand nine hundred and thirty-five metres down.",
-    "file": "S23-sky-vulture/vo/cold-03.wav",
-    "seconds": 8.1,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S23-sky-vulture/vo/cold-03-1a58dc6d23.wav",
+    "seconds": 6.82,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "So that vulture was three hundred and sixty-five metres higher than the ocean is deep.",
-    "file": "S23-sky-vulture/vo/cold-04.wav",
-    "seconds": 5.32,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S23-sky-vulture/vo/cold-04-a998943d36.wav",
+    "seconds": 4.37,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "And it wasn't anywhere near the top of the sky.",
-    "file": "S23-sky-vulture/vo/cold-05.wav",
-    "seconds": 3.61,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S23-sky-vulture/vo/cold-05-33a22edade.wav",
+    "seconds": 2.35,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "So what's flying above that, and how far up does it go? It starts at level four, and the full video is linked right here.",
-    "file": "S23-sky-vulture/vo/cold-06.wav",
-    "seconds": 9.13,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S23-sky-vulture/vo/cold-06-cc0d94efca.wav",
+    "seconds": 6.16,
+    "pauseAfter": 0.55
   }
 ]
