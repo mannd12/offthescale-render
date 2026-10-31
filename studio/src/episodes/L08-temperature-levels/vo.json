@@ -3,540 +3,480 @@
     "scene": "cold",
     "index": 0,
     "text": "Under the ground on the border of France and Switzerland, there's a ring twenty-seven kilometres long. Its magnets are colder than outer space.",
-    "file": "L08-temperature-levels/vo/cold-00.wav",
-    "seconds": 7.72,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/cold-00-5c0252852c.wav",
+    "seconds": 7.38,
+    "pauseAfter": 0.25
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "And inside those same magnets, collisions run more than a hundred thousand times hotter than the centre of the Sun.",
-    "file": "L08-temperature-levels/vo/cold-01.wav",
-    "seconds": 6.6,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/cold-01-000c747dce.wav",
+    "seconds": 5.18,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "The coldest and the hottest, in one machine.",
-    "file": "L08-temperature-levels/vo/cold-02.wav",
-    "seconds": 2.81,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/cold-02-0fce6368be.wav",
+    "seconds": 2.13,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "So let's climb the entire scale, from the coldest thing humans have ever made to the hottest. Each mark on this thermometer is ten times the last, because it has to be. It covers about twenty-three powers of ten.",
-    "file": "L08-temperature-levels/vo/cold-03.wav",
-    "seconds": 13.06,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/cold-03-5044aa7356.wav",
+    "seconds": 10.22,
+    "pauseAfter": 0.25
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "And here is where you live, at about fifteen degrees. A bit past the middle.",
-    "file": "L08-temperature-levels/vo/cold-04.wav",
-    "seconds": 5.2,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/cold-04-e1d712832a.wav",
+    "seconds": 3.66,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "But first, the floor.",
-    "file": "L08-temperature-levels/vo/cold-05.wav",
-    "seconds": 1.54,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/cold-05-fccc5c9a5e.wav",
+    "seconds": 1.19,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 0,
     "text": "Temperature tells you how much energy of motion the atoms in something have. So there's a bottom: absolute zero, minus two hundred and seventy-three point one five degrees. And nothing has ever got there.",
-    "file": "L08-temperature-levels/vo/l01-00.wav",
-    "seconds": 11.48,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l01-00-5465d9d073.wav",
+    "seconds": 11.21,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l01",
     "index": 1,
     "text": "It's been shown that no process can reach it in a finite number of steps and a finite time.",
-    "file": "L08-temperature-levels/vo/l01-01.wav",
-    "seconds": 6.18,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l01-01-12982b73f8.wav",
+    "seconds": 4.15,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l01",
     "index": 2,
     "text": "Even the old idea that everything stops down there turned out to be wrong: matter still has a little motion, called zero-point motion.",
-    "file": "L08-temperature-levels/vo/l01-02.wav",
-    "seconds": 7.64,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l01-02-0c6911b6d0.wav",
+    "seconds": 6.11,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 3,
     "text": "So how close have we come? In 2021, physicists in Germany reported thirty-eight picokelvin: thirty-eight trillionths of a degree above that floor.",
-    "file": "L08-temperature-levels/vo/l01-03.wav",
-    "seconds": 7.51,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l01-03-ebd4bdf076.wav",
+    "seconds": 8.32,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 4,
     "text": "And here's how they did it. They took about a hundred thousand atoms of rubidium and dropped them down a tower a hundred and ten metres high. The coldest thing ever reported was made by letting it fall.",
-    "file": "L08-temperature-levels/vo/l01-04.wav",
-    "seconds": 12.54,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l01-04-b2c0a6a2fd.wav",
+    "seconds": 9.9,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l01",
     "index": 5,
     "text": "In free fall, for two seconds, they used a kind of lens to spread out the motion of the cloud. Without it, the cloud thinned out until it couldn't be detected after about a sixth of a second.",
-    "file": "L08-temperature-levels/vo/l01-05.wav",
-    "seconds": 12.66,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l01-05-a81d597f60.wav",
+    "seconds": 8.590041666666666,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l01",
     "index": 6,
     "text": "With it, they could see it for the whole fall.",
-    "file": "L08-temperature-levels/vo/l01-06.wav",
-    "seconds": 3.44,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l01-06-450a48728c.wav",
+    "seconds": 1.82,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 0,
     "text": "Now look at the sky. The space between the stars isn't at absolute zero. It's filled with the oldest light in the universe, and that holds it at about two point seven above.",
-    "file": "L08-temperature-levels/vo/l02-00.wav",
-    "seconds": 11.06,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l02-00-d1c246a3d3.wav",
+    "seconds": 8.28,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 1,
     "text": "Which means there are places colder than deep space.",
-    "file": "L08-temperature-levels/vo/l02-01.wav",
-    "seconds": 3.02,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l02-01-0b922d8deb.wav",
+    "seconds": 2.51,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l02",
     "index": 2,
     "text": "One is out there: the Boomerang Nebula, five thousand light-years away, at about one degree above zero, the coldest known object in nature, chilled by its own expanding gas.",
-    "file": "L08-temperature-levels/vo/l02-02.wav",
-    "seconds": 9.84,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l02-02-d0fc8b3428.wav",
+    "seconds": 9.94,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 3,
     "text": "The other one is the ring. The Large Hadron Collider keeps its main magnets at one point nine above zero.",
-    "file": "L08-temperature-levels/vo/l02-03.wav",
-    "seconds": 6.68,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l02-03-57a18abe6c.wav",
+    "seconds": 5.76,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l02",
     "index": 4,
     "text": "That takes a hundred and twenty tonnes of helium, the largest cryogenic system in the world, and weeks just to cool it down. Below about two degrees, helium turns superfluid, and that's what they run it on.",
-    "file": "L08-temperature-levels/vo/l02-04.wav",
-    "seconds": 12.44,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l02-04-e4d73a9235.wav",
+    "seconds": 10.83,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 5,
     "text": "A tunnel on Earth, colder than the space between the stars. Remember this machine. It comes back.",
-    "file": "L08-temperature-levels/vo/l02-05.wav",
-    "seconds": 6.01,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l02-05-f741288d07.wav",
+    "seconds": 5.6,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 0,
     "text": "Where's the coldest place in our solar system? Most people would say Pluto, way out at the edge, averaging about minus two hundred and thirty-two degrees.",
-    "file": "L08-temperature-levels/vo/l03-00.wav",
-    "seconds": 8.77,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l03-00-6f318d4835.wav",
+    "seconds": 7.7,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 1,
     "text": "But in 2010, NASA reported something colder, much closer to home. In Hermite Crater, on our own Moon, a spot was measured at minus two hundred and forty-eight.",
-    "file": "L08-temperature-levels/vo/l03-01.wav",
-    "seconds": 9.6,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l03-01-568b2c0969.wav",
+    "seconds": 8.66,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l03",
     "index": 2,
     "text": "It's the coldest temperature NASA said it had measured anywhere in the solar system at the time. So the coldest spot on that list wasn't far away at all. It was on the Moon.",
-    "file": "L08-temperature-levels/vo/l03-02.wav",
-    "seconds": 11.28,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l03-02-b26c344cf3.wav",
+    "seconds": 8,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 0,
     "text": "On Earth, the official record for the coldest air is minus eighty-nine point two degrees, at Vostok Station in Antarctica, in July 1983.",
-    "file": "L08-temperature-levels/vo/l04-00.wav",
-    "seconds": 7.74,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l04-00-8dd865f329.wav",
+    "seconds": 7.9,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 1,
     "text": "Satellites have since read something colder on the plateau nearby: minus ninety-three point two, in August 2010. NASA called it a new record. The World Meteorological Organization still lists the first one.",
-    "file": "L08-temperature-levels/vo/l04-01.wav",
-    "seconds": 10.85,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l04-01-87e04e0e4c.wav",
+    "seconds": 11.190041666666668,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 2,
     "text": "So even here, which number you get depends on what you are measuring.",
-    "file": "L08-temperature-levels/vo/l04-02.wav",
-    "seconds": 4.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l04-02-d979529b70.wav",
+    "seconds": 2.99,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 3,
-    "text": "We've now climbed about twelve powers of ten, and we're still below the temperature of a freezer. From here, it gets hot.",
-    "file": "L08-temperature-levels/vo/l04-03.wav",
-    "seconds": 7.51,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "text": "We've now climbed almost thirteen powers of ten, and we're still at minus eighty-nine degrees. From here, it gets hot.",
+    "file": "L08-temperature-levels/vo/l04-03-999c728091.wav",
+    "seconds": 5.86,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 0,
     "text": "Here's a quick question. What's the hottest planet? Mercury is closest to the Sun, and its daytime side reaches four hundred and thirty degrees. But at night, it falls to minus a hundred and eighty.",
-    "file": "L08-temperature-levels/vo/l05-00.wav",
-    "seconds": 11.97,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l05-00-4fb6eb1b6b.wav",
+    "seconds": 10.57,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 1,
     "text": "The hottest planet is the second one out. Venus sits at about four hundred and sixty-five degrees, hot enough to melt lead, and it stays there, because its thick atmosphere traps the heat.",
-    "file": "L08-temperature-levels/vo/l05-01.wav",
-    "seconds": 11.08,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l05-01-a20e3bbabc.wav",
+    "seconds": 10.44,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 2,
     "text": "So distance isn't the whole story. What's around you matters too.",
-    "file": "L08-temperature-levels/vo/l05-02.wav",
-    "seconds": 3.83,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l05-02-e6fd458159.wav",
+    "seconds": 3.46,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 0,
     "text": "This is Kīlauea, in Hawaii. Its lava comes out at about eleven hundred and seventy degrees.",
-    "file": "L08-temperature-levels/vo/l06-00.wav",
-    "seconds": 5.51,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l06-00-60fbbe7d70.wav",
+    "seconds": 5.03,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 1,
     "text": "And you can read that temperature with your eyes. Look at the colour. Yellow is about a thousand to twelve hundred degrees. Orange is eight hundred to a thousand. Red is six to eight hundred.",
-    "file": "L08-temperature-levels/vo/l06-01.wav",
-    "seconds": 11.95,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l06-01-cb5b6e6042.wav",
+    "seconds": 10.31,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 2,
     "text": "So as lava cools, it tells you, on its way down from yellow to red.",
-    "file": "L08-temperature-levels/vo/l06-02.wav",
-    "seconds": 5.12,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l06-02-e900091698.wav",
+    "seconds": 3.59,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 0,
     "text": "The visible surface of the Sun is about five thousand five hundred degrees.",
-    "file": "L08-temperature-levels/vo/l07-00.wav",
-    "seconds": 4.29,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l07-00-bb88925e27.wav",
+    "seconds": 3.74,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 1,
     "text": "Now look down. Near the centre of the Earth, researchers put it at around six thousand degrees, give or take five hundred. That's roughly as hot as the face of the Sun, under your feet.",
-    "file": "L08-temperature-levels/vo/l07-01.wav",
-    "seconds": 11.89,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l07-01-e03b6ab564.wav",
+    "seconds": 10.47,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 2,
     "text": "And no one has been there, of course. They squeezed tiny samples of iron in a diamond anvil, heated them with lasers, and worked it out from there.",
-    "file": "L08-temperature-levels/vo/l07-02.wav",
-    "seconds": 9.5,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l07-02-076e3c0884.wav",
+    "seconds": 7.04,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 0,
     "text": "You've seen something hotter than that. Lightning heats the air around it to about twenty-eight thousand degrees. That's about five times hotter than the surface of the Sun.",
-    "file": "L08-temperature-levels/vo/l08-00.wav",
-    "seconds": 9.38,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l08-00-e1850133f3.wav",
+    "seconds": 8.270041666666666,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 1,
     "text": "But here's something to hold on to, because it matters from now on. Temperature is not the same as heat. Temperature is how fast the particles are moving. Heat is the total energy they transfer.",
-    "file": "L08-temperature-levels/vo/l08-01.wav",
-    "seconds": 11.87,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l08-01-a832feb206.wav",
+    "seconds": 10.71,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 2,
     "text": "The upper atmosphere can read two thousand degrees or more. The Space Station orbits in that layer. And it's fine, because the air there is so thin that it's what we normally think of as outer space.",
-    "file": "L08-temperature-levels/vo/l08-02.wav",
-    "seconds": 12.32,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l08-02-f580e397df.wav",
+    "seconds": 9.94,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 3,
     "text": "A high temperature, and hardly anything to carry it.",
-    "file": "L08-temperature-levels/vo/l08-03.wav",
-    "seconds": 3.12,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l08-03-ff49c61da2.wav",
+    "seconds": 2.49,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 0,
     "text": "Which brings us to a real puzzle. You'd expect the Sun to cool as you move away from it. Its surface is five and a half thousand degrees. And its outer atmosphere, the corona, reaches about two million.",
-    "file": "L08-temperature-levels/vo/l09-00.wav",
-    "seconds": 12.92,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l09-00-e0becd5d8e.wav",
+    "seconds": 10.93,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 1,
     "text": "The outside is hotter than the surface, and exactly why is one of the big unsolved questions.",
-    "file": "L08-temperature-levels/vo/l09-01.wav",
-    "seconds": 5.65,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l09-01-cd1477e55a.wav",
+    "seconds": 5.43,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 2,
     "text": "NASA's Parker Solar Probe flies right through it, coming within about six million kilometres of the Sun. Its shield only faces temperatures of over a thousand degrees, instead of millions, because the corona is so thin.",
-    "file": "L08-temperature-levels/vo/l09-02.wav",
-    "seconds": 12.03,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l09-02-895c1979e2.wav",
+    "seconds": 11.44,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 3,
     "text": "It's the same rule as before.",
-    "file": "L08-temperature-levels/vo/l09-03.wav",
-    "seconds": 2.07,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l09-03-bdbc99731c.wav",
+    "seconds": 1.37,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 4,
     "text": "And at the centre of the Sun, where the fusion happens: fifteen million degrees. And we've beaten it.",
-    "file": "L08-temperature-levels/vo/l09-04.wav",
-    "seconds": 6.24,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l09-04-2a8c8597b4.wav",
+    "seconds": 5.89,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l10",
     "index": 0,
     "text": "In South Korea, a fusion machine called KSTAR held its plasma at a hundred million degrees for forty-eight seconds. That's several times hotter than the core of the Sun, on purpose, in a building.",
-    "file": "L08-temperature-levels/vo/l10-00.wav",
-    "seconds": 11.4,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l10-00-00d8bdb4b3.wav",
+    "seconds": 12.03,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l10",
     "index": 1,
     "text": "Why so hot? Because the Sun has something we don't: the extreme density of a star. On Earth, we make up for that with temperature. And since nothing solid can hold this, it's held in a magnetic bottle.",
-    "file": "L08-temperature-levels/vo/l10-01.wav",
-    "seconds": 13.02,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l10-01-c1b4bf6779.wav",
+    "seconds": 10.92,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l10",
     "index": 2,
     "text": "The ITER machine is designed for up to three hundred million. It hasn't reached that yet.",
-    "file": "L08-temperature-levels/vo/l10-02.wav",
-    "seconds": 5.41,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l10-02-e4b9139938.wav",
+    "seconds": 4.42,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l11",
     "index": 0,
     "text": "And now we come back to where we started. Smash heavy atoms together at nearly the speed of light, and for an instant you get the hottest matter anyone has ever made.",
-    "file": "L08-temperature-levels/vo/l11-00.wav",
-    "seconds": 10.57,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l11-00-2dc1978dfb.wav",
+    "seconds": 8.32,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l11",
     "index": 1,
     "text": "At Brookhaven in New York, gold ions reached about four trillion degrees: more than a quarter of a million times hotter than the Sun's core.",
-    "file": "L08-temperature-levels/vo/l11-01.wav",
-    "seconds": 8.27,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l11-01-53d1e8ca06.wav",
+    "seconds": 7.06,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l11",
     "index": 2,
     "text": "And the Large Hadron Collider, that same ring from level two, runs collisions at more than a hundred thousand times the Sun's centre, and may have gone higher still.",
-    "file": "L08-temperature-levels/vo/l11-02.wav",
-    "seconds": 9.64,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l11-02-926edb35ee.wav",
+    "seconds": 7.71,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l11",
     "index": 3,
     "text": "At that temperature, protons and neutrons melt. And the result is a surprise: it doesn't act like a gas. It flows like a nearly friction-free liquid.",
-    "file": "L08-temperature-levels/vo/l11-03.wav",
-    "seconds": 8.95,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l11-03-a7faf14bf5.wav",
+    "seconds": 9.19,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l11",
     "index": 4,
     "text": "It's the state the whole universe was in, for a few millionths of a second after the Big Bang.",
-    "file": "L08-temperature-levels/vo/l11-04.wav",
-    "seconds": 6.28,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l11-04-baee411b26.wav",
+    "seconds": 4.32,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l11",
     "index": 5,
     "text": "So the magnets around that ring sit at one point nine above absolute zero, and the collisions inside it reach trillions of degrees. Most of the thermometer, in one tunnel.",
-    "file": "L08-temperature-levels/vo/l11-05.wav",
-    "seconds": 10.03,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/l11-05-775ef85e46.wav",
+    "seconds": 9.05,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s12",
     "index": 0,
     "text": "There's one more odd thing about this scale. It doesn't stop at the top the way you'd think.",
-    "file": "L08-temperature-levels/vo/s12-00.wav",
-    "seconds": 6.04,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/s12-00-2fd6cee6d6.wav",
+    "seconds": 4.33,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s12",
     "index": 1,
     "text": "In 2013, physicists in Munich made a gas of about a hundred thousand atoms with a temperature of minus a few billionths of a kelvin. That's below absolute zero, the floor we said you can't even reach.",
-    "file": "L08-temperature-levels/vo/s12-01.wav",
-    "seconds": 12.24,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/s12-01-cec0f9be1a.wav",
+    "seconds": 11.6,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s12",
     "index": 2,
     "text": "Except it isn't colder. By the standard definition, it's hotter than any positive temperature at all. Their words: the scale doesn't end at infinity. It jumps to negative values.",
-    "file": "L08-temperature-levels/vo/s12-02.wav",
-    "seconds": 10.08,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/s12-02-bd6b02fdcd.wav",
+    "seconds": 10.05,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s12",
     "index": 3,
     "text": "It works because they gave the atoms an energy ceiling, so that most of them could pile up at the top, like balls resting on a hilltop. Water can never do this.",
-    "file": "L08-temperature-levels/vo/s12-03.wav",
-    "seconds": 10.67,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/s12-03-cafc752796.wav",
+    "seconds": 8.89,
+    "pauseAfter": 0.25
   },
   {
     "scene": "s12",
     "index": 4,
     "text": "And the researchers themselves say that the strange sign comes from how temperature was historically defined. Other physicists argue that it comes from a flawed definition of entropy, so the negative value isn't real.",
-    "file": "L08-temperature-levels/vo/s12-04.wav",
-    "seconds": 11.2,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/s12-04-7e75805e66.wav",
+    "seconds": 9.78,
+    "pauseAfter": 0.25
   },
   {
     "scene": "s12",
     "index": 5,
     "text": "Not everyone agrees.",
-    "file": "L08-temperature-levels/vo/s12-05.wav",
-    "seconds": 1.13,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/s12-05-d5f1b2fba5.wav",
+    "seconds": 1.2,
+    "pauseAfter": 0.55
   },
   {
     "scene": "s12",
     "index": 6,
     "text": "So the coldest thing ever made was made by dropping it, the coldest and hottest sit in one tunnel, and even the number line might bend at the end. Not bad for something you check every morning.",
-    "file": "L08-temperature-levels/vo/s12-06.wav",
-    "seconds": 12.24,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "L08-temperature-levels/vo/s12-06-ac192eaf56.wav",
+    "seconds": 9.299958333333333,
+    "pauseAfter": 0.55
   }
 ]
