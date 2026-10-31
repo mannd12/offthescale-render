@@ -17,7 +17,8 @@ import { EpisodeL05, timeline as l05 } from "./episodes/L05-sky-levels/Episode";
 import { ThumbL05 } from "./episodes/L05-sky-levels/Thumbs";
 import { EpisodeL06, timeline as l06 } from "./episodes/L06-earthquake-levels/Episode";
 import { ThumbL06 } from "./episodes/L06-earthquake-levels/Thumbs";
-import { AssetSheetL08 } from "./episodes/L08-temperature-levels/AssetSheet";
+import { EpisodeL08, timeline as l08 } from "./episodes/L08-temperature-levels/Episode";
+import { ThumbL08 } from "./episodes/L08-temperature-levels/Thumbs";
 import { EpisodeL07, timeline as l07 } from "./episodes/L07-volcano-levels/Episode";
 import { ThumbL07 } from "./episodes/L07-volcano-levels/Thumbs";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
@@ -66,6 +67,9 @@ export const Root: React.FC = () => (
     {/* L05 - Every Level of the Sky (script draft 1, estimated timings) */}
     <Composition id="l05" component={EpisodeL05} durationInFrames={l05.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
 
+    {/* L08 - Every Level of Temperature (script draft 1, estimated timings) */}
+    <Composition id="l08" component={EpisodeL08} durationInFrames={l08.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+
     {/* S01 - the first Short (cliffhanger for L01), vertical, under 60 s */}
     <Composition id="s01-short" component={ShortS01} durationInFrames={s01.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s02-short" component={ShortS02} durationInFrames={s02.totalFrames} fps={FPS} width={1080} height={1920} />
@@ -92,7 +96,7 @@ export const Root: React.FC = () => (
 
     <Still id="l07-thumb" component={ThumbL07} width={1280} height={720} />
     <Still id="l06-thumb" component={ThumbL06} width={1280} height={720} />
-    <Still id="l08-assets" component={AssetSheetL08} width={1920} height={1080} />
+    <Still id="l08-thumb" component={ThumbL08} width={1280} height={720} />
     <Still id="l05-thumb" component={ThumbL05} width={1280} height={720} />
     <Still id="l01-thumb" component={ThumbL01} width={1280} height={720} />
     <Still id="l01-thumb-c" component={ThumbL01C} width={1280} height={720} />
