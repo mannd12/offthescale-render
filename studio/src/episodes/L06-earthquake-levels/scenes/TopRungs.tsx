@@ -274,9 +274,9 @@ export const Limit: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= sa && f < L4 ? <PillTag x={340} y={270} size={34} color={B.aqua} opacity={ease(f, sa, 10)}>all of the San Andreas: about 8½</PillTag> : null}
       {f >= L4 && f < L5 ? <Big x={340} y={190} big="M10.5: ABOUT 80,000 KM" size={60} color={B.tease} ink={B.paper} opacity={ease(f, L4 + 10, 10)} /> : null}
       {f >= circ && f < L5 ? <PillTag x={340} y={320} size={36} opacity={ease(f, circ, 10)}>Earth's circumference: 40,000 km</PillTag> : null}
-      {f >= L5 && f < within(t, 5, 0.32) ? <><Big x={340} y={400} big="IT DOESN'T FIT" size={80} opacity={ease(f, L5, 10)} /><Big x={340} y={510} big="ON THE PLANET" size={80} opacity={ease(f, L5, 10)} /></> : null}
+      {f >= L5 && f < within(t, 5, 0.32) ? <><Big x={340} y={400} big="IT DOESN'T FIT" size={68} opacity={ease(f, L5, 10)} /><Big x={340} y={510} big="ON THE PLANET" size={68} opacity={ease(f, L5, 10)} /></> : null}
       {flash >= 0 && f >= within(t, 5, 0.32) && f < within(t, 5, 0.72) ? <div style={{ position: "absolute", left: 340 + Math.min(2, flash) * 60, top: 190 + Math.min(2, flash) * 150, fontFamily: F.headline, fontSize: 96, lineHeight: 1.1, color: heat(5 + Math.min(2, flash) * 2) }}>32 TIMES</div> : null}
-      {f >= within(t, 5, 0.72) ? <><Big x={340} y={400} big="THE NUMBER RUNS" size={80} color={B.tease} ink={B.paper} opacity={ease(f, within(t, 5, 0.72), 10)} /><Big x={340} y={510} big="OUT OF WORLD" size={80} color={B.tease} ink={B.paper} opacity={ease(f, within(t, 5, 0.72), 10)} /></> : null}
+      {f >= within(t, 5, 0.72) ? <><Big x={340} y={400} big="THE NUMBER RUNS" size={68} color={B.tease} ink={B.paper} opacity={ease(f, within(t, 5, 0.72), 10)} /><Big x={340} y={510} big="OUT OF WORLD" size={68} color={B.tease} ink={B.paper} opacity={ease(f, within(t, 5, 0.72), 10)} /></> : null}
     </QuakeShell>
   );
 };
