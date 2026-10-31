@@ -13,7 +13,7 @@ const easeOut = (k: number) => 1 - Math.pow(1 - clamp01(k), 3);
 const geo = (a: number, b: number, k: number) => Math.exp(Math.log(Math.max(a, 0.05)) + (Math.log(Math.max(b, 0.05)) - Math.log(Math.max(a, 0.05))) * k);
 
 const TRACK_X = 1852;
-const TOP_Y = 196;
+const TOP_Y = 250; // leaves room for the reading pill at the very top, under the range line
 const BOT_Y = 960;
 const H = BOT_Y - TOP_Y;
 
@@ -79,7 +79,7 @@ export const SkyGauge: React.FC<{ frame: number; climb: Climb[]; scale: Scale[];
       <div style={{ position: "absolute", right: 1920 - TRACK_X - 16, top: 160, fontFamily: F.ui, fontWeight: 800, fontSize: 24, letterSpacing: 1, color: si > 0 && frame < sNow.at + 150 ? B.gauge : B.paper, whiteSpace: "nowrap", textShadow: "0 2px 8px rgba(0,0,0,0.95)" }}>{scaleLine}</div>
       {/* the rescale says so */}
       {notice > 0 ? (
-        <div style={{ position: "absolute", right: 1920 - TRACK_X + 26, top: 204, opacity: notice, padding: "8px 18px 10px", borderRadius: 12, background: B.tease, color: B.paper, fontFamily: F.ui, fontWeight: 800, fontSize: 26, letterSpacing: 1, whiteSpace: "nowrap", boxShadow: "0 6px 24px rgba(0,0,0,0.55)" }}>
+        <div style={{ position: "absolute", right: 420, top: 204, opacity: notice, padding: "8px 18px 10px", borderRadius: 12, background: B.tease, color: B.paper, fontFamily: F.ui, fontWeight: 800, fontSize: 26, letterSpacing: 1, whiteSpace: "nowrap", boxShadow: "0 6px 24px rgba(0,0,0,0.55)" }}>
           {sNow.say ?? "THE GAUGE IS CHANGING SCALE"}
         </div>
       ) : null}

@@ -54,7 +54,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {frame >= hundred && frame < further ? <Card x={300} y={560} size={120} big="100 KM?" small={frame >= round ? "PARTLY BECAUSE IT WAS ROUND" : "WHAT MOST PEOPLE SAY"} opacity={ease(frame, hundred, 10)} /> : null}
       {frame >= further && frame < going ? (
         <>
-          <svg width={1400} height={1080} style={{ position: "absolute", left: 0, top: 0 }}>
+          <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0 }}>
             <path d={`M700 860 V ${mix(860, 260, ease(frame, further + 6, 60))}`} stroke={B.gauge} strokeWidth={14} strokeLinecap="round" />
             <path d={`M650 ${mix(910, 310, ease(frame, further + 6, 60))} L700 ${mix(860, 260, ease(frame, further + 6, 60))} L750 ${mix(910, 310, ease(frame, further + 6, 60))}`} stroke={B.gauge} strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -126,7 +126,7 @@ export const Ground: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Photo id="l05-balloon-topeka" scale={1.05 + 0.2 * lin(frame, 0, heaviest)} origin="8% 30%" brightness={mix(0.92, 0.14, col)} />
       {col < 0.5 ? <PillTag x={60} y={206} size={28}>A weather balloon launch, Topeka, Kansas</PillTag> : null}
       {col > 0 ? (
-        <svg width={1400} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: col }}>
+        <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: col }}>
           <g transform={`translate(0 ${scroll})`}>
             {dots.map((d, i) => {
               const y = yk(d.km);
@@ -206,7 +206,7 @@ export const Everest: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {dia < 0.5 ? <PillTag x={60} y={206} size={28}>Everest is at the centre of this picture</PillTag> : null}
       {frame >= orbit && dia < 0.5 ? <PillTag x={60} y={262} size={28} color={B.gauge} opacity={ease(frame, orbit, 8)}>taken from orbit</PillTag> : null}
       {dia > 0 ? (
-        <svg width={1400} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: dia }}>
+        <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: dia }}>
           <path d={profile} fill="#31404F" stroke={B.paper} strokeWidth={4} />
           <line x1={80} y1={Y0} x2={1360} y2={Y0} stroke="rgba(255,255,255,0.7)" strokeWidth={3} />
           {fill > 0 ? <rect x={80} y={yk(8.85)} width={1280} height={(Y0 - yk(8.85)) * fill} transform={`translate(0 ${(Y0 - yk(8.85)) * (1 - fill)})`} fill={B.gauge} opacity={0.2} /> : null}
@@ -221,13 +221,13 @@ export const Everest: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {dia > 0.5 ? <Tag x={100} y={yk(5.6) - 46} color={B.gauge} size={32}>half the air is below this line</Tag> : null}
       {frame >= below && frame < stand ? <Card x={940} y={yk(8.85) + 40} size={64} big="ABOUT 3 KM" color={B.tease} ink={B.paper} opacity={ease(frame, below, 10)} /> : null}
-      {frame >= pokes && frame < stand ? <CaptionPop bottom={120}>poking out above half the atmosphere</CaptionPop> : null}
+      {frame >= pokes && frame < stand ? <CaptionPop bottom={88}>poking out above half the atmosphere</CaptionPop> : null}
       {frame >= stand ? (
         <div style={{ position: "absolute", left: 725, top: yk(8.85) - 66, opacity: ease(frame, stand, 10) }}>
           <DiverSilhouette size={70} color={B.gauge} />
         </div>
       ) : null}
-      {frame >= boots ? <CaptionPop bottom={120}>half the sky is under your boots</CaptionPop> : null}
+      {frame >= boots ? <CaptionPop bottom={88}>half the sky is under your boots</CaptionPop> : null}
       {frame >= eight ? (
         <>
           {Array.from({ length: 8 }, (_, i) => (
@@ -255,7 +255,7 @@ const Mirror: React.FC<{ frame: number; downAt: number; upAt?: number; bird?: bo
   const reach = bird ? 11.3 : 10.97;
   const planeY = SEA - reach * PK * (bird ? 1 : up);
   return (
-    <svg width={1400} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity }}>
+    <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity }}>
       <defs>
         <linearGradient id="l05sea" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#0E5E86" />
@@ -329,7 +329,7 @@ export const Airliners: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {vul ? <Photo id="l05-vulture" opacity={ease(frame, vulture - 4, 8)} scale={frame < highest ? 1.02 + 0.16 * lin(frame, vulture, higher) : 1.18 - 0.14 * lin(frame, highest, built)} origin="48% 40%" brightness={0.92} /> : null}
       {clamp01(dc8) > 0.5 ? <PillTag x={60} y={206} size={28}>A former airliner, now a NASA lab</PillTag> : null}
       {jetK > 0 ? (
-        <svg width={1400} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: jetK }}>
+        <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: jetK }}>
           {[0, 1, 2, 3, 4].map((k) => (
             <path key={k} d={`M0 ${300 + k * 90} C 350 ${240 + k * 90}, 800 ${380 + k * 90}, 1400 ${290 + k * 90}`} stroke={k % 2 ? B.aqua : B.paper} strokeWidth={8} fill="none" strokeDasharray="130 90" strokeDashoffset={-frame * 12 - k * 40} strokeLinecap="round" />
           ))}
@@ -350,10 +350,10 @@ export const Airliners: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
       {vul && birdMirror < 0.5 && frame < built ? (
         <>
-          <PillTag x={60} y={206} size={32} color={B.gauge}>A Rüppell's vulture, not the 1973 bird</PillTag>
-          {frame >= year && frame < highest ? <PillTag x={60} y={268} size={32} opacity={ease(frame, year, 8)}>1973, over Abidjan, West Africa</PillTag> : null}
-          {frame >= metres && frame < highest ? <Card x={80} y={760} size={96} big="11,300 M" small={frame >= safe ? "THE PLANE LANDED SAFELY" : undefined} opacity={ease(frame, metres, 8)} /> : null}
-          {frame >= highest && frame < built ? <Card x={80} y={780} size={64} big="THE HIGHEST BIRD ON RECORD" opacity={ease(frame, highest, 8)} /> : null}
+          <PillTag x={300} y={700} size={32} color={B.gauge}>A Rüppell's vulture, not the 1973 bird</PillTag>
+          {frame >= year && frame < highest ? <PillTag x={300} y={756} size={32} opacity={ease(frame, year, 8)}>1973, over Abidjan, West Africa</PillTag> : null}
+          {frame >= metres && frame < highest ? <Card x={300} y={812} size={84} big="11,300 M" small={frame >= safe ? "THE PLANE LANDED SAFELY" : undefined} opacity={ease(frame, metres, 8)} /> : null}
+          {frame >= highest && frame < built ? <Card x={300} y={824} size={64} big="THE HIGHEST BIRD ON RECORD" opacity={ease(frame, highest, 8)} /> : null}
         </>
       ) : null}
       {birdMirror > 0 ? <Mirror frame={frame} downAt={higher - 60} bird opacity={birdMirror} /> : null}

@@ -36,10 +36,10 @@ export const Card: React.FC<{ x: number; y: number; big: string; small?: string;
   );
 
 /** A still as a layer, with the scene's own camera. contain = a square plate that must not lose its edges. */
-export const Photo: React.FC<{ id: string; opacity?: number; scale?: number; origin?: string; brightness?: number; fit?: "cover" | "contain"; box?: React.CSSProperties }> = ({ id, opacity = 1, scale = 1, origin = "50% 50%", brightness = 0.85, fit = "cover", box }) =>
+export const Photo: React.FC<{ id: string; opacity?: number; scale?: number; origin?: string; brightness?: number; fit?: "cover" | "contain"; box?: React.CSSProperties; /** which part of the source a cover crop keeps */ pos?: string }> = ({ id, opacity = 1, scale = 1, origin = "50% 50%", brightness = 0.85, fit = "cover", box, pos }) =>
   opacity <= 0 ? null : (
     <div style={{ position: "absolute", inset: 0, opacity, overflow: "hidden", ...box }}>
-      <Img src={staticFile(`assets/${id}.jpg`)} style={{ width: "100%", height: "100%", objectFit: fit, transform: `scale(${scale})`, transformOrigin: origin, filter: `brightness(${brightness})` }} />
+      <Img src={staticFile(`assets/${id}.jpg`)} style={{ width: "100%", height: "100%", objectFit: fit, objectPosition: pos, transform: `scale(${scale})`, transformOrigin: origin, filter: `brightness(${brightness})` }} />
     </div>
   );
 
