@@ -898,6 +898,77 @@
       "licence": "CC BY 4.0",
       "credit": "Arctic and Antarctic Research Institute, CC BY 4.0 (1299 px: inset)",
       "episode": "L08"
+    },
+    {
+      "id": "l09-micro",
+      "commons": "Micrometeorite inside dust mite.jpg",
+      "licence": "CC0",
+      "credit": "Joris.vandorpe, CC0",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-meteor",
+      "commons": "Looking Down on a Shooting Star.JPG",
+      "licence": "Public domain",
+      "credit": "ISS Expedition 28, NASA Earth Observatory",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-tunguska",
+      "commons": "Tunguska Ereignis-1.jpg",
+      "licence": "Public domain",
+      "credit": "Leonid Kulik expedition, 1929, published 1931 (PD-old-70, PD-Russia-2008)",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-dimorphos",
+      "commons": "Surface Image of Dimorphos (2023-008).png",
+      "licence": "Public domain",
+      "credit": "NASA/Johns Hopkins APL (985 px: inset)",
+      "episode": "L09",
+      "ext": "png"
+    },
+    {
+      "id": "l09-bennu",
+      "commons": "Bennu mosaic OSIRIS-REx.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/Goddard/University of Arizona",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-sample",
+      "commons": "OSIRIS-REx - TAGSAM sample on mylar flap jsc2023e058642.jpg",
+      "licence": "Public domain",
+      "credit": "NASA Johnson, Erika Blumenfeld and Joseph Aebersold",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-chicxulub",
+      "commons": "Chicxulub radar topography.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/JPL-Caltech, PIA03379 (715 px: inset)",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-eros",
+      "commons": "Eros southern hemisphere overview.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/JHU/APL",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-vesta",
+      "commons": "Vesta as seen with the Dawn spacecraft (ann14003b).jpg",
+      "licence": "CC BY 4.0",
+      "credit": "NASA, via IAU, CC BY 4.0 (1024 px: inset)",
+      "episode": "L09"
+    },
+    {
+      "id": "l09-occator",
+      "commons": "PIA20350 - Occator from LAMO.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA/PSI",
+      "episode": "L09"
     }
   ],
   "videos": [
@@ -1056,6 +1127,24 @@
       "in": 0,
       "out": 60,
       "episode": "L08"
+    },
+    {
+      "id": "l09-clip-dart",
+      "commons": "Dart impact replay.webm",
+      "licence": "Public domain",
+      "credit": "NASA/Johns Hopkins APL, DRACO frames, 10x speed",
+      "in": 0,
+      "out": 39,
+      "episode": "L09"
+    },
+    {
+      "id": "l09-clip-bennu",
+      "commons": "OSIRIS-REx Tags Asteroid Bennu Videos (SVS31244 - osiris-rex-tag 2160p30).webm",
+      "licence": "Public domain",
+      "credit": "NASA Goddard/SVS, SamCam frames, sped up",
+      "in": 0,
+      "out": 8.4,
+      "episode": "L09"
     }
   ]
 }
