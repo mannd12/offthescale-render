@@ -170,20 +170,18 @@ export const Closer: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const pics = win(f, -20, climb, 12);
   const zones = win(f, climb - 4, going, 12);
   const trips = ease(f, going, 12);
-  const bx = rulerX(500);
-  const cx = rulerX(9.52e5);
   const arc = lin(f, both, both + 60);
   const tr = lin(f, going + 20, dip + 40);
   return (
-    <RungShell t={t} index={10} m={9.52e5} reading={f >= going ? "STILL GOING" : "~952 km"} sub={f >= going ? "the ladder, by hand" : "the top of the bar"} chips={pics > 0.5 ? [{ kind: "REAL PHOTO", source: "NASA Johnson · NASA/JPL-Caltech/UCLA/MPS/DLR/IDA" }] : [{ kind: "ILLUSTRATION", source: "not to scale" }]}>
+    <RungShell t={t} index={10} m={9.52e5} reading={f >= going ? "STILL GOING" : "~952 km"} sub={f >= going ? "the ladder, by hand" : "the top of the bar"} craft={f >= going ? undefined : "ORBITED"} made={f >= going ? undefined : "A WORLD"} chips={pics > 0.5 ? [{ kind: "REAL PHOTO", source: "NASA Johnson · NASA/JPL-Caltech/UCLA/MPS/DLR/IDA" }] : [{ kind: "ILLUSTRATION", source: "not to scale" }]}>
       <Plate id="l09-sample" from={0} to={climb} box={{ x: 80, y: 150, w: 640, h: 440 }} s0={1.2} s1={1.5} o0={[62, 62]} bright={1} />
       <Plate id="l09-occator" from={brines - 6} to={climb} box={{ x: 780, y: 150, w: 640, h: 440 }} s0={2.2} s1={2.7} o0={[56, 50]} bright={1} />
       <Pill x={400} y={600} align="center" size={28} o={ease(f, oz, 10) * pics} color={B.gauge}>BENNU · ~4 oz · 11 SALT MINERALS</Pill>
       <Pill x={1100} y={600} align="center" size={28} o={ease(f, brines, 10) * pics} color={B.gauge}>CERES · SIMILAR BRINES, NASA</Pill>
       <Svg o={pics * (f >= both ? 1 : 0)}>
-        <path d={`M${bx} 985 Q ${(bx + mix(bx, cx, arc)) / 2} ${985 - 140 * arc} ${mix(bx, cx, arc)} 985`} stroke={B.aqua} strokeWidth={8} fill="none" strokeLinecap="round" />
+        <path d={`M400 650 Q ${mix(400, 750, arc)} ${mix(650, 720, arc)} ${mix(400, 1100, arc)} 650`} stroke={B.aqua} strokeWidth={8} fill="none" strokeLinecap="round" />
       </Svg>
-      <Card x={700} y={665} align="center" big="BOTH: SIGNS OF SALTY WATER" size={52} color={B.aqua} o={ease(f, both, 10) * pics} />
+      <Card x={750} y={735} align="center" big="BOTH: SIGNS OF SALTY WATER" size={52} color={B.aqua} o={ease(f, both, 10) * pics} />
       <Svg o={zones}>
         <rect x={rulerX(1e-4)} y={640} width={(rulerX(200) - rulerX(1e-4)) * ease(f, solid, 20)} height={80} fill="#8796A4" opacity={0.8} />
         <rect x={rulerX(200)} y={640} width={(rulerX(1e4) - rulerX(200)) * ease(f, pile, 20)} height={80} fill={B.aqua} opacity={0.85} />

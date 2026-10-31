@@ -33,7 +33,7 @@ export const Ruler: React.FC<{ m: number; band?: [number, number]; passed: numbe
         </div>
       ))}
       <div style={{ position: "absolute", right: 20, top: 1030, fontFamily: F.ui, fontWeight: 800, fontSize: 21, color: B.tease, whiteSpace: "nowrap" }}>952 km</div>
-      <div style={{ position: "absolute", left: 70, top: 968, fontFamily: F.ui, fontWeight: 800, fontSize: 17, letterSpacing: 1.5, color: B.gauge, whiteSpace: "nowrap" }}>EACH MARK IS 10×</div>
+      <div style={{ position: "absolute", left: 100, top: 968, fontFamily: F.ui, fontWeight: 800, fontSize: 17, letterSpacing: 1.5, color: B.gauge, whiteSpace: "nowrap" }}>EACH MARK IS 10×</div>
     </div>
   );
 };

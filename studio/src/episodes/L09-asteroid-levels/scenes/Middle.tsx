@@ -143,7 +143,7 @@ export const ClosePass: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const c = ease(f, shake, 12);
   const pk = lin(f, date, see + 60);
   const px = mix(1500, -60, pk);
-  const py = 420 + 4 * pk * (1 - pk) * -30;
+  const py = 320; // between Earth (top y 390) and the satellite ring (top y 240): the pass is inside the ring, clear of the planet (#37)
   const jig = f >= tides ? Math.sin(f * 1.1) * 3 : 0;
   const peanut = (cx: number, cy: number, s: number, seed = 2) => (
     <g>
@@ -175,7 +175,7 @@ export const ClosePass: React.FC<{ t: SceneTiming }> = ({ t }) => {
           const a2 = (i / 8) * 6.283 + f * 0.003;
           return <rect key={i} x={380 + Math.cos(a2) * 300 - 8} y={540 + Math.sin(a2) * 300 - 8} width={16} height={16} fill={B.aqua} />;
         })}
-        <path d="M1500 420 Q 700 360 -60 420" stroke={B.gauge} strokeWidth={3} strokeDasharray="8 12" fill="none" />
+        <path d="M1500 320 L-60 320" stroke={B.gauge} strokeWidth={3} strokeDasharray="8 12" fill="none" />
         <g transform={`rotate(${f * 0.5} ${px} ${py})`}>{peanut(px, py, 0.5)}</g>
       </Svg>
       <Card x={800} y={170} big="13 APRIL 2029" small="~32,000 km up" size={70} o={ease(f, date, 12) * b} />
