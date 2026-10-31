@@ -603,6 +603,160 @@
       "licence": "Public domain",
       "credit": "NASA / S. Battaion, 2025",
       "episode": "L05"
+    },
+    {
+      "id": "l07-ml-aerial",
+      "commons": "Aerial overview of an erupting fissure of the 2022 Mauna Loa eruption.jpg",
+      "licence": "Public domain",
+      "credit": "Civil Air Patrol via USGS, 2022-11-28",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-strom-kuhnmi",
+      "commons": "Stromboli Eruption (27371436484).jpg",
+      "licence": "CC BY 2.0",
+      "credit": "kuhnmi, 2015",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-strom-day",
+      "commons": "Eruption of Stromboli-2.jpg",
+      "licence": "CC BY 3.0",
+      "credit": "de:User:Man77 (derivative), 2011",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-msh-night",
+      "commons": "MountStHelens2004 NightShot JRO 11-04-04.jpg",
+      "licence": "Public domain",
+      "credit": "Elliot Endo, USGS, 2004-11-04",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-red-apr",
+      "commons": "Redoubt volcano 4-4-09 Game McGimsey.jpg",
+      "licence": "Public domain",
+      "credit": "R. G. McGimsey, USGS/AVO, 2009-04-04",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-red-mar",
+      "commons": "Mt Redoubt 2009-03-31 1238559492 ak231.jpg",
+      "licence": "Public domain",
+      "credit": "Game McGimsey, AVO, 2009-03-31",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-eyja-plume",
+      "commons": "Eyjafjallajokull volcano plume 2010 04 17.jpg",
+      "licence": "CC BY 3.0",
+      "credit": "Boaworm, 2010-04-17",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-eyja-sat",
+      "commons": "April 19, 2010, Ash plume from Eyjafjallajokull Volcano.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, 2010-04-19",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-msh-blowdown",
+      "commons": "MSH80 blowdown smith creek 09-24-80.jpg",
+      "licence": "Public domain",
+      "credit": "Lyn Topinka, USGS, 1980-09-24",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-msh-plume",
+      "commons": "MSH80 eruption mount st helens plume 05-18-80.jpg",
+      "licence": "Public domain",
+      "credit": "Donald A. Swanson, USGS, 1980-05-18",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-pina-jun12",
+      "commons": "Pinatubo 1991-06-12 (USGS).jpg",
+      "licence": "Public domain",
+      "credit": "Dave Harlow, USGS, 1991-06-12",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-pina-jun15",
+      "commons": "Pinatubo91 lateral blast plume pinatubo 06-15-91-resized.jpg",
+      "licence": "Public domain",
+      "credit": "USGS Cascades Volcano Observatory, 1991-06-15",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-pina-caldera",
+      "commons": "Pinatubo92pinatubo caldera crater lake.jpg",
+      "licence": "Public domain",
+      "credit": "Willie Scott, USGS, 1992-05-18 (1024 px: inset only)",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-novarupta",
+      "commons": "Novarupta (13543091424).jpg",
+      "licence": "Public domain",
+      "credit": "M. Fitz, NPS, 2011-06-07",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-vtts",
+      "commons": "Valley of Ten Thousand Smokes from Overlook Cabin.jpg",
+      "licence": "Public domain",
+      "credit": "R. McGimsey, 1991-06-10 (1400 px)",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-tam-iss",
+      "commons": "Mount Tambora Volcano, Sumbawa Island, Indonesia.jpg",
+      "licence": "Public domain",
+      "credit": "Image courtesy of the Earth Science and Remote Sensing Unit, NASA Johnson Space Center (ISS020-E-6563), 2009",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-tam-pano",
+      "commons": "Panorama Mount Tambora caldera.jpg",
+      "licence": "CC BY 4.0",
+      "credit": "Tisquesusa, 2017",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-crater",
+      "commons": "Aerial Crater Lake (cropped).jpg",
+      "licence": "Public domain",
+      "credit": "Mike Doukas, USGS",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-tuff",
+      "commons": "Lava Creek tuff (17214173251).jpg",
+      "licence": "Public domain",
+      "credit": "Jim Peaco, NPS, 2015",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-tuff-cliff",
+      "commons": "Tuff cliff yellowstone national park.jpg",
+      "licence": "Public domain",
+      "credit": "Jim Peaco, NPS",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-toba",
+      "commons": "Toba Caldera, Sumatra (ASTER).jpg",
+      "licence": "Public domain",
+      "credit": "NASA/METI/AIST/Japan Space Systems",
+      "episode": "L07"
+    },
+    {
+      "id": "l07-tonga-iss",
+      "commons": "ISS-66 Atmospheric plume from 2022 Hunga Tonga eruption.jpg",
+      "licence": "Public domain",
+      "credit": "NASA / Kayla Barron, 2022",
+      "episode": "L07"
     }
   ],
   "videos": [
@@ -662,6 +816,78 @@
       "in": 30,
       "out": 70,
       "episode": "L05"
+    },
+    {
+      "id": "l07-clip-fountains",
+      "url": "https://usgs-ocapsv2-public-input-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/video/multimediaFile-3726.mp4",
+      "licence": "Public domain",
+      "credit": "L. Gallant, USGS, 2022-11-29 (1920x1080)",
+      "in": 0,
+      "out": 16,
+      "episode": "L07"
+    },
+    {
+      "id": "l07-clip-wide",
+      "url": "https://usgs-ocapsv2-public-input-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/video/MOV_2022-12-03_11-58-51.mp4",
+      "licence": "Public domain",
+      "credit": "J. Schmith, USGS, 2022-12-03 (1280x720)",
+      "in": 0,
+      "out": 21,
+      "episode": "L07"
+    },
+    {
+      "id": "l07-clip-flow",
+      "url": "https://usgs-ocapsv2-public-output-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/video/video-20221130-165620-35c6b417/MP4/video-20221130-165620-35c6b417.mp4",
+      "licence": "Public domain",
+      "credit": "USGS overflight, 2022-11-30 (source 640x360: inset only)",
+      "in": 0,
+      "out": 24,
+      "episode": "L07"
+    },
+    {
+      "id": "l07-clip-dome",
+      "commons": "Time-lapse images of Mount St. Helens dome growth 2004-2008.webm",
+      "licence": "Public domain",
+      "credit": "USGS, 2004-2008 (1280x720: large panel)",
+      "in": 0,
+      "out": 60,
+      "episode": "L07"
+    },
+    {
+      "id": "l07-clip-wing",
+      "url": "https://usgs-ocapsv2-public-output-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/video/1980_May_18_MSH_B_Roll_by_D_Swanson/MP4/1980_May_18_MSH_B_Roll_by_D_Swanson.mp4",
+      "licence": "Public domain",
+      "credit": "Don Swanson, USGS, 1980-05-18 (16 mm, SD scan: large panel)",
+      "in": 52,
+      "out": 68,
+      "episode": "L07"
+    },
+    {
+      "id": "l07-clip-column",
+      "url": "https://usgs-ocapsv2-public-output-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/video/1980_May_18_MSH_B_Roll_by_D_Swanson/MP4/1980_May_18_MSH_B_Roll_by_D_Swanson.mp4",
+      "licence": "Public domain",
+      "credit": "Don Swanson, USGS, 1980-05-18 (16 mm, SD scan: large panel)",
+      "in": 652,
+      "out": 668,
+      "episode": "L07"
+    },
+    {
+      "id": "l07-clip-billow",
+      "url": "https://usgs-ocapsv2-public-output-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/video/1980_May_18_MSH_B_Roll_by_D_Swanson/MP4/1980_May_18_MSH_B_Roll_by_D_Swanson.mp4",
+      "licence": "Public domain",
+      "credit": "Don Swanson, USGS, 1980-05-18 (16 mm, SD scan: large panel)",
+      "in": 294,
+      "out": 310,
+      "episode": "L07"
+    },
+    {
+      "id": "l07-clip-tonga",
+      "commons": "Gravity waves from Hunga Tonga Eruption (SVS31277 - three geo sats 1080p15).webm",
+      "licence": "Public domain",
+      "credit": "NASA Scientific Visualization Studio, 2022",
+      "in": 0,
+      "out": 20,
+      "episode": "L07"
     }
   ]
 }

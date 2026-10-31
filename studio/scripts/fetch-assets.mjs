@@ -99,9 +99,10 @@ const trim = (src, dest, from, to) => {
 
 for (const v of manifest.videos ?? []) {
   if (!ALLOWED.has(v.licence)) throw new Error(`${v.id}: licence "${v.licence}" is not allowed (PD / CC0 / CC-BY only)`);
-  const url = v.commons
+  // "url": a direct public-domain file, e.g. a USGS media page's MP4 (2026-10-30, L07)
+  const url = v.url ?? (v.commons
     ? `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(v.commons)}`
-    : `https://images-assets.nasa.gov/video/${v.nasa}/${v.nasa}~${v.rendition ?? "mobile"}.mp4`;
+    : `https://images-assets.nasa.gov/video/${v.nasa}/${v.nasa}~${v.rendition ?? "mobile"}.mp4`);
   const master = path.join(ROOT, "public", "assets", "_masters", `${v.id}${v.commons ? path.extname(v.commons) : ".mp4"}`);
   console.log(`video ${v.id}: master ${await download(url, master)}`);
   console.log(`video ${v.id}: ${trim(master, path.join(ROOT, "public", "assets", `${v.id}.mp4`), v.in ?? 0, v.out ?? (v.in ?? 0) + 12)}`);

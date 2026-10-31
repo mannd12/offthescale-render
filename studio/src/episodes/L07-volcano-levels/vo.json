@@ -1,0 +1,524 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "This is Mauna Loa, the largest active volcano in the world, erupting in 2022. Lava fountains twenty metres high. In about two weeks it put out around a hundred and forty-five million cubic metres of lava and ash.",
+    "file": "L07-volcano-levels/vo/cold-00.wav",
+    "seconds": 12.74,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "On the official scale of volcanic eruptions, this scores a zero.",
+    "file": "L07-volcano-levels/vo/cold-01.wav",
+    "seconds": 3.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "That's because the scale doesn't count lava. It measures one thing above all: how much rock and ash gets thrown into the air. And it runs from zero to eight, where each step is about ten times the last.",
+    "file": "L07-volcano-levels/vo/cold-02.wav",
+    "seconds": 13.06,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "So we're climbing the whole thing, on real eruptions. And the top level is something no human being has ever seen.",
+    "file": "L07-volcano-levels/vo/cold-03.wav",
+    "seconds": 7.09,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s1",
+    "index": 0,
+    "text": "Level zero is officially \"non-explosive\": less than ten thousand cubic metres of ash and rock. It's lava that simply pours out, moving here at about a hundred and thirty metres an hour.",
+    "file": "L07-volcano-levels/vo/s1-00.wav",
+    "seconds": 10.67,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s1",
+    "index": 1,
+    "text": "This was Mauna Loa's first eruption since 1984, a gap of thirty-eight years, the longest on record. It looked enormous, and it was. The scale just isn't asking that question.",
+    "file": "L07-volcano-levels/vo/s1-01.wav",
+    "seconds": 10.31,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s1",
+    "index": 2,
+    "text": "The scale was proposed in 1982 by two volcanologists, Chris Newhall and Steve Self. And here's what surprises people: no instrument measures it. It's built from measurements and observations, then a judgement.",
+    "file": "L07-volcano-levels/vo/s1-02.wav",
+    "seconds": 10.95,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s1",
+    "index": 3,
+    "text": "Keep that in mind, because it matters later.",
+    "file": "L07-volcano-levels/vo/s1-03.wav",
+    "seconds": 2.81,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s2",
+    "index": 0,
+    "text": "Level one is officially called \"gentle\". The textbook example is Stromboli, an island off Italy, and it's been at this almost continuously for at least fourteen hundred years.",
+    "file": "L07-volcano-levels/vo/s2-00.wav",
+    "seconds": 9.4,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s2",
+    "index": 1,
+    "text": "Small bursts, over and over. Its current eruption has been unbroken since 1932. It has a nickname: the Lighthouse of the Mediterranean. A whole style of eruption is named after it.",
+    "file": "L07-volcano-levels/vo/s2-01.wav",
+    "seconds": 10.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s2",
+    "index": 2,
+    "text": "Levels zero and one happen roughly every day, somewhere on Earth.",
+    "file": "L07-volcano-levels/vo/s2-02.wav",
+    "seconds": 3.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s3",
+    "index": 0,
+    "text": "Level two is the first one actually called \"explosive\", and they happen roughly every week. Here's a good one: Mount St. Helens, from 2004 to 2008.",
+    "file": "L07-volcano-levels/vo/s3-00.wav",
+    "seconds": 9.05,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s3",
+    "index": 1,
+    "text": "For more than three years, lava kept squeezing up in the crater and building a new dome. By July 2007, it was ninety-three million cubic metres. That's a lot of mountain.",
+    "file": "L07-volcano-levels/vo/s3-01.wav",
+    "seconds": 10.53,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s3",
+    "index": 2,
+    "text": "And it counts as a two, because it squeezed out instead of being thrown.",
+    "file": "L07-volcano-levels/vo/s3-02.wav",
+    "seconds": 4.7,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s3",
+    "index": 3,
+    "text": "Remember this mountain. It's coming back, three levels higher.",
+    "file": "L07-volcano-levels/vo/s3-03.wav",
+    "seconds": 3.3,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s4",
+    "index": 0,
+    "text": "Level three, \"severe\", comes around roughly once a year. In 2009, Redoubt in Alaska set off twenty separate explosions, each lasting anywhere from under a minute to about half an hour.",
+    "file": "L07-volcano-levels/vo/s4-00.wav",
+    "seconds": 10.55,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s4",
+    "index": 1,
+    "text": "The plumes reached nineteen kilometres, far above where airliners fly.",
+    "file": "L07-volcano-levels/vo/s4-01.wav",
+    "seconds": 3.44,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s4",
+    "index": 2,
+    "text": "It's a good example of how an eruption gets scored, because every number here comes from people measuring what fell, after the fact. Ash fell over more than eighty thousand square kilometres.",
+    "file": "L07-volcano-levels/vo/s4-02.wav",
+    "seconds": 10.67,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s4",
+    "index": 3,
+    "text": "And the total was about twenty million cubic metres of rock, by the geologists' measure. Look back at Mauna Loa: roughly seven times that came out, and it scored a zero. Two different measures, but the point holds.",
+    "file": "L07-volcano-levels/vo/s4-03.wav",
+    "seconds": 12.94,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s4",
+    "index": 4,
+    "text": "This scale is about violence, not size.",
+    "file": "L07-volcano-levels/vo/s4-04.wav",
+    "seconds": 2.49,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s5",
+    "index": 0,
+    "text": "Level four carries the word \"cataclysmic\". Now let's see what one of those can do.",
+    "file": "L07-volcano-levels/vo/s5-00.wav",
+    "seconds": 5.1,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s5",
+    "index": 1,
+    "text": "Eyjafjallajökull, Iceland, 2010. Scientists describe it as modest in size: about a quarter of a cubic kilometre, in plumes three to ten kilometres high. But its ash reached Europe's air routes.",
+    "file": "L07-volcano-levels/vo/s5-01.wav",
+    "seconds": 10.73,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s5",
+    "index": 2,
+    "text": "In one week in April, more than three hundred airports closed in about two dozen countries. More than a hundred thousand flights were cancelled. Seven million passengers were affected.",
+    "file": "L07-volcano-levels/vo/s5-02.wav",
+    "seconds": 9.8,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s5",
+    "index": 3,
+    "text": "Eruptions this size come only every few decades. And Mexico's Parícutin shows how much judgement goes in here, as you'll see at the end. That was a modest eruption, at level four. There are four more levels above it.",
+    "file": "L07-volcano-levels/vo/s5-03.wav",
+    "seconds": 13.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s6",
+    "index": 0,
+    "text": "Now the mountain comes back. Mount St. Helens, the eighteenth of May, 1980: a five.",
+    "file": "L07-volcano-levels/vo/s6-00.wav",
+    "seconds": 5.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s6",
+    "index": 1,
+    "text": "For weeks its north side had been swelling, about two metres a day, until it had grown outward by about a hundred and forty metres. Then it slid away, in the largest debris avalanche in recorded history.",
+    "file": "L07-volcano-levels/vo/s6-01.wav",
+    "seconds": 12.34,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s6",
+    "index": 2,
+    "text": "That released the pressure, and the eruption went up: more than twenty-four kilometres, in under fifteen minutes.",
+    "file": "L07-volcano-levels/vo/s6-02.wav",
+    "seconds": 5.85,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s6",
+    "index": 3,
+    "text": "This is real film. A USGS geologist shot it from a plane, on a hand-wound sixteen-millimetre camera.",
+    "file": "L07-volcano-levels/vo/s6-03.wav",
+    "seconds": 5.83,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s6",
+    "index": 4,
+    "text": "The ash lasted nine hours and went around the world in fifteen days. In Spokane, four hundred kilometres away, it brought complete darkness.",
+    "file": "L07-volcano-levels/vo/s6-04.wav",
+    "seconds": 7.82,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s6",
+    "index": 5,
+    "text": "Around the mountain, the blast left about six hundred square kilometres of devastated land.",
+    "file": "L07-volcano-levels/vo/s6-05.wav",
+    "seconds": 4.7,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s6",
+    "index": 6,
+    "text": "And it was about one cubic kilometre of ash. The landslide was bigger, at two and a half. Same mountain as level two, and the difference is everything to do with how it came out.",
+    "file": "L07-volcano-levels/vo/s6-06.wav",
+    "seconds": 11.79,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 0,
+    "text": "Level six is \"colossal\", and eruptions this size come only every few hundred years. In June 1991, Pinatubo in the Philippines rose thirty-five kilometres into the sky.",
+    "file": "L07-volcano-levels/vo/s7-00.wav",
+    "seconds": 9.09,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 1,
+    "text": "A typhoon happened to be passing at the same moment, and spread the ash in all directions.",
+    "file": "L07-volcano-levels/vo/s7-01.wav",
+    "seconds": 5.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 2,
+    "text": "It left a crater two and a half kilometres across. It released nearly twenty million tons of sulfur dioxide, and for about two years, the whole planet cooled by about half a degree.",
+    "file": "L07-volcano-levels/vo/s7-02.wav",
+    "seconds": 10.98,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 3,
+    "text": "A single volcano changed the global temperature.",
+    "file": "L07-volcano-levels/vo/s7-03.wav",
+    "seconds": 2.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 4,
+    "text": "And it wasn't the largest eruption of the twentieth century. That was in Alaska in 1912. And for about forty years, everyone blamed the wrong mountain.",
+    "file": "L07-volcano-levels/vo/s7-04.wav",
+    "seconds": 8.85,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 5,
+    "text": "Mount Katmai's summit had collapsed, so people assumed it was the vent. In fact the magma came out at a place called Novarupta, about ten kilometres away.",
+    "file": "L07-volcano-levels/vo/s7-05.wav",
+    "seconds": 9.09,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 6,
+    "text": "About thirteen to fifteen cubic kilometres of it, in about sixty hours, with a column more than thirty kilometres high.",
+    "file": "L07-volcano-levels/vo/s7-06.wav",
+    "seconds": 6.7,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s7",
+    "index": 7,
+    "text": "For years afterward, thousands of steam vents shot up from the ground nearby, in what's still called the Valley of Ten Thousand Smokes.",
+    "file": "L07-volcano-levels/vo/s7-07.wav",
+    "seconds": 7.64,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s8",
+    "index": 0,
+    "text": "There are no photographs of this eruption, because it came before cameras. Tambora, Indonesia, 1815. It's rated a seven, and it's history's largest explosive eruption: more than a hundred and fifty cubic kilometres.",
+    "file": "L07-volcano-levels/vo/s8-00.wav",
+    "seconds": 11.46,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s8",
+    "index": 1,
+    "text": "That's more than a hundred and fifty St. Helens. What you're seeing is the hole it left, from space: six kilometres wide and more than a kilometre deep.",
+    "file": "L07-volcano-levels/vo/s8-01.wav",
+    "seconds": 9.58,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s8",
+    "index": 2,
+    "text": "Before it, the peak is estimated to have stood around four thousand metres.",
+    "file": "L07-volcano-levels/vo/s8-02.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s8",
+    "index": 3,
+    "text": "The next year became known as the year without a summer, because of the global cooling it caused.",
+    "file": "L07-volcano-levels/vo/s8-03.wav",
+    "seconds": 5.96,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s8",
+    "index": 4,
+    "text": "And most of its ash fell into the sea. That matters, because it means even an eruption this size can almost disappear from the geological record. Some of them, we may never find.",
+    "file": "L07-volcano-levels/vo/s8-04.wav",
+    "seconds": 11.16,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s8",
+    "index": 5,
+    "text": "This level comes around only every few thousand years, roughly. Here's one you can visit. About seven thousand seven hundred years ago, Mount Mazama in Oregon blew out about fifty cubic kilometres of magma.",
+    "file": "L07-volcano-levels/vo/s8-05.wav",
+    "seconds": 11.48,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s8",
+    "index": 6,
+    "text": "Its summit fell in, leaving a hole twelve hundred metres deep. Over about three hundred years, it filled with water. Today it's called Crater Lake.",
+    "file": "L07-volcano-levels/vo/s8-06.wav",
+    "seconds": 8.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s9",
+    "index": 0,
+    "text": "And here's the top. \"Mega-colossal\". More than a thousand cubic kilometres of ash. Nobody has ever seen one of these. We only know them from what they left in the ground.",
+    "file": "L07-volcano-levels/vo/s9-00.wav",
+    "seconds": 10.69,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s9",
+    "index": 1,
+    "text": "Yellowstone has done it, six hundred and thirty-one thousand years ago: about a thousand times St. Helens, by ash. And two point one million years ago, about two thousand five hundred times.",
+    "file": "L07-volcano-levels/vo/s9-01.wav",
+    "seconds": 11.05,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s9",
+    "index": 2,
+    "text": "A thousand cubic kilometres is about four hundred million Olympic swimming pools, or a quarter of the Grand Canyon, and it still isn't the biggest. Others are put at around five thousand.",
+    "file": "L07-volcano-levels/vo/s9-02.wav",
+    "seconds": 10.67,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s9",
+    "index": 3,
+    "text": "The scientists say you can't even name a single largest.",
+    "file": "L07-volcano-levels/vo/s9-03.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s9",
+    "index": 4,
+    "text": "Roughly, this level comes around only every few tens of thousands of years. And people have lived through something of this size before: archaeology suggests humanity did not suffer greatly from Toba, one of the largest.",
+    "file": "L07-volcano-levels/vo/s9-04.wav",
+    "seconds": 12.03,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s9",
+    "index": 5,
+    "text": "So is it going to happen again? The United States Geological Survey says Yellowstone shows no signs of heading toward such an eruption, and that the chance in the next few thousand years is exceedingly low.",
+    "file": "L07-volcano-levels/vo/s9-05.wav",
+    "seconds": 11.83,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s9",
+    "index": 6,
+    "text": "Its most likely future activity is non-explosive lava. Which, as you now know, this scale barely counts.",
+    "file": "L07-volcano-levels/vo/s9-06.wav",
+    "seconds": 5.93,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s10",
+    "index": 0,
+    "text": "Remember that the scale is a judgement. In 2022, Hunga Tonga threw a plume fifty-eight kilometres high, one and a half times Pinatubo's. And it's rated a level lower, at least for now.",
+    "file": "L07-volcano-levels/vo/s10-00.wav",
+    "seconds": 11.26,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "s10",
+    "index": 1,
+    "text": "Parícutin in Mexico put out enough for a five, but slowly, over nine years, so it's a four.",
+    "file": "L07-volcano-levels/vo/s10-01.wav",
+    "seconds": 6.16,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s10",
+    "index": 2,
+    "text": "Even huge totals can miss. Kīlauea's long-running vent poured out more than ten times St. Helens' output as lava, and at the time, that was still rated low on the scale.",
+    "file": "L07-volcano-levels/vo/s10-02.wav",
+    "seconds": 10.53,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s10",
+    "index": 3,
+    "text": "Even the top is unsettled. One eruption, Toba, is described as possibly a nine. And some of those eights might really be several sevens in a row.",
+    "file": "L07-volcano-levels/vo/s10-03.wav",
+    "seconds": 9.27,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "s10",
+    "index": 4,
+    "text": "So the scale isn't a measure of how big a volcano is. It's closer to a measure of how suddenly the ground lets go. Which is why the first eruption in this video, with all that lava, scored a zero.",
+    "file": "L07-volcano-levels/vo/s10-04.wav",
+    "seconds": 13.37,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
