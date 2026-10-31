@@ -61,6 +61,46 @@ export const ThumbL04: React.FC = () => {
 };
 
 /**
+ * L04 thumbnail C (2026-10-30): thumbnail A's iceberg with the four-word headline only, enlarged; the two sub-lines
+ * and the pill took it past the five-word rule (docs/THUMBNAILS.md §3).
+ */
+export const ThumbL04C: React.FC = () => {
+  const cx = 1010;
+  const top = 60;
+  const h = 640;
+  const path = `M${cx - 55} ${top} L${cx + 55} ${top} L${cx + 170} ${top + h * 0.25} L${cx + 135} ${top + h * 0.7} L${cx} ${top + h} L${cx - 135} ${top + h * 0.7} L${cx - 170} ${top + h * 0.25} Z`;
+  const yWater = top + h * 0.14;
+  const yMyth = top + h * 0.46;
+  return (
+    <AbsoluteFill style={{ backgroundColor: B.ink }}>
+      <svg width={1280} height={720} style={{ position: "absolute", inset: 0 }}>
+        <defs>
+          <clipPath id="thumbc-ice">
+            <path d={path} />
+          </clipPath>
+          <linearGradient id="thumbc-deep" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2FD8F5" />
+            <stop offset="50%" stopColor="#0B3A5E" />
+            <stop offset="100%" stopColor="#03080F" />
+          </linearGradient>
+        </defs>
+        <path d={path} fill="url(#thumbc-deep)" />
+        <rect x={cx - 180} y={top} width={360} height={yWater - top} fill={B.paper} clipPath="url(#thumbc-ice)" />
+        <path d={path} fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth={5} />
+        <line x1={cx - 230} y1={yMyth} x2={cx + 230} y2={yMyth} stroke={B.tease} strokeWidth={14} strokeDasharray="30 18" />
+      </svg>
+      <div style={{ position: "absolute", left: 50, top: 66, fontFamily: F.headline, fontSize: 196, lineHeight: 0.98, color: B.paper, whiteSpace: "nowrap" }}>
+        THE
+        <br />
+        ICEBERG
+        <br />
+        <span style={{ color: B.tease }}>IS WRONG</span>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+/**
  * L04 thumbnail B (Test & Compare, as planned in publish.md): same berg, one idea - THE MYTH LINE.
  * The berg is bigger and centred; the red dashed line cuts it with the words on it, and below the
  * line the berg turns into a yellow cable running to the sea floor (what's really down there).

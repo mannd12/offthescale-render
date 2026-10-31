@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { loadBrandFonts } from "../../brand/fonts";
 import { DiverSilhouette } from "../../brand/kit";
 import { B, F } from "../../brand/tokens";
@@ -51,6 +51,24 @@ export const ThumbL03: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/**
+ * L03 thumbnail C (2026-10-30, after 244 impressions at 2.5 %): hero archetype on a real photo. NASA EC97-44295-29
+ * (public domain), the plate of the video's Level 6 (ladder.ts l06, 12 levels). The words add the surprise the
+ * title lacks: the SR-71 is only halfway up.
+ */
+export const ThumbL03C: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: B.ink }}>
+    <Img src={staticFile("assets/sr71-takeoff.jpg")} style={{ position: "absolute", inset: 0, width: 1280, height: 720, objectFit: "cover", objectPosition: "60% 50%" }} />
+    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,27,43,0.92) 0%, rgba(11,27,43,0.7) 38%, rgba(11,27,43,0) 68%)" }} />
+    <div style={{ position: "absolute", left: 56, top: 70, fontFamily: F.headline, fontSize: 176, lineHeight: 0.98, color: B.paper, whiteSpace: "nowrap" }}>
+      ONLY
+      <br />
+      <span style={{ color: B.gauge }}>LEVEL 6</span>
+    </div>
+    <div style={{ position: "absolute", left: 60, top: 436, fontFamily: F.headline, fontSize: 104, lineHeight: 1, color: B.paper, whiteSpace: "nowrap" }}>OF 12</div>
+  </AbsoluteFill>
+);
 
 /**
  * L03 thumbnail B (Test & Compare): the NUMBER-CONTRAST archetype - your speed against the limit.

@@ -10,9 +10,9 @@ import { ThumbL01, ThumbL01C } from "./episodes/L01-ocean-levels/Thumbs";
 import { EpisodeL03, timeline as l03 } from "./episodes/L03-speed-levels/Episode";
 import { EpisodeL02, timeline as l02 } from "./episodes/L02-deep-sea-types/Episode";
 import { ThumbL02, ThumbL02B } from "./episodes/L02-deep-sea-types/Thumbs";
-import { ThumbL03, ThumbL03B } from "./episodes/L03-speed-levels/Thumbs";
+import { ThumbL03, ThumbL03B, ThumbL03C } from "./episodes/L03-speed-levels/Thumbs";
 import { EpisodeL04, timeline as l04 } from "./episodes/L04-internet-levels/Episode";
-import { ThumbL04, ThumbL04B } from "./episodes/L04-internet-levels/Thumbs";
+import { ThumbL04, ThumbL04B, ThumbL04C } from "./episodes/L04-internet-levels/Thumbs";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
 import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
@@ -82,6 +82,8 @@ export const Root: React.FC = () => (
     <Still id="l02-thumb-b" component={ThumbL02B} width={1280} height={720} />
     <Still id="l03-thumb-b" component={ThumbL03B} width={1280} height={720} />
     <Still id="l04-thumb-b" component={ThumbL04B} width={1280} height={720} />
+    <Still id="l03-thumb-c" component={ThumbL03C} width={1280} height={720} />
+    <Still id="l04-thumb-c" component={ThumbL04C} width={1280} height={720} />
 
     {/* Brand kit for the "Every LEVEL of nature" channel (checkpoint 1 stills) */}
     <Still id="brand-frame" component={BrandFrame} width={1920} height={1080} />
