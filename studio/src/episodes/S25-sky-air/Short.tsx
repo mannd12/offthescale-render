@@ -89,7 +89,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Card x={300} y={300} big={["415 KM UP"]} small={["and still drag"]} size={110} opacity={span(frame, dragAt - 12, edgeAt)} />
       <Card x={300} y={300} big={["315 KM PAST", "THE 100 KM LINE"]} size={84} opacity={span(frame, edgeAt, L(4))} />
       <Card x={300} y={300} big={["UP TO 500 KM"]} small={["the northern lights"]} size={100} opacity={span(frame, lightsAt + 6, L(5))} />
-      <Card x={200} y={520} big={["NOT WHERE THE", "AIR RUNS OUT"]} size={92} opacity={span(frame, notAt, whereAt)} bg={B.tease} ink={B.paper} />
+      <Card x={200} y={520} big={["NOT WHERE THE", "AIR RUNS OUT"]} size={92} opacity={span(frame, notAt, L(6))} bg={B.tease} ink={B.paper} />
 
       {/* the bar, to scale */}
       <div style={{ opacity: bar * (1 - end) }}>
