@@ -179,7 +179,7 @@ export const Vei2: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f < helens ? <Big x={100} y={230} big="EXPLOSIVE" small="roughly every week" opacity={ease(f, 8, 10)} size={110} /> : null}
       {f >= helens && f < L1 ? <Big x={100} y={230} big="MOUNT ST. HELENS" small="2004 to 2008, glowing new dome at night" opacity={ease(f, helens, 10)} size={84} /> : null}
       {(f >= L1 && f < L2) || f >= L3 ? <Clip id="l07-clip-dome" seconds={41} box={{ x: 130, y: 200, w: 1280, h: 720 }} brightness={1} /> : null}
-      {f >= L1 + 10 && f < L2 ? <Pill x={160} y={225} size={32}>Dome growing, one frame at a time</Pill> : null}
+      {f >= L1 + 10 && f < L2 ? <Pill x={160} y={225} size={32}>Time-lapse dated 2005; the 93 million is the July 2007 total</Pill> : null}
       {f >= L1 + 10 && f < L2 ? <Big x={160} y={290} big={f < vol ? `${count} MILLION m³` : "93 MILLION m³"} small="of dome by July 2007" size={70} /> : null}
       {/* line 2: same material, two exits */}
       {f >= L2 && f < L3 ? (

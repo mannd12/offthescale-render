@@ -26,7 +26,7 @@ export const Vei6: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const hours = within(t, 6, 0.42);
   const high = within(t, 6, 0.68);
   const KX = mix(1150, 1150, 0);
-  const vent = mix(1150, 450, ease(f, moved, 30));
+  const vent = mix(1150, 450, ease(f, moved, 60));
   const dip = lin(f, cool, L3 - 10);
   return (
     <VolcanoShell t={t} index={6} prevLit={5} lit={6} sub={f >= L4 ? "Pinatubo's reading" : undefined} credit={f < rose ? { kind: "real", source: "D. Harlow, USGS, 12 June 1991" } : f < L1 ? { kind: "real", source: "USGS CVO, 15 June 1991" } : f < L2 ? { kind: "illustration", source: "over a USGS photo" } : f < so2 ? { kind: "real", source: "W. Scott, USGS, 1992" } : f < L4 ? { kind: "illustration", source: "the dip, drawn from one figure" } : f < L6 ? { kind: "illustration", source: "not a map" } : f < L7 ? { kind: "real", source: "M. Fitz, NPS, 2011" } : { kind: "real", source: "R. McGimsey, 1991" }}>
@@ -40,8 +40,8 @@ export const Vei6: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= L1 && f < L2 ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
           <g transform={`rotate(${f * 2.2} 800 560)`}>
-            {[0, 1, 2, 3].map((i) => (
-              <path key={i} d="M 800 560 C 950 480, 1040 540, 1060 660" transform={`rotate(${i * 90} 800 560)`} stroke={B.aqua} strokeWidth={22} fill="none" strokeLinecap="round" opacity={0.9} />
+            {[0, 1, 2].map((i) => (
+              <path key={i} d="M 800 560 C 950 480, 1040 540, 1060 660" transform={`rotate(${i * 120} 800 560)`} stroke={B.aqua} strokeWidth={22} fill="none" strokeLinecap="round" opacity={0.9} />
             ))}
           </g>
           <circle cx={800} cy={560} r={30 + 300 * lin(f, L1, L2)} fill="rgba(180,170,160,0.3)" />
@@ -72,10 +72,10 @@ export const Vei6: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <div style={{ position: "absolute", inset: 0, background: "#141A20" }} />
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
             <rect x={0} y={760} width={1920} height={320} fill="#2C2622" />
-            {f >= wrong ? <path d={`M ${KX - 240} 760 L ${KX - 70} ${mix(440, 560, ease(f, L5, 24))} L ${KX + 70} ${mix(440, 560, ease(f, L5, 24))} L ${KX + 240} 760 Z`} fill="#55483E" /> : null}
+            {f >= wrong ? <path d={`M ${KX - 240} 760 L ${KX - 70} ${mix(440, 560, ease(f, L5, 140))} L ${KX + 70} ${mix(440, 560, ease(f, L5, 140))} L ${KX + 240} 760 Z`} fill="#55483E" /> : null}
             {f >= wrong ? <path d="M 400 760 Q 450 700 500 760 Z" fill="#55483E" /> : null}
-            {f >= wrong ? <path d={`M ${vent - 30} 400 h 60 l -30 42 Z`} fill={B.tease} /> : null}
-            {f >= moved + 30 ? <line x1={500} x2={910} y1={830} y2={830} stroke={B.gauge} strokeWidth={6} /> : null}
+            {f >= wrong ? <path d={`M ${vent - 30} ${400 + 8 * Math.sin(f / 6)} h 60 l -30 42 Z`} fill={B.tease} /> : null}
+            {f >= moved + 30 ? <line x1={500} x2={mix(500, 910, ease(f, moved + 30, 45))} y1={830} y2={830} stroke={B.gauge} strokeWidth={6} /> : null}
           </svg>
           {f < wrong ? <Big x={120} y={260} big={f < alaska ? "NOT THE LARGEST OF THE 1900s" : "ALASKA, 1912"} opacity={ease(f, L4, 10)} size={88} /> : null}
           {f >= wrong ? <Tag x={KX} y={780} size={36} align="center">Mount Katmai</Tag> : null}
@@ -214,7 +214,7 @@ export const Vei8: React.FC<{ t: SceneTiming }> = ({ t }) => {
   return (
     <VolcanoShell t={t} index={8} prevLit={7} lit={8} reading={reading} sub={reading ? "2.1 million years ago" : undefined} credit={f < L1 ? { kind: "real", source: "J. Peaco, NPS, 2015" } : f < L3 ? { kind: "illustration", source: "areas to scale, by ash" } : f < toba ? { kind: "real", source: "J. Peaco, NPS" } : f < L5 ? { kind: "illustration", source: "ASTER satellite, false colour" } : f < L6 ? { kind: "real", source: "J. Peaco, NPS" } : { kind: "real", source: "USGS / J. Schmith, 2022" }}>
       {f < L1 ? <Photo id="l07-tuff" a={0} b={L1} s0={1} s1={1.24} o0={[40, 35]} brightness={0.9} /> : null}
-      {f < L1 ? <Pill x={100} y={206} size={32}>Lava Creek Tuff, Yellowstone: rock that one left behind</Pill> : null}
+      {f < L1 ? <Pill x={100} y={206} size={32}>Yellowstone ash rock (Lava Creek Tuff), photo 2015: not the eruption</Pill> : null}
       {f >= 8 && f < more ? <Big x={100} y={270} big="MEGA-COLOSSAL" opacity={ease(f, 8, 10)} size={110} /> : null}
       {f >= more && f < nobody ? <Big x={100} y={270} big="1,000+ km³" small="of ash" opacity={ease(f, more, 10)} size={110} /> : null}
       {f >= nobody && f < L1 ? <Big x={100} y={270} big="NOBODY HAS SEEN ONE" opacity={ease(f, nobody, 10)} size={96} color={B.tease} ink={B.paper} /> : null}
