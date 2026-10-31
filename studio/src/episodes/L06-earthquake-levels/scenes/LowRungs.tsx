@@ -15,6 +15,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const L3 = lineAt(t, 3);
   const notTwice = within(t, 0, 0.62);
   const m7 = within(t, 1, 0.45);
+  const five = within(t, 1, 0.62);
   const thousand = within(t, 1, 0.78);
   const realAt = within(t, 2, 0.14);
   const topAt = within(t, 2, 0.42);
@@ -38,9 +39,9 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const traceAmp = f < L3 ? 4 + 3 * lin(f, 0, L1) + (f > L2 ? 60 * climb : 0) : mix(70, 2, ease(f, L3, 40));
   const whichCut = f < cuts[1].at ? 0 : 1;
   return (
-    <QuakeShell t={t} index={0} prevM={5} m={m} reading={f >= L3 ? `M${Math.round(m)}` : f >= L2 ? (f < topAt ? `M${m.toFixed(1)}` : "M9.5") : `M${Math.round(m)}`} sub="32 times" subTop="EVERY TICK, ABOUT" credit={photoOn ? { kind: "real", source: whichCut === 0 ? "USGS, 2002" : "USGS, 1964" } : { kind: "illustration", source: "energy, drawn · area to scale" }}>
+    <QuakeShell t={t} index={0} prevM={5} m={m} reading={f >= L3 ? `M${Math.round(m)}` : f >= L2 ? (f < topAt ? `M${m.toFixed(1)}` : "M9.5") : `M${Math.round(m)}`} sub="about 32×" subTop="EVERY TICK" title="THE SCALE" credit={photoOn ? { kind: "real", source: whichCut === 0 ? "USGS, 2002" : "USGS, 1964" } : { kind: "illustration", source: "energy, drawn · area to scale" }}>
       {photoOn ? <Photo id={cuts[whichCut].id} a={cuts[whichCut].at} b={cuts[whichCut].at + 90} s0={1.02} s1={1.14} o0={cuts[whichCut].o} /> : null}
-      {photoOn ? <PillTag x={1860} y={140} align="right">{cuts[whichCut].label}</PillTag> : null}
+      {photoOn ? <PillTag x={1860} y={146} align="right">{cuts[whichCut].label}</PillTag> : null}
       {/* the trace runs the whole frame width and answers each line */}
       {!photoOn && !(f >= topAt && f < L3) ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
@@ -63,12 +64,13 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {/* line 1: the two numbers look close; the areas are not */}
       {f >= L1 && f < L2 + 2 ? (
         <div style={{ position: "absolute", inset: 0, opacity: span(f, L1, L2 + 2) }}>
-          <div style={{ position: "absolute", left: 340, top: 190, fontFamily: F.headline, fontSize: 170, lineHeight: 1.1, color: heat(5) }}>M5</div>
+          {f < m7 ? <Caption bottom={460} size={76} color={B.paper}>The numbers on the news</Caption> : null}
+          {f >= five ? <div style={{ position: "absolute", left: 340, top: 190, fontFamily: F.headline, fontSize: 170, lineHeight: 1.1, color: heat(5), opacity: ease(f, five, 10) }}>M5</div> : null}
           {f >= m7 ? <div style={{ position: "absolute", left: 340, top: 410, fontFamily: F.headline, fontSize: 170, lineHeight: 1.1, color: heat(7), opacity: ease(f, m7, 10) }}>M7</div> : null}
           {f >= m7 ? (
             <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
               {/* true to area: sides 16 and 16 x sqrt(1000) = 506 */}
-              <rect x={640} y={276} width={16} height={16} fill={heat(5)} />
+              {f >= five ? <rect x={640} y={276} width={16} height={16} fill={heat(5)} /> : null}
               <rect x={1000} y={160 + 506 * (1 - ease(f, thousand - 10, 30))} width={506} height={506 * ease(f, thousand - 10, 30)} fill={heat(7)} />
             </svg>
           ) : null}
@@ -81,7 +83,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: ease(f, planetAt, 12) }}>
             <circle cx={1100} cy={520} r={260} fill="#14507A" stroke={B.aqua} strokeWidth={4} />
-            <path d={`M${1100 + 290} 520 A290 290 0 1 0 ${1100 + 290 * Math.cos(2 * Math.PI * lin(f, planetAt, L3) * 0.9)} ${520 - 290 * Math.sin(2 * Math.PI * lin(f, planetAt, L3) * 0.9)}`} stroke={B.tease} strokeWidth={10} strokeDasharray="22 14" fill="none" />
+            <path d={Array.from({ length: 91 }, (_, i) => { const a = (i / 90) * 2 * Math.PI * 0.9 * lin(f, planetAt, L3); return `${i ? "L" : "M"}${(1100 + 290 * Math.sin(a)).toFixed(1)} ${(520 - 290 * Math.cos(a)).toFixed(1)}`; }).join(" ")} stroke={B.tease} strokeWidth={10} strokeDasharray="22 14" fill="none" />
           </svg>
           <Tag x={1100} y={840} align="center" color={B.tease} size={40}>the planet runs out of room</Tag>
         </>
@@ -138,10 +140,10 @@ export const M1: React.FC<{ t: SceneTiming }> = ({ t }) => {
   return (
     <QuakeShell t={t} index={0} prevM={1} m={1} reading={f >= minus && f < L2 ? "M−1" : "M1"} sub={f >= minus && f < L2 ? "below zero" : undefined} subTop={f >= minus && f < L2 ? "READING" : "ABOUT"} credit={photo > 0.5 ? { kind: "real", source: "Milne-Shaw seismograph · Auckland Museum · CC BY 4.0" } : { kind: "illustration", source: "not to scale" }}>
       <RockSection f={f} burstAt={rockAt} reach={120} opacity={1 - ease(f, inst, 10)} />
-      {f < inst ? <Big x={340} y={170} big="HALF A KILO OF TNT" small="about, spread through rock" size={72} opacity={ease(f, 14, 12)} /> : null}
+      {f < inst ? <Big x={340} y={190} big="HALF A KILO OF TNT" small="about, spread through rock" size={72} opacity={ease(f, 14, 12)} /> : null}
       {f >= nobody && f < inst + 6 ? <PillTag x={1190} y={270} size={36} color={B.gauge}>feels nothing</PillTag> : null}
       <Photo id="l06-milne" opacity={photo} a={inst} b={L1 + 10} s0={1} s1={1.12} o0={[42, 45]} brightness={0.75} />
-      {photo > 0 ? <PillTag x={1860} y={140} align="right" size={28} opacity={photo}>a seismograph, museum piece · not recording this quake</PillTag> : null}
+      {photo > 0 ? <PillTag x={1860} y={146} align="right" size={28} opacity={photo}>a seismograph, museum piece · not recording this quake</PillTag> : null}
       {photo > 0 ? <Caption bottom={140} size={72}>Only instruments feel it</Caption> : null}
       {/* line 1-2: the number line runs through zero */}
       {line > 0 ? (
@@ -187,11 +189,11 @@ export const M2: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f < L1 ? (
         <>
           <RockSection f={f} burstAt={10} reach={220} />
-          <Big x={340} y={170} big="ABOUT 15 KG OF TNT" size={76} opacity={ease(f, 12, 12)} />
+          <Big x={340} y={190} big="ABOUT 15 KG OF TNT" size={76} opacity={ease(f, 12, 12)} />
           {f >= nothing ? <PillTag x={1190} y={270} size={36} color={B.gauge}>generally: nothing</PillTag> : null}
         </>
       ) : null}
-      {photo > 0 ? <PillTag x={1860} y={140} align="right" opacity={ease(f, ys, 10)}>Yellowstone · Jet Geyser, recent photo · no quake visible</PillTag> : null}
+      {photo > 0 ? <PillTag x={1860} y={146} align="right" opacity={ease(f, ys, 10)}>Yellowstone · Jet Geyser, recent photo · no quake visible</PillTag> : null}
       {photo > 0 ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
           {dots.slice(0, n).map((d, i) => {
@@ -201,7 +203,7 @@ export const M2: React.FC<{ t: SceneTiming }> = ({ t }) => {
         </svg>
       ) : null}
       {f >= count ? <Big x={340} y={190} big="1,500 TO 2,500" small="earthquakes in a typical year" opacity={ease(f, count, 10)} size={84} /> : null}
-      {f >= most ? <PillTag x={340} y={350} size={34} color={B.gauge} opacity={ease(f, most, 10)}>most: magnitude 2 or smaller</PillTag> : null}
+      {f >= most ? <PillTag x={340} y={356} size={34} color={B.gauge} opacity={ease(f, most, 10)}>most: magnitude 2 or smaller</PillTag> : null}
       {f >= L2 ? (
         <>
           <div style={{ position: "absolute", left: 1100, top: 760, opacity: ease(f, L2, 12) }}>
@@ -280,7 +282,7 @@ export const M3: React.FC<{ t: SceneTiming }> = ({ t }) => {
           {f >= felt ? <Tag x={340} y={430} size={44} color={B.gauge} opacity={ease(f, felt, 10)}>about 100,000 felt at all</Tag> : null}
         </div>
       ) : null}
-      {f >= below + 40 ? <Caption bottom={380} size={72} color={B.paper}>Nearly all of it: below this line</Caption> : null}
+      {f >= below + 40 ? <Caption bottom={380} size={72} color={B.paper}>Most of it: below this line</Caption> : null}
     </QuakeShell>
   );
 };
@@ -308,12 +310,12 @@ export const M4: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f < yel + 6 ? (
         <>
           <RockSection f={f} burstAt={14} reach={420} felt={f >= feel} />
-          <Big x={340} y={170} big="ABOUT 15 TONNES OF TNT" size={72} opacity={ease(f, 18, 12)} />
+          <Big x={340} y={190} big="ABOUT 15 TONNES OF TNT" size={72} opacity={ease(f, 18, 12)} />
           {f >= feel ? <PillTag x={1190} y={270} size={36} color={B.tease}>felt by people in the area</PillTag> : null}
         </>
       ) : null}
       <Photo id="l06-norris" opacity={photo} a={yel} b={L1 + 10} s0={1.02} s1={1.15} o0={[70, 50]} o1={[40, 58]} />
-      {photo > 0 ? <PillTag x={1860} y={140} align="right" opacity={photo}>Norris Geyser Basin · recent photo, not the quake</PillTag> : null}
+      {photo > 0 ? <PillTag x={1860} y={146} align="right" opacity={photo}>Norris Geyser Basin · recent photo, not the quake</PillTag> : null}
       {f >= eight && f < L1 ? <Big x={340} y={190} big="M4.8" small="among Yellowstone's largest in recent years" size={92} opacity={ease(f, eight, 10)} /> : null}
       {/* line 1: the Southern California count again, far smaller */}
       {f >= L1 && f < L2 + 2 ? (
@@ -334,7 +336,7 @@ export const M4: React.FC<{ t: SceneTiming }> = ({ t }) => {
               <rect key={i} x={gx + (i % cols) * (size + gap)} y={350 + Math.floor(i / cols) * (size + gap)} width={size} height={size} fill={m6 > 0.5 ? heat(6) : heat(4)} />
             ))}
           </svg>
-          {f >= thousand ? <Big x={340} y={170} big="1,000 OF THESE" small={f >= merge ? "= the energy of one magnitude 6" : undefined} size={72} opacity={ease(f, thousand, 10)} /> : null}
+          {f >= thousand ? <Big x={340} y={190} big="1,000 OF THESE" small={f >= merge ? "= the energy of one magnitude 6" : undefined} size={72} opacity={ease(f, thousand, 10)} /> : null}
           {f >= merge + 30 ? <PillTag x={1100} y={850} align="center" size={34} opacity={ease(f, merge + 30, 10)}>two steps away</PillTag> : null}
         </div>
       ) : null}

@@ -49,7 +49,7 @@ export const M5: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {/* lines 1 and 2-3: the portrait photo, camera climbing from the mountain to the column */}
       {plateOn ? <Photo id="l06-msh" pos={`50% ${f < magma ? mix(92, 74, lin(f, L1, magma)) : mix(74, 28, lin(f, erupt, t.lines[4].at))}%`} a={L1} b={L4} s0={1} s1={1.03} /> : null}
-      {plateOn ? <PillTag x={1860} y={140} align="right">Mount St. Helens: the eruption that followed, not the quake</PillTag> : null}
+      {plateOn ? <PillTag x={1860} y={146} align="right">Mount St. Helens: the eruption that followed, not the quake</PillTag> : null}
       {f >= quake && f < magma ? <Big x={340} y={190} big="8:32 A.M." small="18 May 1980 · M5.1" opacity={ease(f, quake, 10)} /> : null}
       {/* lines 1-2: inside the mountain */}
       {cross > 0 ? <Volcano swell={lin(f, magma, L2)} slide={slide} opacity={cross} /> : null}
@@ -76,7 +76,7 @@ export const M5: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {/* line 6: the crack on the Monument, camera pushes to it */}
       {f >= L6 ? <Photo id="l06-wm-crack" a={L6} b={t.frames} s0={1} s1={1.25} pos="50% 62%" o0={[50, 50]} o1={[48, 55]} opacity={ease(f, L6, 12)} /> : null}
-      {f >= L6 ? <PillTag x={1860} y={140} align="right" opacity={ease(f, L6, 12)}>Washington Monument, photographed from a helicopter, 2011</PillTag> : null}
+      {f >= L6 ? <PillTag x={1860} y={196} align="right" opacity={ease(f, L6, 12)}>Washington Monument, photographed from a helicopter, 2011</PillTag> : null}
       {f >= within(t, 6, 0.6) ? <Big x={340} y={190} big="SINCE REPAIRED" size={64} color={B.aqua} opacity={ease(f, within(t, 6, 0.6), 10)} /> : null}
     </QuakeShell>
   );
@@ -127,7 +127,7 @@ export const M6: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {/* line 2: Northridge */}
       {f >= L2 && f < L3 ? <Photo id="l06-northridge" a={L2} b={L3} s0={1.02} s1={1.14} o0={[60, 45]} opacity={ease(f, L2, 10)} /> : null}
-      {f >= L2 && f < L3 ? <PillTag x={1860} y={140} align="right">Northridge, 1994 · M6.7</PillTag> : null}
+      {f >= L2 && f < L3 ? <PillTag x={1860} y={146} align="right">Northridge, 1994 · M6.7</PillTag> : null}
       {f >= within(t, 2, 0.3) && f < L3 ? <Big x={340} y={190} big="M6.7 SHOOK HARDER" small="and over a wider area" size={68} opacity={ease(f, within(t, 2, 0.3), 10)} /> : null}
       {f >= nis && f < L3 ? <Big x={340} y={350} big="THAN M6.8" small="Nisqually, 2001" size={68} color={B.aqua} opacity={ease(f, nis, 10)} /> : null}
       {/* line 3: depth to scale, 0 to 36 miles = y 300 to 840 (15 px a mile) */}
@@ -146,7 +146,7 @@ export const M6: React.FC<{ t: SceneTiming }> = ({ t }) => {
         </div>
       ) : null}
       {f >= soft && f < L4 ? <Photo id="l06-loma" a={soft} b={L4} s0={1.02} s1={1.16} o0={[35, 70]} opacity={ease(f, soft, 10)} /> : null}
-      {f >= soft && f < L4 ? <PillTag x={1860} y={140} align="right">San Francisco, M6.9 Loma Prieta, 1989: a different quake</PillTag> : null}
+      {f >= soft && f < L4 ? <PillTag x={1860} y={146} align="right">San Francisco, M6.9 Loma Prieta, 1989: a different quake</PillTag> : null}
       {f >= soft + 6 && f < L4 ? <Big x={340} y={190} big="SOFT GROUND SHAKES MORE" small="than solid rock" size={64} /> : null}
       {/* line 4: the movie chasm, struck out, then the real rupture */}
       {f >= L4 && f < napa + 4 ? (
@@ -220,7 +220,7 @@ export const M7: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const shoes = within(t, 5, 0.5);
   const few = within(t, 5, 0.78);
   const pipeLine = within(t, 5, 0.9);
-  const reading = f >= L1 && f < L4 ? "M7.3" : f >= L4 && f < shoes ? "M7.9" : "M7";
+  const reading = f >= L1 && f < L4 ? "M7.3" : f >= L4 && f < L6 ? "M7.9" : "M7";
   const m = f >= L1 && f < L4 ? 7.3 : f >= L4 && f < L6 ? 7.9 : 7;
   const count = Math.round(289 * lin(f, n289 - 10, n289 + 30));
   const pipeOn = f >= L4;
@@ -230,7 +230,7 @@ export const M7: React.FC<{ t: SceneTiming }> = ({ t }) => {
     <QuakeShell t={t} index={6} prevM={6} m={m} reading={reading} sub="480 kt at M7" credit={credit}>
       {/* line 0: the highway in the lake */}
       {f < L1 + 2 ? <Photo id="l06-hwy287" a={0} b={L1} s0={1.0} s1={1.14} o0={[60, 70]} opacity={span(f, 0, L1 + 2)} /> : null}
-      {f < L1 ? <PillTag x={1860} y={140} align="right" opacity={ease(f, 12, 10)}>Highway 287, Hebgen Lake, Montana, 1959</PillTag> : null}
+      {f < L1 ? <PillTag x={1860} y={196} align="right" opacity={ease(f, 12, 10)}>Highway 287, Hebgen Lake, Montana, 1959</PillTag> : null}
       {f < L1 ? <Big x={340} y={190} big="10 TO 15 A YEAR" size={68} opacity={ease(f, 16, 10)} /> : null}
       {f >= rearr && f < L1 ? <Caption bottom={140} size={72} color={B.paper}>It rearranges the landscape</Caption> : null}
       {/* line 1: the scarp, 1,000 px: an inset, with its height named */}
@@ -243,17 +243,17 @@ export const M7: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {/* line 2: landslide and lake */}
       {f >= L2 && f < L3 + 2 ? <Photo id="l06-quakelake" a={L2} b={L3} s0={1.0} s1={1.16} o0={[80, 40]} o1={[45, 60]} opacity={span(f, L2, L3 + 2)} /> : null}
-      {f >= L2 && f < L3 ? <PillTag x={1860} y={140} align="right">the landslide and the lake it made, photographed in 1997</PillTag> : null}
-      {f >= within(t, 2, 0.1) && f < L3 ? <Big x={340} y={190} big="LARGEST QUAKE-TRIGGERED SLIDE" small="in recorded North American history" size={60} opacity={ease(f, within(t, 2, 0.1), 10)} /> : null}
+      {f >= L2 && f < L3 ? <PillTag x={1860} y={146} align="right">the landslide and the lake it made, photographed in 1997</PillTag> : null}
+      {f >= within(t, 2, 0.1) && f < L3 ? <Big x={340} y={200} big="LARGEST QUAKE-TRIGGERED SLIDE" small="in recorded North American history" size={60} opacity={ease(f, within(t, 2, 0.1), 10)} /> : null}
       {f >= lake && f < L3 ? <Caption bottom={140} size={72}>It dammed a river and made a lake</Caption> : null}
       {/* line 3: springs. A geyser that is NOT one of them, and says so */}
       {f >= L3 && f < L4 + 2 ? <Photo id="l06-riverside" a={L3} b={L4} s0={1.0} s1={1.16} o0={[70, 60]} opacity={span(f, L3, L4 + 2)} /> : null}
-      {f >= L3 && f < L4 ? <PillTag x={1860} y={140} align="right">Riverside Geyser, recent photo · not one of the 1959 springs</PillTag> : null}
+      {f >= L3 && f < L4 ? <PillTag x={1860} y={146} align="right">Riverside Geyser, recent photo · not from 1959</PillTag> : null}
       {f >= n289 - 10 && f < L4 ? <Big x={340} y={190} big={`AT LEAST ${count}`} small="springs erupted as geysers, next day" size={84} opacity={ease(f, n289 - 10, 8)} /> : null}
       {f >= n160 && f < L4 ? <Big x={340} y={370} big="160" small="with no record of ever erupting" size={84} color={B.tease} ink={B.paper} opacity={ease(f, n160, 8)} /> : null}
       {/* lines 4-6: the pipeline */}
       {pipeOn ? <Photo id="l06-pipeline" a={L4} b={L5} s0={1.0} s1={1.18} o0={[35, 65]} opacity={ease(f, L4, 10)} /> : null}
-      {pipeOn && f < shoes ? <PillTag x={1860} y={140} align="right">Trans-Alaska Pipeline at the Denali Fault, Nov 2002</PillTag> : null}
+      {pipeOn && f < shoes ? <PillTag x={1860} y={146} align="right">Trans-Alaska Pipeline at the Denali Fault, Nov 2002</PillTag> : null}
       {f >= moved && f < held ? (
         <>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
@@ -275,7 +275,7 @@ export const M7: React.FC<{ t: SceneTiming }> = ({ t }) => {
             </g>
           </svg>
           <PillTag x={400} y={560} size={34} color={B.gauge}>sliding shoe</PillTag>
-          <PillTag x={400} y={700} size={34}>long steel beam</PillTag>
+          <PillTag x={640} y={700} size={34}>long steel beam</PillTag>
         </div>
       ) : null}
       {f >= few && f < pipeLine ? <Big x={340} y={190} big="A FEW SUPPORTS DAMAGED" size={68} color={B.tease} ink={B.paper} opacity={ease(f, few, 8)} /> : null}
@@ -295,8 +295,9 @@ export const M8: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const sixth = within(t, 5, 0.55);
   const small = within(t, 6, 0.55);
   // lines 3-4: a true value climbing past where the old needle sticks
-  const truth = 7 + 2.5 * lin(f, L3 + 10, L5);
-  const old = Math.min(8.3, truth);
+  const truth = 7 + 2.5 * lin(f, L4, L5 - 10);
+  const old = f < stuck ? 7 + 1.3 * lin(f, L3 + 10, stuck) : 8.3 + 0.03 * Math.sin((f - stuck) / 2);
+  const ghost = 8.3 + 1.2 * lin(f, stuck, L5 - 10);
   const nY = (m: number) => 880 - (m - 7) * 240;
   const plate = f >= L5;
   const clockOn = f >= L6;
@@ -339,11 +340,17 @@ export const M8: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= L3 && f < L5 + 2 ? (
         <div style={{ position: "absolute", inset: 0, opacity: span(f, L3, L5 + 2) }}>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
+            {/* seismograph paper scrolling behind the chart; 70 px/s against a 120 px period, so it never lands on itself second to second */}
+            <clipPath id="l06paper"><rect x={470} y={160} width={810} height={720} /></clipPath>
+            <g clipPath="url(#l06paper)">
+              {Array.from({ length: 9 }, (_, i) => <rect key={i} x={470 + i * 120 - (((f - L3) * 70) / 30) % 120} y={160} width={60} height={720} fill="rgba(255,255,255,0.035)" />)}
+            </g>
             {[7, 7.5, 8, 8.5, 9, 9.5].map((m) => (
               <g key={m}>
                 <line x1={470} x2={1280} y1={nY(m)} y2={nY(m)} stroke="rgba(255,255,255,0.22)" strokeWidth={3} />
               </g>
             ))}
+            {f >= stuck ? <rect x={570} y={nY(ghost)} width={200} height={nY(8.3) - nY(ghost)} fill="rgba(255,90,80,0.16)" stroke={B.tease} strokeWidth={4} strokeDasharray="14 10" /> : null}
             <rect x={570} y={nY(old)} width={200} height={880 - nY(old)} fill={B.tease} />
             {f >= L4 ? <rect x={990} y={nY(truth)} width={200} height={880 - nY(truth)} fill={B.aqua} opacity={ease(f, L4, 10)} /> : null}
             <line x1={470} x2={1280} y1={nY(8.3)} y2={nY(8.3)} stroke={B.gauge} strokeWidth={5} strokeDasharray="16 10" opacity={ease(f, stuck, 10)} />
@@ -352,24 +359,25 @@ export const M8: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Tag x={670} y={896} align="center" size={32} color={B.tease}>a wave-based scale</Tag>
           {f >= L4 ? <Tag x={1090} y={896} align="center" size={32} color={B.aqua} opacity={ease(f, L4, 10)}>moment magnitude</Tag> : null}
           {f >= stuck ? <PillTag x={1310} y={nY(8.3) - 26} size={32} color={B.gauge} opacity={ease(f, stuck, 10)}>stops climbing near 8.3</PillTag> : null}
+          {f >= stuck + 30 && f < L4 ? <PillTag x={1310} y={nY(9.2) - 26} size={32} color={B.tease} opacity={ease(f, stuck + 30, 10)}>the quake keeps growing</PillTag> : null}
           {f >= L4 ? <PillTag x={1310} y={700} size={32} color={B.aqua} opacity={ease(f, L4 + 16, 10)}>based on the rupture itself</PillTag> : null}
         </div>
       ) : null}
       {/* lines 5-6: Concepción, then the day */}
       {plate && !clockOn ? <Photo id="l06-concepcion" a={L5} b={L6} s0={1.0} s1={1.14} o0={[60, 45]} opacity={ease(f, L5, 10)} /> : null}
-      {plate && !clockOn ? <PillTag x={1860} y={140} align="right">Concepción, Chile, 15 March 2010, after the M8.8</PillTag> : null}
+      {plate && !clockOn ? <PillTag x={1860} y={146} align="right">Concepción, Chile, 15 March 2010, after the M8.8</PillTag> : null}
       {f >= sixth && !clockOn ? <Big x={340} y={190} big="M8.8" small="tied for sixth largest ever recorded" size={84} opacity={ease(f, sixth, 10)} /> : null}
       {clockOn ? (
         <div style={{ position: "absolute", inset: 0, opacity: ease(f, L6, 10) }}>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-            <circle cx={1100} cy={500} r={280} fill="#14507A" stroke={B.aqua} strokeWidth={4} />
+            <circle cx={1340} cy={500} r={280} fill="#14507A" stroke={B.aqua} strokeWidth={4} />
             {Array.from({ length: 24 }, (_, i) => (
-              <line key={i} x1={1100 + 250 * Math.sin((i * Math.PI) / 12)} y1={500 - 250 * Math.cos((i * Math.PI) / 12)} x2={1100 + 280 * Math.sin((i * Math.PI) / 12)} y2={500 - 280 * Math.cos((i * Math.PI) / 12)} stroke={B.paper} strokeWidth={4} />
+              <line key={i} x1={1340 + 250 * Math.sin((i * Math.PI) / 12)} y1={500 - 250 * Math.cos((i * Math.PI) / 12)} x2={1340 + 280 * Math.sin((i * Math.PI) / 12)} y2={500 - 280 * Math.cos((i * Math.PI) / 12)} stroke={B.paper} strokeWidth={4} />
             ))}
-            <line x1={1100} y1={500} x2={1100 + 240 * Math.sin((f - L6) / 40)} y2={500 - 240 * Math.cos((f - L6) / 40)} stroke={B.gauge} strokeWidth={10} strokeLinecap="round" />
+            <line x1={1340} y1={500} x2={1340 + 240 * Math.sin((f - L6) / 40)} y2={500 - 240 * Math.cos((f - L6) / 40)} stroke={B.gauge} strokeWidth={10} strokeLinecap="round" />
           </svg>
           <Big x={340} y={190} big="A LITTLE OVER A MILLIONTH" small="of a second off Earth's day" size={64} opacity={ease(f, within(t, 6, 0.2), 10)} />
-          {f >= small ? <PillTag x={1100} y={830} align="center" size={36} color={B.gauge} opacity={ease(f, small, 10)}>calculated · far too small to measure directly</PillTag> : null}
+          {f >= small ? <PillTag x={1200} y={830} align="center" size={36} color={B.gauge} opacity={ease(f, small, 10)}>calculated · far too small to measure directly</PillTag> : null}
         </div>
       ) : null}
     </QuakeShell>

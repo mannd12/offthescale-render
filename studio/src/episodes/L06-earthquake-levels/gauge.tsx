@@ -39,7 +39,7 @@ export const EnergyColumn: React.FC<{ m: number; reading: string; sub: string; s
   const X = 54;
   const W = 18;
   const fillTop = yOf(Math.min(m, LAST_SOURCED));
-  const pillTop = Math.max(122, Math.min(yOf(m) - 62, 866));
+  const pillTop = Math.max(122, Math.min(yOf(m) - 62, 858));
   const amp = 2 + Math.max(0, m) * 1.2;
   return (
     <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
@@ -69,7 +69,7 @@ export const EnergyColumn: React.FC<{ m: number; reading: string; sub: string; s
       <div style={{ position: "absolute", left: 10, width: 34, top: yOf(10) - 15, textAlign: "right", fontFamily: F.headline, fontSize: 25, lineHeight: "30px", color: B.tease }}>10</div>
       <div style={{ position: "absolute", left: 90, top: pillTop, width: 188, padding: "6px 12px 8px", borderRadius: 14, background: heat(m), color: B.ink, boxShadow: "0 6px 24px rgba(0,0,0,0.55)", boxSizing: "border-box" }}>
         <div style={{ fontFamily: F.headline, fontSize: 46, lineHeight: 1.05, whiteSpace: "nowrap" }}>{reading}</div>
-        <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 14, letterSpacing: 1.5, marginTop: 1 }}>{subTop}</div>
+        <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 18, letterSpacing: 1, marginTop: 1, whiteSpace: "nowrap" }}>{subTop}</div>
         <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 22, whiteSpace: "nowrap", lineHeight: 1.1 }}>{sub}</div>
         <svg width={164} height={28} style={{ display: "block", marginTop: 2 }}>
           <path d={tracePath(frame, 0, 164, 14, Math.min(12, amp))} stroke={B.ink} strokeWidth={2} fill="none" />

@@ -73,14 +73,14 @@ const Chip: React.FC<{ kind: "real" | "illustration"; source?: string }> = ({ ki
 export type Credit = { kind: "real" | "illustration"; source?: string };
 
 /** Chrome only (column, top bar, chips): every scene body draws its own picture underneath. */
-export const QuakeShell: React.FC<{ t: SceneTiming; index: number; prevM: number; m: number; reading?: string; sub?: string; subTop?: string; credit: Credit; children?: React.ReactNode }> = ({ t, index, prevM, m, reading, sub, subTop, credit, children }) => {
+export const QuakeShell: React.FC<{ t: SceneTiming; index: number; prevM: number; m: number; reading?: string; sub?: string; subTop?: string; credit: Credit; title?: string; children?: React.ReactNode }> = ({ t, index, prevM, m, reading, sub, subTop, credit, title, children }) => {
   const f = useCurrentFrame();
   const gm = mix(prevM, m, ease(f, 0, 26));
   const compact = clamp01((f - 90) / 20) * (1 - clamp01((f - (t.frames - 50)) / 20));
   return (
     <AbsoluteFill style={{ background: "radial-gradient(ellipse at 55% 42%, #1A2B3D 0%, #0B1B2B 55%, #050E18 100%)" }}>
       {children}
-      <TopBar series={SERIES} levels={LEVELS} current={index} progress={clamp01(f / t.frames)} compact={compact} />
+      <TopBar series={SERIES} levels={title ? LEVELS.map((l, i) => (i === index ? { ...l, name: title } : l)) : LEVELS} current={index} progress={clamp01(f / t.frames)} compact={compact} />
       <EnergyColumn m={gm} reading={reading ?? `M${m}`} sub={sub ?? TNT[String(m)] ?? ""} subTop={subTop} />
       <div style={{ position: "absolute", left: 100, bottom: 30, display: "flex", gap: 10 }}>
         <Chip {...credit} />

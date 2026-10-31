@@ -23,15 +23,15 @@ export const M9: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const realOn = (f < L1) || (f >= L2 && f < L3);
   const m = f < L7 ? 9.2 : 9.2;
   return (
-    <QuakeShell t={t} index={8} prevM={8.8} m={m} reading="M9.2" sub="480 Mt at M9" credit={f < L1 ? { kind: "real", source: "USGS, 1964" } : realOn ? { kind: "real", source: "USGS, A. Grantz, 1964" } : { kind: "illustration", source: "schematic, not to scale" }}>
+    <QuakeShell t={t} index={8} prevM={8.8} m={m} reading="M9.2" sub="480 Mt at M9" credit={f < L1 ? { kind: "real", source: "USGS, 1964" } : realOn ? { kind: "real", source: "USGS, A. Grantz, 1964" } : f >= L6 && f < L7 ? { kind: "illustration", source: "areas to scale · the big square runs off the frame" } : { kind: "illustration", source: "schematic, not to scale" }}>
       {/* line 0: the tracks */}
       {f < L1 + 2 ? <Photo id="l06-rail" a={0} b={L1} s0={1} s1={1.14} o0={[50, 85]} opacity={span(f, 0, L1 + 2)} /> : null}
-      {f < L1 ? <PillTag x={1860} y={140} align="right" opacity={ease(f, 10, 10)}>Alaska Railroad tracks, near Turnagain Arm, 1964</PillTag> : null}
+      {f < L1 ? <PillTag x={1860} y={196} align="right" opacity={ease(f, 10, 10)}>Alaska Railroad tracks, near Turnagain Arm, 1964</PillTag> : null}
       {f < L1 ? <Big x={340} y={190} big="LARGEST IN U.S. HISTORY" size={68} opacity={ease(f, within(t, 0, 0.55), 10)} /> : null}
       {/* line 1: a clock and a growing rupture; shaking and rupture are separate numbers (#42) */}
       {f >= L1 && f < L2 + 2 ? (
         <div style={{ position: "absolute", inset: 0, opacity: span(f, L1, L2 + 2) }}>
-          <Big x={340} y={170} big="ABOUT 4½ MINUTES" small="of shaking" size={72} />
+          <Big x={340} y={190} big="ABOUT 4½ MINUTES" small="of shaking" size={72} />
           {f >= rupt ? (
             <>
               <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
@@ -52,8 +52,8 @@ export const M9: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {/* line 2: aerial of the ground that moved */}
       {f >= L2 && f < L3 + 2 ? <Photo id="l06-lstreet" a={L2} b={L3} s0={1.02} s1={1.2} o0={[60, 60]} brightness={0.72} opacity={span(f, L2, L3 + 2)} /> : null}
-      {f >= L2 && f < L3 ? <PillTag x={1860} y={140} align="right">L Street slide, Anchorage, 1964</PillTag> : null}
-      {f >= L2 && f < L3 ? <Big x={340} y={190} big="AT LEAST 15 M SEAWARD" small="much of coastal Alaska" size={68} opacity={ease(f, L2 + 8, 10)} /> : null}
+      {f >= L2 && f < L3 ? <PillTag x={1860} y={146} align="right">L Street slide, Anchorage, 1964 · a landslide, not the 15 m shift</PillTag> : null}
+      {f >= L2 && f < L3 ? <Big x={340} y={200} big="AT LEAST 15 M SEAWARD" small="much of coastal Alaska" size={68} opacity={ease(f, L2 + 8, 10)} /> : null}
       {/* lines 3-4: distance, then 47 recorders, then the Needle */}
       {f >= L3 && f < L4 + 2 ? (
         <div style={{ position: "absolute", inset: 0, opacity: span(f, L3, L4 + 2) }}>
@@ -115,7 +115,7 @@ export const M9: React.FC<{ t: SceneTiming }> = ({ t }) => {
             <rect x={380} y={500} width={1400} height={70} rx={10} fill="rgba(255,255,255,0.14)" />
             <rect x={380} y={500} width={1400 * secs} height={70} rx={10} fill={B.aqua} />
           </svg>
-          <Big x={380} y={230} big={`${Math.round(500 * secs)} SECONDS`} small="off Sumatra, 2004: a rupture still running" size={80} />
+          <Big x={380} y={230} big={secs >= 1 ? "ABOUT 500 SECONDS" : `${Math.round(500 * secs)} SECONDS`} small="off Sumatra, 2004: how long one rupture ran" size={80} />
           {f >= within(t, 7, 0.5) ? <PillTag x={380} y={600} size={34} color={B.aqua} opacity={ease(f, within(t, 7, 0.5), 10)}>longer than any known earthquake</PillTag> : null}
           {f >= notRec ? <Caption bottom={190} size={80}>Neither is the record</Caption> : null}
         </div>
@@ -147,9 +147,9 @@ export const M95: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const low = Math.round(10 * lin(f, L5 + 10, L5 + 50));
   const cells = 10;
   return (
-    <QuakeShell t={t} index={9} prevM={9.2} m={9.5} reading={f >= eq && f < L5 ? "M9.95" : "M9.5"} sub={f >= eq && f < L5 ? "110 years" : "2.7 Gt TNT"} subTop={f >= eq && f < L5 ? "ALL QUAKES IN" : "ABOUT"} credit={hilo ? { kind: "real", source: "U.S. Navy, via NOAA, 1960" } : mapOn ? { kind: "illustration", source: "USGS ShakeMap, a model" } : { kind: "illustration", source: "schematic" }}>
+    <QuakeShell t={t} index={9} prevM={9.2} m={f >= eq && f < L5 ? 9.95 : 9.5} reading={f >= eq && f < L5 ? "M9.95" : "M9.5"} sub={f >= eq && f < L5 ? "110 years" : "2.7 Gt TNT"} subTop={f >= eq && f < L5 ? "ALL QUAKES IN" : "ABOUT"} credit={hilo ? { kind: "real", source: "U.S. Navy, via NOAA, 1960" } : mapOn ? { kind: "illustration", source: "USGS ShakeMap, a model" } : { kind: "illustration", source: "schematic" }}>
       {/* lines 0-1: modelled map; the rupture drawn beside it */}
-      {mapOn ? <Inset id="l06-shakemap" x={1240} y={140} w={560} h={790} pos="50% 25%" a={0} b={tsu} s0={1} s1={1.12} origin="50% 40%" opacity={ease(f, 8, 12)} /> : null}
+      {mapOn ? <Inset id="l06-shakemap" x={1240} y={160} w={560} h={770} pos="50% 25%" a={0} b={tsu} s0={1} s1={1.12} origin="50% 40%" opacity={ease(f, 8, 12)} /> : null}
       {f < L1 ? <Big x={340} y={190} big="22 MAY 1960 · CHILE" small="largest ever recorded by instruments" size={66} opacity={ease(f, 12, 10)} /> : null}
       {f >= about && f < L1 ? <Big x={340} y={420} big="“ABOUT” IS HONEST" small="re-analysis: somewhere around 9.5" size={60} color={B.aqua} opacity={ease(f, about, 10)} /> : null}
       {f >= L1 && f < tsu ? (
@@ -221,8 +221,15 @@ export const Limit: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const sa = within(t, 3, 0.58);
   const circ = within(t, 4, 0.6);
   const CX = 1320;
-  const CY = 560;
-  const R = 300;
+  const CY = 590;
+  const R = 280;
+  // a plain globe turning (no invented coastlines): shaded gores, 24 degrees a second
+  const spin = ((f * 24) / 30) % 60;
+  const gore = (deg: number) => {
+    const a = (Math.max(-90, Math.min(90, deg)) * Math.PI) / 180;
+    const b = (Math.max(-90, Math.min(90, deg + 30)) * Math.PI) / 180;
+    return `M${CX} ${CY - R} A${(R * Math.abs(Math.sin(a))).toFixed(1)} ${R} 0 0 ${Math.sin(a) > 0 ? 1 : 0} ${CX} ${CY + R} A${(R * Math.abs(Math.sin(b))).toFixed(1)} ${R} 0 0 ${Math.sin(b) > 0 ? 0 : 1} ${CX} ${CY - R} Z`;
+  };
   const disc = ease(f, planet, 16);
   /** arc for a length in km; rr grows with each lap, so a second lap stands outside the first */
   const arc = (km: number, rr: number) => {
@@ -236,23 +243,23 @@ export const Limit: React.FC<{ t: SceneTiming }> = ({ t }) => {
     }
     return pts.join(" ");
   };
-  const km10 = 14000 * lin(f, L2 + 6, within(t, 2, 0.4));
+  const km10 = 14000 * lin(f, L2 + 6, within(t, 2, 0.6));
   const sAm = 6400 * lin(f, L3 + 4, sa - 8);
   const sAnd = 1400 * lin(f, sa, sa + 30);
   const km105 = 80000 * lin(f, L4 + 16, circ + 10);
   const flash = f >= L5 ? Math.floor(((f - within(t, 5, 0.32)) / Math.max(1, within(t, 5, 0.7) - within(t, 5, 0.32))) * 3) : -1;
   const m = f < L2 ? 9.5 : 10;
-  const read = f < L2 ? "M9.5" : f < L3 ? "M10?" : f < sa ? "M9.86" : f < L4 ? "M8.5" : f < L5 ? "M10.5?" : "M10?";
+  const read = f < L2 ? "M9.5" : f < L3 ? "M10?" : f < sa ? "M9.86" : f < L4 ? "M8.5" : "M10.5?";
   const gaugeM = f < L2 ? 9.5 : f < L3 ? 10 : f < sa ? 9.86 : f < L4 ? 8.47 : 10;
   return (
-    <QuakeShell t={t} index={10} prevM={9.5} m={mix(m, gaugeM, 1)} reading={read} sub={f < L2 ? "the record" : f < L3 ? "no known fault" : f < sa ? "S. America" : f < L4 ? "San Andreas" : f < L5 ? "off this column" : "no known fault"} subTop={f < L2 ? "SO FAR" : f >= L3 && f < L4 ? "AT MOST" : "HYPOTHETICAL"} credit={{ kind: "illustration", source: "a drawing · fault lengths to scale on the rim" }}>
+    <QuakeShell t={t} index={10} prevM={9.5} m={mix(m, gaugeM, 1)} reading={read} sub={f < L2 ? "the record" : f < L3 ? "no known fault" : f < sa ? "S. America" : f < L4 ? "San Andreas" : "off this column"} subTop={f < L2 ? "SO FAR" : f >= L3 && f < L4 ? "AT MOST" : "HYPOTHETICAL"} credit={{ kind: "illustration", source: "a drawing · fault lengths to scale on the rim" }}>
       {f < L1 ? <Caption bottom={460} size={110}>How high can it go?</Caption> : null}
       {f >= L1 && f < planet ? <Caption bottom={460} size={84} color={B.paper}>The scale has no upper limit</Caption> : null}
       {disc > 0 ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: disc }}>
           <circle cx={CX} cy={CY} r={R} fill="#14507A" stroke={B.aqua} strokeWidth={4} />
-          <path d={`M${CX - 180} ${CY - 120} q 80 -80 170 -30 q 60 60 -20 110 q -90 40 -150 -20 z`} fill="#2E6B47" opacity={0.8} />
-          <path d={`M${CX + 60} ${CY + 60} q 90 -30 130 40 q 0 70 -80 90 q -70 -30 -50 -130 z`} fill="#2E6B47" opacity={0.8} />
+          {[-120, -60, 0, 60].map((d) => <path key={d} d={gore(d + spin)} fill="#1F6A9C" />)}
+          <circle cx={CX} cy={CY} r={R} fill="none" stroke={B.aqua} strokeWidth={4} />
           {f >= L2 && f < L3 ? <path d={arc(km10, R + 18)} stroke={B.tease} strokeWidth={14} fill="none" strokeDasharray="30 12" /> : null}
           {f >= L3 && f < L4 ? <path d={arc(sAm, R + 18)} stroke={B.gauge} strokeWidth={14} fill="none" /> : null}
           {f >= sa && f < L4 ? <path d={arc(sAnd, R + 60)} stroke={B.aqua} strokeWidth={14} fill="none" /> : null}
@@ -267,9 +274,9 @@ export const Limit: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= sa && f < L4 ? <PillTag x={340} y={270} size={34} color={B.aqua} opacity={ease(f, sa, 10)}>all of the San Andreas: about 8½</PillTag> : null}
       {f >= L4 && f < L5 ? <Big x={340} y={190} big="M10.5: ABOUT 80,000 KM" size={60} color={B.tease} ink={B.paper} opacity={ease(f, L4 + 10, 10)} /> : null}
       {f >= circ && f < L5 ? <PillTag x={340} y={320} size={36} opacity={ease(f, circ, 10)}>Earth's circumference: 40,000 km</PillTag> : null}
-      {f >= L5 && f < within(t, 5, 0.32) ? <Caption bottom={120} size={76}>It doesn't fit on the planet</Caption> : null}
+      {f >= L5 && f < within(t, 5, 0.32) ? <><Big x={340} y={400} big="IT DOESN'T FIT" size={80} opacity={ease(f, L5, 10)} /><Big x={340} y={510} big="ON THE PLANET" size={80} opacity={ease(f, L5, 10)} /></> : null}
       {flash >= 0 && f >= within(t, 5, 0.32) && f < within(t, 5, 0.72) ? <div style={{ position: "absolute", left: 340 + Math.min(2, flash) * 60, top: 190 + Math.min(2, flash) * 150, fontFamily: F.headline, fontSize: 96, lineHeight: 1.1, color: heat(5 + Math.min(2, flash) * 2) }}>32 TIMES</div> : null}
-      {f >= within(t, 5, 0.72) ? <Caption bottom={100} size={84} color={B.tease}>The number runs out of world</Caption> : null}
+      {f >= within(t, 5, 0.72) ? <><Big x={340} y={400} big="THE NUMBER RUNS" size={80} color={B.tease} ink={B.paper} opacity={ease(f, within(t, 5, 0.72), 10)} /><Big x={340} y={510} big="OUT OF WORLD" size={80} color={B.tease} ink={B.paper} opacity={ease(f, within(t, 5, 0.72), 10)} /></> : null}
     </QuakeShell>
   );
 };
