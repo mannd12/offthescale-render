@@ -478,7 +478,7 @@ export const EarthColdest: React.FC<{ t: SceneTiming }> = ({ t }) => {
       ) : null}
       {frame >= climbAt ? (
         <>
-          <Card x={160} y={260} big="about 12 powers of ten" size={84} opacity={ease(frame, climbAt, 10)} />
+          <Card x={160} y={260} big="almost 13 powers of ten" size={84} opacity={ease(frame, climbAt, 10)} />
           <Pill x={160} y={400} size={36} color={B.aqua} opacity={ease(frame, freezerAt, 10)}>and still below a freezer</Pill>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: ease(frame, hotAt - 10, 12) }}>
             {Array.from({ length: 14 }, (_, i) => <path key={i} d={`M${160 + i * 90} ${1000 - ((frame * 5 + i * 67) % 340)} q 18 -30 0 -60`} stroke={B.tease} strokeWidth={8} fill="none" opacity={0.6} />)}
