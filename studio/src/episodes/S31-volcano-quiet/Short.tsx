@@ -37,7 +37,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const zeroAt = L(4);
   const redAt = L(5);
   const askAt = L(6);
-  const threeAt = cue(t, 5, "It rated");
+  const threeAt = cue(t, 5, "About twenty");
   const endAt = cue(t, 6, "The full video");
   const end = ease(frame, endAt, 12);
 
@@ -69,7 +69,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 200, background: `linear-gradient(transparent, ${B.ink})` }} />
       </div>
 
-      <Card x={40} y={210} big={["OFFICIAL SCORE: 0"]} size={104} opacity={span(frame, 0, L(1))} />
+      <Card x={40} y={210} big={["OFFICIAL SCORE: 0"]} size={104} opacity={1 - ease(frame, L(1), 10)} />
       <Note x={40} y={214} rows={["real footage · Mauna Loa, 2022"]} size={32} opacity={span(frame, L(1), L(2))} />
       <Card x={40} y={290} big={["THE LARGEST ACTIVE", "VOLCANO IN THE WORLD"]} size={80} opacity={span(frame, L(1) + 12, L(2))} />
       <Card x={40} y={210} big={["20-25 m"]} small={["lava fountains, one fissure"]} size={130} opacity={span(frame, L(2), countAt)} />
@@ -85,8 +85,8 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <div style={{ position: "absolute", left: 40, top: 600, width: 880, padding: "22px 20px 26px", boxSizing: "border-box", borderRadius: 18, background: "rgba(5,14,24,0.9)", opacity: span(frame, redAt, askAt), fontFamily: F.ui, fontWeight: 800, color: B.paper, letterSpacing: 1 }}>
         <div style={{ fontSize: 30, whiteSpace: "nowrap" }}>MAUNA LOA · 145 MILLION m³ · SCORE 0</div>
         <div style={{ width: BAR_W * fill, height: 56, margin: "10px 0 24px", borderRadius: 6, background: B.gauge }} />
-        <div style={{ fontSize: 30, whiteSpace: "nowrap", opacity: ease(frame, threeAt - 30, 10) }}>REDOUBT · ~20 MILLION m³ · SCORE 3</div>
-        <div style={{ width: REDOUBT_W * fill, height: 56, margin: "10px 0 16px", borderRadius: 6, background: B.tease, opacity: ease(frame, threeAt - 30, 10) }} />
+        <div style={{ fontSize: 30, whiteSpace: "nowrap", opacity: ease(frame, threeAt, 10) }}>REDOUBT · ~20 MILLION m³ · SCORE 3</div>
+        <div style={{ width: REDOUBT_W * fill, height: 56, margin: "10px 0 16px", borderRadius: 6, background: B.tease, opacity: ease(frame, threeAt, 10) }} />
         <div style={{ fontSize: 24, color: B.mute, whiteSpace: "nowrap" }}>DIFFERENT MEASURES: LAVA AND ASH · DENSE ROCK</div>
       </div>
 

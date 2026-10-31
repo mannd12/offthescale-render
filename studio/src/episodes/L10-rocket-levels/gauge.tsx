@@ -38,7 +38,7 @@ export const Tape: React.FC<{ n: number; reading: string; sub?: string; pct?: nu
       {TAPE_MARKS.filter((k) => k.label).map((k) => (
         <div key={k.n} style={{ position: "absolute", left: 1524, width: 60, top: tapeY(k.n) - 11, textAlign: "right", fontFamily: F.ui, fontWeight: 800, fontSize: 15, color: B.mute, whiteSpace: "nowrap" }}>{k.label}</div>
       ))}
-      <div style={{ position: "absolute", left: CX - 90, width: 180, top: 560, textAlign: "center", fontFamily: F.headline, fontSize: pct === undefined ? 28 : 54, lineHeight: 1.05, color: pct === undefined ? B.mute : B.paper, textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}>{pct === undefined ? "NO FIGURE" : `~${Math.round(pct)}%`}</div>
+      <div style={{ position: "absolute", left: CX - 90, width: 180, top: 560, textAlign: "center", fontFamily: F.headline, fontSize: pct === undefined ? 28 : 44, lineHeight: 1.05, color: pct === undefined ? B.mute : B.paper, textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}>{pct === undefined ? <>NO<br />FIGURE</> : `~${Math.round(pct)}%`}</div>
       <div style={{ position: "absolute", left: 1532, top: 932, fontFamily: F.ui, fontWeight: 800, fontSize: 17, color: B.gauge, whiteSpace: "nowrap" }}>THRUST · EACH MARK IS 10×</div>
       <div style={{ position: "absolute", left: 1532, top: 958, fontFamily: F.ui, fontWeight: 800, fontSize: 17, color: FUEL, whiteSpace: "nowrap" }}>TANK · SHARE THAT IS FUEL</div>
       <div style={{ position: "absolute", left: 1532, top: 988, width: 360, fontFamily: F.ui, fontWeight: 700, fontSize: 17, color: B.paper, whiteSpace: "nowrap" }}>{pctNote ?? " "}</div>

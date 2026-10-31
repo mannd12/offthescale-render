@@ -82,7 +82,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
             const on = ease(frame, cubesAt + 4 + i * 3, 6);
             return <div key={i} style={{ position: "absolute", left: 150 + (i % 5) * (CUBE + 40), top: 320 + Math.floor(i / 5) * (CUBE + 40), width: CUBE, height: CUBE, borderRadius: 10, boxSizing: "border-box", background: solid ? B.gauge : "transparent", border: solid ? "none" : `5px dashed ${B.gauge}`, opacity: on }} />;
           })}
-          <Card x={40} y={60} big={["13 TO 15 km³"]} small={["of magma · each square: 1 km³"]} size={110} />
+          <Card x={40} y={60} big={["13 TO 15 km³"]} small={["of magma · one cubic km a square"]} size={110} />
         </div>
 
         {/* the mountain and the pin */}

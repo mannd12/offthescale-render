@@ -23,7 +23,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const pct = f < ninety ? undefined : f >= tank ? undefined : 90 * ease(f, ninety, 40);
   const isSaturn = f < paper;
   return (
-    <RungShell t={t} index={0} n={n} reading={isSaturn ? "7.5 MILLION LB" : f < up ? "0.091 N" : `×${fmt(800 * sweep)} MILLION`} sub={isSaturn ? "33 MN · Saturn V" : f < up ? "a sheet of paper" : "from bottom to top"} pct={pct} pctNote={isSaturn && f >= ninety ? "Apollo 4's weights" : f >= tank ? "fills only where a figure exists" : undefined} flips={[ninety, tank]} chips={isSaturn ? [{ kind: "REAL FOOTAGE", source: "NASA/KSC · Apollo 11, slow motion" }] : [{ kind: "ILLUSTRATION" }]}>
+    <RungShell t={t} index={0} title="Off the scale" n={n} reading={isSaturn ? "7.5 MILLION LB" : f < up ? "0.091 N" : `×${fmt(800 * sweep)} MILLION`} sub={isSaturn ? "33 MN · Saturn V" : f < up ? "a sheet of paper" : "from bottom to top"} pct={pct} pctNote={isSaturn && f >= ninety ? "Apollo 4's weights" : f >= tank ? "fills only where a figure exists" : undefined} flips={[ninety, tank]} chips={isSaturn ? [{ kind: "REAL FOOTAGE", source: "NASA/KSC · Apollo 11, slow motion" }] : [{ kind: "ILLUSTRATION" }]}>
       <Clip id="l10-clip-e8" seconds={40} from={0} to={paper} box={{ x: 40, y: 170, w: 1440, h: 810 }} />
       <Pill x={70} y={190} size={28} color={B.gauge} o={ease(f, 6, 10) * (1 - ease(f, paper - 12, 10))}>THE SATURN V, APOLLO 11</Pill>
       <Card x={70} y={760} big="WHAT WAS ALL THAT LIFTING?" size={62} color={B.paper} o={win(f, what, climb + 20)} />

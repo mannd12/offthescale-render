@@ -65,20 +65,20 @@ export const ManyEngines: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const lb = 5e6 * lin(f, more - 10, more + 30);
   return (
     <RungShell t={t} index={6} n={2.2e7} reading="5 MILLION+ LB" sub="over 22 MN · Falcon Heavy" chips={[{ kind: "REAL FOOTAGE", source: "NASA Kennedy · Roman launch, high speed" }, ...(f < roman ? [{ kind: "ILLUSTRATION" as const, source: "engine dots, layout simplified" }] : [])]}>
-      <Clip id="l10-clip-roman" seconds={43} from={0} to={t.frames + 20} scale={1.5} origin="30% 0%" />
+      <Clip id="l10-clip-roman" seconds={43} from={0} to={t.frames + 20} scale={1.6} origin="30% 0%" />
       <Pill x={60} y={170} size={28} color={B.gauge}>FALCON HEAVY · ROMAN TELESCOPE, 2026</Pill>
       <Svg o={dia}>
-        <rect x={60} y={240} width={720} height={270} rx={18} fill="rgba(5,14,24,0.88)" />
+        <rect x={780} y={240} width={720} height={270} rx={18} fill="rgba(5,14,24,0.88)" />
         {Array.from({ length: 27 }, (_, i) => {
           const core = Math.floor(i / 9);
           const k = i % 9;
           const on = i / 27 < n;
-          return <circle key={i} cx={110 + core * 235 + (k % 3) * 62} cy={290 + Math.floor(k / 3) * 62 + 20} r={24} fill={on ? B.gauge : "rgba(255,255,255,0.16)"} />;
+          return <circle key={i} cx={830 + core * 235 + (k % 3) * 62} cy={290 + Math.floor(k / 3) * 62 + 20} r={24} fill={on ? B.gauge : "rgba(255,255,255,0.16)"} />;
         })}
       </Svg>
-      <Card x={60} y={530} big={f >= more ? `${fmt(lb)}${lb >= 5e6 ? "+" : ""} LB` : `${Math.round(27 * n)} ENGINES`} small={f >= more ? "from 27 engines, at liftoff" : undefined} size={72} o={dia * ease(f, light, 10) * (1 - ease(f, div, 10))} />
-      <Card x={60} y={530} big="÷ 27 ≈ 185,000 LB+" small="each, on average · our sum" size={66} color={B.paper} o={win(f, div, close + 40)} />
-      <Pill x={60} y={720} size={30} color={B.gauge} o={win(f, close, roman)}>CLOSE TO THE DELTA'S MAIN ENGINE, 27 TIMES</Pill>
+      <Card x={780} y={530} big={f >= more ? `${fmt(lb)}${lb >= 5e6 ? "+" : ""} LB` : `${Math.round(27 * n)} ENGINES`} small={f >= more ? "from 27 engines, at liftoff" : undefined} size={72} o={dia * ease(f, light, 10) * (1 - ease(f, div, 10))} />
+      <Card x={780} y={530} big="÷ 27 ≈ 185,000 LB+" small="each, on average · our sum" size={66} color={B.paper} o={win(f, div, close + 40)} />
+      <Pill x={780} y={720} size={26} color={B.gauge} o={win(f, close, roman)}>CLOSE TO THE DELTA'S MAIN ENGINE, 27 TIMES</Pill>
       <Card x={60} y={780} big="30 AUGUST 2026" size={60} color={B.paper} o={ease(f, roman + 30, 12)} />
     </RungShell>
   );

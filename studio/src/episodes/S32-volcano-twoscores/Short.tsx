@@ -18,10 +18,10 @@ loadBrandFonts();
 const LINES = vo as VoLine[];
 export const timeline = buildTimeline(LINES);
 
-const Clip: React.FC<{ id: string; seconds: number; x: number; y: number; w: number; h: number; scale?: number; dim?: number }> = ({ id, seconds, x, y, w, h, scale = 1, dim = 0.95 }) => (
+const Clip: React.FC<{ id: string; seconds: number; x: number; y: number; w: number; h: number; scale?: number; dim?: number; origin?: string }> = ({ id, seconds, x, y, w, h, scale = 1, dim = 0.95, origin = "50% 50%" }) => (
   <div style={{ position: "absolute", left: x, top: y, width: w, height: h, overflow: "hidden" }}>
     <Loop durationInFrames={seconds * 30 - 3}>
-      <OffthreadVideo src={staticFile(`assets/${id}.mp4`)} muted style={{ width: w, height: h, objectFit: "cover", transform: `scale(${scale})`, filter: `brightness(${dim})` }} />
+      <OffthreadVideo src={staticFile(`assets/${id}.mp4`)} muted style={{ width: w, height: h, objectFit: "cover", transform: `scale(${scale})`, transformOrigin: origin, filter: `brightness(${dim})` }} />
     </Loop>
   </div>
 );
@@ -62,7 +62,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         </>
       ) : null}
       {frame >= nightAt && frame < domeAt ? <Img src={staticFile("assets/l07-msh-night.jpg")} style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1180, objectFit: "cover", objectPosition: "62% 40%", transform: `scale(${lerp(1, 1.2, smooth(frame, nightAt, domeAt))})` }} /> : null}
-      {frame >= domeAt && frame < filmAt ? <Clip id="l07-clip-dome" seconds={41} x={0} y={190} w={1080} h={640} /> : null}
+      {frame >= domeAt && frame < filmAt ? <Clip id="l07-clip-dome" seconds={41} x={0} y={190} w={1080} h={640} scale={1.24} origin="50% 0%" /> : null}
       {frame >= filmAt && frame < ashAt ? <Clip id="l07-clip-wing" seconds={16} x={0} y={190} w={1080} h={720} scale={1.24} /> : null}
       {frame >= ashAt && frame < backAt ? <Clip id="l07-clip-column" seconds={16} x={0} y={190} w={1080} h={720} scale={1.3} /> : null}
 

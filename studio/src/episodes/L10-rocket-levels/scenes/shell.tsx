@@ -109,8 +109,10 @@ export const RungShell: React.FC<{
   dashed?: number;
   flips?: number[];
   chips: ChipSpec[];
+  /** the bar's headline when the scene is not the rung itself (cold open, closer) */
+  title?: string;
   children?: React.ReactNode;
-}> = ({ t, index, n, reading, sub, pct, pctNote, dashed, flips = [], chips, children }) => {
+}> = ({ t, index, n, reading, sub, pct, pctNote, dashed, flips = [], chips, title, children }) => {
   const f = useCurrentFrame();
   const progress = Math.min(1, f / t.frames);
   const tease = f >= t.frames - 22 && index < LEVELS.length - 1;
@@ -121,7 +123,7 @@ export const RungShell: React.FC<{
     <AbsoluteFill style={{ backgroundColor: B.ink }}>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at 40% 42%, #1A2B3D 0%, #0B1B2B 55%, #050E18 100%)" }} />
       {children}
-      <TopBar series={SERIES} levels={index === LEVELS.length - 1 ? LEVELS_REVEALED : LEVELS} current={index} progress={progress} teasing={tease} compact={compact} unit="RUNG" />
+      <TopBar series={SERIES} levels={(index === LEVELS.length - 1 ? LEVELS_REVEALED : LEVELS).map((l, i) => (i === index && title ? { ...l, name: title } : l))} current={index} progress={progress} teasing={tease} compact={compact} unit="RUNG" />
       <Tape n={n} reading={reading} sub={sub} pct={pct} pctNote={pctNote} dashed={dashed} flash={flash} />
       <Chips chips={chips} />
     </AbsoluteFill>

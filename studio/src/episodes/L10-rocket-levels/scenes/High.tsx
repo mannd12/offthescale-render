@@ -199,7 +199,7 @@ export const Closer: React.FC<{ t: SceneTiming }> = ({ t }) => {
     </g>
   );
   return (
-    <RungShell t={t} index={10} n={n} reading={n > 1 ? "FALLING" : "0.091 N"} sub={n > 1 ? "all the way down" : "a sheet of paper"} pct={f >= look ? 39 : undefined} pctNote={f >= look ? "Dawn, the spacecraft" : undefined} chips={f >= drop && f < expect ? [{ kind: "REAL PHOTO", source: "NASA · Dawn's launch, 2007" }] : [{ kind: "ILLUSTRATION" }]}>
+    <RungShell t={t} index={10} title="Back to the bottom" n={n} reading={n > 1 ? "FALLING" : "0.091 N"} sub={n > 1 ? "all the way down" : "a sheet of paper"} pct={f >= look ? 39 : undefined} pctNote={f >= look ? "Dawn, the spacecraft" : undefined} chips={f >= drop && f < expect ? [{ kind: "REAL PHOTO", source: "NASA · Dawn's launch, 2007" }] : [{ kind: "ILLUSTRATION" }]}>
       <Plate id="l10-dawn" from={0} to={expect + 8} s0={1.1} s1={1.6} o0={[50, 70]} o1={[50, 60]} bright={0.85} />
       <Card x={60} y={260} big="~800 MILLION ×" small="about nine powers of ten" size={72} o={win(f, 8, rem)} />
       <Pill x={60} y={170} size={28} color={B.gauge} o={win(f, rem, expect)}>THE DELTA II HEAVY CARRYING DAWN · 2007</Pill>
@@ -218,7 +218,7 @@ export const Closer: React.FC<{ t: SceneTiming }> = ({ t }) => {
       </Svg>
       <Pill x={390} y={860} align="center" size={30} o={tanks}>SATURN V · ~90%</Pill>
       <Pill x={970} y={860} align="center" size={30} color={B.aqua} o={tanks}>DAWN · ~39%</Pill>
-      <Card x={740} y={200} align="center" big="ITS EXHAUST: 7 TO 10× FASTER" size={56} o={ease(f, eq, 10) * tanks} />
+      <Card x={740} y={200} align="center" big="DAWN'S EXHAUST: 7 TO 10× FASTER" size={56} o={ease(f, eq, 10) * tanks} />
       <Card x={750} y={330} align="center" big="MOSTLY, IT LIFTS FUEL" size={92} color={FUEL} o={ease(f, where + 30, 12) * (1 - ease(f, off, 8))} />
       <Card x={750} y={330} align="center" big="THRUST GETS YOU OFF THE GROUND" size={70} o={ease(f, off, 10)} />
       <Card x={750} y={520} align="center" big="FUEL AND EXHAUST SPEED: HOW FAR" size={70} color={B.paper} o={ease(f, off + 60, 10)} />
