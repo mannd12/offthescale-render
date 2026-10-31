@@ -63,7 +63,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   for (let i = 0; i + 1 < stops.length; i++) {
     const [f0, m0] = stops[i];
     const [f1, m1] = stops[i + 1];
-    if (frame >= f0) m = lerp(m0, m1, smooth(frame, f0, f1));
+    if (frame >= f0) m = lerp(m0, m1, smooth(frame, Math.max(f0, f1 - 20), f1)); // holds each reading until its words
   }
   const shown = Math.round(m);
   const reading: Record<number, string> = { [-1]: "ABOUT HALF A GRAM OF TNT", 1: "ABOUT HALF A KILO", 3: "ABOUT 480 KILOS", 5: "ABOUT 480 TONNES", 7: "ABOUT 480 KILOTONS", 9: "ABOUT 480 MEGATONS" };
