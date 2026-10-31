@@ -42,7 +42,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {photoOn ? <Photo id={cuts[whichCut].id} a={cuts[whichCut].at} b={cuts[whichCut].at + 90} s0={1.02} s1={1.14} o0={cuts[whichCut].o} /> : null}
       {photoOn ? <PillTag x={1860} y={140} align="right">{cuts[whichCut].label}</PillTag> : null}
       {/* the trace runs the whole frame width and answers each line */}
-      {!photoOn ? (
+      {!photoOn && !(f >= topAt && f < L3) ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
           <path d={tracePath(f, 300, 1620, 880, traceAmp, 5)} stroke={B.aqua} strokeWidth={4} fill="none" opacity={0.85} />
         </svg>
@@ -136,7 +136,7 @@ export const M1: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const mX = (m: number) => 880 + m * 360;
   const needle = f < zero ? 1 : f < minus ? mix(1, 0, ease(f, zero, 18)) : f < L2 ? mix(0, -1, ease(f, minus, 22)) : mix(-1, 2.2, ease(f, up, 40));
   return (
-    <QuakeShell t={t} index={0} prevM={1} m={1} reading={f >= minus && f < L2 ? "M−1" : "M1"} sub={f >= minus && f < L2 ? "below this column" : undefined} subTop={f >= minus && f < L2 ? "SO SMALL IT IS" : "ABOUT"} credit={photo > 0.5 ? { kind: "real", source: "Milne-Shaw seismograph · Auckland Museum · CC BY 4.0" } : { kind: "illustration", source: "not to scale" }}>
+    <QuakeShell t={t} index={0} prevM={1} m={1} reading={f >= minus && f < L2 ? "M−1" : "M1"} sub={f >= minus && f < L2 ? "below zero" : undefined} subTop={f >= minus && f < L2 ? "READING" : "ABOUT"} credit={photo > 0.5 ? { kind: "real", source: "Milne-Shaw seismograph · Auckland Museum · CC BY 4.0" } : { kind: "illustration", source: "not to scale" }}>
       <RockSection f={f} burstAt={rockAt} reach={120} opacity={1 - ease(f, inst, 10)} />
       {f < inst ? <Big x={340} y={170} big="HALF A KILO OF TNT" small="about, spread through rock" size={72} opacity={ease(f, 14, 12)} /> : null}
       {f >= nobody && f < inst + 6 ? <PillTag x={1190} y={270} size={36} color={B.gauge}>feels nothing</PillTag> : null}

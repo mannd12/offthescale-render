@@ -4,7 +4,7 @@ import { B, F } from "../../../brand/tokens";
 import { SceneTiming, lineAt, within } from "../../../lib/timeline";
 import { ease } from "../../../lib/ui";
 import { heat } from "../gauge";
-import { Big, Caption, Inset, Photo, PillTag, QuakeShell, Tag, lin, span } from "./shell";
+import { Big, Caption, Inset, Photo, PillTag, QuakeShell, Tag, lin, mix, span } from "./shell";
 
 /** The volcano in section: magma swelling the north flank, which then slides away. Drawn, schematic. */
 const Volcano: React.FC<{ swell: number; slide: number; opacity: number }> = ({ swell, slide, opacity }) => (
@@ -48,7 +48,7 @@ export const M5: React.FC<{ t: SceneTiming }> = ({ t }) => {
         </div>
       ) : null}
       {/* lines 1 and 2-3: the portrait photo, camera climbing from the mountain to the column */}
-      {plateOn ? <Photo id="l06-msh" pos="50% 100%" opacity={1} a={f < magma ? L1 : erupt} b={f < magma ? magma : L4} s0={1.02} s1={1.12} o0={[50, 80]} o1={[50, 45]} /> : null}
+      {plateOn ? <Photo id="l06-msh" pos={`50% ${f < magma ? mix(92, 74, lin(f, L1, magma)) : mix(74, 28, lin(f, erupt, t.lines[4].at))}%`} a={L1} b={L4} s0={1} s1={1.03} /> : null}
       {plateOn ? <PillTag x={1860} y={140} align="right">Mount St. Helens: the eruption that followed, not the quake</PillTag> : null}
       {f >= quake && f < magma ? <Big x={340} y={190} big="8:32 A.M." small="18 May 1980 · M5.1" opacity={ease(f, quake, 10)} /> : null}
       {/* lines 1-2: inside the mountain */}
@@ -324,7 +324,7 @@ export const M8: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <div style={{ position: "absolute", left: 340, right: 80, top: 330, height: 180, background: B.tease, display: "flex", alignItems: "center", overflow: "hidden" }}>
             <div style={{ fontFamily: F.headline, fontSize: 110, color: B.paper, whiteSpace: "nowrap", transform: `translateX(${1400 - (f - L1) * 16}px)` }}>ON THE RICHTER SCALE · ON THE RICHTER SCALE</div>
           </div>
-          <Tag x={1100} y={560} align="center" size={46}>the name news reports still use, usually for something else</Tag>
+          <Tag x={1100} y={560} align="center" size={34}>the name news reports still use, usually for something else</Tag>
         </div>
       ) : null}
       {/* line 2: 1935, California only */}

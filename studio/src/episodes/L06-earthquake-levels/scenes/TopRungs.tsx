@@ -58,14 +58,14 @@ export const M9: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= L3 && f < L4 + 2 ? (
         <div style={{ position: "absolute", inset: 0, opacity: span(f, L3, L4 + 2) }}>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-            <path d={`M380 250 L ${380 + 1300 * ease(f, L3 + 6, 40)} ${250 + 240 * ease(f, L3 + 6, 40)}`} stroke={B.aqua} strokeWidth={8} strokeDasharray="20 12" />
+            <path d={`M380 250 L ${380 + 1120 * ease(f, L3 + 6, 40)} ${250 + 190 * ease(f, L3 + 6, 40)}`} stroke={B.aqua} strokeWidth={8} strokeDasharray="20 12" />
             {f >= sloshed ? [0, 1, 2].map((i) => <path key={i} d={`M1500 ${510 + i * 26} q 40 ${Math.sin((f + i * 10) / 5) * 22} 80 0 t 80 0 t 80 0`} stroke={B.aqua} strokeWidth={6} fill="none" />) : null}
             {f >= states
               ? Array.from({ length: 47 }, (_, i) => <rect key={i} x={380 + (i % 24) * 58} y={700 + Math.floor(i / 24) * 74} width={46} height={58} rx={6} fill={i < lit ? B.gauge : "rgba(255,255,255,0.14)"} />)
               : null}
           </svg>
           <PillTag x={340} y={190} size={34} color={B.tease}>Alaska</PillTag>
-          {f >= sloshed ? <PillTag x={1500} y={420} size={34} color={B.aqua} opacity={ease(f, sloshed, 10)}>Texas and Louisiana</PillTag> : null}
+          {f >= sloshed ? <PillTag x={1420} y={330} size={34} color={B.aqua} opacity={ease(f, sloshed, 10)}>Texas and Louisiana</PillTag> : null}
           {f >= states ? <Big x={380} y={560} big={`${lit} STATES`} small="" size={76} /> : null}
           {f >= states ? <Tag x={840} y={600} size={36} opacity={ease(f, states + 10, 10)}>water-level recorders registered it</Tag> : null}
         </div>
@@ -147,7 +147,7 @@ export const M95: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const low = Math.round(10 * lin(f, L5 + 10, L5 + 50));
   const cells = 10;
   return (
-    <QuakeShell t={t} index={9} prevM={9.2} m={9.5} reading={f >= eq && f < L5 ? "M9.95" : "ABOUT 9.5"} sub={f >= eq && f < L5 ? "110 years, summed" : "2.7 Gt TNT"} subTop={f >= eq && f < L5 ? "EQUIVALENT" : "ABOUT"} credit={hilo ? { kind: "real", source: "U.S. Navy, via NOAA, 1960" } : mapOn ? { kind: "illustration", source: "USGS ShakeMap, a model" } : { kind: "illustration", source: "schematic" }}>
+    <QuakeShell t={t} index={9} prevM={9.2} m={9.5} reading={f >= eq && f < L5 ? "M9.95" : "M9.5"} sub={f >= eq && f < L5 ? "110 years" : "2.7 Gt TNT"} subTop={f >= eq && f < L5 ? "ALL QUAKES IN" : "ABOUT"} credit={hilo ? { kind: "real", source: "U.S. Navy, via NOAA, 1960" } : mapOn ? { kind: "illustration", source: "USGS ShakeMap, a model" } : { kind: "illustration", source: "schematic" }}>
       {/* lines 0-1: modelled map; the rupture drawn beside it */}
       {mapOn ? <Inset id="l06-shakemap" x={1240} y={140} w={560} h={790} pos="50% 25%" a={0} b={tsu} s0={1} s1={1.12} origin="50% 40%" opacity={ease(f, 8, 12)} /> : null}
       {f < L1 ? <Big x={340} y={190} big="22 MAY 1960 · CHILE" small="largest ever recorded by instruments" size={66} opacity={ease(f, 12, 10)} /> : null}
@@ -220,7 +220,7 @@ export const Limit: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const noFault = within(t, 2, 0.8);
   const sa = within(t, 3, 0.58);
   const circ = within(t, 4, 0.6);
-  const CX = 1100;
+  const CX = 1320;
   const CY = 560;
   const R = 300;
   const disc = ease(f, planet, 16);
@@ -245,7 +245,7 @@ export const Limit: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const read = f < L2 ? "M9.5" : f < L3 ? "M10?" : f < sa ? "M9.86" : f < L4 ? "M8.5" : f < L5 ? "M10.5?" : "M10?";
   const gaugeM = f < L2 ? 9.5 : f < L3 ? 10 : f < sa ? 9.86 : f < L4 ? 8.47 : 10;
   return (
-    <QuakeShell t={t} index={10} prevM={9.5} m={mix(m, gaugeM, 1)} reading={read} sub={f < L2 ? "the record" : f < L3 ? "no known fault" : f < sa ? "S. America, whole" : f < L4 ? "San Andreas, all" : f < L5 ? "off this column" : "no known fault"} subTop={f < L2 ? "SO FAR" : f >= L3 && f < L4 ? "AT MOST" : "HYPOTHETICAL"} credit={{ kind: "illustration", source: "a drawing · fault lengths to scale on the rim" }}>
+    <QuakeShell t={t} index={10} prevM={9.5} m={mix(m, gaugeM, 1)} reading={read} sub={f < L2 ? "the record" : f < L3 ? "no known fault" : f < sa ? "S. America" : f < L4 ? "San Andreas" : f < L5 ? "off this column" : "no known fault"} subTop={f < L2 ? "SO FAR" : f >= L3 && f < L4 ? "AT MOST" : "HYPOTHETICAL"} credit={{ kind: "illustration", source: "a drawing · fault lengths to scale on the rim" }}>
       {f < L1 ? <Caption bottom={460} size={110}>How high can it go?</Caption> : null}
       {f >= L1 && f < planet ? <Caption bottom={460} size={84} color={B.paper}>The scale has no upper limit</Caption> : null}
       {disc > 0 ? (
