@@ -22,7 +22,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const notClouds = within(t, 1, 0.03);
   const notBlue = within(t, 1, 0.09);
   const itself = within(t, 1, 0.16);
-  const hundred = within(t, 1, 0.5);
+  const hundred = within(t, 1, 0.64);
   const round = within(t, 1, 0.85);
   const further = lineAt(t, 2);
   const y1972 = within(t, 2, 0.82);
@@ -42,7 +42,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
     <SkyShell
       t={t}
       index={-1}
-      climb={[{ at: 0, km: 0, reading: "0 km" }]}
+      climb={[{ at: 0, km: 0, reading: "0 KM" }]}
       scale={SCALE_LOW}
       chromeFrom={25}
       credit={strip > 0.5 ? { kind: "real", source: "NASA · NOAA" } : { kind: "real", source: "NOAA Photo Library" }}
@@ -99,8 +99,9 @@ export const Ground: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const frame = useCurrentFrame();
   const heaviest = within(t, 0, 0.45);
   const half = within(t, 1, 0.22);
-  const line56 = within(t, 1, 0.5);
-  const walk = within(t, 1, 0.68);
+  const line56 = within(t, 1, 0.56);
+  const walk = within(t, 1, 0.78);
+  const hour = within(t, 1, 0.9);
   const weather = lineAt(t, 2);
   const runs = lineAt(t, 3);
 
@@ -118,7 +119,7 @@ export const Ground: React.FC<{ t: SceneTiming }> = ({ t }) => {
     <SkyShell
       t={t}
       index={0}
-      climb={[{ at: 0, km: 0, reading: "0 km", sub: frame >= t.lines[0].at ? "THE GROUND" : undefined }]}
+      climb={[{ at: 0, km: 0, reading: "0 KM", sub: frame >= t.lines[0].at ? "THE GROUND" : undefined }]}
       scale={SCALE_LOW}
       marks={[{ km: 5.6, label: "half the air", at: line56 }]}
       credit={col > 0.5 ? { kind: "illustration", source: "the air as a column, drawn" } : { kind: "real", source: "NOAA Photo Library" }}
@@ -160,7 +161,7 @@ export const Ground: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <div style={{ position: "absolute", left: mix(150, 1260, walker), top: yk(5.6) - 72, transform: `rotate(${Math.sin(frame / 3) * 3}deg)` }}>
             <DiverSilhouette size={70} color={B.paper} />
           </div>
-          <PillTag x={420} y={480} size={34} opacity={ease(frame, walk, 8)}>about an hour's walk</PillTag>
+          {frame >= hour ? <PillTag x={420} y={480} size={34} opacity={ease(frame, hour, 8)}>about an hour's walk</PillTag> : null}
         </>
       ) : null}
       {layer > 0 ? <PillTag x={460} y={260} size={38} color={B.aqua} opacity={layer}>the lowest layer: almost all the weather</PillTag> : null}
@@ -178,8 +179,8 @@ export const Ground: React.FC<{ t: SceneTiming }> = ({ t }) => {
  */
 export const Everest: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const frame = useCurrentFrame();
-  const metres = within(t, 0, 0.1);
-  const orbit = within(t, 0, 0.55);
+  const metres = within(t, 0, 0.22);
+  const orbit = within(t, 0, 0.66);
   const lookAt = lineAt(t, 1);
   const below = within(t, 1, 0.22);
   const pokes = within(t, 1, 0.55);
@@ -197,7 +198,7 @@ export const Everest: React.FC<{ t: SceneTiming }> = ({ t }) => {
     <SkyShell
       t={t}
       index={1}
-      climb={[{ at: 0, km: 5.6, reading: "climbing" }, { at: metres, km: 8.85, reading: "8,848 m", sub: "EVEREST" }]}
+      climb={[{ at: 0, km: 5.6, reading: "CLIMBING" }, { at: metres, km: 8.85, reading: "8,848 M", sub: "EVEREST" }]}
       scale={SCALE_LOW}
       marks={[{ km: 8.85, label: "Everest", at: metres }]}
       credit={dia > 0.5 ? { kind: "illustration", source: "heights to scale, the slopes are not" } : { kind: "real", source: "NASA, ISS 2023" }}
@@ -209,7 +210,8 @@ export const Everest: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: dia }}>
           <path d={profile} fill="#31404F" stroke={B.paper} strokeWidth={4} />
           <line x1={80} y1={Y0} x2={1360} y2={Y0} stroke="rgba(255,255,255,0.7)" strokeWidth={3} />
-          {fill > 0 ? <rect x={80} y={yk(8.85)} width={1280} height={(Y0 - yk(8.85)) * fill} transform={`translate(0 ${(Y0 - yk(8.85)) * (1 - fill)})`} fill={B.gauge} opacity={0.2} /> : null}
+          {/* only up to the 5.6 km line: this tint is the half of the air, not everything below the summit */}
+          {fill > 0 ? <rect x={80} y={yk(5.6)} width={1280} height={(Y0 - yk(5.6)) * fill} transform={`translate(0 ${(Y0 - yk(5.6)) * (1 - fill)})`} fill={B.gauge} opacity={0.2} /> : null}
           <line x1={80} y1={yk(5.6)} x2={80 + 1280 * lineK} y2={yk(5.6)} stroke={B.gauge} strokeWidth={6} strokeDasharray="22 12" />
           {frame >= below ? (
             <g opacity={ease(frame, below, 10)} stroke={B.tease} strokeWidth={6} fill="none">
@@ -231,13 +233,13 @@ export const Everest: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {frame >= eight ? (
         <>
           {Array.from({ length: 8 }, (_, i) => (
-            <div key={i} style={{ position: "absolute", left: 1040, top: 180 + (7 - i) * 44 + 40 - lin(frame, eight, t.frames) * 30, opacity: ease(frame, eight + i * 4, 6) }}>
+            <div key={i} style={{ position: "absolute", left: 1040, top: 222 + (7 - i) * 32 - lin(frame, eight, t.frames) * 12, opacity: ease(frame, eight + i * 4, 6) }}>
               <svg width={120} height={36}>
                 <path d="M10 32 L60 6 L110 32" stroke={B.gauge} strokeWidth={9} fill="none" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           ))}
-          <PillTag x={1180} y={340} size={30} color={B.gauge} opacity={ease(frame, eight + 30, 8)}>8 more levels</PillTag>
+          <PillTag x={1180} y={320} size={30} color={B.gauge} opacity={ease(frame, eight + 30, 8)}>8 more levels</PillTag>
         </>
       ) : null}
     </SkyShell>
@@ -305,8 +307,8 @@ export const Airliners: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const plane = lineAt(t, 2);
   const window = within(t, 2, 0.58);
   const vulture = lineAt(t, 3);
-  const year = within(t, 3, 0.28);
-  const metres = within(t, 3, 0.72);
+  const year = within(t, 3, 0.38);
+  const metres = within(t, 3, 0.78);
   const safe = within(t, 3, 0.9);
   const higher = lineAt(t, 4);
   const highest = lineAt(t, 5);
@@ -319,7 +321,7 @@ export const Airliners: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const jetK = ease(frame, jet, 14) * (1 - ease(frame, strange - 6, 8));
   const credit = mirror > 0.5 || birdMirror > 0.5 ? { kind: "illustration" as const, source: "heights and depths to scale" } : vul && frame < built ? { kind: "real" as const, source: "Christoph Moning, CC BY 4.0" } : { kind: "real" as const, source: "NASA, 2013" };
   const climb: Climb[] = [
-    { at: 0, km: 8.85, reading: "8,848 m" },
+    { at: 0, km: 8.85, reading: "8,848 M" },
     { at: cruise, km: 10.97, reading: "9 TO 12.5 KM", sub: "MOST AIRLINERS" },
     { at: metres, km: 11.3, reading: "11,300 M", sub: "THE VULTURE" },
   ];

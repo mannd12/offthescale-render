@@ -34,7 +34,7 @@ export const Station: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const eight = within(t, 2, 0.62);
   const air = lineAt(t, 3);
   const drags = within(t, 3, 0.42);
-  const years = within(t, 3, 0.72);
+  const years = within(t, 3, 0.85);
   const aurora = lineAt(t, 4);
   const band = within(t, 4, 0.3);
   const past = lineAt(t, 5);
@@ -192,22 +192,22 @@ export const Satellites: React.FC<{ t: SceneTiming }> = ({ t }) => {
             const an = ((frame - micro) * 6 * c.k * Math.PI) / 180;
             return (
               <g key={c.x}>
-                <circle cx={c.x} cy={430} r={150} fill="none" stroke={c.c} strokeWidth={9} />
-                <line x1={c.x} y1={430} x2={c.x + Math.sin(an) * 126} y2={430 - Math.cos(an) * 126} stroke={c.c} strokeWidth={9} strokeLinecap="round" />
+                <circle cx={c.x} cy={480} r={150} fill="none" stroke={c.c} strokeWidth={9} />
+                <line x1={c.x} y1={480} x2={c.x + Math.sin(an) * 126} y2={480 - Math.cos(an) * 126} stroke={c.c} strokeWidth={9} strokeLinecap="round" />
               </g>
             );
           })}
-          {frame >= errs ? <circle cx={700} cy={830} r={mix(10, 110, lin(frame, errs, climb2))} fill="none" stroke={B.tease} strokeWidth={8} /> : null}
-          {frame >= errs ? <circle cx={700} cy={830} r={9} fill={B.paper} /> : null}
+          {frame >= errs ? <circle cx={700} cy={860} r={mix(10, 100, lin(frame, errs, climb2))} fill="none" stroke={B.tease} strokeWidth={8} /> : null}
+          {frame >= errs ? <circle cx={700} cy={860} r={9} fill={B.paper} /> : null}
         </svg>
       ) : null}
       {clock > 0.5 ? (
         <>
-          <Tag x={400} y={610} align="center" size={30}>on the ground</Tag>
-          <Tag x={990} y={610} align="center" size={30} color={B.gauge}>on a GPS satellite</Tag>
+          <Tag x={400} y={650} align="center" size={30}>on the ground</Tag>
+          <Tag x={990} y={650} align="center" size={30} color={B.gauge}>on a GPS satellite</Tag>
           <Card x={330} y={210} size={72} big="38 MILLIONTHS OF A SECOND A DAY" opacity={ease(frame, micro + 2, 8)} />
-          {frame >= both && frame < errs ? <PillTag x={700} y={700} size={34} align="center" opacity={ease(frame, both, 8)}>weaker gravity, high speed: both change the clock</PillTag> : null}
-          {frame >= errs ? <PillTag x={840} y={800} size={36} color={B.tease} opacity={ease(frame, errs, 8)}>kilometres of error, in a day</PillTag> : null}
+          {frame >= both && frame < errs ? <PillTag x={700} y={716} size={34} align="center" opacity={ease(frame, both, 8)}>weaker gravity, high speed: both change the clock</PillTag> : null}
+          {frame >= errs ? <PillTag x={840} y={836} size={36} color={B.tease} opacity={ease(frame, errs, 8)}>kilometres of error, in a day</PillTag> : null}
         </>
       ) : null}
       {orbit > 0 ? (
@@ -224,9 +224,10 @@ export const Satellites: React.FC<{ t: SceneTiming }> = ({ t }) => {
           {frame >= km35 ? <rect x={Ecx + Math.cos(a) * Or - 13} y={Ecy + Math.sin(a) * Or - 8} width={26} height={16} fill={B.gauge} /> : null}
         </svg>
       ) : null}
-      {orbit > 0.5 ? <PillTag x={Ecx - Gr - 20} y={Ecy + Gr * 0.4} size={28} align="right">GPS height</PillTag> : null}
-      {orbit > 0.5 && frame >= same ? <PillTag x={60} y={206} size={34} color={B.gauge} opacity={ease(frame, same, 8)}>It circles as fast as Earth turns</PillTag> : null}
-      {orbit > 0.5 && frame >= within(t, 4, 0.6) ? <PillTag x={60} y={268} size={34} opacity={ease(frame, within(t, 4, 0.6), 8)}>so it hangs over one spot</PillTag> : null}
+      {orbit > 0.5 ? <PillTag x={Ecx} y={Ecy + Gr - 56} size={28} align="center">GPS height</PillTag> : null}
+      {orbit > 0.5 && frame >= km35 ? <PillTag x={Ecx} y={Ecy + Or - 56} size={28} align="center" color={B.gauge} opacity={ease(frame, km35, 8)}>geostationary height</PillTag> : null}
+      {orbit > 0.5 && frame >= same ? <PillTag x={1100} y={440} size={34} color={B.gauge} opacity={ease(frame, same, 8)}>It circles as fast as Earth turns</PillTag> : null}
+      {orbit > 0.5 && frame >= within(t, 4, 0.6) ? <PillTag x={1100} y={502} size={34} opacity={ease(frame, within(t, 4, 0.6), 8)}>so it hangs over one spot</PillTag> : null}
       <Photo id="l05-goes" opacity={goes} fit="contain" scale={1 + 0.1 * lin(frame, real, t.frames)} brightness={dimGoes} box={{ top: 110, background: "#000" }} />
       {goes > 0.5 ? <PillTag x={60} y={206} size={30}>The real thing: GOES-13, 2010</PillTag> : null}
       {frame >= surely && frame < almost ? <CaptionPop bottom={150}>beyond the air?</CaptionPop> : null}
@@ -284,7 +285,7 @@ export const Moon: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Tag x={X0} y={470} size={32}>Earth</Tag>
           {frame >= km ? <Tag x={moonX} y={470} size={32} align="center" color={B.gauge}>the Moon</Tag> : null}
           {frame >= km ? <Card x={420} y={250} size={84} big="384,400 KM" opacity={ease(frame, km, 8)} /> : null}
-          {frame >= line30 ? <Card x={420} y={700} size={84} big={`${Math.min(30, Math.floor(dots * 30) + 1)} EARTHS`} color={B.paper} /> : null}
+          {frame >= line30 ? <Card x={420} y={700} size={84} big={Math.floor(dots * 30) === 0 ? "1 EARTH" : `${Math.min(30, Math.floor(dots * 30) + 1)} EARTHS`} color={B.paper} /> : null}
         </>
       ) : null}
       {rise > 0 ? <Photo id="l05-earthrise" opacity={rise} scale={1.0 + 0.08 * lin(frame, few, taken)} origin="50% 62%" pos="50% 62%" brightness={1} box={{ background: "#000" }} /> : null}
@@ -320,8 +321,8 @@ export const Moon: React.FC<{ t: SceneTiming }> = ({ t }) => {
  */
 export const LastEdge: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const frame = useCurrentFrame();
-  const thatsEarth = within(t, 0, 0.42);
-  const glow = within(t, 0, 0.55);
+  const thatsEarth = within(t, 0, 0.6);
+  const glow = within(t, 0, 0.72);
   const traced = lineAt(t, 1);
   const num = within(t, 1, 0.42);
   const fifty = within(t, 1, 0.62);
@@ -333,7 +334,9 @@ export const LastEdge: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const other = lineAt(t, 4);
   const answer = lineAt(t, 5);
   const noEdge = within(t, 5, 0.12);
+  const pastMoon = within(t, 5, 0.85);
   const back = lineAt(t, 6);
+  const farther = within(t, 6, 0.6);
 
   const plate = 1 - ease(frame, traced - 4, 10);
   const bar = ease(frame, traced - 2, 10) * (1 - ease(frame, fair - 4, 8)) + ease(frame, other - 4, 8) * (1 - ease(frame, back - 4, 12));
@@ -382,7 +385,7 @@ export const LastEdge: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <EarthDisc cx={X0} cy={560} r={Math.max(eR, 7)} />
           <circle cx={moonX} cy={560} r={frame >= inside ? 9 + Math.sin(frame / 5) * 2 : 8} fill="#E2E2DC" stroke={frame >= inside ? B.gauge : "none"} strokeWidth={4} />
           {reach > 0 && fade < 0.5 ? <line x1={X0 + W * reach} y1={400} x2={X0 + W * reach} y2={720} stroke={B.gauge} strokeWidth={5} /> : null}
-          {frame >= other && frame < back ? <line x1={X0 + 10000 * PX} y1={380} x2={X0 + 10000 * PX} y2={740} stroke={B.tease} strokeWidth={5} opacity={ease(frame, other, 8)} /> : null}
+          {frame >= other && frame < answer ? <line x1={X0 + 10000 * PX} y1={380} x2={X0 + 10000 * PX} y2={740} stroke={B.tease} strokeWidth={5} opacity={ease(frame, other, 8)} /> : null}
         </svg>
       ) : null}
       {clamp01(bar) > 0.5 && frame < fair ? (
@@ -414,9 +417,17 @@ export const LastEdge: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {cubes > 0.5 && frame >= vacuum ? <PillTag x={230} y={700} size={36} color={B.aqua} opacity={ease(frame, vacuum, 8)}>"On Earth we would call it vacuum": ESA</PillTag> : null}
       {clamp01(bar) > 0.5 && frame >= other && frame < answer ? <PillTag x={X0 + 30} y={770} size={32} color={B.tease} opacity={ease(frame, other, 8)}>one definition stops far lower: NOAA, 10,000 km</PillTag> : null}
       {clamp01(bar) > 0.5 && frame >= noEdge && frame < back ? <CaptionPop bottom={250} size={96}>no edge</CaptionPop> : null}
-      {clamp01(bar) > 0.5 && frame >= noEdge && frame < back ? <PillTag x={moonX} y={350} size={32} align="center" color={B.paper} opacity={ease(frame, noEdge + 60, 10)}>well past the Moon</PillTag> : null}
+      {clamp01(bar) > 0.5 && frame >= pastMoon && frame < back ? <PillTag x={moonX} y={350} size={32} align="center" color={B.paper} opacity={ease(frame, pastMoon, 8)}>well past the Moon</PillTag> : null}
       {sky > 0 ? <Photo id="l05-cumulus" opacity={sky} scale={1.05 + 0.12 * lin(frame, back, t.frames)} origin="50% 0%" brightness={0.95} /> : null}
-      {sky > 0.5 ? <CaptionPop bottom={150} size={64}>farther than any human has been</CaptionPop> : null}
+      {sky > 0.5 && frame >= farther ? <CaptionPop bottom={150} size={64}>farther than any human has been</CaptionPop> : null}
+      {/* End-screen card, as on L03/L04: on from the start of the last line. The lower right stays clear for YouTube's end-screen elements. */}
+      {sky > 0 ? (
+        <div style={{ position: "absolute", left: 60, top: 240, opacity: sky, padding: "14px 24px 18px", borderRadius: 14, background: "rgba(5,14,24,0.9)" }}>
+          <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 26, letterSpacing: 3, color: B.gauge }}>WATCH NEXT</div>
+          <div style={{ fontFamily: F.headline, fontSize: 56, color: B.paper, lineHeight: 1.05, whiteSpace: "nowrap" }}>EVERY LEVEL</div>
+          <div style={{ fontFamily: F.headline, fontSize: 56, color: B.paper, lineHeight: 1.05, whiteSpace: "nowrap" }}>OF THE OCEAN</div>
+        </div>
+      ) : null}
     </SkyShell>
   );
 };

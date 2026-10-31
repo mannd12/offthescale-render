@@ -90,12 +90,12 @@ export const Balloons: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const wide8 = within(t, 1, 0.32);
   const past35 = within(t, 1, 0.8);
   const ozone = lineAt(t, 2);
-  const ninety = within(t, 2, 0.4);
+  const ninety = within(t, 2, 0.52);
   const squeeze = lineAt(t, 3);
   const pennies = within(t, 3, 0.78);
   const two = lineAt(t, 4);
-  const felix = within(t, 4, 0.36);
-  const alan = within(t, 4, 0.72);
+  const felix = within(t, 4, 0.5);
+  const alan = within(t, 4, 0.82);
   const free = lineAt(t, 5);
   const top = lineAt(t, 6);
   const rec = within(t, 6, 0.55);
@@ -109,6 +109,8 @@ export const Balloons: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const lad = ease(frame, two, 10);
   const ice = 1 - ease(frame, swell - 4, 6);
   const pueo = ease(frame, two - 4, 8);
+  // "you're looking at other balloons": line 5 cuts to the other balloon, and back for the record (static stretch 3:10-3:22)
+  const other = ease(frame, free - 4, 8) * (1 - ease(frame, top - 4, 8));
   const yL = (km: number) => 960 - km * 12.5; // the ladder's scale: 53.7 km = 671 px
   const flags = [
     { at: felix, km: 38.97, text: "Felix Baumgartner, 2012: almost 39 km", c: B.paper, dx: 0 },
@@ -117,7 +119,7 @@ export const Balloons: React.FC<{ t: SceneTiming }> = ({ t }) => {
   ];
   const credit = race > 0.5 || swK > 0.5 || oz > 0.5
     ? { kind: "illustration" as const, source: oz > 0.5 ? "the ozone, drawn" : race > 0.5 ? "heights to scale" : "balloon sizes to scale" }
-    : pueo > 0.5
+    : pueo > 0.5 && other < 0.5
       ? { kind: "real" as const, source: "NASA / S. Battaion" }
       : { kind: "real" as const, source: "NASA Goddard, 2011" };
   return (
@@ -137,19 +139,20 @@ export const Balloons: React.FC<{ t: SceneTiming }> = ({ t }) => {
       drawn={pueo > 0.5 && lad > 0.5 ? "the ladder is drawn" : null}
     >
       <Photo id="l05-balloon-ice" opacity={ice} scale={1.05 + 0.2 * lin(frame, 0, swell)} origin="40% 60%" brightness={mix(0.92, 0.2, race)} />
-      {pueo > 0 ? <Photo id="l05-balloon-pueo" opacity={pueo} scale={1.04 + 0.14 * lin(frame, two, t.frames)} origin="10% 0%" pos="50% 0%" brightness={0.62} /> : null}
-      {ice > 0.5 && race < 0.5 ? <PillTag x={60} y={206} size={30} color={B.gauge}>A NASA science balloon, Antarctica, not the jump balloons</PillTag> : null}
+      {pueo > 0 ? <Photo id="l05-balloon-pueo" opacity={pueo} scale={1.04 + 0.3 * lin(frame, two, t.frames)} origin="10% 0%" pos="50% 0%" brightness={0.62} /> : null}
+      {other > 0 ? <Photo id="l05-balloon-ice" opacity={other} scale={1.08 + 0.16 * lin(frame, free, top)} origin="40% 45%" brightness={0.5} /> : null}
+      {ice > 0.5 && race < 0.5 ? <PillTag x={60} y={206} size={30} color={B.gauge}>A NASA science balloon, Antarctica</PillTag> : null}
       {race > 0 ? (
         <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: race }}>
-          <line x1={260} y1={930} x2={1140} y2={930} stroke={B.paper} strokeWidth={4} />
-          <rect x={430} y={930 - 25.9 * 19 * raceK} width={70} height={25.9 * 19 * raceK} fill={B.mute} />
-          <rect x={860} y={930 - 35 * 19 * raceK} width={70} height={35 * 19 * raceK} fill={B.gauge} />
-          <circle cx={895} cy={930 - 35 * 19 * raceK - 44} r={40} fill="#F2F6F8" />
-          <path d={`M455 ${930 - 25.9 * 19 * raceK - 44} L435 ${930 - 25.9 * 19 * raceK - 6} H 495 L475 ${930 - 25.9 * 19 * raceK - 44} Z`} fill={B.paper} />
+          <line x1={260} y1={900} x2={1140} y2={900} stroke={B.paper} strokeWidth={4} />
+          <rect x={430} y={900 - 25.9 * 18 * raceK} width={70} height={25.9 * 18 * raceK} fill={B.mute} />
+          <rect x={860} y={900 - 35 * 18 * raceK} width={70} height={35 * 18 * raceK} fill={B.gauge} />
+          <circle cx={895} cy={900 - 35 * 18 * raceK - 44} r={40} fill="#F2F6F8" />
+          <path d={`M455 ${900 - 25.9 * 18 * raceK - 44} L435 ${900 - 25.9 * 18 * raceK - 6} H 495 L475 ${900 - 25.9 * 18 * raceK - 44} Z`} fill={B.paper} />
         </svg>
       ) : null}
-      {race > 0.5 ? <PillTag x={465} y={950} size={30} align="center" color={B.paper}>SR-71: 25.9 km</PillTag> : null}
-      {race > 0.5 && frame >= beats ? <PillTag x={895} y={950} size={30} align="center" color={B.gauge} opacity={ease(frame, beats, 8)}>weather balloon wins</PillTag> : null}
+      {race > 0.5 ? <PillTag x={465} y={918} size={30} align="center" color={B.paper}>SR-71: 25.9 km</PillTag> : null}
+      {race > 0.5 && frame >= beats ? <PillTag x={895} y={918} size={30} align="center" color={B.gauge} opacity={ease(frame, beats, 8)}>weather balloon wins</PillTag> : null}
 
       {swK > 0 ? (
         <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: swK, background: "#071A33" }}>
@@ -179,7 +182,7 @@ export const Balloons: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
       {lad > 0 ? (
         <>
-          <PillTag x={60} y={206} size={30} color={B.gauge} opacity={pueo}>Another NASA balloon, not a jump balloon</PillTag>
+          <PillTag x={760} y={206} size={30} color={B.gauge} opacity={pueo}>{other > 0.5 ? "Another NASA balloon, not a jump balloon" : "A NASA balloon, not a jump balloon"}</PillTag>
           <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, opacity: lad }}>
             <line x1={150} y1={yL(0)} x2={150} y2={yL(53.7)} stroke={B.paper} strokeWidth={6} />
             {flags.map((f) => (frame >= f.at ? <circle key={f.km} cx={150} cy={yL(f.km)} r={13} fill={f.c} opacity={ease(frame, f.at, 8)} /> : null))}
@@ -206,8 +209,8 @@ export const Meteors: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const tonnes = within(t, 1, 0.7);
   const rain = lineAt(t, 2);
   const clouds = lineAt(t, 3);
-  const high = within(t, 3, 0.62);
-  const dust = within(t, 3, 0.82);
+  const high = within(t, 3, 0.7);
+  const dust = within(t, 3, 0.87);
   const remains = lineAt(t, 4);
   const lineUp = lineAt(t, 5);
 
@@ -287,7 +290,7 @@ export const SpaceLine: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const heard = within(t, 0, 0.1);
   const calc = within(t, 0, 0.55);
   const awkward = lineAt(t, 1);
-  const round = within(t, 1, 0.72);
+  const round = within(t, 1, 0.85);
   const agree = lineAt(t, 2);
   const mcd = within(t, 2, 0.32);
   const near80 = within(t, 2, 0.78);
@@ -350,13 +353,16 @@ export const SpaceLine: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {bar > 0.5 ? (
         <>
           <PillTag x={300} y={y(100) - 56} size={34} color={B.gauge} opacity={dissolve}>100 km</PillTag>
-          {frame >= awkward && frame < mcd ? <Card x={720} y={y(100) + 26} size={64} big="CLOSE TO 100" small={frame >= round ? `"VERY ROUND": THE FAI'S WORDS` : "THE CALCULATION"} opacity={ease(frame, awkward + 8, 8)} /> : null}
-          {frame >= agree && frame < pilots ? <PillTag x={720} y={y(100) + 40} size={34} opacity={ease(frame, agree, 8)}>{frame >= mcd ? "Jonathan McDowell, astronomer, 2018" : "not everyone agrees"}</PillTag> : null}
+          {frame >= awkward && frame < agree ? <Card x={720} y={y(100) + 26} size={64} big="CLOSE TO 100" small={frame >= round ? `"VERY ROUND": THE FAI'S WORDS` : "THE CALCULATION"} opacity={ease(frame, awkward + 8, 8)} /> : null}
+          {frame >= agree && frame < mcd ? <PillTag x={720} y={y(100) + 40} size={34} opacity={ease(frame, agree, 8)}>not everyone agrees</PillTag> : null}
+          {frame >= mcd && frame < usa ? <Card x={480} y={y(100) + 30} size={60} big="JONATHAN McDOWELL" small="ASTRONOMER, 2018" color={B.paper} opacity={ease(frame, mcd, 8)} /> : null}
+          {frame >= near80 && frame < usa ? <Card x={480} y={y(80) - 130} size={60} big="NEARER 80 KM" opacity={ease(frame, near80, 8)} /> : null}
+          {frame >= usa && frame < pilots ? <Card x={480} y={y(80) - 170} size={72} big="50 MILES" small="THE US LINE, FOR DECADES" color={B.aqua} opacity={ease(frame, usa, 8)} /> : null}
           {frame >= near80 ? <PillTag x={300} y={y(80) + 16} size={34} color={B.aqua} opacity={ease(frame, near80, 8) * dissolve}>about 80 km</PillTag> : null}
-          {frame >= usa ? <PillTag x={560} y={y(80) + 16} size={34} color={B.aqua} opacity={ease(frame, usa, 8) * dissolve}>50 miles: the US line, for decades</PillTag> : null}
+          {frame >= pilots ? <PillTag x={560} y={y(80) + 16} size={34} color={B.aqua} opacity={ease(frame, pilots, 8) * dissolve}>50 miles: the US line</PillTag> : null}
           {frame >= five && frame < white
             ? NAMES.map((n, i) => (
-                <div key={n} style={{ position: "absolute", left: 340 + (i % 2) * 460, top: y(99) + 30 + Math.floor(i / 2) * 56, opacity: ease(frame, five + i * 10, 8), fontFamily: F.ui, fontWeight: 800, fontSize: 36, color: B.paper, whiteSpace: "nowrap" }}>{n}</div>
+                <div key={n} style={{ position: "absolute", left: 340 + (i % 2) * 460, top: y(99) + 24 + Math.floor(i / 2) * 62, opacity: ease(frame, five + i * 10, 8), fontFamily: F.ui, fontWeight: 800, fontSize: 50, color: B.paper, whiteSpace: "nowrap" }}>{n}</div>
               ))
             : null}
           {frame >= five && frame < white ? <PillTag x={340} y={640} size={30} color={B.tease} opacity={ease(frame, five + 50, 8)}>astronauts on one line only</PillTag> : null}
