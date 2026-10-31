@@ -47,7 +47,8 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       chromeFrom={25}
       credit={strip > 0.5 ? { kind: "real", source: "NASA · NOAA" } : { kind: "real", source: "NOAA Photo Library" }}
     >
-      <Photo id="l05-cumulus" scale={scale} origin={`50% ${originY}%`} brightness={0.95 * dim} />
+      {/* tighter crop anchored right: the scanned slide has a hair at its left that read as a smudge on the screen */}
+      <Photo id="l05-cumulus" scale={scale + 0.35} origin={`100% ${originY}%`} brightness={0.95 * dim} />
       {frame >= notClouds && frame < further ? <PillTag x={420} y={250} size={40} opacity={ease(frame, notClouds, 8)}><span style={{ textDecoration: frame >= notClouds + 10 ? "line-through" : undefined }}>the clouds</span></PillTag> : null}
       {frame >= notBlue && frame < further ? <PillTag x={140} y={350} size={40} opacity={ease(frame, notBlue, 8)}><span style={{ textDecoration: frame >= notBlue + 10 ? "line-through" : undefined }}>the blue</span></PillTag> : null}
       {frame >= itself && frame < hundred ? <CaptionPop bottom={150}>the last piece of the atmosphere</CaptionPop> : null}
