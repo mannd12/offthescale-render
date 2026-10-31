@@ -75,14 +75,14 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
           </div>
         ))}
         <Note x={70} y={1040} rows={["one day · not real time"]} color={B.mute} size={20} opacity={ease(frame, 6, 8)} />
-        <Note x={70} y={1086} rows={["38.6 µs a day, net"]} color={B.gauge} size={26} opacity={ease(frame, secAt, 8)} />
+        <Note x={70} y={1086} rows={["38.6 millionths of a second a day, net"]} color={B.gauge} size={26} opacity={ease(frame, secAt, 8)} />
       </div>
 
       {/* one day as a strip */}
       <div style={{ opacity: strip }}>
         <Note x={80} y={740} rows={["this strip is one whole day"]} size={26} />
         <div style={{ position: "absolute", left: 90, top: 800, width: 800, height: 90, borderRadius: 12, background: "rgba(255,255,255,0.16)", border: `3px solid ${B.mute}`, boxSizing: "border-box" }} />
-        <Note x={80} y={920} rows={["38.6 µs on it: far thinner", "than one pixel"]} color={B.gauge} size={30} opacity={ease(frame, nothingAt - 4, 8)} />
+        <Note x={80} y={920} rows={["38.6 millionths of a second on it:", "far thinner than one pixel"]} color={B.gauge} size={30} opacity={ease(frame, nothingAt - 4, 8)} />
       </div>
 
       {/* the drifting pin */}

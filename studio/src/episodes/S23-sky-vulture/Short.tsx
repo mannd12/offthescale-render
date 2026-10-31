@@ -70,7 +70,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
       {/* the mirror, to scale */}
       <div style={{ opacity: mirror * (1 - end) }}>
-        <div style={{ position: "absolute", left: 0, width: 930, top: SEA, height: DOWN + 30, background: "rgba(31,92,143,0.28)" }} />
+        <div style={{ position: "absolute", left: 0, width: 1080, top: SEA, height: DOWN + 30, background: "rgba(31,92,143,0.28)" }} />
         <div style={{ position: "absolute", left: COL.up, top: SEA - UP * upGrow, width: COL.w, height: UP * upGrow, background: B.gauge, borderRadius: "10px 10px 0 0" }} />
         <div style={{ position: "absolute", left: COL.up, top: SEA, width: COL.w, height: DOWN * downGrow, background: B.aqua, borderRadius: "0 0 10px 10px" }} />
         {/* the depth bar's reflection, risen beside the bird's bar */}
@@ -89,9 +89,9 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
       {/* what's above: unnamed, unmeasured */}
       <div style={{ opacity: mystery }}>
-        <div style={{ position: "absolute", left: COL.up, top: 260, width: COL.w, height: SEA - UP - 266, background: `repeating-linear-gradient(0deg, ${B.tease} 0 26px, transparent 26px 44px)`, opacity: 0.65 + 0.35 * Math.abs(Math.sin(frame / 7)) }} />
-        <Note x={COL.up - 10} y={214} rows={["???"]} color={B.tease} size={34} />
-        <Note x={330} y={500} rows={["not to scale"]} color={B.mute} size={20} />
+        <div style={{ position: "absolute", left: COL.up, top: 290, width: COL.w, height: SEA - UP - 296, background: `repeating-linear-gradient(0deg, ${B.tease} 0 26px, transparent 26px 44px)`, opacity: 0.65 + 0.35 * Math.abs(Math.sin(frame / 7)) }} />
+        <Note x={330} y={440} rows={["???"]} color={B.tease} size={44} />
+        <Note x={330} y={520} rows={["not to scale"]} color={B.mute} size={20} />
       </div>
       <Card x={330} y={290} big={["AND ABOVE THAT?"]} size={78} opacity={span(frame, whatAt, endAt)} bg={B.tease} ink={B.paper} />
 

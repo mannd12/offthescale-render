@@ -80,16 +80,16 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity: air * 0.75 }}>
         {STREAKS.map((s, i) => {
           const x = 1300 - ((frame * s.speed + s.off) % 1700);
-          return <line key={i} x1={x} y1={280 + s.y} x2={x + s.len} y2={280 + s.y} stroke={B.aqua} strokeWidth={3} strokeLinecap="round" opacity={0.7} />;
+          return <line key={i} x1={x} y1={280 + s.y} x2={x + s.len} y2={280 + s.y} stroke={B.paper} strokeWidth={5} strokeLinecap="round" opacity={0.85} />;
         })}
       </svg>
 
       <Card x={200} y={300} big={["1 TO 2 YEARS"]} small={["without reboosts"]} size={110} opacity={span(frame, yearsAt, L(1))} />
       <Card x={420} y={300} big={["AIR."]} size={170} opacity={span(frame, airAt, kmAt)} bg={B.paper} />
-      <Card x={200} y={300} big={["415 KM UP"]} small={["and still drag"]} size={110} opacity={span(frame, dragAt - 12, edgeAt)} />
-      <Card x={200} y={300} big={["315 KM PAST", "THE 100 KM LINE"]} size={84} opacity={span(frame, edgeAt, L(4))} />
-      <Card x={200} y={300} big={["UP TO 500 KM"]} small={["the northern lights"]} size={100} opacity={span(frame, lightsAt + 6, L(5))} />
-      <Card x={200} y={500} big={["NOT WHERE THE", "AIR RUNS OUT"]} size={92} opacity={span(frame, notAt, whereAt)} bg={B.tease} ink={B.paper} />
+      <Card x={300} y={300} big={["415 KM UP"]} small={["and still drag"]} size={110} opacity={span(frame, dragAt - 12, edgeAt)} />
+      <Card x={300} y={300} big={["315 KM PAST", "THE 100 KM LINE"]} size={84} opacity={span(frame, edgeAt, L(4))} />
+      <Card x={300} y={300} big={["UP TO 500 KM"]} small={["the northern lights"]} size={100} opacity={span(frame, lightsAt + 6, L(5))} />
+      <Card x={200} y={520} big={["NOT WHERE THE", "AIR RUNS OUT"]} size={92} opacity={span(frame, notAt, whereAt)} bg={B.tease} ink={B.paper} />
 
       {/* the bar, to scale */}
       <div style={{ opacity: bar * (1 - end) }}>
@@ -104,7 +104,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <div style={{ position: "absolute", left: BAR.x, top: BAR.top - 76, fontFamily: F.headline, fontSize: 64, color: B.tease, opacity: ask * (0.6 + 0.4 * Math.abs(Math.sin(frame / 7))) }}>???</div>
       </div>
 
-      <Card x={200} y={440} big={["WHERE DOES THE", "SKY ACTUALLY STOP?"]} size={88} opacity={span(frame, whereAt, endAt)} bg={B.tease} ink={B.paper} />
+      <Card x={200} y={520} big={["WHERE DOES THE", "SKY ACTUALLY STOP?"]} size={88} opacity={span(frame, whereAt, endAt)} bg={B.tease} ink={B.paper} />
 
       <div style={{ opacity: 1 - end }}>
         <CreditChip kind={chip.kind} source={chip.source} left={40} bottom={1920 - 1216} />

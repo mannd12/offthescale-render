@@ -61,8 +61,8 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       </div>
       <Note x={40} y={214} rows={["real photo · the station, from a departing shuttle"]} opacity={1 - end} size={22} />
 
-      <Card x={40} y={276} big={[`${km} KM`]} small={["above the ground"]} size={104} opacity={span(frame, 2, shrinkAt)} />
-      <Note x={40} y={470} rows={["the far edge of everything?"]} opacity={span(frame, edgeAt, shrinkAt)} color={B.gauge} size={30} />
+      <Card x={230} y={760} big={[`${km} KM`]} small={["above the ground"]} size={150} opacity={span(frame, 2, shrinkAt)} />
+      <Note x={230} y={1030} rows={["the far edge of everything?"]} opacity={span(frame, edgeAt, shrinkAt)} color={B.gauge} size={30} />
 
       {/* the globe, true scale */}
       <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1160, overflow: "hidden", opacity: globe }}>
@@ -84,7 +84,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
             <line x1={GLOBE.x + 58} y1={sy} x2={GLOBE.x + 58} y2={GLOBE.y - GLOBE.r} stroke={B.gauge} strokeWidth={4} />
           </g>
         </svg>
-        <Note x={90} y={742} rows={["desk globe · 30 cm across"]} opacity={ease(frame, acrossAt, 8)} size={24} />
+        <Note x={40} y={722} rows={["desk globe · 30 cm across"]} opacity={ease(frame, acrossAt, 8)} size={24} />
         <Note x={600} y={1000} rows={["drawn to scale"]} opacity={ease(frame, acrossAt, 8)} color={B.mute} size={20} />
       </div>
       <Card x={590} y={742} big={["ABOUT 1 CM"]} size={62} opacity={span(frame, cmAt, gravAt)} />

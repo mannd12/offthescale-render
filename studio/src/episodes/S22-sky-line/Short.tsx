@@ -59,7 +59,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <Img src={staticFile("assets/l05-x15.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${1.03 + 0.1 * smooth(frame, 0, whichAt)})`, filter: `brightness(${0.95 - 0.35 * ease(frame, whichAt, 10)})` }} />
         <div style={{ position: "absolute", inset: 0, background: `rgba(255,90,79,${0.18 * gapGlow})` }} />
       </div>
-      <Note x={R.x + R.w + 14} y={Y80 - 56} rows={["real photo · an x-15, not the 1962 flight"]} opacity={1 - end} size={20} />
+      <Note x={R.x + R.w + 50} y={Y80 - 56} rows={["real photo · an x-15, not the 1962 flight"]} opacity={1 - end} size={20} />
 
       {/* the ruler */}
       <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity: 1 - end }}>
@@ -67,7 +67,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         {ticks.map((k) => (
           <g key={k}>
             <line x1={R.x} y1={yOf(k)} x2={R.x + 18} y2={yOf(k)} stroke={B.mute} strokeWidth={3} />
-            <text x={R.x + 26} y={yOf(k) + (k === 110 ? 26 : k === 70 ? -8 : 10)} fill={B.paper} fontFamily={F.ui} fontWeight={800} fontSize={28}>{k}</text>
+            <text x={R.x + 26} y={yOf(k) + (k === 110 ? 26 : k === 70 ? -8 : k === 90 ? 10 : 36)} fill={B.paper} fontFamily={F.ui} fontWeight={800} fontSize={28}>{k}</text>
           </g>
         ))}
         {/* the 100 line and the 80 line */}
@@ -83,13 +83,13 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
       {/* above the 100 line */}
       <Card x={R.x + R.w + 24} y={236} big={["100 KM"]} small={["the edge of space"]} size={120} opacity={span(frame, 6, quoteAt)} />
-      <Note x={R.x + R.w + 390} y={260} rows={["a round", "number"]} opacity={span(frame, roundAt, awkAt)} color={B.tease} size={38} />
-      <Note x={R.x + R.w + 390} y={260} rows={[snap < 0.5 ? "the sum: awkward" : "close to 100"]} opacity={span(frame, awkAt, quoteAt)} color={B.aqua} size={30} />
+      <Note x={R.x + R.w + 420} y={260} rows={["a round", "number"]} opacity={span(frame, roundAt, awkAt)} color={B.tease} size={38} />
+      <Note x={R.x + R.w + 420} y={260} rows={[snap < 0.5 ? "awkward figure" : "close to 100"]} opacity={span(frame, awkAt, quoteAt)} color={B.aqua} size={30} />
       <div style={{ position: "absolute", left: R.x + R.w + 24, top: 236, width: 700, opacity: span(frame, quoteAt, paperAt), padding: "14px 24px", boxSizing: "border-box", borderRadius: 18, background: B.paper, color: B.ink }}>
-        <div style={{ fontFamily: F.caption, fontWeight: 600, fontSize: 56, lineHeight: 1.1 }}>"the very round number of 100 Km"</div>
+        <div style={{ fontFamily: F.caption, fontWeight: 600, fontSize: 50, lineHeight: 1.08 }}>"the very round number of 100 Km"</div>
         <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 22, letterSpacing: 1, marginTop: 8 }}>FAI'S OWN ACCOUNT · LAST UPDATED 2004</div>
       </div>
-      <Note x={R.x + R.w + 24} y={Y100 - 58} rows={["100 km"]} opacity={ease(frame, quoteAt, 8) * (1 - end)} color={B.gauge} size={30} />
+      <Note x={R.x + R.w + 24} y={Y100 - 58} rows={["100 km"]} opacity={ease(frame, paperAt, 8) * (1 - end)} color={B.gauge} size={30} />
 
       {/* below the 80 line */}
       <Card x={R.x + R.w + 60} y={Y80 + 18} big={["80 KM"]} small={["McDowell, 2018"]} size={80} opacity={span(frame, closeAt, usAt)} bg={B.tease} ink={B.paper} />
