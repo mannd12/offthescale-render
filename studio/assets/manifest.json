@@ -780,13 +780,6 @@
       "episode": "L08"
     },
     {
-      "id": "l08-magnet-types",
-      "commons": "LHC magnet types.jpg",
-      "licence": "CC0",
-      "credit": "Ajheindel, CC0, Wikimedia Commons",
-      "episode": "L08"
-    },
-    {
       "id": "l08-aster",
       "commons": "CERN Collider, France-Switzerland (ASTER).jpg",
       "licence": "Public domain",
@@ -808,13 +801,6 @@
       "episode": "L08"
     },
     {
-      "id": "l08-boomerang-hst",
-      "commons": "Boomerang nebula.jpg",
-      "licence": "Public domain",
-      "credit": "ESA/NASA, Hubble, 2003",
-      "episode": "L08"
-    },
-    {
       "id": "l08-hermite",
       "commons": "Hermite - LROC - WAC.JPG",
       "licence": "Public domain",
@@ -833,13 +819,6 @@
       "commons": "Antarctica 6400px from Blue Marble.jpg",
       "licence": "Public domain",
       "credit": "NASA Blue Marble data, projection Dave Pape",
-      "episode": "L08"
-    },
-    {
-      "id": "l08-vostok",
-      "commons": "2017-02-19 13-13-24 water provisioning at vostok base IMG 3096.jpg",
-      "licence": "CC BY 4.0",
-      "credit": "Akulovz, CC BY 4.0, Wikimedia Commons",
       "episode": "L08"
     },
     {
@@ -885,13 +864,6 @@
       "episode": "L08"
     },
     {
-      "id": "l08-lightning-b",
-      "commons": "Nssl0215 - Flickr - NOAA Photo Library.jpg",
-      "licence": "Public domain",
-      "credit": "Sean Waugh, NOAA/NSSL, 2009",
-      "episode": "L08"
-    },
-    {
       "id": "l08-nstx",
       "commons": "U.S. Department of Energy - Science - 114 011 003 (21633624185).jpg",
       "licence": "Public domain",
@@ -920,24 +892,18 @@
       "episode": "L08"
     },
     {
-      "id": "l08-rhic",
-      "commons": "U.S. Department of Energy - Science - 391 005 007 (9628561083).jpg",
-      "licence": "Public domain",
-      "credit": "US DOE, RHIC",
-      "episode": "L08"
-    },
-    {
-      "id": "l08-eclipse",
-      "nasa": "AFRC2017-0233-009",
-      "licence": "Public domain",
-      "credit": "NASA/Carla Thomas, 2017",
-      "episode": "L08"
-    },
-    {
       "id": "l08-eclipse-art",
       "nasa": "art002e010782",
       "licence": "Public domain",
       "credit": "NASA, Artemis II",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-vostok",
+      "commons": "Vostok Station 2024.png",
+      "ext": "png",
+      "licence": "CC BY 4.0",
+      "credit": "Arctic and Antarctic Research Institute, CC BY 4.0 (1299 px: inset)",
       "episode": "L08"
     }
   ],

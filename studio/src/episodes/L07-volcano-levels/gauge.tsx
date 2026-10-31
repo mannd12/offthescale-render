@@ -42,7 +42,7 @@ export const StepGauge: React.FC<{ lit: number; reading: string; sub?: string; o
         </div>
       );
     })}
-    {open > 0 ? <div style={{ position: "absolute", right: 14, top: stepY(8) - 58 * open, width: stepW(8), height: 52 * open, overflow: "hidden", borderRadius: 6, border: `3px dashed ${B.tease}`, boxSizing: "border-box", textAlign: "center", fontFamily: F.headline, fontSize: 34, color: B.tease }}>?</div> : null}
+    {open > 0 ? <div style={{ position: "absolute", right: 14 + stepW(8) + 6, top: stepY(8), width: 52, height: (STEP - 6) * open, overflow: "hidden", borderRadius: 6, border: `3px dashed ${B.tease}`, boxSizing: "border-box", textAlign: "center", fontFamily: F.headline, fontSize: 34, color: B.tease }}>?</div> : null}
     <div style={{ position: "absolute", right: 14, top: stepY(0) + STEP + 2, width: 280, boxSizing: "border-box", padding: "6px 12px 8px", borderRadius: 12, background: heat(Math.floor(Math.max(0, lit))), color: B.ink, textAlign: "center" }}>
       <div style={{ fontFamily: F.headline, fontSize: 38, lineHeight: 1.08, whiteSpace: "nowrap" }}>{reading}</div>
       {sub ? <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 20, whiteSpace: "nowrap", marginTop: 1 }}>{sub}</div> : null}

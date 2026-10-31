@@ -75,7 +75,7 @@ export const Vei0: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const judge = within(t, 2, 0.9);
   const gap = lin(f, L1 + 5, enormous - 8);
   return (
-    <VolcanoShell t={t} index={0} prevLit={0} lit={0} credit={f < L1 ? { kind: "real", source: f < lavaAt ? "Civil Air Patrol via USGS, 2022" : "USGS overflight, 30 Nov 2022" } : f < L2 ? { kind: "real", source: "USGS / J. Schmith, Dec 2022" } : { kind: "illustration", source: "over a dimmed USGS clip" }}>
+    <VolcanoShell t={t} index={0} prevLit={0} lit={0} credit={f < L1 ? { kind: "real", source: f < lavaAt ? "Civil Air Patrol via USGS, 2022" : "USGS overflight, 30 Nov 2022" } : f < L2 ? { kind: "illustration", source: "bar over a USGS clip, J. Schmith, Dec 2022" } : { kind: "illustration", source: "over a dimmed USGS clip" }}>
       {f < lavaAt ? <Photo id="l07-ml-aerial" a={0} b={lavaAt} s0={1.02} s1={1.22} o0={[45, 55]} o1={[70, 50]} brightness={0.95} /> : null}
       {f < lavaAt ? <Big x={100} y={230} big="NON-EXPLOSIVE" small="under 10,000 m³ of ash and rock" opacity={ease(f, 10, 10)} size={96} /> : null}
       {f >= lavaAt && f < L1 ? <Clip id="l07-clip-flow" seconds={24} box={{ x: 130, y: 210, w: 1280, h: 720 }} scale={1.42} /> : null}
@@ -126,7 +126,7 @@ export const Vei1: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const k = lin(f, years, L1 - 10); // the 1,400-year bar draws on
   const pops = 46;
   return (
-    <VolcanoShell t={t} index={1} prevLit={0} lit={1} credit={f < L1 ? { kind: "real", source: "kuhnmi, CC BY 2.0, 2015" } : f < L2 ? { kind: "real", source: "de:User:Man77, CC BY 3.0, 2011" } : { kind: "real", source: "kuhnmi, CC BY 2.0, 2015" }}>
+    <VolcanoShell t={t} index={1} prevLit={0} lit={1} credit={f < years ? { kind: "real", source: "kuhnmi, CC BY 2.0, 2015" } : f < L1 ? { kind: "illustration", source: "bar over a photo by kuhnmi, CC BY 2.0, 2015" } : f < L2 ? { kind: "illustration", source: "bar over a photo by de:User:Man77, CC BY 3.0, 2011" } : { kind: "illustration", source: "over a photo by kuhnmi, CC BY 2.0, 2015" }}>
       {f < L1 ? <Photo id="l07-strom-kuhnmi" a={0} b={L1} s0={1.0} s1={1.2} o0={[60, 62]} pos="50% 60%" brightness={1} /> : null}
       {f >= L1 && f < L2 ? <Photo id="l07-strom-day" a={L1} b={L2} s0={1.0} s1={1.15} o0={[52, 25]} pos="50% 30%" /> : null}
       {f >= L2 ? <Photo id="l07-strom-kuhnmi" a={L2} b={t.frames} s0={1.15} s1={1.0} o0={[60, 62]} pos="50% 60%" brightness={0.55} /> : null}

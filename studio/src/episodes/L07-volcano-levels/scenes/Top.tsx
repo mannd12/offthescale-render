@@ -33,7 +33,7 @@ export const Vei6: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f < rose ? <Photo id="l07-pina-jun12" a={0} b={rose} s0={1} s1={1.14} o0={[50, 25]} brightness={0.95} /> : null}
       {f < rose ? <Pill x={100} y={206} size={32}>12 June 1991: an early column, not the climax</Pill> : null}
       {f >= 12 && f < rose ? <Big x={100} y={270} big="COLOSSAL" small="every few hundred years" opacity={ease(f, 12, 10)} size={104} /> : null}
-      {f >= rose && f < L2 ? <Photo id="l07-pina-jun15" a={rose} b={L2} s0={1.02} s1={1.2} o0={[50, 45]} brightness={f >= L1 ? 0.3 : 0.95} /> : null}
+      {f >= rose && f < L2 ? <Photo id="l07-pina-jun15" a={rose} b={L2} s0={1.14} s1={1.28} o0={[40, 20]} brightness={f >= L1 ? 0.3 : 0.95} /> : null}
       {f >= rose && f < L1 ? <Pill x={100} y={206} size={32}>15 June 1991, from a distance</Pill> : null}
       {f >= rose + 6 && f < L1 ? <Big x={100} y={270} big="35 KM UP" small="Pinatubo, the Philippines" opacity={ease(f, rose + 6, 10)} size={104} /> : null}
       {/* line 1: the drawn typhoon turning the ash outward */}
@@ -71,7 +71,7 @@ export const Vei6: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <>
           <div style={{ position: "absolute", inset: 0, background: "#141A20" }} />
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-            <rect x={0} y={760} width={1600} height={320} fill="#2C2622" />
+            <rect x={0} y={760} width={1920} height={320} fill="#2C2622" />
             {f >= wrong ? <path d={`M ${KX - 240} 760 L ${KX - 70} ${mix(440, 560, ease(f, L5, 24))} L ${KX + 70} ${mix(440, 560, ease(f, L5, 24))} L ${KX + 240} 760 Z`} fill="#55483E" /> : null}
             {f >= wrong ? <path d="M 400 760 Q 450 700 500 760 Z" fill="#55483E" /> : null}
             {f >= wrong ? <path d={`M ${vent - 30} 400 h 60 l -30 42 Z`} fill={B.tease} /> : null}
@@ -118,7 +118,7 @@ export const Vei7: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const peak = 1 - ease(f, L2 + 30, 40);
   const fall = lin(f, L4, fades);
   return (
-    <VolcanoShell t={t} index={7} prevLit={6} lit={7} sub={f >= mazama && f < L6 + 1 ? "Tambora's reading" : f >= L6 ? "Tambora's reading" : undefined} credit={f < tamb ? { kind: "illustration", source: "no picture exists" } : f < L2 ? { kind: "real", source: "NASA JSC, ISS020-E-6563, 2009" } : f < L3 ? { kind: "illustration", source: "a drawn peak" } : f < L4 ? { kind: "real", source: "Tisquesusa, CC BY 4.0, 2017" } : f < L5 ? { kind: "illustration", source: "ash and sea, drawn" } : f < L6 ? { kind: "real", source: "M. Doukas, USGS" } : f < lake + 200 ? { kind: "illustration", source: "the caldera, drawn" } : { kind: "real", source: "M. Doukas, USGS" }}>
+    <VolcanoShell t={t} index={7} prevLit={6} lit={7} sub={f >= mazama && f < L6 + 1 ? "Tambora's reading" : f >= L6 ? "Tambora's reading" : undefined} credit={f < tamb ? { kind: "illustration", source: "no picture exists" } : f < L1 ? { kind: "real", source: "NASA JSC, ISS020-E-6563, 2009" } : f < hole ? { kind: "illustration", source: "blocks over a NASA JSC photo, 2009" } : f < L2 ? { kind: "real", source: "NASA JSC, ISS020-E-6563, 2009" } : f < L3 ? { kind: "illustration", source: "a drawn peak" } : f < L4 ? { kind: "real", source: "Tisquesusa, CC BY 4.0, 2017" } : f < L5 ? { kind: "illustration", source: "ash and sea, drawn" } : f < L6 ? { kind: "real", source: "M. Doukas, USGS" } : f < lake + 200 ? { kind: "illustration", source: "the caldera, drawn" } : { kind: "real", source: "M. Doukas, USGS" }}>
       {f < tamb ? <div style={{ position: "absolute", inset: 0, background: "#07090D" }} /> : null}
       {f < tamb ? <div style={{ position: "absolute", left: 120, top: 400, fontFamily: F.headline, fontSize: 130, color: B.paper, opacity: ease(f, 8, 12), whiteSpace: "nowrap" }}>NO PHOTOGRAPHS</div> : null}
       {f >= tamb && f < L2 ? <Photo id="l07-tam-iss" a={tamb} b={L2} s0={1.0} s1={1.3} o0={[49, 55]} brightness={1} /> : null}
@@ -205,12 +205,12 @@ export const Vei8: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const toba = within(t, 4, 0.38);
   const u = 10;
   const side = (km3: number) => u * Math.sqrt(km3);
-  const target = f < twoPoint ? 1000 : f < others ? 2500 : 5000;
-  const prev = f < twoPoint ? 1 : f < others ? 1000 : 2500;
-  const cue = f < twoPoint ? L1 : f < others ? twoPoint : others;
+  const target = f < twoPoint ? 1000 : f < L2 ? 2500 : f < others ? 1000 : 5000;
+  const prev = f < twoPoint ? 1 : f < L2 ? 1000 : f < others ? 2500 : 1000;
+  const cue = f < twoPoint ? L1 : f < L2 ? twoPoint : f < others ? L2 : others;
   const s = mix(side(prev), side(target), ease(f, cue, 24));
   const inBlocks = f >= L1 && f < L3;
-  const reading = f >= twoPoint && f < others ? "2,450 km³" : undefined;
+  const reading = f >= twoPoint && f < L2 ? "2,450 km³" : undefined;
   return (
     <VolcanoShell t={t} index={8} prevLit={7} lit={8} reading={reading} sub={reading ? "2.1 million years ago" : undefined} credit={f < L1 ? { kind: "real", source: "J. Peaco, NPS, 2015" } : f < L3 ? { kind: "illustration", source: "areas to scale, by ash" } : f < toba ? { kind: "real", source: "J. Peaco, NPS" } : f < L5 ? { kind: "illustration", source: "ASTER satellite, false colour" } : f < L6 ? { kind: "real", source: "J. Peaco, NPS" } : { kind: "real", source: "USGS / J. Schmith, 2022" }}>
       {f < L1 ? <Photo id="l07-tuff" a={0} b={L1} s0={1} s1={1.24} o0={[40, 35]} brightness={0.9} /> : null}
@@ -270,7 +270,7 @@ export const Closer: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const yrs = lin(f, L1 + 10, L2 - 10);
   const litNow = f < zero ? 8 : mix(8, 0, ease(f, zero, 40));
   return (
-    <VolcanoShell t={t} index={9} lit={litNow} reading={f < zero ? "?" : "SCORE: 0"} sub={f < zero ? "still a judgement" : "Mauna Loa, 2022"} open={f >= L3 && f < zero ? ease(f, L3, 14) : 0} credit={f < L1 ? { kind: f < tonga ? "illustration" : "real", source: f < tonga ? "the scale" : "NASA / K. Barron, 2022" } : f < L3 ? { kind: "illustration", source: "to scale" } : f < L4 ? { kind: "illustration", source: "the top of the scale" } : { kind: "real", source: "USGS / L. Gallant, 2022" }}>
+    <VolcanoShell t={t} index={9} lit={litNow} reading={f < zero ? "?" : "SCORE: 0"} sub={f < zero ? "still a judgement" : "Mauna Loa, 2022"} open={f >= L3 && f < zero ? ease(f, L3, 14) : 0} credit={f < L1 ? { kind: "illustration", source: f < tonga ? "the scale" : "bars over a NASA photo, K. Barron, 2022" } : f < L2 ? { kind: "illustration", source: "nine years" } : f < L3 ? { kind: "illustration", source: "lengths to scale" } : f < L4 ? { kind: "illustration", source: "the top of the scale" } : { kind: "real", source: "USGS / L. Gallant, 2022" }}>
       {f < tonga ? <div style={{ position: "absolute", inset: 0, background: "#10151C" }} /> : null}
       {f < tonga ? <Caption size={108} bottom={420} color={B.paper}>A judgement</Caption> : null}
       {f >= tonga && f < L1 ? <Photo id="l07-tonga-iss" a={tonga} b={L1} s0={1} s1={1.12} o0={[50, 60]} brightness={0.75} /> : null}
@@ -299,11 +299,11 @@ export const Closer: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= L2 && f < L3 ? (
         <>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-            <rect x={120} y={620} width={60} height={60} fill={B.paper} />
-            <rect x={260} y={680 - 190 * ease(f, L2 + 10, 40) * 1.0} width={1200 * ease(f, L2 + 10, 40)} height={190 * ease(f, L2 + 10, 40)} fill="#FF7A3D" />
+            <rect x={120} y={480} width={120} height={90} fill={B.paper} />
+            <rect x={120} y={660} width={1320 * ease(f, L2 + 10, 40)} height={90} fill="#FF7A3D" />
           </svg>
-          <Tag x={110} y={695} size={26}>St. Helens</Tag>
-          <Tag x={260} y={695} size={30} color="#FF7A3D">Kīlauea's vent: more than 10 times, as lava</Tag>
+          <Tag x={120} y={580} size={30}>St. Helens’ output</Tag>
+          <Tag x={120} y={762} size={30} color="#FF7A3D">Kīlauea's vent: more than 10 times, as lava</Tag>
           <Big x={120} y={230} big="STILL RATED LOW, AT THE TIME" opacity={ease(f, within(t, 2, 0.6), 10)} size={72} />
         </>
       ) : null}

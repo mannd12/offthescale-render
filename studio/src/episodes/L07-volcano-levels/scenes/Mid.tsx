@@ -26,10 +26,10 @@ export const Vei3: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const a = 90;
   const b = a * Math.sqrt(145 / 20.6);
   return (
-    <VolcanoShell t={t} index={3} prevLit={2} lit={3} credit={f < L2 ? { kind: "real", source: "R. G. McGimsey, USGS/AVO, 4 Apr 2009" } : f < L3 ? { kind: "real", source: "G. McGimsey, AVO, 31 Mar 2009" } : f < L4 ? { kind: "illustration", source: "areas to scale, two different measures" } : { kind: "real", source: "R. G. McGimsey, USGS/AVO, 4 Apr 2009" }}>
+    <VolcanoShell t={t} index={3} prevLit={2} lit={3} credit={f < L1 ? { kind: "real", source: "R. G. McGimsey, USGS/AVO, 4 Apr 2009" } : f < L2 ? { kind: "illustration", source: "bar over a photo, McGimsey, USGS/AVO, 2009" } : f < ashAt ? { kind: "real", source: "G. McGimsey, AVO, 31 Mar 2009" } : f < L3 ? { kind: "illustration", source: "square over a photo, G. McGimsey, AVO, 2009" } : f < L4 ? { kind: "illustration", source: "areas to scale, two different measures" } : { kind: "real", source: "R. G. McGimsey, USGS/AVO, 4 Apr 2009" }}>
       {f < L2 ? <Photo id="l07-red-apr" a={0} b={L2} s0={1} s1={1.28} o0={[62, 32]} brightness={0.95} /> : null}
       {f < twenty ? <Big x={100} y={230} big="SEVERE" small="roughly once a year" opacity={ease(f, 8, 10)} size={110} /> : null}
-      {f >= twenty && f < L1 ? <Pill x={100} y={206} size={32}>Redoubt, Alaska, between explosions, 4 April 2009</Pill> : null}
+      {f >= twenty && f < L1 ? <Pill x={100} y={206} size={32}>Redoubt, Alaska, 4 April 2009, after an explosion</Pill> : null}
       {f >= twenty && f < L1 ? (
         <div style={{ position: "absolute", left: 100, top: 270, display: "flex", gap: 8 }}>
           {Array.from({ length: 20 }, (_, i) => <div key={i} style={{ width: 52, height: 76, borderRadius: 6, background: i < ticks ? B.tease : "rgba(5,14,24,0.7)" }} />)}
@@ -115,10 +115,10 @@ export const Vei4: React.FC<{ t: SceneTiming }> = ({ t }) => {
 /** Section through a drawn mountain. Bulge grows and then slides; `up` raises a column. */
 const Section: React.FC<{ bulge: number; slide: number; up: number }> = ({ bulge, slide, up }) => (
   <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-    <rect x={0} y={880} width={1560} height={200} fill="#231C18" />
+    <rect x={0} y={880} width={1920} height={200} fill="#231C18" />
     <path d={`M 160 880 L 640 ${380 + 50 * slide} L 720 ${380 + 50 * slide} L ${1160 - 120 * slide} 880 Z`} fill="#4A3D35" />
     {up > 0 ? <path d={`M 650 ${400} C 600 ${400 - 200 * up}, 560 ${400 - 280 * up}, 680 ${400 - 300 * up} C 800 ${400 - 280 * up}, 760 ${400 - 200 * up}, 710 400 Z`} fill="#8E8A86" /> : null}
-    <path d={`M ${900 + 30 * bulge} 560 Q ${1020 + 150 * bulge} 640 ${1040 + 30 * bulge} 780 L 900 780 Z`} transform={`translate(${620 * slide} ${150 * slide})`} fill={slide > 0 ? B.tease : "#6A5548"} />
+    <path d={`M ${900 + 30 * bulge} 560 Q ${1020 + 150 * bulge} 640 ${1040 + 30 * bulge} 780 L 900 780 Z`} transform={`translate(${240 * slide} ${100 * slide})`} fill={slide > 0 ? B.tease : "#6A5548"} />
   </svg>
 );
 
@@ -144,7 +144,7 @@ export const Vei5: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const c1 = 110;
   const c2 = c1 * Math.cbrt(2.5);
   return (
-    <VolcanoShell t={t} index={5} prevLit={4} lit={5} credit={f < L1 ? { kind: "real", source: FILM } : f < L2 ? { kind: "illustration", source: "the mountain, not to scale" } : f < L5 ? { kind: "real", source: FILM } : f < L6 ? { kind: "real", source: "L. Topinka, USGS, Sept 1980" } : { kind: "illustration", source: "cubes to scale" }}>
+    <VolcanoShell t={t} index={5} prevLit={4} lit={5} credit={f < L1 ? { kind: "real", source: FILM } : f < L2 ? { kind: "illustration", source: "the mountain, not to scale" } : f < world ? { kind: "real", source: FILM } : f < L5 ? { kind: "illustration", source: f < spokane ? `ring over the film, ${FILM}` : `film darkened by us, ${FILM}` } : f < L6 ? { kind: "real", source: "L. Topinka, USGS, Sept 1980" } : { kind: "illustration", source: "cubes to scale" }}>
       {f < L1 ? <Clip id="l07-clip-column" seconds={16} box={PANEL} scale={1.24} /> : null}
       {f < L1 ? <Pill x={160} y={224} size={34}>Mount St. Helens, 18 May 1980</Pill> : null}
       {f < L1 ? <Big x={160} y={290} big="A FIVE" small="paroxysmal" opacity={ease(f, 40, 10)} size={96} /> : null}
@@ -174,7 +174,7 @@ export const Vei5: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= spokane && f < L5 ? <div style={{ position: "absolute", left: PANEL.x + 4, top: PANEL.y + 4, width: PANEL.w, height: PANEL.h, background: "#000", opacity: 0.75 * ease(f, spokane, 40) }} /> : null}
       {f >= spokane && f < L5 ? <Big x={160} y={230} big="SPOKANE, 400 KM AWAY" small="complete darkness" opacity={ease(f, spokane, 10)} size={72} /> : null}
       {/* line 5: the land */}
-      {f >= L5 && f < L6 ? <Photo id="l07-msh-blowdown" a={L5} b={L6} s0={1.05} s1={1.2} o0={[50, 30]} o1={[60, 30]} brightness={0.9} /> : null}
+      {f >= L5 && f < L6 ? <Photo id="l07-msh-blowdown" a={L5} b={L6} s0={1.24} s1={1.36} o0={[35, 0]} o1={[45, 0]} brightness={0.9} /> : null}
       {f >= L5 && f < L6 ? <Pill x={100} y={206} size={30}>Smith Creek valley, four months later</Pill> : null}
       {f >= L5 + 8 && f < L6 ? <Big x={100} y={270} big="ABOUT 600 km²" small="of devastated land" opacity={ease(f, L5 + 8, 10)} size={92} /> : null}
       {/* line 6: the two cubes, then the same mountain on two steps */}
