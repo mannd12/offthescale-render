@@ -1,0 +1,605 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "NASA flew a spacecraft into an asteroid, on purpose. The push alone should have shortened its orbit by about seven minutes. It shortened it by about thirty-three.",
+    "file": "L09-asteroid-levels/vo/cold-00.wav",
+    "seconds": 9.17,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "So what is that thing actually made of?",
+    "file": "L09-asteroid-levels/vo/cold-01.wav",
+    "seconds": 2.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "The answer changes with size, so let's climb every size there is, from a grain on a rooftop to the biggest thing in the asteroid belt. That's about ten billion times wider, so each mark on this bar is ten times the last.",
+    "file": "L09-asteroid-levels/vo/cold-02.wav",
+    "seconds": 14.24,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Watch the two lines underneath it. One says whether a spacecraft has ever got there. The other says what the thing is made of. For the first five rungs, they stay empty.",
+    "file": "L09-asteroid-levels/vo/cold-03.wav",
+    "seconds": 10.93,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Start on a roof. Researchers searching rooftops in cities reported finding five hundred large micrometeorites: grains from space, each more than a tenth of a millimetre across.",
+    "file": "L09-asteroid-levels/vo/l01-00.wav",
+    "seconds": 9.09,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "By one NASA estimate, about forty-eight and a half tons of this material reaches Earth every day. Other estimates differ widely.",
+    "file": "L09-asteroid-levels/vo/l01-01.wav",
+    "seconds": 7.09,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "And already the words need sorting out. In space, anything from a dust grain up to a small asteroid is a meteoroid. The burn-up in the sky is a meteor. If it survives and lands, it's a meteorite.",
+    "file": "L09-asteroid-levels/vo/l01-02.wav",
+    "seconds": 12.92,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "Now look at one from above. That faint streak is a meteor, photographed from the Space Station.",
+    "file": "L09-asteroid-levels/vo/l02-00.wav",
+    "seconds": 5.83,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Most of the debris in a meteor shower is somewhere between a grain of sand and a pea, and it burns up before it reaches the ground. The Perseids are typically the size of a sand grain.",
+    "file": "L09-asteroid-levels/vo/l02-01.wav",
+    "seconds": 12.14,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "That's all it takes to make a shooting star.",
+    "file": "L09-asteroid-levels/vo/l02-02.wav",
+    "seconds": 3.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "One correction, because you might have caught it. The Perseids come from a comet, Swift-Tuttle. So this rung is here for its size, not its family. Now, on to actual asteroids. Or nearly.",
+    "file": "L09-asteroid-levels/vo/l02-03.wav",
+    "seconds": 11.72,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "In January twenty twenty-four, astronomers spotted an object about three hours before it came in, about fifty kilometres west of Berlin. At that point, only eight had ever been detected before impact.",
+    "file": "L09-asteroid-levels/vo/l03-00.wav",
+    "seconds": 10.77,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "It got the name of an asteroid: twenty twenty-four B X one.",
+    "file": "L09-asteroid-levels/vo/l03-01.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "Then came the analysis. About a hundred and forty kilograms, and probably under half a metre across. So small that the researchers wrote it \"should rather be called a meteoroid\".",
+    "file": "L09-asteroid-levels/vo/l03-02.wav",
+    "seconds": 10.11,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "Pieces were recovered on the ground, and named Ribbeck.",
+    "file": "L09-asteroid-levels/vo/l03-03.wav",
+    "seconds": 3.12,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "So here, at under half a metre, the word starts to wobble.",
+    "file": "L09-asteroid-levels/vo/l03-04.wav",
+    "seconds": 4.17,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "The object over Chelyabinsk was about eighteen metres across. A humpback whale reaches about the same length. It weighed roughly eleven thousand tons, though that figure is very approximate.",
+    "file": "L09-asteroid-levels/vo/l04-00.wav",
+    "seconds": 9.8,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "At its brightest it was moving at more than eighteen kilometres a second, twenty-three kilometres up.",
+    "file": "L09-asteroid-levels/vo/l04-01.wav",
+    "seconds": 5.33,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "And here's the part that lasted. It left dust about forty kilometres up, and at least three months later, a belt of that dust was still detectable, circling the planet.",
+    "file": "L09-asteroid-levels/vo/l04-02.wav",
+    "seconds": 10.13,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "A thing the length of a whale, and its dust went all the way round.",
+    "file": "L09-asteroid-levels/vo/l04-03.wav",
+    "seconds": 5.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "This is a forest. This picture was taken in 1929, on an expedition to the place called Tunguska.",
+    "file": "L09-asteroid-levels/vo/l05-00.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "In 1908, something exploded about six miles up, and most likely vaporised. It flattened millions of trees, across eight hundred and thirty square miles. Most scientists think it was an asteroid.",
+    "file": "L09-asteroid-levels/vo/l05-01.wav",
+    "seconds": 10.63,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "And the first expedition didn't reach the area until 1927, nineteen years later.",
+    "file": "L09-asteroid-levels/vo/l05-02.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "So nobody can hand you its size. Some scientists say about forty metres. A NASA workshop said fifty to eighty, if it was stony.",
+    "file": "L09-asteroid-levels/vo/l05-03.wav",
+    "seconds": 8.22,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "That's why the bar shows a band here, not a point, and the Statue of Liberty, at ninety-three metres, stands just above it.",
+    "file": "L09-asteroid-levels/vo/l05-04.wav",
+    "seconds": 7.84,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "Everything so far has come to us. On the next rung, we went to it.",
+    "file": "L09-asteroid-levels/vo/l05-05.wav",
+    "seconds": 5.2,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "This is real. These are the last minutes of DART's own pictures, replayed at ten times normal speed, apart from the very last images.",
+    "file": "L09-asteroid-levels/vo/l06-00.wav",
+    "seconds": 8.14,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "The target is Dimorphos, about a hundred and seventy metres wide, about one point eight Statues of Liberty. It orbits a bigger asteroid called Didymos, and neither one is a threat to Earth.",
+    "file": "L09-asteroid-levels/vo/l06-01.wav",
+    "seconds": 11.08,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "DART hit at about six kilometres a second. The last complete image came two seconds before impact, a patch about a hundred feet wide. Look at it. That isn't one rock. It's boulders.",
+    "file": "L09-asteroid-levels/vo/l06-02.wav",
+    "seconds": 11.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "It was the first time humans had deliberately changed the motion of a celestial object. And now the two numbers from the start. Seven minutes was what the spacecraft's push alone should have done.",
+    "file": "L09-asteroid-levels/vo/l06-03.wav",
+    "seconds": 11.28,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "About thirty-three is what was measured.",
+    "file": "L09-asteroid-levels/vo/l06-04.wav",
+    "seconds": 2.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "The difference is the debris. The material blasted off the surface weighed about thirty thousand times as much as the spacecraft, and it gave a bigger push than the spacecraft did.",
+    "file": "L09-asteroid-levels/vo/l06-05.wav",
+    "seconds": 10.25,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "Dimorphos is a loosely packed rubble pile, and the hit even changed its shape. NASA's description: an oblong watermelon.",
+    "file": "L09-asteroid-levels/vo/l06-06.wav",
+    "seconds": 6.56,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 7,
+    "text": "Here's why this probably isn't a one-off. From about two hundred metres up to about ten kilometres, nearly every object is held together by its own gravity, with significant empty space inside. The clue is spin.",
+    "file": "L09-asteroid-levels/vo/l06-07.wav",
+    "seconds": 12.11,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 8,
+    "text": "No asteroid over about two hundred metres turns faster than about once in two point two hours, because past that, loose pieces would leave. Below that size, some do spin faster, which suggests they're solid rock.",
+    "file": "L09-asteroid-levels/vo/l06-08.wav",
+    "seconds": 12.13,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l06",
+    "index": 9,
+    "text": "That's a rough rule, not a law. Dimorphos is under the line, and it's still a pile.",
+    "file": "L09-asteroid-levels/vo/l06-09.wav",
+    "seconds": 5.93,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "Double the size, and you get Apophis: about three hundred and forty metres on average, at least four hundred and fifty the long way, and maybe shaped like a peanut. That's about three point seven Statues.",
+    "file": "L09-asteroid-levels/vo/l07-00.wav",
+    "seconds": 12.13,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "On the thirteenth of April, twenty twenty-nine, it passes about thirty-two thousand kilometres up, closer than geosynchronous satellites, and NASA says there is no risk of it hitting us for at least a hundred years.",
+    "file": "L09-asteroid-levels/vo/l07-01.wav",
+    "seconds": 11.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "If you're in parts of Europe, Africa or Asia, you'll be able to see it without a telescope, or even binoculars. Something this size passes this close only every few thousand years.",
+    "file": "L09-asteroid-levels/vo/l07-02.wav",
+    "seconds": 10.77,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "And it's Apophis that gets shaken. Earth's tides may trigger quakes and landslides on it, and change its spin. By that rule it's probably a pile, but no spacecraft has been there yet.",
+    "file": "L09-asteroid-levels/vo/l07-03.wav",
+    "seconds": 11.16,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "So what happens when you actually touch one?",
+    "file": "L09-asteroid-levels/vo/l07-04.wav",
+    "seconds": 2.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Bennu is about half a kilometre wide, slightly wider than the Empire State Building is tall. In October twenty twenty, more than two hundred million miles from Earth, NASA's OSIRIS-REx went down to touch it.",
+    "file": "L09-asteroid-levels/vo/l08-00.wav",
+    "seconds": 11.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "The scientists expected a smooth, sandy beach. This is the real descent, sped up. The head on the end of that arm is the only part that made contact. About a second after contact, it fired gas.",
+    "file": "L09-asteroid-levels/vo/l08-01.wav",
+    "seconds": 12.7,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "The whole touch lasted about six seconds.",
+    "file": "L09-asteroid-levels/vo/l08-02.wav",
+    "seconds": 2.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "And the surface barely pushed back. It resisted about as much as the plunger on a French press. NASA compares it to stepping into a pit of plastic balls.",
+    "file": "L09-asteroid-levels/vo/l08-03.wav",
+    "seconds": 9.7,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "The spacecraft would have sunk in if it hadn't fired its thrusters, and it left a crater eight metres wide. The mission's lead, Dante Lauretta: \"Our expectations about the asteroid's surface were completely wrong.\"",
+    "file": "L09-asteroid-levels/vo/l08-04.wav",
+    "seconds": 11.4,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "It also came away with this. A hundred and twenty-one point six grams. In it were fourteen of the twenty amino acids that make up proteins, and all five nucleobases. Those are ingredients, not life.",
+    "file": "L09-asteroid-levels/vo/l08-05.wav",
+    "seconds": 11.97,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "And there were salts, which we'll come back to.",
+    "file": "L09-asteroid-levels/vo/l08-06.wav",
+    "seconds": 3.12,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 0,
+    "text": "Now a big jump. The rock behind the Chicxulub crater was about ten kilometres across. Taller than Everest. And there is no picture of it, because that size is estimated from the crater.",
+    "file": "L09-asteroid-levels/vo/l09-00.wav",
+    "seconds": 11.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 1,
+    "text": "The crater itself is buried in the Yucatán, at least a hundred and eighty kilometres wide. From space, all you get is a faint trough, about five kilometres wide and three to five metres deep.",
+    "file": "L09-asteroid-levels/vo/l09-01.wav",
+    "seconds": 11.71,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 2,
+    "text": "NASA's caption links it to a loss of species. The chemistry matches carbon-rich meteorites.",
+    "file": "L09-asteroid-levels/vo/l09-02.wav",
+    "seconds": 4.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 3,
+    "text": "So to see this scale, look at something else. This is Eros, not the Chicxulub rock. It's twenty-one miles long. NEAR Shoemaker orbited it in two thousand, and landed on it in twenty oh one.",
+    "file": "L09-asteroid-levels/vo/l09-03.wav",
+    "seconds": 12.07,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l09",
+    "index": 4,
+    "text": "And here's the exception to the rule: Eros is more likely shattered but intact, not a loose pile.",
+    "file": "L09-asteroid-levels/vo/l09-04.wav",
+    "seconds": 6.06,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 0,
+    "text": "At about five hundred and thirty kilometres, you reach Vesta. NASA calls it the largest asteroid, and we'll get to why in a moment.",
+    "file": "L09-asteroid-levels/vo/l10-00.wav",
+    "seconds": 8.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 1,
+    "text": "Dawn orbited it for more than a year, and Vesta turned out to be layered like Earth, with a crust, a mantle and a core. It isn't a pile any more. It's a world.",
+    "file": "L09-asteroid-levels/vo/l10-01.wav",
+    "seconds": 11.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l10",
+    "index": 2,
+    "text": "It also carries a crater called Rheasilvia, about five hundred kilometres wide. That's about ninety-five percent of the width of Vesta itself.",
+    "file": "L09-asteroid-levels/vo/l10-02.wav",
+    "seconds": 7.41,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 0,
+    "text": "And here's the top of the bar: Ceres, about nine hundred and fifty-two kilometres across, with a radius one thirteenth of Earth's.",
+    "file": "L09-asteroid-levels/vo/l11-00.wav",
+    "seconds": 7.43,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 1,
+    "text": "This one object holds a quarter of the mass of the whole asteroid belt. And all the asteroids together weigh less than our Moon.",
+    "file": "L09-asteroid-levels/vo/l11-01.wav",
+    "seconds": 7.94,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 2,
+    "text": "Piazzi found it in 1801, the first object known in the belt. It was called an asteroid until 2006, and then it became a dwarf planet. That's why Vesta gets the title.",
+    "file": "L09-asteroid-levels/vo/l11-02.wav",
+    "seconds": 10.85,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 3,
+    "text": "The biggest thing on this ladder stopped being called an asteroid.",
+    "file": "L09-asteroid-levels/vo/l11-03.wav",
+    "seconds": 3.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 4,
+    "text": "Dawn went into orbit here in March twenty fifteen. Under the surface, the mantle is probably water ice. And in Occator, a crater ninety-two kilometres wide, there are these bright areas.",
+    "file": "L09-asteroid-levels/vo/l11-04.wav",
+    "seconds": 10.63,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l11",
+    "index": 5,
+    "text": "They're salt, from a deep reservoir of brine, and some of it is less than two million years old.",
+    "file": "L09-asteroid-levels/vo/l11-05.wav",
+    "seconds": 6.38,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "Now go back to those salts on Bennu. About four ounces of grains, and in them, eleven salt minerals of the kind left behind when briny water evaporates. NASA's own release points to similar brines at Ceres.",
+    "file": "L09-asteroid-levels/vo/closer-00.wav",
+    "seconds": 12.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "So half a kilometre of loose rubble and the top of the ladder both carry signs of salty water.",
+    "file": "L09-asteroid-levels/vo/closer-01.wav",
+    "seconds": 6.18,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "And that's the climb. Roughly: small can be solid, the middle is a pile, and the top is a world. Much of that, we learned by going there.",
+    "file": "L09-asteroid-levels/vo/closer-02.wav",
+    "seconds": 9.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "We're still going. The spacecraft that touched Bennu is now called OSIRIS-APEX, and it's on its way to Apophis, where it will dip within sixteen feet of the surface and fire its thrusters.",
+    "file": "L09-asteroid-levels/vo/closer-03.wav",
+    "seconds": 10.98,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 4,
+    "text": "And a probe called Hera is due at Didymos in November twenty twenty-six.",
+    "file": "L09-asteroid-levels/vo/closer-04.wav",
+    "seconds": 4.29,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
