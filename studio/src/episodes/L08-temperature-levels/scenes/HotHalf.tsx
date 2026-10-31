@@ -75,15 +75,15 @@ export const Venus: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {frame >= distAt - 4 ? (
         <>
           {[
-            { y: 340, name: "Mercury", note: "closer", c: 430, color: B.aqua },
-            { y: 520, name: "Venus", note: "farther", c: 465, color: B.tease },
+            { y: 340, name: "Mercury", note: "closer to the Sun · by day", c: 430, color: B.aqua },
+            { y: 520, name: "Venus", note: "farther from the Sun", c: 465, color: B.tease },
           ].map((p, i) => {
             const w = 900 * (p.c / 465) * ease(frame, distAt + i * 8, 24);
             return (
               <div key={p.name}>
                 <div style={{ position: "absolute", left: 160, top: p.y, width: w, height: 110, borderRadius: 14, background: p.color }} />
                 <div style={{ position: "absolute", left: 180, top: p.y + 18, fontFamily: F.headline, fontSize: 66, color: B.ink, whiteSpace: "nowrap" }}>{p.name} · {p.c === 465 ? "about " : ""}{p.c} °C</div>
-                <Pill x={160} y={p.y + 118} size={26} opacity={ease(frame, distAt + i * 8, 10)}>{p.note} to the Sun</Pill>
+                <Pill x={160} y={p.y + 118} size={26} opacity={ease(frame, distAt + i * 8, 10)}>{p.note}</Pill>
               </div>
             );
           })}
@@ -118,7 +118,7 @@ export const Lava: React.FC<{ t: SceneTiming }> = ({ t }) => {
   if (strip > 0.5) chips.push(ILLU("colour chart over the footage"));
   return (
     <RungShell t={t} index={5} log={log} reading={frame >= heatAt ? "about 1,170 °C" : ""} sub={frame >= heatAt ? "Kīlauea" : undefined} chips={chips}>
-      <Clip id="l08-clip-fountains" seconds={30} from={0} to={readAt + 8} start={240} scale={1.25} origin="45% 45%" bright={0.95} />
+      <Clip id="l08-clip-fountains" seconds={30} from={0} to={readAt + 8} start={720} scale={1.25} origin="45% 45%" bright={0.95} />
       <Clip id="l08-clip-lake" seconds={40} from={readAt - 4} to={t.frames + 30} start={300} scale={1.15} origin="45% 60%" bright={1} />
       <Pill x={60} y={200} size={28} opacity={1 - ease(frame, readAt - 4, 8)}>Kīlauea, Hawaii · lava fountains</Pill>
       <Pill x={60} y={200} size={28} opacity={ease(frame, readAt, 8)}>Kīlauea's lava lake · 90 minutes, speeded up</Pill>
@@ -156,14 +156,14 @@ export const SunFace: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const anvil = ease(frame, squeezeAt - 6, 10);
   const earth = ease(frame, downAt, 14) * (1 - ease(frame, squeezeAt - 8, 8));
   const chips: ChipSpec[] = photo > 0.5 ? [{ kind: "REAL FOOTAGE", source: "Geoff Elston · CC BY 4.0 · through a solar filter" }] : [ILLU(anvil > 0.5 ? "a diamond anvil, drawn · not to scale" : "inside the Earth, drawn · not to scale")];
-  const ER = 400;
+  const ER = 360;
   const EX = 620;
-  const EY = 600 + 90 * (1 - ease(frame, downAt, 30));
+  const EY = 610 + 90 * (1 - ease(frame, downAt, 30));
   const glow = 0.5 + 0.5 * Math.sin(frame / 12);
   const press = ease(frame, squeezeAt + 6, 30);
   return (
     <RungShell t={t} index={6} log={log} reading="about 5,500 °C" sub="the Sun's visible surface" chips={chips}>
-      <Plate id="l08-sun-white" from={0} to={downAt + 8} s0={1.05} s1={1.4} o0={[50, 50]} o1={[56, 52]} bright={0.95} />
+      <Plate id="l08-sun-white" from={0} to={downAt + 8} box={{ x: 330, y: 120, w: 900, h: 900 }} s0={1} s1={1.35} o0={[60, 50]} bright={0.95} />
       <Pill x={60} y={200} size={28} opacity={photo}>the Sun's visible surface, in white light</Pill>
       <Card x={60} y={760} big="about 5,500 °C" size={100} color={B.gauge} opacity={ease(frame, 20, 10) * photo} />
       {earth > 0 ? (
@@ -270,18 +270,18 @@ export const Lightning: React.FC<{ t: SceneTiming }> = ({ t }) => {
         </>
       ) : null}
       {/* the ISS clip opens with a black wedge at top left: cropped out by the zoom and origin */}
-      <Clip id="l08-clip-iss" seconds={60} from={upAt - 4} to={t.frames + 30} start={120} scale={1.55} origin="85% 90%" bright={0.95} />
-      <Pill x={60} y={200} size={28} opacity={space}>the real view from the Space Station</Pill>
-      <Card x={60} y={270} big="2,000 °C or more" small="the upper atmosphere" size={72} color={B.tease} ink={B.paper} opacity={ease(frame, upAt + 6, 10) * (1 - ease(frame, lastAt, 10))} />
-      <Pill x={60} y={440} size={30} opacity={ease(frame, issAt, 10) * (1 - ease(frame, lastAt, 10))}>the Station orbits in that layer</Pill>
-      <Pill x={60} y={505} size={30} color={B.aqua} opacity={ease(frame, thinAt + 20, 10) * (1 - ease(frame, lastAt, 10))}>air so thin we call it outer space</Pill>
+      <Clip id="l08-clip-iss" seconds={60} from={upAt - 4} to={t.frames + 30} start={120} scale={1.2} origin="85% 90%" bright={0.95} box={{ x: 60, y: 150, w: 1300, h: 731 }} />
+      <Pill x={80} y={170} size={28} opacity={space}>the real view from the Space Station</Pill>
+      <Card x={80} y={240} big="2,000 °C or more" small="the upper atmosphere" size={72} color={B.tease} ink={B.paper} opacity={ease(frame, upAt + 6, 10) * (1 - ease(frame, lastAt, 10))} />
+      <Pill x={80} y={410} size={30} opacity={ease(frame, issAt, 10) * (1 - ease(frame, lastAt, 10))}>the Station orbits in that layer</Pill>
+      <Pill x={80} y={475} size={30} color={B.aqua} opacity={ease(frame, thinAt + 20, 10) * (1 - ease(frame, lastAt, 10))}>air so thin we call it outer space</Pill>
       {frame >= thinAt ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: ease(frame, thinAt, 10) }}>
           {[0, 1, 2, 3, 4, 5].map((i) => dot(1060, 560, i, 2.4, B.tease))}
         </svg>
       ) : null}
       <div style={{ opacity: ease(frame, lastAt, 8) }}>
-        <Caption bottom={190} size={76} color={B.paper}>high temperature, hardly anything to carry it</Caption>
+        <Caption bottom={230} size={62} color={B.paper}>high temperature, hardly anything to carry it</Caption>
       </div>
     </RungShell>
   );

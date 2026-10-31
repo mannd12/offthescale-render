@@ -216,7 +216,7 @@ export const Hottest: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {/* a different ring: real tracks from Brookhaven, inset because the file is 1226 px; the detector beside it */}
       {rhic > 0 ? (
         <>
-          <Plate id="l08-star" from={bnlAt - 4} to={lhcAt + 6} s0={1.7} s1={2} o0={[12, 12]} o1={[18, 14]} bright={0.55} />
+          <Plate id="l08-star" from={bnlAt - 4} to={lhcAt + 6} s0={2.05} s1={2.2} o0={[0, 0]} bright={0.55} />
           <Plate id="l08-gold" from={bnlAt} to={lhcAt + 6} box={{ x: 100, y: 180, w: 640, h: 494 }} s0={1} s1={1.1} bright={1.05} />
           <Pill x={100} y={684} size={26} opacity={rhic}>real tracks from one gold collision, at Brookhaven</Pill>
           <Pill x={780} y={200} size={26} color={B.gauge} opacity={rhic}>a different machine: RHIC's STAR detector</Pill>
@@ -267,9 +267,7 @@ export const Hottest: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {/* line 5: the same picture as the cold open's second beat, now with the numbers it has earned */}
       <Pill x={700} y={240} align="center" color={B.aqua} size={34} opacity={ring3}>its magnets: 1.9 K</Pill>
       <Pill x={RING_FRONT.x} y={RING_FRONT.y + 110} align="center" color={B.tease} size={34} opacity={ring3 * ease(frame, tripleAt, 8)}>its collisions: trillions of degrees</Pill>
-      <div style={{ opacity: ease(frame, mostAt, 8) }}>
-        <Caption bottom={500} size={56} color={B.gauge}>most of the thermometer, in one tunnel</Caption>
-      </div>
+      <Card x={410} y={470} big="most of the thermometer" small="in one tunnel" size={58} opacity={ease(frame, mostAt, 8)} />
     </RungShell>
   );
 };

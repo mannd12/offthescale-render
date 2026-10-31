@@ -46,8 +46,8 @@ export const Ring: React.FC<{ frame: number; draw?: number; cold?: number; beams
           : null}
         {flash > 0 ? (
           <g>
-            <circle cx={cx} cy={cy + ry} r={40 + 120 * flash} fill={B.paper} opacity={0.6 * flash} />
-            <circle cx={cx} cy={cy + ry} r={24 + 50 * flash} fill={B.gauge} opacity={flash} />
+            <defs><radialGradient id="l08-flash"><stop offset="0" stopColor="#FFFFFF" stopOpacity="0.95" /><stop offset="0.45" stopColor={B.gauge} stopOpacity="0.5" /><stop offset="1" stopColor={B.tease} stopOpacity="0" /></radialGradient></defs>
+            <circle cx={cx} cy={cy + ry} r={70 + 130 * flash} fill="url(#l08-flash)" />
             {Array.from({ length: 22 }, (_, i) => {
               const a = rnd(i) * Math.PI * 2;
               const r = 70 + rnd(i + 40) * 130 + ((frame * (1 + rnd(i + 90) * 3)) % 50);

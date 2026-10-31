@@ -56,20 +56,20 @@ export const Thermo: React.FC<{
         {/* the level's bright head, breathing so the gauge is never dead */}
         <circle cx={X} cy={y} r={15 + Math.sin(frame / 11) * 2} fill={B.paper} opacity={0.95} />
         {LEVELS.map((l, i) => (i <= passed ? <circle key={l.id} cx={X + W / 2 + 9} cy={gaugeY(l.log)} r={5} fill={B.gauge} /> : null))}
-        {bracket ? <path opacity={bracket.opacity ?? 1} d={`M${X + 40} ${gaugeY(bracket.from)} h14 V${gaugeY(bracket.to)} h-14`} stroke={bracket.color ?? B.gauge} strokeWidth={6} fill="none" strokeLinecap="round" /> : null}
+        {bracket ? <path opacity={bracket.opacity ?? 1} d={`M${X + 20} ${gaugeY(bracket.from)} h12 V${gaugeY(bracket.to)} h-12`} stroke={bracket.color ?? B.gauge} strokeWidth={6} fill="none" strokeLinecap="round" /> : null}
         {/* the break: a log scale cannot reach zero, so the floor sits below a cut */}
         <path d={`M${X - 22} 966 l14 -8 l16 12 l14 -8`} stroke={B.mute} strokeWidth={3} fill="none" />
         <line x1={X - 34} y1={986} x2={X + 34} y2={986} stroke={B.tease} strokeWidth={5} />
         {offTop > 0 ? <path d={`M${X} ${TOP - 4} V${TOP - 4 - 90 * offTop}`} stroke={B.tease} strokeWidth={6} strokeDasharray="5 6" /> : null}
       </svg>
-      <div style={{ position: "absolute", left: 1752, top: 994, width: 152, textAlign: "center", fontFamily: F.ui, fontWeight: 800, fontSize: 15, lineHeight: "18px", letterSpacing: 0.5, color: B.tease }}>ABSOLUTE ZERO</div>
-      <div style={{ position: "absolute", left: 1752, top: 1022, width: 152, textAlign: "center", fontFamily: F.ui, fontWeight: 800, fontSize: 19, lineHeight: "22px", color: B.gauge, whiteSpace: "nowrap" }}>each mark is 10×</div>
-      {space ? <div style={{ position: "absolute", left: 1832, top: gaugeY(T.space) - 12, fontFamily: F.ui, fontWeight: 800, fontSize: 19, color: B.aqua }}>SPACE</div> : null}
-      {you ? <div style={{ position: "absolute", left: 1832, top: gaugeY(T.you) - 12, fontFamily: F.ui, fontWeight: 800, fontSize: 19, color: B.paper }}>YOU</div> : null}
+      <div style={{ position: "absolute", left: 1752, top: 994, width: 152, textAlign: "center", fontFamily: F.ui, fontWeight: 800, fontSize: 17, lineHeight: "20px", color: B.tease, whiteSpace: "nowrap" }}>ABSOLUTE ZERO</div>
+      <div style={{ position: "absolute", right: 12, top: 1020, padding: "2px 10px 4px", borderRadius: 10, background: "rgba(5,14,24,0.9)", fontFamily: F.ui, fontWeight: 800, fontSize: 24, lineHeight: "30px", color: B.gauge, whiteSpace: "nowrap" }}>each mark is 10×</div>
+      {space ? <div style={{ position: "absolute", left: 1834, top: gaugeY(T.space) - 13, fontFamily: F.ui, fontWeight: 800, fontSize: 21, color: B.aqua }}>SPACE</div> : null}
+      {you ? <div style={{ position: "absolute", left: 1834, top: gaugeY(T.you) - 13, fontFamily: F.ui, fontWeight: 800, fontSize: 21, color: B.paper }}>YOU</div> : null}
       {reading.trim() !== "" ? (
         <div style={{ position: "absolute", right: 192, top: pillY, padding: "7px 18px 9px", borderRadius: 14, background: B.gauge, color: B.ink, boxShadow: "0 6px 24px rgba(0,0,0,0.55)", textAlign: "right" }}>
           <div style={{ fontFamily: F.headline, fontSize: 46, lineHeight: 1, whiteSpace: "nowrap" }}>{reading}</div>
-          {sub ? <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 19, marginTop: 3, whiteSpace: "nowrap" }}>{sub}</div> : null}
+          {sub ? <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 22, marginTop: 3, whiteSpace: "nowrap" }}>{sub}</div> : null}
         </div>
       ) : null}
     </div>

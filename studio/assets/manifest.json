@@ -1056,15 +1056,6 @@
       "in": 0,
       "out": 60,
       "episode": "L08"
-    },
-    {
-      "id": "l08-clip-lro",
-      "commons": "LRO Peers into Permanent Shadows.ogv",
-      "licence": "Public domain",
-      "credit": "NASA Goddard, LRO (visualisation)",
-      "in": 0,
-      "out": 60,
-      "episode": "L08"
     }
   ]
 }

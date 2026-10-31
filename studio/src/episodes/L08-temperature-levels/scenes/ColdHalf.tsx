@@ -7,7 +7,7 @@ import { ease } from "../../../lib/ui";
 import { Thermo, gaugeY } from "../gauge";
 import { T } from "../ladder";
 import { RING_FRONT, Ring } from "../ring";
-import { Caption, Card, ChipSpec, Chips, Clip, Pill, Plate, RungShell, Tag, clamp01, cue, lin, mix, rnd } from "./shell";
+import { Caption, Card, ChipSpec, Chips, Pill, Plate, RungShell, Tag, clamp01, cue, lin, mix, rnd } from "./shell";
 
 const ILLU = (source: string): ChipSpec => ({ kind: "ILLUSTRATION", source });
 
@@ -57,8 +57,8 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Tag x={880} y={170} opacity={ringOn * ease(frame, 10, 14)}>SWITZERLAND</Tag>
       <Card x={590} y={470} big="27 km" size={92} opacity={ease(frame, kmAt, 12) * (1 - ease(frame, hotAt - 8, 10))} />
       {/* the real place: the ring marked on a satellite image; an inset because the file is 1026 px */}
-      <Plate id="l08-aster" from={kmAt + 16} to={hotAt} box={{ x: 40, y: 40, w: 300, h: 277 }} s0={1} s1={1.12} bright={1} />
-      <Pill x={40} y={325} size={24} opacity={ease(frame, kmAt + 16, 12) * (1 - ease(frame, hotAt - 12, 10))}>a real satellite view · NASA/METI/AIST</Pill>
+      <Plate id="l08-aster" from={kmAt + 16} to={hotAt} box={{ x: 1330, y: 640, w: 300, h: 277 }} s0={1} s1={1.12} bright={1} />
+      <Pill x={1330} y={925} size={24} opacity={ease(frame, kmAt + 16, 12) * (1 - ease(frame, hotAt - 12, 10))}>a real satellite view · NASA/METI/AIST</Pill>
       <Pill x={700} y={240} align="center" color={B.aqua} size={34} opacity={ease(frame, spaceAt - 6, 10) * (1 - ease(frame, hotAt, 8))}>colder than outer space</Pill>
       <Card x={120} y={40} big="more than 100,000 times" small="hotter than the centre of the Sun" size={72} color={B.tease} ink={B.paper} opacity={ease(frame, timesAt, 10) * (1 - ease(frame, oneAt - 6, 10))} />
       {/* line 2: both ends named on the same drawing, and bracketed on the tube */}
@@ -236,8 +236,8 @@ export const Coldest: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Card x={960} y={420} big="made by letting it fall" size={62} color={B.paper} opacity={ease(frame, fellAt, 10) * (1 - ease(frame, lensAt, 8))} />
           <Card x={960} y={230} big="2 s of free fall" size={72} opacity={ease(frame, lensAt, 10)} />
           <Pill x={960} y={370} color={B.aqua} size={28} opacity={ease(frame, usedAt, 10)}>a kind of lens spreads out their motion</Pill>
-          {compare ? <Pill x={605} y={TY0 - 16} align="center" color={B.tease} size={26}>no lens</Pill> : null}
-          {compare ? <Pill x={815} y={TY0 - 16} align="center" color={B.aqua} size={26} opacity={ease(frame, withAt - 6, 8)}>lens</Pill> : null}
+          {compare ? <Pill x={605} y={TY0 - 74} align="center" color={B.tease} size={26}>no lens</Pill> : null}
+          {compare ? <Pill x={815} y={TY0 - 74} align="center" color={B.aqua} size={26} opacity={ease(frame, withAt - 6, 8)}>lens</Pill> : null}
           <Pill x={960} y={450} color={B.tease} size={28} opacity={ease(frame, noLens + 20, 10)}>no lens: gone after about 1/6 of a second</Pill>
           <Pill x={960} y={520} color={B.aqua} size={28} opacity={ease(frame, withAt, 10)}>lens: seen for the whole fall</Pill>
         </>
@@ -306,6 +306,7 @@ export const ColderThanSpace: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Pill x={120} y={190} size={26}>radio + visible light · colours are false</Pill>
           <Card x={900} y={210} big="Boomerang Nebula" size={60} color={B.paper} opacity={ease(frame, boomAt, 10)} />
           <Pill x={900} y={320} size={32} opacity={ease(frame, lyAt, 10)}>5,000 light-years away</Pill>
+          <Pill x={900} y={390} size={32} color={B.paper} opacity={ease(frame, oneAt, 10)}>about 1 degree above zero</Pill>
           <Pill x={900} y={460} size={32} color={B.aqua} opacity={ease(frame, knownAt, 10)}>coldest known object in nature</Pill>
           <Pill x={900} y={530} size={32} color={B.gauge} opacity={ease(frame, chillAt, 10)}>chilled by its own expanding gas</Pill>
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: ease(frame, chillAt, 10) }}>
@@ -366,11 +367,11 @@ export const Moon: React.FC<{ t: SceneTiming }> = ({ t }) => {
   log = mix(log, T.hermite, ease(frame, minusAt, 20));
   const reading = frame >= minusAt ? "−248 °C" : frame >= avgAt ? "about −232 °C" : "";
   const sub = frame >= minusAt ? "Hermite Crater · reported 2010" : frame >= avgAt ? "Pluto's average" : undefined;
-  const chips: ChipSpec[] = frame >= listAt ? [{ kind: "VISUALISATION", source: "NASA Goddard, LRO · simulated shadows" }] : frame >= hermAt - 10 ? [{ kind: "REAL FOOTAGE", source: "NASA/GSFC/Arizona State University, LRO" }] : [{ kind: "REAL FOOTAGE", source: "NASA/JHU APL/SwRI, New Horizons" }];
+  const chips: ChipSpec[] = frame >= hermAt - 10 ? [{ kind: "REAL FOOTAGE", source: "NASA/GSFC/Arizona State University, LRO" }] : [{ kind: "REAL FOOTAGE", source: "NASA/JHU APL/SwRI, New Horizons" }];
 
-  // Hermite's name is burned into this mosaic at (43 %, 25 %) of the frame; the camera's origin sits there, so the ring stays on it.
-  const pinX = 826;
-  const pinY = 274;
+  // Hermite's dark floor is at (50 %, 25 %) of the frame, name burned in; the camera's origin sits there, so the ring stays on it.
+  const pinX = 960;
+  const pinY = 270;
   return (
     <RungShell t={t} index={2} log={log} reading={reading} sub={sub} chips={chips}>
       <Plate id="l08-pluto" from={0} to={hermAt} s0={1.02} s1={1.3} o0={[40, 55]} o1={[52, 45]} bright={0.9} />
@@ -378,22 +379,22 @@ export const Moon: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Pill x={60} y={200} size={28} opacity={ease(frame, plutoAt, 8) * (1 - ease(frame, nasaAt, 8))}>most people would say Pluto · New Horizons, 2015</Pill>
       <Card x={60} y={760} big="−232 °C" small="on average" size={90} color={B.aqua} opacity={ease(frame, avgAt, 10) * (1 - ease(frame, hermAt - 10, 8))} />
       <Pill x={60} y={200} size={30} color={B.gauge} opacity={ease(frame, nasaAt + 6, 8) * (1 - ease(frame, hermAt - 6, 8))}>2010: NASA reports something colder, much closer</Pill>
-      <Plate id="l08-hermite" from={hermAt - 10} to={listAt + 6} s0={1} s1={1.25} o0={[43, 25]} bright={0.95} />
+      <Plate id="l08-hermite" from={hermAt - 10} to={listAt + 6} s0={1} s1={1.25} o0={[50, 25]} bright={0.95} />
       {frame >= hermAt && frame < listAt + 6 ? (
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: 1 - ease(frame, listAt, 8) }}>
-          <circle cx={pinX} cy={pinY} r={84 + 8 * Math.sin(frame / 7)} stroke={B.aqua} strokeWidth={7} fill="none" />
+          <circle cx={pinX} cy={pinY} r={120 + 8 * Math.sin(frame / 7)} stroke={B.aqua} strokeWidth={7} fill="none" />
         </svg>
       ) : null}
       <Pill x={60} y={200} size={28} opacity={ease(frame, hermAt, 8) * (1 - ease(frame, listAt, 8))}>Hermite Crater, near the Moon's north pole</Pill>
       <Card x={60} y={740} big="−248 °C" small="a spot in Hermite Crater" size={100} color={B.aqua} opacity={ease(frame, minusAt, 10) * (1 - ease(frame, listAt, 8))} />
       <Pill x={520} y={800} size={28} color={B.gauge} opacity={ease(frame, coldestAt, 8) * (1 - ease(frame, listAt, 8))}>coldest NASA said it had measured, at the time</Pill>
-      {/* the same kind of shadow, in simulation; it says it is not Hermite */}
+      {/* the two side by side, the real pictures: the place people guess and the reading's owner */}
       {frame >= listAt ? (
         <>
-          <Clip id="l08-clip-lro" seconds={60} from={listAt} to={t.frames + 30} start={1100} bright={1.15} box={{ x: 420, y: 180, w: 900, h: 506 }} />
+          <Plate id="l08-hermite" from={listAt} to={t.frames + 30} box={{ x: 440, y: 180, w: 900, h: 560 }} s0={1.3} s1={1.75} o0={[50, 25]} bright={0.95} />
           <Plate id="l08-pluto" from={listAt} to={t.frames + 30} box={{ x: 80, y: 300, w: 300, h: 300 }} s0={1} s1={1} bright={0.9} />
           <Pill x={80} y={612} size={28} opacity={ease(frame, listAt, 8)}>Pluto: −232 °C</Pill>
-          <Pill x={420} y={696} size={25} opacity={ease(frame, listAt, 10)}>simulated shadows near the south pole: same kind, not Hermite</Pill>
+          <Pill x={440} y={752} size={28} color={B.aqua} opacity={ease(frame, listAt, 10)}>Hermite Crater: −248 °C</Pill>
         </>
       ) : null}
       <div style={{ opacity: ease(frame, onMoon, 8) }}>
@@ -448,7 +449,7 @@ export const EarthColdest: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <circle cx={pinX} cy={pinY} r={18 + ((frame % 40) / 40) * 50} fill="none" stroke={B.tease} strokeWidth={4} opacity={1 - (frame % 40) / 40} />
         </svg>
       ) : null}
-      {frame >= vostokAt ? <Pill x={pinX - 30} y={pinY + 30} size={30} opacity={map}>Vostok Station</Pill> : null}
+      {frame >= vostokAt ? <Pill x={pinX - 30} y={pinY + 30} size={30} opacity={map}>Vostok Station · marked roughly</Pill> : null}
       <Card x={60} y={740} big="−89.2 °C" small={frame >= julyAt ? "official air record · July 1983" : "official air record"} size={90} color={B.aqua} opacity={ease(frame, airAt, 10) * map} />
       <Plate id="l08-vostok" ext="png" from={julyAt} to={satAt} box={{ x: 60, y: 190, w: 500, h: 282 }} s0={1} s1={1.08} bright={1} />
       <Pill x={60} y={480} size={24} opacity={ease(frame, julyAt, 10) * (1 - ease(frame, satAt, 8))}>real: Vostok's new building, 2024 · AARI, CC BY 4.0</Pill>
@@ -471,7 +472,7 @@ export const EarthColdest: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Pill x={360} y={ty - 250} align="center" color={B.aqua} size={32} opacity={(1 - map) * (1 - ease(frame, climbAt - 4, 8))}>the air: −89.2 °C</Pill>
           <Pill x={1160} y={400} color={B.gauge} size={32} opacity={(1 - map) * (1 - ease(frame, climbAt - 4, 8))}>a satellite: −93.2 °C</Pill>
           <div style={{ opacity: ease(frame, whichAt + 10, 8) * (1 - ease(frame, climbAt - 4, 8)) }}>
-            <Caption bottom={290} size={60} color={B.paper}>depends what you are measuring</Caption>
+            <Caption bottom={130} size={60} color={B.paper}>depends what you are measuring</Caption>
           </div>
         </>
       ) : null}
