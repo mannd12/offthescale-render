@@ -14,6 +14,8 @@ import { ThumbL03, ThumbL03B, ThumbL03C } from "./episodes/L03-speed-levels/Thum
 import { EpisodeL04, timeline as l04 } from "./episodes/L04-internet-levels/Episode";
 import { ThumbL04, ThumbL04B, ThumbL04C } from "./episodes/L04-internet-levels/Thumbs";
 import { ClipCheckL05 } from "./episodes/L05-sky-levels/ClipCheck";
+import { EpisodeL06, timeline as l06 } from "./episodes/L06-earthquake-levels/Episode";
+import { ThumbL06 } from "./episodes/L06-earthquake-levels/Thumbs";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
 import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
@@ -51,6 +53,9 @@ export const Root: React.FC = () => (
     {/* L04 - Every Level of the Internet (tech test; script draft 1.1, estimated timings) */}
     <Composition id="l04" component={EpisodeL04} durationInFrames={l04.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
 
+    {/* L06 - Every Earthquake Magnitude Explained (script draft 1, estimated timings) */}
+    <Composition id="l06" component={EpisodeL06} durationInFrames={l06.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+
     {/* S01 - the first Short (cliffhanger for L01), vertical, under 60 s */}
     <Composition id="s01-short" component={ShortS01} durationInFrames={s01.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s02-short" component={ShortS02} durationInFrames={s02.totalFrames} fps={FPS} width={1080} height={1920} />
@@ -76,6 +81,7 @@ export const Root: React.FC = () => (
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 
     <Still id="l05-clipcheck" component={ClipCheckL05} width={1920} height={1080} />
+    <Still id="l06-thumb" component={ThumbL06} width={1280} height={720} />
     <Still id="l01-thumb" component={ThumbL01} width={1280} height={720} />
     <Still id="l01-thumb-c" component={ThumbL01C} width={1280} height={720} />
     <Still id="l02-thumb" component={ThumbL02} width={1280} height={720} />

@@ -470,7 +470,25 @@
       "licence": "Public domain",
       "credit": "NASA / NRL, Apollo 16, S72-40818",
       "episode": "L05"
-    }
+    },
+    {"id": "l06-milne", "commons": "Seismograph (AM 609045-12).jpg", "licence": "CC BY 4.0", "credit": "Auckland Museum, CC BY 4.0", "episode": "L06"},
+    {"id": "l06-jet", "commons": "Jet Geyser eruption (40986807364).jpg", "licence": "Public domain", "credit": "Yellowstone National Park (NPS)", "episode": "L06"},
+    {"id": "l06-norris", "commons": "Norris Geyser Basin (11071735666).jpg", "licence": "Public domain", "credit": "Yellowstone National Park (NPS)", "episode": "L06"},
+    {"id": "l06-msh", "commons": "MSH80 eruption mount st helens 05-18-80.jpg", "licence": "Public domain", "credit": "USGS, Austin Post, 1980", "episode": "L06"},
+    {"id": "l06-wm-crack", "commons": "Washington Monument 2011 earthquake damage 5.jpg", "licence": "Public domain", "credit": "National Park Service, 2011", "episode": "L06"},
+    {"id": "l06-northridge", "commons": "Interstate bridge collapse, 1994 Northridge Earthquake.jpg", "licence": "Public domain", "credit": "FEMA, Robert A. Eplett, 1994", "episode": "L06"},
+    {"id": "l06-loma", "commons": "LomaPrieta-Marina.jpeg", "licence": "Public domain", "credit": "USGS, J.K. Nakata, 1989", "episode": "L06"},
+    {"id": "l06-napa", "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/surface-fault.jpg", "licence": "Public domain", "credit": "USGS Earthquake Hazards Program, 2014 (450 px: inset only)", "episode": "L06"},
+    {"id": "l06-hwy287", "commons": "State Highway 287 slumped into Hebgen Lake.jpg", "licence": "Public domain", "credit": "USGS, I.J. Witkind, 1959", "episode": "L06"},
+    {"id": "l06-scarp", "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/img7535.jpg", "licence": "Public domain", "credit": "USGS, J.R. Stacy, 1959 (1000 px: inset only)", "episode": "L06"},
+    {"id": "l06-quakelake", "commons": "Quake Lake d 19970627.jpg", "licence": "CC0", "credit": "Jstuby, 1997, CC0", "episode": "L06"},
+    {"id": "l06-riverside", "commons": "Riverside Geyser eruption (38396853531).jpg", "licence": "Public domain", "credit": "Yellowstone National Park (NPS)", "episode": "L06"},
+    {"id": "l06-pipeline", "commons": "Trans Alaska Pipeline Denali fault shift.jpg", "licence": "Public domain", "credit": "USGS, 2002", "episode": "L06"},
+    {"id": "l06-concepcion", "commons": "Destruction in Downtown Concepcion, Chile (4478649113).jpg", "licence": "Public domain", "credit": "USGS, 2010", "episode": "L06"},
+    {"id": "l06-rail", "commons": "Alaska Railroad tracks damaged in the 1964 earthquake.jpg", "licence": "Public domain", "credit": "USGS Photographic Library, 1964", "episode": "L06"},
+    {"id": "l06-lstreet", "commons": "1964 Alaska Quake L Street Slide.jpg", "licence": "Public domain", "credit": "USGS, A. Grantz, 1964", "episode": "L06"},
+    {"id": "l06-hilo", "commons": "Hilo after Tsunami 1960.jpg", "licence": "Public domain", "credit": "US Navy via NOAA NGDC, 1960 (838 px: inset only)", "episode": "L06"},
+    {"id": "l06-shakemap", "commons": "1960 Valdivia earthquake.jpg", "licence": "Public domain", "credit": "USGS ShakeMap (model, 822 px: inset only)", "episode": "L06"}
   ],
   "videos": [
     {
