@@ -757,6 +757,188 @@
       "licence": "Public domain",
       "credit": "NASA / Kayla Barron, 2022",
       "episode": "L07"
+    },
+    {
+      "id": "l08-bec",
+      "commons": "Quantum Physics; Bose Einstein condensate (5940505475).jpg",
+      "licence": "Public domain",
+      "credit": "NIST/JILA, the first condensate, 1995 (false colour)",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-dipole",
+      "commons": "An lhc dipole magnet in belgrade.jpg",
+      "licence": "CC BY 3.0",
+      "credit": "MaGIc2laNTern, CC BY 3.0, Wikimedia Commons",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-dipole-close",
+      "commons": "Closer look at an lhc dipole magnet in belgrade.jpg",
+      "licence": "CC BY 3.0",
+      "credit": "MaGIc2laNTern, CC BY 3.0, Wikimedia Commons",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-magnet-types",
+      "commons": "LHC magnet types.jpg",
+      "licence": "CC0",
+      "credit": "Ajheindel, CC0, Wikimedia Commons",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-aster",
+      "commons": "CERN Collider, France-Switzerland (ASTER).jpg",
+      "licence": "Public domain",
+      "credit": "NASA/METI/AIST/Japan Space Systems, U.S./Japan ASTER Science Team (1026 px: inset)",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-cmb",
+      "commons": "Cosmic Microwave Background (CMB).jpeg",
+      "licence": "CC BY 4.0",
+      "credit": "ESA and the Planck Collaboration, CC BY 4.0",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-boomerang-alma",
+      "commons": "True shape of the Boomerang.jpg",
+      "licence": "CC BY 4.0",
+      "credit": "ALMA (ESO/NAOJ/NRAO)/R. Sahai, CC BY 4.0",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-boomerang-hst",
+      "commons": "Boomerang nebula.jpg",
+      "licence": "Public domain",
+      "credit": "ESA/NASA, Hubble, 2003",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-hermite",
+      "commons": "Hermite - LROC - WAC.JPG",
+      "licence": "Public domain",
+      "credit": "NASA/GSFC/Arizona State University, LRO",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-pluto",
+      "commons": "Pluto in True Color - High-Res.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/JHU APL/SwRI/Alex Parker, New Horizons, 2015",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-antarctica",
+      "commons": "Antarctica 6400px from Blue Marble.jpg",
+      "licence": "Public domain",
+      "credit": "NASA Blue Marble data, projection Dave Pape",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-vostok",
+      "commons": "2017-02-19 13-13-24 water provisioning at vostok base IMG 3096.jpg",
+      "licence": "CC BY 4.0",
+      "credit": "Akulovz, CC BY 4.0, Wikimedia Commons",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-venus-uv",
+      "commons": "Venus as captured by Mariner 10.jpg",
+      "licence": "Public domain",
+      "credit": "NASA, Mariner 10, 1974 (ultraviolet, colour added)",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-venus-globe",
+      "commons": "Venus globe.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/JPL, Magellan radar on a computer-simulated globe",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-mercury",
+      "commons": "Mercury in true color.jpg",
+      "licence": "Public domain",
+      "credit": "NASA/JHU APL/ASU/CIW, MESSENGER (1040 px: inset)",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-fountain",
+      "commons": "Pahoeoe fountain original.jpg",
+      "licence": "Public domain",
+      "credit": "J. D. Griggs, USGS, 1983",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-sun-white",
+      "commons": "Sun white.jpg",
+      "licence": "CC BY 4.0",
+      "credit": "Geoff Elston, CC BY 4.0, Wikimedia Commons",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-lightning-a",
+      "commons": "Nssl0334 - Flickr - NOAA Photo Library.jpg",
+      "licence": "Public domain",
+      "credit": "Sean Waugh, NOAA/NSSL, VORTEX II",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-lightning-b",
+      "commons": "Nssl0215 - Flickr - NOAA Photo Library.jpg",
+      "licence": "Public domain",
+      "credit": "Sean Waugh, NOAA/NSSL, 2009",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-nstx",
+      "commons": "U.S. Department of Energy - Science - 114 011 003 (21633624185).jpg",
+      "licence": "Public domain",
+      "credit": "US DOE, NSTX-U at Princeton",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-cmod",
+      "commons": "Alcator C-Mod assembly 1.jpg",
+      "licence": "CC BY 3.0",
+      "credit": "MIT Plasma Science and Fusion Center, CC BY 3.0",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-gold",
+      "commons": "View of gold ions collision.jpg",
+      "licence": "CC BY 2.0",
+      "credit": "Brookhaven National Laboratory, CC BY 2.0 (1226 px: inset)",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-star",
+      "commons": "U.S. Department of Energy - Science - 390 022 003 (14732364457).jpg",
+      "licence": "Public domain",
+      "credit": "US DOE, STAR detector at RHIC",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-rhic",
+      "commons": "U.S. Department of Energy - Science - 391 005 007 (9628561083).jpg",
+      "licence": "Public domain",
+      "credit": "US DOE, RHIC",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-eclipse",
+      "nasa": "AFRC2017-0233-009",
+      "licence": "Public domain",
+      "credit": "NASA/Carla Thomas, 2017",
+      "episode": "L08"
+    },
+    {
+      "id": "l08-eclipse-art",
+      "nasa": "art002e010782",
+      "licence": "Public domain",
+      "credit": "NASA, Artemis II",
+      "episode": "L08"
     }
   ],
   "videos": [
@@ -849,8 +1031,8 @@
       "commons": "Time-lapse images of Mount St. Helens dome growth 2004-2008.webm",
       "licence": "Public domain",
       "credit": "USGS, 2004-2008 (1280x720: large panel)",
-      "in": 0,
-      "out": 60,
+      "in": 3,
+      "out": 44,
       "episode": "L07"
     },
     {
@@ -881,13 +1063,49 @@
       "episode": "L07"
     },
     {
-      "id": "l07-clip-tonga",
-      "commons": "Gravity waves from Hunga Tonga Eruption (SVS31277 - three geo sats 1080p15).webm",
+      "id": "l08-clip-fountains",
+      "url": "https://usgs-ocapsv2-public-output-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/video/multimediaFile-3342/MP4/multimediaFile-3342.mp4",
       "licence": "Public domain",
-      "credit": "NASA Scientific Visualization Studio, 2022",
+      "credit": "USGS Hawaiian Volcano Observatory, 5 Oct 2021",
+      "in": 0,
+      "out": 30,
+      "episode": "L08"
+    },
+    {
+      "id": "l08-clip-lake",
+      "url": "https://usgs-ocapsv2-public-output-media.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/video/multimediaFile-3775/MP4/multimediaFile-3775.mp4",
+      "licence": "Public domain",
+      "credit": "Matt Patrick, USGS HVO, 20 Jan 2023 (time-lapse)",
+      "in": 5,
+      "out": 45,
+      "episode": "L08"
+    },
+    {
+      "id": "l08-clip-wispr",
+      "commons": "14865 WISPRWithSun ProRes422.webm",
+      "licence": "Public domain",
+      "credit": "NASA/Johns Hopkins APL/Naval Research Lab, Parker Solar Probe WISPR, Dec 2024",
       "in": 0,
       "out": 20,
-      "episode": "L07"
+      "episode": "L08"
+    },
+    {
+      "id": "l08-clip-iss",
+      "commons": "Earth Illuminated- ISS Time-lapse Photography.webm",
+      "licence": "Public domain",
+      "credit": "NASA Johnson, 2012",
+      "in": 0,
+      "out": 60,
+      "episode": "L08"
+    },
+    {
+      "id": "l08-clip-lro",
+      "commons": "LRO Peers into Permanent Shadows.ogv",
+      "licence": "Public domain",
+      "credit": "NASA Goddard, LRO (visualisation)",
+      "in": 0,
+      "out": 60,
+      "episode": "L08"
     }
   ]
 }
