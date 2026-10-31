@@ -164,8 +164,8 @@ export const M95: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {/* tsunami: a damage picture that says plainly it is not Chile. Cropped low: the people higher in the photo stay out of frame */}
       {hilo ? (
         <>
-          <Inset id="l06-hilo" x={1000} y={170} w={780} h={560} pos="50% 100%" s0={1} s1={1.08} a={tsu} b={L2} origin="40% 90%" opacity={ease(f, tsu, 10)} />
-          <PillTag x={1000} y={748} size={30}>not Chile: Hilo, Hawaii, 1960, hit by this tsunami</PillTag>
+          <Inset id="l06-hilo" x={1000} y={250} w={780} h={400} pos="50% 100%" s0={1} s1={1.06} a={tsu} b={L2} origin="40% 100%" opacity={ease(f, tsu, 10)} />
+          <PillTag x={1000} y={668} size={30}>not Chile: Hilo, Hawaii, 1960, hit by this tsunami</PillTag>
           <Big x={340} y={250} big="EVERY OCEAN" small="its tsunami crossed them all" size={66} opacity={ease(f, tsu, 10)} />
         </>
       ) : null}

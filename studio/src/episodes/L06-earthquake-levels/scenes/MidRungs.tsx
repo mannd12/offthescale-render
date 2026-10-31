@@ -53,7 +53,7 @@ export const M5: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {f >= quake && f < magma ? <Big x={340} y={190} big="8:32 A.M." small="18 May 1980 · M5.1" opacity={ease(f, quake, 10)} /> : null}
       {/* lines 1-2: inside the mountain */}
       {cross > 0 ? <Volcano swell={lin(f, magma, L2)} slide={slide} opacity={cross} /> : null}
-      {cross > 0 ? <Big x={340} y={170} big={f < L2 ? "TWO MONTHS OF MAGMA" : `ABOUT ${counter} SECONDS`} small={f < L2 ? "swelling the north side" : "after the quake, the side slides"} size={72} opacity={cross} /> : null}
+      {cross > 0 ? <Big x={340} y={170} big={f < L2 ? "TWO MONTHS OF MAGMA" : counter < 10 ? `${counter} SECONDS` : "ABOUT 10 SECONDS"} small={f < L2 ? "swelling the north side" : "after the quake, the side slides"} size={72} opacity={cross} /> : null}
       {f >= power && f < L3 ? <Caption bottom={140} size={72} color={B.paper}>The earthquake didn't have the power</Caption> : null}
       {f >= L3 && f < L4 ? <Caption bottom={140} size={80}>It just pulled the trigger</Caption> : null}
       {/* lines 4-5: Virginia, rings spreading along a schematic coast from Florida to Canada */}
