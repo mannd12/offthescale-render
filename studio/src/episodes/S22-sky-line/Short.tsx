@@ -89,7 +89,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <div style={{ fontFamily: F.caption, fontWeight: 600, fontSize: 50, lineHeight: 1.08 }}>"the very round number of 100 Km"</div>
         <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 22, letterSpacing: 1, marginTop: 8 }}>FAI'S OWN ACCOUNT · LAST UPDATED 2004</div>
       </div>
-      <Note x={R.x + R.w + 24} y={Y100 - 58} rows={["100 km"]} opacity={ease(frame, paperAt, 8) * (1 - end)} color={B.gauge} size={30} />
+      <Note x={R.x + R.w + 24} y={Y100 - 58} rows={["100 km"]} opacity={ease(frame, paperAt, 8) * (1 - ease(frame, whichAt, 6))} color={B.gauge} size={30} />
 
       {/* below the 80 line */}
       <Card x={R.x + R.w + 60} y={Y80 + 18} big={["80 KM"]} small={["McDowell, 2018"]} size={80} opacity={span(frame, closeAt, usAt)} bg={B.tease} ink={B.paper} />
