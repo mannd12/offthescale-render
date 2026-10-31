@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Same mountain. One eruption rated a two, the other rated a five.",
+    "file": "S32-volcano-twoscores/vo/cold-00.wav",
+    "seconds": 4.25,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "This is Mount St. Helens, from 2004 to 2008.",
+    "file": "S32-volcano-twoscores/vo/cold-01.wav",
+    "seconds": 3.3,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "For more than three years, lava kept squeezing up and building a new dome in the crater.",
+    "file": "S32-volcano-twoscores/vo/cold-02.wav",
+    "seconds": 5.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "By July 2007, that dome was ninety-three million cubic metres. On the official scale, the eruption rates a two.",
+    "file": "S32-volcano-twoscores/vo/cold-03.wav",
+    "seconds": 6.56,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Now the same mountain, on the eighteenth of May, 1980. This is real film, shot from a plane.",
+    "file": "S32-volcano-twoscores/vo/cold-04.wav",
+    "seconds": 6.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "About one cubic kilometre of ash, over nine hours. That rates a five.",
+    "file": "S32-volcano-twoscores/vo/cold-05.wav",
+    "seconds": 4.57,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Three years, a two. Nine hours, a five. So what made the difference? That's level two, and the full video is linked right here.",
+    "file": "S32-volcano-twoscores/vo/cold-06.wav",
+    "seconds": 8.6,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

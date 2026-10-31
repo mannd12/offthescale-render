@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "This eruption scored a zero.",
+    "file": "S31-volcano-quiet/vo/cold-00.wav",
+    "seconds": 1.76,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "This is Mauna Loa in 2022, the largest active volcano in the world.",
+    "file": "S31-volcano-quiet/vo/cold-01.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "At one fissure, the lava fountains stood twenty to twenty-five metres high.",
+    "file": "S31-volcano-quiet/vo/cold-02.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "In about two weeks, it put out around a hundred and forty-five million cubic metres of lava and ash.",
+    "file": "S31-volcano-quiet/vo/cold-03.wav",
+    "seconds": 6.28,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "On the official scale of volcanic eruptions, all of that rates a zero.",
+    "file": "S31-volcano-quiet/vo/cold-04.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Now Redoubt, in Alaska, in 2009. About twenty million cubic metres, by a different measure. It rated a three.",
+    "file": "S31-volcano-quiet/vo/cold-05.wav",
+    "seconds": 6.84,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what is this scale actually measuring? The full video opens on it, and it's linked right here.",
+    "file": "S31-volcano-quiet/vo/cold-06.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

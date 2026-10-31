@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "The biggest eruption of the twentieth century was blamed on the wrong mountain.",
+    "file": "S33-volcano-wrongmountain/vo/cold-00.wav",
+    "seconds": 4.29,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Alaska, 1912. The column rose more than thirty kilometres, and the eruption ran for about sixty hours.",
+    "file": "S33-volcano-wrongmountain/vo/cold-01.wav",
+    "seconds": 5.93,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "About thirteen to fifteen cubic kilometres of magma came out.",
+    "file": "S33-volcano-wrongmountain/vo/cold-02.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Nearby, the summit of Mount Katmai had collapsed. So Katmai was named as the vent.",
+    "file": "S33-volcano-wrongmountain/vo/cold-03.wav",
+    "seconds": 5.2,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "It stayed that way for about forty years, until the nineteen fifties.",
+    "file": "S33-volcano-wrongmountain/vo/cold-04.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "But the magma never came out of Katmai.",
+    "file": "S33-volcano-wrongmountain/vo/cold-05.wav",
+    "seconds": 2.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So where did it really come from? The full video has it, and it's linked right here.",
+    "file": "S33-volcano-wrongmountain/vo/cold-06.wav",
+    "seconds": 5.83,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

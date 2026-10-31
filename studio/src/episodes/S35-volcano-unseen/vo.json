@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Nobody has ever seen the top of this scale.",
+    "file": "S35-volcano-unseen/vo/cold-00.wav",
+    "seconds": 3.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Level eight: more than a thousand cubic kilometres of ash. No one has ever observed one.",
+    "file": "S35-volcano-unseen/vo/cold-01.wav",
+    "seconds": 5.51,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Yellowstone has done it, two point one million years ago, and again six hundred and thirty-one thousand years ago.",
+    "file": "S35-volcano-unseen/vo/cold-02.wav",
+    "seconds": 6.38,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "And even for the eruptions we do watch, no instrument gives the score.",
+    "file": "S35-volcano-unseen/vo/cold-03.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Eruption size can't be determined by instruments. It comes from measurements, observations, and then a judgement.",
+    "file": "S35-volcano-unseen/vo/cold-04.wav",
+    "seconds": 5.61,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So if nobody saw it, and no instrument can score it, how do we know how big it was? That's level eight, and the full video is linked right here.",
+    "file": "S35-volcano-unseen/vo/cold-05.wav",
+    "seconds": 10.13,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

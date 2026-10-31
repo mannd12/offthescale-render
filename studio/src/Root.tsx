@@ -55,6 +55,11 @@ import { ShortS27, timeline as s27 } from "./episodes/S27-quake-pipeline/Short";
 import { ShortS28, timeline as s28 } from "./episodes/S28-quake-helens/Short";
 import { ShortS29, timeline as s29 } from "./episodes/S29-quake-alaska/Short";
 import { ShortS30, timeline as s30 } from "./episodes/S30-quake-negative/Short";
+import { ShortS31, timeline as s31 } from "./episodes/S31-volcano-quiet/Short";
+import { ShortS32, timeline as s32 } from "./episodes/S32-volcano-twoscores/Short";
+import { ShortS33, timeline as s33 } from "./episodes/S33-volcano-wrongmountain/Short";
+import { ShortS34, timeline as s34 } from "./episodes/S34-volcano-modest/Short";
+import { ShortS35, timeline as s35 } from "./episodes/S35-volcano-unseen/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 
 export const Root: React.FC = () => (
@@ -121,6 +126,11 @@ export const Root: React.FC = () => (
     <Composition id="s28-short" component={ShortS28} durationInFrames={s28.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s29-short" component={ShortS29} durationInFrames={s29.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s30-short" component={ShortS30} durationInFrames={s30.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s31-short" component={ShortS31} durationInFrames={s31.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s32-short" component={ShortS32} durationInFrames={s32.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s33-short" component={ShortS33} durationInFrames={s33.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s34-short" component={ShortS34} durationInFrames={s34.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s35-short" component={ShortS35} durationInFrames={s35.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 

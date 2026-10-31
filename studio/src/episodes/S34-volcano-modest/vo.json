@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Scientists call this eruption modest. It closed more than three hundred airports.",
+    "file": "S34-volcano-modest/vo/cold-00.wav",
+    "seconds": 4.15,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "This is Eyjafjallajökull, in Iceland, in 2010.",
+    "file": "S34-volcano-modest/vo/cold-01.wav",
+    "seconds": 2.59,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "In one week that April, airports across Europe closed, in about two dozen countries.",
+    "file": "S34-volcano-modest/vo/cold-02.wav",
+    "seconds": 4.8,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "More than a hundred thousand flights were cancelled, and seven million passengers were affected.",
+    "file": "S34-volcano-modest/vo/cold-03.wav",
+    "seconds": 4.7,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Its plumes were three to ten kilometres high, with about a quarter of a cubic kilometre of airborne ash.",
+    "file": "S34-volcano-modest/vo/cold-04.wav",
+    "seconds": 6.28,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "On the official scale, that's a level four.",
+    "file": "S34-volcano-modest/vo/cold-05.wav",
+    "seconds": 2.81,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So how many levels are above this one? That's in the full video, and it's linked right here.",
+    "file": "S34-volcano-modest/vo/cold-06.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
