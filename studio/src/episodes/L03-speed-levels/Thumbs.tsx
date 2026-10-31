@@ -60,13 +60,11 @@ export const ThumbL03: React.FC = () => {
 export const ThumbL03C: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: B.ink }}>
     <Img src={staticFile("assets/sr71-takeoff.jpg")} style={{ position: "absolute", inset: 0, width: 1280, height: 720, objectFit: "cover", objectPosition: "60% 50%" }} />
-    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,27,43,0.92) 0%, rgba(11,27,43,0.7) 38%, rgba(11,27,43,0) 68%)" }} />
-    <div style={{ position: "absolute", left: 56, top: 70, fontFamily: F.headline, fontSize: 176, lineHeight: 0.98, color: B.paper, whiteSpace: "nowrap" }}>
-      ONLY
-      <br />
-      <span style={{ color: B.gauge }}>LEVEL 6</span>
+    {/* the words stay in the sky band: the aircraft starts at y ~ 300 and must not sit behind them */}
+    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(11,27,43,0.88) 0%, rgba(11,27,43,0.6) 34%, rgba(11,27,43,0) 50%)" }} />
+    <div style={{ position: "absolute", left: 50, top: 22, fontFamily: F.headline, fontSize: 196, lineHeight: 1.1, color: B.paper, whiteSpace: "nowrap" }}>
+      ONLY <span style={{ color: B.gauge }}>LEVEL 6</span> <span style={{ fontSize: 96 }}>OF 12</span>
     </div>
-    <div style={{ position: "absolute", left: 60, top: 436, fontFamily: F.headline, fontSize: 104, lineHeight: 1, color: B.paper, whiteSpace: "nowrap" }}>OF 12</div>
   </AbsoluteFill>
 );
 
