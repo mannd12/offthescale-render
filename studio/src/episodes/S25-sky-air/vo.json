@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Stop boosting the Space Station, and it comes back down. In about one to two years.",
+    "file": "S25-sky-air/vo/cold-00.wav",
+    "seconds": 5.95,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "What's pulling it down? Air.",
+    "file": "S25-sky-air/vo/cold-01.wav",
+    "seconds": 2.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Four hundred and fifteen kilometres up, there's still enough atmosphere to drag on it.",
+    "file": "S25-sky-air/vo/cold-02.wav",
+    "seconds": 5.08,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "That's more than three hundred kilometres past the famous edge of space, at one hundred.",
+    "file": "S25-sky-air/vo/cold-03.wav",
+    "seconds": 5.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "The northern lights form up here too, as high as five hundred kilometres.",
+    "file": "S25-sky-air/vo/cold-04.wav",
+    "seconds": 4.74,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So a hundred kilometres isn't where the air runs out.",
+    "file": "S25-sky-air/vo/cold-05.wav",
+    "seconds": 3.61,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "If there's still air at four hundred and fifteen kilometres, where does the sky actually stop? That's the end of the full video, linked right here.",
+    "file": "S25-sky-air/vo/cold-06.wav",
+    "seconds": 9.47,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

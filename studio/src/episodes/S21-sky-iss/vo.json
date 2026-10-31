@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Four hundred and fifteen kilometres up. That's where the International Space Station flies.",
+    "file": "S21-sky-iss/vo/cold-00.wav",
+    "seconds": 4.82,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "It sounds like the far edge of everything.",
+    "file": "S21-sky-iss/vo/cold-01.wav",
+    "seconds": 2.92,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Now shrink the Earth down to a desk globe, thirty centimetres across.",
+    "file": "S21-sky-iss/vo/cold-02.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "On that globe, the station is about one centimetre off the surface.",
+    "file": "S21-sky-iss/vo/cold-03.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "And gravity up there hasn't gone anywhere. It's still about ninety percent as strong as on the ground.",
+    "file": "S21-sky-iss/vo/cold-04.wav",
+    "seconds": 6.53,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So why does everyone on board float? That's level eight, and the full video is linked right here.",
+    "file": "S21-sky-iss/vo/cold-05.wav",
+    "seconds": 6.63,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

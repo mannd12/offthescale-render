@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "The clocks on GPS satellites run fast.",
+    "file": "S24-sky-gps/vo/cold-00.wav",
+    "seconds": 2.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Just over thirty-eight millionths of a second, every single day.",
+    "file": "S24-sky-gps/vo/cold-01.wav",
+    "seconds": 3.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "That sounds like nothing.",
+    "file": "S24-sky-gps/vo/cold-02.wav",
+    "seconds": 1.55,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "But left uncorrected, the timing error alone would equal kilometres of distance, in a single day.",
+    "file": "S24-sky-gps/vo/cold-03.wav",
+    "seconds": 5.87,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "So the clocks on older satellites were set down before launch, to cancel it out.",
+    "file": "S24-sky-gps/vo/cold-04.wav",
+    "seconds": 5.42,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "But why would a clock in orbit run fast at all? And how high up are they? That's level nine, and the full video is linked right here.",
+    "file": "S24-sky-gps/vo/cold-05.wav",
+    "seconds": 10.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
