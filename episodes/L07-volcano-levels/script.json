@@ -99,10 +99,13 @@
           "pause": 0.55
         },
         {
-          "text": "Ash fell over more than eighty thousand square kilometres. And the total was about twenty million cubic metres of rock, by the geologists' measure."
+          "text": "It's a good example of how an eruption gets scored, because every number here comes from people measuring what fell, after the fact. Ash fell over more than eighty thousand square kilometres."
         },
         {
-          "text": "Look back at Mauna Loa: roughly seven times that came out, and it scored a zero. Two different measures, but the point holds. This scale is about violence, not size.",
+          "text": "And the total was about twenty million cubic metres of rock, by the geologists' measure. Look back at Mauna Loa: roughly seven times that came out, and it scored a zero. Two different measures, but the point holds."
+        },
+        {
+          "text": "This scale is about violence, not size.",
           "pause": 0.55
         }
       ]
@@ -123,7 +126,7 @@
           "pause": 0.55
         },
         {
-          "text": "That was a modest eruption, at level four. There are four more levels above it.",
+          "text": "Eruptions this size come only every few decades. And Mexico's Parícutin shows how much judgement goes in here, as you'll see at the end. That was a modest eruption, at level four. There are four more levels above it.",
           "pause": 0.55
         }
       ]
@@ -148,7 +151,10 @@
           "pause": 0.55
         },
         {
-          "text": "The ash lasted nine hours and went around the world in fifteen days. In Spokane, four hundred kilometres away, it brought complete darkness.",
+          "text": "The ash lasted nine hours and went around the world in fifteen days. In Spokane, four hundred kilometres away, it brought complete darkness."
+        },
+        {
+          "text": "Around the mountain, the blast left about six hundred square kilometres of devastated land.",
           "pause": 0.55
         },
         {
@@ -179,7 +185,13 @@
           "text": "And it wasn't the largest eruption of the twentieth century. That was in Alaska in 1912. And for about forty years, everyone blamed the wrong mountain."
         },
         {
-          "text": "Mount Katmai's summit had collapsed, so people assumed it was the vent. In fact the magma came out at a place called Novarupta, about ten kilometres away.",
+          "text": "Mount Katmai's summit had collapsed, so people assumed it was the vent. In fact the magma came out at a place called Novarupta, about ten kilometres away."
+        },
+        {
+          "text": "About thirteen to fifteen cubic kilometres of it, in about sixty hours, with a column more than thirty kilometres high."
+        },
+        {
+          "text": "For years afterward, thousands of steam vents shot up from the ground nearby, in what's still called the Valley of Ten Thousand Smokes.",
           "pause": 0.55
         }
       ]
@@ -206,6 +218,13 @@
         {
           "text": "And most of its ash fell into the sea. That matters, because it means even an eruption this size can almost disappear from the geological record. Some of them, we may never find.",
           "pause": 0.55
+        },
+        {
+          "text": "This level comes around only every few thousand years, roughly. Here's one you can visit. About seven thousand seven hundred years ago, Mount Mazama in Oregon blew out about fifty cubic kilometres of magma."
+        },
+        {
+          "text": "Its summit fell in, leaving a hole twelve hundred metres deep. Over about three hundred years, it filled with water. Today it's called Crater Lake.",
+          "pause": 0.55
         }
       ]
     },
@@ -221,7 +240,14 @@
           "text": "Yellowstone has done it, six hundred and thirty-one thousand years ago: about a thousand times St. Helens, by ash. And two point one million years ago, about two thousand five hundred times."
         },
         {
-          "text": "A thousand cubic kilometres is about a quarter of the Grand Canyon, and it still isn't the biggest. Others are put at around five thousand. The scientists say you can't even name a single largest.",
+          "text": "A thousand cubic kilometres is about four hundred million Olympic swimming pools, or a quarter of the Grand Canyon, and it still isn't the biggest. Others are put at around five thousand."
+        },
+        {
+          "text": "The scientists say you can't even name a single largest.",
+          "pause": 0.55
+        },
+        {
+          "text": "Roughly, this level comes around only every few tens of thousands of years. And people have lived through something of this size before: archaeology suggests humanity did not suffer greatly from Toba, one of the largest.",
           "pause": 0.55
         },
         {
@@ -242,6 +268,10 @@
         },
         {
           "text": "Parícutin in Mexico put out enough for a five, but slowly, over nine years, so it's a four.",
+          "pause": 0.55
+        },
+        {
+          "text": "Even huge totals can miss. Kīlauea's long-running vent poured out more than ten times St. Helens' output as lava, and at the time, that was still rated low on the scale.",
           "pause": 0.55
         },
         {
