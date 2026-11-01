@@ -24,3 +24,5 @@ __pycache__/
 studio/public/fonts/
 studio/public/assets/
 studio/.venv-tts/
+
+channel/uploaded-waiting/
