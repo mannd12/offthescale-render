@@ -139,7 +139,7 @@ export const TopOfTape: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const w = win(f, prop - 4, paper, 10);
   const scale = 620 / 3700;
   return (
-    <RungShell t={t} index={10} n={7.4e7} dashed={f >= up ? 1.03e8 : undefined} reading="74 MN" sub={f >= doc ? "~16.5 million lb · FAA figure, draft" : "Super Heavy booster"} pctNote={f >= tank ? "no total weight read" : undefined} chips={f >= rep ? [{ kind: "REAL FOOTAGE", source: "NASA tracking film, 18 Nov 2023" }] : f >= doc ? [{ kind: "ILLUSTRATION", source: "after the FAA's Table 2" }] : [{ kind: "REAL PHOTO", source: "Steve Jurvetson, CC BY 2.0 · 2024" }]}>
+    <RungShell t={t} index={10} n={7.4e7} dashed={f >= up ? 1.03e8 : undefined} reading="74 MN" sub={f >= doc ? "~16.5 million lb · FAA figure, draft" : "Super Heavy booster"} pctNote={f >= tank ? "no total weight read" : undefined} chips={f >= rep ? [{ kind: "REAL FOOTAGE", source: "NASA tracking film, 18 Nov 2023" }] : f >= doc && f < paper ? [{ kind: "ILLUSTRATION", source: "after the FAA's Table 2" }] : [{ kind: "REAL PHOTO", source: "Steve Jurvetson, CC BY 2.0 · 2024" }]}>
       <Plate id="l10-starship" from={0} to={rep + 12} s0={1.0} s1={1.2} o0={[50, 45]} bright={f >= doc ? 0.3 : 0.95} />
       <Pill x={60} y={170} size={28} color={B.gauge} o={ease(f, 6, 8) * (1 - ease(f, rep - 6, 8))}>STARSHIP ON SUPER HEAVY, IGNITION, 2024</Pill>
       <Card x={60} y={800} big="PAPER FIGURES AHEAD" size={56} color={B.tease} ink={B.paper} o={win(f, warn, doc)} />
@@ -200,7 +200,7 @@ export const Closer: React.FC<{ t: SceneTiming }> = ({ t }) => {
     </g>
   );
   return (
-    <RungShell t={t} index={10} title="Back to the bottom" n={n} reading={n > 1 ? "FALLING" : "0.091 N"} sub={n > 1 ? "all the way down" : "a sheet of paper"} pct={f >= look ? 39 : undefined} pctNote={f >= look ? "Dawn, the spacecraft" : undefined} chips={f >= drop && f < expect ? [{ kind: "REAL PHOTO", source: "NASA · Dawn's launch, 2007" }] : [{ kind: "ILLUSTRATION" }]}>
+    <RungShell t={t} index={10} title="Back to the bottom" n={n} reading={n > 1 ? "FALLING" : "0.091 N"} sub={n > 1 ? "all the way down" : "a sheet of paper"} pct={f >= look ? 39 : undefined} pctNote={f >= look ? "Dawn, the spacecraft" : undefined} chips={f < expect ? [{ kind: "REAL PHOTO", source: "NASA · Dawn's launch, 2007" }] : [{ kind: "ILLUSTRATION" }]}>
       <Plate id="l10-dawn" from={0} to={expect + 8} s0={1.1} s1={1.6} o0={[50, 70]} o1={[50, 60]} bright={0.85} />
       <Card x={60} y={260} big="~800 MILLION ×" small="about nine powers of ten" size={72} o={win(f, 8, rem)} />
       <Pill x={60} y={170} size={28} color={B.gauge} o={win(f, rem, expect)}>THE DELTA II HEAVY CARRYING DAWN · 2007</Pill>

@@ -88,8 +88,9 @@ export const World: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Card x={70} y={220} big="A WORLD" size={84} o={ease(f, world, 10) * cut} />
       <Svg o={ease(f, rhea, 12)}>
         <circle cx={670} cy={500} r={R} fill="#6A6C70" />
-        <ellipse cx={670} cy={660} rx={R * 0.95 * sweep * 0.82} ry={70 * sweep} fill="#3A3C42" />
-        <line x1={670 - R * 0.95 * sweep * 0.82} y1={660} x2={670 + R * 0.95 * sweep * 0.82} y2={660} stroke={B.gauge} strokeWidth={6} />
+        {/* Pass 2: the width line is ~95 % of the disc's width, as said (#64); a chord 100 px below centre is 94 % wide */}
+        <ellipse cx={670} cy={600} rx={R * 0.94 * sweep} ry={80 * sweep} fill="#3A3C42" />
+        <line x1={670 - R * 0.94 * sweep} y1={600} x2={670 + R * 0.94 * sweep} y2={600} stroke={B.gauge} strokeWidth={6} />
       </Svg>
       <Card x={1040} y={230} big="RHEASILVIA" small="about 500 km wide" size={64} o={ease(f, rhea, 10)} />
       <Card x={1040} y={450} big="~95 %" small="of Vesta's width" size={84} color={B.paper} o={ease(f, pct, 8)} />

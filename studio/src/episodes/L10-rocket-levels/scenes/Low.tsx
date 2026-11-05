@@ -26,9 +26,11 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const n = f < paper ? 3.3e7 : f < up ? logMix(3.3e7, 0.091, ease(f, paper, 40)) : logMix(0.091, 7.4e7, sweep);
   // line 2's drawn tank: outline draws on, fills to the Saturn V's ~90 % (#6, said in line 0), then drains to "no figure"
   const draw = ease(f, tank, 24);
-  const fillK = f < fills ? ease(f, shows, 30) : 1 - ease(f, fills, 20);
+  // no drain (a draining number reads as a figure): at "only fills" the orange fades out and the outline goes dashed
+  const fillK = ease(f, shows, 30);
+  const fade = 1 - ease(f, fills, 12);
   const big = f >= tank ? 90 * fillK : undefined;
-  const pct = f < ninety ? undefined : f >= tank ? (big && big > 0.5 ? big : undefined) : 90 * ease(f, ninety, 30);
+  const pct = f < ninety ? undefined : f >= tank ? (f >= shows && f < fills ? big : undefined) : 90 * ease(f, ninety, 30);
   const isSaturn = f < paper;
   const onClip = isSaturn || f >= tank - 10;
   const lb = 7.5 * ease(f, seven, 30);
@@ -42,7 +44,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Clip id="l10-clip-e8" seconds={40} from={0} to={paper} box={{ x: 40, y: 170, w: 1440, h: 810 }} />
       <Clip id="l10-clip-e8" seconds={40} from={tank - 10} to={t.frames + 20} start={360} bright={0.5} box={{ x: 40, y: 170, w: 1440, h: 810 }} />
       <Pill x={70} y={190} size={28} color={B.gauge} o={ease(f, 6, 10) * (1 - ease(f, paper - 12, 10))}>THE SATURN V, APOLLO 11</Pill>
-      <Pill x={70} y={190} size={28} color={B.gauge} o={ease(f, tank - 4, 10)}>THE SATURN V, APOLLO 11</Pill>
+      <Pill x={70} y={190} size={28} color={B.gauge} o={win(f, tank - 4, t.frames - 26, 10)}>THE SATURN V, APOLLO 11</Pill>
       <Card x={70} y={260} big={`${lb.toFixed(1)} MILLION LB`} small="of thrust" size={84} o={ease(f, seven, 8) * (1 - ease(f, what - 6, 10))} />
       <Card x={70} y={440} big="~90% FUEL" small="of its weight on the pad" size={72} color={FUEL} o={ease(f, ninety, 10) * (1 - ease(f, what - 6, 10))} />
       {/* the question, on screen while it is asked and just after */}
@@ -67,14 +69,14 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
             <path d={body} />
           </clipPath>
         </defs>
-        <rect x={TX - 160} y={fillTop} width={320} height={TB - fillTop} fill={FUEL} clipPath="url(#l10-cold-tank)" />
-        <path d={body} fill="rgba(5,14,24,0.35)" stroke={f >= fills ? "rgba(255,255,255,0.75)" : B.paper} strokeWidth={6} pathLength={1} strokeDasharray={f >= fills + 20 ? "0.02 0.015" : `${draw} 1`} />
+        <rect x={TX - 160} y={fillTop} width={320} height={TB - fillTop} fill={FUEL} opacity={fade} clipPath="url(#l10-cold-tank)" />
+        <path d={body} fill="rgba(5,14,24,0.35)" stroke={f >= fills ? "rgba(255,255,255,0.75)" : B.paper} strokeWidth={6} pathLength={1} strokeDasharray={f >= fills + 8 ? "0.02 0.015" : `${draw} 1`} />
         <path d={`M1490 ${560 + Math.sin(f / 9) * 10} L1190 ${560}`} stroke={FUEL} strokeWidth={12} strokeLinecap="round" opacity={ease(f, shows, 10)} />
         <path d={`M1490 ${560 + Math.sin(f / 9) * 10} l-40 -24 v48 z`} fill={FUEL} opacity={ease(f, shows, 10)} />
       </Svg>
       <Pill x={TX} y={TB + 14} align="center" size={34} color={FUEL} o={ease(f, tank, 12)}>THE TANK</Pill>
-      <div style={{ position: "absolute", left: TX - 120, width: 240, top: 560, textAlign: "center", fontFamily: F.headline, fontSize: 64, lineHeight: 1.05, color: B.paper, textShadow: "0 2px 10px rgba(0,0,0,0.9)", opacity: f >= fills ? ease(f, fills + 14, 10) : ease(f, shows + 10, 10) }}>
-        {f >= fills ? <>NO<br />FIGURE</> : `~${Math.round(big ?? 0)}%`}
+      <div style={{ position: "absolute", left: TX - 120, width: 240, top: 560, textAlign: "center", fontFamily: F.headline, fontSize: 64, lineHeight: 1.05, color: B.paper, textShadow: "0 2px 10px rgba(0,0,0,0.9)", opacity: f >= fills ? ease(f, fills + 10, 10) : ease(f, shows + 28, 8) }}>
+        {f >= fills ? <>NO<br />FIGURE</> : "~90%"}
       </div>
       <Pill x={TX} y={200} align="center" size={30} o={ease(f, shows, 10) * (1 - ease(f, fills, 8))}>HOW MUCH OF THE MACHINE IS FUEL</Pill>
       <Pill x={TX} y={200} align="center" size={30} o={ease(f, fills, 10)}>BLANK WHERE NOBODY GIVES THE NUMBERS</Pill>

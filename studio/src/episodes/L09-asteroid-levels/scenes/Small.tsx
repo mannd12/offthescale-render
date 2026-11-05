@@ -33,7 +33,7 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const w7 = ease(f, seven, 18);
   // Pass 2 (opening): the 33 bar starts on its own words and counts up; the sweep finishes by "each mark", so the
   // rest of line 2 is the real asteroids popping into their circles
-  const w33 = lin(f, t33, t33 + 45);
+  const w33 = lin(f, t33, t33 + 24);
   const sweep = lin(f, climb + 12, mark);
   const chrome = ease(f, climb, 14);
   const back = ease(f, watch, 30);
@@ -46,7 +46,8 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const previewOn = popAt(5) !== null;
   return (
     <AbsoluteFill style={{ backgroundColor: B.ink }}>
-      <Clip id="l09-clip-dart" seconds={39} from={0} to={climb + 8} start={690} scale={1.5} bright={1 - 0.55 * dim} />
+      <Clip id="l09-clip-dart" seconds={39} from={0} to={climb + 8} start={780} rate={0.6} scale={1.5} bright={1 - 0.55 * dim} />
+      {/* Pass 2: source must stay before ~34 s of the replay (it turns red after the last frame): 780 + 386 x 0.6 = 1012 */}
       <Pill x={70} y={190} size={40} color={B.gauge} o={ease(f, 4, 8) * (1 - ease(f, seven - 10, 10))}>NASA'S DART · REAL FOOTAGE</Pill>
       {f >= climb ? <AbsoluteFill style={{ opacity: chrome, background: "radial-gradient(ellipse at 42% 42%, #16263A 0%, #0B1B2B 55%, #050E18 100%)" }} /> : null}
       {bars > 0 ? (
@@ -84,12 +85,13 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
           <Pill x={70} y={726} size={24} color={B.mute} o={chrome * (1 - back)}>CIRCLES NOT TO SCALE</Pill>
           <Card x={760} y={190} align="center" big="ABOUT 10 BILLION × WIDER" small="a grain to the top of the belt" o={win(f, ten, watch, 12)} />
           <Ruler m={mNow} passed={0} opacity={chrome} pulse={win(f, mark, watch, 8)} />
-          <Readout reading={f >= watch ? "THE TWO LINES" : "0.1 mm → 952 km"} craft={f >= craft ? "has one got there?" : undefined} made={f >= made ? "what is it?" : undefined} opacity={chrome} flash={Math.max(win(f, craft, craft + 40), win(f, made, made + 40))} />
+          <Readout reading={f >= watch ? "THE TWO LINES" : "0.1 mm → 952 km"} craft={f >= craft ? "has one got there?" : undefined} made={f >= made ? "what is it?" : undefined} opacity={chrome} flash={Math.max(win(f, watch, watch + 40), win(f, craft, craft + 40), win(f, made, made + 40))} />
+          <Card x={760} y={380} align="center" big="WATCH THE TWO LINES →" size={80} o={win(f, watch, empty, 10)} />
           <Card x={760} y={380} align="center" big="RUNGS 1 TO 5: EMPTY" size={80} color={B.paper} o={ease(f, empty, 12)} />
           {/* Pass 2 (opening): the plate reads as a puzzle - a "?" by each line as it is named, and one on the start of the bar */}
           {[
-            { at: craft, top: 860 },
-            { at: made, top: 893 },
+            { at: craft, top: 869, size: 34 },
+            { at: made, top: 903, size: 34 },
             { at: craft, top: 770, left: 52, size: 72 },
           ].map((q, j) => (
             <div key={j} style={{ position: "absolute", left: q.left ?? 1440, top: q.top, width: 44, textAlign: "center", fontFamily: F.headline, fontSize: q.size ?? 44, lineHeight: 1, color: B.tease, opacity: ease(f, q.at, 8), transform: `scale(${1 + 0.18 * Math.max(0, Math.sin((f - q.at) / 5))})`, textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}>?</div>
