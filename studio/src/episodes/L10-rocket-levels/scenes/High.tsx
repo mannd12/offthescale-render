@@ -106,7 +106,7 @@ export const Giant: React.FC<{ t: SceneTiming }> = ({ t }) => {
       </Svg>
       <Pill x={100} y={370} size={30} o={ease(f, sat, 10) * bars}>SATURN V · 48 TONS TO THE MOON</Pill>
       <Pill x={100} y={590} size={30} color={B.gauge} o={ease(f, moon + 20, 10) * bars}>SLS BLOCK 1 · OVER 27 METRIC TONS</Pill>
-      <Card x={100} y={790} big="DIFFERENT UNITS, DIFFERENT MISSIONS" small="later versions planned to carry more" size={46} color={B.paper} o={ease(f, units, 10) * bars} />
+      <Card x={100} y={790} big="DIFFERENT UNITS, DIFFERENT MISSIONS" size={46} color={B.paper} o={ease(f, units, 10) * bars} />
       {water > 0 ? (
         <>
           <Dim o={water} to={0.55} />
@@ -133,7 +133,8 @@ export const TopOfTape: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const ship = at(t, "and the ship");
   const paper = at(t, "These are paper");
   const tank = at(t, "and without a total");
-  const rep = at(t, "The latest report");
+  // The "latest report" line (13th flight) was cut 2026-11-04 (stale); the 2023 film now plays on "actually delivered in flight".
+  const rep = at(t, "it has actually delivered");
   const row = win(f, doc - 6, prop, 10);
   const w = win(f, prop - 4, paper, 10);
   const scale = 620 / 3700;
@@ -170,9 +171,9 @@ export const TopOfTape: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Pill x={770} y={918} align="center" size={24} o={w * ease(f, sls, 10)}>~2,600 t · A WHOLE FUELLED SLS</Pill>
       <Pill x={1190} y={918} align="center" size={24} color={FUEL} o={w * ease(f, ship, 10)}>1,500 t · THE SHIP</Pill>
       <Card x={60} y={300} big="PAPER FIGURES" small="flown thrust: no primary source found" size={72} color={B.paper} o={win(f, paper, rep)} />
+      <Card x={200} y={850} big="FLOWN THRUST: NO PRIMARY SOURCE FOUND" size={44} color={B.paper} o={ease(f, rep + 10, 10)} />
       <Clip id="l10-clip-star" seconds={35} from={rep} to={t.frames + 20} box={{ x: 200, y: 200, w: 1100, h: 619 }} />
       <Pill x={220} y={220} size={26} color={B.gauge} o={ease(f, rep, 10)}>A 2023 TEST FLIGHT · FILMED BY NASA</Pill>
-      <Card x={200} y={840} big="13TH TEST FLIGHT · 24 JULY 2026" small="suborbital, as reported" size={44} o={ease(f, rep + 10, 10)} />
     </RungShell>
   );
 };

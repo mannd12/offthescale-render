@@ -241,10 +241,11 @@
           "pause": 0.55
         },
         {
-          "text": "And more thrust doesn't automatically mean more to the Moon. This version sends over twenty-seven metric tons there. The Saturn V could send forty-eight tons."
+          "text": "And more thrust doesn't automatically mean more to the Moon. This version sends over twenty-seven metric tons there. The Saturn V could send forty-eight tons.",
+          "pause": 0.55
         },
         {
-          "text": "Those are different units and very different mission designs, and later versions are planned to carry more.",
+          "text": "Those are different units and very different mission designs.",
           "pause": 0.55
         },
         {
@@ -273,10 +274,7 @@
           "pause": 0.55
         },
         {
-          "text": "These are paper figures. We didn't find a primary source for the thrust it has actually delivered in flight, and without a total weight, the tank stays blank."
-        },
-        {
-          "text": "The latest report we read, on its thirteenth test flight, on the twenty-fourth of July, twenty twenty-six, describes a suborbital trajectory.",
+          "text": "These are paper figures. We didn't find a primary source for the thrust it has actually delivered in flight, and without a total weight, the tank stays blank.",
           "pause": 0.55
         }
       ]
