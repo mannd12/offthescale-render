@@ -7,26 +7,50 @@ import { FUEL } from "../gauge";
 import { logMix } from "../ladder";
 import { Card, Clip, Dim, Pill, Plate, RungShell, Svg, at, clamp01, fmt, lin, mix, rnd, win } from "./shell";
 
-/** Cold. #27, #6, #10, #50. Apollo 11's engines (1280 px: inset) with Apollo 4's weights, each said on the picture. The tape sweeps; a drawn sheet of paper marks the bottom. */
+/** Cold. #27, #6, #10, #50. Apollo 11's engines (1280 px: inset) with Apollo 4's weights, each said on the picture. The tape sweeps; a drawn sheet of paper marks the bottom.
+ *  Pass 2 (opening): thrust counts up on its words, the tank fills on "ninety percent", the question is on screen, and line 2
+ *  keeps the engines running under a drawn tank that fills, then empties to "no figure". */
 export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const f = useCurrentFrame();
-  const ninety = at(t, "And about ninety");
+  const seven = at(t, "seven and a half");
+  const ninety = at(t, "ninety percent");
   const what = at(t, "So what was");
   const climb = at(t, "To find out");
   const paper = at(t, "from an engine");
   const up = at(t, "up about eight");
   const mark = at(t, "so each mark");
   const tank = at(t, "Next to it");
+  const shows = at(t, "It shows how much");
   const fills = at(t, "and it only fills");
   const sweep = ease(f, up, 90);
   const n = f < paper ? 3.3e7 : f < up ? logMix(3.3e7, 0.091, ease(f, paper, 40)) : logMix(0.091, 7.4e7, sweep);
-  const pct = f < ninety ? undefined : f >= tank ? undefined : 90 * ease(f, ninety, 40);
+  // line 2's drawn tank: outline draws on, fills to the Saturn V's ~90 % (#6, said in line 0), then drains to "no figure"
+  const draw = ease(f, tank, 24);
+  const fillK = f < fills ? ease(f, shows, 30) : 1 - ease(f, fills, 20);
+  const big = f >= tank ? 90 * fillK : undefined;
+  const pct = f < ninety ? undefined : f >= tank ? (big && big > 0.5 ? big : undefined) : 90 * ease(f, ninety, 30);
   const isSaturn = f < paper;
+  const onClip = isSaturn || f >= tank - 10;
+  const lb = 7.5 * ease(f, seven, 30);
+  const TX = 1000;
+  const TT = 270;
+  const TB = 880;
+  const body = `M${TX} ${TT} C${TX + 60} ${TT + 80} ${TX + 95} ${TT + 160} ${TX + 95} ${TT + 260} L${TX + 95} ${TB - 90} L${TX + 150} ${TB} L${TX - 150} ${TB} L${TX - 95} ${TB - 90} L${TX - 95} ${TT + 260} C${TX - 95} ${TT + 160} ${TX - 60} ${TT + 80} ${TX} ${TT} Z`;
+  const fillTop = TB - (TB - TT) * ((big ?? 0) / 100);
   return (
-    <RungShell t={t} index={0} title="Off the scale" n={n} reading={isSaturn ? "7.5 MILLION LB" : f < up ? "0.091 N" : `×${fmt(800 * sweep)} MILLION`} sub={isSaturn ? "33 MN · Saturn V" : f < up ? "a sheet of paper" : "from bottom to top"} pct={pct} pctNote={isSaturn && f >= ninety ? "Apollo 4's weights" : f >= tank ? "fills only where a figure exists" : undefined} flips={[ninety, tank]} chips={isSaturn ? [{ kind: "REAL FOOTAGE", source: "NASA/KSC · Apollo 11, slow motion" }] : [{ kind: "ILLUSTRATION" }]}>
+    <RungShell t={t} index={0} title="Off the scale" n={n} reading={isSaturn ? (f < seven ? "SATURN V" : `${lb.toFixed(1)} MILLION LB`) : f < up ? "0.091 N" : `×${fmt(800 * sweep)} MILLION`} sub={isSaturn ? (f < seven ? undefined : "33 MN · Saturn V") : f < up ? "a sheet of paper" : "from bottom to top"} pct={pct} pctNote={isSaturn && f >= ninety ? "Apollo 4's weights" : f >= fills ? "fills only where a figure exists" : f >= tank && pct !== undefined ? "Saturn V · Apollo 4's weights" : undefined} flips={[ninety, tank, fills]} chips={onClip ? [{ kind: "REAL FOOTAGE", source: "NASA/KSC · Apollo 11, slow motion" }, ...(f >= tank ? [{ kind: "ILLUSTRATION" as const, source: "the tank" }] : [])] : [{ kind: "ILLUSTRATION" }]}>
       <Clip id="l10-clip-e8" seconds={40} from={0} to={paper} box={{ x: 40, y: 170, w: 1440, h: 810 }} />
+      <Clip id="l10-clip-e8" seconds={40} from={tank - 10} to={t.frames + 20} start={360} bright={0.5} box={{ x: 40, y: 170, w: 1440, h: 810 }} />
       <Pill x={70} y={190} size={28} color={B.gauge} o={ease(f, 6, 10) * (1 - ease(f, paper - 12, 10))}>THE SATURN V, APOLLO 11</Pill>
-      <Card x={70} y={760} big="WHAT WAS ALL THAT LIFTING?" size={62} color={B.paper} o={win(f, what, climb + 20)} />
+      <Pill x={70} y={190} size={28} color={B.gauge} o={ease(f, tank - 4, 10)}>THE SATURN V, APOLLO 11</Pill>
+      <Card x={70} y={260} big={`${lb.toFixed(1)} MILLION LB`} small="of thrust" size={84} o={ease(f, seven, 8) * (1 - ease(f, what - 6, 10))} />
+      <Card x={70} y={440} big="~90% FUEL" small="of its weight on the pad" size={72} color={FUEL} o={ease(f, ninety, 10) * (1 - ease(f, what - 6, 10))} />
+      {/* the question, on screen while it is asked and just after */}
+      <div style={{ position: "absolute", left: 760, top: 330, transform: `translateX(-50%) scale(${0.94 + 0.06 * win(f, what, climb + 30, 10)})`, opacity: win(f, what, climb + 30, 10), padding: "18px 36px 22px", borderRadius: 18, background: B.paper, color: B.ink, boxShadow: "0 8px 28px rgba(0,0,0,0.5)", fontFamily: F.headline, fontSize: 92, lineHeight: 1.05, textAlign: "center", whiteSpace: "nowrap" }}>
+        WHAT WAS ALL THAT POWER
+        <br />
+        REALLY LIFTING?
+      </div>
       <Svg o={win(f, paper, up + 70)}>
         <g transform={`translate(740 ${540 + Math.sin(f / 18) * 6}) rotate(-4)`}>
           <rect x={-170} y={-220} width={340} height={440} fill={B.paper} />
@@ -37,12 +61,23 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
       </Svg>
       <Pill x={740} y={800} align="center" size={32} color={B.gauge} o={win(f, paper, up + 70)}>THE FORCE TO HOLD THIS</Pill>
       <Card x={420} y={460} big="EACH MARK IS 10×" size={84} o={win(f, mark, tank)} />
-      <Svg o={ease(f, tank, 14)}>
-        <path d={`M1490 ${560 + Math.sin(f / 9) * 10} L1190 ${560}`} stroke={FUEL} strokeWidth={12} strokeLinecap="round" />
-        <path d={`M1490 ${560 + Math.sin(f / 9) * 10} l-40 -24 v48 z`} fill={FUEL} />
+      <Svg o={ease(f, tank, 10)}>
+        <defs>
+          <clipPath id="l10-cold-tank">
+            <path d={body} />
+          </clipPath>
+        </defs>
+        <rect x={TX - 160} y={fillTop} width={320} height={TB - fillTop} fill={FUEL} clipPath="url(#l10-cold-tank)" />
+        <path d={body} fill="rgba(5,14,24,0.35)" stroke={f >= fills ? "rgba(255,255,255,0.75)" : B.paper} strokeWidth={6} pathLength={1} strokeDasharray={f >= fills + 20 ? "0.02 0.015" : `${draw} 1`} />
+        <path d={`M1490 ${560 + Math.sin(f / 9) * 10} L1190 ${560}`} stroke={FUEL} strokeWidth={12} strokeLinecap="round" opacity={ease(f, shows, 10)} />
+        <path d={`M1490 ${560 + Math.sin(f / 9) * 10} l-40 -24 v48 z`} fill={FUEL} opacity={ease(f, shows, 10)} />
       </Svg>
-      <Card x={470} y={490} big="THE TANK" small="how much of the machine is fuel" size={92} color={FUEL} o={ease(f, tank, 12)} />
-      <Pill x={470} y={700} size={30} o={ease(f, fills, 12)}>BLANK WHERE NOBODY GIVES THE NUMBERS</Pill>
+      <Pill x={TX} y={TB + 14} align="center" size={34} color={FUEL} o={ease(f, tank, 12)}>THE TANK</Pill>
+      <div style={{ position: "absolute", left: TX - 120, width: 240, top: 560, textAlign: "center", fontFamily: F.headline, fontSize: 64, lineHeight: 1.05, color: B.paper, textShadow: "0 2px 10px rgba(0,0,0,0.9)", opacity: f >= fills ? ease(f, fills + 14, 10) : ease(f, shows + 10, 10) }}>
+        {f >= fills ? <>NO<br />FIGURE</> : `~${Math.round(big ?? 0)}%`}
+      </div>
+      <Pill x={TX} y={200} align="center" size={30} o={ease(f, shows, 10) * (1 - ease(f, fills, 8))}>HOW MUCH OF THE MACHINE IS FUEL</Pill>
+      <Pill x={TX} y={200} align="center" size={30} o={ease(f, fills, 10)}>BLANK WHERE NOBODY GIVES THE NUMBERS</Pill>
     </RungShell>
   );
 };

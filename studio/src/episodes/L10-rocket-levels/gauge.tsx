@@ -26,8 +26,10 @@ export const Tape: React.FC<{ n: number; reading: string; sub?: string; pct?: nu
         {TAPE_MARKS.map((k) => (
           <line key={k.n} x1={X - 14} y1={tapeY(k.n)} x2={X + 14} y2={tapeY(k.n)} stroke={tapeY(k.n) >= y ? B.gauge : "rgba(255,255,255,0.55)"} strokeWidth={3} />
         ))}
-        {dashed ? <line x1={X} y1={y} x2={X} y2={tapeY(dashed)} stroke={B.paper} strokeWidth={8} strokeDasharray="10 10" /> : null}
-        {dashed ? <path d={`M${X + 12} ${tapeY(dashed)} l22 -11 v22 z`} fill={B.paper} /> : null}
+        {/* Pass 2 (S3): 74 -> 103 MN is only ~9 px of tape, so the proposed stretch is drawn in coral, ringed, and labelled */}
+        {dashed ? <ellipse cx={X} cy={(y + tapeY(dashed)) / 2} rx={30} ry={Math.max(26, (y - tapeY(dashed)) / 2 + 16)} fill="none" stroke={B.tease} strokeWidth={4} strokeDasharray="8 7" /> : null}
+        {dashed ? <line x1={X} y1={y} x2={X} y2={tapeY(dashed)} stroke={B.tease} strokeWidth={10} strokeDasharray="5 4" /> : null}
+        {dashed ? <path d={`M${X + 12} ${tapeY(dashed)} l22 -11 v22 z`} fill={B.tease} /> : null}
         <path d={`M${X + 12} ${y} l26 -13 v26 z`} fill={B.paper} />
         <clipPath id="l10-tank">
           <path d={BODY} />
@@ -35,6 +37,7 @@ export const Tape: React.FC<{ n: number; reading: string; sub?: string; pct?: nu
         <rect x={CX - 90} y={fillTop} width={180} height={Math.max(0, BOT - fillTop)} fill={FUEL} clipPath="url(#l10-tank)" />
         <path d={BODY} fill="none" stroke={pct === undefined ? "rgba(255,255,255,0.45)" : B.paper} strokeWidth={4} strokeDasharray={pct === undefined ? "12 10" : undefined} />
       </svg>
+      {dashed ? <div style={{ position: "absolute", left: X + 44, top: tapeY(dashed) - 16, fontFamily: F.ui, fontWeight: 800, fontSize: 18, lineHeight: 1.05, color: B.tease, whiteSpace: "nowrap", textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}>103 MN<br />PROPOSED</div> : null}
       {TAPE_MARKS.filter((k) => k.label).map((k) => (
         <div key={k.n} style={{ position: "absolute", left: 1524, width: 60, top: tapeY(k.n) - 11, textAlign: "right", fontFamily: F.ui, fontWeight: 800, fontSize: 15, color: B.mute, whiteSpace: "nowrap" }}>{k.label}</div>
       ))}

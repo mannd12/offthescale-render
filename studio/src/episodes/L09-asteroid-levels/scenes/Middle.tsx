@@ -179,7 +179,7 @@ export const ClosePass: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <g transform={`rotate(${f * 0.5} ${px} ${py})`}>{peanut(px, py, 0.5)}</g>
       </Svg>
       <Card x={800} y={170} big="13 APRIL 2029" small="~32,000 km up" size={70} o={ease(f, date, 12) * b} />
-      <Pill x={380} y={860} align="center" size={26} color={B.aqua} o={ease(f, closer, 10) * b}>INSIDE THE GEOSYNCHRONOUS SATELLITES</Pill>
+      <Pill x={380} y={860} align="center" size={26} color={B.aqua} o={ease(f, closer, 10) * b}>CLOSER THAN GEOSYNCHRONOUS SATELLITES</Pill>
       <Card x={800} y={470} big="NO RISK" small="for at least 100 years · NASA" size={70} color={B.paper} o={ease(f, risk, 10) * b * (1 - ease(f, see, 10))} />
       <Pill x={800} y={480} size={36} o={ease(f, see, 10) * b}>PARTS OF EUROPE, AFRICA, ASIA</Pill>
       <Pill x={800} y={550} size={36} color={B.gauge} o={ease(f, bino, 10) * b}>NO TELESCOPE. NO BINOCULARS.</Pill>
@@ -196,6 +196,12 @@ export const ClosePass: React.FC<{ t: SceneTiming }> = ({ t }) => {
     </RungShell>
   );
 };
+
+const BENNU_BOX = { x: 540, y: 150, w: 1244, h: 700 };
+/** Bennu's foot in the mosaic (~94.8 % down the original) and its drawn width (~58.9 % across), mid-push */
+const BENNU_FOOT = BENNU_BOX.y + BENNU_BOX.h * 0.948;
+const BENNU_W = BENNU_BOX.w * 0.589 * 1.015;
+const TOWER_H = (BENNU_W * 443) / 490;
 
 /** Rung 8. #39-46. The real mosaic, a drawn beach, the real SamCam descent (8.4 s, slowed), a drawn ball pit, the real sample. */
 export const Touched: React.FC<{ t: SceneTiming }> = ({ t }) => {
@@ -223,13 +229,25 @@ export const Touched: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const sinkY = mix(180, 560, ease(f, barely, 90)) - 300 * ease(f, sunk + 30, 40);
   return (
     <RungShell t={t} index={7} m={500} reading="~500 m" sub={f >= grams ? "Bennu · 121.6 g brought home" : "Bennu"} craft={f >= head ? "TOUCHED" : undefined} made={f >= balls ? "LOOSE PILE" : undefined} flips={[head, balls]} chips={clipOn ? [{ kind: "REAL FOOTAGE", source: "NASA Goddard/SVS · SamCam, sped up" }] : f < beach ? [{ kind: "REAL PHOTO", source: "NASA/Goddard/University of Arizona" }, { kind: "ILLUSTRATION", source: "the tower" }] : f < real ? [{ kind: "ILLUSTRATION", source: "what they expected" }] : f >= away ? [{ kind: "REAL PHOTO", source: "NASA Johnson · the sample" }] : [{ kind: "ILLUSTRATION", source: "what it was like" }]}>
-      <Plate id="l09-bennu" from={0} to={beach + 6} s0={1.1} s1={1.4} o0={[52, 50]} bright={1} />
+      {/* Pass 2 (M1): the mosaic sits in a 16:9 box (same aspect as the 3840x2160 original: never stretched) with only a
+          3 % push, so the drawn tower can be held to scale beside it. Bennu spans ~0.589 of the frame's width in the
+          original; NASA (#39): "slightly wider than the height of the Empire State Building" -> tower = 443/490 of it. */}
+      <Plate id="l09-bennu" from={0} to={beach + 6} box={BENNU_BOX} fit="contain" s0={1} s1={1.03} o0={[52, 52]} bright={1} />
       <Svg o={win(f, tall, beach + 6, 12)}>
-        <rect x={240} y={260} width={58} height={560} fill="#5B7186" />
-        <rect x={258} y={190} width={22} height={70} fill="#5B7186" />
+        {(() => {
+          const H = TOWER_H * ease(f, tall, 24);
+          return (
+            <g>
+              <rect x={180} y={BENNU_FOOT - H * 0.8} width={80} height={H * 0.8} fill="#5B7186" />
+              <rect x={195} y={BENNU_FOOT - H * 0.88} width={50} height={H * 0.08} fill="#5B7186" />
+              <rect x={214} y={BENNU_FOOT - H} width={12} height={H * 0.12} fill="#5B7186" />
+            </g>
+          );
+        })()}
+        <line x1={150} x2={1800} y1={BENNU_FOOT} y2={BENNU_FOOT} stroke="rgba(255,255,255,0.25)" strokeWidth={3} strokeDasharray="10 12" />
       </Svg>
-      <Pill x={270} y={830} align="center" size={24} o={win(f, tall, beach + 6, 12)}>EMPIRE STATE BUILDING, FOR SIZE</Pill>
-      <Card x={1060} y={190} big="200 MILLION MILES+" small="from Earth · October 2020" size={52} o={win(f, oct, beach + 6, 12)} />
+      <Pill x={220} y={BENNU_FOOT + 12} align="center" size={24} o={win(f, tall, beach + 6, 12)}>EMPIRE STATE BUILDING, FOR SIZE</Pill>
+      <Card x={290} y={190} big="200 MILLION MILES+" small="from Earth · October 2020" size={52} o={win(f, oct, beach + 6, 12)} />
       <Svg o={win(f, beach - 4, real + 4, 10)}>
         <rect x={0} y={0} width={1920} height={1080} fill="#0B1B2B" />
         <path d={`M0 ${620 + 6 * Math.sin(f / 15)} Q 480 560 960 ${630 - 6 * Math.sin(f / 15)} T 1920 610 V960 H0 Z`} fill="#D9C08C" />

@@ -1,17 +1,25 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { B, F } from "../../../brand/tokens";
 import { SceneTiming } from "../../../lib/timeline";
 import { ease } from "../../../lib/ui";
 import { Readout, Ruler } from "../gauge";
 import { LEVELS, rulerX } from "../ladder";
-import { Card, Chips, Clip, Pill, Plate, RungShell, STATUE, Svg, at, lin, mix, rnd, rock, win } from "./shell";
+import { Card, Chips, Clip, Pill, Plate, RungShell, STATUE, Svg, at, clamp01, lin, mix, rnd, rock, win } from "./shell";
+
+/** Cold-open preview photos, by rung index; `crop` > 1 zooms past the black sky around each body. */
+const PREVIEW = [
+  { i: 9, id: "l09-vesta", ext: "jpg", zoom: 1.1 },
+  { i: 7, id: "l09-bennu", ext: "jpg", zoom: 0.98 },
+  { i: 5, id: "l09-dimorphos", ext: "png", zoom: 1 },
+];
 
 /** Sources: script.md rows #26-28, #5. Real DART frames, then the expected-against-measured bars, then the ruler arrives. */
 export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const f = useCurrentFrame();
   const seven = at(t, "about seven minutes");
   const got = at(t, "It shortened it");
+  const t33 = at(t, "about thirty-three");
   const ask = at(t, "So what is that thing");
   const climb = at(t, "The answer changes");
   const ten = at(t, "about ten billion");
@@ -23,24 +31,33 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const dim = ease(f, seven - 10, 14);
   const bars = win(f, seven, climb, 10);
   const w7 = ease(f, seven, 18);
-  const w33 = lin(f, got, got + 70);
-  const sweep = lin(f, climb + 20, ten + 60);
+  // Pass 2 (opening): the 33 bar starts on its own words and counts up; the sweep finishes by "each mark", so the
+  // rest of line 2 is the real asteroids popping into their circles
+  const w33 = lin(f, t33, t33 + 45);
+  const sweep = lin(f, climb + 12, mark);
   const chrome = ease(f, climb, 14);
   const back = ease(f, watch, 30);
   const mNow = Math.pow(10, mix(mix(-4, Math.log10(9.52e5), sweep), -4, back));
+  const popAt = (i: number) => {
+    const k = (Math.log10(LEVELS[i].m) + 4) / (Math.log10(9.52e5) + 4);
+    const hit = climb + 12 + k * (mark - climb - 12);
+    return f >= hit && f < watch + 30 ? hit : null;
+  };
+  const previewOn = popAt(5) !== null;
   return (
     <AbsoluteFill style={{ backgroundColor: B.ink }}>
-      <Clip id="l09-clip-dart" seconds={39} from={0} to={climb + 8} start={600} bright={0.95 - 0.6 * dim} />
+      <Clip id="l09-clip-dart" seconds={39} from={0} to={climb + 8} start={690} scale={1.5} bright={1 - 0.55 * dim} />
+      <Pill x={70} y={190} size={40} color={B.gauge} o={ease(f, 4, 8) * (1 - ease(f, seven - 10, 10))}>NASA'S DART · REAL FOOTAGE</Pill>
       {f >= climb ? <AbsoluteFill style={{ opacity: chrome, background: "radial-gradient(ellipse at 42% 42%, #16263A 0%, #0B1B2B 55%, #050E18 100%)" }} /> : null}
       {bars > 0 ? (
         <div style={{ position: "absolute", left: 130, top: 300, width: 1660, opacity: bars }}>
           <div style={{ fontFamily: F.ui, fontWeight: 800, fontSize: 36, color: B.paper }}>THE PUSH ALONE: EXPECTED, MINUTES OFF ITS ORBIT</div>
-          <div style={{ height: 76, marginTop: 8, width: (1500 * 7 * w7) / 33, background: B.aqua, borderRadius: 8, fontFamily: F.headline, fontSize: 56, color: B.ink, paddingLeft: 12, overflow: "hidden", whiteSpace: "nowrap" }}>~7</div>
-          <div style={{ opacity: f >= got ? 1 : 0, marginTop: 34, fontFamily: F.ui, fontWeight: 800, fontSize: 36, color: B.paper }}>MEASURED</div>
-          <div style={{ opacity: f >= got ? 1 : 0, height: 76, marginTop: 8, width: 1500 * Math.max(0.05, w33), background: B.gauge, borderRadius: 8, fontFamily: F.headline, fontSize: 56, color: B.ink, paddingLeft: 12, overflow: "hidden", whiteSpace: "nowrap" }}>~33</div>
+          <div style={{ height: 76, marginTop: 8, width: (1500 * 7 * w7) / 33, background: B.aqua, borderRadius: 8, fontFamily: F.headline, fontSize: 56, color: B.ink, paddingLeft: 12, overflow: "hidden", whiteSpace: "nowrap" }}>~{Math.max(1, Math.round(7 * w7))}</div>
+          <div style={{ opacity: f >= t33 - 8 ? 1 : 0, marginTop: 34, fontFamily: F.ui, fontWeight: 800, fontSize: 36, color: B.paper }}>MEASURED</div>
+          <div style={{ opacity: f >= t33 ? 1 : 0, height: 76, marginTop: 8, width: 1500 * Math.max(0.05, w33), background: B.gauge, borderRadius: 8, fontFamily: F.headline, fontSize: 56, color: B.ink, paddingLeft: 12, overflow: "hidden", whiteSpace: "nowrap" }}>~{Math.max(1, Math.round(33 * w33))}</div>
         </div>
       ) : null}
-      <Card x={960} y={760} align="center" big="SO WHAT IS IT MADE OF?" size={96} o={win(f, ask, climb, 8)} />
+      <Card x={960} y={760} align="center" big="SO WHAT IS IT MADE OF?" size={96 * (1 + 0.03 * Math.sin(f / 4) * win(f, ask, climb + 20, 8))} o={win(f, ask, climb + 20, 8)} />
       {f >= climb ? (
         <>
           <Svg o={chrome * (1 - back)}>
@@ -50,14 +67,36 @@ export const ColdOpen: React.FC<{ t: SceneTiming }> = ({ t }) => {
               return <circle key={l.id} cx={rulerX(l.m)} cy={700 - r} r={r} fill={on ? (i === 10 ? B.tease : B.gauge) : "rgba(255,255,255,0.12)"} />;
             })}
           </Svg>
+          {/* Pass 2 (opening): the rungs that have a real picture of the body itself pop it into their circle as the
+              marker passes (all in the manifest, credited in the chip). Ceres stays the mystery. Smallest drawn last, in front. */}
+          {PREVIEW.map(({ i, id, ext, zoom }) => {
+            const r = 6 + i * i * 1.9;
+            const hit = popAt(i);
+            if (hit === null) return null;
+            const k = clamp01((f - hit) / 6);
+            const R = r * (1 + 0.25 * Math.sin(Math.min(1, (f - hit) / 14) * Math.PI));
+            return (
+              <div key={id} style={{ position: "absolute", left: rulerX(LEVELS[i].m) - R, top: 700 - r - R, width: 2 * R, height: 2 * R, borderRadius: "50%", overflow: "hidden", opacity: k * chrome * (1 - back), border: `4px solid ${B.gauge}`, boxSizing: "border-box", background: "#000" }}>
+                <Img src={staticFile(`assets/${id}.${ext}`)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})` }} />
+              </div>
+            );
+          })}
           <Pill x={70} y={726} size={24} color={B.mute} o={chrome * (1 - back)}>CIRCLES NOT TO SCALE</Pill>
           <Card x={760} y={190} align="center" big="ABOUT 10 BILLION × WIDER" small="a grain to the top of the belt" o={win(f, ten, watch, 12)} />
           <Ruler m={mNow} passed={0} opacity={chrome} pulse={win(f, mark, watch, 8)} />
           <Readout reading={f >= watch ? "THE TWO LINES" : "0.1 mm → 952 km"} craft={f >= craft ? "has one got there?" : undefined} made={f >= made ? "what is it?" : undefined} opacity={chrome} flash={Math.max(win(f, craft, craft + 40), win(f, made, made + 40))} />
           <Card x={760} y={380} align="center" big="RUNGS 1 TO 5: EMPTY" size={80} color={B.paper} o={ease(f, empty, 12)} />
+          {/* Pass 2 (opening): the plate reads as a puzzle - a "?" by each line as it is named, and one on the start of the bar */}
+          {[
+            { at: craft, top: 860 },
+            { at: made, top: 893 },
+            { at: craft, top: 770, left: 52, size: 72 },
+          ].map((q, j) => (
+            <div key={j} style={{ position: "absolute", left: q.left ?? 1440, top: q.top, width: 44, textAlign: "center", fontFamily: F.headline, fontSize: q.size ?? 44, lineHeight: 1, color: B.tease, opacity: ease(f, q.at, 8), transform: `scale(${1 + 0.18 * Math.max(0, Math.sin((f - q.at) / 5))})`, textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}>?</div>
+          ))}
         </>
       ) : null}
-      <Chips chips={f < seven ? [{ kind: "REAL FOOTAGE", source: "NASA/Johns Hopkins APL · DART, sped up" }] : f < climb ? [{ kind: "REAL FOOTAGE", source: "DART, dimmed" }, { kind: "ILLUSTRATION", source: "the bars" }] : [{ kind: "ILLUSTRATION", source: "the ruler" }]} />
+      <Chips chips={f < seven ? [{ kind: "REAL FOOTAGE", source: "NASA/Johns Hopkins APL · DART, sped up" }] : f < climb ? [{ kind: "REAL FOOTAGE", source: "DART, dimmed" }, { kind: "ILLUSTRATION", source: "the bars" }] : previewOn ? [{ kind: "ILLUSTRATION", source: "the ruler" }, { kind: "REAL PHOTO", source: "NASA/JHU APL · NASA/Goddard/U. of Arizona · Vesta: NASA, via IAU, CC BY 4.0" }] : [{ kind: "ILLUSTRATION", source: "the ruler" }]} />
     </AbsoluteFill>
   );
 };

@@ -134,7 +134,7 @@ export const Classic: React.FC<{ t: SceneTiming }> = ({ t }) => {
       </Svg>
       <Card x={60} y={260} big="363 FEET" size={72} color={B.paper} o={win(f, tall, pad)} />
       <Card x={60} y={260} big="6.22 MILLION LB" small="on the pad" size={66} color={B.paper} o={win(f, pad, so)} />
-      <Card x={60} y={470} big="~5.6 MILLION LB" small="propellant · ~90%" size={66} color={FUEL} o={win(f, prop, so)} />
+      <Card x={60} y={470} big="~5.5 MILLION LB" small="propellant · ~90%" size={66} color={FUEL} o={win(f, prop, so)} />
       {bal > 0 ? (
         <>
           <Svg o={bal}>

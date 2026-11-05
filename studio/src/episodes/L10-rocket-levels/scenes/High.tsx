@@ -139,7 +139,7 @@ export const TopOfTape: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const w = win(f, prop - 4, paper, 10);
   const scale = 620 / 3700;
   return (
-    <RungShell t={t} index={10} n={7.4e7} dashed={f >= up ? 1.03e8 : undefined} reading="74 MN" sub={f >= doc ? "~16.6 million lb · FAA figure, draft" : "Super Heavy booster"} pctNote={f >= tank ? "no total weight read" : undefined} chips={f >= rep ? [{ kind: "REAL FOOTAGE", source: "NASA tracking film, 18 Nov 2023" }] : f >= doc ? [{ kind: "ILLUSTRATION", source: "after the FAA's Table 2" }] : [{ kind: "REAL PHOTO", source: "Steve Jurvetson, CC BY 2.0 · 2024" }]}>
+    <RungShell t={t} index={10} n={7.4e7} dashed={f >= up ? 1.03e8 : undefined} reading="74 MN" sub={f >= doc ? "~16.5 million lb · FAA figure, draft" : "Super Heavy booster"} pctNote={f >= tank ? "no total weight read" : undefined} chips={f >= rep ? [{ kind: "REAL FOOTAGE", source: "NASA tracking film, 18 Nov 2023" }] : f >= doc ? [{ kind: "ILLUSTRATION", source: "after the FAA's Table 2" }] : [{ kind: "REAL PHOTO", source: "Steve Jurvetson, CC BY 2.0 · 2024" }]}>
       <Plate id="l10-starship" from={0} to={rep + 12} s0={1.0} s1={1.2} o0={[50, 45]} bright={f >= doc ? 0.3 : 0.95} />
       <Pill x={60} y={170} size={28} color={B.gauge} o={ease(f, 6, 8) * (1 - ease(f, rep - 6, 8))}>STARSHIP ON SUPER HEAVY, IGNITION, 2024</Pill>
       <Card x={60} y={800} big="PAPER FIGURES AHEAD" size={56} color={B.tease} ink={B.paper} o={win(f, warn, doc)} />
@@ -157,8 +157,8 @@ export const TopOfTape: React.FC<{ t: SceneTiming }> = ({ t }) => {
           </div>
         </div>
       ) : null}
-      <Pill x={90} y={560} size={30} o={ease(f, doc + 60, 10) * row}>ABOUT 16.6 MILLION POUNDS · OUR CONVERSION</Pill>
-      <Pill x={90} y={630} size={30} color={B.gauge} o={ease(f, up + 30, 10) * row}>DASHED ON THE TAPE: PROPOSED</Pill>
+      <Pill x={90} y={560} size={30} o={ease(f, doc + 60, 10) * row}>ABOUT 16.5 MILLION POUNDS · OUR CONVERSION</Pill>
+      <Pill x={90} y={630} size={30} color={B.tease} o={ease(f, up + 30, 10) * row}>DASHED ON THE TAPE: PROPOSED →</Pill>
       {w > 0 ? (
         <Svg o={w}>
           <line x1={120} x2={1440} y1={900} y2={900} stroke={B.paper} strokeWidth={4} />

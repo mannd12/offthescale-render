@@ -31,12 +31,16 @@ export const Crater: React.FC<{ t: SceneTiming }> = ({ t }) => {
     <RungShell t={t} index={8} m={er ? 34000 : 1e4} reading={er ? "21 MILES LONG" : "~10 km"} sub={er ? "Eros, not the Chicxulub rock" : "estimated from its crater"} craft={er ? (f >= land ? "LANDED" : f >= near ? "ORBITED" : undefined) : undefined} made={er ? (f >= exc ? "shattered, intact" : undefined) : "unknown"} flips={[near, land, exc]} chips={er ? [{ kind: "REAL PHOTO", source: "NASA/JHU/APL · Eros, a stand-in" }] : f >= buried - 6 ? [{ kind: "RELIEF MAP", source: "NASA/JPL-Caltech · height exaggerated" }] : [{ kind: "ILLUSTRATION", source: "no picture of this rock exists" }]}>
       <Svg o={a}>
         <line x1={120} y1={830} x2={1420} y2={830} stroke={B.paper} strokeWidth={4} />
-        <rect x={980} y={mix(830, y(1e4), grow)} width={120} height={mix(0, 600, grow)} fill={f >= none ? "none" : B.gauge} stroke={B.gauge} strokeWidth={6} strokeDasharray={f >= none ? "18 14" : undefined} />
+        {/* Pass 2 (S2): a round body 10 km across on the same scale as Everest (600 px), not a tall box */}
+        <circle cx={1110} cy={y(5e3)} r={300 * grow} fill={f >= none ? "none" : B.gauge} stroke={B.gauge} strokeWidth={6} strokeDasharray={f >= none ? "18 14" : undefined} />
+        <line x1={1440} x2={1440} y1={y(1e4)} y2={mix(y(1e4), 830, grow)} stroke={B.gauge} strokeWidth={4} />
+        <line x1={1425} x2={1455} y1={y(1e4)} y2={y(1e4)} stroke={B.gauge} strokeWidth={4} />
+        <line x1={1425} x2={1455} y1={830} y2={830} stroke={B.gauge} strokeWidth={4} opacity={grow} />
         <path d={`M240 830 L460 ${y(8850)} L520 ${y(8850) + 70} L620 ${y(8850) + 30} L860 830 Z`} fill="#5B7186" opacity={ease(f, ever, 14)} />
       </Svg>
       <Pill x={500} y={840} align="center" size={26} o={ease(f, ever, 12) * a}>EVEREST · 8,850 m, NASA'S FIGURE</Pill>
-      <Pill x={1040} y={840} align="center" size={26} color={B.gauge} o={a}>~10 km ACROSS</Pill>
-      <Card x={1040} y={420} align="center" big="NO PICTURE" size={64} color={B.paper} o={ease(f, none, 10) * a} />
+      <Pill x={1110} y={840} align="center" size={26} color={B.gauge} o={a}>~10 km ACROSS</Pill>
+      <Card x={1110} y={470} align="center" big="NO PICTURE" size={64} color={B.paper} o={ease(f, none, 10) * a} />
       <Plate id="l09-chicxulub" from={buried - 6} to={eros} box={{ x: 120, y: 150, w: 620, h: 700 }} fit="contain" s0={1} s1={1.08} o0={[50, 85]} bright={1} />
       <Pill x={780} y={170} size={28} o={map} color={B.gauge}>THE CRATER'S TRACE, NOT THE ROCK</Pill>
       <Card x={780} y={240} big="180 km+" small="the crater, buried" size={70} o={ease(f, wide, 10) * map * (1 - ease(f, species, 10))} />
@@ -47,7 +51,7 @@ export const Crater: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Plate id="l09-eros" from={eros} to={t.frames + 20} s0={1.15} s1={1.45} o0={[30, 30]} o1={[75, 75]} bright={1} />
       <Pill x={960} y={170} align="center" size={40} color={B.gauge} o={ease(f, eros, 8)}>EROS · NOT THE CHICXULUB ROCK</Pill>
       <Card x={70} y={620} big="21 MILES" size={64} o={win(f, miles, near, 10)} />
-      <Card x={70} y={620} big="ORBITED 2000" small={f >= land ? "landed on, 2001" : " "} size={60} color={B.paper} o={win(f, near, exc, 10)} />
+      <Card x={70} y={620} big="ORBITED 2000" small={f >= land ? "landed on, 2001" : " "} size={60} color="rgba(5,14,24,0.92)" ink={B.gauge} o={win(f, near, exc, 6)} />
       <Card x={70} y={620} big="THE EXCEPTION" small="more likely shattered but intact" size={60} o={ease(f, exc, 10)} />
     </RungShell>
   );
@@ -63,9 +67,10 @@ export const World: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const core = at(t, "and a core");
   const world = at(t, "It isn't a pile");
   const rhea = at(t, "It also carries");
-  const pct = at(t, "That's about ninety-five");
+  const pct = at(t, "ninety-five");
   const cut = win(f, crust - 20, rhea, 12);
-  const sweep = ease(f, rhea + 20, 60);
+  // the width line reaches its full ~95 % on the word "ninety-five" and holds (Pass 2, S1)
+  const sweep = ease(f, rhea + 20, Math.max(30, pct - rhea - 20));
   const R = 300;
   return (
     <RungShell t={t} index={9} m={5.3e5} reading="~530 km" sub="Vesta" craft={f >= dawn ? "ORBITED" : undefined} made={f >= world ? "A WORLD" : undefined} flips={[dawn, world]} chips={f < crust - 20 ? [{ kind: "REAL PHOTO", source: "NASA, Dawn · via IAU, CC BY 4.0" }] : [{ kind: "ILLUSTRATION", source: "not to scale" }]}>
@@ -87,7 +92,7 @@ export const World: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <line x1={670 - R * 0.95 * sweep * 0.82} y1={660} x2={670 + R * 0.95 * sweep * 0.82} y2={660} stroke={B.gauge} strokeWidth={6} />
       </Svg>
       <Card x={1040} y={230} big="RHEASILVIA" small="about 500 km wide" size={64} o={ease(f, rhea, 10)} />
-      <Card x={1040} y={450} big={`~${Math.round(95 * lin(f, pct, pct + 40))} %`} small="of Vesta's width" size={84} color={B.paper} o={ease(f, pct, 10)} />
+      <Card x={1040} y={450} big="~95 %" small="of Vesta's width" size={84} color={B.paper} o={ease(f, pct, 8)} />
     </RungShell>
   );
 };

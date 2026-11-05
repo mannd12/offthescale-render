@@ -365,14 +365,14 @@
     "text": "And more thrust doesn't automatically mean more to the Moon. This version sends over twenty-seven metric tons there. The Saturn V could send forty-eight tons.",
     "file": "L10-rocket-levels/vo/l10-03-b6514b7bb0.wav",
     "seconds": 8.28,
-    "pauseAfter": 0.25
+    "pauseAfter": 0.55
   },
   {
     "scene": "l10",
     "index": 4,
-    "text": "Those are different units and very different mission designs, and later versions are planned to carry more.",
-    "file": "L10-rocket-levels/vo/l10-04-14d8fb99d0.wav",
-    "seconds": 5.22,
+    "text": "Those are different units and very different mission designs.",
+    "file": "L10-rocket-levels/vo/l10-04-8aa6bc99e8.wav",
+    "seconds": 3.03,
     "pauseAfter": 0.55
   },
   {
@@ -421,14 +421,6 @@
     "text": "These are paper figures. We didn't find a primary source for the thrust it has actually delivered in flight, and without a total weight, the tank stays blank.",
     "file": "L10-rocket-levels/vo/l11-04-50bcc3a6e9.wav",
     "seconds": 7.95,
-    "pauseAfter": 0.25
-  },
-  {
-    "scene": "l11",
-    "index": 5,
-    "text": "The latest report we read, on its thirteenth test flight, on the twenty-fourth of July, twenty twenty-six, describes a suborbital trajectory.",
-    "file": "L10-rocket-levels/vo/l11-05-ea2de10485.wav",
-    "seconds": 6.21,
     "pauseAfter": 0.55
   },
   {
