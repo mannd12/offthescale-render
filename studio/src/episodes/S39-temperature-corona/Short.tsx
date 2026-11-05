@@ -98,11 +98,11 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
       {/* to scale */}
       <div style={{ opacity: span(frame, barsAt, whyAt) }}>
-        <div style={{ position: "absolute", left: 40, top: 650, fontFamily: F.ui, fontWeight: 800, fontSize: 30, color: B.paper, letterSpacing: 1, whiteSpace: "nowrap" }}>SURFACE · ~5,500 °C</div>
-        <div style={{ position: "absolute", left: 40, top: 700, width: Math.max(4, (BAR * 5500) / 2e6), height: 60, background: B.gauge, borderRadius: 2 }} />
-        <div style={{ position: "absolute", left: 40, top: 810, fontFamily: F.ui, fontWeight: 800, fontSize: 30, color: B.paper, letterSpacing: 1, whiteSpace: "nowrap" }}>CORONA · ~2,000,000 °C</div>
-        <div style={{ position: "absolute", left: 40, top: 860, width: BAR * grow, height: 60, background: B.tease, borderRadius: 6 }} />
-        <Card x={40} y={240} big={["MORE THAN", "300× HOTTER"]} small={["further out"]} size={130} />
+        <div style={{ position: "absolute", left: 40, top: 730, fontFamily: F.ui, fontWeight: 800, fontSize: 30, color: B.paper, letterSpacing: 1, whiteSpace: "nowrap" }}>SURFACE · ~5,500 °C</div>
+        <div style={{ position: "absolute", left: 40, top: 780, width: Math.max(4, (BAR * 5500) / 2e6), height: 60, background: B.gauge, borderRadius: 2 }} />
+        <div style={{ position: "absolute", left: 40, top: 880, fontFamily: F.ui, fontWeight: 800, fontSize: 30, color: B.paper, letterSpacing: 1, whiteSpace: "nowrap" }}>CORONA · ~2,000,000 °C</div>
+        <div style={{ position: "absolute", left: 40, top: 930, width: BAR * grow, height: 60, background: B.tease, borderRadius: 6 }} />
+        <Card x={40} y={220} big={["MORE THAN", "300 TIMES", "HOTTER"]} small={["further out"]} size={110} />
       </div>
 
       <Card x={40} y={300} big={["WHY?"]} small={["still one of the big unsolved questions"]} size={220} bg={B.paper} ink={B.ink} opacity={span(frame, whyAt + 4, askAt)} />

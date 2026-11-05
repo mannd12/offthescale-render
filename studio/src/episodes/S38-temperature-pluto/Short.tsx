@@ -21,7 +21,7 @@ export const timeline = buildTimeline(LINES);
 
 const Trip: React.FC<{ k: number; opacity: number }> = ({ k, opacity }) => {
   const frame = useCurrentFrame();
-  const y = 640;
+  const y = 760;
   const px = 860;
   const ex = 280;
   const dot = lerp(px, ex, k);
@@ -35,10 +35,10 @@ const Trip: React.FC<{ k: number; opacity: number }> = ({ k, opacity }) => {
         <circle cx={px} cy={y} r={20} fill={B.mute} />
         <circle cx={dot} cy={y} r={46 + 6 * Math.sin(frame / 5)} fill="none" stroke={B.tease} strokeWidth={8} />
       </svg>
-      <Note x={60} y={y + 80} rows={["the Sun"]} size={30} />
-      <Note x={ex - 90} y={y + 80} rows={["Earth and Moon"]} size={30} />
+      <Note x={40} y={y + 80} rows={["the Sun"]} size={30} />
+      <Note x={ex - 90} y={y - 140} rows={["Earth and Moon"]} size={30} />
       <Note x={px - 70} y={y + 80} rows={["Pluto"]} size={30} />
-      <Note x={60} y={y + 190} rows={["drawn · not to scale"]} size={26} />
+      <Note x={40} y={y + 190} rows={["drawn · not to scale"]} size={26} />
     </div>
   );
 };
@@ -101,13 +101,13 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <Card x={40} y={260} big={["MUCH CLOSER", "TO HOME"]} size={120} opacity={span(frame, homeAt, moonAt)} />
 
       <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1180, overflow: "hidden", opacity: span(frame, moonAt, askAt) }}>
-        <Img src={staticFile("assets/l08-hermite.jpg")} style={{ width: 1080, height: 1180, objectFit: "cover", objectPosition: "50% 25%", transform: `scale(${lerp(1.1, 1.6, smooth(frame, moonAt, askAt))})`, transformOrigin: "50% 25%", filter: `brightness(${frame >= saidAt ? 0.55 : 0.9})` }} />
+        <Img src={staticFile("assets/l08-hermite.jpg")} style={{ width: 1080, height: 1180, objectFit: "cover", objectPosition: "50% 25%", transform: `scale(${lerp(1.1, 1.35, smooth(frame, moonAt, askAt))})`, transformOrigin: "50% 25%", filter: `brightness(${frame >= saidAt ? 0.55 : 0.9})` }} />
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 200, background: `linear-gradient(transparent, ${B.ink})` }} />
       </div>
-      <Note x={40} y={1080} rows={["real photo · the Moon · crater names are on the original"]} size={26} opacity={span(frame, moonAt, askAt)} />
+      <Note x={40} y={1080} rows={["real photo · the Moon · names on the original"]} size={26} opacity={span(frame, moonAt, askAt)} />
       <Card x={40} y={760} big={["OUR OWN MOON"]} size={100} opacity={span(frame, moonAt + 4, hermAt)} />
       <Card x={40} y={760} big={["HERMITE CRATER"]} size={100} opacity={span(frame, hermAt, saidAt)} />
-      <Card x={40} y={330} big={["THE COLDEST NASA", "HAD MEASURED", "IN THE SOLAR SYSTEM"]} small={["as of 2010"]} size={92} opacity={span(frame, saidAt, askAt)} />
+      <Card x={40} y={690} big={["THE COLDEST NASA", "HAD MEASURED", "IN THE SOLAR SYSTEM"]} small={["as of 2010"]} size={88} opacity={span(frame, saidAt, askAt)} />
 
       <Thermo q={ease(frame, askAt + 14, 10)} opacity={span(frame, askAt, endAt)} />
       <Card x={40} y={180} big={["HOW COLD IS IT", "IN THERE?"]} size={104} bg={B.tease} ink={B.paper} opacity={span(frame, askAt, endAt)} />

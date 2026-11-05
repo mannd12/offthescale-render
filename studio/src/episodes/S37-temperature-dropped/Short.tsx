@@ -41,9 +41,9 @@ const Tower: React.FC<{ opacity: number; height: number }> = ({ opacity, height 
     <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0 }}>
       <rect x={TW.x} y={TW.top} width={TW.w} height={TW.bottom - TW.top} rx={14} fill="rgba(255,255,255,0.06)" stroke={B.paper} strokeWidth={8} />
       <path d={`M${TW.x - 20} ${TW.top} L${TW.x + TW.w / 2} ${TW.top - 70} L${TW.x + TW.w + 20} ${TW.top}`} fill="none" stroke={B.paper} strokeWidth={8} strokeLinejoin="round" />
-      <line x1={TW.x + TW.w + 50} x2={TW.x + TW.w + 50} y1={TW.top} y2={TW.top + (TW.bottom - TW.top) * height} stroke={B.gauge} strokeWidth={8} />
-      <line x1={TW.x + TW.w + 30} x2={TW.x + TW.w + 70} y1={TW.top} y2={TW.top} stroke={B.gauge} strokeWidth={8} opacity={height > 0 ? 1 : 0} />
-      <line x1={TW.x + TW.w + 30} x2={TW.x + TW.w + 70} y1={TW.bottom} y2={TW.bottom} stroke={B.gauge} strokeWidth={8} opacity={height >= 1 ? 1 : 0} />
+      <line x1={TW.x - 40} x2={TW.x - 40} y1={TW.top} y2={TW.top + (TW.bottom - TW.top) * height} stroke={B.gauge} strokeWidth={8} />
+      <line x1={TW.x - 60} x2={TW.x - 20} y1={TW.top} y2={TW.top} stroke={B.gauge} strokeWidth={8} opacity={height > 0 ? 1 : 0} />
+      <line x1={TW.x - 60} x2={TW.x - 20} y1={TW.bottom} y2={TW.bottom} stroke={B.gauge} strokeWidth={8} opacity={height >= 1 ? 1 : 0} />
       <line x1={TW.x - 80} x2={TW.x + TW.w + 80} y1={TW.bottom + 8} y2={TW.bottom + 8} stroke={B.mute} strokeWidth={6} />
     </svg>
   </div>
@@ -93,8 +93,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <div style={{ opacity: towerOn }}>
         <Cloud cx={TW.x + TW.w / 2} cy={cy + bob} spread={spread} fade={thinFade} />
       </div>
-      <Note x={TW.x - 70} y={TW.bottom + 26} rows={["~100,000 atoms"]} size={28} opacity={towerOn * (1 - ease(frame, fallAt, 8))} />
-      <Note x={TW.x + TW.w + 10} y={(TW.top + TW.bottom) / 2 - 24} rows={["110 m"]} size={34} color={B.gauge} opacity={span(frame, cue(t, 2, "a hundred") + 20, zeroAt)} />
+      <Note x={TW.x - 180} y={540} rows={["110 m"]} size={34} color={B.gauge} opacity={span(frame, cue(t, 2, "a hundred") + 20, zeroAt)} />
 
       <Card x={40} y={260} big={["DROPPED."]} small={["the coldest thing ever reported"]} size={150} opacity={1 - ease(frame, atomsAt, 10)} />
 

@@ -44,18 +44,19 @@ const Thermo: React.FC<{ level: number; ring: number; opacity: number }> = ({ le
 
 const Ring: React.FC<{ draw: number; flow: number; glow: number; opacity: number }> = ({ draw, flow, glow, opacity }) => {
   const frame = useCurrentFrame();
-  const R = 300;
+  const R = 260;
+  const CY = 800;
   const C = 2 * Math.PI * R;
   const pulse = 0.75 + 0.25 * Math.sin(frame / 5);
   return (
     <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0, opacity }}>
-      <circle cx={540} cy={640} r={R} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth={44} />
-      <circle cx={540} cy={640} r={R} fill="none" stroke={B.paper} strokeWidth={20} strokeDasharray={`${C * draw} ${C}`} transform="rotate(-90 540 640)" strokeLinecap="round" />
+      <circle cx={540} cy={CY} r={R} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth={44} />
+      <circle cx={540} cy={CY} r={R} fill="none" stroke={B.paper} strokeWidth={20} strokeDasharray={`${C * draw} ${C}`} transform={`rotate(-90 540 ${CY})`} strokeLinecap="round" />
       {/* helium: short aqua dashes running round the ring */}
-      <circle cx={540} cy={640} r={R} fill="none" stroke={B.aqua} strokeWidth={10} strokeDasharray="26 40" strokeDashoffset={-frame * 3} opacity={flow} />
+      <circle cx={540} cy={CY} r={R} fill="none" stroke={B.aqua} strokeWidth={10} strokeDasharray="26 40" strokeDashoffset={-frame * 3} opacity={flow} />
       {/* the hot point on the ring */}
-      <circle cx={540 + R * Math.cos(-0.6)} cy={640 + R * Math.sin(-0.6)} r={30 + 70 * glow * pulse} fill={B.tease} opacity={glow * 0.55} />
-      <circle cx={540 + R * Math.cos(-0.6)} cy={640 + R * Math.sin(-0.6)} r={22 * glow} fill={B.gauge} opacity={glow} />
+      <circle cx={540 + R * Math.cos(-0.6)} cy={CY + R * Math.sin(-0.6)} r={30 + 70 * glow * pulse} fill={B.tease} opacity={glow * 0.55} />
+      <circle cx={540 + R * Math.cos(-0.6)} cy={CY + R * Math.sin(-0.6)} r={22 * glow} fill={B.gauge} opacity={glow} />
     </svg>
   );
 };
@@ -125,7 +126,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <div style={{ position: "absolute", left: 90, top: 330, width: 900, height: 811, borderRadius: 18, overflow: "hidden", opacity: span(frame, goAt, ringAt) }}>
         <Img src={staticFile("assets/l08-aster.jpg")} style={{ width: 900, height: 811, objectFit: "cover", transform: `scale(${lerp(1, 1.15, smooth(frame, goAt, ringAt))})` }} />
       </div>
-      <Note x={40} y={250} rows={["real satellite photo · the ring's site, from orbit"]} size={28} opacity={span(frame, goAt, ringAt)} />
+      <Note x={40} y={220} rows={["real satellite photo, from orbit", "the circle is on the original"]} size={28} opacity={span(frame, goAt, ringAt)} />
 
       {/* the ring, drawn */}
       <Ring draw={draw} flow={smooth(frame, heAt, heAt + 20)} glow={glow} opacity={ringOn} />

@@ -56,7 +56,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const tubeOn = 1 - ease(frame, wordsAt, 10);
   // the atoms sit under the floor, then climb past the top of the tube (line 4)
   const rise = smooth(frame, hotterAt + 6, wordsAt - 6);
-  const ay = lerp(FLOOR + 110, TOP - 260, rise);
+  const ay = lerp(FLOOR + 110, TOP - 150, rise);
   // the number line (line 5 on): 0 at the left, infinity at the right, then the loop back in at the negative end
   const lineDraw = smooth(frame, wordsAt + 4, jumpsAt);
   const loop = smooth(frame, jumpsAt, jumpsAt + 36);
@@ -68,7 +68,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       <div style={{ opacity: tubeOn }}>
         <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0 }}>
           <rect x={TX} y={TOP} width={90} height={FLOOR - TOP + 210} rx={45} fill="rgba(255,255,255,0.06)" stroke={B.paper} strokeWidth={6} />
-          <rect x={TX} y={FLOOR} width={90} height={210} rx={0} fill="rgba(255,90,79,0.12)" />
+          <path d={`M${TX + 3} ${FLOOR} H${TX + 87} V${FLOOR + 165} A42 42 0 0 1 ${TX + 3} ${FLOOR + 165} Z`} fill="rgba(255,90,79,0.12)" />
           <line x1={TX - 60} x2={TX + 150} y1={FLOOR} y2={FLOOR} stroke={B.tease} strokeWidth={12} />
         </svg>
         <Note x={TX - 210} y={FLOOR - 64} rows={["0 K"]} size={34} color={B.tease} />
@@ -105,6 +105,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
         <Note x={40} y={1030} rows={["as the researchers put it, 2013 · drawn, not to scale"]} size={26} />
       </div>
 
+      <Atoms cx={TX + 45} cy={960 + 20 * Math.sin(frame / 10)} opacity={span(frame, agreeAt, endAt)} />
       <Card x={40} y={380} big={["NOT EVERY", "PHYSICIST", "AGREES"]} size={150} opacity={span(frame, agreeAt, askAt)} />
 
       <Card x={40} y={300} big={["BELOW ZERO", "BUT HOTTER?", "HOW?"]} size={140} bg={B.tease} ink={B.paper} opacity={span(frame, askAt, endAt)} />
