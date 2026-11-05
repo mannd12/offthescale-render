@@ -1,0 +1,56 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "In 2010, NASA reported a place colder than Pluto.",
+    "file": "S38-temperature-pluto/vo/cold-00.wav",
+    "seconds": 3.12,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Most people would guess Pluto is as cold as it gets. It averages about minus two hundred and thirty-two degrees.",
+    "file": "S38-temperature-pluto/vo/cold-01.wav",
+    "seconds": 6.68,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "But the colder spot was much closer to home.",
+    "file": "S38-temperature-pluto/vo/cold-02.wav",
+    "seconds": 3.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "It's on our own Moon, in a crater called Hermite.",
+    "file": "S38-temperature-pluto/vo/cold-03.wav",
+    "seconds": 3.44,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "NASA said it was the coldest temperature it had measured anywhere in the solar system, at the time.",
+    "file": "S38-temperature-pluto/vo/cold-04.wav",
+    "seconds": 5.96,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So how cold is it in there? The full video has the number, and it's linked right here.",
+    "file": "S38-temperature-pluto/vo/cold-05.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

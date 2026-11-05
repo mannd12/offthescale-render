@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "The Sun's atmosphere is hotter than its surface.",
+    "file": "S39-temperature-corona/vo/cold-00.wav",
+    "seconds": 2.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Its visible surface is about five thousand five hundred degrees.",
+    "file": "S39-temperature-corona/vo/cold-01.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Move away from a fire, and it gets cooler. You'd expect the Sun to work the same way.",
+    "file": "S39-temperature-corona/vo/cold-02.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "But its outer atmosphere, the corona, reaches about two million degrees.",
+    "file": "S39-temperature-corona/vo/cold-03.wav",
+    "seconds": 3.85,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That's more than three hundred times hotter, further out.",
+    "file": "S39-temperature-corona/vo/cold-04.wav",
+    "seconds": 3.12,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And exactly why is still one of the big unsolved questions.",
+    "file": "S39-temperature-corona/vo/cold-05.wav",
+    "seconds": 3.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what's hotter than the corona? The full video keeps climbing, and it's linked right here.",
+    "file": "S39-temperature-corona/vo/cold-06.wav",
+    "seconds": 5.51,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

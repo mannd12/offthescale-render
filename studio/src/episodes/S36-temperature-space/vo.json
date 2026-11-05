@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "There's a place on Earth that's colder than outer space.",
+    "file": "S36-temperature-space/vo/cold-00.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Space itself isn't at absolute zero. The oldest light in the universe holds it at about two point seven degrees above.",
+    "file": "S36-temperature-space/vo/cold-01.wav",
+    "seconds": 6.99,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Now go underground, on the border of France and Switzerland. There's a ring down here, twenty-seven kilometres long.",
+    "file": "S36-temperature-space/vo/cold-02.wav",
+    "seconds": 6.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Its magnets are kept at one point nine above absolute zero. Colder than the space between the stars.",
+    "file": "S36-temperature-space/vo/cold-03.wav",
+    "seconds": 6.04,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That takes a hundred and twenty tonnes of helium, and weeks just to cool it down.",
+    "file": "S36-temperature-space/vo/cold-04.wav",
+    "seconds": 5.33,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And inside that same ring, something gets far hotter than the Sun.",
+    "file": "S36-temperature-space/vo/cold-05.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what is it, and how hot does it get? The full video goes there, and it's linked right here.",
+    "file": "S36-temperature-space/vo/cold-06.wav",
+    "seconds": 6.88,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

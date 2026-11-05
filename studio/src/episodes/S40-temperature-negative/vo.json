@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "In 2013, physicists made a gas with a temperature below absolute zero.",
+    "file": "S40-temperature-negative/vo/cold-00.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Absolute zero is the floor, minus two hundred and seventy-three point one five degrees. Nothing has ever got there.",
+    "file": "S40-temperature-negative/vo/cold-01.wav",
+    "seconds": 6.46,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "But in Munich, about a hundred thousand atoms read minus a few billionths of a kelvin.",
+    "file": "S40-temperature-negative/vo/cold-02.wav",
+    "seconds": 5.33,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "And here's the strange part. It isn't colder than zero.",
+    "file": "S40-temperature-negative/vo/cold-03.wav",
+    "seconds": 3.52,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "By the standard definition, it's hotter than any positive temperature at all.",
+    "file": "S40-temperature-negative/vo/cold-04.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "As the researchers put it, the scale doesn't end at infinity. It jumps to negative values.",
+    "file": "S40-temperature-negative/vo/cold-05.wav",
+    "seconds": 5.51,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Not every physicist agrees.",
+    "file": "S40-temperature-negative/vo/cold-06.wav",
+    "seconds": 1.44,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So how can something below zero be hotter than anything above it? The full video ends on it, and it's linked right here.",
+    "file": "S40-temperature-negative/vo/cold-07.wav",
+    "seconds": 7.72,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

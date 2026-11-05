@@ -60,6 +60,11 @@ import { ShortS32, timeline as s32 } from "./episodes/S32-volcano-twoscores/Shor
 import { ShortS33, timeline as s33 } from "./episodes/S33-volcano-wrongmountain/Short";
 import { ShortS34, timeline as s34 } from "./episodes/S34-volcano-modest/Short";
 import { ShortS35, timeline as s35 } from "./episodes/S35-volcano-unseen/Short";
+import { ShortS36, timeline as s36 } from "./episodes/S36-temperature-space/Short";
+import { ShortS37, timeline as s37 } from "./episodes/S37-temperature-dropped/Short";
+import { ShortS38, timeline as s38 } from "./episodes/S38-temperature-pluto/Short";
+import { ShortS39, timeline as s39 } from "./episodes/S39-temperature-corona/Short";
+import { ShortS40, timeline as s40 } from "./episodes/S40-temperature-negative/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 
 export const Root: React.FC = () => (
@@ -131,6 +136,11 @@ export const Root: React.FC = () => (
     <Composition id="s33-short" component={ShortS33} durationInFrames={s33.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s34-short" component={ShortS34} durationInFrames={s34.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s35-short" component={ShortS35} durationInFrames={s35.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s36-short" component={ShortS36} durationInFrames={s36.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s37-short" component={ShortS37} durationInFrames={s37.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s38-short" component={ShortS38} durationInFrames={s38.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s39-short" component={ShortS39} durationInFrames={s39.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s40-short" component={ShortS40} durationInFrames={s40.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 

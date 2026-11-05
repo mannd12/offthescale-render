@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "The coldest thing ever reported was made by dropping it.",
+    "file": "S37-temperature-dropped/vo/cold-00.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "In 2021, physicists in Germany took about a hundred thousand atoms of rubidium.",
+    "file": "S37-temperature-dropped/vo/cold-01.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "They dropped them down a tower a hundred and ten metres high.",
+    "file": "S37-temperature-dropped/vo/cold-02.wav",
+    "seconds": 3.97,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "They watched the cloud during two seconds of free fall.",
+    "file": "S37-temperature-dropped/vo/cold-03.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Without a trick, the cloud thinned out so fast that it couldn't be detected after about a sixth of a second.",
+    "file": "S37-temperature-dropped/vo/cold-04.wav",
+    "seconds": 6.91,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "With it, they could see the cloud for the whole fall.",
+    "file": "S37-temperature-dropped/vo/cold-05.wav",
+    "seconds": 3.75,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Absolute zero is minus two hundred and seventy-three point one five degrees, and nothing has ever got there.",
+    "file": "S37-temperature-dropped/vo/cold-06.wav",
+    "seconds": 5.96,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So how close did they get? The full video starts there, and it's linked right here.",
+    "file": "S37-temperature-dropped/vo/cold-07.wav",
+    "seconds": 5.51,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
