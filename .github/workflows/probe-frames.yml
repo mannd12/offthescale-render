@@ -40,7 +40,7 @@ jobs:
               part = frames[k:k + 120]
               sel = "+".join(f"eq(n\,{f})" for f in part)
               subprocess.run(["ffmpeg", "-v", "error", "-i", "in.mp4", "-vf", f"select='{sel}',scale={os.environ['WIDTH']}:-2",
-                              "-vsync", "0", "-start_number", "0", f"out/tmp{k}_%04d.png"], check=True)
+                              "-fps_mode", "passthrough", "-start_number", "0", f"out/tmp{k}_%04d.png"], check=True)
               for i, f in enumerate(part):
                   os.rename(f"out/tmp{k}_{i:04d}.png", f"out/{stem}-f{f}.png")
           print(len(frames), "frames extracted")
