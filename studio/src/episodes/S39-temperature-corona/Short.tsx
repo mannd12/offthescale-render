@@ -110,16 +110,16 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
       {/* the climb continues */}
       <div style={{ opacity: span(frame, askAt, endAt) }}>
         <svg width={1080} height={1180} style={{ position: "absolute", left: 0, top: 0 }}>
-          <rect x={430} y={LY(1e9)} width={80} height={LY(1e3) - LY(1e9)} rx={40} fill="rgba(255,255,255,0.08)" stroke={B.paper} strokeWidth={6} />
+          <rect x={330} y={LY(1e9)} width={80} height={LY(1e3) - LY(1e9)} rx={40} fill="rgba(255,255,255,0.08)" stroke={B.paper} strokeWidth={6} />
           {[3, 4, 5, 6, 7, 8, 9].map((p) => (
-            <line key={p} x1={400} x2={430} y1={LY(10 ** p)} y2={LY(10 ** p)} stroke={B.mute} strokeWidth={4} />
+            <line key={p} x1={300} x2={330} y1={LY(10 ** p)} y2={LY(10 ** p)} stroke={B.mute} strokeWidth={4} />
           ))}
-          <rect x={444} y={LY(2e6)} width={52} height={LY(1e3) - LY(2e6)} rx={20} fill={B.tease} />
-          <rect x={444} y={LY(1e9)} width={52} height={LY(2e6) - LY(1e9) - 10} rx={20} fill={B.paper} opacity={0.25 + 0.25 * Math.abs(Math.sin(frame / 8))} />
+          <rect x={344} y={LY(2e6)} width={52} height={LY(1e3) - LY(2e6)} rx={20} fill={B.tease} />
+          <rect x={344} y={LY(1e9)} width={52} height={LY(2e6) - LY(1e9) - 10} rx={20} fill={B.paper} opacity={0.25 + 0.25 * Math.abs(Math.sin(frame / 8))} />
         </svg>
-        <Note x={540} y={LY(5500) - 24} rows={["surface · ~5,500 °C"]} size={30} />
-        <Note x={540} y={LY(2e6) - 24} rows={["corona · ~2 million °C"]} size={30} color={B.tease} />
-        <div style={{ position: "absolute", left: 560, top: LY(1e8) - 90, fontFamily: F.headline, fontSize: 140, lineHeight: 1, color: B.paper }}>?</div>
+        <Note x={440} y={LY(5500) - 24} rows={["surface · ~5,500 °C"]} size={30} />
+        <Note x={440} y={LY(2e6) - 24} rows={["corona · ~2 million °C"]} size={30} color={B.tease} />
+        <div style={{ position: "absolute", left: 460, top: LY(1e8) - 90, fontFamily: F.headline, fontSize: 140, lineHeight: 1, color: B.paper }}>?</div>
         <Note x={40} y={1090} rows={["drawn · each mark 10×"]} size={26} />
       </div>
       <Card x={40} y={180} big={["WHAT'S HOTTER", "THAN THE CORONA?"]} size={96} bg={B.tease} ink={B.paper} opacity={span(frame, askAt, endAt)} />

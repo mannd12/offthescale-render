@@ -81,7 +81,7 @@ const Body: React.FC<{ t: SceneTiming }> = ({ t }) => {
 
   const draw = smooth(frame, ringAt, ringAt + 40);
   const level = lerp(2.7, 1.9, smooth(frame, colderAt + 6, colderAt + 40));
-  const tonnes = Math.round(120 * smooth(frame, heAt + 4, weeksAt));
+  const tonnes = Math.round(120 * smooth(frame, heAt + 4, cue(t, 4, "tonnes")));
   const glow = smooth(frame, hotAt + 10, hotAt + 50);
   const ringOn = frame >= ringAt && frame < magAt ? 1 : frame >= heAt ? 1 : 0;
 
