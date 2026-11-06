@@ -125,7 +125,6 @@ const ShotMantle: React.FC<SP> = ({ f, len, k }) => {
   const sx = (wx: number) => 960 + (wx - cam.x) * cam.zoom;
   const sy = (wy: number) => 540 + (wy - cam.y) * cam.zoom;
   const gmax = decadeZoom(15, EARTH_KM, ramp(f, 0, L * 0.7));
-  const coreDepth = EARTH_KM - CORE_KM; // 2,886 km
   const pxkm = R / EARTH_KM;
   const br = ramp(f, k.mantle - 10, k.mantle + 10);
   const cr = ramp(f, k.core - 6, k.core + 8);
@@ -163,7 +162,6 @@ const ShotMantle: React.FC<SP> = ({ f, len, k }) => {
           theme={GRAPHITE}
           title="DEPTH"
           readoutText={`${fmt(KOLA_M)} m`}
-          marks={gmax > 3200 ? [{ v: coreDepth, label: "CORE" }] : []}
           plate={110}
           unitCap={false}
         />

@@ -538,7 +538,7 @@ const ShotSideways: React.FC<SP> = ({ f, len }) => {
         <line x1={endX} y1={SG - 26} x2={endX} y2={SG + 2.6 * SK} stroke={P.ink} strokeWidth={2} strokeDasharray="8 8" opacity={k} />
         <Dim x1={SX0} y1={y} x2={endX} y2={y} k={k} />
         <Tag x={SX0 + (endX - SX0) * Math.max(0.5, k * 0.9)} y={y - 46} text="≈ 11,400 m" num size={36} anchor="middle" o={ramp(f, L * 0.4, L * 0.6)} />
-        <Tag x={endX - 20} y={SG + 2.6 * SK + 60} text="Out under the sea" size={30} anchor="end" plain o={ramp(f, L * 0.7, L * 0.9)} />
+        <Tag x={endX - 20} y={SG + 2.6 * SK + 60} text="Out under the sea" size={30} anchor="end" o={ramp(f, L * 0.7, L * 0.9)} />
       </Layer>
       <Layer depth={0}>
         <CornerTicks color={P.ink} />
@@ -653,10 +653,10 @@ const ShotKtb: React.FC<SP> = ({ f, len, k }) => {
         <Rig x={hx} y={KG - 20} h={130} f={f} />
         <line x1={hx} y1={KG} x2={hx} y2={tipY} stroke={C.hole} strokeWidth={7} />
         <rect x={hx - 7} y={tipY - 4} width={14} height={14} fill={P.ink} transform={`rotate(${f * 8} ${hx} ${tipY + 3})`} />
-        {Array.from({ length: 10 }, (_, i) => (
-          <g key={i} opacity={d * 9.101 >= i ? 1 : 0.25}>
+        {Array.from({ length: 9 }, (_, j) => j + 1).map((i) => (
+          <g key={i} opacity={d * 9.101 >= i ? 1 : 0.35}>
             <line x1={hx + 30} y1={KG + i * KK} x2={hx + 52} y2={KG + i * KK} stroke={P.ink} strokeWidth={2} />
-            <text x={hx + 62} y={KG + i * KK + 8} style={numStyle(22, P.inkSoft)}>
+            <text x={hx + 62} y={KG + i * KK + 8} style={numStyle(24, P.ink)}>
               {i} km
             </text>
           </g>
@@ -680,11 +680,11 @@ const HoleBottom: React.FC<{ f: number; hot: number; rot: number; bands?: number
       {Array.from({ length: bands }, (_, i) => {
         const y0 = -200 + (i * 1200) / bands;
         const top = strataLine(-800, 2800, y0, 10, 30 + i, 80);
-        const bot = strataLine(-800, 2800, y0 + 1200 / bands, 10, 31 + i, 80);
+        const bot = i === bands - 1 ? ([[-800, 1800], [2800, 1800]] as [number, number][]) : strataLine(-800, 2800, y0 + 1200 / bands, 10, 31 + i, 80);
         return <path key={i} d={stratumPath(top, bot)} fill={heat((i / (bands - 1)) * (0.35 + 0.65 * hot))} />;
       })}
       <Hatch id="s8-hb" color={mixHex(E.b, P.ink, 0.5)} gap={20} angle={50} width={1.2} />
-      <rect x={-800} y={-200} width={3600} height={1400} fill="url(#s8-hb)" opacity={0.25} />
+      <rect x={-800} y={-200} width={3600} height={2000} fill="url(#s8-hb)" opacity={0.25} />
       {/* heat contours crowd round the bottom of the hole */}
       {[0, 1, 2, 3, 4].map((i) => {
         const r = 120 + i * 90 - hot * 40;
@@ -1027,7 +1027,7 @@ const ShotLineup: React.FC<SP> = ({ f, len }) => {
             </g>
           );
         })}
-        <Tag x={1460} y={G - 120} text="Record" size={36} anchor="middle" o={ramp(f, 30, 40)} />
+        <Tag x={1460} y={G - 136} text="Record" size={36} anchor="middle" o={ramp(f, 30, 40)} />
       </Layer>
       <Layer depth={0}>
         <CornerTicks color={P.ink} />

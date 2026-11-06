@@ -109,8 +109,8 @@ const CrustSection: React.FC<{ f: number; G: number; K: number; coast: number; t
 const ShotMoho: React.FC<SP> = ({ f, len, k }) => {
   const L = Math.max(len, 60);
   const cam = cameraAt(f, [
-    { f: 0, x: 900, y: 560, zoom: 1.0 },
-    { f: L, x: 860, y: 640, zoom: 1.12 },
+    { f: 0, x: 900, y: 440, zoom: 1.0 },
+    { f: L, x: 860, y: 600, zoom: 1.1 },
   ]);
   const m = lerp(f, k.moho - 10, k.moho + 30, 0, 1);
   return (
@@ -479,12 +479,14 @@ const ShotAtlantic: React.FC<SP> = ({ f, len }) => {
 const Massif: React.FC<{ f: number; rise: number; hole?: number }> = ({ f, rise, hole = 0 }) => {
   const SF = 300;
   const up = (1 - rise) * 420;
+  const SLOPE = 0.414; // fault: x grows 0.414 px per px of depth
+  const fx = (y: number) => 480 + (y - (SF - 60)) * SLOPE;
   const block: [number, number][] = [
-    [520, SF + 40 + up],
-    [700, SF - 30 + up],
-    [1240, SF + 10 + up],
-    [1500, 1300],
-    [760, 1300],
+    [fx(SF + 40), SF + 40],
+    [700, SF - 30],
+    [1240, SF + 10],
+    [1500, 1500],
+    [fx(1500), 1500],
   ];
   return (
     <g>
@@ -492,29 +494,32 @@ const Massif: React.FC<{ f: number; rise: number; hole?: number }> = ({ f, rise,
       {specks(f, 30, 2400, SF + 600, 91, 8).map((s, i) => (
         <circle key={i} cx={s.x - 250} cy={((s.y + f * 0.35) % (SF + 600)) - 600} r={s.r * 0.6} fill={lit(SEA, 0.4)} opacity={0.4} />
       ))}
-      <rect x={-900} y={SF} width={4000} height={1200} fill={CRUST} />
+      <rect x={-900} y={SF} width={4000} height={1400} fill={CRUST} />
       <Hatch id="s9m-cr" color={shade(CRUST, 0.15)} gap={20} angle={60} width={1.3} />
-      <rect x={-900} y={SF} width={4000} height={1200} fill="url(#s9m-cr)" />
-      <path d={ptsToPath(block) + " Z"} fill={MANTLE} />
-      <path d={ptsToPath([block[0], block[1], [760, 1300]]) + " Z"} fill={lit(MANTLE, 0.15)} />
-      <Hatch id="s9m-man" color={shade(MANTLE, 0.25)} gap={14} dots width={1.8} />
-      <path d={ptsToPath(block) + " Z"} fill="url(#s9m-man)" />
-      {/* seawater soaking in: small sea-glass specks in the block */}
-      {Array.from({ length: 40 }, (_, i) => {
-        const x = 760 + rnd(i + 5) * 560;
-        const y = SF + 40 + up + rnd(i + 9) * 700;
-        return <circle key={i} cx={x + Math.sin(f / 30 + i) * 3} cy={y} r={3} fill={lit(SEA, 0.2)} opacity={0.7} />;
-      })}
-      {/* the fault ramp */}
-      <line x1={420} y1={SF + 160} x2={1500} y2={1300} stroke={P.ink} strokeWidth={4} />
+      <rect x={-900} y={SF} width={4000} height={1400} fill="url(#s9m-cr)" />
+      <line x1={-900} y1={SF} x2={3100} y2={SF} stroke={P.ink} strokeWidth={2.5} />
+      {/* the mantle block slides up along the fault (translated along its direction) */}
+      <g transform={`translate(${up * SLOPE} ${up})`}>
+        <path d={ptsToPath(block) + " Z"} fill={MANTLE} />
+        <path d={ptsToPath([block[0], block[1], [fx(1500) + 160, 1500], block[4]]) + " Z"} fill={lit(MANTLE, 0.15)} />
+        <Hatch id="s9m-man" color={shade(MANTLE, 0.25)} gap={14} dots width={1.8} />
+        <path d={ptsToPath(block) + " Z"} fill="url(#s9m-man)" />
+        {Array.from({ length: 40 }, (_, i) => {
+          const y = SF + 40 + rnd(i + 9) * 700;
+          const x = fx(y) + 40 + rnd(i + 5) * 520;
+          return <circle key={i} cx={x + Math.sin(f / 30 + i) * 3} cy={y} r={3} fill={lit(SEA, 0.2)} opacity={0.7} />;
+        })}
+        <path d={ptsToPath(block.slice(0, 3))} fill="none" stroke={P.ink} strokeWidth={2.5} />
+        {hole > 0 ? <line x1={980} y1={SF - 14} x2={980} y2={SF - 14 + hole} stroke={C.hole} strokeWidth={6} /> : null}
+      </g>
+      {/* the fault, with arrows riding up it on the block side */}
+      <line x1={fx(SF - 60)} y1={SF - 60} x2={fx(1500)} y2={1500} stroke={P.ink} strokeWidth={4} />
       {[0, 1, 2].map((i) => {
         const a = (((f * 0.012 + i / 3) % 1) + 1) % 1;
-        const x = 1450 - a * 650;
-        const y = 1250 - a * 660;
-        return <path key={i} d={`M${x - 14} ${y + 4} L${x} ${y - 18} L${x + 14} ${y + 4} Z`} fill={P.ink} opacity={rise < 1 ? 0.8 : 0.35} transform={`rotate(-38 ${x} ${y})`} />;
+        const y = 1250 - a * 760;
+        const x = fx(y) + 70;
+        return <path key={i} d={`M${x - 14} ${y + 8} L${x} ${y - 18} L${x + 14} ${y + 8} Z`} fill={P.ink} opacity={rise < 1 ? 0.8 : 0.35} transform={`rotate(-22.5 ${x} ${y})`} />;
       })}
-      <path d={ptsToPath([[-900, SF], [520, SF], [520, SF + 40 + up], [700, SF - 30 + up], [1240, SF + 10 + up], [1300, SF], [3100, SF]])} fill="none" stroke={P.ink} strokeWidth={2.5} />
-      {hole > 0 ? <line x1={980} y1={SF - 14 + up} x2={980} y2={SF - 14 + up + hole} stroke={C.hole} strokeWidth={6} /> : null}
     </g>
   );
 };
@@ -531,7 +536,7 @@ const ShotMassif: React.FC<SP> = ({ f, len, k }) => {
     <Stage theme={BONE} cam={cam}>
       <Layer depth={1}>
         <Massif f={f} rise={rise} />
-        <text x={1000} y={760 + (1 - rise) * 420} textAnchor="middle" style={labelStyle(48, shade(MANTLE, 0.55), 4)}>
+        <text x={1000 + (1 - rise) * 420 * 0.414} y={760 + (1 - rise) * 420} textAnchor="middle" style={labelStyle(48, shade(MANTLE, 0.55), 4)}>
           Mantle
         </text>
       </Layer>
@@ -563,7 +568,7 @@ const ShotDrill: React.FC<SP> = ({ f, len }) => {
         <circle cx={980} cy={286 + NEW_M * KM * d} r={8} fill={P.ink} transform={`rotate(${f * 9} 980 ${290 + NEW_M * KM * d})`} />
       </Layer>
       <Layer depth={0}>
-        <Gauge x={1580} y={200} height={680} value={NEW_M * d} max={1500} unit="m" theme={BONE} title="BELOW SEA FLOOR" readoutText={`${fmt(Math.round(NEW_M * d))} m`} plate={100} unitCap={false} />
+        <Gauge x={1580} y={200} height={680} value={NEW_M * d} max={1500} unit="m" theme={BONE} readoutText={`${fmt(Math.round(NEW_M * d))} m`} plate={100} unitCap={false} />
         <CornerTicks color={P.chalk} />
       </Layer>
     </Stage>
