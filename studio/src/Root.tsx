@@ -26,6 +26,7 @@ import { ThumbL09 } from "./episodes/L09-asteroid-levels/Thumbs";
 import { EpisodeL10, timeline as l10 } from "./episodes/L10-rocket-levels/Episode";
 import { ThumbL10 } from "./episodes/L10-rocket-levels/Thumbs";
 import { L11Style1, L11Style2, L11Style3, L11Style4 } from "./episodes/L11-dig-depth/StyleFrames";
+import { ThumbL11, ThumbL11B } from "./episodes/L11-dig-depth/Thumb";
 import { TestL11, l11TestFrames } from "./episodes/L11-dig-depth/Episode";
 import { FullL11, l11Frames } from "./episodes/L11-dig-depth/Full";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
@@ -171,6 +172,8 @@ export const Root: React.FC = () => (
     <Still id="l11-style-2" component={L11Style2} width={1920} height={1080} />
     <Still id="l11-style-3" component={L11Style3} width={1920} height={1080} />
     <Still id="l11-style-4" component={L11Style4} width={1920} height={1080} />
+    <Still id="l11-thumb" component={ThumbL11} width={1280} height={720} />
+    <Still id="l11-thumb-b" component={ThumbL11B} width={1280} height={720} />
 
     {/* Brand kit for the "Every LEVEL of nature" channel (checkpoint 1 stills) */}
     <Still id="brand-frame" component={BrandFrame} width={1920} height={1080} />
