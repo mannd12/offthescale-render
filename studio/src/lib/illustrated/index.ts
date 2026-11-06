@@ -7,3 +7,5 @@ export * from "./lines";
 export * from "./figure";
 export * from "./gauge";
 export * from "./type";
+export * from "./forms";
+export * from "./texture";

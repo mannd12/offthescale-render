@@ -3,8 +3,9 @@
 // <Stage> owns one SVG; every <Layer> inside reads the camera and applies it scaled by its depth, so a
 // pan or push-in moves the foreground more than the background (parallax) with no per-scene maths.
 import React, { createContext, useContext } from "react";
-import { AbsoluteFill, Easing, interpolate } from "remotion";
+import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
 import { Theme } from "./palette";
+import { PaperGrain } from "./texture";
 
 export type Cam = { x: number; y: number; zoom: number };
 export const REST: Cam = { x: 960, y: 540, zoom: 1 };
@@ -30,14 +31,20 @@ export const cameraAt = (frame: number, keys: CamKey[]): Cam => {
   };
 };
 
-/** One full-frame scene: flat base colour, one SVG with the camera, one soft vignette (the only ramp allowed). */
-export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; children: React.ReactNode; overlay?: React.ReactNode }> = ({
+/**
+ * One full-frame scene: flat base colour, one SVG with the camera, one soft vignette (the only ramp allowed), and the
+ * paper/grain print texture on top (`grain` = strength multiplier, 0 = off).
+ */
+export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain?: number; children: React.ReactNode; overlay?: React.ReactNode }> = ({
   theme,
   cam = REST,
   vignette = 0.16,
+  grain = 1,
   children,
   overlay,
-}) => (
+}) => {
+  const frame = useCurrentFrame();
+  return (
   <AbsoluteFill style={{ background: theme.bg }}>
     <CamCtx.Provider value={cam}>
       <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0 }}>
@@ -53,8 +60,10 @@ export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; child
       />
     ) : null}
     {overlay}
+    {grain > 0 ? <PaperGrain frame={frame} dark={theme.dark} amount={grain} /> : null}
   </AbsoluteFill>
-);
+  );
+};
 
 /**
  * A parallax layer. depth 1 = moves exactly with the camera (the subject plane); 0.3 = far background

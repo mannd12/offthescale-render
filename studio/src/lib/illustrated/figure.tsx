@@ -2,7 +2,7 @@
 // Straight-edged polygons + one circle (head). No face, no hands, no expression: it is a ruler, not a
 // character. It is the only "person" the channel ever shows.
 import React from "react";
-import { P } from "./palette";
+import { P, shade } from "./palette";
 
 export const FIGURE_METRES = 1.7;
 
@@ -33,16 +33,41 @@ export const ReferenceFigure: React.FC<{
   /** degrees, for a gentle ambient sway (pivot at the feet) */
   sway?: number;
   facing?: 1 | -1;
-}> = ({ x, y, pxPerM, pose = "stand", color = P.vermilion, outline, sway = 0, facing = 1 }) => {
+  /** walk cycle phase in strides (frame / framesPerStride); undefined = standing still */
+  walk?: number;
+  /** breathing: pass the frame; the chest rises ~1.5 % every ~3 s */
+  breath?: number;
+  /** head turn, -1 (looking back) .. 1 (looking ahead); shifts and tilts the head, no face */
+  look?: number;
+  /** two-tone: far arm and far leg in a shadow tone of the figure colour (default on) */
+  shaded?: boolean;
+}> = ({ x, y, pxPerM, pose = "stand", color = P.vermilion, outline, sway = 0, facing = 1, walk, breath, look = 0, shaded = true }) => {
   const s = pxPerM / 100;
-  const parts = [BODY.torso, BODY.neck, BODY.legL, BODY.legR, BODY.armL, pose === "point" ? BODY.armRPoint : BODY.armR];
+  const far = shaded ? shade(color, 0.3) : color;
   const stroke = outline ? { stroke: outline, strokeWidth: 2 / s, strokeLinejoin: "round" as const } : {};
+  const ph = walk === undefined ? 0 : Math.sin(walk * Math.PI * 2);
+  const legA = walk === undefined ? 0 : 20 * ph;
+  const armA = walk === undefined ? 0 : 16 * ph;
+  const lift = walk === undefined ? 0 : -3 * Math.abs(Math.cos(walk * Math.PI * 2));
+  const chest = breath === undefined ? 1 : 1 + 0.015 * Math.sin((breath / 95) * Math.PI * 2);
+  const pointing = pose === "point";
   return (
     <g transform={`translate(${x} ${y}) rotate(${sway}) scale(${s * facing} ${s})`}>
-      {parts.map((d, i) => (
-        <path key={i} d={d} fill={color} {...stroke} />
-      ))}
-      <circle cx={0} cy={-158} r={11} fill={color} {...stroke} />
+      <g transform={`translate(0 ${lift})`}>
+        {/* far limbs first, in the shadow tone */}
+        <path d={BODY.legR} fill={far} transform={`rotate(${-legA} 8 -84)`} {...stroke} />
+        {pointing ? null : <path d={BODY.armR} fill={far} transform={`rotate(${armA} 27 -138)`} {...stroke} />}
+        <g transform={`translate(0 -82) scale(1 ${chest}) translate(0 82)`}>
+          <path d={BODY.torso} fill={color} {...stroke} />
+          <path d={BODY.neck} fill={color} {...stroke} />
+          <g transform={`rotate(${look * 6} 0 -146)`}>
+            <circle cx={look * 3.5} cy={-158} r={11} fill={color} {...stroke} />
+          </g>
+          {pointing ? <path d={BODY.armRPoint} fill={color} {...stroke} /> : null}
+          <path d={BODY.armL} fill={color} transform={`rotate(${-armA} -27 -138)`} {...stroke} />
+        </g>
+        <path d={BODY.legL} fill={color} transform={`rotate(${legA} -8 -84)`} {...stroke} />
+      </g>
     </g>
   );
 };

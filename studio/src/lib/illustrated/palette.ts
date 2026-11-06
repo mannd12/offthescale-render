@@ -38,3 +38,12 @@ export const mixHex = (a: string, b: string, k: number) => {
 };
 /** Tint toward the frame base: k = 0 → colour, 1 → base. */
 export const tint = (c: string, base: string, k: number) => mixHex(c, base, k);
+
+// Two-tone flat shading (2026-11-05 art upgrade). The light always comes from the upper LEFT (a low sun):
+// left / top faces take lit(), right / under faces take shade(). Two flat tones per form, never a ramp.
+const SHADOW_INK = "#15191C";
+const LIGHT_PAPER = "#FFFBF2";
+/** Shadow side of a form: the colour pushed toward a cool near-black (k ≈ 0.2-0.4). */
+export const shade = (c: string, k = 0.28) => mixHex(c, SHADOW_INK, k);
+/** Lit side of a form: the colour pushed toward warm paper white (k ≈ 0.15-0.35). */
+export const lit = (c: string, k = 0.22) => mixHex(c, LIGHT_PAPER, k);
