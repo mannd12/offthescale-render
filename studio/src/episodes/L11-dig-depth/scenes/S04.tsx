@@ -511,7 +511,7 @@ const ShotHotter: ShotFC<C4> = ({ f, len, c }) => {
     { f: 0, x: 900, y: 560, zoom: 1.08 },
     { f: len + 10, x: 860, y: 600, zoom: 1.0 },
   ]);
-  const temp = lerp(f, h0 - 6, len + 30, 10, 150);
+  const temp = lerp(f, h0 - 6, len + 30, 10, 110);
   return (
     <Stage theme={BONE} cam={cam}>
       <Layer depth={1}>

@@ -467,10 +467,10 @@ export const LongSection: React.FC<{
             return (
               <path
                 key={i}
-                d={`M${x0 + sd * 14} ${yy - 12} L${x0} ${yy} L${x0 + sd * 14} ${yy + 12}`}
+                d={`M${x0 + sd * 22} ${yy - 18} L${x0} ${yy} L${x0 + sd * 22} ${yy + 18}`}
                 fill="none"
-                stroke={K.sea}
-                strokeWidth={5}
+                stroke={shade(K.sea, 0.15)}
+                strokeWidth={8}
                 strokeLinejoin="round"
                 opacity={water * Math.sin(run * Math.PI)}
               />
@@ -573,7 +573,7 @@ const ShotChart: ShotFC<C1> = ({ f, len }) => {
       <Layer depth={1}>
         <rect x={-600} y={-600} width={3200} height={2400} fill={lit(P.bone, 0.1)} />
         {[0, 1, 2, 3, 4].map((i) => (
-          <Contours key={i} x0={-400} x1={2400} y={-120 + i * 260} n={4} gap={22} amp={50} seed={i * 3 + 1} color={tint(E.a, P.bone, 0.45)} width={1.6} dash={i % 2 ? "8 8" : undefined} dashOffset={crawl(f, 0.3)} />
+          <Contours key={i} x0={-400} x1={2400} y={-120 + i * 260} n={4} gap={22} amp={16} seed={i * 3 + 1} color={tint(E.a, P.bone, 0.45)} width={1.6} dash={i % 2 ? "8 8" : undefined} dashOffset={crawl(f, 0.3)} />
         ))}
         {lakes.map(([x, y, r], i) => {
           const pts = Array.from({ length: 9 }, (_, j) => {
@@ -755,8 +755,8 @@ const ShotSurvey: ShotFC<C1> = ({ f, len }) => {
 // Shot 5 - the long section: the ray bounces off a bold line at ~7 km, "Basalt?" (#6)
 const ShotSeven: ShotFC<C1> = ({ f, len, c }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 520, zoom: 1.08 },
-    { f: len + 10, x: 940, y: 600, zoom: 1.2 },
+    { f: 0, x: 960, y: 540, zoom: 1.0 },
+    { f: len + 10, x: 950, y: 560, zoom: 1.06 },
   ]);
   const bas = ramp(f, c.basalt - c.seven - 6, c.basalt - c.seven + 10);
   return (
@@ -863,7 +863,7 @@ const ShotCut: ShotFC<C1> = ({ f, len }) => {
         })}
       </Layer>
       <Layer depth={0}>
-        <Gauge x={1700} y={150} height={600} value={15} max={15} unit="km" theme={GRAPHITE_SAFE} title="Depth" format={(v) => `${v}`} readoutText="15 km" side="left" plate={0} unitCap={false} />
+        <Gauge x={1700} y={150} height={600} value={15} max={15} unit="km" theme={GRAPHITE_SAFE} title="Depth" format={(v) => `${v}`} readoutText="15 km" side="left" plate={90} unitCap={false} />
         <CornerTicks color={P.chalk} />
       </Layer>
     </Stage>
@@ -890,8 +890,8 @@ const ShotTurn: ShotFC<C1> = ({ f, len, c }) => {
     <Stage theme={BONE} cam={cam}>
       <Layer depth={1}>
         <rect x={-2000} y={-2000} width={6000} height={2000 + top} fill={K.sky} />
-        {Array.from({ length: 10 }, (_, i) => (
-          <rect key={i} x={-2000} y={top + i * 1.5 * ppk} width={6000} height={1.5 * ppk + 1} fill={rockTone(i / 10, i)} />
+        {Array.from({ length: 14 }, (_, i) => (
+          <rect key={i} x={-2000} y={top + i * 1.5 * ppk} width={6000} height={1.5 * ppk + 1} fill={rockTone(i / 12, i)} />
         ))}
         {specks(f, 30, 1920, 880, 41, 3).map((p, i) => (
           <circle key={i} cx={p.x} cy={top + p.y} r={p.r * 0.5} fill={tint(E.a, P.ink, 0.3)} opacity={0.4} />

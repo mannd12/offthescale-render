@@ -55,15 +55,15 @@ const Clocks: React.FC<{ f: number; len: number; c: C3; deep: boolean }> = ({ f,
     <Stage theme={BONE} cam={cam}>
       <Layer depth={1}>
         <rect x={-1000} y={-1000} width={4000} height={1000 + top} fill={K.sky} />
-        {Array.from({ length: 10 }, (_, i) => (
+        {Array.from({ length: 16 }, (_, i) => (
           <rect key={i} x={-1000} y={top + i * 1.5 * ppk} width={4000} height={1.5 * ppk + 1} fill={rockTone(i / 10, i)} />
         ))}
         <line x1={-1000} y1={top} x2={3000} y2={top} stroke={P.ink} strokeWidth={2.5} />
         {specks(f, 40, 1920, 1100, 71, 5).map((p, i) => (
           <circle key={i} cx={p.x} cy={top + 30 + p.y} r={p.r * 0.6} fill={tint(E.a, P.ink, 0.3)} opacity={0.45} />
         ))}
-        <rect x={596} y={top} width={8} height={11.5 * ppk} fill={K.hole} />
-        <line x1={600} y1={top - 20} x2={600} y2={top + 11.5 * ppk} stroke={K.alu} strokeWidth={3} />
+        <rect x={346} y={top} width={8} height={11.5 * ppk} fill={K.hole} />
+        <line x1={350} y1={top - 20} x2={350} y2={top + 11.5 * ppk} stroke={K.alu} strokeWidth={3} />
         {/* bracket: which depth band each clock belongs to */}
         {[
           [0, 2, yA],
@@ -403,8 +403,8 @@ const ShotDescend: ShotFC<C3> = ({ f, len }) => {
 const ShotMap: ShotFC<C3> = ({ f, len }) => {
   const tip = lerp(f, 0, 20, 6.75, 7.05);
   const cam = cameraAt(f, [
-    { f: 0, x: 1100, y: secY(6.9), zoom: 2.4 },
-    { f: len + 10, x: 1140, y: secY(7), zoom: 2.7 },
+    { f: 0, x: 1240, y: secY(6.9), zoom: 2.3 },
+    { f: len + 10, x: 1260, y: secY(7), zoom: 2.5 },
   ]);
   const brk = ramp(f, 22, len);
   return (

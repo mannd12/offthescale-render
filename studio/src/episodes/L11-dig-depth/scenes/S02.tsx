@@ -113,8 +113,8 @@ const Compare: React.FC<{ f: number; len: number; c: C2; zoomed: boolean }> = ({
         { f: len + 10, x: 960, y: top + 10 * ppk, zoom: 1.75 },
       ])
     : cameraAt(f, [
-        { f: 0, x: 960, y: 520, zoom: 1.0 },
-        { f: len + 10, x: 960, y: 580, zoom: 1.08 },
+        { f: 0, x: 960, y: 540, zoom: 1.0 },
+        { f: len + 10, x: 960, y: 560, zoom: 1.03 },
       ]);
   void base;
   const ly = top + sweep * ppk;
@@ -152,7 +152,7 @@ const Compare: React.FC<{ f: number; len: number; c: C2; zoomed: boolean }> = ({
               )}
               <path d={`M${x - 9} ${top + deep * ppk - 4} L${x + 9} ${top + deep * ppk - 4} L${x} ${top + deep * ppk + 12} Z`} fill={P.ink} />
               {!zoomed ? (
-                <text x={x} y={top - 80} textAnchor="middle" style={labelStyle(40, P.ink, 3)}>
+                <text x={x + 70} y={top - 20} textAnchor="start" style={labelStyle(40, P.ink, 3)}>
                   {k === 0 ? "Top" : "Bottom"}
                 </text>
               ) : null}
@@ -161,7 +161,7 @@ const Compare: React.FC<{ f: number; len: number; c: C2; zoomed: boolean }> = ({
         })}
         {/* the sweep line, then it rests at 10 km */}
         <line x1={-1000} y1={ly} x2={3000} y2={ly} stroke={P.ink} strokeWidth={3} strokeDasharray="16 10" strokeDashoffset={crawl(f, 1.2)} />
-        <text x={1500} y={ly - 16} style={labelStyle(zoomed ? 30 : 44, P.ink, 3)}>
+        <text x={zoomed ? 1260 : 1500} y={ly - 16} style={labelStyle(zoomed ? 30 : 44, P.ink, 3)}>
           10 km
         </text>
         {xMark > 0 ? (
