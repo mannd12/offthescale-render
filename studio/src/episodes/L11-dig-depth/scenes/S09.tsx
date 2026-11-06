@@ -229,8 +229,8 @@ const ShotContinent: React.FC<SP> = ({ f, len, k }) => {
 const ShotOceanCrust: React.FC<SP> = ({ f, len }) => {
   const L = Math.max(len, 60);
   const cam = cameraAt(f, [
-    { f: 0, x: 700, y: 560, zoom: 1.1 },
-    { f: L + 10, x: 1500, y: 420, zoom: 1.5 },
+    { f: 0, x: 1000, y: 520, zoom: 1.1 },
+    { f: L + 10, x: 1550, y: 420, zoom: 1.4 },
   ]);
   const G = 220;
   const K = 14;
@@ -238,8 +238,8 @@ const ShotOceanCrust: React.FC<SP> = ({ f, len }) => {
     <Stage theme={BONE} cam={cam}>
       <Layer depth={1}>
         <CrustSection f={f} G={G} K={K} coast={1050} idp="s9o" />
-        <Dim x1={1820} y1={G + 4 * K} x2={1820} y2={G + 10 * K} k={ramp(f, 20, 40)} />
-        <Tag x={1850} y={G + 7 * K} text="A few km" size={30} o={ramp(f, 34, 46)} />
+        <Dim x1={1700} y1={G + 4 * K} x2={1700} y2={G + 10 * K} k={ramp(f, 20, 40)} />
+        <Tag x={1680} y={G + 7 * K} text="A few km" size={30} anchor="end" o={ramp(f, 34, 46)} />
         <Ship x={1500} y={G - 2} s={0.35} f={f} />
       </Layer>
       <Layer depth={0}>
@@ -536,7 +536,7 @@ const ShotMassif: React.FC<SP> = ({ f, len, k }) => {
     <Stage theme={BONE} cam={cam}>
       <Layer depth={1}>
         <Massif f={f} rise={rise} />
-        <text x={1000 + (1 - rise) * 420 * 0.414} y={760 + (1 - rise) * 420} textAnchor="middle" style={labelStyle(48, shade(MANTLE, 0.55), 4)}>
+        <text x={1000 + (1 - rise) * 420 * 0.414} y={Math.min(600 + (1 - rise) * 420, 960)} textAnchor="middle" style={labelStyle(48, shade(MANTLE, 0.55), 4)}>
           Mantle
         </text>
       </Layer>
@@ -590,7 +590,7 @@ const Bars: React.FC<{ f: number; ghosts: number; ghostO: number }> = ({ f, ghos
       <line x1={-900} y1={G} x2={3100} y2={G} stroke={P.ink} strokeWidth={2.5} />
       <rect x={nx - 30} y={G} width={60} height={NEW_M * KM} fill={C.hole} />
       <rect x={nx - 30} y={G} width={14} height={NEW_M * KM} fill={lit(C.hole, 0.15)} />
-      <Tag x={nx - 50} y={G + NEW_M * KM} text="1,268 m" num size={34} anchor="end" />
+      <Tag x={nx - 50} y={G + NEW_M * KM - 30} text="1,268 m" num size={34} anchor="end" />
       <text x={nx} y={G - 40} textAnchor="middle" style={labelStyle(34, P.chalk, 3)}>
         2023
       </text>
@@ -618,8 +618,8 @@ const Bars: React.FC<{ f: number; ghosts: number; ghostO: number }> = ({ f, ghos
 const ShotOld: React.FC<SP> = ({ f, len }) => {
   const L = Math.max(len, 60);
   const cam = cameraAt(f, [
-    { f: 0, x: 900, y: 480, zoom: 1.2 },
-    { f: L, x: 960, y: 540, zoom: 1.05 },
+    { f: 0, x: 900, y: 520, zoom: 1.1 },
+    { f: L, x: 960, y: 540, zoom: 1.02 },
   ]);
   return (
     <Stage theme={BONE} cam={cam}>
