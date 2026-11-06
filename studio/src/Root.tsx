@@ -25,6 +25,7 @@ import { EpisodeL09, timeline as l09 } from "./episodes/L09-asteroid-levels/Epis
 import { ThumbL09 } from "./episodes/L09-asteroid-levels/Thumbs";
 import { EpisodeL10, timeline as l10 } from "./episodes/L10-rocket-levels/Episode";
 import { ThumbL10 } from "./episodes/L10-rocket-levels/Thumbs";
+import { L11Style1, L11Style2, L11Style3, L11Style4 } from "./episodes/L11-dig-depth/StyleFrames";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
 import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
@@ -160,6 +161,12 @@ export const Root: React.FC = () => (
     <Still id="l04-thumb-b" component={ThumbL04B} width={1280} height={720} />
     <Still id="l03-thumb-c" component={ThumbL03C} width={1280} height={720} />
     <Still id="l04-thumb-c" component={ThumbL04C} width={1280} height={720} />
+
+    {/* L11 - How deep can we dig? Illustrated-format style frames (look test) */}
+    <Still id="l11-style-1" component={L11Style1} width={1920} height={1080} />
+    <Still id="l11-style-2" component={L11Style2} width={1920} height={1080} />
+    <Still id="l11-style-3" component={L11Style3} width={1920} height={1080} />
+    <Still id="l11-style-4" component={L11Style4} width={1920} height={1080} />
 
     {/* Brand kit for the "Every LEVEL of nature" channel (checkpoint 1 stills) */}
     <Still id="brand-frame" component={BrandFrame} width={1920} height={1080} />
