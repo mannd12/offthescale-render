@@ -70,9 +70,10 @@ const C = {
   midShade: tint(E.a, P.bone, 0.3),
   treeLit: tint(E.a, P.ink, 0.1),
   treeShade: tint(E.a, P.ink, 0.42),
-  tundra: tint(E.b, P.bone, 0.58),
-  tundraFar: tint(E.b, P.bone, 0.72),
-  moss: mixHex(tint(E.a, P.bone, 0.45), E.b, 0.3),
+  tundra: mixHex(tint(E.b, P.bone, 0.55), E.a, 0.2),
+  tundraFar: mixHex(tint(E.b, P.bone, 0.7), E.a, 0.18),
+  moss: mixHex(tint(E.a, P.bone, 0.5), E.b, 0.22),
+  lichen: tint(E.b, P.bone, 0.25),
   snow: "#F8F4EA",
   snowShade: mixHex("#F8F4EA", E.a, 0.2),
   fg: mixHex(E.a, P.ink, 0.62),
@@ -83,6 +84,9 @@ const C = {
   metal: tint(E.a, P.bone, 0.2),
   rust: mixHex(E.b, E.a, 0.45),
 };
+
+const rockBand = (i: number, k: number) =>
+  mixHex(i % 2 ? tint(mixHex(E.a, E.b, 0.38), P.bone, 0.3) : tint(E.a, P.bone, 0.36), mixHex(E.a, P.graphite, 0.4), Math.min(1, k) * 0.85);
 
 const lerp = (f: number, a: number, b: number, from: number, to: number, ease = Easing.inOut(Easing.cubic)) =>
   interpolate(f, [a, b], [from, to], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
@@ -258,8 +262,19 @@ const ShotWide: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
             <path d={ptsToPath([[x + w * 0.1, y + 9], [x + w * 0.85, y + 8], [x + w * 0.8, y + 12], [x + w * 0.16, y + 12]]) + " Z"} fill={C.snowShade} />
           </g>
         ))}
-        {Array.from({ length: 40 }, (_, i) => (
-          <circle key={i} cx={rnd(i + 50) * 2000} cy={H + 30 + rnd(i + 90) * 380} r={2 + rnd(i) * 3} fill={C.moss} />
+        {Array.from({ length: 26 }, (_, i) => {
+          const x = rnd(i + 50) * 2300 - 200;
+          const y = H + 40 + rnd(i + 90) * 420;
+          const w = (30 + rnd(i + 7) * 80) * (0.5 + (y - H) / 420);
+          return (
+            <g key={i}>
+              <path d={ptsToPath([[x, y], [x + w * 0.3, y - w * 0.12], [x + w * 0.7, y - w * 0.1], [x + w, y], [x + w * 0.5, y + w * 0.06]]) + " Z"} fill={C.moss} />
+              <path d={ptsToPath([[x + w * 0.5, y + w * 0.06], [x + w, y], [x + w * 0.7, y - w * 0.1]]) + " Z"} fill={shade(C.moss, 0.15)} />
+            </g>
+          );
+        })}
+        {Array.from({ length: 50 }, (_, i) => (
+          <circle key={`d${i}`} cx={rnd(i + 150) * 2300 - 200} cy={H + 30 + rnd(i + 190) * 420} r={2 + rnd(i) * 3} fill={i % 2 ? C.lichen : shade(C.tundra, 0.2)} />
         ))}
         {/* the cap, small at this distance */}
         <ellipse cx={capX + 14} cy={capY + 4} rx={26} ry={6} fill={shade(C.tundra, 0.25)} />
@@ -280,7 +295,7 @@ const ShotWide: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
         ))}
       </Layer>
       <Layer depth={1.45}>
-        <Foreground f={f} y={930} left={-120} right={1720} />
+        <Foreground f={f} y={900} left={-60} right={1640} />
       </Layer>
       <Layer depth={0}>
         <g opacity={kola} transform={`translate(${(1 - kola) * -30} 0)`}>
@@ -328,9 +343,21 @@ const ShotCap: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
       <Layer depth={1}>
         {/* ground seen from above: moss, lichen, pebbles, a snow drift; all flat, two-tone */}
         <rect x={-600} y={-600} width={3200} height={2400} fill={C.tundra} />
-        {[[-200, -100, 700], [1300, -60, 800], [-100, 760, 900], [1250, 820, 900]].map(([x, y, w], i) => (
-          <path key={i} d={ptsToPath([[x, y], [x + w * 0.4, y - 60], [x + w, y + 20], [x + w * 0.7, y + 220], [x + w * 0.2, y + 200]]) + " Z"} fill={C.moss} />
-        ))}
+        {Array.from({ length: 16 }, (_, i) => {
+          const x = rnd(i + 600) * 2300 - 200;
+          const y = rnd(i + 700) * 1300 - 120;
+          if (Math.abs(x - cx) < 300 && Math.abs(y - cy) < 200) return null;
+          const w = 90 + rnd(i + 800) * 160;
+          return (
+            <g key={i}>
+              <path d={ptsToPath([[x, y], [x + w * 0.4, y - w * 0.25], [x + w, y - w * 0.05], [x + w * 0.8, y + w * 0.3], [x + w * 0.2, y + w * 0.32]]) + " Z"} fill={C.moss} />
+              <path d={ptsToPath([[x + w * 0.2, y + w * 0.32], [x + w * 0.8, y + w * 0.3], [x + w, y - w * 0.05], [x + w * 0.9, y + w * 0.2]]) + " Z"} fill={shade(C.moss, 0.14)} />
+              {[0.3, 0.5, 0.7].map((k) => (
+                <circle key={k} cx={x + w * k} cy={y + w * (k - 0.5) * 0.2} r={w * 0.035} fill={C.lichen} />
+              ))}
+            </g>
+          );
+        })}
         <path d={ptsToPath([[1400, 260], [1720, 200], [2100, 260], [2050, 420], [1600, 470], [1380, 380]]) + " Z"} fill={C.snow} />
         <path d={ptsToPath([[1380, 380], [1600, 470], [2050, 420], [2040, 450], [1590, 500], [1370, 400]]) + " Z"} fill={C.snowShade} />
         {Array.from({ length: 34 }, (_, i) => {
@@ -358,7 +385,10 @@ const ShotCap: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
           return (
             <g key={k}>
               <path d={ptsToPath([[bx - 40, by], [bx + 70, by], [bx + 330, by + 120], [bx + 230, by + 140]]) + " Z"} fill={shade(C.tundra, 0.3)} />
-              <path d={ptsToPath([[bx - 70, -700], [bx + 70, -700], [bx + 72, by - 20], [bx + 78, by + 10], [bx - 74, by + 12], [bx - 66, by - 20]]) + " Z"} fill={k ? shade(P.vermilion, 0.3) : P.vermilion} />
+              <path d={ptsToPath([[bx - 62, -700], [bx + 62, -700], [bx + 66, by - 50], [bx - 64, by - 50]]) + " Z"} fill={k ? shade(P.vermilion, 0.3) : P.vermilion} />
+              {/* boot: a straight-edged toe pointing toward the cap, darker sole */}
+              <path d={ptsToPath([[bx - 70, by - 52], [bx + 70, by - 52], [bx + 150, by - 22], [bx + 160, by + 8], [bx - 74, by + 8]]) + " Z"} fill={shade(P.vermilion, k ? 0.42 : 0.18)} />
+              <path d={ptsToPath([[bx - 74, by + 8], [bx + 160, by + 8], [bx + 156, by + 20], [bx - 72, by + 20]]) + " Z"} fill={shade(P.vermilion, 0.6)} />
             </g>
           );
         })}
@@ -368,8 +398,16 @@ const ShotCap: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
         <path d={`M${cx - rx} ${cy} L${cx - rx} ${cy + h} A${rx} ${ry} 0 0 0 ${cx - rx * 0.35} ${cy + h + ry * 0.94} L${cx - rx * 0.35} ${cy + ry * 0.94} Z`} fill={shade(C.metal, 0.12)} />
         <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill={C.metal} />
         <ellipse cx={cx} cy={cy} rx={rx * 0.86} ry={ry * 0.86} fill="none" stroke={shade(C.metal, 0.25)} strokeWidth={3} />
-        {/* lit crescent on the upper-left of the top face */}
-        <path d={`M${cx - rx * 0.86} ${cy} A${rx * 0.86} ${ry * 0.86} 0 0 1 ${cx + rx * 0.2} ${cy - ry * 0.85} A${rx * 0.7} ${ry * 0.62} 0 0 0 ${cx - rx * 0.86} ${cy} Z`} fill={lit(C.metal, 0.35)} />
+        {/* lit crescent on the upper-left of the top face: the face minus an offset copy of itself */}
+        <defs>
+          <clipPath id="cap-top">
+            <ellipse cx={cx} cy={cy} rx={rx * 0.86} ry={ry * 0.86} />
+          </clipPath>
+        </defs>
+        <g clipPath="url(#cap-top)">
+          <ellipse cx={cx} cy={cy} rx={rx * 0.86} ry={ry * 0.86} fill={lit(C.metal, 0.3)} />
+          <ellipse cx={cx + rx * 0.12} cy={cy + ry * 0.14} rx={rx * 0.86} ry={ry * 0.86} fill={C.metal} />
+        </g>
         {/* rust blooms */}
         {[[-0.4, 0.3, 30], [0.35, -0.2, 22], [0.1, 0.45, 18]].map(([u, v, r], i) => (
           <path key={i} d={ptsToPath(Array.from({ length: 7 }, (_, j) => [cx + u * rx + Math.cos(j) * r * (0.7 + rnd(i * 9 + j) * 0.5), cy + v * ry + Math.sin(j) * r * 0.5] as [number, number])) + " Z"} fill={C.rust} opacity={0.75} />
@@ -440,7 +478,8 @@ const ShotSection: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
   const ppm = 120;
   const holeX = 1010;
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 520, zoom: 1 },
+    { f: 0, x: 960, y: 500, zoom: 1 },
+    { f: 10, x: 962, y: 512, zoom: 1.01 },
     { f: len + 4, x: 1000, y: 780, zoom: 1.45 },
   ]);
   return (
@@ -451,7 +490,7 @@ const ShotSection: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
         <ReferenceFigure x={holeX - 130} y={G - 22} pxPerM={ppm} pose="point" breath={f + 30} look={0.4} />
       </Layer>
       <Layer depth={0}>
-        <Gauge x={1690} y={G} height={3 * ppm} value={lerp(f, 4, len, 0, 2.6)} max={3} unit="m" theme={BONE} title="DEPTH" format={(v) => `${v} m`} readout={false} plate={96} unitCap={false} />
+        <Gauge x={1690} y={G} height={3 * ppm} value={lerp(f, 4, len, 0, 2.6)} max={3} unit="m" theme={BONE} format={(v) => `${v} m`} readout={false} plate={96} unitCap={false} />
         <ScaleBar x={96} y={1000} px={ppm} label="1 M" color={P.ink} font={IF.label} />
         <CornerTicks color={P.ink} />
       </Layer>
@@ -468,8 +507,8 @@ const ShotDive: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
   const e = interpolate(f, [0, len], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.bezier(0.45, 0, 0.2, 1) });
   const lc = e * LOGMAX; // camera depth, log10(1 + metres)
   const dc = Math.pow(10, lc) - 1;
-  const K = 430; // px per power of ten
-  const Y0 = 470; // screen y of the camera depth
+  const K = 520; // px per power of ten
+  const Y0 = 520; // screen y of the camera depth
   const y = (d: number) => Y0 + (Math.log10(1 + d) - lc) * K;
   const speed = Math.abs(interpolate(f + 1, [0, len], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.bezier(0.45, 0, 0.2, 1) }) - e) * LOGMAX * K; // px per frame
   const shake = Math.min(1, speed / 40) * 3;
@@ -480,8 +519,7 @@ const ShotDive: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
     const k = i / (DIVE_BANDS.length - 1);
     if (i === 0) return C.soil;
     if (i === 1) return C.clay;
-    const base = mixHex(tint(E.a, P.bone, 0.38), mixHex(E.a, P.graphite, 0.35), Math.min(1, k * 1.15));
-    return i % 2 ? base : shade(base, 0.08);
+    return rockBand(i, k * 1.1);
   };
   const decades = [1, 10, 100, 1000, 10000];
   const pebbles = Array.from({ length: 90 }, (_, i) => ({ d: Math.pow(10, rnd(i + 5) * 4.3) - 1, x: rnd(i + 17) * 1700 + 110, r: 6 + rnd(i + 9) * 16, s: i }));
@@ -494,6 +532,7 @@ const ShotDive: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
       <Hatch id="dv-c" color={mixHex(P.ink, E.a, 0.55)} gap={16} angle={-30} width={1.3} cross />
       <g transform={`translate(${sx} 0)`}>
         <rect x={-100} y={-100} width={2200} height={Math.max(0, y(0) + 100)} fill={C.skyMid} />
+        <rect x={-100} y={Math.max(-100, y(20000))} width={2200} height={1400} fill={rockBand(15, 1)} />
         {DIVE_BANDS.slice(0, -1).map((d, i) => {
           const y0 = y(d);
           const y1 = y(DIVE_BANDS[i + 1]);
@@ -593,10 +632,10 @@ const ShotGauge: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
     <Stage theme={BONE} cam={camS}>
       <Backdrop f={f + 600} horizon={G - 50} birds={false} />
       <Layer depth={1}>
-        <Block f={f} G={G} ppm={ppm} holeX={1300} holePx={0.23 * ppm} capPx={0.23 * ppm + 26} />
+        <Block f={f} G={G} ppm={ppm} holeX={1440} holePx={0.23 * ppm} capPx={0.23 * ppm + 26} />
         <ReferenceFigure x={860} y={G - 22} pxPerM={ppm} breath={f} look={hit > 4 ? 0.8 : 0.2} />
         {/* the hole keeps going: a dashed continuation past the frame */}
-        <line x1={1300} y1={G + 3.3 * ppm} x2={1300} y2={1500} stroke={P.bone} strokeWidth={4} strokeDasharray="18 14" strokeDashoffset={crawl(f, 3)} opacity={0.6} />
+        <line x1={1440} y1={G + 3.3 * ppm} x2={1440} y2={1500} stroke={P.bone} strokeWidth={4} strokeDasharray="18 14" strokeDashoffset={crawl(f, 3)} opacity={0.6} />
       </Layer>
       <Layer depth={1}>
         <Gauge x={gx} y={G} height={3 * ppm} value={v} max={3} unit="m" theme={BONE} format={(x) => `${x} m`} readout={false} plate={104} unitCap={false} />
@@ -637,7 +676,7 @@ const ShotOcean: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
     { f: len, x: 990, y: 700, zoom: 1.3 },
   ]);
   const bands = [0, 1.2, 3.5, 6.5, 9.5, 12.8, 20];
-  const bTint = (i: number) => mixHex(tint(E.a, P.bone, 0.36), mixHex(E.a, P.graphite, 0.3), i / 6);
+  const bTint = (i: number) => rockBand(i, i / 6);
   const br = ramp(f, spare, spare + 12);
   const wy = wTop + bounce;
   const waves = (yy: number, ph: number): [number, number][] => Array.from({ length: 9 }, (_, i) => [holeL + (i * (holeR - holeL)) / 8, yy + (i % 2 ? -7 : 3) + Math.sin(f / 6 + i + ph) * 2]);
@@ -746,6 +785,7 @@ const ShotCrust: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
       <Hatch id="cr-a" color={mixHex(P.ink, E.a, 0.5)} gap={22} angle={60} width={1.6} />
       <Layer depth={1}>
         <rect x={-3000} y={-3000} width={9000} height={3000 + SURF} fill={C.skyTop} />
+        <rect x={-3000} y={crustB - 120} width={9000} height={3200} fill={mixHex(E.b, P.graphite, 0.45)} />
         {layers.map((l, i) => {
           const t0 = strataLine(-3000, 5000, SURF + l.a * PXKM, i ? 40 : 0, i * 2, 260);
           const t1 = strataLine(-3000, 5000, SURF + l.b * PXKM, 40, (i + 1) * 2, 260);
@@ -758,7 +798,6 @@ const ShotCrust: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
           );
         })}
         {/* mantle below the crust, darker, with slow convection contour crawl */}
-        <rect x={-3000} y={crustB + 30} width={9000} height={3000} fill={mixHex(E.b, P.graphite, 0.45)} />
         {[0, 1, 2].map((i) => (
           <path key={i} d={ptsToPath(strataLine(-3000, 5000, crustB + 120 + i * 120, 30, i * 4, 200))} fill="none" stroke={mixHex(E.b, P.chalk, 0.3)} strokeWidth={2} strokeDasharray="20 14" strokeDashoffset={crawl(f, 1 + i * 0.3)} vectorEffect="non-scaling-stroke" opacity={0.6} />
         ))}
@@ -793,7 +832,7 @@ const ShotCrust: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
             </g>
           );
         })()}
-        <Gauge x={1600} y={190} height={700} value={KOLA_M / 1000} max={gmax} unit="km" theme={BONE} title="DEPTH" format={(v) => `${fmt(v)} km`} readoutText={`${fmt(KOLA_M)} m`} plate={110} unitCap={false} marks={gmax > 39 ? [{ v: 40, label: "CRUST" }] : []} />
+        <Gauge x={1600} y={190} height={700} value={KOLA_M / 1000} max={gmax} unit="km" theme={BONE} title="DEPTH" format={(v) => `${fmt(v)} km`} readoutText={`${fmt(KOLA_M)} m`} plate={110} unitCap={false} />
         <CornerTicks color={P.ink} />
       </Layer>
     </Stage>
@@ -836,6 +875,20 @@ const ShotRig: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
       <Layer depth={1}>
         <rect x={-600} y={G} width={3200} height={600} fill={C.tundra} />
         <rect x={-600} y={G + 90} width={3200} height={600} fill={mixHex(C.tundra, E.b, 0.12)} />
+        {[[-100, G + 40, 300], [420, G + 140, 380], [1350, G + 60, 340], [1700, G + 200, 420], [900, G + 260, 300]].map(([x, y, w], i) => (
+          <g key={i}>
+            <path d={ptsToPath([[x, y], [x + w * 0.25, y - 12], [x + w, y - 6], [x + w * 0.85, y + 10], [x + w * 0.1, y + 11]]) + " Z"} fill={C.snow} />
+            <path d={ptsToPath([[x + w * 0.1, y + 11], [x + w * 0.85, y + 10], [x + w * 0.8, y + 15], [x + w * 0.16, y + 15]]) + " Z"} fill={C.snowShade} />
+          </g>
+        ))}
+        {Array.from({ length: 30 }, (_, i) => {
+          const x = rnd(i + 900) * 2400 - 300;
+          const y = G + 20 + rnd(i + 950) * 330;
+          const w = 40 + rnd(i + 990) * 90;
+          return <path key={`m${i}`} d={ptsToPath([[x, y], [x + w * 0.3, y - w * 0.14], [x + w, y], [x + w * 0.5, y + w * 0.07]]) + " Z"} fill={i % 3 ? C.moss : shade(C.moss, 0.15)} />;
+        })}
+        {/* vehicle track toward the hall */}
+        <path d={ptsToPath([[cx - 200, G + 2], [cx - 420, G + 120], [cx - 900, G + 400]])} fill="none" stroke={shade(C.tundra, 0.18)} strokeWidth={10} strokeDasharray="30 12" />
         {/* drill hall: two-tone boxes, shed roof */}
         <path d={ptsToPath([[cx - 330, G], [cx - 330, G - 130], [cx + 330, G - 170], [cx + 330, G]]) + " Z"} fill={lit(tint(E.a, P.bone, 0.35), 0.1)} />
         <path d={ptsToPath([[cx + 330, G], [cx + 330, G - 170], [cx + 420, G - 150], [cx + 420, G]]) + " Z"} fill={shade(tint(E.a, P.bone, 0.35), 0.3)} />
@@ -922,7 +975,7 @@ const ShotPlanet: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
         ))}
       </Layer>
       <Layer depth={1}>
-        <g transform={`rotate(${f * 0.04} ${ox} ${oy})`} stroke={P.chalkSoft} strokeWidth={2} vectorEffect="non-scaling-stroke">
+        <g transform={`rotate(${f * 0.04} ${ox} ${oy})`} stroke={P.chalkSoft} strokeWidth={2} opacity={interpolate(cam.zoom, [1.2, 2], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}>
           {Array.from({ length: 72 }, (_, i) => {
             const a = (i / 72) * Math.PI * 2;
             const r2 = R + (i % 6 === 0 ? 44 : 30);
@@ -1104,17 +1157,22 @@ const ShotTitle: React.FC<{ f: number; c: ColdCues }> = ({ f, c }) => {
       <Layer depth={1}>
         <Block f={f} G={G} ppm={ppm} holeX={holeX} holePx={6} capPx={18} depth={900} />
         {/* the coast drops away to the sea on the right: flat sea-glass, crawling wave bands */}
-        <path d={ptsToPath([[seaX, G - 46], [seaX + 60, G + 40], [seaX + 40, G + 900], [2600, G + 900], [2600, G - 46]]) + " Z"} fill={shade(SEA, 0.05)} />
+        {[0, 1, 2, 3].map((i) => (
+          <path key={i} d={stratumPath(strataLine(-600, 2600, G + 90 + i * 150, 12, i * 3 + 1, 120), strataLine(-600, 2600, G + 240 + i * 150, 12, i * 3 + 4, 120))} fill={rockBand(i + 2, 0.15 + i * 0.22)} />
+        ))}
+        <line x1={holeX} y1={G} x2={holeX} y2={G + 900} stroke={P.graphite} strokeWidth={6} />
+        <path d={ptsToPath([[seaX, G - 46], [seaX + 60, G + 40], [seaX + 220, G + 130], [2600, G + 150], [2600, G - 46]]) + " Z"} fill={shade(SEA, 0.05)} />
+        <path d={ptsToPath([[seaX + 60, G + 40], [seaX + 220, G + 130], [2600, G + 150], [2600, G + 170], [seaX + 200, G + 150], [seaX + 50, G + 60]]) + " Z"} fill={shade(C.rock, 0.2)} />
         <rect x={seaX + 30} y={G - 46} width={1100} height={60} fill={SEA} />
         {[0, 1, 2].map((i) => (
           <line key={i} x1={seaX + 60} y1={G - 36 + i * 18} x2={2600} y2={G - 36 + i * 18} stroke={lit(SEA, 0.4)} strokeWidth={3} strokeDasharray="40 30" strokeDashoffset={crawl(f, 0.6 + i * 0.3)} />
         ))}
-        <path d={ptsToPath([[seaX, G - 46], [seaX + 60, G + 40], [seaX + 40, G + 900]])} fill="none" stroke={P.ink} strokeWidth={2} />
+        <path d={ptsToPath([[seaX, G - 46], [seaX + 60, G + 40], [seaX + 220, G + 130], [2600, G + 150]])} fill="none" stroke={P.ink} strokeWidth={2} />
         <ReferenceFigure x={holeX - 50} y={G - 22} pxPerM={ppm} breath={f} look={lerp(f, turn, turn + 14, -0.2, 1)} />
         <Puffs frame={f} x={holeX - 46} y={G - 22 - 1.55 * ppm} color={C.snow} period={70} size={4} rise={0.4} drift={0.4} life={48} seed={5} />
       </Layer>
       <Layer depth={1.4}>
-        <Foreground f={f} y={980} left={-260} right={2400} />
+        <Foreground f={f} y={900} left={-120} right={2300} />
       </Layer>
       <Layer depth={0}>
         <g opacity={slam} transform={`translate(96 210) scale(${sc}) translate(-96 -210)`}>
