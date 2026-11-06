@@ -156,8 +156,8 @@ const YearChip: React.FC<{ year: number; x?: number; y?: number; k?: number; the
 // Shot 1 - "by 1984, the hole was already past twelve kilometres"
 const Shot1984: React.FC<ShotProps> = ({ f, len }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 560, zoom: 1.0 },
-    { f: len + 20, x: 920, y: 600, zoom: 1.1 },
+    { f: 0, x: 960, y: 540, zoom: 1.0 },
+    { f: len + 20, x: 930, y: 560, zoom: 1.06 },
   ]);
   return (
     <Stage theme={GRAPHITE} cam={cam} vignette={0.3}>
@@ -213,18 +213,21 @@ const ShotEight: React.FC<ShotProps> = ({ f, len }) => {
           <rect x={mx - 30} y={my - mr} width={60} height={mpos(v) - (my - mr)} fill={P.graphite} />
           {[12000, 12100, 12200, 12300].map((m) => (
             <g key={m}>
-              <line x1={mx - 150} y1={mpos(m)} x2={mx - 110} y2={mpos(m)} stroke={P.chalk} strokeWidth={2} />
-              <text x={mx - 160} y={mpos(m) + 8} textAnchor="end" style={{ fontFamily: IF.num, fontWeight: 500, fontSize: 22, fill: P.chalkSoft }}>
+              <line x1={mx + 40} y1={mpos(m)} x2={mx + 70} y2={mpos(m)} stroke={P.chalk} strokeWidth={2} />
+              <text x={mx + 78} y={mpos(m) + 8} textAnchor="start" style={{ fontFamily: IF.num, fontWeight: 500, fontSize: 22, fill: P.chalkSoft }}>
                 {fmt(m)}
               </text>
             </g>
           ))}
           <g opacity={grow > 0.98 ? 1 : 0} stroke={E.b} strokeWidth={4}>
-            <line x1={mx + 50} y1={mpos(M1984)} x2={mx + 80} y2={mpos(M1984)} />
-            <line x1={mx + 80} y1={mpos(M1984)} x2={mx + 80} y2={mpos(KOLA_M)} />
-            <line x1={mx + 50} y1={mpos(KOLA_M)} x2={mx + 80} y2={mpos(KOLA_M)} />
+            <line x1={mx - 40} y1={mpos(M1984)} x2={mx - 70} y2={mpos(M1984)} />
+            <line x1={mx - 70} y1={mpos(M1984)} x2={mx - 70} y2={mpos(KOLA_M)} />
+            <line x1={mx - 40} y1={mpos(KOLA_M)} x2={mx - 70} y2={mpos(KOLA_M)} />
           </g>
-          <text x={mx + 96} y={(mpos(M1984) + mpos(KOLA_M)) / 2 + 14} style={numStyle(40, E.b)} opacity={ramp(f, len * 0.88, len * 0.98)}>
+        </g>
+        <g opacity={ramp(f, len * 0.88, len * 0.98)}>
+          <rect x={mx - 120} y={my - mr - 84} width={240} height={64} fill={P.graphite} stroke={E.b} strokeWidth={2} />
+          <text x={mx} y={my - mr - 38} textAnchor="middle" style={numStyle(40, E.b)}>
             ~200 m
           </text>
         </g>
@@ -289,8 +292,8 @@ const ShotPlan: React.FC<ShotProps> = ({ f, len }) => {
 // Shot 5 - "at fifteen, the team's own straight-line projection put the rock at about 266 °C"
 const ShotProj: React.FC<ShotProps> = ({ f, len }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 1140, y: 700, zoom: 1.2 },
-    { f: len + 20, x: 1180, y: 660, zoom: 1.12 },
+    { f: 0, x: 1120, y: 560, zoom: 1.1 },
+    { f: len + 20, x: 1150, y: 545, zoom: 1.05 },
   ]);
   const pos15 = GY + (PLAN_M / 16000) * GH;
   const hx = 1600;
@@ -305,7 +308,8 @@ const ShotProj: React.FC<ShotProps> = ({ f, len }) => {
         {/* the projection: an outlined readout at the empty target */}
         <g opacity={k}>
           <line x1={HXR + 70} y1={pos15} x2={HXR + 110} y2={pos15} stroke={P.chalk} strokeWidth={2} />
-          <text x={HXR + 124} y={pos15 + 22} style={{ ...numStyle(64, "none"), stroke: E.b, strokeWidth: 2.5 }}>
+          <rect x={HXR + 112} y={pos15 - 46} width={300} height={124} fill={P.graphite} opacity={0.92} />
+          <text x={HXR + 124} y={pos15 + 22} style={{ ...numStyle(64, "none"), stroke: E.b, strokeWidth: 3 }}>
             266 °C?
           </text>
           <text x={HXR + 126} y={pos15 + 62} style={labelStyle(26, P.chalkSoft, 3)}>
@@ -561,8 +565,6 @@ const CapClose: React.FC<{ F: number }> = ({ F }) => {
           return <circle key={i} cx={cx + Math.cos(a) * 98} cy={GG - 34 + Math.sin(a) * 25} r={6} fill={shade(metal, 0.35)} />;
         })}
         <path d={`M${cx + 60} ${GG - 8} L${cx + 66} ${GG + 22} L${cx + 74} ${GG + 20} L${cx + 70} ${GG - 8} Z`} fill={mixHex(E.b, E.a, 0.45)} />
-        <ReferenceFigure x={cx - 330} y={GG + 30} pxPerM={170} breath={F} look={0.4} sway={Math.sin(F / 45) * 0.5} />
-        <Puffs frame={F} x={cx - 318} y={GG + 30 - 1.55 * 170} color="#F8F4EA" period={66} size={9} rise={0.5} drift={0.6} life={50} seed={4} />
         {flakes.map((s, i) => (
           <circle key={i} cx={s.x - 240} cy={s.y - 160} r={s.r} fill="#F8F4EA" opacity={0.9} />
         ))}

@@ -80,6 +80,17 @@ const cues05 = (t: SceneTiming) => {
 type Cues = ReturnType<typeof cues05>;
 type ShotProps = { f: number; c: Cues; len: number };
 
+
+/** small top-left caption on a graphite backing plate, legible over the amber rock */
+const Tag: React.FC<{ text: string }> = ({ text }) => (
+  <g>
+    <rect x={78} y={104} width={text.length * 19 + 36} height={52} fill={P.graphite} opacity={0.88} />
+    <text x={96} y={140} style={labelStyle(28, P.chalk, 4)}>
+      {text}
+    </text>
+  </g>
+);
+
 // ---------------------------------------------------------------------------------------------
 // The long section: 0 to 12.3 km, schematic hole width, stepped heat bands and isotherms that crowd together
 const KM = 300;
@@ -349,10 +360,16 @@ const ThermoSet: React.FC<{ f: number; v: number; mark: boolean; kettle: number;
         theme={GRAPHITE}
         title="ROCK"
         readoutText={`${fmt(v)} °C`}
-        marks={mark ? [{ v: 100, label: "FORECAST" }] : []}
+        
         plate={150}
         unitCap={false}
       />
+      <g opacity={mark ? 1 : 0}>
+        <line x1={GX - 196} y1={gy(100)} x2={GX - 4} y2={gy(100)} stroke={E.b} strokeWidth={3} strokeDasharray="10 7" />
+        <text x={GX - 204} y={gy(100) + 10} textAnchor="end" style={labelStyle(30, E.b, 3)}>
+          Forecast
+        </text>
+      </g>
       <g opacity={kettle}>
         <line x1={GX + 30} y1={gy(100)} x2={GX + 120} y2={gy(100)} stroke={P.chalk} strokeWidth={2} strokeDasharray="6 6" />
         <Kettle x={GX + 210} y={gy(100) + 30} s={0.8 + 0.2 * kettle} f={f} />
@@ -501,9 +518,7 @@ const ShotMotor: React.FC<ShotProps> = ({ f, c, len }) => {
         <Motor f={f} spin={f * (f < jolt ? 1 : 0.6)} crack={ramp(f, jolt, jolt + 10) * 0.5} grey={0} shake={shake} />
       </Layer>
       <Layer depth={0}>
-        <text x={96} y={140} style={labelStyle(28, P.chalkSoft, 4)}>
-          Turbine motor
-        </text>
+        <Tag text="Turbine motor" />
         <CornerTicks color={P.chalk} />
       </Layer>
     </Stage>
@@ -537,9 +552,7 @@ const ShotSeal: React.FC<ShotProps> = ({ f, len }) => {
         <text x={sx(145)} y={912} textAnchor="middle" style={numStyle(34, P.chalk)} opacity={ramp(f, 26, 38)}>
           140–150 °C
         </text>
-        <text x={96} y={140} style={labelStyle(28, P.chalkSoft, 4)}>
-          Rubber + glue
-        </text>
+        <Tag text="Rubber + glue" />
         <CornerTicks color={P.chalk} />
       </Layer>
     </Stage>
@@ -604,9 +617,7 @@ const ShotBit: React.FC<ShotProps> = ({ f, len }) => {
         ))}
       </Layer>
       <Layer depth={0}>
-        <text x={96} y={140} style={labelStyle(28, P.chalkSoft, 4)}>
-          Bit + pipe
-        </text>
+        <Tag text="Bit + pipe" />
         <CornerTicks color={P.chalk} />
       </Layer>
     </Stage>
@@ -756,6 +767,10 @@ const ShotTrip: React.FC<ShotProps> = ({ f, c, len }) => {
       </Layer>
       <Layer depth={0}>
         <DepthGauge v={bit} />
+        {(() => {
+          const q = toScreen(cam, HX, yOf(bit));
+          return <path d={`M${q.x + 18} ${q.y} L${q.x + 46} ${q.y - 16} L${q.x + 46} ${q.y + 16} Z`} fill={P.chalk} />;
+        })()}
         <g transform="translate(1400 470)">
           <text x={0} y={0} style={labelStyle(30, P.chalkSoft, 5)}>
             Round trip

@@ -76,6 +76,17 @@ const cues06 = (t: SceneTiming) => {
 type Cues = ReturnType<typeof cues06>;
 type ShotProps = { f: number; F: number; c: Cues; len: number };
 
+
+/** small top-left caption on a graphite backing plate, legible over the amber rock */
+const Tag: React.FC<{ text: string }> = ({ text }) => (
+  <g>
+    <rect x={78} y={104} width={text.length * 19 + 36} height={52} fill={P.graphite} opacity={0.88} />
+    <text x={96} y={140} style={labelStyle(28, P.chalk, 4)}>
+      {text}
+    </text>
+  </g>
+);
+
 // ---------------------------------------------------------------------------------------------
 // The macro wall: a section of the hole; the bit cuts down and pieces of the wall break away behind it
 const WL = 760;
@@ -448,10 +459,10 @@ const QuoteCard: React.FC<{ f: number; k: number; text: number }> = ({ f, k, tex
       <text x={40} y={130} style={{ fontFamily: IF.label, fontSize: 170, fill: E.a }}>
         “
       </text>
-      <text x={300} y={190} textAnchor="middle" style={labelStyle(88, P.ink, 4)} opacity={text}>
+      <text x={290} y={186} textAnchor="middle" style={labelStyle(76, P.ink, 4)} opacity={text}>
         Like plastic
       </text>
-      <text x={560} y={250} textAnchor="end" style={{ fontFamily: IF.label, fontSize: 170, fill: E.a }} opacity={text}>
+      <text x={548} y={250} textAnchor="start" style={{ fontFamily: IF.label, fontSize: 170, fill: E.a }} opacity={text}>
         ”
       </text>
       <rect x={40} y={262} width={160} height={4} fill={P.inkSoft} />
@@ -475,9 +486,7 @@ const ShotNear: React.FC<ShotProps> = ({ f, len }) => {
       </Layer>
       <Layer depth={0}>
         <QuoteCard f={f} k={ramp(f, 20, 36)} text={0} />
-        <text x={96} y={140} style={labelStyle(28, P.chalkSoft, 4)}>
-          Near the bottom
-        </text>
+        <Tag text="Near the bottom" />
         <CornerTicks color={P.chalk} />
       </Layer>
     </Stage>
@@ -649,7 +658,7 @@ const Board: React.FC<{ f: number; F: number; c: Cues }> = ({ f, F, c }) => {
         <ReferenceFigure x={FX} y={GND} pxPerM={PPM} breath={F} look={Math.sin(F / 60) * 0.6} sway={Math.sin(F / 50) * 0.6} />
         {/* the five pinned problems: a card each, a leader line to the figure */}
         {ITEMS.map((it, i) => {
-          const k = ramp(f + c.job, appear[i], appear[i] + 10);
+          const k = ramp(F, appear[i], appear[i] + 10);
           if (k <= 0) return null;
           const s = 0.7 + 0.3 * k;
           return (
