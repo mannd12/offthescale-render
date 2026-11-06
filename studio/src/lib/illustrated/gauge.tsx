@@ -43,6 +43,8 @@ export type GaugeProps = {
   ticks?: number;
   /** flat backing plate behind spine + labels, so the ruler stays legible over busy strata (width in px) */
   plate?: number;
+  /** plate overhang above and below the ruler (px) */
+  platePad?: number;
   /** draw the value marker (off for a pure ruler) */
   marker?: boolean;
   /** unit caption under the ruler (off when tick labels already carry the unit) */
@@ -66,6 +68,7 @@ export const Gauge: React.FC<GaugeProps> = ({
   side = "left",
   ticks = 5,
   plate = 0,
+  platePad = 16,
   marker = true,
   unitCap = true,
 }) => {
@@ -91,9 +94,9 @@ export const Gauge: React.FC<GaugeProps> = ({
       {plate > 0 ? (
         <rect
           x={side === "left" ? x - plate : x - 12}
-          y={y - 16}
+          y={y - platePad}
           width={plate + W + 12}
-          height={height + 32}
+          height={height + platePad * 2}
           fill={theme.bg}
           stroke={theme.line}
           strokeWidth={1.5}

@@ -281,8 +281,9 @@ export const L11Style2: React.FC = () => {
           <path d={`M${B + 170} ${stY + 22} L${B + 170} ${stY - 6} L${B + 192} ${stY - 24} L${B + 328} ${stY - 24} L${B + 350} ${stY - 6} L${B + 350} ${stY + 22} Z`} fill={P.boneDeep} stroke={P.ink} strokeWidth={2} />
           <rect x={B + 182 + lift * 100} y={stY + 2} width={56} height={16} fill={E.a} />
         </Panel>
-        {lab(B + 160, stY - 112, "Metro station", 34, "start")}
-        {val(B + 160, stY - 72, "105 m")}
+        {lab(B + 140, stY - 150, "Metro", 34, "start")}
+        {lab(B + 140, stY - 112, "station", 34, "start")}
+        {val(B + 140, stY - 70, "105 m")}
 
         {/* C: the deepest mine and the Kola borehole, 0-12.5 km */}
         <Panel x0={C} w={W} id="c" strata={[SURF + 0.6 * ppkC, SURF + 3 * ppkC, SURF + 8 * ppkC]}>
@@ -294,18 +295,18 @@ export const L11Style2: React.FC = () => {
           ))}
           <rect x={C + 189} y={SURF + 10 + cage * ((MINE_M / 1000) * ppkC - 30)} width={12} height={14} fill={E.b} />
           {/* borehole */}
-          <line x1={C + 350} y1={SURF} x2={C + 350} y2={kolaY} stroke={P.ink} strokeWidth={3} />
+          <line x1={C + 378} y1={SURF} x2={C + 378} y2={kolaY} stroke={P.ink} strokeWidth={3} />
         </Panel>
-        {lab(C + 150, mineY + 52, "Deepest mine", 34)}
-        {val(C + 150, mineY + 92, "3.7 km")}
-        <YouAreHere x={C + 350} y={kolaY} size={30} font={IF.label} />
-        {lab(C + 325, kolaY - 86, "Kola borehole", 34, "end")}
-        {val(C + 325, kolaY - 46, "12.3 km", "end")}
+        {lab(C + 140, mineY + 52, "Deepest mine", 34)}
+        {val(C + 140, mineY + 92, "3.7 km")}
+        <YouAreHere x={C + 378} y={kolaY} size={30} font={IF.label} />
+        {lab(C + 140, kolaY - 86, "Kola borehole", 32)}
+        {val(C + 140, kolaY - 46, "12.3 km")}
 
         {/* one ruler per panel: same object, three zoom levels */}
-        <Gauge x={A + 14} y={SURF} height={PH} value={0} max={5} unit="m" theme={T} side="right" readout={false} marker={false} unitCap={false} plate={100} format={(v) => `${v} m`} />
-        <Gauge x={B + 14} y={SURF} height={PH} value={0} max={120} unit="m" theme={T} side="right" readout={false} marker={false} unitCap={false} plate={112} format={(v) => `${v} m`} />
-        <Gauge x={C + 14} y={SURF} height={PH} value={12.262} max={12.5} unit="km" theme={T} side="right" readout={false} unitCap={false} plate={108} format={(v) => `${v} km`} />
+        <Gauge x={A + 12} y={SURF} height={PH} value={0} max={5} unit="m" theme={T} side="right" readout={false} marker={false} unitCap={false} plate={78} platePad={0} format={(v) => `${v} m`} />
+        <Gauge x={B + 12} y={SURF} height={PH} value={0} max={120} unit="m" theme={T} side="right" readout={false} marker={false} unitCap={false} plate={94} platePad={0} format={(v) => `${v} m`} />
+        <Gauge x={C + 12} y={SURF} height={PH} value={12.262} max={12.5} unit="km" theme={T} side="right" readout={false} unitCap={false} plate={90} platePad={0} format={(v) => `${v} km`} />
         <CornerTicks color={T.line} />
       </Layer>
     </Stage>
