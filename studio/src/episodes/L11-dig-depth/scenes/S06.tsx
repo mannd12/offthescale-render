@@ -462,7 +462,7 @@ const QuoteCard: React.FC<{ f: number; k: number; text: number }> = ({ f, k, tex
       <text x={290} y={186} textAnchor="middle" style={labelStyle(76, P.ink, 4)} opacity={text}>
         Like plastic
       </text>
-      <text x={548} y={250} textAnchor="start" style={{ fontFamily: IF.label, fontSize: 170, fill: E.a }} opacity={text}>
+      <text x={526} y={250} textAnchor="start" style={{ fontFamily: IF.label, fontSize: 170, fill: E.a }} opacity={text}>
         ”
       </text>
       <rect x={40} y={262} width={160} height={4} fill={P.inkSoft} />
@@ -603,10 +603,10 @@ const Icon: React.FC<{ k: string; f: number }> = ({ k, f }) => {
   if (k === "boil") {
     return (
       <g>
-        <rect x={-18} y={-80} width={36} height={130} fill={lit(P.boneDeep, 0.4)} stroke={P.ink} strokeWidth={2.5} />
-        <circle cx={0} cy={66} r={30} fill={E.b} stroke={P.ink} strokeWidth={2.5} />
-        <rect x={-10} y={-62 + 8 * Math.sin(f / 10)} width={20} height={120} fill={E.b} />
-        <text x={50} y={20} style={numStyle(46, P.ink)}>
+        <rect x={-108} y={-80} width={36} height={130} fill={lit(P.boneDeep, 0.4)} stroke={P.ink} strokeWidth={2.5} />
+        <circle cx={-90} cy={66} r={30} fill={E.b} stroke={P.ink} strokeWidth={2.5} />
+        <rect x={-100} y={-62 + 8 * Math.sin(f / 10)} width={20} height={120} fill={E.b} />
+        <text x={-50} y={20} style={numStyle(46, P.ink)}>
           180 °C
         </text>
       </g>

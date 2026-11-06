@@ -213,8 +213,8 @@ const ShotEight: React.FC<ShotProps> = ({ f, len }) => {
           <rect x={mx - 30} y={my - mr} width={60} height={mpos(v) - (my - mr)} fill={P.graphite} />
           {[12000, 12100, 12200, 12300].map((m) => (
             <g key={m}>
-              <line x1={mx + 40} y1={mpos(m)} x2={mx + 70} y2={mpos(m)} stroke={P.chalk} strokeWidth={2} />
-              <text x={mx + 78} y={mpos(m) + 8} textAnchor="start" style={{ fontFamily: IF.num, fontWeight: 500, fontSize: 22, fill: P.chalkSoft }}>
+              <line x1={mx + 36} y1={mpos(m)} x2={mx + 56} y2={mpos(m)} stroke={P.chalk} strokeWidth={2} />
+              <text x={mx + 62} y={mpos(m) + 8} textAnchor="start" style={{ fontFamily: IF.num, fontWeight: 500, fontSize: 22, fill: P.chalkSoft }}>
                 {fmt(m)}
               </text>
             </g>
