@@ -20,7 +20,7 @@ const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const db = (x: number) => Math.pow(10, x / 20);
 
 /** 1 while the narrator speaks (with short ramps either side), 0 in the gaps: drives the music duck. */
-const voiceEnv = (f: number) => {
+export const voiceEnv = (f: number) => {
   let v = 0;
   for (const l of cold.lines) {
     if (l.estimated) continue;
@@ -32,7 +32,7 @@ const voiceEnv = (f: number) => {
 };
 
 /** One spot effect: starts at `at` (composition frame), optional trim (s), length cap and fades (frames). */
-const Sfx: React.FC<{ at: number; file: string; vol: number; dur?: number; trim?: number; fadeIn?: number; fadeOut?: number }> = ({
+export const Sfx: React.FC<{ at: number; file: string; vol: number; dur?: number; trim?: number; fadeIn?: number; fadeOut?: number }> = ({
   at,
   file,
   vol,
@@ -50,7 +50,7 @@ const Sfx: React.FC<{ at: number; file: string; vol: number; dur?: number; trim?
   </Sequence>
 );
 
-const SoundCold: React.FC = () => {
+export const SoundCold: React.FC = () => {
   const c = coldCues(cold);
   const o = cold.from;
   const title = o + c.title;

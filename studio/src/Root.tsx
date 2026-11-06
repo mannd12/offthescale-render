@@ -27,6 +27,7 @@ import { EpisodeL10, timeline as l10 } from "./episodes/L10-rocket-levels/Episod
 import { ThumbL10 } from "./episodes/L10-rocket-levels/Thumbs";
 import { L11Style1, L11Style2, L11Style3, L11Style4 } from "./episodes/L11-dig-depth/StyleFrames";
 import { TestL11, l11TestFrames } from "./episodes/L11-dig-depth/Episode";
+import { FullL11, l11Frames } from "./episodes/L11-dig-depth/Full";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
 import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
@@ -102,6 +103,7 @@ export const Root: React.FC = () => (
     {/* L10 - Every Level of Rocket (script draft 1, estimated timings) */}
     <Composition id="l10" component={EpisodeL10} durationInFrames={l10.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="l11-test" component={TestL11} durationInFrames={l11TestFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="l11" component={FullL11} durationInFrames={l11Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
 
     {/* S01 - the first Short (cliffhanger for L01), vertical, under 60 s */}
     <Composition id="s01-short" component={ShortS01} durationInFrames={s01.totalFrames} fps={FPS} width={1080} height={1920} />

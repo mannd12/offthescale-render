@@ -36,431 +36,383 @@
     "index": 0,
     "text": "Start with why here. Under Kola lies the ancient rock of the Baltic Shield. The oldest of it is more than two and a half billion years old.",
     "file": "L11-dig-depth/vo/l01-00-042e53da74.wav",
-    "seconds": 8.842105263157894,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 8.52,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 1,
     "text": "Seismic surveys had sketched what lay below. At around seven kilometres, there seemed to be a layer of basalt. The plan was to drill through it, all the way to fifteen kilometres.",
     "file": "L11-dig-depth/vo/l01-01-8273ab1b0c.wav",
-    "seconds": 10.105263157894736,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 10.489958333333334,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 2,
     "text": "There was just one problem. To cut rock fifteen kilometres down, you have to turn a drill bit fifteen kilometres away.",
     "file": "L11-dig-depth/vo/l01-02-a1d4a710a4.wav",
-    "seconds": 6.631578947368421,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.02,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 0,
     "text": "You can spin the whole pipe from the top, or put a motor at the bottom. The Kola team's calculations said that past ten kilometres, spinning from the top was the worse way.",
     "file": "L11-dig-depth/vo/l02-00-37f997ec6f.wav",
-    "seconds": 10.421052631578949,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.11,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 1,
     "text": "So they put a turbine at the bottom of the hole, right above the bit. And the pipe had to be light. Below the first two kilometres or so, it switched from steel to aluminium.",
     "file": "L11-dig-depth/vo/l02-01-e83936f1ef.wav",
-    "seconds": 11.052631578947368,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.320041666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 2,
     "text": "Bits wear out, though. And every new bit meant a round trip: the whole string pulled up out of the hole, and sent back down.",
     "file": "L11-dig-depth/vo/l02-02-a78f6e1935.wav",
-    "seconds": 7.894736842105263,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 6.5,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 0,
     "text": "Near the top, about a fifth of the time went on actually drilling. Past ten kilometres, three percent. In an average hour, the bit was cutting rock for less than two minutes.",
     "file": "L11-dig-depth/vo/l03-00-d9d77f8072.wav",
-    "seconds": 10.105263157894736,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.74,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 1,
     "text": "At one stage, the hole went down about a kilometre in six years. That's under half a metre a day. About two hole-widths. As one report put it, each extra metre got harder.",
     "file": "L11-dig-depth/vo/l03-01-dbf2c19d74.wav",
-    "seconds": 10.421052631578949,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 11.41,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 2,
     "text": "Slow, they could live with. What they found on the way down was worse for the plan. The map was wrong.",
     "file": "L11-dig-depth/vo/l03-02-1485f49fc8.wav",
-    "seconds": 6.631578947368421,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 6.06,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 0,
     "text": "At seven kilometres, there was no basalt. The drill kept going through gneiss, an old, granite-like rock.",
     "file": "L11-dig-depth/vo/l04-00-a25f41b670.wav",
-    "seconds": 5.368421052631579,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.91,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 1,
     "text": "The waves had been bouncing off something real. But it wasn't a new kind of rock. It was rock whose properties had changed. That's the kind of thing you only learn by going there.",
     "file": "L11-dig-depth/vo/l04-01-688cace012.wav",
-    "seconds": 10.736842105263158,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.2,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 2,
     "text": "And the rock was wet. Deep down, they found cracked, porous rock full of water. Water kept flowing into the hole, salty brine even below eight kilometres.",
     "file": "L11-dig-depth/vo/l04-02-15461e4550.wav",
-    "seconds": 8.526315789473685,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 9.81,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 3,
     "text": "When the drill broke into one deeper water zone, the water level in the hole jumped eighty metres. Other scientists didn't believe it at first.",
     "file": "L11-dig-depth/vo/l04-03-47c6347fb6.wav",
-    "seconds": 7.894736842105263,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 7.29,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 4,
     "text": "The thinking had been that crust five kilometres down was too dense for water to get in.",
     "file": "L11-dig-depth/vo/l04-04-4e5d83f033.wav",
-    "seconds": 5.368421052631579,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 4.58,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 5,
     "text": "Water was a surprise. The next thing was the one that ended it. It kept getting hotter.",
     "file": "L11-dig-depth/vo/l04-05-ce32644408.wav",
-    "seconds": 5.368421052631579,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.41,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 0,
     "text": "Going down, rock warms up. Near the top here, it rose about one degree for every hundred metres. By six or seven kilometres, it was closer to two. The warming itself was speeding up.",
     "file": "L11-dig-depth/vo/l05-00-54ae9970a8.wav",
-    "seconds": 10.736842105263158,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 10.81,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 1,
     "text": "At the bottom, the rock was about a hundred and eighty degrees Celsius. The forecast had been about a hundred. That's eighty degrees hotter than boiling water.",
     "file": "L11-dig-depth/vo/l05-01-2a434d8950.wav",
-    "seconds": 8.526315789473685,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.68,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 2,
     "text": "Heat doesn't just make things uncomfortable. It breaks machines. Above about a hundred and forty degrees, the rubber and glue in those turbine motors weren't good enough, and the motors wore out fast.",
     "file": "L11-dig-depth/vo/l05-02-dace6ab32c.wav",
-    "seconds": 10.421052631578949,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 9.99,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 3,
     "text": "High temperatures also deform the bits and the pipe. Even the light aluminium pipe had to be tested against heat: the team charted how much strength it kept after a hundred hours of heating.",
     "file": "L11-dig-depth/vo/l05-03-3c973770e9.wav",
-    "seconds": 10.736842105263158,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.33,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 4,
     "text": "And every worn-out motor meant another round trip. Twelve kilometres up. Twelve kilometres down.",
     "file": "L11-dig-depth/vo/l05-04-4f56092831.wav",
-    "seconds": 4.421052631578947,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.6,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 0,
     "text": "You'd think a hole in solid rock stays a hole. This one didn't. As the bit cut, pieces of the wall broke away, leaving cavities. Oddly, the cavities formed only while the drill was cutting; once made, they hardly grew.",
     "file": "L11-dig-depth/vo/l06-00-a49437e63a.wav",
-    "seconds": 12.631578947368421,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 12.78,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 1,
     "text": "But below four and a half kilometres, they got more common, and the hole got wider on average.",
     "file": "L11-dig-depth/vo/l06-01-4cb8fcdf9e.wav",
-    "seconds": 5.684210526315789,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 4.78,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 2,
     "text": "Near the bottom, the project's scientists described the rock as behaving more like plastic than rock. Not melted. Just softer, more willing to bend.",
     "file": "L11-dig-depth/vo/l06-02-427f2adac1.wav",
-    "seconds": 7.578947368421053,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.6,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 3,
     "text": "So picture the job. A hole you could cover with a dinner plate. Rock that crumbles and bends. Eighty degrees past boiling. Motors that give out, and a twenty-four-kilometre round trip for every fix.",
     "file": "L11-dig-depth/vo/l06-03-2b2f8453cf.wav",
-    "seconds": 10.736842105263158,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 11.36,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 0,
     "text": "By 1984, the hole was already past twelve kilometres. Eight years later, the record stood only about two hundred metres deeper, at twelve thousand two hundred and sixty-two. The plan had been fifteen.",
     "file": "L11-dig-depth/vo/l07-00-94635fa7df.wav",
-    "seconds": 10.421052631578949,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 12.4,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 1,
     "text": "At fifteen, the team's own straight-line projection put the rock at about two hundred and sixty-six degrees.",
     "file": "L11-dig-depth/vo/l07-01-77d4778ec1.wav",
-    "seconds": 5.368421052631579,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.47,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 2,
     "text": "Drilling stopped in 1992. And it wasn't only the heat. After the Soviet Union collapsed, there was no money for projects like this, and three years later the whole facility was shut.",
     "file": "L11-dig-depth/vo/l07-02-14b9480a44.wav",
-    "seconds": 10.105263157894736,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.97,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 3,
     "text": "What's left is that cap, and a famous story about a well to hell, with screams coming up out of it. That one is a hoax.",
     "file": "L11-dig-depth/vo/l07-03-d59648dbf7.wav",
-    "seconds": 8.210526315789474,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.389958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 0,
     "text": "Longer holes exist. In 2012, an oil well off Sakhalin, in Russia's far east, reached twelve thousand three hundred and seventy-six metres.",
     "file": "L11-dig-depth/vo/l08-00-38a5bc2610.wav",
-    "seconds": 6.947368421052632,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 7.775,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 1,
     "text": "But it ends about eleven thousand four hundred metres sideways from where it started, out under the sea. Do the geometry, and it can't be more than about five kilometres deep.",
     "file": "L11-dig-depth/vo/l08-01-817d8635b8.wav",
-    "seconds": 9.789473684210527,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.385,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 2,
     "text": "Germany tried a straight-down hole too. The KTB stopped in 1994 at nine thousand one hundred and one metres. Down there it was already about two hundred and sixty-five degrees.",
     "file": "L11-dig-depth/vo/l08-02-2424969757.wav",
-    "seconds": 9.473684210526315,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 9.72,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 3,
     "text": "Hotter at nine kilometres than Kola was at twelve. As Germany's geoscience centre puts it, at some point it just gets too warm to drill deeper.",
     "file": "L11-dig-depth/vo/l08-03-5a97664e68.wav",
-    "seconds": 8.210526315789474,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.64,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 4,
     "text": "And if you want to stand down there yourself? The deepest mine on Earth, Mponeng in South Africa, works between about three point two and three point seven kilometres down. Kola goes more than three times deeper.",
     "file": "L11-dig-depth/vo/l08-04-156a2f8cf5.wav",
-    "seconds": 11.68421052631579,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 10.88,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 5,
     "text": "So on land, twelve kilometres is still the record. But the crust isn't the same thickness everywhere.",
     "file": "L11-dig-depth/vo/l08-05-8fe67b7940.wav",
-    "seconds": 5.368421052631579,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.52,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 0,
     "text": "The bottom of the crust is a boundary called the Moho, found by the way seismic waves change speed. Under the continents, it averages about forty kilometres down.",
     "file": "L11-dig-depth/vo/l09-00-b601b49a98.wav",
-    "seconds": 8.842105263157894,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 8.67,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 1,
     "text": "Under the oceans, in most places, it's only a few kilometres down.",
     "file": "L11-dig-depth/vo/l09-01-3d6bd544c9.wav",
-    "seconds": 3.7894736842105265,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 3.55,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 2,
     "text": "Americans tried that route first. In 1961, Project Mohole drilled from a ship off Mexico, in three thousand eight hundred metres of water.",
     "file": "L11-dig-depth/vo/l09-02-90bf677fea.wav",
-    "seconds": 7.2631578947368425,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 7.63,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 3,
     "text": "Its bit chewed through two hundred metres of sediment and fourteen metres of basalt. Then the funding dried up, and in 1966 it was cancelled.",
     "file": "L11-dig-depth/vo/l09-03-1ee688310e.wav",
-    "seconds": 7.894736842105263,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.62,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 4,
     "text": "Then, in 2023, a drilling expedition in the middle of the Atlantic tried something smarter. At an undersea massif called Atlantis Massif, faults had already lifted mantle rock up close to the sea floor.",
     "file": "L11-dig-depth/vo/l09-04-888f847726.wav",
-    "seconds": 10.736842105263158,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 11.08,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 5,
     "text": "They drilled one thousand two hundred and sixty-eight metres, mostly through mantle rock altered by seawater. The deepest hole into sea-floor mantle rock before that had reached about two hundred metres.",
     "file": "L11-dig-depth/vo/l09-05-119b311ecc.wav",
-    "seconds": 9.789473684210527,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 10.46,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 6,
     "text": "That's more than six times further.",
     "file": "L11-dig-depth/vo/l09-06-0c28f89bba.wav",
-    "seconds": 1.8947368421052633,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 1.89,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 7,
     "text": "So this deep look at the mantle didn't come from digging deeper. It came from going where the mantle had come up.",
     "file": "L11-dig-depth/vo/l09-07-5b4c9e3db8.wav",
-    "seconds": 6.947368421052632,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.385,
+    "pauseAfter": 0.55
   },
   {
     "scene": "closer",
     "index": 0,
     "text": "Below the crust, there's more than two thousand eight hundred kilometres of mantle before you even reach the core. Shrink Earth to a ball one metre across. The deepest hole we've ever dug would be one millimetre deep.",
     "file": "L11-dig-depth/vo/closer-00-bc7a32b954.wav",
-    "seconds": 12,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 11.505,
+    "pauseAfter": 0.55
   },
   {
     "scene": "closer",
     "index": 1,
     "text": "Some of this is simpler than the real story. The hundred and eighty degrees is the figure most reports give; we haven't seen the drillers' final logs ourselves.",
     "file": "L11-dig-depth/vo/closer-01-0b7dd1c8be.wav",
-    "seconds": 8.842105263157894,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 7.74,
+    "pauseAfter": 0.25
   },
   {
     "scene": "closer",
     "index": 2,
     "text": "Why it stopped was heat and money together, and sources weigh them differently. And that Atlantic rock had been lifted and soaked in seawater. It's mantle as it was, not mantle as it is now.",
     "file": "L11-dig-depth/vo/closer-02-3f40dfc970.wav",
-    "seconds": 11.052631578947368,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 9.85,
+    "pauseAfter": 0.25
   },
   {
     "scene": "closer",
     "index": 3,
     "text": "Getting a piece of the mantle where it actually is today is still a goal, not a result.",
     "file": "L11-dig-depth/vo/closer-03-6481ca06a1.wav",
-    "seconds": 5.684210526315789,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 4.01,
+    "pauseAfter": 0.55
   },
   {
     "scene": "closer",
     "index": 4,
     "text": "The hole in the Arctic is still there, under its cap. Twelve kilometres of the planet, as wide as a dinner plate.",
     "file": "L11-dig-depth/vo/closer-04-465d331139.wav",
-    "seconds": 6.947368421052632,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 5.97,
+    "pauseAfter": 0.25
   },
   {
     "scene": "closer",
     "index": 5,
     "text": "Everything deeper than that, we know from waves that travel through it, and from rock that came up to meet us.",
     "file": "L11-dig-depth/vo/closer-05-e09a241827.wav",
-    "seconds": 6.631578947368421,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.000041666666666,
+    "pauseAfter": 0.55
   }
 ]
