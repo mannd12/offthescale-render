@@ -58,7 +58,7 @@ const BANDS = [
   { y: 670, fill: tint(E.b, E.a, 0.55) },
   { y: 760, fill: mixHex(E.a, P.graphite, 0.2) },
   { y: 870, fill: mixHex(E.a, P.graphite, 0.38) },
-  { y: 975, fill: mixHex(mixHex(E.a, P.graphite, 0.4), E.b, 0.55) },
+  { y: 975, fill: mixHex(E.b, P.graphite, 0.3) },
 ];
 
 const Art: React.FC = () => {
@@ -122,7 +122,7 @@ const Art: React.FC = () => {
           theme={BONE}
           format={(v) => `${v} m`}
           readout={false}
-          plate={70}
+          plate={86}
           platePad={10}
           ticks={2}
           unitCap={false}
@@ -132,9 +132,8 @@ const Art: React.FC = () => {
       <rect x={GAUGE_X} y={rulerTop + rulerH + 90} width={14 * GS} height={400} fill={P.vermilion} />
       {/* readout: the number the ruler cannot hold */}
       <g>
-        <rect x={GAUGE_X - 40 - 600} y={rulerTop + rulerH + 22} width={600} height={136} fill={P.vermilion} />
-        <rect x={GAUGE_X - 40} y={rulerTop + rulerH + 76} width={40} height={24} fill={P.vermilion} />
-        <text x={GAUGE_X - 40 - 300} y={rulerTop + rulerH + 130} textAnchor="middle" style={numStyle(112, P.bone)}>
+        <rect x={GAUGE_X - 44 - 600} y={rulerTop + rulerH + 26} width={600} height={136} fill={P.vermilion} stroke={P.bone} strokeWidth={6} />
+        <text x={GAUGE_X - 44 - 300} y={rulerTop + rulerH + 134} textAnchor="middle" style={numStyle(112, P.bone)}>
           {fmt(KOLA_M)} m
         </text>
       </g>
