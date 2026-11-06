@@ -434,7 +434,7 @@ export const LongSection: React.FC<{
               <text x={HX + 420} y={by - 18} style={labelStyle(40, P.ink, 3)}>
                 Basalt?
               </text>
-              <line x1={HX + 412} y1={by - 32} x2={HX + 412 + 150 * struck} y2={by - 32} stroke={P.ink} strokeWidth={5} />
+              <line x1={HX + 412} y1={by - 32} x2={HX + 412 + 150 * Math.max(0, (struck - 0.4) / 0.6)} y2={by - 32} stroke={P.ink} strokeWidth={5} />
             </g>
           ) : null}
         </g>

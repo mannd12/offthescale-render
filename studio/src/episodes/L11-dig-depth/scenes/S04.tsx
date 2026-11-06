@@ -311,10 +311,10 @@ const ShotFlowing: ShotFC<C4> = ({ f, len, c }) => {
     <Stage theme={BONE} cam={cam}>
       <Layer depth={1}>
         <LongSection f={f} drill={12} water={ramp(f, 0, 14)} basalt={0.4} struck={1} label={false} />
-        <SecGauge value={0} x={700} marks={lab > 0.5 ? [{ v: 8, label: "8 km" }] : []} />
+        <SecGauge value={0} x={700} />
         <g opacity={lab}>
           <line x1={SEC.HX - 160} y1={y8} x2={SEC.HX + 260} y2={y8} stroke={P.ink} strokeWidth={2} strokeDasharray="6 6" />
-          <text x={SEC.HX + 130} y={y8 + 60} style={labelStyle(38, P.ink, 3)}>
+          <text x={SEC.HX + 142} y={y8 + 60} style={labelStyle(38, P.ink, 3)}>
             Brine
           </text>
           <path d={`M${SEC.HX + 126} ${y8 + 20} L${SEC.HX + 126} ${y8 + 70}`} stroke={P.ink} strokeWidth={2} />

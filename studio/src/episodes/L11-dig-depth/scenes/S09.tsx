@@ -513,7 +513,7 @@ const Massif: React.FC<{ f: number; rise: number; hole?: number }> = ({ f, rise,
         {hole > 0 ? <line x1={980} y1={SF - 14} x2={980} y2={SF - 14 + hole} stroke={C.hole} strokeWidth={6} /> : null}
       </g>
       {/* the fault, with arrows riding up it on the block side */}
-      <line x1={fx(SF - 60)} y1={SF - 60} x2={fx(1500)} y2={1500} stroke={P.ink} strokeWidth={4} />
+      <line x1={fx(SF)} y1={SF} x2={fx(1500)} y2={1500} stroke={P.ink} strokeWidth={4} />
       {[0, 1, 2].map((i) => {
         const a = (((f * 0.012 + i / 3) % 1) + 1) % 1;
         const y = 1250 - a * 760;

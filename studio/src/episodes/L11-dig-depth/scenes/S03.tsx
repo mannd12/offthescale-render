@@ -79,12 +79,14 @@ const Clocks: React.FC<{ f: number; len: number; c: C3; deep: boolean }> = ({ f,
         ))}
         <g transform={`translate(0 ${bob(f, 1, 3, 70)})`}>
           <ClockPie cx={1000} cy={yA} r={R} frac={fillA} f={f} />
+          <rect x={1000 + R + 34} y={yA - 62} width={330} height={120} fill={P.bone} opacity={ramp(f, deep ? 0 : c.fifth - 4, deep ? 1 : c.fifth + 8) * 0.92} />
           <text x={1000 + R + 50} y={yA + 30} style={numStyle(96, P.ink)} opacity={ramp(f, deep ? 0 : c.fifth - 4, deep ? 1 : c.fifth + 8)}>
             21.7 %
           </text>
         </g>
         <g transform={`translate(0 ${bob(f, 2, 3, 70)})`}>
           <ClockPie cx={1000} cy={yB} r={R} frac={fillB} f={f + 30} />
+          <rect x={1000 + R + 34} y={yB - 62} width={300} height={120} fill={P.bone} opacity={(deep ? ramp(f, c.three - c.past + 4, c.three - c.past + 16) : 0) * 0.92} />
           <text x={1000 + R + 50} y={yB + 30} style={numStyle(96, P.ink)} opacity={deep ? ramp(f, c.three - c.past + 4, c.three - c.past + 16) : 0}>
             3.1 %
           </text>
