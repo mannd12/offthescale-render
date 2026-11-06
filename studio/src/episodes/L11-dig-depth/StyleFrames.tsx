@@ -96,6 +96,19 @@ export const L11Style1: React.FC = () => {
           <circle key={i} cx={p.x} cy={p.y} r={p.r * 0.7} fill={tint(E.a, P.bone, 0.5)} />
         ))}
       </Layer>
+      <Layer depth={0.8}>
+        {/* near ridge with spruce: straight triangles, one flat tint */}
+        <path d={ptsToPath([[-200, G], [-200, 440], [260, 420], [520, 438], [1300, 430], [1560, 414], [2120, 436], [2120, G]]) + " Z"} fill={tint(E.a, P.bone, 0.55)} />
+        {[40, 92, 130, 330, 372, 1240, 1290, 1335, 1400, 1520, 1575].map((x, i) => {
+          const h = 70 + ((i * 37) % 50);
+          const sw = Math.sin(f / 50 + i) * 1.2;
+          return (
+            <g key={x} transform={`rotate(${sw} ${x} 440)`}>
+              <path d={`M${x} ${440 - h} L${x + h * 0.22} ${440 - h * 0.45} L${x + h * 0.14} ${440 - h * 0.45} L${x + h * 0.3} 440 L${x - h * 0.3} 440 L${x - h * 0.14} ${440 - h * 0.45} L${x - h * 0.22} ${440 - h * 0.45} Z`} fill={tint(E.a, P.ink, 0.25)} />
+            </g>
+          );
+        })}
+      </Layer>
       <Layer depth={1}>
         {/* cross-section of the ground */}
         <path d={stratumPath(top, s1)} fill={soil} />
@@ -126,8 +139,8 @@ export const L11Style1: React.FC = () => {
         <text x={96} y={170} style={labelStyle(84, T.text, 3)}>
           How deep can we dig?
         </text>
-        <Gauge x={1660} y={G} height={ppm * 3} value={KOLA_M} max={3} unit="m" theme={T} title="DEPTH" format={(v) => `${v} m`} readoutText="12,262 m" />
-        <ScaleBar x={96} y={1000} px={ppm} label="1 M" color={T.line} font={IF.label} />
+        <Gauge x={1660} y={G} height={ppm * 3} value={KOLA_M} max={3} unit="m" theme={T} title="DEPTH" format={(v) => `${v} m`} readoutText="12,262 m" plate={96} unitCap={false} />
+        <ScaleBar x={96} y={G - 40} px={ppm} label="1 M" color={T.line} font={IF.label} />
         <CornerTicks color={T.line} />
       </Layer>
     </Stage>
@@ -188,7 +201,7 @@ export const L11Style2: React.FC = () => {
     </text>
   );
   const val = (x: number, y: number, t: string, anchor: "start" | "end" = "start") => (
-    <text x={x} y={y} textAnchor={anchor} style={numStyle(34, T.text)}>
+    <text x={x} y={y} textAnchor={anchor} style={numStyle(40, T.text)}>
       {t}
     </text>
   );
@@ -242,7 +255,7 @@ export const L11Style2: React.FC = () => {
           />
           <ReferenceFigure x={A + 230} y={roomBot} pxPerM={ppmA} sway={Math.sin(f / 40) * 0.6} />
         </Panel>
-        {lab(A + 150, roomBot + 70, "Basement", 34, "start")}
+        {lab(A + 150, roomBot + 74, "Basement", 38, "start")}
 
         {/* B: a deep metro station, 0-120 m */}
         <Panel
@@ -268,31 +281,31 @@ export const L11Style2: React.FC = () => {
           <path d={`M${B + 170} ${stY + 22} L${B + 170} ${stY - 6} L${B + 192} ${stY - 24} L${B + 328} ${stY - 24} L${B + 350} ${stY - 6} L${B + 350} ${stY + 22} Z`} fill={P.boneDeep} stroke={P.ink} strokeWidth={2} />
           <rect x={B + 182 + lift * 100} y={stY + 2} width={56} height={16} fill={E.a} />
         </Panel>
-        {lab(B + 140, stY - 110, "Metro station", 30, "start")}
-        {val(B + 140, stY - 74, "105 m")}
+        {lab(B + 160, stY - 112, "Metro station", 34, "start")}
+        {val(B + 160, stY - 72, "105 m")}
 
         {/* C: the deepest mine and the Kola borehole, 0-12.5 km */}
         <Panel x0={C} w={W} id="c" strata={[SURF + 0.6 * ppkC, SURF + 3 * ppkC, SURF + 8 * ppkC]}>
           <rect x={C} y={SURF} width={W} height={Math.max(3, 0.12 * ppkC)} fill={P.ink} />
           {/* mine: shaft, galleries, moving cage */}
-          <line x1={C + 160} y1={SURF} x2={C + 160} y2={mineY} stroke={P.ink} strokeWidth={4} />
+          <line x1={C + 195} y1={SURF} x2={C + 195} y2={mineY} stroke={P.ink} strokeWidth={4} />
           {[0.72, 0.82, 0.92, 1].map((k) => (
-            <line key={k} x1={C + 125} y1={SURF + (MINE_M / 1000) * ppkC * k} x2={C + 205} y2={SURF + (MINE_M / 1000) * ppkC * k} stroke={P.ink} strokeWidth={3} />
+            <line key={k} x1={C + 160} y1={SURF + (MINE_M / 1000) * ppkC * k} x2={C + 240} y2={SURF + (MINE_M / 1000) * ppkC * k} stroke={P.ink} strokeWidth={3} />
           ))}
-          <rect x={C + 154} y={SURF + 10 + cage * ((MINE_M / 1000) * ppkC - 30)} width={12} height={14} fill={E.b} />
+          <rect x={C + 189} y={SURF + 10 + cage * ((MINE_M / 1000) * ppkC - 30)} width={12} height={14} fill={E.b} />
           {/* borehole */}
           <line x1={C + 350} y1={SURF} x2={C + 350} y2={kolaY} stroke={P.ink} strokeWidth={3} />
         </Panel>
-        {lab(C + 130, mineY + 50, "Deepest mine", 30)}
-        {val(C + 130, mineY + 86, "3.7 km")}
+        {lab(C + 150, mineY + 52, "Deepest mine", 34)}
+        {val(C + 150, mineY + 92, "3.7 km")}
         <YouAreHere x={C + 350} y={kolaY} size={30} font={IF.label} />
-        {lab(C + 300, kolaY - 82, "Kola borehole", 30, "end")}
-        {val(C + 300, kolaY - 46, "12.3 km", "end")}
+        {lab(C + 325, kolaY - 86, "Kola borehole", 34, "end")}
+        {val(C + 325, kolaY - 46, "12.3 km", "end")}
 
         {/* one ruler per panel: same object, three zoom levels */}
-        <Gauge x={A + 14} y={SURF} height={PH} value={0} max={5} unit="m" theme={T} side="right" readout={false} format={(v) => `${v} m`} />
-        <Gauge x={B + 14} y={SURF} height={PH} value={0} max={120} unit="m" theme={T} side="right" readout={false} format={(v) => `${v} m`} />
-        <Gauge x={C + 14} y={SURF} height={PH} value={12.262} max={12.5} unit="km" theme={T} side="right" readout={false} format={(v) => `${v} km`} />
+        <Gauge x={A + 14} y={SURF} height={PH} value={0} max={5} unit="m" theme={T} side="right" readout={false} marker={false} unitCap={false} plate={100} format={(v) => `${v} m`} />
+        <Gauge x={B + 14} y={SURF} height={PH} value={0} max={120} unit="m" theme={T} side="right" readout={false} marker={false} unitCap={false} plate={112} format={(v) => `${v} m`} />
+        <Gauge x={C + 14} y={SURF} height={PH} value={12.262} max={12.5} unit="km" theme={T} side="right" readout={false} unitCap={false} plate={108} format={(v) => `${v} km`} />
         <CornerTicks color={T.line} />
       </Layer>
     </Stage>
@@ -313,10 +326,11 @@ export const L11Style3: React.FC = () => {
   ]);
   // walls bulge inward lower down (the rock creeps into the hole)
   const wall = (side: 1 | -1): [number, number][] =>
-    Array.from({ length: 16 }, (_, i) => {
-      const y = -40 + i * 58;
+    Array.from({ length: 44 }, (_, i) => {
+      const y = -40 + i * 20;
       const k = Math.max(0, (y - 380) / 450);
-      const bulge = Math.sin(i * 1.3 + (side > 0 ? 0.5 : 2.1)) * 6 * k + 18 * k * k + Math.sin(f / 50 + i) * 1.5 * k;
+      const lobe = 42 * Math.exp(-Math.pow((y - 590) / 95, 2)) * (side > 0 ? 1 : 0.85);
+      const bulge = lobe + 10 * k + Math.sin(f / 50 + i) * 1.5 * k;
       return [cx + side * (half - bulge), Math.min(y, bottomY)] as [number, number];
     });
   const L = wall(-1);
@@ -353,10 +367,11 @@ export const L11Style3: React.FC = () => {
         {[-1, 1].map((s) =>
           [0, 1, 2, 3].map((j) => {
             const x0 = cx + s * (half + 40 + j * 60);
-            const pts: [number, number][] = Array.from({ length: 12 }, (_, i) => {
-              const y = 380 + i * 50;
-              const k = Math.max(0, (y - 400) / 420);
-              return [x0 - s * k * k * (60 - j * 10), y];
+            const pts: [number, number][] = Array.from({ length: 24 }, (_, i) => {
+              const y = -60 + i * 50;
+              const k = Math.max(0, (y - 380) / 420);
+              const pull = 40 * Math.exp(-Math.pow((y - 590) / 110, 2)) * (1 - j * 0.2);
+              return [x0 - s * (k * k * (50 - j * 10) + pull), y];
             });
             return <path key={`${s}${j}`} d={ptsToPath(pts)} fill="none" stroke={mixHex(P.chalk, rock, 0.45)} strokeWidth={2} />;
           }),
@@ -388,9 +403,9 @@ export const L11Style3: React.FC = () => {
           12,262 m
         </text>
         {/* callout to the creeping wall */}
-        <line x1={cx + half - 26} y1={700} x2={1130} y2={620} stroke={P.chalk} strokeWidth={2} />
-        <circle cx={cx + half - 26} cy={700} r={6} fill={P.chalk} />
-        <text x={1142} y={612} style={labelStyle(52, T.text, 3)}>
+        <line x1={cx + half - 40} y1={592} x2={1130} y2={575} stroke={P.chalk} strokeWidth={2} />
+        <circle cx={cx + half - 40} cy={592} r={7} fill={P.chalk} />
+        <text x={1142} y={592} style={labelStyle(52, T.text, 3)}>
           Rock like plastic
         </text>
         <Gauge x={1660} y={210} height={660} value={180} max={200} unit="°C" theme={T} direction="up" title="HEAT" format={(v) => `${v}°`} readoutText="180 °C" />
@@ -414,7 +429,7 @@ export const L11Style4: React.FC = () => {
   const mantle = mixHex(E.a, P.graphite, 0.3);
   const core = mixHex(E.b, P.graphite, 0.2);
   const spin = f * 0.03; // the tick ring turns very slowly
-  const ins = { x: 1330, y: 330, r: 180 };
+  const ins = { x: 1310, y: 250, r: 170 };
   const insPx = 12; // px per km in the inset
   const surfY = ins.y - 70;
   const pin = { x: ox, y: oy - R };
@@ -458,8 +473,8 @@ export const L11Style4: React.FC = () => {
         </text>
         {/* zoom box + leaders to the inset */}
         <rect x={pin.x - 14} y={pin.y - 10} width={28} height={28} fill="none" stroke={P.chalk} strokeWidth={2} />
-        <line x1={pin.x + 14} y1={pin.y - 10} x2={ins.x - ins.r * 0.45} y2={ins.y - ins.r * 0.89} stroke={P.chalkSoft} strokeWidth={1.5} />
-        <line x1={pin.x + 14} y1={pin.y + 18} x2={ins.x - ins.r * 0.8} y2={ins.y + ins.r * 0.6} stroke={P.chalkSoft} strokeWidth={1.5} />
+        <line x1={pin.x + 14} y1={pin.y - 10} x2={ins.x - ins.r * 0.5} y2={ins.y - ins.r * 0.866} stroke={P.chalkSoft} strokeWidth={1.5} />
+        <line x1={pin.x + 14} y1={pin.y + 18} x2={ins.x - ins.r} y2={ins.y} stroke={P.chalkSoft} strokeWidth={1.5} />
         <YouAreHere x={pin.x} y={pin.y - 14} size={34} label="You are here" font={IF.label} side="left" />
       </Layer>
       <Layer depth={0}>
@@ -470,15 +485,6 @@ export const L11Style4: React.FC = () => {
           <rect x={ins.x - ins.r} y={surfY} width={ins.r * 2} height={ins.r * 2} fill="url(#s4-crust)" />
           <line x1={ins.x - ins.r} y1={surfY} x2={ins.x + ins.r} y2={surfY} stroke={P.chalk} strokeWidth={3} />
           <line x1={ins.x} y1={surfY} x2={ins.x} y2={surfY + (KOLA_M / 1000) * insPx} stroke={P.vermilion} strokeWidth={4} />
-          {[0, 5, 10].map((k) => (
-            <g key={k}>
-              <line x1={ins.x - 110} y1={surfY + k * insPx} x2={ins.x - 96} y2={surfY + k * insPx} stroke={P.chalk} strokeWidth={2} />
-            </g>
-          ))}
-          <line x1={ins.x - 103} y1={surfY} x2={ins.x - 103} y2={surfY + 10 * insPx} stroke={P.chalk} strokeWidth={2} />
-          <text x={ins.x - 118} y={surfY + 10 * insPx + 8} textAnchor="end" style={labelStyle(24, P.chalk, 2)}>
-            10 km
-          </text>
         </g>
         <circle cx={ins.x} cy={ins.y} r={ins.r} fill="none" stroke={P.chalk} strokeWidth={2.5} />
         <text x={ins.x + 16} y={surfY + (KOLA_M / 1000) * insPx + 10} style={labelStyle(34, P.chalk, 2)}>

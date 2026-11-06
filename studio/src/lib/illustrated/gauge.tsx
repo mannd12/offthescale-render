@@ -41,6 +41,12 @@ export type GaugeProps = {
   /** which side the tick labels sit on */
   side?: "left" | "right";
   ticks?: number;
+  /** flat backing plate behind spine + labels, so the ruler stays legible over busy strata (width in px) */
+  plate?: number;
+  /** draw the value marker (off for a pure ruler) */
+  marker?: boolean;
+  /** unit caption under the ruler (off when tick labels already carry the unit) */
+  unitCap?: boolean;
 };
 
 export const Gauge: React.FC<GaugeProps> = ({
@@ -59,6 +65,9 @@ export const Gauge: React.FC<GaugeProps> = ({
   marks = [],
   side = "left",
   ticks = 5,
+  plate = 0,
+  marker = true,
+  unitCap = true,
 }) => {
   const W = 14; // spine width
   const step = niceStep(max, ticks);
@@ -79,6 +88,18 @@ export const Gauge: React.FC<GaugeProps> = ({
   const ry = off ? (direction === "down" ? y + height + 52 : y - 52) : vy;
   return (
     <g>
+      {plate > 0 ? (
+        <rect
+          x={side === "left" ? x - plate : x - 12}
+          y={y - 16}
+          width={plate + W + 12}
+          height={height + 32}
+          fill={theme.bg}
+          stroke={theme.line}
+          strokeWidth={1.5}
+          opacity={0.94}
+        />
+      ) : null}
       {title ? (
         <text x={x + W / 2} y={y - 44} textAnchor="middle" style={{ fontFamily: IF.label, fontSize: 26, letterSpacing: 4, fill: theme.dim }}>
           {title}
@@ -121,12 +142,12 @@ export const Gauge: React.FC<GaugeProps> = ({
         y={direction === "down" ? y + height + 34 : y + height + 34}
         textAnchor="middle"
         style={{ fontFamily: IF.label, fontSize: 22, letterSpacing: 3, fill: theme.dim }}
-        opacity={off ? 0 : 1}
+        opacity={off || !unitCap ? 0 : 1}
       >
         {unit}
       </text>
       {/* marker */}
-      {off ? (
+      {!marker ? null : off ? (
         <g fill={P.vermilion}>
           {[0, 1].map((k) => {
             const yy = direction === "down" ? y + height + 8 + k * 14 : y - 8 - k * 14;
