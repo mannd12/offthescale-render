@@ -2,7 +2,7 @@
 // squash and pointing, then a zoom-through into the ground that lands in the cavern. Registered as `v2-motion-test`.
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { ZoomThrough, flash, impact, prog, walkPhase, walkSpeed } from "../lib/illustrated";
+import { PaperGrain, ZoomThrough, flash, impact, prog, walkPhase, walkSpeed } from "../lib/illustrated";
 import { DuskScene } from "./Dusk";
 import { CavernScene } from "./Cavern";
 
@@ -23,6 +23,7 @@ export const MotionTest: React.FC = () => {
   const dusk = (
     <DuskScene
       title={false}
+      grain={0}
       camKeys={[
         { f: 0, x: 960, y: 540, zoom: 1 },
         { f: ZOOM_AT, x: 900, y: 600, zoom: 1.1 },
@@ -42,6 +43,7 @@ export const MotionTest: React.FC = () => {
     <CavernScene
       f0={-ZOOM_AT}
       title={false}
+      grain={0}
       camKeys={[
         { f: 0, x: 900, y: 520, zoom: 1.15 },
         { f: 90, x: 960, y: 560, zoom: 1 },
@@ -54,6 +56,8 @@ export const MotionTest: React.FC = () => {
     <AbsoluteFill style={{ background: "#000" }}>
       {f < ZOOM_AT ? dusk : f >= ZOOM_AT + ZOOM_DUR ? cavern : <ZoomThrough t={t} focal={{ x: 640, y: 905 }} from={dusk} to={cavern} maxScale={7} />}
       {fl > 0 ? <AbsoluteFill style={{ background: "#FFD28A", opacity: fl }} /> : null}
+      {/* one screen-locked grain over everything, so the zoom-through does not magnify the paper */}
+      <PaperGrain frame={f} dark amount={0.5} />
     </AbsoluteFill>
   );
 };

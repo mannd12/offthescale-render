@@ -25,6 +25,7 @@ import {
   Stars,
   Bobber,
   Tick,
+  alpha,
   cameraAt,
   flicker,
   hazed,
@@ -39,7 +40,7 @@ loadIllustratedFonts();
 const F = FAMILIES.petrol;
 const HORIZON = 600;
 const ISLAND = { x: 1460, y: HORIZON };
-const MOON = { x: 330, y: 190 };
+const MOON = { x: 820, y: 170 };
 
 export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
   const f = useCurrentFrame() + f0;
@@ -48,9 +49,9 @@ export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
   const beam = (f * 1.1) % 360;
   const ppm = 84;
   const shoreY = 930;
-  const lavaLight = 270 - 90 + 0; // toward the eruption (above the vent) for the cone: light from above-right = 300
+  const lavaLight = 270; // the cone is lit by its own vent, straight above it
   return (
-    <Stage theme={F.theme} vignette={0.28}>
+    <Stage theme={F.theme} vignette={0.28} grain={0.5}>
       <Layer depth={0.05}>
         <Sky family={F} />
         <Stars frame={f} n={120} w={1920} h={560} color={F.light} seed={4} size={1.5} twinkle={0.75} />
@@ -64,7 +65,7 @@ export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
       <Layer depth={0.3} haze={{ color: F.haze, amount: 0.2 }}>
         {/* ash column: stacked rounded puffs lit from below by the vent */}
         {[0, 1, 2, 3, 4, 5].map((i) => {
-          const y = ISLAND.y - 120 - i * 62;
+          const y = ISLAND.y - 170 - i * 62;
           const r = 42 + i * 18;
           const sx = Math.sin(f / 70 + i) * (6 + i * 3);
           return (
@@ -82,12 +83,15 @@ export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
             />
           );
         })}
-        <Bloom x={ISLAND.x} y={ISLAND.y - 112} r={130} color="#FFB060" strength={0.95 * erupt} spread={0.35} core={16} coreColor="#FFF0C0" />
-        <Embers frame={f} x0={ISLAND.x - 30} x1={ISLAND.x + 30} y={ISLAND.y - 110} n={34} color="#FFB060" seed={12} rise={2.4} life={80} size={3} wiggle={26} />
-        {/* the cone */}
-        <Form d={roundPoly([[ISLAND.x - 360, ISLAND.y + 4], [ISLAND.x - 60, ISLAND.y - 100], [ISLAND.x - 22, ISLAND.y - 112], [ISLAND.x + 22, ISLAND.y - 112], [ISLAND.x + 60, ISLAND.y - 100], [ISLAND.x + 380, ISLAND.y + 4]], 14)} fill={hazed(F, F.near, 0.25)} light={lavaLight} shadow={F.shadow} inset={26} shadowOpacity={0.4} rim={F.second} rimWidth={4} rimOpacity={0.8 * erupt} />
+        <Bloom x={ISLAND.x} y={ISLAND.y - 162} r={150} color="#FFB060" strength={0.95 * erupt} spread={0.35} core={16} coreColor="#FFF0C0" />
+        <Embers frame={f} x0={ISLAND.x - 30} x1={ISLAND.x + 30} y={ISLAND.y - 160} n={34} color="#FFB060" seed={12} rise={2.4} life={80} size={3} wiggle={26} />
+        {/* the cone: a proper stratovolcano profile standing above the horizon, with its foot shore */}
+        <Form d={roundPoly([[ISLAND.x - 420, ISLAND.y + 14], [ISLAND.x - 300, ISLAND.y - 30], [ISLAND.x - 150, ISLAND.y - 70], [ISLAND.x - 40, ISLAND.y - 150], [ISLAND.x - 16, ISLAND.y - 162], [ISLAND.x + 16, ISLAND.y - 162], [ISLAND.x + 40, ISLAND.y - 150], [ISLAND.x + 170, ISLAND.y - 64], [ISLAND.x + 320, ISLAND.y - 26], [ISLAND.x + 440, ISLAND.y + 14]], 12)} fill={hazed(F, F.near, 0.2)} light={lavaLight} shadow={F.shadow} inset={26} shadowOpacity={0.4} rim={F.second} rimWidth={4} rimOpacity={0.8 * erupt}>
+          <path d={`M${ISLAND.x - 40} ${ISLAND.y - 150} L${ISLAND.x - 150} ${ISLAND.y - 70} L${ISLAND.x - 300} ${ISLAND.y - 30} L${ISLAND.x - 420} ${ISLAND.y + 14} L${ISLAND.x - 40} ${ISLAND.y + 14} Z`} fill={F.shadow} opacity={0.45} />
+        </Form>
+        <Bloom x={ISLAND.x} y={ISLAND.y - 150} r={60} color="#FFB060" strength={0.8 * erupt} spread={0.4} />
         {/* lava tongue down the flank */}
-        <path d={`M${ISLAND.x - 10} ${ISLAND.y - 108} q-20 50 -8 90 q8 20 -2 30`} fill="none" stroke="#FFB060" strokeWidth={5} strokeLinecap="round" opacity={0.9 * erupt} />
+        <path d={`M${ISLAND.x + 8} ${ISLAND.y - 158} q30 50 22 100 q-6 30 10 60`} fill="none" stroke="#FFB060" strokeWidth={5} strokeLinecap="round" opacity={0.9 * erupt} />
       </Layer>
       {/* sea: three bands of swell, the moon's glitter, the sound front */}
       <Layer depth={0.5} haze={{ color: F.haze, amount: 0.12 }}>
@@ -134,7 +138,7 @@ export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
       <Layer depth={0}>
         <Kicker x={120} y={128} text="Off the Scale · Sound" color={F.dim} size={20} />
         <Headline x={120} y={250} lines={["How loud can", "a sound get?"]} size={92} color={F.text} accent={F.second} shadow={F.shadow} />
-        <Pill x={1140} y={432} text="Krakatoa 1883 · heard 4,800 km away" fill={mixHex(F.sky[0], "#000", 0.3)} color={F.text} dot={F.second} size={19} align="start" />
+        <Pill x={1080} y={372} text="Krakatoa 1883 · heard 4,800 km away" fill={alpha(F.shadow, 0.72)} color={F.text} dot={F.second} size={19} align="start" />
         <Gauge x={1760} y={160} height={520} value={194} max={200} unit="dB" theme={F.theme} direction="up" title="LOUDNESS" side="left" plate={110} readout readoutText="194 dB" format={(v) => `${v}`} />
       </Layer>
     </Stage>

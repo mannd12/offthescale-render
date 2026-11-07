@@ -87,7 +87,9 @@ export const Gauge: React.FC<GaugeProps> = ({
   const fillH = direction === "down" ? vy - y : y + height - vy;
   const rText = readoutText ?? `${format(value)} ${unit}`;
   const rW = Math.max(150, rText.length * 24 + 40);
-  const rX = side === "left" ? x + W + 18 : x - 18 - rW;
+  // readout sits opposite the tick labels; if that would run off the frame edge (gauge near the right edge with
+  // side="left", the L11 lesson), it flips to the outside of the plate instead
+  const rX = side === "left" ? (x + W + 18 + rW > 1890 ? x - plate - 18 - rW : x + W + 18) : x - 18 - rW < 30 ? x + W + plate + 18 : x - 18 - rW;
   const ry = off ? (direction === "down" ? y + height + 52 : y - 52) : vy;
   return (
     <g>

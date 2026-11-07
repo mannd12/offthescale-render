@@ -33,8 +33,9 @@ const fam = (f: Omit<Family, "theme" | "accent">): Family => ({
   ...f,
   accent: P.vermilion,
   theme: {
-    bg: f.sky[f.sky.length - 1],
-    panel: mixHex(f.sky[f.sky.length - 1], f.text, 0.12),
+    // the TOP sky colour is the family's base tone (the horizon stop is the brightest, so plates drawn in it glare)
+    bg: f.sky[0],
+    panel: mixHex(f.sky[0], f.text, 0.12),
     line: f.text,
     text: f.text,
     dim: f.dim,

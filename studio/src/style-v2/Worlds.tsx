@@ -46,7 +46,7 @@ export const WorldsScene: React.FC = () => {
   const barBase = 880;
   const barScale = 9; // px per km of mountain height
   return (
-    <Stage theme={F.theme} vignette={0.3}>
+    <Stage theme={F.theme} vignette={0.3} grain={0.45}>
       <Layer depth={0.05}>
         <Sky family={F} />
         <Stars frame={f} n={260} w={1920} h={1080} color={F.text} seed={21} size={1.3} twinkle={0.7} />
@@ -71,7 +71,8 @@ export const WorldsScene: React.FC = () => {
                     <path d={roundPoly(blobPts(w.x + 50, cy + 10, 36, 8, 5, 0.3, 1.4), 14)} />
                     <path d={roundPoly(blobPts(w.x - 20, cy + 80, 28, 8, 8, 0.3, 0.8), 12)} />
                     <ellipse cx={w.x} cy={cy - r + 10} rx={r * 0.6} ry={12} fill="#F4EFE6" />
-                    <path d={roundPoly(blobPts(w.x + 10, cy - 20, 60, 10, 11, 0.25, 0.3), 20)} fill="#FFFFFF" opacity={0.5} transform={`rotate(-20 ${w.x} ${cy})`} />
+                    <path d={roundPoly(blobPts(w.x + 10, cy - 20, 60, 10, 11, 0.25, 0.3), 20)} fill="#FFFFFF" opacity={0.85} transform={`rotate(-20 ${w.x} ${cy})`} />
+                    <path d={roundPoly(blobPts(w.x - 30, cy + 50, 44, 9, 13, 0.25, 0.3), 16)} fill="#FFFFFF" opacity={0.8} transform={`rotate(-25 ${w.x} ${cy})`} />
                   </g>
                 ) : null}
                 {w.name === "Mars" ? (

@@ -61,7 +61,7 @@ export const CityScene: React.FC = () => {
   const hero = 300 + f * walkSpeed(26, 40);
   const ppl = lane(f, 7, -40, 1700, 0.5, 9, 1);
   return (
-    <Stage theme={F.theme} vignette={0.08}>
+    <Stage theme={F.theme} vignette={0.08} grain={0.5}>
       <Layer depth={0.05}>
         <Sky family={F} />
         {/* sun upper left */}
@@ -106,14 +106,14 @@ export const CityScene: React.FC = () => {
           </g>
         ))}
         {/* crane */}
-        <g transform={`translate(1520 ${STREET})`}>
-          <rect x={-8} y={-520} width={16} height={520} fill="#C9755A" />
-          <g transform={`rotate(${crane.toFixed(2)} 0 -520)`}>
-            <rect x={-120} y={-528} width={420} height={10} rx={3} fill="#C9755A" />
-            <path d="M-120 -528 L0 -600 L300 -528" fill="none" stroke="#C9755A" strokeWidth={5} />
-            <rect x={-120} y={-520} width={70} height={30} fill={F.shadow} opacity={0.7} />
-            <line x1={240} y1={-518} x2={240} y2={-380 + Math.sin(f / 90) * 30} stroke={F.shadow} strokeWidth={2} />
-            <rect x={225} y={-380 + Math.sin(f / 90) * 30} width={30} height={24} rx={3} fill="#E0B46A" />
+        <g transform={`translate(1340 ${STREET})`}>
+          <rect x={-8} y={-560} width={16} height={560} fill="#C9755A" />
+          <g transform={`rotate(${crane.toFixed(2)} 0 -560)`}>
+            <rect x={-200} y={-568} width={440} height={10} rx={3} fill="#C9755A" />
+            <path d="M-200 -568 L0 -640 L240 -568" fill="none" stroke="#C9755A" strokeWidth={5} />
+            <rect x={-200} y={-560} width={70} height={30} fill={F.shadow} opacity={0.7} />
+            <line x1={190} y1={-558} x2={190} y2={-420 + Math.sin(f / 90) * 30} stroke={F.shadow} strokeWidth={2} />
+            <rect x={175} y={-420 + Math.sin(f / 90) * 30} width={30} height={24} rx={3} fill="#E0B46A" />
           </g>
         </g>
         <Flock frame={f} x={-100} y={300} vx={1.4} n={5} size={8} color={F.shadow} seed={5} />
@@ -205,7 +205,7 @@ export const CityScene: React.FC = () => {
       <Layer depth={0}>
         <Kicker x={120} y={128} text="Chapter one" color={F.dim} size={20} />
         <Headline x={120} y={236} lines={["Start where", "you live"]} size={84} color={F.text} accent={P.vermilion} shadow="#FFFFFF" />
-        <Gauge x={1800} y={STREET + 30} height={40 * PPM} value={32} max={40} unit="m" theme={F.theme} direction="down" title="DEPTH" side="left" plate={96} marker={false} format={(v) => `${v} m`} />
+        <Gauge x={1800} y={STREET + 30} height={38 * PPM} value={32} max={40} unit="m" theme={F.theme} direction="down" title="DEPTH" side="left" plate={96} marker={false} readout={false} unitCap={false} format={(v) => `${v} m`} />
       </Layer>
     </Stage>
   );

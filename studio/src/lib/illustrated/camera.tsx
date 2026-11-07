@@ -2,7 +2,7 @@
 // World coordinates are 1920x1080 "design pixels" with the camera's default view centred on (960, 540).
 // <Stage> owns one SVG; every <Layer> inside reads the camera and applies it scaled by its depth, so a
 // pan or push-in moves the foreground more than the background (parallax) with no per-scene maths.
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useId } from "react";
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
 import { Theme } from "./palette";
 import { PaperGrain } from "./texture";
@@ -76,13 +76,25 @@ export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain
  */
 export const Layer: React.FC<{ depth?: number; children: React.ReactNode; opacity?: number; haze?: { color: string; amount: number } }> = ({ depth = 1, children, opacity = 1, haze }) => {
   const cam = useContext(CamCtx);
+  const hazeId = "haze" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const z = Math.pow(cam.zoom, depth);
   const dx = (cam.x - 960) * depth;
   const dy = (cam.y - 540) * depth;
+  const hz = haze && haze.amount > 0;
   return (
     <g opacity={opacity} transform={`translate(960 540) scale(${z}) translate(${-960 - dx} ${-540 - dy})`}>
-      {children}
-      {haze && haze.amount > 0 ? <rect x={-6000} y={-6000} width={14000} height={14000} fill={haze.color} opacity={haze.amount} style={{ mixBlendMode: "normal" }} /> : null}
+      {hz ? (
+        // tint only where this layer has pixels: flood the haze colour, keep it inside the layer's alpha, merge on top
+        <filter id={hazeId} x="-5%" y="-5%" width="110%" height="110%">
+          <feFlood floodColor={haze.color} floodOpacity={haze.amount} result="h" />
+          <feComposite in="h" in2="SourceAlpha" operator="in" result="hin" />
+          <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="hin" />
+          </feMerge>
+        </filter>
+      ) : null}
+      {hz ? <g filter={`url(#${hazeId})`}>{children}</g> : children}
     </g>
   );
 };

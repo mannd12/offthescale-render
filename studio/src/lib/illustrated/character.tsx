@@ -131,7 +131,7 @@ const handTargets = (pose: Pose, f: number, walkPh?: number): { front: Pt; back:
     case "cover-ears":
       return { front: [28, -150], back: [-26, -150], frontBend: 1, backBend: -1 };
     case "sit":
-      return { front: [30, -40], back: [-6, -44], frontBend: 1, backBend: -1 };
+      return { front: [30, -62], back: [-8, -66], frontBend: 1, backBend: -1 };
     case "stand":
     default:
       return {
@@ -177,6 +177,7 @@ export const Tick: React.FC<TickProps> = ({
 
   // ---- legs ---------------------------------------------------------------------------------------------------
   const sitting = pose === "sit";
+  const SIT_DROP = 24;
   const ph = walk === undefined ? 0 : walk * TAU;
   const stride = 17;
   const liftH = 9;
@@ -184,8 +185,9 @@ export const Tick: React.FC<TickProps> = ({
     const p = ph + (side > 0 ? 0 : Math.PI);
     const hip: Pt = [HIP[0] + side * 9, HIP[1]];
     if (sitting) {
-      const foot: Pt = [hip[0] + 30 + side * 4, -4];
-      const { j } = ik(hip, [hip[0] + 24, hip[1] + 2], LEG, LEG, 1);
+      // the whole body drops by SIT_DROP (see below), so feet aim SIT_DROP above the ground line here
+      const foot: Pt = [hip[0] + 28 + side * 4, -6 - SIT_DROP];
+      const { j } = ik(hip, foot, LEG, LEG, 1);
       return { hip, knee: j, foot, lifted: 0 };
     }
     if (walk === undefined) {
@@ -212,6 +214,8 @@ export const Tick: React.FC<TickProps> = ({
   const shB: Pt = [-SHOULDER_X, SHOULDER_Y];
   const armF = ik(shF, ht.front, ARM1, ARM2, ht.frontBend);
   const armB = ik(shB, ht.back, ARM1, ARM2, ht.backBend);
+  // the staff goes to whichever hand is free: the back hand when the front one points, waves, cheers or covers an ear
+  const staffHand = pose === "point" || pose === "wave" || pose === "cheer" || pose === "cover-ears" || pose === "shrug" || pose === "think" ? armB.end : armF.end;
 
   // ---- face ---------------------------------------------------------------------------------------------------
   const eyeScale = Math.max(0.06, face.eye * (1 - bl));
@@ -260,7 +264,7 @@ export const Tick: React.FC<TickProps> = ({
     <g transform={`translate(${x} ${y}) rotate(${tilt + idleSway}) scale(${s * facing} ${s}) scale(${sq.sx * walkSquash.sx} ${sq.sy * walkSquash.sy})`}>
       {/* staff: behind everything, in the front hand */}
       {staff ? (
-        <g transform={`translate(${armF.end[0] + 6} 0)`}>
+        <g transform={`translate(${staffHand[0] + 6} 0)`}>
           <rect x={-2.5} y={-168} width={5} height={168} rx={2} fill="#EFE6D2" />
           {Array.from({ length: 10 }, (_, i) => (
             <rect key={i} x={-2.5} y={-168 + i * 17 + 8} width={5} height={4} fill={i % 2 ? ink : color} />
@@ -268,7 +272,7 @@ export const Tick: React.FC<TickProps> = ({
           <path d="M2.5 -168 L26 -160 L2.5 -152 Z" fill={color} />
         </g>
       ) : null}
-      <g transform={`translate(0 ${bobY.toFixed(2)})`}>
+      <g transform={`translate(0 ${(bobY + (sitting ? SIT_DROP : 0)).toFixed(2)})`}>
         {/* back leg and back arm: shade tone */}
         {limb(legBack.hip, legBack.knee, legBack.foot, 13, suitShade)}
         {bootAt(legBack.foot, mixHex(boot, "#000", 0.2))}

@@ -148,6 +148,40 @@ export const Form: React.FC<{
   );
 };
 
+/**
+ * Facet shading for a ridge / skyline: every segment of `pts` whose outward (upward) normal faces away from the light
+ * casts a soft shadow polygon down to `base`. Put it inside a Form's children (so it is clipped to the silhouette):
+ * the flank away from the sun darkens as a whole, the lit flank stays the fill colour. Round 1 of the v2 frames
+ * showed that an inner-shadow band alone leaves a big mountain reading flat.
+ */
+export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: number; fill: string; opacity?: number; soft?: boolean }> = ({ pts, base, light = KEY_LIGHT, fill, opacity = 0.4, soft = true }) => {
+  const [lx, ly] = lightVec(light);
+  const out: { d: string; o: number }[] = [];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [ax, ay] = pts[i];
+    const [bx, by] = pts[i + 1];
+    const dx = bx - ax;
+    const dy = by - ay;
+    const len = Math.hypot(dx, dy) || 1;
+    // upward normal of the segment (screen y is down)
+    let nx = dy / len;
+    let ny = -dx / len;
+    if (ny > 0) {
+      nx = -nx;
+      ny = -ny;
+    }
+    const facing = nx * lx + ny * ly; // > 0 faces the light
+    if (facing < 0.05) out.push({ d: `M${ax} ${ay} L${bx} ${by} L${bx} ${base} L${ax} ${base} Z`, o: Math.min(1, 0.35 - facing) });
+  }
+  return (
+    <g filter={soft ? "url(#soft-16)" : undefined} fill={fill}>
+      {out.map((f, i) => (
+        <path key={i} d={f.d} opacity={f.o * opacity} />
+      ))}
+    </g>
+  );
+};
+
 /** Soft ground-contact shadow under a prop (a blurred ellipse). */
 export const GroundShadow: React.FC<{ x: number; y: number; rx: number; ry?: number; color?: string; opacity?: number; blur?: 4 | 8 | 16 }> = ({
   x,

@@ -26,7 +26,7 @@ const CELLS: { e: Expression; p: Pose; label: string; walk?: boolean; lamp?: boo
 export const TickSheetScene: React.FC = () => {
   const f = useCurrentFrame();
   return (
-    <Stage theme={F.theme} vignette={0.1}>
+    <Stage theme={F.theme} vignette={0.1} grain={0.5}>
       <Layer depth={0.05}>
         <Sky family={F} />
         {/* faint survey grid on the paper */}
@@ -54,8 +54,8 @@ export const TickSheetScene: React.FC = () => {
         {CELLS.map((c, i) => {
           const col = i % 4;
           const row = Math.floor(i / 4);
-          const x = 880 + col * 250;
-          const y = 390 + row * 265;
+          const x = 880 + col * 240;
+          const y = 440 + row * 262;
           return (
             <g key={i}>
               <GroundShadow x={x} y={y + 2} rx={44} color={F.shadow} opacity={0.3} blur={8} />
@@ -68,9 +68,9 @@ export const TickSheetScene: React.FC = () => {
         })}
       </Layer>
       <Layer depth={0}>
-        <Kicker x={880} y={110} text="Character sheet" color={F.dim} size={20} />
-        <Headline x={880} y={200} lines={["Meet Tick"]} size={80} color={F.text} accent={P.vermilion} />
-        {/* swatches */}
+        <Kicker x={880} y={92} text="Character sheet" color={F.dim} size={20} />
+        <Headline x={880} y={196} lines={["Meet Tick"]} size={80} color={F.text} accent={P.vermilion} rule={false} />
+        {/* swatches: a column at the right edge */}
         {[
           ["#E4572E", "suit"],
           ["#F7EFDF", "visor"],
@@ -79,8 +79,8 @@ export const TickSheetScene: React.FC = () => {
           [mixHex("#E4572E", "#15191C", 0.32), "shade"],
         ].map(([c, n], i) => (
           <g key={n}>
-            <rect x={1300 + i * 110} y={140} width={80} height={44} rx={10} fill={c} stroke={F.mid} strokeWidth={1.5} />
-            <text x={1340 + i * 110} y={212} textAnchor="middle" style={{ fontFamily: IF2.display, fontWeight: 500, fontSize: 18, fill: F.dim }}>
+            <rect x={1790} y={300 + i * 96} width={70} height={40} rx={10} fill={c} stroke={F.mid} strokeWidth={1.5} />
+            <text x={1825} y={366 + i * 96} textAnchor="middle" style={{ fontFamily: IF2.display, fontWeight: 500, fontSize: 17, fill: F.dim }}>
               {n}
             </text>
           </g>
