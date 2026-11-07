@@ -157,7 +157,7 @@ const LineupShot: React.FC<{ f: number }> = ({ f }) => {
         <Tick x={1180 + 60} y={hero[1] + 4} pxPerM={60} frame={f} pose={t < 1 && step > 1 ? "cover-ears" : "point"} expression={t < 1 && step > 1 ? "surprised" : "neutral"} look={-0.7} facing={-1} seed={4} outline={F.shadow} />
         <Pill x={1180 + 60} y={hero[1] + 56} text="you" fill={pill} color={F.text} size={14} align="middle" />
         {/* big soft motes: the "dust in every dark scene" that keeps a hold alive at probe scale (v2.1 round 3 lesson) */}
-        <Motes frame={f} n={46} x={100} y={120} w={1700} h={700} color={F.light} seed={9} size={9} drift={46} />
+        <Motes frame={f} n={40} x={100} y={120} w={1700} h={700} color={F.light} seed={9} size={3.5} drift={46} />
       </Layer>
       <Layer depth={0}>
         <Kicker x={120} y={110} text={`Rung ${step} of 3`} color={F.dim} size={20} />
@@ -194,7 +194,7 @@ const TickShot: React.FC<{ f: number }> = ({ f }) => {
         <rect x={-400} y={ground} width={2720} height={400} fill={N.near} />
         <GroundShadow x={820} y={ground} rx={150} ry={30} color={N.shadow} opacity={0.3} blur={16} />
         <Tick x={780} y={ground} pxPerM={300} frame={f} pose="stand" poseTo="point" poseT={poseT} expression="neutral" expressionTo="surprised" expressionT={exprT} look={0.5} seed={6} />
-        <Motes frame={f} n={40} x={100} y={100} w={1700} h={800} color={N.light} seed={3} size={9} drift={46} />
+        <Motes frame={f} n={30} x={100} y={100} w={1700} h={800} color={N.light} seed={3} size={3.5} drift={46} />
       </Layer>
       <Layer depth={0}>
         <Kicker x={120} y={110} text="pose tween · anticipation → overshoot → settle" color={N.dim} size={20} />
