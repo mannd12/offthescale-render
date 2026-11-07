@@ -2,6 +2,7 @@
 # least every ~8 s). One frame per second, 160x90 grey; the mean absolute difference between consecutive
 # seconds is the "change" number. Runs of low change are listed with their times, in the run summary.
 # gh workflow run probe-video.yml -f asset=l01-final.mp4 [-f min_seconds=8]
+# Also prints the craft probe (cuts per 30 s, motion coverage, saturation) against the targets in docs/ART-PROCESS.md.
 name: Probe video
 
 on:
@@ -34,3 +35,4 @@ jobs:
           case "$MIN" in *[!0-9]*) echo "::error::min_seconds must be a whole number"; exit 1 ;; esac
           gh release download renders -p "$ASSET" -O in.mp4
           python studio/scripts/static-probe.py in.mp4 "$MIN" | tee -a "$GITHUB_STEP_SUMMARY"
+          python studio/scripts/craft-probe.py in.mp4 | tee -a "$GITHUB_STEP_SUMMARY"

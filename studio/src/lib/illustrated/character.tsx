@@ -322,6 +322,15 @@ export const Tick: React.FC<TickProps> = ({
         {bootAt(legFront.foot, boot)}
         {limb(shF, armF.j, armF.end, 12, color)}
         <circle cx={armF.end[0]} cy={armF.end[1]} r={8.5} fill={mitt} {...stroke} />
+        {pose === "point"
+          ? (() => {
+              // a short index finger continuing the forearm's direction, so a point reads as a point and not a fist
+              const vx = armF.end[0] - armF.j[0];
+              const vy = armF.end[1] - armF.j[1];
+              const l = Math.hypot(vx, vy) || 1;
+              return <path d={`M${armF.end[0]} ${armF.end[1]} L${(armF.end[0] + (vx / l) * 15).toFixed(1)} ${(armF.end[1] + (vy / l) * 15).toFixed(1)}`} stroke={mitt} strokeWidth={5.5} strokeLinecap="round" />;
+            })()
+          : null}
         {pose === "cover-ears" ? (
           <>
             {limb(shB, armB.j, armB.end, 12, suitShade)}
