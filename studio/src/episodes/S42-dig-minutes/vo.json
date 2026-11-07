@@ -1,0 +1,66 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "In the world's deepest hole, the drill bit cut rock for less than two minutes in an hour.",
+    "file": "S42-dig-minutes/vo/cold-00-600748dc7a.wav",
+    "seconds": 4.499958333333334,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "That's an average, past ten kilometres down.",
+    "file": "S42-dig-minutes/vo/cold-01-717748ca3c.wav",
+    "seconds": 2.16,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Near the top, it was about a fifth of the time.",
+    "file": "S42-dig-minutes/vo/cold-02-024117931c.wav",
+    "seconds": 1.98,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "At one stage, the hole went down about a kilometre in six years.",
+    "file": "S42-dig-minutes/vo/cold-03-fa16eddc15.wav",
+    "seconds": 3.75,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That's under half a metre a day. About two hole-widths.",
+    "file": "S42-dig-minutes/vo/cold-04-46f5dc423c.wav",
+    "seconds": 3.36,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "As one report put it, each extra metre got harder.",
+    "file": "S42-dig-minutes/vo/cold-05-4a7e9e4a8d.wav",
+    "seconds": 2.97,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what was the drill doing the rest of the time?",
+    "file": "S42-dig-minutes/vo/cold-06-a5afe8083f.wav",
+    "seconds": 1.82,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "The full video shows where the hour went.",
+    "file": "S42-dig-minutes/vo/cold-07-b50c4b35d5.wav",
+    "seconds": 2.26,
+    "pauseAfter": 0.55
+  }
+]

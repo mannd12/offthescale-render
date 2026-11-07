@@ -7,7 +7,7 @@ import { IF } from "./type";
 import { Family } from "./palette2";
 import { Stage } from "./camera";
 import { Sky, Vignette } from "./light";
-import { Stars } from "./ambient";
+import { Motes, Stars } from "./ambient";
 
 export const IF2 = {
   display: "'Outfit', 'Inter', 'Helvetica Neue', Arial, sans-serif",
@@ -164,6 +164,7 @@ export const ChapterCard: React.FC<{ family: Family; kicker?: string; title: str
     <Stage theme={F.theme} drift={false} vignette={F.dark ? 0.3 : 0.1} grain={0.4}>
       <Sky family={F} />
       {F.dark ? <Stars frame={frame} n={90} w={1920} h={1080} color={F.text} seed={31} size={1.3} twinkle={0.7} /> : null}
+      <Motes frame={frame} n={40} w={1920} h={1080} color={F.light} seed={37} size={3.2} drift={30} />
       <Vignette color={F.shadow} strength={F.dark ? 0.35 : 0.12} />
       <g opacity={a} transform={`translate(0 ${rise.toFixed(2)})`}>
         {kicker ? <Kicker x={x} y={y0 - size * 1.05} text={kicker} color={F.dim} size={24} align={align === "start" ? "start" : "start"} /> : null}
@@ -246,7 +247,7 @@ export const Counter: React.FC<{ x: number; y: number; value: number; max?: numb
   return (
     <g>
       <clipPath id={id}>
-        <rect x={0} y={y - size * 0.95} width={colW} height={size * 1.2} />
+        <rect x={0} y={y - size * 0.86} width={colW} height={lh} />
       </clipPath>
       {out}
       {unit ? (

@@ -1,0 +1,570 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "This is the highest point on Earth. Eight thousand eight hundred and forty-eight point eight six metres above the sea.",
+    "file": "L12-mountain-limit/vo/cold-00-f9c77f205a.wav",
+    "seconds": 5.74,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "It's still going up, by about two millimetres a year. And yet it will never get much higher than this. Nothing on Earth can. Why not?",
+    "file": "L12-mountain-limit/vo/cold-01-87f242c2d8.wav",
+    "seconds": 8.24,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Look at what it's standing on. The rock at the top of the world is seafloor: limestone, laid down in a warm, shallow sea about four hundred and fifty million years ago, still full of the shells of sea creatures.",
+    "file": "L12-mountain-limit/vo/cold-02-8537c22aa1.wav",
+    "seconds": 11.24,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Something lifted that seafloor nine kilometres into the sky, and it has been pushing for fifty million years. Yet the top is where it is. Whatever stops it is stronger than a continent.",
+    "file": "L12-mountain-limit/vo/cold-03-e7e80c128f.wav",
+    "seconds": 10.37,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "It isn't the wind, or the rain, or the ice, though they all help. The thing pushing mountains back down is the mountain itself. Its own weight. And the warm, weak rock it has to stand on.",
+    "file": "L12-mountain-limit/vo/cold-04-6a403ca8fe.wav",
+    "seconds": 11.190041666666668,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So how tall can a mountain get? Here, and on any other world?",
+    "file": "L12-mountain-limit/vo/cold-05-a5fae83755.wav",
+    "seconds": 3.5,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Start with the simplest mountain there is: a column of rock. Every block you add presses down on every block below it. The one at the bottom carries the lot, and it never gets a day off.",
+    "file": "L12-mountain-limit/vo/l01-00-ba373570bc.wav",
+    "seconds": 10.36,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "Rock is strong, but it isn't endlessly strong. Squeeze a block of granite with somewhere between one hundred and two hundred and fifty million pascals and it crushes.",
+    "file": "L12-mountain-limit/vo/l01-01-b98d1fd455.wav",
+    "seconds": 8.35,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "That's a thousand to two and a half thousand times the pressure of the air around you right now.",
+    "file": "L12-mountain-limit/vo/l01-02-4f47850d17.wav",
+    "seconds": 4.310041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "Now build a column of granite as tall as Everest. The pressure on its base works out to about two hundred and thirty-five million pascals. That is right at the crushing limit.",
+    "file": "L12-mountain-limit/vo/l01-03-983c17d83c.wav",
+    "seconds": 9.04,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "Make a mountain out of solid rock, with nothing but its base to hold it up, and the bottom gives way somewhere between about four and nine kilometres.",
+    "file": "L12-mountain-limit/vo/l01-04-acee2db941.wav",
+    "seconds": 6.88,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 5,
+    "text": "Which is awkward, because Everest is standing right there, taller than that. So it must be cheating.",
+    "file": "L12-mountain-limit/vo/l01-05-feff966089.wav",
+    "seconds": 5.2,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "It is. Mountains don't stand on the crust. They float in it. Under Tibet, the crust is about seventy kilometres thick, twice the thickness of ordinary continental crust.",
+    "file": "L12-mountain-limit/vo/l02-00-021814a0b3.wav",
+    "seconds": 9.41,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Most of a mountain range is below ground, pushed down into the hotter, denser rock of the mantle.",
+    "file": "L12-mountain-limit/vo/l02-01-e0dbcb9379.wav",
+    "seconds": 5.03,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "The mantle is solid rock, but given long enough it flows. So the crust sits in it the way a boat sits in water. Load it, and it rides lower. Unload it, and it rises.",
+    "file": "L12-mountain-limit/vo/l02-02-aea5c0d33b.wav",
+    "seconds": 9.71,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "Geologists call this isostasy, and it's the key to the whole story.",
+    "file": "L12-mountain-limit/vo/l02-03-2e0122c42d.wav",
+    "seconds": 3.91,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "Here's how Tibet got its root. Around fifty million years ago, India ran into Asia. Both were continental crust of about the same density, so neither could sink under the other.",
+    "file": "L12-mountain-limit/vo/l02-04-8ce7a64dd5.wav",
+    "seconds": 9.41,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "The crust had nowhere to go but up, and down. It doubled in thickness.",
+    "file": "L12-mountain-limit/vo/l02-05-91089dafc4.wav",
+    "seconds": 4.84,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 6,
+    "text": "The plateau that came out of it stands about four and a half kilometres above the sea. The extra crust beneath it is about thirty-five kilometres thick. Roughly seven kilometres of root for every kilometre of height.",
+    "file": "L12-mountain-limit/vo/l02-06-595bfbf211.wav",
+    "seconds": 10.42,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 7,
+    "text": "That root is what holds the mountains up. And, it turns out, it's also what sets the ceiling.",
+    "file": "L12-mountain-limit/vo/l02-07-19bb2910a8.wav",
+    "seconds": 4.88,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "Because the deeper that root goes, the hotter it gets, and hot rock is weak. The base of a big mountain range softens, and gravity starts to spread it under its own weight.",
+    "file": "L12-mountain-limit/vo/l03-00-c2faacec80.wav",
+    "seconds": 8.73,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "One geophysicist compares a growing mountain to a wad of bread dough left on a table: give it time, and it flattens.",
+    "file": "L12-mountain-limit/vo/l03-01-c1a577dde7.wav",
+    "seconds": 6.21,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "That's why Tibet is a plateau. Two and a half million square kilometres of crust that has stopped going up and started going sideways, levelling off around four and a half thousand metres.",
+    "file": "L12-mountain-limit/vo/l03-02-8126f82445.wav",
+    "seconds": 8.6,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "One geologist's reading of the plateau puts its balance height near five kilometres. Pile the whole thing higher, and the soft base flows out faster than you can build.",
+    "file": "L12-mountain-limit/vo/l03-03-2c6c06ea63.wav",
+    "seconds": 9.38,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "A global study agrees: the strength of the crust is what caps big plateaus like Tibet and the Andes.",
+    "file": "L12-mountain-limit/vo/l03-04-28a93ad1ef.wav",
+    "seconds": 5.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "The peaks are the exception. Local spikes can stand above the balance height, and Everest is one of them. Not an escape from the ceiling. A spike on top of it. And spikes get trimmed.",
+    "file": "L12-mountain-limit/vo/l03-05-1f0d921c7f.wav",
+    "seconds": 9.93,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "Above the snowline, snow piles up, turns to ice, and the ice starts to move. Glaciers grind at the rock they slide over, and geologists have a name for what they do to peaks: the glacial buzzsaw.",
+    "file": "L12-mountain-limit/vo/l04-00-5ec2af6e7b.wav",
+    "seconds": 11.52,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "In two thousand and nine a team compared the mountain ranges of the world. The highest peaks in each range track the local snowline, whatever their age and however they were built.",
+    "file": "L12-mountain-limit/vo/l04-01-d6b68b8c48.wav",
+    "seconds": 9.1,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "The ice planes the tops down into a window just below the snowline. So how high a range gets depends more on its climate than on how hard the plates are pushing.",
+    "file": "L12-mountain-limit/vo/l04-02-546c2d4221.wav",
+    "seconds": 9.509958333333334,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "That's the ceiling on Earth. Weight that crushes. A base that flows. Ice that cuts. Everest stands where all three agree.",
+    "file": "L12-mountain-limit/vo/l04-03-cf3e7a8960.wav",
+    "seconds": 8.56,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "Except there's a mountain on Earth that is taller than Everest. By more than a kilometre.",
+    "file": "L12-mountain-limit/vo/l04-04-38780d761b.wav",
+    "seconds": 4.53,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "Mauna Kea, in Hawaii, a mountain that keeps most of itself hidden. Its summit is four thousand two hundred and five metres above the sea. But the mountain doesn't start at the sea.",
+    "file": "L12-mountain-limit/vo/l05-00-40b534df1c.wav",
+    "seconds": 9.72,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "It carries on down another six thousand metres to the ocean floor. Base to summit, that's about ten thousand two hundred metres, well over a kilometre more than Everest.",
+    "file": "L12-mountain-limit/vo/l05-01-f8ed9a1cb4.wav",
+    "seconds": 8.99,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "How did it get past the ceiling? It isn't a crumpled collision. It's a volcano, and volcanoes stack themselves, one lava flow at a time, each layer cooling on top of the last.",
+    "file": "L12-mountain-limit/vo/l05-02-ea1d213bfe.wav",
+    "seconds": 10.75,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "One geophysicist's guess is that a mountain on Earth might manage about a mile more than Everest, but only this way, by volcano.",
+    "file": "L12-mountain-limit/vo/l05-03-b7aac6522f.wav",
+    "seconds": 7.330041666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "But watch what the weight is doing. The island sits on the Pacific plate, a rigid shell about eighty kilometres thick here. The volcanoes are heavier than that shell can carry. So it bends. The whole island is sinking.",
+    "file": "L12-mountain-limit/vo/l05-04-0e39febf7d.wav",
+    "seconds": 12.76,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "At Hilo, on the coast, the land is going down by about two and a half millimetres a year. Offshore, old coral reefs that once grew at the surface sit in a staircase down the slope.",
+    "file": "L12-mountain-limit/vo/l05-05-8a36b544b0.wav",
+    "seconds": 9.4,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "The deepest is more than thirteen hundred metres below sea level. The island has sunk at least that far, and it's still going.",
+    "file": "L12-mountain-limit/vo/l05-06-cd7a6d58ee.wav",
+    "seconds": 6.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 7,
+    "text": "And the plate is moving. It carries each volcano away from the heat that fed it. Cut off from its magma, the volcano stops growing, and the sinking wins. Up the chain, the islands get older, smaller and more worn.",
+    "file": "L12-mountain-limit/vo/l05-07-a01a123568.wav",
+    "seconds": 12.72,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 8,
+    "text": "Beyond them, the oldest have gone under the sea altogether.",
+    "file": "L12-mountain-limit/vo/l05-08-0d0672f39f.wav",
+    "seconds": 2.95,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 9,
+    "text": "So a volcano can beat the collision ceiling. But on Earth it pays twice: it sinks under its own weight, and it gets carried off its fuel. Gravity still gets the last word.",
+    "file": "L12-mountain-limit/vo/l05-09-ebc7ec62a1.wav",
+    "seconds": 9.62,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Which brings us back to a summit going up two millimetres a year. If the mountain is at its ceiling, what's lifting it?",
+    "file": "L12-mountain-limit/vo/l06-00-a02dde68c3.wav",
+    "seconds": 6.31,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "Part of the answer is a river. About seventy-five kilometres from Everest, the Arun has carved an enormous gorge. Around eighty-nine thousand years ago it broke through and joined the Kosi river system to the south.",
+    "file": "L12-mountain-limit/vo/l06-01-081bf9859b.wav",
+    "seconds": 11.19,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "More water was funnelled down the gorge, and the cutting sped up. Every tonne of rock the river carries away is weight off the crust. And a boat that loses cargo rides higher.",
+    "file": "L12-mountain-limit/vo/l06-02-a09af18d06.wav",
+    "seconds": 9.340041666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "A study published in two thousand and twenty-four put it in numbers. The unloading has lifted Everest and its neighbours by somewhere between fifteen and fifty metres.",
+    "file": "L12-mountain-limit/vo/l06-03-3a436d98ba.wav",
+    "seconds": 7.78,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "It's part of why the summit now rises at about twice its long-term average.",
+    "file": "L12-mountain-limit/vo/l06-04-34c2455bca.wav",
+    "seconds": 3.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "So Everest isn't rising because the collision is winning. It's rising because the land around it is being carried away faster than the peak is being worn down.",
+    "file": "L12-mountain-limit/vo/l06-05-4ff8c7f5c3.wav",
+    "seconds": 7.75,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "The same floating that caps every mountain on Earth is, right now, giving the tallest one a nudge.",
+    "file": "L12-mountain-limit/vo/l06-06-192bed5358.wav",
+    "seconds": 5.31,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 7,
+    "text": "That is the Earth rule. Now change the planet.",
+    "file": "L12-mountain-limit/vo/l06-07-8714b6a5dd.wav",
+    "seconds": 2.55,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "Everything so far comes down to one thing: weight. And weight is mass times gravity. Same rock, weaker gravity, and the bottom block carries less.",
+    "file": "L12-mountain-limit/vo/l07-00-8ff73549bb.wav",
+    "seconds": 8.18,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "So a mountain can stand taller before it crushes, and taller before it flows. If you weigh less on a world, so does everything you build there.",
+    "file": "L12-mountain-limit/vo/l07-01-dd7e00d5ad.wav",
+    "seconds": 6.78,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "Mars has about thirty-eight percent of Earth's gravity. Take Everest's height, divide by that, and the simple rule predicts a ceiling of around twenty-three kilometres.",
+    "file": "L12-mountain-limit/vo/l07-02-278bfb6e1c.wav",
+    "seconds": 7.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "Olympus Mons, the largest volcano in the solar system, rises between twenty-two and twenty-six kilometres above the plains around it, depending on where you draw the base. Two and a half to three Everests.",
+    "file": "L12-mountain-limit/vo/l07-03-008c32ae15.wav",
+    "seconds": 10.62,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "Its base would cover Arizona, and its slopes are only two to five degrees. Stand on it, and you'd hardly know you were on a mountain.",
+    "file": "L12-mountain-limit/vo/l07-04-095f82d285.wav",
+    "seconds": 7.1,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "It got that big for exactly the reason Mauna Kea couldn't. Mars has no plate tectonics.",
+    "file": "L12-mountain-limit/vo/l07-05-3208cbc90f.wav",
+    "seconds": 5.11,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 6,
+    "text": "The crust doesn't move, so the volcano sat over its heat source for hundreds of millions of years, maybe billions, stacking flow on flow. And the whole pile weighs well under half what it would here.",
+    "file": "L12-mountain-limit/vo/l07-06-b8934386af.wav",
+    "seconds": 11.32,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 7,
+    "text": "Venus is nearly Earth's twin in size, with ninety percent of our gravity. The rule says a ceiling just under ten kilometres.",
+    "file": "L12-mountain-limit/vo/l07-07-b1986783a7.wav",
+    "seconds": 6.85,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 8,
+    "text": "Its highest mountain, Maxwell Montes, rises almost eleven kilometres above the planet's average surface. Close enough that the rule is catching something real.",
+    "file": "L12-mountain-limit/vo/l07-08-a05a1c0e84.wav",
+    "seconds": 8.490041666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 9,
+    "text": "Then there's Vesta: an asteroid about five hundred kilometres across, with roughly a fortieth of Earth's gravity.",
+    "file": "L12-mountain-limit/vo/l07-09-aff410a4f3.wav",
+    "seconds": 5.89,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Run the rule, and it says a mountain on Vesta could be about three hundred and forty kilometres tall. Which is further than it is from Vesta's surface to its centre.",
+    "file": "L12-mountain-limit/vo/l08-00-36bb39fec5.wav",
+    "seconds": 7.825,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "A mountain can't be bigger than the world it stands on.",
+    "file": "L12-mountain-limit/vo/l08-01-6658083b8a.wav",
+    "seconds": 3.295,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "What Vesta actually has is this. A crater at its south pole five hundred kilometres wide, nearly as wide as the asteroid itself, and nineteen kilometres deep.",
+    "file": "L12-mountain-limit/vo/l08-02-e596d4d3ce.wav",
+    "seconds": 9.15,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "In the middle of it, the impact heaved up a central peak about twenty kilometres high. Two and a half Everests, on a world you could drive across in a day.",
+    "file": "L12-mountain-limit/vo/l08-03-039eccdd6a.wav",
+    "seconds": 7.73,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "Here the rock isn't the limit. The world is. On small bodies the ceiling stops being about strength and starts being about how much world there is to stack.",
+    "file": "L12-mountain-limit/vo/l08-04-abc3d3f150.wav",
+    "seconds": 8.09,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "A few honest notes. The one-column rule is a rough guide. Rock buried and squeezed from all sides is stronger than a block in a press, and real mountains have roots, so our number is a floor, not a forecast.",
+    "file": "L12-mountain-limit/vo/l08-05-e7fa16a56a.wav",
+    "seconds": 11.23,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "Where you measure from matters more than it should. Olympus Mons is twenty-two or twenty-six kilometres depending on the base you choose.",
+    "file": "L12-mountain-limit/vo/l08-06-26264a7402.wav",
+    "seconds": 6.56,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "And Everest's famous figure is its snow height; the rock height has never been announced. And the river story is one study's model, not a direct measurement of the Earth.",
+    "file": "L12-mountain-limit/vo/l08-07-893d6fed0d.wav",
+    "seconds": 8.43,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "Shrink the Earth to a ball one metre across, and Everest is a bump less than a millimetre high. That's the ceiling: about nine kilometres of rock is as much as this gravity and this rock will hold up.",
+    "file": "L12-mountain-limit/vo/closer-00-f47c905262.wav",
+    "seconds": 10.69,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "Weaker gravity, taller bump. On a Mars ball, Olympus Mons is about two millimetres. Vesta would be a pebble four centimetres across with a bump you could feel.",
+    "file": "L12-mountain-limit/vo/closer-01-b567fdcbf3.wav",
+    "seconds": 8.96,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "And the highest place on Earth is made of seafloor. It's being lifted by a river that is carrying the mountains around it away. And it's already standing about as high as this planet allows.",
+    "file": "L12-mountain-limit/vo/closer-02-f2148d4dcf.wav",
+    "seconds": 9.27,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "Every mountain is a stack of rock arguing with gravity. On Earth, the argument ends at about nine kilometres.",
+    "file": "L12-mountain-limit/vo/closer-03-f46f820410.wav",
+    "seconds": 6.44,
+    "pauseAfter": 0.55
+  }
+]

@@ -1,0 +1,620 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "On the morning of the twenty-seventh of August, eighteen eighty-three, the chief of police on a small island in the Indian Ocean wrote down what he heard. Reports from the east, like the distant roar of heavy guns.",
+    "file": "L13-loudest-sound/vo/cold-00-a2a618deda.wav",
+    "seconds": 10.77,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "They came back every few hours, until three in the afternoon.",
+    "file": "L13-loudest-sound/vo/cold-01-1fdf5e7268.wav",
+    "seconds": 2.86,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "There were no guns. The thing he was hearing was almost three thousand miles away. About four thousand eight hundred kilometres.",
+    "file": "L13-loudest-sound/vo/cold-02-a61fd8c836.wav",
+    "seconds": 6.4699583333333335,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "And it had happened nearly four hours earlier, because that is how long sound takes to cross that much ocean.",
+    "file": "L13-loudest-sound/vo/cold-03-d51fa1c5e6.wav",
+    "seconds": 5.37,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Which raises a question that sounds simple and isn't. How loud can a sound get? Because there is a ceiling. The air itself has a loudest possible sound, and we know its number.",
+    "file": "L13-loudest-sound/vo/cold-04-e69df76972.wav",
+    "seconds": 10.62,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Past it, \"louder\" stops meaning what you think it means.",
+    "file": "L13-loudest-sound/vo/cold-05-1712242044.wav",
+    "seconds": 2.87,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So where is the ceiling, what is it made of, and what happened on the day something went through it?",
+    "file": "L13-loudest-sound/vo/cold-06-c15a727e62.wav",
+    "seconds": 4.680041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Start with what a sound is. The air around you presses on everything, all the time, at about a hundred and one thousand pascals. Call that the flat line.",
+    "file": "L13-loudest-sound/vo/l01-00-93a04102be.wav",
+    "seconds": 8.42,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "A sound is a wiggle on top of it: the pressure goes a little above the line, then a little below, over and over, very fast.",
+    "file": "L13-loudest-sound/vo/l01-01-5782e66b2d.wav",
+    "seconds": 6.77,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "How small a wiggle? The quietest reference level on the scale we use in air is twenty millionths of a pascal. Set that beside the air pressure, and the air pressure is about five billion times bigger.",
+    "file": "L13-loudest-sound/vo/l01-02-7d73ac56ef.wav",
+    "seconds": 10.230041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "Five billion to one. That is the gap between the zero of the scale and the flat line itself.",
+    "file": "L13-loudest-sound/vo/l01-03-81d0b15289.wav",
+    "seconds": 4.840041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "Nobody can read a ruler with five billion ticks on it. So we fold the ruler up.",
+    "file": "L13-loudest-sound/vo/l01-04-3817cba89f.wav",
+    "seconds": 4.150041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "That fold is the decibel. Every twenty decibels, the pressure wiggle gets ten times bigger. Every ten decibels, the energy in the sound gets ten times bigger.",
+    "file": "L13-loudest-sound/vo/l02-00-921c8f8fbc.wav",
+    "seconds": 8.33,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "Zero is set at that twenty-millionths-of-a-pascal reference, roughly where human hearing begins.",
+    "file": "L13-loudest-sound/vo/l02-01-eb2fc58a76.wav",
+    "seconds": 4.75,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "Leaves rustling, about twenty. Crickets, forty. Two people talking five metres away, sixty. Thunder, about a hundred. A military jet a hundred metres up, a hundred and twenty.",
+    "file": "L13-loudest-sound/vo/l02-02-c07b30b482.wav",
+    "seconds": 10.36,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "Cannon fire at a hundred and fifty metres, a hundred and twenty-six.",
+    "file": "L13-loudest-sound/vo/l02-03-b87fdbf8dc.wav",
+    "seconds": 3.68,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "Notice the trick the fold is playing. From the conversation to the jet is sixty decibels. That is a thousand times the pressure wiggle, and a million times the energy. The ladder looks polite.",
+    "file": "L13-loudest-sound/vo/l02-04-57819b7371.wav",
+    "seconds": 11.47,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "The thing it measures is not.",
+    "file": "L13-loudest-sound/vo/l02-05-790a11035d.wav",
+    "seconds": 1.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 6,
+    "text": "Keep climbing and the everyday objects run out. And then the ladder itself runs into something.",
+    "file": "L13-loudest-sound/vo/l02-06-c7c04f7799.wav",
+    "seconds": 4.93,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "Here is the problem. A sound wave swings both ways. For every push above the flat line there is a pull below it. And the pull has a floor. Pressure can't go below zero.",
+    "file": "L13-loudest-sound/vo/l03-00-9867645dd2.wav",
+    "seconds": 9.97,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "Zero pressure is a vacuum, and you can't have less than nothing.",
+    "file": "L13-loudest-sound/vo/l03-01-174933f645.wav",
+    "seconds": 3.68,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "So the biggest clean wiggle the air can carry is one that swings all the way down to zero. That swing is one atmosphere: about a hundred and one thousand pascals.",
+    "file": "L13-loudest-sound/vo/l03-02-788853668e.wav",
+    "seconds": 9.055,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "Put that number through the fold, and the ladder reads about a hundred and ninety-four decibels.",
+    "file": "L13-loudest-sound/vo/l03-03-681abe25b7.wav",
+    "seconds": 4.835,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "One hundred and ninety-four. That's the ceiling for a sound in sea-level air. It isn't a law anyone passed. The quiet half of the wave simply has nowhere left to go.",
+    "file": "L13-loudest-sound/vo/l03-04-3b25345f4b.wav",
+    "seconds": 8.77,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "Pump more energy in and you don't get a louder sound. You get something else. The wave piles up on itself into a sharp front: a shock wave. Not a wiggle any more. A wall of pressure, moving.",
+    "file": "L13-loudest-sound/vo/l03-05-eee5307b2b.wav",
+    "seconds": 11.550041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 6,
+    "text": "So if someone tells you a thing was three hundred decibels: in air, past about a hundred and ninety-four, that is no longer a sound.",
+    "file": "L13-loudest-sound/vo/l03-06-8bc9b90553.wav",
+    "seconds": 7.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 7,
+    "text": "Which is where our story turns into two others. The loudest machine we ever built. And the loudest sound anyone wrote down.",
+    "file": "L13-loudest-sound/vo/l03-07-fabd3c4cab.wav",
+    "seconds": 6.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "The Saturn V rocket flew in the nineteen sixties, and the internet later decided its sound melted concrete and set grass on fire a mile away. In twenty twenty-two, a group of acousticians went back and checked.",
+    "file": "L13-loudest-sound/vo/l04-00-249c2fd706.wav",
+    "seconds": 10.75,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "Their estimate for the rocket's total sound output: about two hundred and three decibels. Which matched the little data that survives from the sixties.",
+    "file": "L13-loudest-sound/vo/l04-01-9fd7063965.wav",
+    "seconds": 7.59,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "But that number is a different kind of decibel. It's sound power, the total energy the rocket pours out every second, like the wattage printed on a bulb.",
+    "file": "L13-loudest-sound/vo/l04-02-765947c810.wav",
+    "seconds": 9.29,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "What you'd hear at any spot is sound pressure, like the brightness where you're standing, and it falls away with distance. Mix the two up and you get melted concrete.",
+    "file": "L13-loudest-sound/vo/l04-03-b8952cf185.wav",
+    "seconds": 8.4,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "Still, two hundred and three is a lot. The researchers put it this way: a hundred and seventy decibels is about ten jet engines; two hundred is about ten thousand. And the concrete?",
+    "file": "L13-loudest-sound/vo/l04-04-de8f7c2b41.wav",
+    "seconds": 10.45,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 5,
+    "text": "Probably scorched by the plume's heat, not by sound.",
+    "file": "L13-loudest-sound/vo/l04-05-9221f88101.wav",
+    "seconds": 2.55,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 6,
+    "text": "A machine, then, can be absurdly loud and still be explained. Now the one that wasn't a machine.",
+    "file": "L13-loudest-sound/vo/l04-06-66770c502d.wav",
+    "seconds": 5.97,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "Krakatoa is a volcano in the Sunda Strait, off Java and Sumatra. On the twenty-seventh of August, eighteen eighty-three, just before ten in the morning local time, it produced its largest explosion.",
+    "file": "L13-loudest-sound/vo/l05-00-3a829d4bb3.wav",
+    "seconds": 10.78,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "The eruption killed tens of thousands of people, most of them by the sea waves it threw at the coasts. We're following only one thing it made: the sound.",
+    "file": "L13-loudest-sound/vo/l05-01-a378259947.wav",
+    "seconds": 8.12,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "Five years later, the Royal Society published everything it could collect: ship logs, letters, instrument records. The sound was heard in Perth, about three thousand kilometres away. In Ceylon, roughly the same.",
+    "file": "L13-loudest-sound/vo/l05-02-6f227a4bd7.wav",
+    "seconds": 11.27,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "And on Rodriguez, near Mauritius, almost three thousand miles out, by a police chief who thought it was heavy guns.",
+    "file": "L13-loudest-sound/vo/l05-03-cf6030bd1e.wav",
+    "seconds": 5.88,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "Drawn on a map, the area where people heard it is a little under one-thirteenth of the Earth's entire surface.",
+    "file": "L13-loudest-sound/vo/l05-04-46b8e02065.wav",
+    "seconds": 5.9900416666666665,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "And close in, something was measuring it. At the gasworks in Batavia, about a hundred and forty kilometres from the volcano, a pressure gauge kept a continuous record. It jumped nine times across that night and morning.",
+    "file": "L13-loudest-sound/vo/l05-05-9ce73e1e57.wav",
+    "seconds": 11.16,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "The biggest jump is logged at a quarter past ten, right after the great explosion.",
+    "file": "L13-loudest-sound/vo/l05-06-41c22a8f00.wav",
+    "seconds": 3.51,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 7,
+    "text": "You'll hear a decibel number for Krakatoa in almost every telling of this story. Hold that thought. Because the sound was not the strangest thing the explosion made.",
+    "file": "L13-loudest-sound/vo/l05-07-127bda65c0.wav",
+    "seconds": 8.8,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Along with the sound went a pressure wave: a single slow swell in the air, far too slow to hear, strong enough to move the needle of every barometer it passed.",
+    "file": "L13-loudest-sound/vo/l06-00-173f2b8b21.wav",
+    "seconds": 8.92,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "And weather stations in eighteen eighty-three had recording barometers, pens on paper, running day and night.",
+    "file": "L13-loudest-sound/vo/l06-01-9025404ca2.wav",
+    "seconds": 5.84,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "So the stations saw it arrive. Then they saw it arrive again from the other direction, because the wave had wrapped around the planet and come back. At many stations the pen jumped not fewer than seven times.",
+    "file": "L13-loudest-sound/vo/l06-02-6c848ba9dc.wav",
+    "seconds": 11.64,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "Four passages outward from Krakatoa. Three back from the opposite side of the world.",
+    "file": "L13-loudest-sound/vo/l06-03-49712fbc16.wav",
+    "seconds": 4.16,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "One lap of the Earth took the wave about thirty-six hours. That's seven passages in about five days: three and a half times round the world.",
+    "file": "L13-loudest-sound/vo/l06-04-666a501970.wav",
+    "seconds": 7.89,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "It moved at six hundred and seventy to seven hundred and thirty miles an hour, a little slower than ordinary sound in warm sea-level air.",
+    "file": "L13-loudest-sound/vo/l06-05-fe1886c836.wav",
+    "seconds": 7.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "For five days, every barometer on Earth was one instrument, and it was drawing the same shape. People who never heard the explosion still had a record of it, in the margins of their weather charts.",
+    "file": "L13-loudest-sound/vo/l06-06-4f6a370f36.wav",
+    "seconds": 10.43,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 7,
+    "text": "For nearly a hundred and forty years, that stood alone. Then it happened again, and this time we were watching from orbit.",
+    "file": "L13-loudest-sound/vo/l06-07-17f7d686fe.wav",
+    "seconds": 6.8,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "January fifteenth, twenty twenty-two. The Hunga volcano in Tonga exploded under the sea, and its plume climbed about fifty-eight kilometres. But watch the air instead.",
+    "file": "L13-loudest-sound/vo/l07-00-d83c3dc514.wav",
+    "seconds": 9.53,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "Two weather satellites, one American and one Japanese, saw a ring spread out across the whole Pacific: the pressure wave, showing up as a flicker of temperature in the water vapour. It went round the Earth for days.",
+    "file": "L13-loudest-sound/vo/l07-01-8699401229.wav",
+    "seconds": 11.31,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "A team of seventy-six scientists from seventeen countries pulled the records together. The wave circled the planet four times in one direction and three in the other. Exactly the count from eighteen eighty-three.",
+    "file": "L13-loudest-sound/vo/l07-02-267d513761.wav",
+    "seconds": 10.72,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "In size, they judged it on par with Krakatau.",
+    "file": "L13-loudest-sound/vo/l07-03-58e7247a43.wav",
+    "seconds": 2.35,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "And in Alaska, about ten thousand kilometres away, people heard it: repeated booms, hours after the blast.",
+    "file": "L13-loudest-sound/vo/l07-04-3c8c5773cf.wav",
+    "seconds": 6.59,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "It isn't only volcanoes. In twenty thirteen, a rock from space blew apart over Chelyabinsk in Russia. Twenty listening stations built to catch nuclear tests picked up the low rumble.",
+    "file": "L13-loudest-sound/vo/l07-05-c9bef92a49.wav",
+    "seconds": 10.04,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 6,
+    "text": "It went twice round the globe and was still being tracked almost three days later. The biggest event that network had ever recorded.",
+    "file": "L13-loudest-sound/vo/l07-06-9f121c0be1.wav",
+    "seconds": 7.64,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 7,
+    "text": "So far we have stayed in air. Air is where the ceiling is. Change the medium, and the rules change with it.",
+    "file": "L13-loudest-sound/vo/l07-07-d59928965b.wav",
+    "seconds": 6.947368421052632,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Underwater, people use a different decibel scale, with a different zero. Water is also denser and carries sound faster.",
+    "file": "L13-loudest-sound/vo/l08-00-04cf3f8daa.wav",
+    "seconds": 6,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "Put those together and a number measured in water reads about sixty-one and a half decibels higher than the same sound would in air. So you can't compare the two scales until you've subtracted that.",
+    "file": "L13-loudest-sound/vo/l08-01-86373aef61.wav",
+    "seconds": 11.052631578947368,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "The loudest animal measured is the sperm whale. Its clicks have been recorded at up to two hundred and thirty-six decibels on the underwater scale.",
+    "file": "L13-loudest-sound/vo/l08-02-df59124424.wav",
+    "seconds": 7.894736842105263,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "Take off the sixty-one and a half, and that lands in the same territory as our loudest air sounds. Still below the ceiling.",
+    "file": "L13-loudest-sound/vo/l08-03-a36b6e3839.wav",
+    "seconds": 7.2631578947368425,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "On Mars, a rover carries a microphone. It told us sound there travels at about two hundred and forty metres a second, against three hundred and forty here, because the air is a hundred and seventy times thinner.",
+    "file": "L13-loudest-sound/vo/l08-04-a9469c0b96.wav",
+    "seconds": 12,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "High notes even travel at a different speed from low ones. The researchers' own summary: two people five metres apart would struggle to hold a conversation.",
+    "file": "L13-loudest-sound/vo/l08-05-3e8a5ef949.wav",
+    "seconds": 8.210526315789474,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "And between the stars there is almost nothing to wiggle, so there is almost no sound. Almost.",
+    "file": "L13-loudest-sound/vo/l08-06-d3a31abc51.wav",
+    "seconds": 5.368421052631579,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "In the Perseus cluster, two hundred and fifty million light years away, the hot gas around a giant black hole carries ripples, and they are sound waves.",
+    "file": "L13-loudest-sound/vo/l08-07-3f09b321dc.wav",
+    "seconds": 8.526315789473685,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 8,
+    "text": "The pitch works out to a B-flat, fifty-seven octaves below middle C. A million billion times too deep for any ear, and held roughly steady for two and a half billion years.",
+    "file": "L13-loudest-sound/vo/l08-08-9ba2be78f4.wav",
+    "seconds": 10.105263157894736,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "l08",
+    "index": 9,
+    "text": "The loudest sound in air has a ceiling. The lowest note we know of has been playing since before there were ears.",
+    "file": "L13-loudest-sound/vo/l08-09-2083680619.wav",
+    "seconds": 6.947368421052632,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "Some of this is simpler than the real thing. The hundred-and-ninety-four ceiling is for a clean, symmetric wave in sea-level air; change the pressure and the ceiling moves.",
+    "file": "L13-loudest-sound/vo/closer-00-4d464a7e6f.wav",
+    "seconds": 8.842105263157894,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "The Saturn V's two hundred and three is a power level, so it was never a reading at anyone's ear.",
+    "file": "L13-loudest-sound/vo/closer-01-fda6374a02.wav",
+    "seconds": 6.315789473684211,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "And Krakatoa. Every decibel figure you've heard for it traces back to that one gasworks gauge in Batavia. Read its jump as inches of mercury and you get the famous hundred and seventy-two.",
+    "file": "L13-loudest-sound/vo/closer-02-537489a9d4.wav",
+    "seconds": 10.421052631578949,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "Read it as water, and you get about a hundred and fifty. The report prints the number two ways that don't agree, and we couldn't settle it. So we won't give you a decibel for Krakatoa.",
+    "file": "L13-loudest-sound/vo/closer-03-7f129269e9.wav",
+    "seconds": 11.368421052631579,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 4,
+    "text": "What we can give you is what the instruments did: a gauge that jumped nine times, a hundred and forty kilometres away, and every barometer on Earth drawing the same blip seven times.",
+    "file": "L13-loudest-sound/vo/closer-04-f20826faea.wav",
+    "seconds": 10.421052631578949,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 5,
+    "text": "Back on Rodriguez, the police chief kept listening until three in the afternoon. He wrote \"heavy guns\". It was the loudest thing he could compare it to. The air has a loudest sound, and we know its number.",
+    "file": "L13-loudest-sound/vo/closer-05-aac23693d9.wav",
+    "seconds": 12,
+    "pauseAfter": 0.25,
+    "estimated": true
+  },
+  {
+    "scene": "closer",
+    "index": 6,
+    "text": "But the loudest things don't stay sounds. They become a wall, then a slow swell, then a line on a chart in a city that never heard a thing.",
+    "file": "L13-loudest-sound/vo/closer-06-3a8dad58e2.wav",
+    "seconds": 9.157894736842106,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

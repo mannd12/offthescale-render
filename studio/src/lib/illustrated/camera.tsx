@@ -40,7 +40,9 @@ export type Drift = { zoom?: number; panX?: number; panY?: number; frames?: numb
  * this automatically from <Stage>; pass `drift={false}` for a deliberately locked frame (chapter cards, insets).
  */
 export const driftCam = (frame: number, d: Drift = {}): Cam => {
-  const { zoom = 1.06, panX = 0.03, panY = 0.012, frames = 240, seed = 1, from = REST } = d;
+  // defaults measured against the craft probe (v2.1 round 1: a 6 % push over 8 s did not register at 192×108):
+  // ~1.5 %/s of zoom and ~1.2 %/s of pan is the slowest camera the probe still sees as "alive"
+  const { zoom = 1.12, panX = 0.1, panY = 0.03, frames = 240, seed = 1, from = REST } = d;
   const u = Math.max(0, Math.min(1, frame / frames));
   const e = u * u * (3 - 2 * u);
   const dir = seed % 2 === 0 ? -1 : 1;

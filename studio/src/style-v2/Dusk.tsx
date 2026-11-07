@@ -148,7 +148,7 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
       {/* clouds: a stratus lens high up, two cumulus banks lit from below-right by the sun */}
       <Layer depth={0.14}>
         <Stratus x={120 + Math.sin(f / 500) * 12} y={300} w={520} h={22} fill={cloudFill} lit={cloudLit} light={60} opacity={0.9} />
-        <Cumulus x={640 + f * 0.05} y={372} w={330} h={70} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={60} seed={3} frame={f} />
+        <Cumulus x={1130 + f * 0.05} y={330} w={300} h={62} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={60} seed={3} frame={f} />
         <Cumulus x={1470 + f * 0.03} y={420} w={300} h={56} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={70} seed={5} frame={f} opacity={0.95} />
         <Stratus x={1120} y={262} w={360} h={14} fill={cloudFill} lit={cloudLit} light={60} opacity={0.7} />
       </Layer>
@@ -171,7 +171,7 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
           <Facets pts={massif} base={1300} light={L} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.45} lit />
           <path d={snowCap(massif, 3, 12, 470, 18)} fill={mixHex("#F4EFE6", F.light, 0.18)} />
           <path d={snowCap(massif, 5, 10, 372, 10)} fill="#FFFBF0" />
-          <Facets pts={massif.slice(3, 13)} base={470} light={L} fill={mixHex(F.mid, F.shadow, 0.2)} opacity={0.3} depth={400} />
+          <Facets pts={massif.slice(3, 13)} base={470} light={L} fill={mixHex(F.mid, F.shadow, 0.2)} opacity={0.16} depth={400} />
         </Form>
         <Flock frame={f} x={-140} y={520} vx={1.1} n={6} size={9} color={F.shadow} seed={3} />
         <Embers frame={f} x0={840} x1={900} y={275} n={18} color="#FFFFFF" seed={9} rise={0.3} life={70} size={1.8} wiggle={30} />

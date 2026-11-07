@@ -1,0 +1,58 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "On the Kola Peninsula, above the Arctic Circle, there's a hole you could cover with a dinner plate.",
+    "file": "S41-dig-plate/vo/cold-00-f861c75107.wav",
+    "seconds": 4.83,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "It's about twenty-three centimetres across, and twelve thousand two hundred and sixty-two metres deep.",
+    "file": "S41-dig-plate/vo/cold-01-2ec5614267.wav",
+    "seconds": 5.27,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Drop the deepest point of the ocean in, and you'd still have more than a kilometre to spare.",
+    "file": "S41-dig-plate/vo/cold-02-f96cc3f9d2.wav",
+    "seconds": 4.22,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "And it isn't even a third of the way through the crust.",
+    "file": "S41-dig-plate/vo/cold-03-b1db41f8c1.wav",
+    "seconds": 2.2799583333333335,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Engineers spent about twenty years digging it. Then they stopped.",
+    "file": "S41-dig-plate/vo/cold-04-0a46810db6.wav",
+    "seconds": 3.18,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Not because they ran out of planet. Something down there fought back.",
+    "file": "S41-dig-plate/vo/cold-05-04770e51fe.wav",
+    "seconds": 3.47,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what stopped the deepest hole ever dug? The full video has the answer.",
+    "file": "S41-dig-plate/vo/cold-06-615467b12e.wav",
+    "seconds": 4.28,
+    "pauseAfter": 0.55
+  }
+]

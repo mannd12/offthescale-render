@@ -103,21 +103,32 @@ export const Plume: React.FC<{
     const cy = y - h * Math.pow(u, 0.85) * Math.min(1, grow + 0.1);
     const r = r0 * (1 + 2.2 * u) * (0.9 + 0.1 * Math.sin(frame / 50 + k * 1.7)) * Math.min(1, lift);
     const cx = x + lean * h * u * u + Math.sin(frame / 140 + k) * 6 * u;
-    const count = k === 0 ? 1 : 2 + (k % 2);
+    const count = k === 0 ? 2 : 3 + (k % 2);
     for (let j = 0; j < count; j++) {
-      const off = count === 1 ? 0 : ((j - (count - 1) / 2) * r * 1.1) / Math.max(1, (count - 1) / 2);
-      lobes.push({ cx: cx + off + (rnd(seed * 5 + k * 3 + j) - 0.5) * r * 0.4, cy: cy + (rnd(seed * 9 + k * 3 + j) - 0.5) * r * 0.3, r: r * (0.8 + rnd(seed * 13 + k * 3 + j) * 0.4), k });
+      const off = ((j - (count - 1) / 2) * r * 0.9) / Math.max(1, (count - 1) / 2);
+      lobes.push({ cx: cx + off + (rnd(seed * 5 + k * 3 + j) - 0.5) * r * 0.35, cy: cy + (rnd(seed * 9 + k * 3 + j) - 0.5) * r * 0.3, r: r * (0.7 + rnd(seed * 13 + k * 3 + j) * 0.5), k });
     }
   }
+  // paint in three passes over the whole plume (not per lobe), so the shade reads as the mass's shadow side and the
+  // highlights as caps, not as concentric rings inside each lobe
+  const lk = Math.max(1, levels - 1);
   return (
     <g opacity={opacity}>
-      {lobes.map((l, i) => (
-        <g key={i}>
-          <circle cx={l.cx} cy={l.cy} r={l.r} fill={shade} />
-          <circle cx={l.cx + lx * l.r * 0.26} cy={l.cy + ly * l.r * 0.26} r={l.r * 0.72} fill={fill} />
-          <circle cx={l.cx + lx * l.r * 0.42} cy={l.cy + ly * l.r * 0.42} r={l.r * 0.38} fill={lit} opacity={Math.max(0.1, 0.9 - l.k * 0.13)} />
-        </g>
-      ))}
+      <g fill={shade}>
+        {lobes.map((l, i) => (
+          <circle key={i} cx={l.cx} cy={l.cy} r={l.r} />
+        ))}
+      </g>
+      <g fill={fill}>
+        {lobes.map((l, i) => (
+          <circle key={i} cx={l.cx + lx * l.r * 0.14} cy={l.cy + ly * l.r * 0.14} r={l.r * 0.86} />
+        ))}
+      </g>
+      <g fill={lit}>
+        {lobes.map((l, i) => (
+          <circle key={i} cx={l.cx + lx * l.r * 0.34} cy={l.cy + ly * l.r * 0.34} r={l.r * 0.5} opacity={Math.max(0.05, 0.8 - (l.k / lk) * 0.85)} />
+        ))}
+      </g>
     </g>
   );
 };

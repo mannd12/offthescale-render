@@ -54,38 +54,40 @@ export type LineupItem = { id: string; label: string; value?: string };
 export type LineupState = { x: number; y: number; s: number; opacity: number; onRail: boolean; railIndex: number };
 
 /**
- * Lineup layout (study item 5): item `step` is the hero (large, centre-right); items before it sit as labelled dots on a
- * rail at the bottom-left; the item after it waits off frame right. `t` 0..1 animates the step change: the previous
- * hero shrinks and slides to the rail while the new one enters large from the right. Pass the state to your own
- * drawing code (the kit never draws the subject: hard rule 1). `hero` and `rail` set the two anchor points.
+ * Lineup layout (study item 5): item `hero` (0-based index) is large at centre-right; items before it sit as labelled
+ * dots on a rail at the bottom-left; the item after it waits off frame right. `t` 0..1 animates the step change INTO
+ * `hero`: item `hero - 1` shrinks and slides to the rail while `hero` enters large from the right (t = 1 = settled).
+ * Pass the state to your own drawing code (the kit never draws the subject: hard rule 1). `heroAt` and `rail` set the
+ * two anchor points.
  */
 export const lineupState = (
   index: number,
-  step: number,
+  hero: number,
   t: number,
   opts: { hero?: [number, number]; rail?: [number, number]; railGap?: number; heroScale?: number; railScale?: number } = {},
 ): LineupState => {
-  const { hero = [1180, 560], rail = [220, 900], railGap = 150, heroScale = 1, railScale = 0.12 } = opts;
+  const { hero: heroAt = [1180, 560], rail = [220, 900], railGap = 150, heroScale = 1, railScale = 0.12 } = opts;
   const e = sm(t);
   const railPos = (i: number): [number, number] => [rail[0] + i * railGap, rail[1]];
-  if (index < step - 1 || (index === step - 1 && t >= 1)) {
+  if (index < hero - 1 || (index === hero - 1 && t >= 1)) {
     const [x, y] = railPos(index);
     return { x, y, s: railScale, opacity: 1, onRail: true, railIndex: index };
   }
-  if (index === step - 1) {
+  if (index === hero - 1) {
     const [rx, ry] = railPos(index);
-    return { x: hero[0] + (rx - hero[0]) * e, y: hero[1] + (ry - hero[1]) * e, s: heroScale + (railScale - heroScale) * e, opacity: 1, onRail: e > 0.85, railIndex: index };
+    return { x: heroAt[0] + (rx - heroAt[0]) * e, y: heroAt[1] + (ry - heroAt[1]) * e, s: heroScale + (railScale - heroScale) * e, opacity: 1, onRail: e > 0.85, railIndex: index };
   }
-  if (index === step) {
+  if (index === hero) {
     const fromX = 1920 + 600;
-    return { x: fromX + (hero[0] - fromX) * e, y: hero[1], s: heroScale * (1.6 - 0.6 * e), opacity: Math.min(1, e * 2), onRail: false, railIndex: index };
+    const settled = hero === 0 ? 1 : e; // the first item is simply there
+    return { x: fromX + (heroAt[0] - fromX) * settled, y: heroAt[1], s: heroScale * (1.6 - 0.6 * settled), opacity: Math.min(1, settled * 2), onRail: false, railIndex: index };
   }
-  return { x: 1920 + 600, y: hero[1], s: heroScale, opacity: 0, onRail: false, railIndex: index };
+  return { x: 1920 + 600, y: heroAt[1], s: heroScale, opacity: 0, onRail: false, railIndex: index };
 };
 
-/** The rail itself: a hairline with a dot and a pill per item that has reached it. */
-export const LineupRail: React.FC<{ items: LineupItem[]; step: number; t: number; family: Family; rail?: [number, number]; railGap?: number }> = ({ items, step, t, family: F, rail = [220, 900], railGap = 150 }) => {
-  const reached = items.filter((_, i) => i < step - 1 || (i === step - 1 && t >= 0.85));
+/** The rail itself: a hairline with a dot and a pill per item that has reached it (`hero` 0-based, as in lineupState). */
+export const LineupRail: React.FC<{ items: LineupItem[]; hero: number; t: number; family: Family; rail?: [number, number]; railGap?: number }> = ({ items, hero, t, family: F, rail = [220, 900], railGap = 150 }) => {
+  const reached = items.filter((_, i) => i < hero - 1 || (i === hero - 1 && t >= 0.85));
   if (reached.length === 0) return null;
   return (
     <g>

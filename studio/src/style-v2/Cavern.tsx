@@ -80,14 +80,22 @@ export const CavernScene: React.FC<CavernProps> = ({ f0 = 0, tick, title = true,
       {/* the rock face behind Tick: banded, lit only where the lamp reaches */}
       <Layer depth={0.5}>
         <rect x={-400} y={-300} width={2720} height={1700} fill={rockDark} />
-        <Banding x={-400} y={-300} w={2720} h={1700} color={rockBase} family={F} bands={22} seed={4} tilt={-3} opacity={0.55} />
-        {/* a few fracture lines */}
+        <Banding x={-400} y={-300} w={2720} h={1700} color={rockBase} family={F} bands={16} seed={4} tilt={-3} opacity={0.28} />
+        {/* fracture lines and a few knots of darker rock */}
         {[
           [120, 80, 420, 600],
           [1500, -100, 1760, 520],
           [1700, 700, 2100, 1000],
+          [-100, 500, 300, 980],
         ].map(([x1, y1, x2, y2], i) => (
-          <path key={i} d={`M${x1} ${y1} q${(x2 - x1) * 0.4} ${(y2 - y1) * 0.6} ${x2 - x1} ${y2 - y1}`} fill="none" stroke={F.shadow} strokeWidth={3} opacity={0.6} />
+          <path key={i} d={`M${x1} ${y1} q${(x2 - x1) * 0.4} ${(y2 - y1) * 0.6} ${x2 - x1} ${y2 - y1}`} fill="none" stroke={F.shadow} strokeWidth={4} opacity={0.75} strokeLinecap="round" />
+        ))}
+        {[
+          [260, 300, 40],
+          [1620, 820, 54],
+          [1900, 260, 34],
+        ].map(([x, y, r], i) => (
+          <ellipse key={i} cx={x} cy={y} rx={r * 1.6} ry={r} fill={mixHex(rockBase, F.shadow, 0.35)} opacity={0.6} transform={`rotate(-8 ${x} ${y})`} />
         ))}
         <LightWash x={LAMP.x + 260} y={LAMP.y + 120} rx={720} ry={520} color={F.light} strength={0.5 * lampFl} />
         <LightWash x={LAMP.x} y={LAMP.y} rx={300} ry={300} color="#FFE3A8" strength={0.35 * lampFl} />
@@ -95,7 +103,7 @@ export const CavernScene: React.FC<CavernProps> = ({ f0 = 0, tick, title = true,
       {/* the slot of the borehole, cut into the rock, walls bulging inward */}
       <Layer depth={0.8}>
         <Form d={roundPoly([[HOLE_X - 220, -300], [HOLE_X + 260, -300], [HOLE_X + 300, GROUND + 100], [HOLE_X - 260, GROUND + 100]], 60)} fill={rockBase} light={toLamp(HOLE_X, 500)} shadow={F.shadow} inset={40} shadowOpacity={0.5} rim={F.light} rimWidth={3} rimOpacity={0.6 * lampFl} bounce={F.bounce}>
-          <Banding x={HOLE_X - 300} y={-300} w={600} h={1400} color={rockBase} family={F} bands={18} seed={9} tilt={-2} opacity={0.6} />
+          <Banding x={HOLE_X - 300} y={-300} w={600} h={1400} color={rockBase} family={F} bands={14} seed={9} tilt={-2} opacity={0.3} />
         </Form>
         <path d={slot} fill={F.shadow} />
         {/* the bulge lips catch the lamp */}
