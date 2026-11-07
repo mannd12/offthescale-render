@@ -29,6 +29,7 @@ import { L11Style1, L11Style2, L11Style3, L11Style4 } from "./episodes/L11-dig-d
 import { ThumbL11, ThumbL11B } from "./episodes/L11-dig-depth/Thumb";
 import { TestL11, l11TestFrames } from "./episodes/L11-dig-depth/Episode";
 import { FullL11, l11Frames } from "./episodes/L11-dig-depth/Full";
+import { FullL12, KeyArt1, KeyArt2, KeyArt3, KeyArt4, l12Frames } from "./episodes/L12-mountain-limit/Full";
 import { DuskScene } from "./style-v2/Dusk";
 import { CavernScene } from "./style-v2/Cavern";
 import { SoundSeaScene } from "./style-v2/SoundSea";
@@ -112,6 +113,12 @@ export const Root: React.FC = () => (
     <Composition id="l10" component={EpisodeL10} durationInFrames={l10.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="l11-test" component={TestL11} durationInFrames={l11TestFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="l11" component={FullL11} durationInFrames={l11Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    {/* L12 - Why can't mountains get much taller than Everest? Illustrated (kit v2.1), story-led; episodes/L12-mountain-limit/BUILD.md */}
+    <Composition id="l12" component={FullL12} durationInFrames={l12Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Still id="l12-key-1" component={KeyArt1} width={WIDTH} height={HEIGHT} />
+    <Still id="l12-key-2" component={KeyArt2} width={WIDTH} height={HEIGHT} />
+    <Still id="l12-key-3" component={KeyArt3} width={WIDTH} height={HEIGHT} />
+    <Still id="l12-key-4" component={KeyArt4} width={WIDTH} height={HEIGHT} />
 
     {/* S01 - the first Short (cliffhanger for L01), vertical, under 60 s */}
     <Composition id="s01-short" component={ShortS01} durationInFrames={s01.totalFrames} fps={FPS} width={1080} height={1920} />

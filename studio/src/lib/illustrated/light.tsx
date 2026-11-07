@@ -175,12 +175,17 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
   light = KEY_LIGHT,
   fill,
   opacity = 0.4,
-  soft = true,
+  soft = false,
   depth,
   lit = false,
 }) => {
+  // v2.1 round 5 (art-director review of v2-style-1: "facet shadows render as translucent smeary blobs/streaks"):
+  // facets are now CLEAN-EDGED TONAL PLANES. Each away-facing segment is the top edge of a low-poly face that runs
+  // down toward the base and narrows (a short notch gives a thin sliver, a long flank a broad plane), with no blur.
+  // All faces of one step are painted at full alpha inside ONE group that carries the opacity, so where faces overlap
+  // the tone does not compound into streaks; faces that turn hardest from the light get a second, darker plane.
   const [lx, ly] = lightVec(light);
-  const out: { d: string; o: number }[] = [];
+  const planes: { d: string; deep: boolean }[] = [];
   for (let i = 0; i < pts.length - 1; i++) {
     const [ax, ay] = pts[i];
     const [bx, by] = pts[i + 1];
@@ -197,20 +202,27 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
     const facing0 = nx * lx + ny * ly; // > 0 faces the light
     const facing = lit ? -facing0 : facing0;
     if (facing < 0.05) {
-      // a facet reaches down a limited way (about its own length) and widens, so a short counter-slope near a summit
-      // does not cast a column to the base (round 2 of the v2 frames)
-      const reach = depth ?? len * 1.6 + 80;
-      const fa = Math.min(base, ay + reach);
-      const fb = Math.min(base, by + reach);
-      const spread = Math.min(len * 0.6, 60);
-      out.push({ d: `M${ax} ${ay} L${bx} ${by} L${bx + spread} ${fb} L${ax - spread} ${fa} Z`, o: Math.min(1, 0.35 - facing) });
+      // the face reaches about two segment-lengths down (or `depth`), never past the base, and leans away from the light
+      const reach = depth ?? len * 2.2 + 120;
+      const yb = Math.min(base, Math.max(ay, by) + reach);
+      const mx = (ax + bx) / 2 - lx * len * 0.35;
+      const half = len * 0.22;
+      planes.push({ d: `M${ax} ${ay} L${bx} ${by} L${(mx + half).toFixed(1)} ${yb.toFixed(1)} L${(mx - half).toFixed(1)} ${yb.toFixed(1)} Z`, deep: facing < -0.45 });
     }
   }
+  const flt = soft ? "url(#soft-4)" : undefined;
   return (
-    <g filter={soft ? "url(#soft-16)" : undefined} fill={fill}>
-      {out.map((f, i) => (
-        <path key={i} d={f.d} opacity={f.o * opacity} />
-      ))}
+    <g fill={fill} filter={flt}>
+      <g opacity={opacity}>
+        {planes.map((p, i) => (
+          <path key={i} d={p.d} />
+        ))}
+      </g>
+      <g opacity={opacity * 0.5}>
+        {planes.filter((p) => p.deep).map((p, i) => (
+          <path key={i} d={p.d} />
+        ))}
+      </g>
     </g>
   );
 };

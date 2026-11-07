@@ -1,7 +1,8 @@
 // Style frame v2 / 1: a mountain world at dusk (Earth). An Everest-class massif in the midground, far ranges sinking
 // into apricot haze, a low gold sun half-set behind them, Tick on a foreground ridge pointing at the problem. Previews
 // the "how tall can a mountain get?" episode. v2.1: Olympus Mons removed from this Earth horizon (it belongs to the
-// Lineup); dusk family pushed to petrol/apricot; the massif has three tonal steps; cumulus and stratus replace saucers.
+// Lineup); dusk family pushed to petrol/apricot; the massif has three tonal steps. Round 5 (L12 foundation): cumulus
+// redesigned as flat-based irregular lobes, the stratus saucers dropped, facets as clean-edged tonal planes.
 // Number: Everest 8,848.86 m (China-Nepal joint survey, 2020) → "8,849 m" (docs/STYLE-V2.md §10).
 import React from "react";
 import { useCurrentFrame } from "remotion";
@@ -26,7 +27,6 @@ import {
   Sky,
   Stage,
   Stars,
-  Stratus,
   Sway,
   Tick,
   TickProps,
@@ -145,12 +145,10 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
         <Bloom x={SUN.x} y={SUN.y} r={680} color={F.light} strength={0.6} spread={0.28} squash={0.7} />
         <Bloom x={SUN.x} y={SUN.y} r={170} color="#FFF1C8" strength={0.95} spread={0.42} core={48} coreColor="#FFF8E0" />
       </Layer>
-      {/* clouds: a stratus lens high up, two cumulus banks lit from below-right by the sun */}
+      {/* clouds: two flat-based cumulus banks lit from below-right by the low sun (no stratus saucers: v2.1 round 5) */}
       <Layer depth={0.14}>
-        <Stratus x={760 + Math.sin(f / 500) * 12} y={118} w={420} h={18} fill={cloudFill} lit={cloudLit} light={60} opacity={0.8} />
-        <Cumulus x={1130 + f * 0.05} y={330} w={300} h={62} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={60} seed={3} frame={f} />
-        <Cumulus x={1470 + f * 0.03} y={420} w={300} h={56} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={70} seed={5} frame={f} opacity={0.95} />
-        <Stratus x={1120} y={262} w={360} h={14} fill={cloudFill} lit={cloudLit} light={60} opacity={0.7} />
+        <Cumulus x={1110 + f * 0.05} y={330} w={340} h={74} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={60} seed={3} frame={f} lobes={4} />
+        <Cumulus x={1470 + f * 0.03} y={424} w={300} h={60} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={70} seed={5} frame={f} opacity={0.95} lobes={3} />
       </Layer>
       {/* far range in the apricot haze; the sun sets behind it */}
       <Layer depth={0.2} haze={{ color: F.haze, amount: 0.45 }}>
@@ -167,11 +165,12 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
       {/* the massif: three tonal steps (lit flank, base, shadow flank) + snow */}
       <Layer depth={0.6} haze={{ color: F.haze, amount: 0.07 }}>
         <Form d={ridgePath(massif, 1300, 14)} fill={F.mid} light={L} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
-          <Facets pts={massif} base={1300} light={L} fill={F.shadow} opacity={0.6} />
-          <Facets pts={massif} base={1300} light={L} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.45} lit />
+          <Facets pts={massif} base={1300} light={L} fill={F.shadow} opacity={0.5} />
+          <Facets pts={massif} base={1300} light={L} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.4} lit />
           <path d={snowCap(massif, 3, 12, 470, 18)} fill={mixHex("#F4EFE6", F.light, 0.18)} />
           <path d={snowCap(massif, 5, 10, 372, 10)} fill="#FFFBF0" />
-          <Facets pts={massif.slice(3, 13)} base={470} light={L} fill={mixHex(F.mid, F.shadow, 0.2)} opacity={0.16} depth={400} />
+          {/* the snow's own shadow flank: one clean plane step, clipped to the cap by its depth */}
+          <Facets pts={massif.slice(3, 13)} base={470} light={L} fill={mixHex(F.mid, F.shadow, 0.3)} opacity={0.22} depth={140} />
         </Form>
         <Flock frame={f} x={-140} y={520} vx={1.1} n={6} size={9} color={F.shadow} seed={3} />
         <Embers frame={f} x0={840} x1={900} y={275} n={18} color="#FFFFFF" seed={9} rise={0.3} life={70} size={1.8} wiggle={30} />
