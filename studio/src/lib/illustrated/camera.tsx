@@ -41,15 +41,21 @@ export type Drift = { zoom?: number; panX?: number; panY?: number; frames?: numb
  */
 export const driftCam = (frame: number, d: Drift = {}): Cam => {
   // defaults measured against the craft probe (v2.1 round 1: a 6 % push over 8 s did not register at 192×108):
-  // ~1.5 %/s of zoom and ~1.2 %/s of pan is the slowest camera the probe still sees as "alive"
+  // ~1.5 %/s of zoom and ~1.2 %/s of pan is the slowest camera the probe still sees as "alive".
+  // The drift NEVER stops: it eases in over the first 20 frames, then runs linearly (the zoom is capped at 2× its
+  // per-`frames` amount so a long hold does not run away). `frame` must be the SHOT's frame (Stage shotFrame), not the
+  // composition's, or a shot that starts late is born with its drift already finished (v2.1 round 2 lesson).
   const { zoom = 1.12, panX = 0.1, panY = 0.03, frames = 240, seed = 1, from = REST } = d;
-  const u = Math.max(0, Math.min(1, frame / frames));
-  const e = u * u * (3 - 2 * u);
+  const f = Math.max(0, frame);
+  const easeIn = f < 20 ? (f / 20) * (f / 20) * (3 - 2 * (f / 20)) : 1;
+  const lin = f / frames;
+  const e = (f < 20 ? easeIn * lin : lin) ;
+  const ez = Math.min(2, e);
   const dir = seed % 2 === 0 ? -1 : 1;
   return {
     x: from.x + dir * panX * 1920 * e,
-    y: from.y + (seed % 3 === 0 ? -1 : 1) * panY * 1080 * e,
-    zoom: Math.exp(Math.log(from.zoom) + Math.log(zoom) * e),
+    y: from.y + (seed % 3 === 0 ? -1 : 1) * panY * 1080 * ez,
+    zoom: Math.exp(Math.log(from.zoom) + Math.log(zoom) * ez),
   };
 };
 
@@ -58,18 +64,20 @@ export const driftCam = (frame: number, d: Drift = {}): Cam => {
  * paper/grain print texture on top (`grain` = strength multiplier, 0 = off). Without `cam`, the camera drifts
  * (`drift`, see driftCam) so no shot is ever still.
  */
-export const Stage: React.FC<{ theme: Theme; cam?: Cam; drift?: Drift | false; vignette?: number; grain?: number; grainStep?: number; children: React.ReactNode; overlay?: React.ReactNode }> = ({
-  theme,
-  cam: camProp,
-  drift,
-  vignette = 0.16,
-  grain = 1,
-  grainStep = 0,
-  children,
-  overlay,
-}) => {
+export const Stage: React.FC<{
+  theme: Theme;
+  cam?: Cam;
+  drift?: Drift | false;
+  /** the shot's own frame (0 at the shot's first frame) for the default drift; defaults to the composition frame */
+  shotFrame?: number;
+  vignette?: number;
+  grain?: number;
+  grainStep?: number;
+  children: React.ReactNode;
+  overlay?: React.ReactNode;
+}> = ({ theme, cam: camProp, drift, shotFrame, vignette = 0.16, grain = 1, grainStep = 0, children, overlay }) => {
   const frame = useCurrentFrame();
-  const cam = camProp ?? (drift === false ? REST : driftCam(frame, drift ?? {}));
+  const cam = camProp ?? (drift === false ? REST : driftCam(shotFrame ?? frame, drift ?? {}));
   return (
   <AbsoluteFill style={{ background: theme.bg }}>
     <CamCtx.Provider value={cam}>

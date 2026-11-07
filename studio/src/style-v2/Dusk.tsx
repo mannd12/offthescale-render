@@ -147,7 +147,7 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
       </Layer>
       {/* clouds: a stratus lens high up, two cumulus banks lit from below-right by the sun */}
       <Layer depth={0.14}>
-        <Stratus x={120 + Math.sin(f / 500) * 12} y={300} w={520} h={22} fill={cloudFill} lit={cloudLit} light={60} opacity={0.9} />
+        <Stratus x={760 + Math.sin(f / 500) * 12} y={118} w={420} h={18} fill={cloudFill} lit={cloudLit} light={60} opacity={0.8} />
         <Cumulus x={1130 + f * 0.05} y={330} w={300} h={62} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={60} seed={3} frame={f} />
         <Cumulus x={1470 + f * 0.03} y={420} w={300} h={56} fill={cloudFill} shade={cloudShade} lit={cloudLit} light={70} seed={5} frame={f} opacity={0.95} />
         <Stratus x={1120} y={262} w={360} h={14} fill={cloudFill} lit={cloudLit} light={60} opacity={0.7} />

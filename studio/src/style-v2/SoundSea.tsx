@@ -123,11 +123,13 @@ export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
       <Layer depth={0}>
         <Kicker x={120} y={128} text="Off the Scale · Sound" color={F.dim} size={20} />
         <Headline x={120} y={250} lines={["How loud can", "a sound get?"]} size={92} color={F.text} accent={F.second} shadow={F.shadow} />
-        <Pill x={1080} y={372} text="Krakatoa 1883 · heard 4,800 km away" fill={alpha(F.shadow, 0.72)} color={F.text} dot={F.second} size={19} align="start" />
-        {/* the gauge shows the physical CEILING as a mark; Krakatoa's own value is the question, not a claim */}
-        <Gauge x={1760} y={160} height={520} value={0} max={250} unit="dB" theme={F.theme} direction="up" title="LOUDNESS" side="left" plate={150} readout={false} marker={false} marks={[{ v: 194, label: "194 ceiling" }]} format={(v) => `${v}`} />
-        <UnknownTag x={1767} y={160 + 520 * (1 - 130 / 250)} size={24} />
-        <Pill x={1598} y={160 + 520 * (1 - 130 / 250)} text="Krakatoa?" fill={alpha(F.shadow, 0.72)} color={F.text} size={17} align="end" />
+        <Pill x={1060} y={330} text="Krakatoa 1883 · heard 4,800 km away" fill={alpha(F.shadow, 0.72)} color={F.text} dot={F.second} size={19} align="start" />
+        {/* the gauge shows the physical CEILING as a dashed line + pill; Krakatoa's own value is the question, not a claim */}
+        <Gauge x={1760} y={160} height={520} value={0} max={250} unit="dB" theme={F.theme} direction="up" title="LOUDNESS" side="left" plate={120} readout={false} marker={false} format={(v) => `${v}`} />
+        <line x1={1640} y1={160 + 520 * (1 - 194 / 250)} x2={1776} y2={160 + 520 * (1 - 194 / 250)} stroke={F.second} strokeWidth={3} strokeDasharray="8 6" />
+        <Pill x={1626} y={160 + 520 * (1 - 194 / 250)} text="194 dB · ceiling" fill={alpha(F.shadow, 0.78)} color={F.text} dot={F.second} size={17} align="end" />
+        <UnknownTag x={1767} y={160 + 520 * (1 - 120 / 250)} size={24} />
+        <Pill x={1626} y={160 + 520 * (1 - 120 / 250)} text="Krakatoa?" fill={alpha(F.shadow, 0.72)} color={F.text} size={17} align="end" />
       </Layer>
     </Stage>
   );

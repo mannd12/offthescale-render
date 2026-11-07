@@ -130,7 +130,7 @@ const LineupShot: React.FC<{ f: number }> = ({ f }) => {
   const max = off ? decadeZoom(10000, 100000, Math.max(0, Math.min(1, (f - 115 - 45) / 40))) : 10000;
   const pill = alpha(F.shadow, 0.72);
   return (
-    <Stage theme={F.theme} drift={{ zoom: 1.1, panX: 0.07, frames: 170, seed: 3 }} vignette={0.24} grain={0}>
+    <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.1, panX: 0.07, frames: 170, seed: 3 }} vignette={0.24} grain={0}>
       <Layer depth={0.05}>
         <Sky family={F} />
         <Stars frame={f} n={60} w={1920} h={360} color={F.text} seed={8} size={1.3} twinkle={0.7} />
@@ -176,7 +176,7 @@ const TickShot: React.FC<{ f: number }> = ({ f }) => {
   const exprT = prog(f, 20, 18);
   const ground = 1000;
   return (
-    <Stage theme={N.theme} drift={{ zoom: 1.1, panX: 0.06, frames: 80, seed: 5 }} vignette={0.1} grain={0}>
+    <Stage theme={N.theme} shotFrame={f} drift={{ zoom: 1.1, panX: 0.06, frames: 80, seed: 5 }} vignette={0.1} grain={0}>
       <Layer depth={0.05}>
         <Sky family={N} />
         <Bloom x={300} y={160} r={260} color={N.light} strength={0.6} spread={0.35} core={50} coreColor="#FFF6D6" />

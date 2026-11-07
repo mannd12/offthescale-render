@@ -60,7 +60,7 @@ export const TickSheetScene: React.FC = () => {
           const col = i % 4;
           const row = Math.floor(i / 4);
           const x = 880 + col * 240;
-          const y = 400 + row * 212;
+          const y = 392 + row * 206;
           return (
             <g key={i}>
               <GroundShadow x={x} y={y + 2} rx={38} color={F.shadow} opacity={0.3} blur={8} />
