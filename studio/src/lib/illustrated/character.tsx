@@ -11,7 +11,37 @@ import { LightCone } from "./light";
 export const TICK_METRES = 1.7;
 
 export type Expression = "neutral" | "happy" | "surprised" | "worried" | "thinking" | "proud" | "scared" | "sleepy" | "determined";
-export type Pose = "stand" | "point" | "wave" | "think" | "cheer" | "hold" | "hips" | "shrug" | "cover-ears" | "sit";
+export type Pose =
+  | "stand"
+  | "point"
+  | "wave"
+  | "think"
+  | "cheer"
+  | "hold"
+  | "hips"
+  | "shrug"
+  | "cover-ears"
+  | "sit"
+  // v2.1, from the L12 storyboard's missing-pose list
+  | "crouch"
+  | "crouch-reach"
+  | "carry"
+  | "press"
+  | "heave"
+  | "lean"
+  | "shield"
+  | "wipe-brow";
+
+/** Body offsets per pose: `drop` lowers the hips (knees bend), `lean` rotates the upper body forward (+) or back (-). */
+const POSE_BODY: Partial<Record<Pose, { drop?: number; lean?: number }>> = {
+  sit: { drop: 24 },
+  crouch: { drop: 34, lean: 6 },
+  "crouch-reach": { drop: 34, lean: 14 },
+  press: { drop: 6, lean: 10 },
+  heave: { lean: -8 },
+  lean: { lean: 18 },
+  shield: { lean: -4 },
+};
 
 type Pt = [number, number];
 const TAU = Math.PI * 2;
@@ -142,6 +172,10 @@ export type TickProps = {
   /** blend to another expression: brows, eyes and tilt interpolate; the mouth switches halfway */
   expressionTo?: Expression;
   expressionT?: number;
+  /** tiredness 0..1: shoulders drop, body leans, head hangs (the stacking gag) */
+  slump?: number;
+  /** extra head tilt in degrees (+ = toward the facing side) */
+  headTilt?: number;
 };
 
 /** Hand targets (local units, facing +x) per pose; `f` = frame for small idle motion. */
@@ -167,6 +201,22 @@ const handTargets = (pose: Pose, f: number, walkPh?: number): { front: Pt; back:
       return { front: [28, -150], back: [-26, -150], frontBend: 1, backBend: -1 };
     case "sit":
       return { front: [30, -62], back: [-8, -66], frontBend: 1, backBend: -1 };
+    case "crouch":
+      return { front: [34, -42 + idle * 0.3], back: [-30, -46], frontBend: 1, backBend: -1 };
+    case "crouch-reach":
+      return { front: [62, -50 + idle * 0.3], back: [-26, -48], frontBend: 1, backBend: -1 };
+    case "carry":
+      return { front: [42, -92 + idle * 0.4], back: [40, -98 + idle * 0.4], frontBend: 1, backBend: 1 };
+    case "press":
+      return { front: [40, -64], back: [22, -68], frontBend: 1, backBend: -1 };
+    case "heave":
+      return { front: [46, -150 + idle], back: [30, -156 + idle], frontBend: 1, backBend: 1 };
+    case "lean":
+      return { front: [42, -78], back: [-22, -68], frontBend: 1, backBend: -1 };
+    case "shield":
+      return { front: [20, -186], back: [-18, -188], frontBend: -1, backBend: 1 };
+    case "wipe-brow":
+      return { front: [16, -164 + Math.sin(f / 9) * 2], back: [-30, -62], frontBend: 1, backBend: -1 };
     case "stand":
     default:
       return {
@@ -201,6 +251,8 @@ export const Tick: React.FC<TickProps> = ({
   poseT,
   expressionTo,
   expressionT,
+  slump = 0,
+  headTilt = 0,
 }) => {
   const s = pxPerM / 100;
   const ink = "#1E2226";
@@ -233,9 +285,21 @@ export const Tick: React.FC<TickProps> = ({
   const idleSway = walk === undefined ? Math.sin(frame / 53 + seed) * 0.6 : 0;
   const stroke = outline ? { stroke: outline, strokeWidth: 1.6 / s, strokeLinejoin: "round" as const } : {};
 
+  // ---- body offsets (drop / lean), blended during a pose tween ---------------------------------------------------
+  const bodyOf = (p: Pose) => ({ drop: POSE_BODY[p]?.drop ?? 0, lean: POSE_BODY[p]?.lean ?? 0 });
+  const bodyMix = (() => {
+    const a = bodyOf(pose);
+    if (tweenT === undefined || !poseTo) return a;
+    const b = bodyOf(poseTo);
+    const e = Math.max(0, Math.min(1, anticipate(Math.min(1, tweenT))));
+    return { drop: lerp(a.drop, b.drop, e), lean: lerp(a.lean, b.lean, e) };
+  })();
+  const DROP = bodyMix.drop + slump * 6;
+  const LEAN = bodyMix.lean + slump * 9;
+
   // ---- legs ---------------------------------------------------------------------------------------------------
   const sitting = pose === "sit";
-  const SIT_DROP = 24;
+  const SIT_DROP = DROP;
   const ph = walk === undefined ? 0 : walk * TAU;
   const stride = 17;
   const liftH = 9;
@@ -249,7 +313,10 @@ export const Tick: React.FC<TickProps> = ({
       return { hip, knee: j, foot, lifted: 0 };
     }
     if (walk === undefined) {
-      const foot: Pt = [hip[0] + side * 4, -7];
+      // standing: feet under the hips; with a body drop the feet stay on the ground (DROP above, in body coords) and
+      // the knees bend forward; a crouch plants the feet wider
+      const wide = DROP > 20 ? 12 : 4;
+      const foot: Pt = [hip[0] + side * wide + (DROP > 20 ? 6 : 0), -7 - DROP];
       const { j } = ik(hip, foot, LEG, LEG, 1);
       return { hip, knee: j, foot, lifted: 0 };
     }
@@ -343,10 +410,12 @@ export const Tick: React.FC<TickProps> = ({
           <path d="M2.5 -168 L26 -160 L2.5 -152 Z" fill={color} />
         </g>
       ) : null}
-      <g transform={`translate(0 ${(bobY + (sitting ? SIT_DROP : 0)).toFixed(2)})`}>
+      <g transform={`translate(0 ${(bobY + DROP).toFixed(2)})`}>
         {/* back leg and back arm: shade tone */}
         {limb(legBack.hip, legBack.knee, legBack.foot, 13, suitShade)}
         {bootAt(legBack.foot, mixHex(boot, "#000", 0.2))}
+        {/* upper body (back half): rotates about the hips for lean / slump */}
+        <g transform={`rotate(${LEAN.toFixed(2)} 0 ${HIP[1]})`}>
         {pose !== "cover-ears" ? limb(shB, armB.j, armB.end, 12, suitShade) : null}
         {pose !== "cover-ears" ? <circle cx={armB.end[0]} cy={armB.end[1]} r={8.5} fill={mixHex(mitt, "#000", 0.18)} {...stroke} /> : null}
         {/* backpack on the back (behind the torso, toward -x); lags the body on a pose change */}
@@ -354,6 +423,9 @@ export const Tick: React.FC<TickProps> = ({
           <rect x={-44} y={-110} width={26} height={54} rx={10} fill={suitShade} {...stroke} />
           <rect x={-40} y={-116} width={16} height={10} rx={4} fill={suitShade} />
         </g>
+        </g>
+        {/* upper body (front half) */}
+        <g transform={`rotate(${LEAN.toFixed(2)} 0 ${HIP[1]})`}>
         {/* torso with breathing */}
         <g transform={`translate(0 -40) scale(1 ${breath}) translate(0 40)`}>
           <rect x={-27} y={sitting ? -118 : -124} width={54} height={sitting ? 80 : 88} rx={22} fill={color} {...stroke} />
@@ -364,7 +436,7 @@ export const Tick: React.FC<TickProps> = ({
           <path d="M8 -92 L11 -89 L16 -96" fill="none" stroke={color} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
         </g>
         {/* head */}
-        <g transform={`rotate(${face.tilt + look * 4 + ft * 3} 0 ${HEAD[1] + 20})`}>
+        <g transform={`rotate(${face.tilt + look * 4 + ft * 3 + headTilt + slump * 10} 0 ${HEAD[1] + 20})`}>
           <circle cx={HEAD[0]} cy={HEAD[1]} r={HEAD_R} fill={color} {...stroke} />
           <path d={`M${-HEAD_R + 4} ${HEAD[1] - 6} A${HEAD_R} ${HEAD_R} 0 0 1 ${HEAD[0] - 2} ${HEAD[1] - HEAD_R + 1}`} fill="none" stroke={suitLit} strokeWidth={4} strokeLinecap="round" opacity={0.7} />
           {/* visor: a bone plate toward the facing side */}
@@ -392,9 +464,11 @@ export const Tick: React.FC<TickProps> = ({
             <circle cx={-18.5} cy={-191.5} r={3} fill={ink} />
           </g>
         </g>
-        {/* front arm, front leg */}
+        </g>
+        {/* front leg, then the front arm (rotates with the upper body) */}
         {limb(legFront.hip, legFront.knee, legFront.foot, 13, color)}
         {bootAt(legFront.foot, boot)}
+        <g transform={`rotate(${LEAN.toFixed(2)} 0 ${HIP[1]})`}>
         {limb(shF, armF.j, armF.end, 12, color)}
         <circle cx={armF.end[0]} cy={armF.end[1]} r={8.5} fill={mitt} {...stroke} />
         {pose === "point"
@@ -412,6 +486,7 @@ export const Tick: React.FC<TickProps> = ({
             <circle cx={armB.end[0]} cy={armB.end[1]} r={8.5} fill={mixHex(mitt, "#000", 0.18)} />
           </>
         ) : null}
+        </g>
       </g>
       {lamp ? <LightCone x={24} y={-176} angle={look * 18 + 4} length={260} spread={16} color={lampColor} strength={0.5} /> : null}
     </g>

@@ -21,6 +21,11 @@ const CELLS: { e: Expression; p: Pose; label: string; walk?: boolean; lamp?: boo
   { e: "happy", p: "cheer", label: "cheer" },
   { e: "neutral", p: "shrug", label: "shrug" },
   { e: "surprised", p: "stand", label: "lamp on", lamp: true },
+  // v2.1: the L12 storyboard's poses
+  { e: "thinking", p: "crouch-reach", label: "crouch · reach" },
+  { e: "determined", p: "carry", label: "carry" },
+  { e: "happy", p: "press", label: "press" },
+  { e: "worried", p: "heave", label: "heave" },
 ];
 
 export const TickSheetScene: React.FC = () => {
@@ -55,12 +60,12 @@ export const TickSheetScene: React.FC = () => {
           const col = i % 4;
           const row = Math.floor(i / 4);
           const x = 880 + col * 240;
-          const y = 440 + row * 262;
+          const y = 400 + row * 212;
           return (
             <g key={i}>
-              <GroundShadow x={x} y={y + 2} rx={44} color={F.shadow} opacity={0.3} blur={8} />
-              <Tick x={x} y={y} pxPerM={112} frame={f} expression={c.e} pose={c.p} walk={c.walk ? f / 48 : undefined} lamp={c.lamp} staff={c.staff} seed={i + 3} look={0.3} />
-              <text x={x} y={y + 40} textAnchor="middle" style={{ fontFamily: IF2.display, fontWeight: 500, fontSize: 20, fill: F.dim, letterSpacing: 0.5 }}>
+              <GroundShadow x={x} y={y + 2} rx={38} color={F.shadow} opacity={0.3} blur={8} />
+              <Tick x={x} y={y} pxPerM={92} frame={f} expression={c.e} pose={c.p} walk={c.walk ? f / 48 : undefined} lamp={c.lamp} staff={c.staff} seed={i + 3} look={0.3} slump={c.label === "carry" ? 0.5 : 0} />
+              <text x={x} y={y + 34} textAnchor="middle" style={{ fontFamily: IF2.display, fontWeight: 500, fontSize: 18, fill: F.dim, letterSpacing: 0.5 }}>
                 {c.label}
               </text>
             </g>
