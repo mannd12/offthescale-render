@@ -165,12 +165,10 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
       {/* the massif: three tonal steps (lit flank, base, shadow flank) + snow */}
       <Layer depth={0.6} haze={{ color: F.haze, amount: 0.07 }}>
         <Form d={ridgePath(massif, 1300, 14)} fill={F.mid} light={L} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
-          <Facets pts={massif} base={1300} light={L} fill={F.shadow} opacity={0.5} />
+          <Facets pts={massif} base={1300} light={L} fill={F.shadow} opacity={0.45} />
           <Facets pts={massif} base={1300} light={L} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.4} lit />
           <path d={snowCap(massif, 3, 12, 470, 18)} fill={mixHex("#F4EFE6", F.light, 0.18)} />
           <path d={snowCap(massif, 5, 10, 372, 10)} fill="#FFFBF0" />
-          {/* the snow's own shadow flank: one clean plane step, clipped to the cap by its depth */}
-          <Facets pts={massif.slice(3, 13)} base={470} light={L} fill={mixHex(F.mid, F.shadow, 0.3)} opacity={0.22} depth={140} />
         </Form>
         <Flock frame={f} x={-140} y={520} vx={1.1} n={6} size={9} color={F.shadow} seed={3} />
         <Embers frame={f} x0={840} x1={900} y={275} n={18} color="#FFFFFF" seed={9} rise={0.3} life={70} size={1.8} wiggle={30} />

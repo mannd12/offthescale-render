@@ -32,41 +32,46 @@ export const Cumulus: React.FC<{ x: number; y: number; w: number; h: number; fil
   const [lx, ly] = lightVec(light);
   const id = "cum" + safeId(useId());
   const n = Math.max(3, Math.min(5, lobes ?? 3 + Math.floor(rnd(seed) * 3)));
-  // the dominant lobe sits off-centre (toward the light, a little), the others step down in size either side
-  const heroU = 0.42 + (rnd(seed * 5) - 0.5) * 0.2 + lx * 0.06;
-  const parts = Array.from({ length: n }, (_, i) => {
-    const u = n === 1 ? heroU : i / (n - 1);
-    const dist = Math.abs(u - heroU);
-    const size = Math.max(0.42, 1 - dist * 1.25) * (0.9 + rnd(seed * 7 + i) * 0.2);
-    const rx = h * 0.62 * size * (1 + 0.012 * Math.sin(frame / 90 + i * 1.3));
-    const ry = rx * (0.82 + rnd(seed * 11 + i) * 0.26);
-    const cx = x + rx * 0.7 + u * (w - rx * 1.4) + (rnd(seed * 3 + i) - 0.5) * h * 0.18;
-    const cy = y - ry * 0.92 + rnd(seed * 13 + i) * h * 0.06;
-    const rot = (rnd(seed * 17 + i) - 0.5) * 28;
-    return { cx, cy, rx, ry, rot, big: size > 0.72 };
-  });
-  // the base: a low wide lens so the bottom edge is flat and the ends taper
-  const baseH = h * 0.26;
-  const union = (dx: number, dy: number, k = 1) => (
+  // lobe sizes: one hero (1.0) near the middle, the others 0.55-0.8, in a jittered order; consecutive lobes overlap by
+  // ~40 % of their radii so the bumps merge into ONE mass (round 5b: separated ellipses read as balls on a bar)
+  const hero = Math.floor(n / 2) + (rnd(seed * 5) < 0.5 ? 0 : -1);
+  const sizes = Array.from({ length: n }, (_, i) => (i === hero ? 1 : 0.55 + rnd(seed * 7 + i) * 0.25 + (Math.abs(i - hero) === 1 ? 0.08 : 0)));
+  // lay the centres out at R = 1 with 40 % overlap, then scale to the width; the radius is capped by the height
+  const gaps = sizes.slice(1).map((s, i) => (sizes[i] + s) * 0.6);
+  const span1 = sizes[0] + sizes[n - 1] + gaps.reduce((a, b) => a + b, 0);
+  const R = Math.min(w / span1, h * 0.98);
+  const stretch = w / (span1 * R); // > 1 when the height capped R: spread the centres, the base slab fills between
+  const parts: { cx: number; cy: number; rx: number; ry: number; big: boolean }[] = [];
+  let u = sizes[0];
+  for (let i = 0; i < n; i++) {
+    if (i > 0) u += gaps[i - 1];
+    const rx = R * sizes[i] * (1 + 0.012 * Math.sin(frame / 90 + i * 1.3));
+    const ry = rx * (0.9 + rnd(seed * 11 + i) * 0.16);
+    parts.push({ cx: x + u * R * stretch + (rnd(seed * 3 + i) - 0.5) * R * 0.1, cy: y - ry * 0.9 + rnd(seed * 13 + i) * R * 0.08, rx, ry, big: sizes[i] >= 0.8 });
+  }
+  // the base: a low wide slab with rounded ends, so the bottom edge is flat
+  const baseH = Math.max(10, h * 0.42);
+  const union = (dx: number, dy: number) => (
     <>
       <rect x={x + dx} y={y - baseH + dy} width={w} height={baseH} rx={baseH * 0.5} />
       {parts.map((p, i) => (
-        <ellipse key={i} cx={p.cx + dx} cy={p.cy + dy} rx={p.rx * k} ry={p.ry * k} transform={`rotate(${p.rot.toFixed(1)} ${(p.cx + dx).toFixed(1)} ${(p.cy + dy).toFixed(1)})`} />
+        <ellipse key={i} cx={p.cx + dx} cy={p.cy + dy} rx={p.rx} ry={p.ry} />
       ))}
     </>
   );
-  // lit crescent: an arc along each big lobe's edge, centred on the light direction
+  // lit crescent: a thick stroke that follows the lobe's own edge around the light direction; the body clip keeps
+  // the outer half out, so what shows is a rim of light hugging the edge (not a shape floating inside the lobe)
   const la = Math.atan2(ly, lx);
-  const crescent = (p: { cx: number; cy: number; rx: number; ry: number; rot: number }) => {
-    const r = Math.min(p.rx, p.ry) * 0.8;
-    const a0 = la - 1.15;
-    const a1 = la + 1.15;
-    const sx = p.cx + Math.cos(a0) * r;
-    const sy = p.cy + Math.sin(a0) * r;
-    const ex = p.cx + Math.cos(a1) * r;
-    const ey = p.cy + Math.sin(a1) * r;
-    return `M${sx.toFixed(1)} ${sy.toFixed(1)} A${r.toFixed(1)} ${r.toFixed(1)} 0 0 1 ${ex.toFixed(1)} ${ey.toFixed(1)}`;
+  const crescent = (p: { cx: number; cy: number; rx: number; ry: number }) => {
+    const steps = 14;
+    const pts: string[] = [];
+    for (let k = 0; k <= steps; k++) {
+      const a = la - 1.1 + (2.2 * k) / steps;
+      pts.push(`${(p.cx + Math.cos(a) * p.rx * 0.96).toFixed(1)} ${(p.cy + Math.sin(a) * p.ry * 0.96).toFixed(1)}`);
+    }
+    return "M" + pts.join(" L");
   };
+  const litFromBelow = ly > 0.3;
   return (
     <g opacity={opacity}>
       <clipPath id={`${id}-flat`}>
@@ -79,12 +84,12 @@ export const Cumulus: React.FC<{ x: number; y: number; w: number; h: number; fil
         {/* 2 body: the silhouette lifted toward the light, so shade shows along the away edge */}
         <g fill={fill}>{union(lx * 3, ly * 3 - 2)}</g>
         <g clipPath={`url(#${id}-body)`}>
-          {/* 3 shadowed underside: a band along the flat base (lighter when the light comes from below) */}
-          <rect x={x - h} y={y - baseH * 0.9} width={w + h * 2} height={baseH * 2} fill={shade} opacity={ly > 0.3 ? 0.35 : 0.85} />
-          {/* 4 lit crescents on the big lobes only */}
-          <g fill="none" stroke={lit} strokeLinecap="round" opacity={0.85}>
+          {/* 3 the underside strip along the flat base: shadowed under a high sun, LIT when the sun is below the cloud */}
+          <rect x={x - h} y={y - baseH * 0.55} width={w + h * 2} height={baseH * 2} fill={litFromBelow ? lit : shade} opacity={litFromBelow ? 0.6 : 0.8} />
+          {/* 4 lit crescents hugging the big lobes' edges toward the light */}
+          <g fill="none" stroke={lit} strokeLinecap="round" strokeLinejoin="round" opacity={0.85}>
             {parts.filter((p) => p.big).map((p, i) => (
-              <path key={i} d={crescent(p)} strokeWidth={Math.min(p.rx, p.ry) * 0.3} />
+              <path key={i} d={crescent(p)} strokeWidth={Math.min(p.rx, p.ry) * 0.36} />
             ))}
           </g>
         </g>

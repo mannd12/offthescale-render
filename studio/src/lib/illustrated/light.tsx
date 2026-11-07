@@ -184,8 +184,14 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
   // down toward the base and narrows (a short notch gives a thin sliver, a long flank a broad plane), with no blur.
   // All faces of one step are painted at full alpha inside ONE group that carries the opacity, so where faces overlap
   // the tone does not compound into streaks; faces that turn hardest from the light get a second, darker plane.
+  // Round 5b: one trapezoid PER SEGMENT read as a row of vertical fins. Consecutive away-facing segments are now ONE
+  // run, shaded as ONE polygon straight down to the base (the whole shadow flank, vertical sides at the run's ends);
+  // a short isolated run (a notch, < 160 px) gets a thin band that follows it (about its own length deep), never a
+  // column. `depth` forces the band form at that depth for every run.
   const [lx, ly] = lightVec(light);
-  const planes: { d: string; deep: boolean }[] = [];
+  type Run = { pts: [number, number][]; len: number };
+  const runs: Run[] = [];
+  let cur: Run | null = null;
   for (let i = 0; i < pts.length - 1; i++) {
     const [ax, ay] = pts[i];
     const [bx, by] = pts[i + 1];
@@ -202,25 +208,34 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
     const facing0 = nx * lx + ny * ly; // > 0 faces the light
     const facing = lit ? -facing0 : facing0;
     if (facing < 0.05) {
-      // the face reaches about two segment-lengths down (or `depth`), never past the base, and leans away from the light
-      const reach = depth ?? len * 2.2 + 120;
-      const yb = Math.min(base, Math.max(ay, by) + reach);
-      const mx = (ax + bx) / 2 - lx * len * 0.35;
-      const half = len * 0.22;
-      planes.push({ d: `M${ax} ${ay} L${bx} ${by} L${(mx + half).toFixed(1)} ${yb.toFixed(1)} L${(mx - half).toFixed(1)} ${yb.toFixed(1)} Z`, deep: facing < -0.45 });
-    }
+      if (!cur) {
+        cur = { pts: [pts[i]], len: 0 };
+        runs.push(cur);
+      }
+      cur.pts.push(pts[i + 1]);
+      cur.len += len;
+    } else cur = null;
   }
-  const flt = soft ? "url(#soft-4)" : undefined;
+  const planes = runs.map((run) => {
+    const top = run.pts.map(([x, y]) => `${x} ${y}`).join(" L");
+    const first = run.pts[0];
+    const last = run.pts[run.pts.length - 1];
+    if (depth === undefined && run.len >= 160) {
+      return `M${top} L${last[0]} ${base} L${first[0]} ${base} Z`;
+    }
+    const d = depth ?? run.len * 0.9 + 30;
+    const bottom = run.pts
+      .slice()
+      .reverse()
+      .map(([x, y]) => `${x} ${Math.min(base, y + d).toFixed(1)}`)
+      .join(" L");
+    return `M${top} L${bottom} Z`;
+  });
   return (
-    <g fill={fill} filter={flt}>
+    <g fill={fill} filter={soft ? "url(#soft-4)" : undefined}>
       <g opacity={opacity}>
-        {planes.map((p, i) => (
-          <path key={i} d={p.d} />
-        ))}
-      </g>
-      <g opacity={opacity * 0.5}>
-        {planes.filter((p) => p.deep).map((p, i) => (
-          <path key={i} d={p.d} />
+        {planes.map((d, i) => (
+          <path key={i} d={d} />
         ))}
       </g>
     </g>

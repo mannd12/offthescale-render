@@ -139,12 +139,11 @@ export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = 
       {/* the massif: lit flank, base, shadow flank (three clean tonal planes) + the snow cap above SNOW_LINE */}
       <Layer depth={0.6} haze={{ color: F.haze, amount: 0.07 }}>
         <Form d={ridgePath(MASSIF, 1300, 14)} fill={F.mid} light={light} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
-          <Facets pts={MASSIF} base={1300} light={light} fill={F.shadow} opacity={0.5} />
+          <Facets pts={MASSIF} base={1300} light={light} fill={F.shadow} opacity={0.45} />
           <Facets pts={MASSIF} base={1300} light={light} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.4} lit />
           {emberFill > 0 ? <HazeBand y={700} h={600} color="#FF7A30" strength={0.55 * emberFill} /> : null}
           <path d={snowCap(MASSIF, 3, 12, SNOW_LINE, 16)} fill={mixHex("#F4EFE6", F.light, 0.18)} />
           <path d={snowCap(MASSIF, 5, 10, 372, 10)} fill={snow} />
-          <Facets pts={MASSIF.slice(3, 13)} base={SNOW_LINE} light={light} fill={mixHex(F.mid, F.shadow, 0.3)} opacity={0.22} depth={140} />
         </Form>
         {spindrift ? <Embers frame={f} x0={900} x1={1000} y={SUMMIT.y - 6} n={18} color="#FFFFFF" seed={9} rise={0.3} life={70} size={1.8} wiggle={30} /> : null}
         {spot ? (
