@@ -99,6 +99,8 @@ export type SummitProps = {
   spindrift?: boolean;
   /** draw the far range + ridge planes */
   far?: boolean;
+  /** draw the massif plane (depth 0.6); false for close-ups that draw their own summit shelf at depth 1 (C-03…C-05) */
+  massif?: boolean;
 };
 
 /**
@@ -106,7 +108,7 @@ export type SummitProps = {
  * your own near-plane Layer (depth 1) and snow (depth 1.25) around it. Camera: the peak is at SUMMIT; a mid shot of
  * Tick on the summit is roughly cam { x: 940, y: 330, zoom: 3 }.
  */
-export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = { x: 1560, y: 560 }, sunGlow = 1, sky = true, stars = 70, tick = {}, spot = false, emberFill = 0, spindrift = true, far = true }) => {
+export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = { x: 1560, y: 560 }, sunGlow = 1, sky = true, stars = 70, tick = {}, spot = false, emberFill = 0, spindrift = true, far = true, massif = true }) => {
   const snow = L12_COLORS.snow;
   const ppm = tick && tick.pxPerM ? tick.pxPerM : 40;
   const glowAt = sun ?? { x: 1560, y: 640 };
@@ -137,6 +139,7 @@ export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = 
         </>
       ) : null}
       {/* the massif: lit flank, base, shadow flank (three clean tonal planes) + the snow cap above SNOW_LINE */}
+      {massif ? (
       <Layer depth={0.6} haze={{ color: F.haze, amount: 0.07 }}>
         <Form d={ridgePath(MASSIF, 1300, 14)} fill={F.mid} light={light} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
           <Facets pts={MASSIF} base={1300} light={light} fill={F.shadow} opacity={0.45} />
@@ -159,6 +162,7 @@ export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = 
           </g>
         ) : null}
       </Layer>
+      ) : null}
     </>
   );
 };
