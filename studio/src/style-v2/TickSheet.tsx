@@ -64,8 +64,8 @@ export const TickSheetScene: React.FC = () => {
           return (
             <g key={i}>
               <GroundShadow x={x} y={y + 2} rx={38} color={F.shadow} opacity={0.3} blur={8} />
-              <Tick x={x} y={y} pxPerM={92} frame={f} expression={c.e} pose={c.p} walk={c.walk ? f / 48 : undefined} lamp={c.lamp} staff={c.staff} seed={i + 3} look={0.3} slump={c.label === "carry" ? 0.5 : 0} />
-              <text x={x} y={y + 34} textAnchor="middle" style={{ fontFamily: IF2.display, fontWeight: 500, fontSize: 18, fill: F.dim, letterSpacing: 0.5 }}>
+              <Tick x={x} y={y} pxPerM={82} frame={f} expression={c.e} pose={c.p} walk={c.walk ? f / 48 : undefined} lamp={c.lamp} staff={c.staff} seed={i + 3} look={0.3} slump={c.label === "carry" ? 0.5 : 0} />
+              <text x={x} y={y + 30} textAnchor="middle" style={{ fontFamily: IF2.display, fontWeight: 500, fontSize: 18, fill: F.dim, letterSpacing: 0.5 }}>
                 {c.label}
               </text>
             </g>

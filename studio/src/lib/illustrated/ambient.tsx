@@ -55,7 +55,8 @@ export const Motes: React.FC<{ frame: number; n: number; x?: number; y?: number;
   <g fill={color}>
     {Array.from({ length: n }, (_, i) => {
       const ph = rnd(seed * 5 + i) * TAU;
-      const per = 160 + rnd(seed * 9 + i) * 200;
+      // period scales down for big drifts so large soft motes keep a visible pace (v2.1: ~1 px per frame at drift 46)
+      const per = (160 + rnd(seed * 9 + i) * 200) * Math.min(1, 14 / Math.max(14, drift)) * 1.6;
       const mx = x + rnd(seed * 13 + i) * w + Math.sin((frame / per) * TAU + ph) * drift;
       const my = y + rnd(seed * 23 + i) * h + Math.sin((frame / (per * 0.8)) * TAU + ph * 1.7) * drift * 0.6;
       const r = size * (0.5 + rnd(seed * 29 + i));
