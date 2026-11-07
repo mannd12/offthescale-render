@@ -189,10 +189,9 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
   // a short isolated run (a notch, < 160 px) gets a thin band that follows it (about its own length deep), never a
   // column. `depth` forces the band form at that depth for every run.
   const [lx, ly] = lightVec(light);
-  type Run = { pts: [number, number][]; len: number };
-  const runs: Run[] = [];
-  let cur: Run | null = null;
-  for (let i = 0; i < pts.length - 1; i++) {
+  const SHORT = 160;
+  // 1 classify every segment: away from the light (shaded) or not
+  const seg = Array.from({ length: pts.length - 1 }, (_, i) => {
     const [ax, ay] = pts[i];
     const [bx, by] = pts[i + 1];
     const dx = bx - ax;
@@ -207,20 +206,36 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
     }
     const facing0 = nx * lx + ny * ly; // > 0 faces the light
     const facing = lit ? -facing0 : facing0;
-    if (facing < 0.05) {
+    return { len, away: facing < 0.05 };
+  });
+  // 2 absorb short interruptions (a notch between two peaks) into the run around them, otherwise each long plane
+  //   ends in a vertical side at the notch and a mid-tone strip opens between the two planes (round 5b, dusk frame)
+  for (let i = 0; i < seg.length; ) {
+    let j = i;
+    let len = 0;
+    while (j < seg.length && seg[j].away === seg[i].away) len += seg[j++].len;
+    if (len < SHORT && i > 0 && j < seg.length) for (let k = i; k < j; k++) seg[k].away = !seg[i].away;
+    i = j;
+  }
+  // 3 runs of shaded segments
+  type Run = { pts: [number, number][]; len: number };
+  const runs: Run[] = [];
+  let cur: Run | null = null;
+  seg.forEach((s, i) => {
+    if (s.away) {
       if (!cur) {
         cur = { pts: [pts[i]], len: 0 };
         runs.push(cur);
       }
       cur.pts.push(pts[i + 1]);
-      cur.len += len;
+      cur.len += s.len;
     } else cur = null;
-  }
+  });
   const planes = runs.map((run) => {
     const top = run.pts.map(([x, y]) => `${x} ${y}`).join(" L");
     const first = run.pts[0];
     const last = run.pts[run.pts.length - 1];
-    if (depth === undefined && run.len >= 160) {
+    if (depth === undefined && run.len >= SHORT) {
       return `M${top} L${last[0]} ${base} L${first[0]} ${base} Z`;
     }
     const d = depth ?? run.len * 0.9 + 30;
