@@ -7,6 +7,8 @@ const FACES: [family: string, file: string, weight: string][] = [
   ["Inter", "inter-500.woff2", "500"],
   ["Inter", "inter-800.woff2", "800"],
   ["Fredoka", "fredoka-600.woff2", "600"],
+  ["Outfit", "outfit-800.woff2", "800"], // kit v2 display face (docs/STYLE-V2.md §7)
+  ["Outfit", "outfit-500.woff2", "500"],
 ];
 
 let started = false;

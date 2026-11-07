@@ -20,6 +20,16 @@
       "file": "fredoka-600.woff2",
       "url": "https://cdn.jsdelivr.net/fontsource/fonts/fredoka@latest/latin-600-normal.woff2",
       "licence": "OFL-1.1"
+    },
+    {
+      "file": "outfit-800.woff2",
+      "url": "https://cdn.jsdelivr.net/fontsource/fonts/outfit@latest/latin-800-normal.woff2",
+      "licence": "OFL-1.1"
+    },
+    {
+      "file": "outfit-500.woff2",
+      "url": "https://cdn.jsdelivr.net/fontsource/fonts/outfit@latest/latin-500-normal.woff2",
+      "licence": "OFL-1.1"
     }
   ],
   "images": [

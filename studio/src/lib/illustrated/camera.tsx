@@ -6,6 +6,7 @@ import React, { createContext, useContext } from "react";
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
 import { Theme } from "./palette";
 import { PaperGrain } from "./texture";
+import { LightDefs } from "./light";
 
 export type Cam = { x: number; y: number; zoom: number };
 export const REST: Cam = { x: 960, y: 540, zoom: 1 };
@@ -35,11 +36,12 @@ export const cameraAt = (frame: number, keys: CamKey[]): Cam => {
  * One full-frame scene: flat base colour, one SVG with the camera, one soft vignette (the only ramp allowed), and the
  * paper/grain print texture on top (`grain` = strength multiplier, 0 = off).
  */
-export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain?: number; children: React.ReactNode; overlay?: React.ReactNode }> = ({
+export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain?: number; grainStep?: number; children: React.ReactNode; overlay?: React.ReactNode }> = ({
   theme,
   cam = REST,
   vignette = 0.16,
   grain = 1,
+  grainStep = 0,
   children,
   overlay,
 }) => {
@@ -48,6 +50,7 @@ export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain
   <AbsoluteFill style={{ background: theme.bg }}>
     <CamCtx.Provider value={cam}>
       <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0 }}>
+        <LightDefs />
         {children}
       </svg>
     </CamCtx.Provider>
@@ -60,7 +63,7 @@ export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain
       />
     ) : null}
     {overlay}
-    {grain > 0 ? <PaperGrain frame={frame} dark={theme.dark} amount={grain} /> : null}
+    {grain > 0 ? <PaperGrain frame={frame} dark={theme.dark} amount={grain} step={grainStep} /> : null}
   </AbsoluteFill>
   );
 };
@@ -68,8 +71,10 @@ export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain
 /**
  * A parallax layer. depth 1 = moves exactly with the camera (the subject plane); 0.3 = far background
  * (moves 30 %); 1.3 = foreground (overshoots); 0 = screen-locked HUD (gauge, labels).
+ * `haze` (kit v2) washes the whole layer toward a colour: atmospheric depth for far planes
+ * ({ color: family.haze, amount: 0.15-0.5 }, more the farther the plane).
  */
-export const Layer: React.FC<{ depth?: number; children: React.ReactNode; opacity?: number }> = ({ depth = 1, children, opacity = 1 }) => {
+export const Layer: React.FC<{ depth?: number; children: React.ReactNode; opacity?: number; haze?: { color: string; amount: number } }> = ({ depth = 1, children, opacity = 1, haze }) => {
   const cam = useContext(CamCtx);
   const z = Math.pow(cam.zoom, depth);
   const dx = (cam.x - 960) * depth;
@@ -77,6 +82,7 @@ export const Layer: React.FC<{ depth?: number; children: React.ReactNode; opacit
   return (
     <g opacity={opacity} transform={`translate(960 540) scale(${z}) translate(${-960 - dx} ${-540 - dy})`}>
       {children}
+      {haze && haze.amount > 0 ? <rect x={-6000} y={-6000} width={14000} height={14000} fill={haze.color} opacity={haze.amount} style={{ mixBlendMode: "normal" }} /> : null}
     </g>
   );
 };

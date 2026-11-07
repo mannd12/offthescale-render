@@ -29,6 +29,13 @@ import { L11Style1, L11Style2, L11Style3, L11Style4 } from "./episodes/L11-dig-d
 import { ThumbL11, ThumbL11B } from "./episodes/L11-dig-depth/Thumb";
 import { TestL11, l11TestFrames } from "./episodes/L11-dig-depth/Episode";
 import { FullL11, l11Frames } from "./episodes/L11-dig-depth/Full";
+import { DuskScene } from "./style-v2/Dusk";
+import { CavernScene } from "./style-v2/Cavern";
+import { SoundSeaScene } from "./style-v2/SoundSea";
+import { TickSheetScene } from "./style-v2/TickSheet";
+import { WorldsScene } from "./style-v2/Worlds";
+import { CityScene } from "./style-v2/City";
+import { MOTION_TEST_FRAMES, MotionTest } from "./style-v2/MotionTest";
 import { ShortS01, timeline as s01 } from "./episodes/S01-ocean-cliff/Short";
 import { ShortS02, timeline as s02 } from "./episodes/S02-internet-myth/Short";
 import { ShortS03, timeline as s03 } from "./episodes/S03-ocean-red/Short";
@@ -174,6 +181,15 @@ export const Root: React.FC = () => (
     <Still id="l11-style-4" component={L11Style4} width={1920} height={1080} />
     <Still id="l11-thumb" component={ThumbL11} width={1280} height={720} />
     <Still id="l11-thumb-b" component={ThumbL11B} width={1280} height={720} />
+
+    {/* Kit v2 "lit world" style frames (docs/STYLE-V2.md) + the 8-s motion test */}
+    <Still id="v2-style-1" component={DuskScene} width={1920} height={1080} />
+    <Still id="v2-style-2" component={CavernScene} width={1920} height={1080} />
+    <Still id="v2-style-3" component={SoundSeaScene} width={1920} height={1080} />
+    <Still id="v2-style-4" component={TickSheetScene} width={1920} height={1080} />
+    <Still id="v2-style-5" component={WorldsScene} width={1920} height={1080} />
+    <Still id="v2-style-6" component={CityScene} width={1920} height={1080} />
+    <Composition id="v2-motion-test" component={MotionTest} durationInFrames={MOTION_TEST_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
 
     {/* Brand kit for the "Every LEVEL of nature" channel (checkpoint 1 stills) */}
     <Still id="brand-frame" component={BrandFrame} width={1920} height={1080} />

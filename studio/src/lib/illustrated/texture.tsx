@@ -1,13 +1,15 @@
 // Print texture for the illustrated format (2026-11-05 art upgrade): the frame should read as ink on paper,
 // not as a vector export. Two screen-locked layers, both procedural (SVG feTurbulence, no image files):
 //  - paper: a fixed, low-frequency fibre/mottle (the sheet itself; it never moves),
-//  - grain: fine tooth that re-seeds every `step` frames, so flat fills shimmer very slightly ("boil", ~10 fps).
+//  - grain: fine tooth. STATIC by default since kit v2 (2026-11-06): a grain that re-seeded every 3 frames defeated
+//    inter-frame compression and made L11's final 1.7 GB. Pass `step` (frames) to re-seed slowly (>= 60) if a shot
+//    wants a faint boil; never below 30 (docs/STYLE-V2.md §9).
 // Overlay blending keeps mid-grey neutral, so tones do not shift; the effect is tooth, not dirt.
 import React from "react";
 import { AbsoluteFill } from "remotion";
 
-export const PaperGrain: React.FC<{ frame: number; dark?: boolean; amount?: number; step?: number }> = ({ frame, dark = false, amount = 1, step = 3 }) => {
-  const seed = Math.floor(frame / step) % 12;
+export const PaperGrain: React.FC<{ frame: number; dark?: boolean; amount?: number; step?: number }> = ({ frame, dark = false, amount = 1, step = 0 }) => {
+  const seed = step > 0 ? Math.floor(frame / step) % 12 : 5;
   const grainId = `pg-grain-${seed}`;
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
