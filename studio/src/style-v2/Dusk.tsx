@@ -125,11 +125,14 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
     [1500, 1010],
     [2300, 1080],
   ];
-  // snow cap: follows the ridge from i0..i1, bottom edge is the same ridge pushed down with a wobble (no vertical cuts)
-  const snowCap = (pts: [number, number][], i0: number, i1: number, depth: number, wobble: number) => {
+  // snow cap: everything on the ridge above a snow line (a fixed altitude with a wobble). The bottom edge is the snow
+  // line, clamped to the ridge, so the cap thins to nothing where the ridge dips below it: no cut ends, no ribbon.
+  const snowCap = (pts: [number, number][], i0: number, i1: number, line: number, wobble: number) => {
     const top = pts.slice(i0, i1 + 1);
-    const bottom: [number, number][] = top.map(([x, y], k): [number, number] => [x, y + depth + Math.sin(k * 2.1 + x * 0.01) * wobble]).reverse();
-    return roundPoly([...top, ...bottom], 10);
+    const bottom: [number, number][] = top
+      .map(([x, y], k): [number, number] => [x + (k === 0 ? 1 : k === top.length - 1 ? -1 : 0), Math.max(y, line + Math.sin(k * 1.7 + x * 0.013) * wobble + (k % 2 ? 22 : -10))])
+      .reverse();
+    return roundPoly([...top, ...bottom], 8);
   };
   const tickX = tick?.x ?? 520;
 
@@ -177,9 +180,10 @@ export const DuskScene: React.FC<DuskProps> = ({ f0 = 0, tick, title = true, cam
         <Form d={ridgePath(massif, 1300, 14)} fill={F.mid} light={L} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9}>
           <Facets pts={massif} base={1300} light={L} fill={F.shadow} opacity={0.55} />
           {/* snow caps: bone above the snow line, warm on the lit flank */}
-          <path d={snowCap(massif, 4, 10, 95, 16)} fill={mixHex("#F4EFE6", F.light, 0.18)} />
-          <path d={snowCap(massif, 5, 9, 30, 6)} fill="#FFFBF0" />
-          <Facets pts={massif.slice(4, 11)} base={massif[4][1] + 110} light={L} fill={mixHex(F.mid, F.shadow, 0.3)} opacity={0.35} />
+          <path d={snowCap(massif, 3, 12, 470, 18)} fill={mixHex("#F4EFE6", F.light, 0.18)} />
+          <path d={snowCap(massif, 5, 10, 372, 10)} fill="#FFFBF0" />
+          {/* the snow's own shadow flank, only down to the snow line */}
+          <Facets pts={massif.slice(3, 13)} base={470} light={L} fill={mixHex(F.mid, F.shadow, 0.2)} opacity={0.3} depth={400} />
         </Form>
         <Flock frame={f} x={-140} y={520} vx={1.1} n={6} size={9} color={F.shadow} seed={3} />
         {/* spindrift blowing off the summit */}

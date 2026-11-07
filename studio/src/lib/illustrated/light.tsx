@@ -154,7 +154,7 @@ export const Form: React.FC<{
  * the flank away from the sun darkens as a whole, the lit flank stays the fill colour. Round 1 of the v2 frames
  * showed that an inner-shadow band alone leaves a big mountain reading flat.
  */
-export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: number; fill: string; opacity?: number; soft?: boolean }> = ({ pts, base, light = KEY_LIGHT, fill, opacity = 0.4, soft = true }) => {
+export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: number; fill: string; opacity?: number; soft?: boolean; depth?: number }> = ({ pts, base, light = KEY_LIGHT, fill, opacity = 0.4, soft = true, depth }) => {
   const [lx, ly] = lightVec(light);
   const out: { d: string; o: number }[] = [];
   for (let i = 0; i < pts.length - 1; i++) {
@@ -171,7 +171,15 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
       ny = -ny;
     }
     const facing = nx * lx + ny * ly; // > 0 faces the light
-    if (facing < 0.05) out.push({ d: `M${ax} ${ay} L${bx} ${by} L${bx} ${base} L${ax} ${base} Z`, o: Math.min(1, 0.35 - facing) });
+    if (facing < 0.05) {
+      // a facet reaches down a limited way (about its own length) and widens, so a short counter-slope near a summit
+      // does not cast a column to the base (round 2 of the v2 frames)
+      const reach = depth ?? len * 1.6 + 80;
+      const fa = Math.min(base, ay + reach);
+      const fb = Math.min(base, by + reach);
+      const spread = Math.min(len * 0.6, 60);
+      out.push({ d: `M${ax} ${ay} L${bx} ${by} L${bx + spread} ${fb} L${ax - spread} ${fa} Z`, o: Math.min(1, 0.35 - facing) });
+    }
   }
   return (
     <g filter={soft ? "url(#soft-16)" : undefined} fill={fill}>
