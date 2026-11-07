@@ -1,8 +1,13 @@
 // Kit v2 typography (docs/STYLE-V2.md §7): designed titles, not diagram labels. Outfit 800 (geometric display) for
 // headlines and chapter titles, Anton for small spaced kickers, Inter 800 tabular for numbers. Text sits in the SVG so
 // it rides the camera when it should (labels on things) or on a depth-0 Layer when it should not (titles).
-import React from "react";
+import React, { useId } from "react";
+import { AbsoluteFill } from "remotion";
 import { IF } from "./type";
+import { Family } from "./palette2";
+import { Stage } from "./camera";
+import { Sky, Vignette } from "./light";
+import { Stars } from "./ambient";
 
 export const IF2 = {
   display: "'Outfit', 'Inter', 'Helvetica Neue', Arial, sans-serif",
@@ -117,6 +122,145 @@ export const Leader: React.FC<{ from: [number, number]; to: [number, number]; co
     <circle cx={from[0]} cy={from[1]} r={3.2} fill={color} stroke="none" />
     <path d={elbow ? `M${from[0]} ${from[1]} L${to[0]} ${from[1]} L${to[0]} ${to[1]}` : `M${from[0]} ${from[1]} L${to[0]} ${to[1]}`} />
   </g>
+);
+
+const sm = (t: number, a: number, b: number) => {
+  const u = Math.max(0, Math.min(1, (t - a) / (b - a)));
+  return u * u * (3 - 2 * u);
+};
+
+/**
+ * ChapterCard (kit v2.1, study item 4): a kicker and a 3-9 word Title Case headline on the family's own field, held
+ * ~2 s. `t` runs 0..1 over the card's life: text rises 24 px and fades in over the first 18 %, holds, fades out over the
+ * last 15 %. A faint star/mote field keeps the card alive (locked camera, `drift={false}`). Put a sting on its first frame.
+ */
+export const ChapterCard: React.FC<{ family: Family; kicker?: string; title: string; t: number; frame?: number; sub?: string; align?: "start" | "middle" }> = ({
+  family: F,
+  kicker,
+  title,
+  t,
+  frame = 0,
+  sub,
+  align = "start",
+}) => {
+  const inA = sm(t, 0, 0.18);
+  const outA = 1 - sm(t, 0.85, 1);
+  const a = inA * outA;
+  const rise = (1 - inA) * 24;
+  const x = align === "start" ? 160 : 960;
+  const words = title.split(" ");
+  const lines: string[] = [];
+  let cur = "";
+  for (const w of words) {
+    if ((cur + " " + w).trim().length > 22 && cur) {
+      lines.push(cur.trim());
+      cur = w;
+    } else cur = (cur + " " + w).trim();
+  }
+  if (cur) lines.push(cur);
+  const size = lines.length > 2 ? 84 : 104;
+  const y0 = 540 - ((lines.length - 1) * size * 0.98) / 2 + size * 0.35;
+  return (
+    <Stage theme={F.theme} drift={false} vignette={F.dark ? 0.3 : 0.1} grain={0.4}>
+      <Sky family={F} />
+      {F.dark ? <Stars frame={frame} n={90} w={1920} h={1080} color={F.text} seed={31} size={1.3} twinkle={0.7} /> : null}
+      <Vignette color={F.shadow} strength={F.dark ? 0.35 : 0.12} />
+      <g opacity={a} transform={`translate(0 ${rise.toFixed(2)})`}>
+        {kicker ? <Kicker x={x} y={y0 - size * 1.05} text={kicker} color={F.dim} size={24} align={align === "start" ? "start" : "start"} /> : null}
+        {lines.map((l, i) => (
+          <text key={i} x={x} y={y0 + i * size * 0.98} textAnchor={align} style={{ fontFamily: IF2.display, fontWeight: 800, fontSize: size, letterSpacing: -size * 0.03, fill: F.text }}>
+            {l}
+          </text>
+        ))}
+        <rect x={align === "start" ? x : x - 30} y={y0 + (lines.length - 1) * size * 0.98 + 34} width={60} height={6} rx={3} fill={F.accent} />
+        {sub ? (
+          <text x={x} y={y0 + (lines.length - 1) * size * 0.98 + 84} textAnchor={align} style={{ fontFamily: IF2.display, fontWeight: 500, fontSize: 30, fill: F.dim }}>
+            {sub}
+          </text>
+        ) : null}
+      </g>
+    </Stage>
+  );
+};
+
+/**
+ * Counter (kit v2.1, study item 8): a number whose digits roll like an odometer as `value` changes. Pass a float; the
+ * lowest digit rolls continuously, higher digits turn over as the one below passes 9. `digits` fixes the column count
+ * (default: enough for `max ?? value`), commas are placed by column. Inter 800 tabular, so columns never jitter.
+ */
+export const Counter: React.FC<{ x: number; y: number; value: number; max?: number; size?: number; color: string; unit?: string; unitColor?: string; align?: "start" | "middle" | "end"; digits?: number }> = ({
+  x,
+  y,
+  value,
+  max,
+  size = 72,
+  color,
+  unit,
+  unitColor,
+  align = "start",
+  digits,
+}) => {
+  const id = "ctr" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const v = Math.max(0, value);
+  const n = digits ?? Math.max(1, Math.floor(Math.log10(Math.max(1, max ?? v))) + 1);
+  const colW = size * 0.6;
+  const commaW = size * 0.22;
+  const lh = size * 1.1;
+  // odometer positions per column (place p = 10^k)
+  const cols = Array.from({ length: n }, (_, k) => {
+    const p = n - 1 - k;
+    const r = (v / Math.pow(10, p)) % 10;
+    const lower = p === 0 ? 0 : (v / Math.pow(10, p - 1)) % 10;
+    const carry = p === 0 ? r - Math.floor(r) : Math.max(0, lower - 9);
+    const leadingZero = p > 0 && v < Math.pow(10, p) - 0.5;
+    return { pos: Math.floor(r) + carry, hidden: leadingZero && Math.floor(r) === 0, p };
+  });
+  const visible = cols.filter((c) => !c.hidden);
+  const totalW = visible.length * colW + Math.floor((visible.length - 1) / 3) * commaW;
+  let x0 = align === "start" ? x : align === "end" ? x - totalW : x - totalW / 2;
+  const st: React.CSSProperties = { fontFamily: IF2.num, fontWeight: 800, fontSize: size, fontVariantNumeric: "tabular-nums", fill: color };
+  const out: React.ReactNode[] = [];
+  visible.forEach((c, i) => {
+    const remaining = visible.length - i;
+    out.push(
+      <g key={i} clipPath={`url(#${id})`} transform={`translate(${x0.toFixed(1)} 0)`}>
+        <g transform={`translate(0 ${(-(c.pos % 10) * lh).toFixed(2)})`}>
+          {Array.from({ length: 11 }, (_, d) => (
+            <text key={d} x={colW / 2} y={y + d * lh} textAnchor="middle" style={st}>
+              {d % 10}
+            </text>
+          ))}
+        </g>
+      </g>,
+    );
+    x0 += colW;
+    if (remaining > 1 && (remaining - 1) % 3 === 0) {
+      out.push(
+        <text key={"c" + i} x={x0 + commaW / 2} y={y} textAnchor="middle" style={st}>
+          ,
+        </text>,
+      );
+      x0 += commaW;
+    }
+  });
+  return (
+    <g>
+      <clipPath id={id}>
+        <rect x={0} y={y - size * 0.95} width={colW} height={size * 1.2} />
+      </clipPath>
+      {out}
+      {unit ? (
+        <text x={x0 + size * 0.14} y={y} style={{ fontFamily: IF2.num, fontWeight: 500, fontSize: size * 0.42, fill: unitColor ?? color }}>
+          {unit}
+        </text>
+      ) : null}
+    </g>
+  );
+};
+
+/** Black beat (kit v2.1, study item 9): a full-frame black (or family shadow) held between acts; t 0..1 fades in and out. */
+export const BlackBeat: React.FC<{ t: number; color?: string; fadeIn?: number; fadeOut?: number }> = ({ t, color = "#000", fadeIn = 0.3, fadeOut = 0.3 }) => (
+  <AbsoluteFill style={{ background: color, opacity: sm(t, 0, fadeIn) * (1 - sm(t, 1 - fadeOut, 1)), pointerEvents: "none" }} />
 );
 
 /** Text with a soft contrast halo (for labels over busy art): the halo is a thick stroke in the backdrop colour. */

@@ -17,3 +17,7 @@ export * from "./ambient";
 export * from "./character";
 export * from "./transitions";
 export * from "./type2";
+// kit v2.1 (2026-11-07): widgets (Inset, Lineup, Cutaway, CubeStack, Banding), shot-list lint
+export * from "./widgets";
+export * from "./shotlist";
+export * from "./props";

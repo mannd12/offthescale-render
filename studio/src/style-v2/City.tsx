@@ -5,6 +5,7 @@ import React from "react";
 import { useCurrentFrame } from "remotion";
 import {
   Bobber,
+  Cumulus,
   FAMILIES,
   Flock,
   Form,
@@ -71,19 +72,13 @@ export const CityScene: React.FC = () => {
       {/* clouds and far hills */}
       <Layer depth={0.15} haze={{ color: F.haze, amount: 0.3 }}>
         {[
-          [200, 230, 1],
-          [900, 170, 2],
-          [1500, 260, 3],
-        ].map(([x, y, s], i) => {
+          [200, 250, 1, 260, 60],
+          [900, 190, 2, 200, 48],
+          [1500, 280, 3, 320, 70],
+        ].map(([x, y, s, w, h], i) => {
           const dx = f * (0.12 + s * 0.04);
           const cx = ((x + dx + 300) % 2500) - 300;
-          return (
-            <g key={i}>
-              {[0, 1, 2].map((k) => (
-                <Form key={k} d={roundPoly(blobPts(cx + k * 60 - 60, y + (k === 1 ? -22 : 0), 44 + k * 6, 9, s * 3 + k, 0.2, 0.8), 22)} fill="#FFFFFF" light={L} shadow={F.far} inset={14} shadowOpacity={0.55} rim={false} />
-              ))}
-            </g>
-          );
+          return <Cumulus key={i} x={cx} y={y} w={w} h={h} fill="#FFFFFF" shade={mixHex(F.far, "#FFFFFF", 0.35)} lit="#FFFFFF" light={L} seed={s * 3} frame={f} />;
         })}
         <path d={roundPoly([[-300, STREET], [-300, 560], [200, 520], [600, 545], [1000, 505], [1400, 540], [1800, 515], [2300, 560], [2300, STREET]], 60)} fill={hazed(F, F.mid, 0.4)} />
       </Layer>

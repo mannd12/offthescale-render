@@ -19,6 +19,8 @@ import {
   Motes,
   P,
   Pill,
+  Plume,
+  UnknownTag,
   Ripples,
   Sky,
   Stage,
@@ -63,26 +65,9 @@ export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
       </Layer>
       {/* the island and its column, far */}
       <Layer depth={0.3} haze={{ color: F.haze, amount: 0.2 }}>
-        {/* ash column: stacked rounded puffs lit from below by the vent */}
-        {[0, 1, 2, 3, 4, 5].map((i) => {
-          const y = ISLAND.y - 170 - i * 62;
-          const r = 42 + i * 18;
-          const sx = Math.sin(f / 70 + i) * (6 + i * 3);
-          return (
-            <Form
-              key={i}
-              d={roundPoly([[ISLAND.x - r + sx, y], [ISLAND.x - r * 0.6 + sx, y - r * 0.8], [ISLAND.x + sx, y - r], [ISLAND.x + r * 0.7 + sx, y - r * 0.7], [ISLAND.x + r + sx, y], [ISLAND.x + sx, y + r * 0.5]], r * 0.5)}
-              fill={hazed(F, mixHex(F.near, F.second, 0.1 + i * 0.02), 0.2 + i * 0.08)}
-              light={90}
-              shadow={F.shadow}
-              inset={20}
-              shadowOpacity={0.35}
-              rim={F.second}
-              rimWidth={3}
-              rimOpacity={Math.max(0.1, 0.9 - i * 0.16) * erupt}
-            />
-          );
-        })}
+        {/* ash column: a cauliflower plume lit from below by the vent, leaning with the wind */}
+        <Plume x={ISLAND.x} y={ISLAND.y - 150} h={520} r0={26} fill={hazed(F, mixHex(F.near, F.second, 0.18), 0.25)} shade={hazed(F, F.near, 0.1)} lit={mixHex(F.second, "#FFE0B0", 0.3)} light={90} seed={4} frame={f} lean={-0.12} levels={8} />
+        <Bloom x={ISLAND.x - 20} y={ISLAND.y - 330} r={260} color={F.second} strength={0.25 * erupt} spread={0.3} />
         <Bloom x={ISLAND.x} y={ISLAND.y - 162} r={150} color="#FFB060" strength={0.95 * erupt} spread={0.35} core={16} coreColor="#FFF0C0" />
         <Embers frame={f} x0={ISLAND.x - 30} x1={ISLAND.x + 30} y={ISLAND.y - 160} n={34} color="#FFB060" seed={12} rise={2.4} life={80} size={3} wiggle={26} />
         {/* the cone: a proper stratovolcano profile standing above the horizon, with its foot shore */}
@@ -139,7 +124,10 @@ export const SoundSeaScene: React.FC<{ f0?: number }> = ({ f0 = 0 }) => {
         <Kicker x={120} y={128} text="Off the Scale · Sound" color={F.dim} size={20} />
         <Headline x={120} y={250} lines={["How loud can", "a sound get?"]} size={92} color={F.text} accent={F.second} shadow={F.shadow} />
         <Pill x={1080} y={372} text="Krakatoa 1883 · heard 4,800 km away" fill={alpha(F.shadow, 0.72)} color={F.text} dot={F.second} size={19} align="start" />
-        <Gauge x={1760} y={160} height={520} value={194} max={200} unit="dB" theme={F.theme} direction="up" title="LOUDNESS" side="left" plate={110} readout readoutText="194 dB" format={(v) => `${v}`} />
+        {/* the gauge shows the physical CEILING as a mark; Krakatoa's own value is the question, not a claim */}
+        <Gauge x={1760} y={160} height={520} value={0} max={200} unit="dB" theme={F.theme} direction="up" title="LOUDNESS" side="left" plate={128} readout={false} marker={false} marks={[{ v: 194, label: "194 ceiling" }]} format={(v) => `${v}`} />
+        <UnknownTag x={1767} y={160 + 520 * (1 - 150 / 200)} size={24} />
+        <Pill x={1620} y={160 + 520 * (1 - 150 / 200)} text="Krakatoa?" fill={alpha(F.shadow, 0.72)} color={F.text} size={17} align="end" />
       </Layer>
     </Stage>
   );

@@ -50,6 +50,35 @@ const FACES: Record<Expression, Face> = {
   determined: { browL: [-2, 14], browR: [-2, 14], eye: 0.85, mouth: "line", tilt: -2 },
 };
 
+/**
+ * Pose in-between easing (kit v2.1, study 2.4): a small anticipation backwards (0-22 %), a fast move that overshoots
+ * to 1.08 (22-78 %), then a settle to 1. Returns values slightly outside 0..1 on purpose.
+ */
+export const anticipate = (t: number) => {
+  const u = Math.max(0, Math.min(1, t));
+  const seg = (a: number, b: number, va: number, vb: number) => {
+    const k = Math.max(0, Math.min(1, (u - a) / (b - a)));
+    const e = k * k * (3 - 2 * k);
+    return va + (vb - va) * e;
+  };
+  if (u < 0.22) return seg(0, 0.22, 0, -0.1);
+  if (u < 0.78) return seg(0.22, 0.78, -0.1, 1.08);
+  return seg(0.78, 1, 1.08, 1);
+};
+
+/**
+ * Follow-through for loose parts (antenna, backpack strap, head): rises with the move and wobbles out after it. `t` may
+ * run past 1 (up to ~1.8) for the settle; returns about -1..1.
+ */
+export const followThrough = (t: number) => {
+  if (t <= 0) return 0;
+  if (t <= 1) return Math.sin(t * Math.PI) * (t < 0.22 ? -0.6 : 1);
+  const s = t - 1;
+  return Math.exp(-4.5 * s) * Math.sin(s * Math.PI * 7) * 0.8;
+};
+
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
 /** Two-bone IK: joint between `a` and `b` with segment lengths l1, l2; `bend` = +1 bends toward +x side. */
 const ik = (a: Pt, b: Pt, l1: number, l2: number, bend: 1 | -1): { j: Pt; end: Pt } => {
   let dx = b[0] - a[0];
@@ -107,6 +136,12 @@ export type TickProps = {
   squash?: { sx: number; sy: number };
   /** thin outline for tiny sizes on busy backgrounds */
   outline?: string;
+  /** in-between to another pose: `poseT` 0 = `pose`, 1 = `poseTo` (anticipation + overshoot built in; may run to ~1.8 for the settle wobble) */
+  poseTo?: Pose;
+  poseT?: number;
+  /** blend to another expression: brows, eyes and tilt interpolate; the mouth switches halfway */
+  expressionTo?: Expression;
+  expressionT?: number;
 };
 
 /** Hand targets (local units, facing +x) per pose; `f` = frame for small idle motion. */
@@ -162,6 +197,10 @@ export const Tick: React.FC<TickProps> = ({
   tilt = 0,
   squash,
   outline,
+  poseTo,
+  poseT,
+  expressionTo,
+  expressionT,
 }) => {
   const s = pxPerM / 100;
   const ink = "#1E2226";
@@ -169,7 +208,26 @@ export const Tick: React.FC<TickProps> = ({
   const suitLit = mixHex(color, "#FFFBF2", 0.18);
   const mitt = "#F2E6CF";
   const boot = mixHex(color, "#15191C", 0.55);
-  const face = FACES[expression];
+  // expression blend
+  const face: Face = (() => {
+    const a = FACES[expression];
+    if (!expressionTo || expressionT === undefined || expressionT <= 0) return a;
+    const b = FACES[expressionTo];
+    const k = Math.max(0, Math.min(1, expressionT));
+    const e = k * k * (3 - 2 * k);
+    return {
+      browL: [lerp(a.browL[0], b.browL[0], e), lerp(a.browL[1], b.browL[1], e)],
+      browR: [lerp(a.browR[0], b.browR[0], e), lerp(a.browR[1], b.browR[1], e)],
+      eye: lerp(a.eye, b.eye, e),
+      mouth: k < 0.5 ? a.mouth : b.mouth,
+      tilt: lerp(a.tilt, b.tilt, e),
+    };
+  })();
+  // pose in-between: hand targets lerp with anticipation; loose parts follow through
+  const tweenT = poseTo && poseT !== undefined ? poseT : undefined;
+  const ft = tweenT === undefined ? 0 : followThrough(tweenT);
+  const antennaSwing = -16 * ft;
+  const packLag = 3 * ft;
   const bl = blink(frame, seed);
   const breath = 1 + 0.012 * Math.sin((frame / 95) * TAU + seed);
   const idleSway = walk === undefined ? Math.sin(frame / 53 + seed) * 0.6 : 0;
@@ -209,13 +267,26 @@ export const Tick: React.FC<TickProps> = ({
   const sq = squash ?? { sx: 1, sy: 1 };
 
   // ---- arms ---------------------------------------------------------------------------------------------------
-  const ht = handTargets(pose, frame, walk);
+  const ht = (() => {
+    const a = handTargets(pose, frame, walk);
+    if (tweenT === undefined || !poseTo) return a;
+    const b = handTargets(poseTo, frame, walk);
+    const e = anticipate(Math.min(1, tweenT));
+    const past = tweenT >= 0.5;
+    return {
+      front: [lerp(a.front[0], b.front[0], e), lerp(a.front[1], b.front[1], e)] as Pt,
+      back: [lerp(a.back[0], b.back[0], e), lerp(a.back[1], b.back[1], e)] as Pt,
+      frontBend: past ? b.frontBend : a.frontBend,
+      backBend: past ? b.backBend : a.backBend,
+    };
+  })();
   const shF: Pt = [SHOULDER_X, SHOULDER_Y];
   const shB: Pt = [-SHOULDER_X, SHOULDER_Y];
   const armF = ik(shF, ht.front, ARM1, ARM2, ht.frontBend);
   const armB = ik(shB, ht.back, ARM1, ARM2, ht.backBend);
   // the staff goes to whichever hand is free: the back hand when the front one points, waves, cheers or covers an ear
-  const staffHand = pose === "point" || pose === "wave" || pose === "cheer" || pose === "cover-ears" || pose === "shrug" || pose === "think" ? armB.end : armF.end;
+  const effPose: Pose = tweenT !== undefined && poseTo && tweenT >= 0.5 ? poseTo : pose;
+  const staffHand = effPose === "point" || effPose === "wave" || effPose === "cheer" || effPose === "cover-ears" || effPose === "shrug" || effPose === "think" ? armB.end : armF.end;
 
   // ---- face ---------------------------------------------------------------------------------------------------
   const eyeScale = Math.max(0.06, face.eye * (1 - bl));
@@ -278,9 +349,11 @@ export const Tick: React.FC<TickProps> = ({
         {bootAt(legBack.foot, mixHex(boot, "#000", 0.2))}
         {pose !== "cover-ears" ? limb(shB, armB.j, armB.end, 12, suitShade) : null}
         {pose !== "cover-ears" ? <circle cx={armB.end[0]} cy={armB.end[1]} r={8.5} fill={mixHex(mitt, "#000", 0.18)} {...stroke} /> : null}
-        {/* backpack on the back (behind the torso, toward -x) */}
-        <rect x={-44} y={-110} width={26} height={54} rx={10} fill={suitShade} {...stroke} />
-        <rect x={-40} y={-116} width={16} height={10} rx={4} fill={suitShade} />
+        {/* backpack on the back (behind the torso, toward -x); lags the body on a pose change */}
+        <g transform={`translate(${(-packLag).toFixed(2)} ${Math.abs(packLag).toFixed(2)}) rotate(${(ft * 4).toFixed(2)} -31 -56)`}>
+          <rect x={-44} y={-110} width={26} height={54} rx={10} fill={suitShade} {...stroke} />
+          <rect x={-40} y={-116} width={16} height={10} rx={4} fill={suitShade} />
+        </g>
         {/* torso with breathing */}
         <g transform={`translate(0 -40) scale(1 ${breath}) translate(0 40)`}>
           <rect x={-27} y={sitting ? -118 : -124} width={54} height={sitting ? 80 : 88} rx={22} fill={color} {...stroke} />
@@ -291,7 +364,7 @@ export const Tick: React.FC<TickProps> = ({
           <path d="M8 -92 L11 -89 L16 -96" fill="none" stroke={color} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
         </g>
         {/* head */}
-        <g transform={`rotate(${face.tilt + look * 4} 0 ${HEAD[1] + 20})`}>
+        <g transform={`rotate(${face.tilt + look * 4 + ft * 3} 0 ${HEAD[1] + 20})`}>
           <circle cx={HEAD[0]} cy={HEAD[1]} r={HEAD_R} fill={color} {...stroke} />
           <path d={`M${-HEAD_R + 4} ${HEAD[1] - 6} A${HEAD_R} ${HEAD_R} 0 0 1 ${HEAD[0] - 2} ${HEAD[1] - HEAD_R + 1}`} fill="none" stroke={suitLit} strokeWidth={4} strokeLinecap="round" opacity={0.7} />
           {/* visor: a bone plate toward the facing side */}
@@ -313,9 +386,11 @@ export const Tick: React.FC<TickProps> = ({
           <circle cx={20} cy={-176} r={7} fill={ink} />
           <circle cx={21} cy={-176} r={4.2} fill={lamp ? lampColor : mixHex(visor, "#000", 0.35)} />
           {lamp ? <circle cx={21} cy={-176} r={11} fill={lampColor} opacity={0.35} /> : null}
-          {/* antenna nub */}
-          <path d={`M-14 -180 L-18 -190`} stroke={ink} strokeWidth={2.4} strokeLinecap="round" />
-          <circle cx={-18.5} cy={-191.5} r={3} fill={ink} />
+          {/* antenna nub: a loose part, it lags and wobbles after a move */}
+          <g transform={`rotate(${antennaSwing.toFixed(2)} -14 -180)`}>
+            <path d={`M-14 -180 L-18 -190`} stroke={ink} strokeWidth={2.4} strokeLinecap="round" />
+            <circle cx={-18.5} cy={-191.5} r={3} fill={ink} />
+          </g>
         </g>
         {/* front arm, front leg */}
         {limb(legFront.hip, legFront.knee, legFront.foot, 13, color)}

@@ -1,13 +1,15 @@
-// Style frame v2 / 2: a cavern deep underground, lit from below by heat. The only light source is the magma, so rim
-// light sits on the UNDERSIDE of every rock (light = 90, toward the floor) and the tops of ledges fall into shadow.
-// Tick stands on a rock shelf with the headlamp on. Number on the frame: 180 °C at the bottom of Kola SG-3
-// (episodes/L11-dig-depth/sources.md #1).
+// Style frame v2 / 2 (v2.1 rebuild): "Where rock starts to flow", 12 km down. A MID SHOT: Tick is large in frame (the
+// rule in docs/STYLE-V2.md §5: one shot per scene where Tick fills ≥ 40 % of the height, so the acting reads on a
+// phone). Accuracy: Kola SG-3's bottom was ~180 °C SOLID rock under such pressure that it deforms and squeezes into the
+// 23-cm hole (episodes/L11-dig-depth/sources.md #1, #9); nothing glows, nothing is molten. So the only light is Tick's
+// headlamp; heat is shown by the gauge, by shimmer in the air and by the rock bulging into the borehole slot beside Tick.
+// The hole is drawn at true scale (23 cm ≈ 60 px at 260 px/m); Tick stands in a cutaway of the rock, not in the hole.
 import React from "react";
 import { useCurrentFrame } from "remotion";
 import {
+  Banding,
   Bloom,
-  Bubbles,
-  Embers,
+  Emissive,
   FAMILIES,
   Form,
   Gauge,
@@ -15,155 +17,116 @@ import {
   Headline,
   Kicker,
   Layer,
+  Leader,
   LightWash,
   Motes,
-  Ripples,
+  Pill,
+  Risers,
   Sky,
   Stage,
   Tick,
   TickProps,
-  blobPts,
+  alpha,
   cameraAt,
   flicker,
-  hazed,
   loadIllustratedFonts,
   mixHex,
-  pulse,
-  rnd,
   roundPoly,
 } from "../lib/illustrated";
 
 loadIllustratedFonts();
 
 const F = FAMILIES.ember;
-const UP = 90; // light comes from below
+const PPM = 260;
+const GROUND = 1000;
+const LAMP = { x: 560 + 24 * 2.6, y: GROUND - 176 * 2.6 }; // Tick's headlamp in world px (Tick at x = 560)
+const HOLE_X = 1180;
+const HOLE_W = 0.23 * PPM;
 
 export type CavernProps = { f0?: number; tick?: Partial<TickProps>; title?: boolean; camKeys?: { f: number; x: number; y: number; zoom: number }[]; grain?: number };
 
-/** stalactite row: rounded, varied teeth hanging from y0 (wide shoulders, blunt tips) */
-const teeth = (x0: number, x1: number, y0: number, seed: number, minH: number, maxH: number): [number, number][] => {
-  const pts: [number, number][] = [[x0, y0 - 200]];
-  for (let x = x0, i = 0; x < x1; i++) {
-    const w = 90 + rnd(seed + i) * 120;
-    const h = minH + rnd(seed * 3 + i) * (maxH - minH);
-    pts.push([x, y0 + (rnd(seed * 7 + i) - 0.5) * 24]);
-    pts.push([x + w * 0.38, y0 + h * 0.75]);
-    pts.push([x + w * 0.5, y0 + h]);
-    pts.push([x + w * 0.62, y0 + h * 0.7]);
-    x += w;
-  }
-  pts.push([x1, y0 - 200]);
-  return pts;
-};
-
 export const CavernScene: React.FC<CavernProps> = ({ f0 = 0, tick, title = true, camKeys, grain = 0.5 }) => {
   const f = useCurrentFrame() + f0;
-  const cam = cameraAt(f, camKeys ?? [{ f: 0, x: 960, y: 540, zoom: 1 }, { f: 600, x: 940, y: 560, zoom: 1.05 }]);
-  const magmaY = 870;
-  const glow = flicker(f, 3, 0.18);
-  const ledgeY = 700;
-  const ppm = 104;
-  const ceiling = teeth(-300, 2300, -20, 11, 120, 260);
-  const farCeiling = teeth(-300, 2300, 30, 5, 80, 200);
-  const magma = mixHex(F.light, F.second, 0.3);
-  const rippleC = mixHex(F.light, "#7A2A00", 0.45);
-  const ledge: [number, number][] = [
-    [-300, ledgeY],
-    [300, ledgeY - 6],
-    [700, ledgeY],
-    [900, ledgeY + 10],
-    [1000, ledgeY + 60],
-    [1030, ledgeY + 130],
-    [960, ledgeY + 200],
-    [700, ledgeY + 230],
-    [300, ledgeY + 215],
-    [-300, ledgeY + 240],
-  ];
-
+  const cam = camKeys ? cameraAt(f, camKeys) : undefined;
+  const lampFl = flicker(f, 5, 0.08);
+  // light direction for the rock: toward the lamp (upper left of the hole)
+  const toLamp = (x: number, y: number) => (Math.atan2(LAMP.y - y, LAMP.x - x) * 180) / Math.PI;
+  const rockBase = F.mid;
+  const rockDark = mixHex(F.near, F.shadow, 0.3);
+  const squeeze = 10 + 4 * Math.sin(f / 70); // the plastic bulge breathes very slowly
+  // the borehole slot: walls bulge inward at mid-height (the "rock like plastic" squeeze)
+  const slot = roundPoly(
+    [
+      [HOLE_X - HOLE_W / 2, -200],
+      [HOLE_X + HOLE_W / 2, -200],
+      [HOLE_X + HOLE_W / 2, 420],
+      [HOLE_X + HOLE_W / 2 - squeeze, 560],
+      [HOLE_X + HOLE_W / 2 - squeeze * 1.3, 640],
+      [HOLE_X + HOLE_W / 2 - squeeze * 0.4, 760],
+      [HOLE_X + HOLE_W / 2, GROUND + 100],
+      [HOLE_X - HOLE_W / 2, GROUND + 100],
+      [HOLE_X - HOLE_W / 2 + squeeze * 0.5, 780],
+      [HOLE_X - HOLE_W / 2 + squeeze * 1.4, 660],
+      [HOLE_X - HOLE_W / 2 + squeeze * 0.9, 540],
+      [HOLE_X - HOLE_W / 2, 420],
+    ],
+    10,
+  );
   return (
-    <Stage theme={F.theme} vignette={0.3} grain={grain}>
+    <Stage theme={F.theme} cam={cam} drift={{ zoom: 1.05, panX: 0.02, frames: 300, seed: 2 }} vignette={0.34} grain={grain}>
       <Layer depth={0.05}>
         <Sky family={F} />
-        {/* heat glow rising from the floor */}
-        <Bloom x={960} y={magmaY + 60} r={1000} color={F.light} strength={0.5 * glow} spread={0.22} squash={0.5} />
       </Layer>
-      {/* far wall and far ceiling, hazed in hot dark air */}
-      <Layer depth={0.25} haze={{ color: F.haze, amount: 0.32 }}>
-        <rect x={-400} y={-200} width={2720} height={1500} fill={hazed(F, F.far, 0.1)} />
-        <LightWash x={960} y={magmaY} rx={1200} ry={560} color={F.light} strength={0.55 * glow} />
-        <Form d={roundPoly(farCeiling, 36)} fill={hazed(F, F.mid, 0.2)} light={UP} shadow={F.shadow} inset={30} shadowOpacity={0.45} rim={F.light} rimWidth={3} rimOpacity={0.5} />
-        {/* far pillars: wider at the foot, lit from below */}
-        {[180, 760, 1480].map((x, i) => (
-          <Form key={i} d={roundPoly([[x - 60, -100], [x + 50, -100], [x + 70, 500], [x + 130, 1200], [x - 150, 1200], [x - 80, 500]], 60)} fill={hazed(F, F.mid, 0.25)} light={UP} shadow={F.shadow} inset={34} shadowOpacity={0.55} rim={F.light} rimWidth={5} rimOpacity={0.6} />
-        ))}
-      </Layer>
-      {/* mid: the ceiling with stalactites, crystals, drips */}
-      <Layer depth={0.55} haze={{ color: F.haze, amount: 0.1 }}>
-        <Form d={roundPoly(ceiling, 34)} fill={F.mid} light={UP} shadow={F.shadow} inset={36} shadowOpacity={0.6} rim={F.light} rimWidth={5} rimOpacity={0.85} />
+      {/* the rock face behind Tick: banded, lit only where the lamp reaches */}
+      <Layer depth={0.5}>
+        <rect x={-400} y={-300} width={2720} height={1700} fill={rockDark} />
+        <Banding x={-400} y={-300} w={2720} h={1700} color={rockBase} family={F} bands={22} seed={4} tilt={-3} opacity={0.55} />
+        {/* a few fracture lines */}
         {[
-          [330, 190],
-          [980, 230],
-          [1580, 160],
-        ].map(([x, y], i) => {
-          const p = pulse(f, 50 + i * 9, 0.25, i + 4);
-          return (
-            <g key={i} opacity={0.5 + 0.5 * (p - 0.75)}>
-              <path d={`M${x} ${y} l-12 -30 l12 -18 l12 18 Z`} fill={mixHex(F.second, "#fff", 0.3)} />
-              <path d={`M${x} ${y} l-12 -30 l12 -18 Z`} fill={F.second} opacity={0.6} />
-              <Bloom x={x} y={y - 20} r={40} color={F.second} strength={0.5 * p} spread={0.3} />
-            </g>
-          );
-        })}
-        {[520, 1210, 1760].map((x, i) => {
-          const per = 90 + i * 20;
-          const t = (f + i * 31) % per;
-          const y0 = 250 + i * 10;
-          const dropY = t < 40 ? y0 + t * 0.15 : y0 + 6 + ((t - 40) * (t - 40)) / 6;
-          return dropY < magmaY ? <ellipse key={i} cx={x} cy={dropY} rx={3} ry={t < 40 ? 3 + t * 0.06 : 5} fill={mixHex(F.text, F.light, 0.4)} opacity={0.8} /> : null;
-        })}
+          [120, 80, 420, 600],
+          [1500, -100, 1760, 520],
+          [1700, 700, 2100, 1000],
+        ].map(([x1, y1, x2, y2], i) => (
+          <path key={i} d={`M${x1} ${y1} q${(x2 - x1) * 0.4} ${(y2 - y1) * 0.6} ${x2 - x1} ${y2 - y1}`} fill="none" stroke={F.shadow} strokeWidth={3} opacity={0.6} />
+        ))}
+        <LightWash x={LAMP.x + 260} y={LAMP.y + 120} rx={720} ry={520} color={F.light} strength={0.5 * lampFl} />
+        <LightWash x={LAMP.x} y={LAMP.y} rx={300} ry={300} color="#FFE3A8" strength={0.35 * lampFl} />
       </Layer>
-      {/* magma lake with a hot centre, ripples, bubbles and crust plates */}
+      {/* the slot of the borehole, cut into the rock, walls bulging inward */}
       <Layer depth={0.8}>
-        <rect x={-400} y={magmaY} width={2720} height={400} fill={magma} />
-        <LightWash x={1100} y={magmaY + 70} rx={700} ry={90} color="#FFF4C4" strength={0.8 * glow} />
-        <LightWash x={-100} y={magmaY + 120} rx={500} ry={120} color="#7A2A00" strength={0.4} />
-        <LightWash x={2000} y={magmaY + 120} rx={500} ry={120} color="#7A2A00" strength={0.4} />
-        <Ripples frame={f} cx={760} cy={magmaY + 46} rx={340} ry={36} period={70} count={4} color={rippleC} width={2.6} strength={0.6} />
-        <Ripples frame={f} cx={1420} cy={magmaY + 80} rx={280} ry={30} period={90} count={3} color={rippleC} width={2.2} strength={0.5} />
-        <Bubbles frame={f} x0={200} x1={1700} y={magmaY + 70} n={10} color="#FFE48C" seed={8} rise={0.06} life={120} size={6} />
-        {[
-          [420, 20, 1],
-          [1120, 26, 2],
-          [1620, 16, 3],
-        ].map(([x, r, s], i) => (
-          <path key={i} d={roundPoly(blobPts(x + Math.sin(f / 200 + s) * 10, magmaY + 70 + s * 12, r * 4, 8, s, 0.3, 0.3), 14)} fill={F.near} opacity={0.85} />
-        ))}
-      </Layer>
-      {/* the shelf with Tick; stalagmites */}
-      <Layer depth={1}>
-        <Form d={roundPoly(ledge, 40)} fill={mixHex(F.near, F.mid, 0.35)} light={UP} shadow={F.shadow} inset={34} shadowOpacity={0.55} rim={F.light} rimWidth={6} rimOpacity={0.95}>
-          <LightWash x={700} y={ledgeY + 240} rx={700} ry={90} color={F.light} strength={0.45 * glow} />
+        <Form d={roundPoly([[HOLE_X - 220, -300], [HOLE_X + 260, -300], [HOLE_X + 300, GROUND + 100], [HOLE_X - 260, GROUND + 100]], 60)} fill={rockBase} light={toLamp(HOLE_X, 500)} shadow={F.shadow} inset={40} shadowOpacity={0.5} rim={F.light} rimWidth={3} rimOpacity={0.6 * lampFl} bounce={F.bounce}>
+          <Banding x={HOLE_X - 300} y={-300} w={600} h={1400} color={rockBase} family={F} bands={18} seed={9} tilt={-2} opacity={0.6} />
         </Form>
-        <GroundShadow x={620} y={ledgeY + 2} rx={ppm * 0.4} color={F.shadow} opacity={0.5} />
-        <Tick x={620} y={ledgeY} pxPerM={ppm} frame={f} pose="hold" expression="worried" lamp staff look={0.8} seed={2} {...tick} />
-        {[
-          [150, 70, 1],
-          [330, 110, 2],
-        ].map(([x, h, s], i) => (
-          <Form key={i} d={roundPoly([[x - 30, ledgeY + 2], [x - 6, ledgeY - h], [x + 8, ledgeY - h * 0.9], [x + 32, ledgeY + 2]], 10)} fill={mixHex(F.near, F.mid, 0.5)} light={UP} shadow={F.shadow} inset={10} rim={F.light} rimWidth={3} rimOpacity={0.8} />
+        <path d={slot} fill={F.shadow} />
+        {/* the bulge lips catch the lamp */}
+        <path d={`M${HOLE_X - HOLE_W / 2 + squeeze * 0.9} 540 Q${HOLE_X - HOLE_W / 2 + squeeze * 1.9} 660 ${HOLE_X - HOLE_W / 2 + squeeze * 0.5} 780`} fill="none" stroke={F.light} strokeWidth={3} opacity={0.75 * lampFl} strokeLinecap="round" />
+        <path d={`M${HOLE_X + HOLE_W / 2 - squeeze} 560 Q${HOLE_X + HOLE_W / 2 - squeeze * 1.8} 640 ${HOLE_X + HOLE_W / 2 - squeeze * 0.4} 760`} fill="none" stroke={mixHex(F.light, F.shadow, 0.5)} strokeWidth={2} opacity={0.5} strokeLinecap="round" />
+        {/* drill string hanging in the slot */}
+        <rect x={HOLE_X - 9} y={-300} width={18} height={820} rx={4} fill={mixHex(F.dim, F.shadow, 0.5)} />
+        <rect x={HOLE_X - 9} y={-300} width={6} height={820} fill={mixHex(F.dim, F.light, 0.2)} opacity={0.6} />
+        {[-120, 60, 240, 420].map((y) => (
+          <rect key={y} x={HOLE_X - 12} y={y} width={24} height={14} rx={3} fill={mixHex(F.dim, F.shadow, 0.3)} />
         ))}
+        {/* heat shimmer rising from the hot rock (thin wavering lines, not glow) */}
+        <Risers frame={f} x0={HOLE_X - 200} x1={HOLE_X + 240} y={GROUND} n={14} color={F.light} seed={12} rise={0.5} life={140} size={1.2} wiggle={9} />
       </Layer>
-      {/* foreground rock frame and embers */}
-      <Layer depth={1.3}>
-        <Form d={roundPoly([[1560, 1200], [1600, 800], [1720, 640], [1900, 580], [2300, 560], [2300, 1200]], 60)} fill={F.near} light={UP} shadow={F.shadow} inset={40} shadowOpacity={0.6} rim={F.light} rimWidth={6} rimOpacity={0.9} />
-        <Form d={roundPoly([[-300, 1200], [-300, 300], [-140, 380], [-60, 560], [20, 760], [-20, 1200]], 50)} fill={F.near} light={UP} shadow={F.shadow} inset={40} shadowOpacity={0.6} rim={F.light} rimWidth={5} rimOpacity={0.7} />
-        <Embers frame={f} x0={100} x1={1800} y={magmaY + 40} n={48} color={F.second} seed={3} rise={1.5} life={130} size={2.6} wiggle={16} />
-        <Motes frame={f} n={30} x={0} y={100} w={1920} h={700} color={F.light} seed={6} size={2.2} />
+      {/* floor and Tick, large */}
+      <Layer depth={1}>
+        <Form d={roundPoly([[-400, GROUND], [2320, GROUND - 8], [2320, 1400], [-400, 1400]], 10)} fill={mixHex(F.near, F.mid, 0.3)} light={toLamp(700, GROUND)} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={3} rimOpacity={0.5 * lampFl} bounce={F.bounce} />
+        <LightWash x={LAMP.x + 320} y={GROUND} rx={560} ry={60} color={F.light} strength={0.3 * lampFl} />
+        <GroundShadow x={590} y={GROUND + 2} rx={PPM * 0.42} ry={PPM * 0.1} color={F.shadow} opacity={0.55} blur={16} />
+        <Tick x={560} y={GROUND} pxPerM={PPM} frame={f} pose="hold" expression="worried" lamp staff look={0.9} seed={2} {...tick} />
+        <Bloom x={LAMP.x} y={LAMP.y} r={120} color="#FFE9B8" strength={0.7 * lampFl} spread={0.3} />
+        <Emissive d={`M${LAMP.x} ${LAMP.y} l6 0`} color="#FFF3D0" width={6} strength={0.8 * lampFl} glow={8} />
+        <Motes frame={f} n={26} x={LAMP.x} y={LAMP.y - 100} w={700} h={400} color={F.light} seed={6} size={2.2} />
       </Layer>
       <Layer depth={0}>
+        <Leader from={[HOLE_X - HOLE_W / 2 + 14, 660]} to={[HOLE_X - 150, 560]} color={F.text} elbow={false} />
+        <Pill x={HOLE_X - 150} y={560} text="rock squeezing in" fill={alpha(F.shadow, 0.72)} color={F.text} dot={F.light} size={19} align="end" />
+        <Pill x={HOLE_X} y={GROUND + 44} text="23 cm" fill={alpha(F.shadow, 0.72)} color={F.text} size={17} align="middle" />
         {title ? (
           <g>
-            <Kicker x={120} y={128} text="12 km down" color={F.dim} size={20} />
+            <Kicker x={120} y={128} text="12 km down · 180 °C" color={F.dim} size={20} />
             <Headline x={120} y={250} lines={["Where rock", "starts to flow"]} size={92} color={F.text} accent={F.light} shadow={F.shadow} />
           </g>
         ) : null}

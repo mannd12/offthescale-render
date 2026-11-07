@@ -32,13 +32,34 @@ export const cameraAt = (frame: number, keys: CamKey[]): Cam => {
   };
 };
 
+export type Drift = { zoom?: number; panX?: number; panY?: number; frames?: number; seed?: number; from?: Cam };
+/**
+ * Default camera drift (kit v2.1, study item 1: "the camera never rests"): a slow push from `from` to zoom × `zoom`
+ * with a pan of `panX`/`panY` × frame width/height over `frames` frames, eased at both ends. The pan direction
+ * alternates with `seed`, so consecutive shots do not all drift the same way. A shot with no explicit camera path gets
+ * this automatically from <Stage>; pass `drift={false}` for a deliberately locked frame (chapter cards, insets).
+ */
+export const driftCam = (frame: number, d: Drift = {}): Cam => {
+  const { zoom = 1.06, panX = 0.03, panY = 0.012, frames = 240, seed = 1, from = REST } = d;
+  const u = Math.max(0, Math.min(1, frame / frames));
+  const e = u * u * (3 - 2 * u);
+  const dir = seed % 2 === 0 ? -1 : 1;
+  return {
+    x: from.x + dir * panX * 1920 * e,
+    y: from.y + (seed % 3 === 0 ? -1 : 1) * panY * 1080 * e,
+    zoom: Math.exp(Math.log(from.zoom) + Math.log(zoom) * e),
+  };
+};
+
 /**
  * One full-frame scene: flat base colour, one SVG with the camera, one soft vignette (the only ramp allowed), and the
- * paper/grain print texture on top (`grain` = strength multiplier, 0 = off).
+ * paper/grain print texture on top (`grain` = strength multiplier, 0 = off). Without `cam`, the camera drifts
+ * (`drift`, see driftCam) so no shot is ever still.
  */
-export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain?: number; grainStep?: number; children: React.ReactNode; overlay?: React.ReactNode }> = ({
+export const Stage: React.FC<{ theme: Theme; cam?: Cam; drift?: Drift | false; vignette?: number; grain?: number; grainStep?: number; children: React.ReactNode; overlay?: React.ReactNode }> = ({
   theme,
-  cam = REST,
+  cam: camProp,
+  drift,
   vignette = 0.16,
   grain = 1,
   grainStep = 0,
@@ -46,6 +67,7 @@ export const Stage: React.FC<{ theme: Theme; cam?: Cam; vignette?: number; grain
   overlay,
 }) => {
   const frame = useCurrentFrame();
+  const cam = camProp ?? (drift === false ? REST : driftCam(frame, drift ?? {}));
   return (
   <AbsoluteFill style={{ background: theme.bg }}>
     <CamCtx.Provider value={cam}>

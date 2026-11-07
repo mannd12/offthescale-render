@@ -100,13 +100,16 @@ export const Form: React.FC<{
   rim?: string | false;
   rimWidth?: number;
   rimOpacity?: number;
+  /** bounce / fill light (kit v2.1): a coloured tint on the shadow side, so shadows are never plain black */
+  bounce?: string | false;
+  bounceOpacity?: number;
   /** optional flat shade band (hard two-tone) instead of a blurred one */
   hard?: boolean;
   stroke?: string;
   strokeWidth?: number;
   opacity?: number;
   children?: React.ReactNode;
-}> = ({ d, fill, light = KEY_LIGHT, shadow, shadowOpacity = 0.5, inset = 14, rim, rimWidth = 3, rimOpacity = 0.75, hard = false, stroke, strokeWidth = 1.5, opacity = 1, children }) => {
+}> = ({ d, fill, light = KEY_LIGHT, shadow, shadowOpacity = 0.5, inset = 14, rim, rimWidth = 3, rimOpacity = 0.75, bounce, bounceOpacity = 0.35, hard = false, stroke, strokeWidth = 1.5, opacity = 1, children }) => {
   const id = "form" + safeId(useId());
   const [lx, ly] = lightVec(light);
   const blur = hard ? undefined : `url(#soft-${inset >= 24 ? 16 : inset >= 10 ? 8 : 4})`;
@@ -127,6 +130,18 @@ export const Form: React.FC<{
             transform={`translate(${(-lx * inset * 0.9).toFixed(1)} ${(-ly * inset * 0.9).toFixed(1)})`}
             filter={blur}
             opacity={shadowOpacity}
+          />
+        ) : null}
+        {bounce ? (
+          <path
+            d={d}
+            fill="none"
+            stroke={bounce}
+            strokeWidth={inset * 1.2}
+            strokeLinejoin="round"
+            transform={`translate(${(-lx * inset * 0.5).toFixed(1)} ${(-ly * inset * 0.5).toFixed(1)})`}
+            filter={blur}
+            opacity={bounceOpacity}
           />
         ) : null}
         {rim ? (
@@ -154,7 +169,16 @@ export const Form: React.FC<{
  * the flank away from the sun darkens as a whole, the lit flank stays the fill colour. Round 1 of the v2 frames
  * showed that an inner-shadow band alone leaves a big mountain reading flat.
  */
-export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: number; fill: string; opacity?: number; soft?: boolean; depth?: number }> = ({ pts, base, light = KEY_LIGHT, fill, opacity = 0.4, soft = true, depth }) => {
+export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: number; fill: string; opacity?: number; soft?: boolean; depth?: number; /** shade the LIT flanks instead (third tonal step: pass a light colour) */ lit?: boolean }> = ({
+  pts,
+  base,
+  light = KEY_LIGHT,
+  fill,
+  opacity = 0.4,
+  soft = true,
+  depth,
+  lit = false,
+}) => {
   const [lx, ly] = lightVec(light);
   const out: { d: string; o: number }[] = [];
   for (let i = 0; i < pts.length - 1; i++) {
@@ -170,7 +194,8 @@ export const Facets: React.FC<{ pts: [number, number][]; base: number; light?: n
       nx = -nx;
       ny = -ny;
     }
-    const facing = nx * lx + ny * ly; // > 0 faces the light
+    const facing0 = nx * lx + ny * ly; // > 0 faces the light
+    const facing = lit ? -facing0 : facing0;
     if (facing < 0.05) {
       // a facet reaches down a limited way (about its own length) and widens, so a short counter-slope near a summit
       // does not cast a column to the base (round 2 of the v2 frames)
@@ -288,6 +313,38 @@ export const Vignette: React.FC<{ color?: string; strength?: number }> = ({ colo
     </g>
   );
 };
+
+/**
+ * Emissive form (kit v2.1, study 2.1): a stroke or fill that carries its own glow, for self-lit things in dark scenes
+ * (sound rings, lava seams, screens, filaments). Three passes: a wide soft halo, a tighter bright halo, the crisp shape.
+ * `strength` scales the halos; the crisp pass is always full. Pair with LightWash on the surfaces it lights.
+ */
+export const Emissive: React.FC<{ d: string; color: string; core?: string; width?: number; fill?: boolean; strength?: number; glow?: 8 | 16 | 32; opacity?: number }> = ({
+  d,
+  color,
+  core,
+  width = 3,
+  fill = false,
+  strength = 1,
+  glow = 16,
+  opacity = 1,
+}) => (
+  <g opacity={opacity}>
+    {fill ? (
+      <>
+        <path d={d} fill={color} filter={`url(#soft-${glow})`} opacity={0.55 * strength} transform="scale(1)" />
+        <path d={d} fill={color} filter="url(#soft-4)" opacity={0.7 * strength} />
+        <path d={d} fill={core ?? color} />
+      </>
+    ) : (
+      <>
+        <path d={d} fill="none" stroke={color} strokeWidth={width * 5} strokeLinecap="round" strokeLinejoin="round" filter={`url(#soft-${glow})`} opacity={0.5 * strength} />
+        <path d={d} fill="none" stroke={color} strokeWidth={width * 2} strokeLinecap="round" strokeLinejoin="round" filter="url(#soft-4)" opacity={0.75 * strength} />
+        <path d={d} fill="none" stroke={core ?? color} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" />
+      </>
+    )}
+  </g>
+);
 
 /** rgba helper re-exported for scene code */
 export { alpha };
