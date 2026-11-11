@@ -460,161 +460,143 @@
     "index": 7,
     "text": "So far we have stayed in air. Air is where the ceiling is. Change the medium, and the rules change with it.",
     "file": "L13-loudest-sound/vo/l07-07-d59928965b.wav",
-    "seconds": 6.947368421052632,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.98,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 0,
     "text": "Underwater, people use a different decibel scale, with a different zero. Water is also denser and carries sound faster.",
     "file": "L13-loudest-sound/vo/l08-00-04cf3f8daa.wav",
-    "seconds": 6,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 6.34,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 1,
     "text": "Put those together and a number measured in water reads about sixty-one and a half decibels higher than the same sound would in air. So you can't compare the two scales until you've subtracted that.",
     "file": "L13-loudest-sound/vo/l08-01-86373aef61.wav",
-    "seconds": 11.052631578947368,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.44,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 2,
     "text": "The loudest animal measured is the sperm whale. Its clicks have been recorded at up to two hundred and thirty-six decibels on the underwater scale.",
     "file": "L13-loudest-sound/vo/l08-02-df59124424.wav",
-    "seconds": 7.894736842105263,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 6.36,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 3,
     "text": "Take off the sixty-one and a half, and that lands in the same territory as our loudest air sounds. Still below the ceiling.",
     "file": "L13-loudest-sound/vo/l08-03-a36b6e3839.wav",
-    "seconds": 7.2631578947368425,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.92,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 4,
     "text": "On Mars, a rover carries a microphone. It told us sound there travels at about two hundred and forty metres a second, against three hundred and forty here, because the air is a hundred and seventy times thinner.",
     "file": "L13-loudest-sound/vo/l08-04-a9469c0b96.wav",
-    "seconds": 12,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 10.390041666666667,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 5,
     "text": "High notes even travel at a different speed from low ones. The researchers' own summary: two people five metres apart would struggle to hold a conversation.",
     "file": "L13-loudest-sound/vo/l08-05-3e8a5ef949.wav",
-    "seconds": 8.210526315789474,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.95,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 6,
     "text": "And between the stars there is almost nothing to wiggle, so there is almost no sound. Almost.",
     "file": "L13-loudest-sound/vo/l08-06-d3a31abc51.wav",
-    "seconds": 5.368421052631579,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 5.08,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 7,
     "text": "In the Perseus cluster, two hundred and fifty million light years away, the hot gas around a giant black hole carries ripples, and they are sound waves.",
     "file": "L13-loudest-sound/vo/l08-07-3f09b321dc.wav",
-    "seconds": 8.526315789473685,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 7.47,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 8,
     "text": "The pitch works out to a B-flat, fifty-seven octaves below middle C. A million billion times too deep for any ear, and held roughly steady for two and a half billion years.",
     "file": "L13-loudest-sound/vo/l08-08-9ba2be78f4.wav",
-    "seconds": 10.105263157894736,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.58,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 9,
     "text": "The loudest sound in air has a ceiling. The lowest note we know of has been playing since before there were ears.",
     "file": "L13-loudest-sound/vo/l08-09-2083680619.wav",
-    "seconds": 6.947368421052632,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.36,
+    "pauseAfter": 0.55
   },
   {
     "scene": "closer",
     "index": 0,
     "text": "Some of this is simpler than the real thing. The hundred-and-ninety-four ceiling is for a clean, symmetric wave in sea-level air; change the pressure and the ceiling moves.",
     "file": "L13-loudest-sound/vo/closer-00-4d464a7e6f.wav",
-    "seconds": 8.842105263157894,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 7.88,
+    "pauseAfter": 0.25
   },
   {
     "scene": "closer",
     "index": 1,
     "text": "The Saturn V's two hundred and three is a power level, so it was never a reading at anyone's ear.",
     "file": "L13-loudest-sound/vo/closer-01-fda6374a02.wav",
-    "seconds": 6.315789473684211,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 4.35,
+    "pauseAfter": 0.55
   },
   {
     "scene": "closer",
     "index": 2,
     "text": "And Krakatoa. Every decibel figure you've heard for it traces back to that one gasworks gauge in Batavia. Read its jump as inches of mercury and you get the famous hundred and seventy-two.",
     "file": "L13-loudest-sound/vo/closer-02-537489a9d4.wav",
-    "seconds": 10.421052631578949,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 10.34,
+    "pauseAfter": 0.25
   },
   {
     "scene": "closer",
     "index": 3,
     "text": "Read it as water, and you get about a hundred and fifty. The report prints the number two ways that don't agree, and we couldn't settle it. So we won't give you a decibel for Krakatoa.",
     "file": "L13-loudest-sound/vo/closer-03-7f129269e9.wav",
-    "seconds": 11.368421052631579,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 10.1,
+    "pauseAfter": 0.25
   },
   {
     "scene": "closer",
     "index": 4,
     "text": "What we can give you is what the instruments did: a gauge that jumped nine times, a hundred and forty kilometres away, and every barometer on Earth drawing the same blip seven times.",
     "file": "L13-loudest-sound/vo/closer-04-f20826faea.wav",
-    "seconds": 10.421052631578949,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.98,
+    "pauseAfter": 0.55
   },
   {
     "scene": "closer",
     "index": 5,
     "text": "Back on Rodriguez, the police chief kept listening until three in the afternoon. He wrote \"heavy guns\". It was the loudest thing he could compare it to. The air has a loudest sound, and we know its number.",
     "file": "L13-loudest-sound/vo/closer-05-aac23693d9.wav",
-    "seconds": 12,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 11.77,
+    "pauseAfter": 0.25
   },
   {
     "scene": "closer",
     "index": 6,
     "text": "But the loudest things don't stay sounds. They become a wall, then a slow swell, then a line on a chart in a city that never heard a thing.",
     "file": "L13-loudest-sound/vo/closer-06-3a8dad58e2.wav",
-    "seconds": 9.157894736842106,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 8.4,
+    "pauseAfter": 0.55
   }
 ]
