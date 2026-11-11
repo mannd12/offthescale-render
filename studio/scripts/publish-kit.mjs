@@ -11,6 +11,15 @@ const FPS = 30;
 const LEAD_IN = Math.round(0.35 * FPS); // keep in sync with src/lib/timeline.ts
 const vo = JSON.parse(fs.readFileSync(path.join(ROOT, "src", "episodes", slug, "vo.json"), "utf8"));
 const episodeDir = path.join(ROOT, "..", "episodes", slug);
+// Extra holds after lines (an episode's `export const HOLDS = { "scene:index": seconds }` in Episode.tsx) lengthen the
+// pause after that line, exactly as the composition does - without them, captions and chapters drift (L12: up to 21 s).
+const HOLDS = {};
+const epSrc = path.join(ROOT, "src", "episodes", slug, "Episode.tsx");
+if (fs.existsSync(epSrc)) {
+  const m = fs.readFileSync(epSrc, "utf8").match(/export const HOLDS[^=]*=\s*\{([^}]*)\}/);
+  for (const [, k, v] of m ? m[1].matchAll(/"([^"]+)"\s*:\s*([\d.]+)/g) : []) HOLDS[k] = Number(v);
+  if (Object.keys(HOLDS).length) console.log("holds:", JSON.stringify(HOLDS));
+}
 
 const stamp = (sec, sep) => {
   const ms = Math.round(sec * 1000);
@@ -22,7 +31,8 @@ let cursor = 0;
 let scene = null;
 const cues = [];
 const sceneStarts = [];
-for (const l of vo) {
+for (const l0 of vo) {
+  const l = { ...l0, pauseAfter: l0.pauseAfter + (HOLDS[`${l0.scene}:${l0.index}`] ?? 0) };
   if (l.scene !== scene) {
     scene = l.scene;
     sceneStarts.push({ id: scene, sec: cursor / FPS });

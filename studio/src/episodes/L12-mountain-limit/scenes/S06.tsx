@@ -52,7 +52,7 @@ import { FossilShell, SlateBlock } from "../props";
 import { MASSIF, SUMMIT, Summit, massifY } from "../Summit";
 import { ShotDef, ShotFC, actBreakAt, playShots } from "../shots";
 import { Cue, SFX, cutHit, sting } from "./cue-types";
-import { Black, DISC_KM, Disc, chapterFourCard } from "./S07";
+import { Black, CloudRack, DISC_KM, Disc, Streamers, chapterFourCard } from "./S07";
 
 const DUSK = familyOf("dusk");
 const NOON = familyOf("noon");
@@ -117,6 +117,9 @@ const ShotDawn: ShotFC<CL06> = ({ f, len, c }) => {
     <Stage theme={F.theme} cam={cam} vignette={0.24} grain={0.5}>
       <Summit f={f} family={F} light={12} sun={null} sunGlow={0.4 + 0.04 * Math.sin(f / 30)} tick={{ pxPerM: ppm, pose: down > 0.5 ? "think" : "stand", poseTo: down > 0.5 ? undefined : "point", poseT: tap, expression: "thinking", headTilt: down * 18, look: lerp(0.6, 0.1, down), staff: true }} />
       <Layer depth={0.6}>
+        {/* pass b: pre-dawn cloud sea drifting past the flanks below Tick's boots, spindrift off the cornice */}
+        <CloudRack f={f + 300} n={5} x0={500} x1={1600} y0={400} y1={470} size={46} speed={0.8} body={mixHex(F.haze, F.shadow, 0.3)} under={mixHex(F.shadow, F.sky[0], 0.3)} top={mixHex(F.light, F.haze, 0.5)} seed={11} />
+        <Streamers f={f} n={18} x0={SUMMIT.x - 10} x1={SUMMIT.x + 360} y0={SUMMIT.y - 30} y1={SUMMIT.y + 16} len={50} width={2.6} speed={1.6} slope={0.16} color="#FFFFFF" opacity={0.65} seed={6} />
         {/* the +2 mm counter plate beside Tick (it rides the mountain) */}
         <g opacity={1 - down * 0.5}>
           <rect x={px} y={py - 22} width={112} height={34} rx={6} fill={alpha(F.shadow, 0.78)} stroke={F.light} strokeWidth={1.2} />
@@ -177,10 +180,8 @@ const ShotMap: ShotFC<CL06> = ({ f, len, c }) => {
         <rect x={-800} y={-600} width={3600} height={2400} fill={land} />
         <path d={smoothPath([[-800, 200], [200, 240], [900, 210], [1700, 250], [2800, 200]]) + " L2800 -600 L-800 -600 Z"} fill={high} />
         <path d={smoothPath([[-800, 760], [300, 800], [1100, 770], [1900, 810], [2800, 780]]) + " L2800 1800 L-800 1800 Z"} fill="#B9CF9A" opacity={0.7} />
-        {/* cloud shadows crawling over the map */}
-        {[0, 1, 2].map((i) => (
-          <ellipse key={i} cx={((f * (1.2 + i * 0.4) + i * 900) % 3000) - 500} cy={260 + i * 280} rx={260 + i * 60} ry={70} fill={F.shadow} opacity={0.1} />
-        ))}
+        {/* cloud shadows crawling over the map (pass b: defined edges, the clouds that cast them float above at depth 1.2) */}
+        <CloudRack f={f} n={4} x0={-700} x1={2700} y0={300} y1={900} size={90} speed={1.8} body={F.shadow} opacity={0.16} seed={4} flat={1.3} />
         {/* the range: hill symbols with a lit west face and a shaded east face (sun upper left) */}
         {peaks.map((p, i) => (
           <g key={i}>
@@ -214,6 +215,11 @@ const ShotMap: ShotFC<CL06> = ({ f, len, c }) => {
         <g opacity={k}>
           <Metric x={120} y={170} value="89,000" unit="years ago" size={76} color={F.text} />
         </g>
+      </Layer>
+      <Layer depth={1.2}>
+        <CloudRack f={f} n={4} x0={-700} x1={2700} y0={160} y1={760} size={90} speed={2.2} body="#FFFDF6" under="#E8E2D2" opacity={0.85} seed={4} flat={1.3} />
+      </Layer>
+      <Layer depth={0}>
         <Pill x={120} y={1000} text="SCHEMATIC MAP · ONE STUDY'S MODEL" fill={pillFill(F)} color="#FFF8E8" size={16} />
         <L12Gauge family={F} value={HEIGHTS.everest /* #1 */} ceiling={{ v: 9000 /* #9 */ }} base="ABOVE SEA LEVEL" />
       </Layer>
@@ -405,6 +411,7 @@ const ShotBand: ShotFC<CL06> = ({ f, len, c }) => {
       <Layer depth={0.3} haze={{ color: F.haze, amount: 0.42 }}>
         <path d={ridgePath([[-400, 760], [100, 690], [500, 740], [900, 670], [1300, 730], [1800, 660], [2400, 740]], 1300, 30)} fill={F.far} />
         <HazeBand y={640} h={300} color={F.haze} strength={0.35} />
+        <CloudRack f={f} n={5} x0={300} x1={2400} y0={700} y1={860} size={70} speed={1.8} body={mixHex(F.haze, "#FFF4E6", 0.4)} under={mixHex(F.light, "#FFFFFF", 0.3)} seed={8} />
       </Layer>
       <Layer depth={1}>
         {/* the three peaks: each hops (squash) as the band lifts it; no heights are claimed for the neighbours */}
@@ -531,6 +538,8 @@ const ShotArrows: ShotFC<CL06> = ({ f, len, c }) => {
     <Stage theme={F.theme} cam={cam} vignette={0.24} grain={0.5}>
       <Summit f={f} family={F} light={12} sun={null} sunGlow={0.55} tick={{ pxPerM: 40, pose: "stand", expression: "neutral", look: -0.4 }} spot />
       <Layer depth={0.6}>
+        <CloudRack f={f + 500} n={5} x0={200} x1={1900} y0={520} y1={640} size={60} speed={1.2} body={mixHex(F.haze, "#FFF4E6", 0.35)} under={mixHex(F.light, "#FFFFFF", 0.3)} seed={12} />
+        <Streamers f={f} n={18} x0={SUMMIT.x - 10} x1={SUMMIT.x + 420} y0={SUMMIT.y - 30} y1={SUMMIT.y + 20} len={70} width={3} speed={2.2} slope={0.16} color="#FFFFFF" opacity={0.6} seed={7} />
         {/* 6-13: a band of the flanks peels off and leaves as specks, downstream to the right */}
         <g opacity={peel * (1 - peel * 0.6)} transform={`translate(${peel * 60} ${peel * 30})`}>
           <path d={band(1180, 1880)} fill={mixHex(F.mid, F.light, 0.35)} />

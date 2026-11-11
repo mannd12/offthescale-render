@@ -51,8 +51,9 @@ import { SlateBlock } from "../props";
 import { snowCap } from "../Summit";
 import { ShotDef, ShotFC, actBreakAt, playShots } from "../shots";
 import { Cue, SFX, cutHit, sting } from "./cue-types";
+import { CycClouds, STUDIO_SET } from "./S08";
 
-const F = familyOf("studio");
+const F = STUDIO_SET; // the coloured studio set (polish pass (a), 2026-11-11): teal cyc, ochre floor, cool shadows
 const DUSK = familyOf("dusk");
 const EMBER = familyOf("ember");
 const AMBER = L12_COLORS.amber;
@@ -110,18 +111,21 @@ const Studio: React.FC<{ f: number; children: React.ReactNode; hud?: React.React
     <Layer depth={0.05}>
       <Sky family={F} />
     </Layer>
+    <Layer depth={0.2}>
+      <CycClouds f={f} y={110} seed={seed} />
+    </Layer>
     <Layer depth={0.5}>
-      <rect x={-1200} y={FLOOR - 70} width={4400} height={900} fill={F.far} />
+      <rect x={-1200} y={FLOOR - 70} width={4400} height={900} fill={mixHex(F.mid, "#FFE4A8", 0.25)} />
       <HazeBand y={FLOOR - 190} h={190} color={F.haze} strength={0.9} x={-1200} w={4400} />
-      <rect x={-1200} y={FLOOR - 70} width={4400} height={3} fill={mixHex(F.far, F.near, 0.35)} opacity={0.5} />
+      <rect x={-1200} y={FLOOR - 70} width={4400} height={3} fill={F.near} opacity={0.5} />
     </Layer>
     <Layer depth={1}>
-      <rect x={-1200} y={FLOOR} width={4400} height={900} fill={mixHex(F.far, F.mid, 0.45)} />
+      <rect x={-1200} y={FLOOR} width={4400} height={900} fill={mixHex(F.mid, F.near, 0.5)} />
       <HazeBand y={FLOOR} h={300} color={F.near} strength={0.25} x={-1200} w={4400} />
       {children}
     </Layer>
     <Layer depth={1.25}>
-      <Motes frame={f} n={26} x={-100} y={60} w={2100} h={860} color={mixHex(F.near, F.light, 0.3)} seed={seed} size={3.4} drift={40} />
+      <Motes frame={f} n={26} x={-100} y={60} w={2100} h={860} color={mixHex(F.haze, F.light, 0.5)} seed={seed} size={5.5} drift={44} />
     </Layer>
     {hud ? <Layer depth={0}>{hud}</Layer> : null}
   </>
@@ -400,12 +404,15 @@ const ShotAir: ShotFC<CL01> = ({ f, len, c }) => {
         <Layer depth={0.05}>
           <Sky family={F} />
         </Layer>
+        <Layer depth={0.2}>
+          <CycClouds f={f} y={110} seed={4} />
+        </Layer>
         <Layer depth={0.5}>
-          <rect x={-1200} y={900} width={4400} height={900} fill={F.far} />
+          <rect x={-1200} y={900} width={4400} height={900} fill={mixHex(F.mid, "#FFE4A8", 0.25)} />
           <HazeBand y={720} h={180} color={F.haze} strength={0.9} x={-1200} w={4400} />
         </Layer>
         <Layer depth={1}>
-          <rect x={-1200} y={ty - 20} width={4400} height={900} fill={mixHex(F.far, F.mid, 0.45)} />
+          <rect x={-1200} y={ty - 20} width={4400} height={900} fill={mixHex(F.mid, F.near, 0.5)} />
           {/* the column of air on the big Tick: see-through, to the top of the frame, slow rising streaks */}
           <rect x={tx - 150} y={-400} width={300} height={ty - ppm * 1.82 + 400} fill={alpha(air, 0.22)} stroke={alpha(F.second, 0.7)} strokeWidth={2.5} strokeDasharray="12 9" />
           {Array.from({ length: 7 }, (_, i) => {

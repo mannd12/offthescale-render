@@ -57,6 +57,7 @@ import { FossilShell } from "../props";
 import { SUMMIT, Summit, massifY } from "../Summit";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
+import { Caustics, CloudRack, Streamers } from "./S07";
 
 const F = familyOf("dusk");
 const STUDIO = familyOf("studio");
@@ -109,33 +110,36 @@ const Pop: React.FC<{ f: number; children: React.ReactNode }> = ({ f, children }
   <AbsoluteFill style={{ transform: `scale(${cutPop(f, 0)})`, transformOrigin: "50% 50%" }}>{children}</AbsoluteFill>
 );
 
-/** A simple clean cloud: a flat base, three or four merged lobes, one body tone and a lit underside (low sun). No
- *  crescents, no strokes (art-director note: "keep clouds simple and clean"). x = left, y = the flat base line. */
-const SimpleCloud: React.FC<{ id: string; x: number; y: number; w: number; h: number; lobes: [number, number, number][] }> = ({ id, x, y, w, h, lobes }) => {
-  const body = mixHex(F.haze, "#FFF4E6", 0.5);
-  const under = mixHex(F.light, "#FFFFFF", 0.35);
-  const shape = (
-    <>
-      <rect x={x} y={y - h * 0.34} width={w} height={h * 0.34} rx={h * 0.17} />
-      {lobes.map(([u, r, lift], i) => (
-        <ellipse key={i} cx={x + u * w} cy={y - h * 0.2 - lift * h} rx={r * h} ry={r * h * 0.92} />
-      ))}
-    </>
-  );
-  return (
-    <g>
-      <clipPath id={id}>{shape}</clipPath>
-      <g fill={body}>{shape}</g>
-      <rect x={x - 10} y={y - h * 0.2} width={w + 20} height={h * 0.3} fill={under} opacity={0.75} clipPath={`url(#${id})`} />
-    </g>
-  );
-};
-
-/** Two cloud bands on the far plane, BEHIND the massif (Summit `behind` slot) and left of the HUD at every zoom. */
+/** The far-plane cloud rack, BEHIND the massif (Summit `behind` slot) and left of the HUD at every zoom: defined-edge
+ *  masses drifting right at ~1.6 px/frame that fade out before world x 1300 (pass b: the old two clouds crept at 0.2
+ *  px/frame and the probe read the sky as frozen). */
 const Clouds: React.FC<{ f: number; opacity?: number; right?: boolean }> = ({ f, opacity = 1, right = true }) => (
   <Layer depth={0.18} haze={{ color: F.haze, amount: 0.22 }} opacity={opacity}>
-    <SimpleCloud id="cold-cl-a" x={70 + f * 0.2} y={410} w={360} h={84} lobes={[[0.2, 0.42, 0.1], [0.45, 0.62, 0.3], [0.7, 0.46, 0.14], [0.87, 0.3, 0.02]]} />
-    {right ? <SimpleCloud id="cold-cl-b" x={1090 + f * 0.14} y={520} w={210} h={50} lobes={[[0.26, 0.5, 0.16], [0.56, 0.66, 0.3], [0.8, 0.4, 0.06]]} /> : null}
+    <CloudRack f={f + 400} n={right ? 5 : 4} x0={-700} x1={1300} y0={380} y1={560} size={78} speed={1.6} body={mixHex(F.haze, "#FFF4E6", 0.5)} under={mixHex(F.light, "#FFFFFF", 0.35)} seed={3} />
+  </Layer>
+);
+
+/** Spindrift streaming off the summit cornice to the right (massif layer, depth 0.6, world coords of `Summit`). */
+const Spindrift: React.FC<{ f: number; n?: number; opacity?: number }> = ({ f, n = 22, opacity = 0.7 }) => (
+  <Layer depth={0.6}>
+    <Streamers f={f} n={n} x0={SUMMIT.x - 20} x1={SUMMIT.x + 520} y0={SUMMIT.y - 40} y1={SUMMIT.y + 30} len={90} width={4} speed={3.2} slope={0.18} color="#FFFFFF" opacity={opacity} seed={5} />
+  </Layer>
+);
+
+/** Spindrift raking along the summit shelf in the close shots (depth 1.05, just in front of the shelf). */
+const ShelfDrift: React.FC<{ f: number; n?: number }> = ({ f, n = 26 }) => (
+  <Layer depth={1.05}>
+    <Streamers f={f} n={n} x0={-300} x1={2300} y0={640} y1={980} len={260} width={7} speed={7} slope={0.04} color="#FFFFFF" opacity={0.55} seed={9} />
+    <Streamers f={f} n={10} x0={-300} x1={2300} y0={120} y1={520} len={340} width={4} speed={9} slope={0.03} color="#FFFFFF" opacity={0.3} seed={13} />
+  </Layer>
+);
+
+/** Near flakes: a few big ones close to the lens (r 3.5-5.5 px), on top of the fine `Snow`. */
+const NearFlakes: React.FC<{ f: number; n?: number }> = ({ f, n = 22 }) => (
+  <Layer depth={1.4}>
+    {fall(f, n, 1920, 1080, 21, 2.6, 30).map((p, i) => (
+      <circle key={i} cx={p.x} cy={p.y} r={3.5 + rnd(i * 3) * 2} fill="#FFFFFF" opacity={0.75} />
+    ))}
   </Layer>
 );
 
@@ -223,9 +227,12 @@ const ShotApproach: ShotFC<CCold> = ({ f, len, c }) => {
       <Layer depth={0.6}>
         <Breath f={f} x={SUMMIT.x} y={SUMMIT.y} ppm={40} />
       </Layer>
+      <Spindrift f={f} />
       <Snow f={f} n={80} r={0.8} />
-      <Layer depth={1.1}>
-        <Motes frame={f} n={20} x={300} y={200} w={1100} h={600} color={F.light} seed={5} size={2.2} />
+      <NearFlakes f={f} n={18} />
+      {/* foreground cloud bank the push slides past (depth 1.5: it swells and leaves the frame as the camera climbs) */}
+      <Layer depth={1.5}>
+        <CloudRack f={f + 260} n={3} x0={-600} x1={2500} y0={1010} y1={1090} size={200} speed={2.4} body={mixHex(F.haze, F.shadow, 0.18)} under={mixHex(F.shadow, F.sky[1], 0.4)} top={mixHex(F.light, "#FFFFFF", 0.4)} seed={7} />
       </Layer>
       <Hud v={v} rolling marker={f >= rise} base={k > 0.92} readout={stopped ? "8,848.86 m" : undefined} />
     </Stage>
@@ -245,10 +252,13 @@ const ShotGps: ShotFC<CCold> = ({ f, len, c }) => {
   const ax = 1060;
   const ay = shelfY(ax);
   const lamp = pulse(f, 24, 0.5, 2) > 1.2 ? 1 : 0.25;
+  // acting: think → points at the counter as it starts to roll → snaps back to think, surprised, on "two millimetres"
+  const tm = c.twoMm - c.gps;
+  const gpsPose = f < tm - 6 ? ({ pose: "think", poseTo: "point", poseT: Math.min(1.5, ramp(f, 6, 26) * 1.5) } as const) : ({ pose: "point", poseTo: "shrug", poseT: Math.min(1.5, ramp(f, tm - 6, tm + 14) * 1.5) } as const);
   return (
     <Pop f={f}>
-      <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.08, panX: 0.03, panY: 0.01, frames: len + 40, seed: 3 }} vignette={0.22} grain={0.5}>
-        <FarWorld f={f} />
+      <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.07, panY: 0.01, frames: len + 40, seed: 3 }} vignette={0.22} grain={0.5}>
+        <FarWorld f={f + 200} />
         <Shelf f={f}>
           {/* GPS antenna glyph: a mast, a flat plate, a blinking lamp */}
           <GroundShadow x={ax + 10} y={ay + 2} rx={28} color={F.shadow} opacity={0.4} blur={4} />
@@ -257,10 +267,12 @@ const ShotGps: ShotFC<CCold> = ({ f, len, c }) => {
           <rect x={ax - 30} y={ay - ppm * 0.95 - 19} width={60} height={5} fill={F.light} opacity={0.6} />
           <Bloom x={ax} y={ay - ppm * 0.95 - 36} r={34} color={F.light} strength={lamp} spread={0.3} core={5} coreColor="#FFF6DC" />
           <GroundShadow x={tx + 12} y={ty + 2} rx={ppm * 0.4} color={F.shadow} opacity={0.42} blur={8} />
-          <Tick x={tx} y={ty} pxPerM={ppm} frame={f} pose="think" expression="thinking" expressionTo="surprised" expressionT={surprised} look={0.9 - surprised * 0.3} headTilt={surprised * 6} outline={F.shadow} />
+          <Tick x={tx} y={ty} pxPerM={ppm} frame={f} {...gpsPose} expression="thinking" expressionTo="surprised" expressionT={surprised} look={0.9 - surprised * 0.3} headTilt={surprised * 6 - (1 - surprised) * 8 * Math.sin(f / 14)} outline={F.shadow} />
           <Breath f={f} x={tx} y={ty} ppm={ppm} seed={7} />
         </Shelf>
+        <ShelfDrift f={f} />
         <Snow f={f} n={60} r={1.1} />
+        <NearFlakes f={f} />
         <Layer depth={0}>
           {/* the counter: "+" Counter "mm" · A YEAR, left of the gauge plate */}
           <g opacity={ramp(f, 8, 22)}>
@@ -292,15 +304,23 @@ const ShotCeiling: ShotFC<CCold> = ({ f, len, c }) => {
   const bump = f < bumpAt ? 0 : Math.max(0, Math.sin(Math.min(1, (f - bumpAt) / 16) * Math.PI)) * 90;
   const lineIn = ramp(f, bumpAt - 20, bumpAt - 4);
   const turn = ramp(f, why, why + 14);
+  // acting: looks up and points at the gauge as the line arrives → on "Nothing on Earth" spreads its hands (shrug) →
+  // on "Why not?" turns to us
+  const no = c.nothing - c.ceiling;
+  const ceilPose =
+    f < no ? ({ pose: "stand", poseTo: "point", poseT: Math.min(1.5, ramp(f, bumpAt - 24, bumpAt) * 1.5) } as const) : f < why ? ({ pose: "point", poseTo: "shrug", poseT: Math.min(1.5, ramp(f, no, no + 18) * 1.5) } as const) : ({ pose: "shrug", poseTo: "hips", poseT: Math.min(1.5, ramp(f, why, why + 16) * 1.5) } as const);
+  const upLook = ramp(f, bumpAt - 30, bumpAt - 10) * (1 - ramp(f, no, no + 12));
   return (
-    <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.07, panX: 0.03, panY: 0.02, frames: len + 40, seed: 2 }} vignette={0.22} grain={0.5}>
-      <FarWorld f={f} />
+    <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.07, panY: 0.02, frames: len + 40, seed: 2 }} vignette={0.22} grain={0.5}>
+      <FarWorld f={f + 320} />
       <Shelf f={f}>
         <GroundShadow x={tx + 8} y={ty + 2} rx={ppm * 0.4} color={F.shadow} opacity={0.42} blur={8} />
-        <Tick x={tx} y={ty} pxPerM={ppm} frame={f} pose="stand" expression="surprised" expressionTo="thinking" expressionT={turn} look={1 - turn * 0.9} headTilt={-8 + turn * 14} outline={F.shadow} />
+        <Tick x={tx} y={ty} pxPerM={ppm} frame={f} {...ceilPose} expression="surprised" expressionTo="thinking" expressionT={turn} look={1 - turn * 0.9} headTilt={-8 - upLook * 12 + turn * 14} outline={F.shadow} />
         <Breath f={f} x={tx} y={ty} ppm={ppm} seed={5} />
       </Shelf>
+      <ShelfDrift f={f + 50} />
       <Snow f={f} n={60} r={1.0} />
+      <NearFlakes f={f} />
       <Layer depth={0}>
         <L12Gauge family={F} value={EVEREST + creep + bump} base="ABOVE SEA LEVEL" readout="8,848.86 m" ceiling={lineIn > 0 ? { v: CEILING_V } : null} opacity={1} />
         {/* the dashed line fades in: a soft wash behind its position while it arrives */}
@@ -340,8 +360,8 @@ const StoneOutside: React.FC<{ f: number; len: number; hud: boolean }> = ({ f, l
     6,
   );
   return (
-    <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.08, panX: 0.02, panY: 0.02, frames: len + 40, seed: 5 }} vignette={0.22} grain={0.5}>
-      <FarWorld f={f} />
+    <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.1, panX: 0.05, panY: 0.02, frames: len + 40, seed: 5 }} vignette={0.22} grain={0.5}>
+      <FarWorld f={f + 460} />
       <Shelf f={f}>
         <GroundShadow x={tx + 8} y={ty + 2} rx={ppm * 0.4} color={F.shadow} opacity={0.42} blur={8} />
         <Tick x={tx} y={ty} pxPerM={ppm} frame={f} {...pose} expression="thinking" look={0.7} headTilt={10 - lift * 6} outline={F.shadow} />
@@ -354,7 +374,9 @@ const StoneOutside: React.FC<{ f: number; len: number; hud: boolean }> = ({ f, l
         </g>
         <Breath f={f} x={tx} y={ty} ppm={ppm} seed={9} />
       </Shelf>
+      <ShelfDrift f={f + 110} n={20} />
       <Snow f={f} n={60} r={1.0} />
+      <NearFlakes f={f} n={16} />
       {hud ? <Hud v={EVEREST} ceiling readout="8,848.86 m" /> : null}
     </Stage>
   );
@@ -368,7 +390,7 @@ const StoneInside: React.FC<{ f: number; len: number; c: CCold }> = ({ f, len, c
   const plateT = ramp(f, c.plate - i0, c.plate - i0 + 14);
   const cam = cameraAt(f, [
     { f: 0, x: 960, y: 560, zoom: 1.0 },
-    { f: len + 30, x: 980, y: 540, zoom: 1.14 },
+    { f: len + 30, x: 1060, y: 520, zoom: 1.26 },
   ]);
   const lime = L12_COLORS.limestone;
   const sea = L12_COLORS.seaGlass;
@@ -387,6 +409,10 @@ const StoneInside: React.FC<{ f: number; len: number; c: CCold }> = ({ f, len, c
         <LightWash x={900} y={520} rx={900} ry={520} color={sea} strength={0.5 * (0.4 + 0.6 * ink1)} />
         <g opacity={0.9 * ink1}>
           <Ripples frame={f} cx={940} cy={560} rx={1000} ry={560} period={70} count={5} color="#EAF6EE" width={6} strength={0.5} />
+        </g>
+        {/* the shallow sea's caustic net sliding over the rock (pass b: the probe read this shot as frozen) */}
+        <g opacity={0.35 + 0.65 * ink1}>
+          <Caustics f={f} x={-300} y={-200} w={2500} h={1500} rows={9} color="#F4FBF2" width={9} opacity={0.32} speed={1.8} />
         </g>
       </Layer>
       <Layer depth={0.5}>

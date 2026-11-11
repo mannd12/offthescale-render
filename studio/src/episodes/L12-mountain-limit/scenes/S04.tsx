@@ -28,6 +28,7 @@ import {
   Motes,
   P,
   Pill,
+  Puffs,
   Sky,
   Stage,
   Stars,
@@ -51,10 +52,11 @@ import { cueKit } from "../cues";
 import { HEIGHTS, L12Gauge } from "../L12Gauge";
 import { ShotDef, ShotFC, actBreakAt, playShots } from "../shots";
 import { Cue, SFX, cutHit, sting } from "./cue-types";
+import { CycClouds, STUDIO_SET } from "./S08";
 
 type Pt = [number, number];
 const NOON = familyOf("noon");
-const STUDIO = familyOf("studio");
+const STUDIO = STUDIO_SET; // the coloured studio set (polish pass (a), 2026-11-11)
 const PETROL = familyOf("petrol");
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -102,7 +104,8 @@ const rangeY = (x: number) => {
 /** `shave` = world x up to which the blade has planed the tops down to `shaveY` (4-03, 4-06); `pack` 0..1 ice bands. */
 const WinterRange: React.FC<{ f: number; shave?: number; shaveY?: number; pack?: number; line?: number; bite?: number; children?: React.ReactNode }> = ({ f, shave = -9999, shaveY = SNOWLINE - 150, pack = 1, line = 1, bite = 0, children }) => {
   const F = NOON;
-  const rock = mixHex(L12_COLORS.slate, "#6E7F8E", 0.4);
+  const rock = "#86685A"; // warm umber rock (was slate grey): lit faces warm, shadow facets cool blue (polish pass (a))
+  const ICE = "#4FB5A8"; // the glaciers, more saturated than the episode sea-glass
   const pts: Pt[] = RANGE.flatMap(([x, y], i): Pt[] => {
     if (x <= shave && y < shaveY) {
       // a planed top: replace the peak with a flat where the flanks cross shaveY
@@ -119,34 +122,35 @@ const WinterRange: React.FC<{ f: number; shave?: number; shaveY?: number; pack?:
   return (
     <>
       <Layer depth={0.05}>
-        <Sky stops={["#6FB4D8", "#A9D8E8", "#E6EEE6", "#F6F0E0"]} />
+        <Sky stops={["#1F78B4", "#3E9FD6", "#86CDE6", "#E8E6C8"]} />
         <Bloom x={260} y={150} r={700} color="#FFF8E0" strength={0.5} spread={0.3} />
         <Bloom x={260} y={150} r={130} color="#FFFDF0" strength={0.9} spread={0.45} core={40} coreColor="#FFFFFF" />
       </Layer>
-      <Layer depth={0.22} haze={{ color: "#E6EEE6", amount: 0.45 }}>
-        <path d={ridgePath([[-600, 640], [-200, 520], [100, 580], [420, 470], [700, 560], [1000, 480], [1300, 570], [1600, 500], [1900, 580], [2500, 620]], 1300, 14)} fill="#8FB4C8" />
+      <Layer depth={0.22} haze={{ color: "#A8DCEC", amount: 0.35 }}>
+        <path d={ridgePath([[-600, 640], [-200, 520], [100, 580], [420, 470], [700, 560], [1000, 480], [1300, 570], [1600, 500], [1900, 580], [2500, 620]], 1300, 14)} fill="#4F8FC4" />
         <path d={ridgePath([[380, 500], [420, 470], [470, 505]], 520, 4)} fill="#FFFFFF" />
-        <Cumulus x={((f * 0.5 + 900) % 2800) - 500} y={260} w={520} h={120} fill="#FFFFFF" shade="#C8DCE6" lit="#FFFFFF" seed={5} frame={f} />
+        <Cumulus x={((f * 2 + 900) % 2800) - 500} y={260} w={520} h={120} fill="#FFFFFF" shade="#A9CDEA" lit="#FFFFFF" seed={5} frame={f} />
+        <Cumulus x={((f * 1.6 + 2300) % 2800) - 500} y={170} w={420} h={100} fill="#FFFFFF" shade="#A9CDEA" lit="#FFFFFF" seed={8} frame={f} />
         <Flock frame={f} x={1900} y={330} vx={-1.1} n={5} size={9} color={F.shadow} seed={6} />
       </Layer>
       <Layer depth={1}>
         <Form d={ridgePath(pts, 1500, 8)} fill={rock} light={225} shadow={F.shadow} inset={26} shadowOpacity={0.4} rim="#FFFFFF" rimWidth={4} rimOpacity={0.9} bounce={F.bounce} hard>
-          <Facets pts={pts} base={1500} light={225} fill={mixHex(F.shadow, "#2A4A6A", 0.5)} opacity={0.42} />
-          <Facets pts={pts} base={1500} light={225} fill="#FFFFFF" opacity={0.22} lit />
+          <Facets pts={pts} base={1500} light={225} fill="#2B4E86" opacity={0.5} />
+          <Facets pts={pts} base={1500} light={225} fill="#FFD49A" opacity={0.3} lit />
           {/* snow above the snowline: two tones, hard edge */}
-          <path d={cap(SNOWLINE)} fill="#E3EEF2" />
-          <path d={cap(SNOWLINE - 110)} fill={L12_COLORS.snow} />
-          <Facets pts={pts} base={SNOWLINE + 20} light={225} fill="#9FC0D6" opacity={0.35} depth={170} />
+          <path d={cap(SNOWLINE)} fill="#BFDDF2" />
+          <path d={cap(SNOWLINE - 110)} fill="#FFF5E0" />
+          <Facets pts={pts} base={SNOWLINE + 20} light={225} fill="#6E9EDA" opacity={0.5} depth={170} />
         </Form>
         {/* glaciers in the valleys: sea-glass tongues with ice bands that pack down and crevasses that crawl */}
         {VALLEYS.map(([vx, vy], i) => {
           const w = 150;
           const tongue = roundPoly([[vx - w, vy - 150], [vx - w * 0.5, vy - 30], [vx - w * 0.7, vy + 150], [vx - w * 0.2, vy + 330 + pack * 40], [vx + w * 0.5, vy + 330 + pack * 40], [vx + w * 0.8, vy + 140], [vx + w * 0.5, vy - 30], [vx + w, vy - 150]], 30);
           return (
-            <Form key={i} d={tongue} fill={L12_COLORS.seaGlass} light={225} shadow={mixHex(L12_COLORS.seaGlass, "#2A4A6A", 0.5)} inset={18} shadowOpacity={0.5} rim="#FFFFFF" rimWidth={3} rimOpacity={0.9} hard>
+            <Form key={i} d={tongue} fill={ICE} light={225} shadow={mixHex(ICE, "#1E3E7A", 0.5)} inset={18} shadowOpacity={0.5} rim="#FFFFFF" rimWidth={3} rimOpacity={0.9} hard>
               {Array.from({ length: 9 }, (_, k) => {
                 const yy = vy - 120 + ((k * 56 + f * 0.9) % 500);
-                return <path key={k} d={`M${vx - w} ${yy} Q${vx} ${yy + 36} ${vx + w} ${yy}`} fill="none" stroke={k % 3 === 0 ? "#FFFFFF" : mixHex(L12_COLORS.seaGlass, "#2A4A6A", 0.45)} strokeWidth={k % 3 === 0 ? 4 : 2.5} opacity={0.4 + 0.5 * pack} />;
+                return <path key={k} d={`M${vx - w} ${yy} Q${vx} ${yy + 36} ${vx + w} ${yy}`} fill="none" stroke={k % 3 === 0 ? "#FFFFFF" : mixHex(ICE, "#1E3E7A", 0.45)} strokeWidth={k % 3 === 0 ? 4 : 2.5} opacity={0.4 + 0.5 * pack} />;
               })}
               <rect x={vx - w} y={vy - 160} width={w * 2} height={90 * pack} fill={L12_COLORS.snow} opacity={0.85} />
             </Form>
@@ -167,11 +171,15 @@ const WinterRange: React.FC<{ f: number; shave?: number; shaveY?: number; pack?:
               return <path key={i} d={`M${-s} ${-s * 0.6} L${s * 0.8} ${-s} L${s} ${s * 0.5} L${-s * 0.6} ${s}`} fill={i % 2 ? rock : "#E3EEF2"} stroke={F.shadow} strokeWidth={1} transform={`translate(${x} ${y}) rotate(${t0 * (200 + i * 60)})`} opacity={1 - clamp01((t0 - 0.8) / 0.2)} />;
             })
           : null}
+        {/* spindrift: plumes streaming off the high peaks (they follow the planed top in 4-03 / 4-06) */}
+        {[[250, 330], [900, 250], [1540, 300]].map(([px, py], i) => (
+          <Puffs key={i} frame={f + i * 7} x={px + 10} y={Math.max(py, px <= shave ? shaveY : py) + 4} color="rgba(255,255,255,0.85)" period={9} size={22} rise={0.25} drift={2.6} life={54} seed={i + 3} />
+        ))}
         {/* the dashed snowline */}
         <line x1={-500} y1={SNOWLINE} x2={2500} y2={SNOWLINE} stroke={F.shadow} strokeWidth={4} strokeDasharray="16 12" opacity={0.85 * line} />
         {children}
         {snow.map((p, i) => (
-          <circle key={i} cx={p.x - 250} cy={p.y - 40} r={p.r} fill="#FFFFFF" opacity={0.75} />
+          <circle key={i} cx={p.x - 250} cy={p.y - 40} r={p.r * 1.7} fill="#FFFFFF" opacity={0.8} />
         ))}
       </Layer>
     </>
@@ -190,8 +198,8 @@ const ShotWinter: ShotFC<C> = ({ f, len, c }) => {
     <Stage theme={F.theme} cam={cam} vignette={0.1} grain={0.5}>
       <WinterRange f={f} pack={ease(f, 20, c.ice + 30)} line={ease(f, 6, 30)} bite={clamp01((f - c.grind - 16) / Math.max(1, len - c.grind - 16))} />
       <Layer depth={1.3}>
-        <path d={ridgePath([[-600, 1500], [-200, 1040], [120, 990], [460, 1060], [760, 1500]], 1900, 20)} fill="#F4F8F8" />
-        <path d={ridgePath([[-600, 1500], [-200, 1100], [120, 1060], [460, 1120], [760, 1500]], 1900, 20)} fill="#C6DAE4" />
+        <path d={ridgePath([[-600, 1500], [-200, 1040], [120, 990], [460, 1060], [760, 1500]], 1900, 20)} fill="#FFF3DE" />
+        <path d={ridgePath([[-600, 1500], [-200, 1100], [120, 1060], [460, 1120], [760, 1500]], 1900, 20)} fill="#94BFE6" />
       </Layer>
       <Layer depth={0}>
         <g opacity={ease(f, 10, 30)}>
@@ -237,8 +245,8 @@ const ShotSaw: ShotFC<C> = ({ f, len, c }) => {
       </WinterRange>
       <Layer depth={1.25}>
         {/* the lower ridge Tick stands on: a snowy foreground shoulder */}
-        <path d={ridgePath([[-600, 1500], [-100, 900], [300, 800], [700, 830], [1000, 960], [1300, 1500]], 1900, 24)} fill="#F4F8F8" />
-        <path d={ridgePath([[-600, 1500], [-100, 990], [300, 900], [700, 930], [1000, 1040], [1300, 1500]], 1900, 24)} fill="#C6DAE4" />
+        <path d={ridgePath([[-600, 1500], [-100, 900], [300, 800], [700, 830], [1000, 960], [1300, 1500]], 1900, 24)} fill="#FFF3DE" />
+        <path d={ridgePath([[-600, 1500], [-100, 990], [300, 900], [700, 930], [1000, 1040], [1300, 1500]], 1900, 24)} fill="#94BFE6" />
         <GroundShadow x={470} y={812} rx={110} color="#5A7A92" opacity={0.4} blur={8} />
         <Tick x={450} y={810} pxPerM={270} frame={f} pose="stand" poseTo="shield" poseT={pt} expression="surprised" expressionTo="scared" expressionT={clamp01(f / 12)} look={0.4} facing={1} outline={F.shadow} tilt={-4 + Math.sin(f / 3) * 1.2 * clamp01(1 - f / 60)} />
       </Layer>
@@ -304,7 +312,7 @@ const ShotPaper: ShotFC<C> = ({ f, len, c }) => {
       <Layer depth={1}>
         {/* the sheet: a paper with a pale sea-glass sea, a cast shadow, curled corner */}
         <rect x={132} y={182} width={1680} height={800} rx={6} fill={F.shadow} opacity={0.22} filter="url(#soft-16)" />
-        <rect x={120} y={160} width={1680} height={800} rx={6} fill={mixHex("#CFE6DC", "#F8EEDC", 0.25 + k * 0.5)} />
+        <rect x={120} y={160} width={1680} height={800} rx={6} fill={mixHex("#5FB4B2", "#F2D3A0", 0.12 + k * 0.6)} />
         <rect x={120} y={160} width={1680} height={800} rx={6} fill="none" stroke={ink} strokeWidth={3} />
         {/* graticule that drifts a hair (the paper breathes) */}
         {Array.from({ length: 9 }, (_, i) => (
@@ -320,7 +328,7 @@ const ShotPaper: ShotFC<C> = ({ f, len, c }) => {
             const on = ease(f, 4 + i * 7, 34 + i * 7);
             return (
               <g key={i}>
-                <path d={d} fill={mixHex("#E8C890", "#D09A58", (i % 3) * 0.25)} opacity={on * 0.9} />
+                <path d={d} fill={mixHex("#EBAE52", "#C9733A", (i % 3) * 0.3)} opacity={on * 0.9} />
                 <path d={d} fill="none" stroke={ink} strokeWidth={3.5} strokeDasharray="2400" strokeDashoffset={2400 * (1 - on)} strokeLinejoin="round" />
               </g>
             );
@@ -360,7 +368,9 @@ const ShotPaper: ShotFC<C> = ({ f, len, c }) => {
             </g>
           );
         })}
-        <Motes frame={f} n={26} x={100} y={120} w={1720} h={860} color="#FFFFFF" seed={4} size={3} drift={30} />
+        {/* weather drifting over the map (fades as the chart takes over) */}
+        <CycClouds f={f} y={200} n={3} seed={12} opacity={0.9 * (1 - k)} />
+        <Motes frame={f} n={26} x={100} y={120} w={1720} h={860} color="#FFFFFF" seed={4} size={4} drift={36} />
       </Layer>
       <Layer depth={0}>
         <Kicker x={120} y={110} text="— 2009 · NATURE" color={F.text} size={24} />
@@ -412,15 +422,18 @@ const StudioFloor: React.FC<{ f: number; children?: React.ReactNode }> = ({ f, c
     <>
       <Layer depth={0.05}>
         <Sky family={F} />
-        <Bloom x={260} y={120} r={900} color="#FFFBF0" strength={0.6} spread={0.35} />
+        <Bloom x={260} y={120} r={900} color="#FFE4A8" strength={0.6} spread={0.35} />
+      </Layer>
+      <Layer depth={0.2}>
+        <CycClouds f={f} y={110} seed={5} />
       </Layer>
       <Layer depth={0.4}>
-        <HazeBand y={640} h={200} color={F.far} strength={0.6} />
-        <rect x={-400} y={838} width={2720} height={700} fill={F.far} />
+        <HazeBand y={640} h={200} color={F.haze} strength={0.6} />
+        <rect x={-400} y={838} width={2720} height={700} fill={mixHex(F.mid, "#FFE4A8", 0.25)} />
       </Layer>
       <Layer depth={1}>
-        <rect x={-400} y={880} width={2720} height={700} fill={mixHex(F.mid, F.far, 0.4)} />
-        <Motes frame={f} n={34} x={0} y={100} w={1920} h={760} color="#FFFFFF" seed={8} size={3.4} drift={40} />
+        <rect x={-400} y={880} width={2720} height={700} fill={mixHex(F.mid, F.near, 0.5)} />
+        <Motes frame={f} n={34} x={0} y={100} w={1920} h={760} color="#FFFFFF" seed={8} size={5} drift={44} />
         {children}
       </Layer>
     </>

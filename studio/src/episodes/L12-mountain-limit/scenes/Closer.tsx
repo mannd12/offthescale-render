@@ -45,7 +45,7 @@ import { HEIGHTS, L12Gauge } from "../L12Gauge";
 import { FossilShell } from "../props";
 import { SUMMIT, Summit } from "../Summit";
 import { ShotDef, ShotFC, playShots } from "../shots";
-import { EarthDisc, Lit, Pop, REPLAY_DISC, Vesta } from "./S08";
+import { CycClouds, EarthDisc, Lit, Pop, REPLAY_DISC, STUDIO_SET, Vesta } from "./S08";
 import { Cue, SFX, cutHit } from "./cue-types";
 
 loadIllustratedFonts();
@@ -53,7 +53,7 @@ loadIllustratedFonts();
 /** Frames of end card after the last line (E-01: 20 s). */
 export const closerTail = 600;
 
-const S = familyOf("studio");
+const S = STUDIO_SET; // the coloured studio set (polish pass (a), 2026-11-11; defined in S08)
 const DUSK = familyOf("dusk");
 const VOID = familyOf("void");
 const PETROL = familyOf("petrol");
@@ -94,7 +94,10 @@ const Room: React.FC<{ f: number }> = ({ f }) => (
   <>
     <Layer depth={0.05}>
       <Sky family={S} />
-      <Bloom x={220} y={20} r={900} color={S.light} strength={0.55 * pulse(f, 130, 0.1, 5)} spread={0.3} squash={0.8} />
+      <Bloom x={220} y={20} r={900} color="#FFE4A8" strength={0.55 * pulse(f, 130, 0.1, 5)} spread={0.3} squash={0.8} />
+    </Layer>
+    <Layer depth={0.2}>
+      <CycClouds f={f} y={130} seed={7} />
     </Layer>
     <Layer depth={0.3} haze={{ color: S.haze, amount: 0.35 }}>
       <path d={ridgePath([[-400, FLOOR - 120], [150, FLOOR - 190], [640, FLOOR - 140], [1150, FLOOR - 210], [1650, FLOOR - 150], [2320, FLOOR - 190]], FLOOR + 400, 80)} fill={S.far} />
@@ -162,7 +165,7 @@ const ShotBall: ShotFC<CCloser> = ({ f, len, c }) => {
           <Ball x={bx} r={135} fill={BONE_BALL} />
           <GroundShadow x={1000} y={FLOOR - 1} rx={PPM * 0.4} color={S.shadow} opacity={0.4} blur={8} />
           <Tick x={1010} y={FLOOR} pxPerM={PPM} frame={f} facing={-1} pose="stand" poseTo="point" poseT={point * 1.6} expression="proud" look={0.5} seed={2} outline={S.shadow} />
-          <Motes frame={f} n={26} x={60} y={60} w={1700} h={760} color={S.light} seed={7} size={3} drift={30} />
+          <Motes frame={f} n={26} x={60} y={60} w={1700} h={760} color={S.light} seed={7} size={5} drift={40} />
           <Inset cx={330} cy={400} r={150} at={bump} scale={1} family={S} t={insetT} metric={{ value: "< 1", unit: "mm" /* #27: 0.69 mm */ }}>
             <BumpView at={bump} fill={BONE_BALL} h={22} w={120} f={f} />
           </Inset>
@@ -243,7 +246,7 @@ const ShotMars: ShotFC<CCloser> = ({ f, len, c }) => {
           <GroundShadow x={tx + 6} y={FLOOR - 1} rx={PPM * 0.42} color={S.shadow} opacity={0.42} blur={8} />
           <Tick x={tx} y={FLOOR + poke * 3} pxPerM={PPM} frame={f} pose="stand" poseTo="press" poseT={lean * 1.6} expression="happy" look={0.9} seed={2} outline={S.shadow} headTilt={8 + poke * 5} />
           <Ball x={mx} r={mr} fill={MARS_BALL} />
-          <Motes frame={f} n={26} x={60} y={60} w={1700} h={760} color={S.light} seed={7} size={3} drift={30} />
+          <Motes frame={f} n={26} x={60} y={60} w={1700} h={760} color={S.light} seed={7} size={5} drift={40} />
           {/* the Earth's magnifier stays from Z-01, quiet (no metric) */}
           <Inset cx={290} cy={400} r={112} at={eBump} scale={1} family={S} t={1}>
             <BumpView at={eBump} fill={BONE_BALL} h={14} w={90} f={f} />
@@ -287,7 +290,10 @@ const ShotPebble: ShotFC<CCloser> = ({ f, len, c }) => {
       <Stage theme={S.theme} cam={cam} vignette={0.1} grain={0.5}>
         <Layer depth={0.05}>
           <Sky family={S} />
-          <Bloom x={220} y={20} r={900} color={S.light} strength={0.55 * pulse(f, 130, 0.1, 5)} spread={0.3} squash={0.8} />
+          <Bloom x={220} y={20} r={900} color="#FFE4A8" strength={0.55 * pulse(f, 130, 0.1, 5)} spread={0.3} squash={0.8} />
+        </Layer>
+        <Layer depth={0.2}>
+          <CycClouds f={f} y={110} seed={9} />
         </Layer>
         <Layer depth={0.4} haze={{ color: S.haze, amount: 0.3 }}>
           <path d={ridgePath([[-400, 820], [300, 740], [900, 800], [1500, 730], [2320, 790]], 1500, 90)} fill={S.far} />

@@ -86,6 +86,83 @@ const pop = (f: number, cam: Cam): Cam => ({ ...cam, zoom: cam.zoom * cutPop(f, 
 const onLayer = (f: number, tx: number, ty: number, eff: number) => ({ f, x: 960 + (tx - 960) / 0.6, y: 540 + (ty - 540) / 0.6, zoom: Math.pow(eff, 1 / 0.6) });
 
 // ---------------------------------------------------------------------------------------------------------------
+// L12 ambient movers (polish pass b, 2026-11-11). The craft probe (0.5-s steps at 96×54) only sees motion that moves
+// sizeable, contrasty EDGES: a drift over flat fields or 2-px motes reads as frozen. These three draw defined-edge
+// masses that cross the frame at ~1.5-4 px per frame on screen. Shared by cold / l06 / l07 (import from "./S07");
+// bodies stay bespoke per shot. They carry no numbers and claim nothing.
+
+/** Fade in over the first 12 % of a lane, out over the last 18 % (so a wrapping mover never pops). */
+const laneFade = (phase: number) => Math.min(1, phase / 0.12, (1 - phase) / 0.18);
+
+/** A rack of flat-based cloud masses (or dust banks) drifting along x and wrapping in [x0, x1]: merged lobes on a
+ *  base slab, a body tone and a darker or lit underside strip. `size` = the mass height in px; speed in px/frame. */
+export const CloudRack: React.FC<{ f: number; n: number; x0: number; x1: number; y0: number; y1: number; size: number; speed: number; body: string; under?: string; top?: string; opacity?: number; seed?: number; dir?: 1 | -1; flat?: number }> = ({ f, n, x0, x1, y0, y1, size, speed, body, under, top, opacity = 1, seed = 1, dir = 1, flat = 1 }) => (
+  <g>
+    {lane(f, n, x0, x1, speed, seed, dir).map((p, i) => {
+      const s = size * (0.65 + rnd(seed * 13 + i) * 0.7);
+      const w = s * (3.2 + rnd(seed * 7 + i) * 1.6) * flat;
+      const y = y0 + ((i + rnd(seed * 3 + i) * 0.6) / Math.max(1, n)) * (y1 - y0);
+      const x = p.x - w / 2;
+      const lobes: [number, number, number][] = [
+        [0.22, 0.42 + rnd(i * 5 + seed) * 0.12, 0.08],
+        [0.47, 0.6 + rnd(i * 9 + seed) * 0.14, 0.28],
+        [0.72, 0.44 + rnd(i * 11 + seed) * 0.1, 0.12],
+      ];
+      const o = laneFade(p.phase) * opacity;
+      return (
+        <g key={i} opacity={o}>
+          <g fill={body}>
+            <rect x={x} y={y - s * 0.34} width={w} height={s * 0.34} rx={s * 0.17} />
+            {lobes.map(([u, r, lift], k) => (
+              <ellipse key={k} cx={x + u * w} cy={y - s * 0.2 - lift * s} rx={r * s * flat} ry={r * s * 0.9} />
+            ))}
+          </g>
+          {top ? (
+            <ellipse cx={x + 0.47 * w - s * 0.1} cy={y - s * 0.2 - 0.28 * s - s * 0.32} rx={s * 0.34 * flat} ry={s * 0.16} fill={top} opacity={0.8} />
+          ) : null}
+          {under ? <rect x={x + s * 0.12} y={y - s * 0.15} width={w - s * 0.24} height={s * 0.15} rx={s * 0.075} fill={under} opacity={0.85} /> : null}
+        </g>
+      );
+    })}
+  </g>
+);
+
+/** Spindrift / wind streaks: n rounded strokes, `len` px long, streaming along x (with `slope` px of y per px of x)
+ *  through the box [x0, x1] × [y0, y1] at `speed` px/frame. Each one swells and thins as it crosses. */
+export const Streamers: React.FC<{ f: number; n: number; x0: number; x1: number; y0: number; y1: number; len: number; width: number; speed: number; color: string; opacity?: number; slope?: number; seed?: number; dir?: 1 | -1 }> = ({ f, n, x0, x1, y0, y1, len, width, speed, color, opacity = 0.6, slope = 0, seed = 1, dir = 1 }) => (
+  <g stroke={color} fill="none" strokeLinecap="round">
+    {lane(f, n, x0, x1, speed, seed, dir).map((p, i) => {
+      const L = len * (0.5 + rnd(seed * 17 + i));
+      const y = y0 + rnd(seed * 23 + i) * (y1 - y0) + slope * (p.x - x0);
+      const sw = Math.max(1, width * (0.6 + rnd(seed * 29 + i) * 0.8) * Math.sin(Math.PI * p.phase));
+      const bend = Math.sin(f / 11 + i) * 6;
+      return <path key={i} d={`M${p.x} ${y} q ${(-dir * L) / 2} ${bend} ${-dir * L} ${-slope * L * dir}`} strokeWidth={sw} opacity={opacity * laneFade(p.phase)} />;
+    })}
+  </g>
+);
+
+/** Water caustics: `rows` wavy bright lines laid across [x, x+w] × [y, y+h], wobbling and sliding down-right at `speed`
+ *  px/frame (they wrap one row-spacing). For a shallow-sea ghost or a lit pool; keep opacity ≤ 0.35. */
+export const Caustics: React.FC<{ f: number; x: number; y: number; w: number; h: number; rows: number; color: string; width?: number; opacity?: number; speed?: number }> = ({ f, x, y, w, h, rows, color, width = 7, opacity = 0.3, speed = 1.6 }) => {
+  const gap = h / rows;
+  const off = (f * speed) % gap;
+  return (
+    <g stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={opacity}>
+      {Array.from({ length: rows + 1 }, (_, i) => {
+        const y0 = y + (i - 1) * gap + off;
+        const pts: string[] = [];
+        for (let k = 0; k <= 24; k++) {
+          const px = x + (w * k) / 24;
+          const py = y0 + Math.sin(px / 130 + f / 17 + i * 1.7) * gap * 0.22 + Math.sin(px / 47 - f / 23 + i) * gap * 0.1 + (px - x) * 0.12;
+          pts.push(`${k ? "L" : "M"}${px.toFixed(1)} ${py.toFixed(1)}`);
+        }
+        return <path key={i} d={pts.join(" ")} strokeWidth={width * (0.7 + 0.3 * Math.sin(f / 13 + i * 2.1))} />;
+      })}
+    </g>
+  );
+};
+
+// ---------------------------------------------------------------------------------------------------------------
 // Cue table: every shot boundary and hit keyed to a phrase (never a timecode).
 
 export const cuesL07 = (t: SceneTiming) => {
@@ -712,6 +789,8 @@ const ShotFits: ShotFC<CL07> = ({ f, len }) => {
       <Layer depth={0.6} haze={{ color: F.haze, amount: 0.08 }}>
         <OlympusProfile f={f} light={172} F={F} />
         <DustDevil f={f} x={2400} h={360} speed={0.4} seed={3} F={F} />
+        {/* pass b: dust banks rolling across the plain in front of the shield's foot */}
+        <CloudRack f={f} n={6} x0={-2400} x1={6400} y0={760} y1={860} size={150} speed={3.4} body={mixHex(F.haze, F.light, 0.25)} under={mixHex(F.haze, F.shadow, 0.3)} opacity={0.7} seed={14} flat={1.4} />
         <Motes frame={f} n={40} x={-2000} y={-600} w={6000} h={1400} color={F.haze} seed={79} size={6} drift={40} />
         {/* Everest, height only, narrow, standing on the plain inside the lower corner of the flank (F11) */}
         <g opacity={silIn}>
@@ -938,6 +1017,7 @@ const ShotCutaway: ShotFC<CL07> = ({ f, len, c }) => {
         {/* ochre Mars sky above the surface, hot solid mantle below (bands glow with depth; nothing molten) */}
         <rect x={-800} y={-1600} width={3600} height={surf + 1600} fill="#B86A2E" />
         <HazeBand y={surf - 420} h={420} color="#EDC27C" strength={0.6} x={-800} w={3600} />
+        <CloudRack f={f} n={6} x0={-900} x1={2800} y0={-260} y1={250} size={70} speed={2} body="#E3A866" under="#A85A26" opacity={0.8} seed={18} flat={1.4} />
         <rect x={-800} y={crustBot - 40} width={3600} height={1500} fill="#5A1C0C" />
         {[0, 1, 2, 3].map((i) => (
           <path key={i} d={smoothPath([[-800, crustBot + 210 + i * 120], [200, crustBot + 170 + i * 120 + Math.sin(f / 80 + i) * 10], [cx, crustBot + 120 + i * 112], [1500, crustBot + 180 + i * 120 - Math.sin(f / 70 + i) * 10], [2800, crustBot + 215 + i * 120]]) + ` L2800 2200 L-800 2200 Z`} fill={mixHex("#7A2A10", "#B04A18", i / 3)} opacity={0.75} />
@@ -1131,6 +1211,8 @@ const ShotMaxwell: ShotFC<CL07> = ({ f, len, c }) => {
           const x = ((f * (0.5 + i * 0.15) + i * 500) % 3400) - 1700;
           return <ellipse key={i} cx={x} cy={y} rx={1100 + i * 100} ry={22 + i * 8} fill={i % 2 ? F.haze : F.shadow} opacity={0.16} />;
         })}
+        {/* pass b: the cloud deck's lower edge, defined masses streaming past (Venus' upper winds are fast) */}
+        <CloudRack f={f} n={6} x0={-900} x1={2900} y0={160} y1={420} size={80} speed={2.4} body={mixHex(F.haze, F.light, 0.3)} under={mixHex(F.haze, F.shadow, 0.35)} opacity={0.75} seed={16} flat={1.5} />
       </Layer>
       <Layer depth={0.25} haze={{ color: F.haze, amount: 0.5 }}>
         <path d={ridgePath([[-600, 900], [-200, 820], [200, 860], [600, 780], [1000, 830], [1400, 770], [1900, 840], [2500, 800]], 1300, 30)} fill={F.far} />
