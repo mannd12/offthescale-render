@@ -19,7 +19,11 @@ secs = n / FPS
 grey = rgb.mean(axis=3)
 diff = np.abs(grey[1:] - grey[:-1])                      # per-pixel change between samples
 mean_d = diff.mean(axis=(1, 2))
-moving = (diff > 0.04).mean(axis=(1, 2))                 # share of pixels that visibly move
+moving = (diff > 0.04).mean(axis=(1, 2))                 # share of pixels that visibly move (0.1-s steps, 192x108)
+# Like-for-like with the Kurzgesagt measurement (KURZGESAGT-STUDY-2: 0.5-s steps on a 96x54 canvas): every 5th sample,
+# 2x2-averaged. The 0.1-s numbers above understate slow motion several-fold and are NOT comparable with K's 91 % / 15 %.
+g5 = grey[::FPS // 2].reshape(-1, H // 2, 2, W // 2, 2).mean(axis=(2, 4))
+moving5 = (np.abs(g5[1:] - g5[:-1]) > 0.04).mean(axis=(1, 2))
 
 # A cut = a change spike well above the local motion level (median of the surrounding second), and big in absolute terms.
 cuts = []
@@ -47,8 +51,9 @@ if wins:
 gaps = np.diff(np.concatenate([[0], cut_t, [secs]]))
 print(f"| Longest gap between cuts | {gaps.max():.1f} s at {mm(np.concatenate([[0], cut_t])[gaps.argmax()])} | <= ~15 s if the camera keeps moving |")
 alive = (moving > 0.03).mean()
-print(f"| Samples with > 3 % of the frame moving | {100 * alive:.0f} % | >= 90 % (K 91 %) |")
-print(f"| Median moving share of frame | {100 * np.median(moving):.1f} % | 10-25 % (K median 15 %) |")
+print(f"| **Alive, 0.5-s steps (like K)** | {100 * (moving5 > 0.03).mean():.0f} % | >= 90 % (K 91 %) |")
+print(f"| **Median moving share, 0.5-s steps (like K)** | {100 * np.median(moving5):.1f} % | 10-25 % (K median 15 %) |")
+print(f"| Alive, 0.1-s steps (stricter, ours only) | {100 * alive:.0f} % | no K figure |")
 print(f"| Mean HSV saturation | {sat.mean():.2f} | >= 0.5 (K 0.73) |")
 print(f"| Mean chroma (max-min) | {chroma.mean():.2f} | 0.3-0.5 (K 0.35) |")
 print(f"| Mean value | {meanv.mean():.2f} | 0.45-0.65 (K 0.55) |")
@@ -58,9 +63,9 @@ print(f"| Value range (5th-95th pct, median) | {np.median(val_lo):.2f}-{np.media
 print()
 print("Windows (cuts per 30 s): " + " ".join(f"{mm(a * 30)}:{w}" for a, w in enumerate(wins)))
 print()
-print("| Window | Cuts | Alive % | Median moving % | Saturation |")
+print("| Window | Cuts | Alive % (0.5 s, like K) | Median moving % (0.5 s) | Saturation |")
 print("|---|---|---|---|---|")
 for a, w in enumerate(wins):
     s, e = a * 30 * FPS, (a + 1) * 30 * FPS
-    mv = moving[s:min(e, len(moving))]
+    mv = moving5[a * 60:(a + 1) * 60]
     print(f"| {mm(a * 30)} | {w} | {100 * (mv > 0.03).mean():.0f} | {100 * np.median(mv):.1f} | {sat[s:e].mean():.2f} |")
