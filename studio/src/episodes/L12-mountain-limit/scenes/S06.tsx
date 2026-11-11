@@ -296,9 +296,8 @@ const ShotSection: ShotFC<CL06> = ({ f, len, c }) => {
         <HazeBand y={840} h={300} color="#FF8A2A" strength={0.35} up />
         <Embers frame={f} x0={-200} x1={2100} y={1080} n={30} color="#FFB347" seed={13} rise={0.6} life={120} size={2.2} />
         <g transform={`translate(0 ${(-lift).toFixed(1)})`}>
-          <Form d={crust} fill={F.mid} light={12} shadow={F.shadow} inset={34} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
-            <Facets pts={top} base={900} light={12} fill={F.shadow} opacity={0.4} depth={150} />
-            <Facets pts={top} base={900} light={12} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.35} depth={110} lit />
+          <Form d={crust} fill={mixHex(F.mid, F.near, 0.45)} light={12} shadow={F.shadow} inset={34} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
+            
             <path d={roundPoly([[440, 340], [480, 300], [640, 360], [700, 400], [600, 384], [520, 372]], 6)} fill={L12_COLORS.snow} />
             <path d={roundPoly([[1200, 376], [1260, 330], [1420, 270], [1500, 316], [1400, 330], [1300, 372]], 6)} fill={L12_COLORS.snow} />
             <HazeBand y={700} h={200} color="#FF8A2A" strength={0.4} />
@@ -413,12 +412,12 @@ const ShotBand: ShotFC<CL06> = ({ f, len, c }) => {
           const hop = sm(f, p.at, p.at + 10) * 14 + Math.sin(clamp01((f - p.at) / 14) * Math.PI) * 16;
           const sq = impact(f, p.at + 14, 0.06, 10);
           const base = 980;
-          const pts: Pt[] = [[p.x - 330, base], [p.x - 170, base - p.h * 0.5], [p.x - 50, base - p.h * 0.9], [p.x, base - p.h], [p.x + 60, base - p.h * 0.86], [p.x + 190, base - p.h * 0.45], [p.x + 340, base]];
+          const pts: Pt[] = [[p.x - 900, base + 700], [p.x - 170, base - p.h * 0.5], [p.x - 50, base - p.h * 0.9], [p.x, base - p.h], [p.x + 60, base - p.h * 0.86], [p.x + 190, base - p.h * 0.45], [p.x + 900, base + 700]];
           const lit = sm(f, p.at, p.at + 12);
           return (
             <g key={i} opacity={sm(f, t1 - 16 + i * 4, t1 + i * 4)} transform={`translate(0 ${(-hop).toFixed(1)}) translate(${p.x} ${base}) scale(${sq.sx} ${sq.sy}) translate(${-p.x} ${-base})`}>
               <Form d={ridgePath(pts, base + 700, 10)} fill={i === 1 ? F.mid : hazed(F, F.mid, 0.18)} light={12} shadow={F.shadow} inset={26} rim={F.light} rimWidth={3.5} bounce={F.bounce}>
-                <Facets pts={pts} base={base + 700} light={12} fill={F.shadow} opacity={0.4} depth={140} />
+                
                 <path d={roundPoly([[p.x - 90, base - p.h * 0.74], [p.x - 50, base - p.h * 0.9], [p.x, base - p.h], [p.x + 60, base - p.h * 0.86], [p.x + 110, base - p.h * 0.7], [p.x + 20, base - p.h * 0.76]], 6)} fill={L12_COLORS.snow} />
                 <rect x={p.x - 200} y={base - p.h - 4} width={400} height={16} fill="#7FD0E8" opacity={0.85 * lit} />
               </Form>

@@ -217,24 +217,24 @@ export const OlympusProfile: React.FC<{ f: number; light?: number; F?: Family }>
   return (
     <g>
       {/* the plain, the sun wash on its left, the shield's long shadow to its right */}
-      <rect x={-6000} y={OLY.base} width={16000} height={1400} fill={plain} />
+      <rect x={-9000} y={OLY.base} width={24000} height={6000} fill={plain} />
       <LightWash x={OLY.x0 - 900} y={OLY.base + 160} rx={2600} ry={260} color={F.light} strength={0.28} />
       <path d={`M${OLY.x1 - 300} ${OLY.base} L${OLY.x1 + 4200} ${OLY.base + 20} L${OLY.x1 + 5200} ${OLY.base + 420} L${OLY.x1 - 200} ${OLY.base + 60} Z`} fill={F.shadow} opacity={0.22} />
       <Form d={d} fill={F.mid} light={light} shadow={F.shadow} inset={40} shadowOpacity={0.4} rim={F.light} rimWidth={4} rimOpacity={0.85} bounce={F.bounce} bounceOpacity={0.3}>
         {/* one plane per flank (STYLE-V2 round 5): a horizontal ramp from the sunlit west flank to the shaded east flank */}
         <defs>
           <linearGradient id="olyRamp" gradientUnits="userSpaceOnUse" x1={OLY.x0} y1={0} x2={OLY.x1} y2={0}>
-            <stop offset={0} stopColor={mixHex(dusk, F.light, 0.3)} />
-            <stop offset={0.42} stopColor={dusk} />
-            <stop offset={0.56} stopColor={mixHex(F.mid, F.shadow, 0.35)} />
-            <stop offset={1} stopColor={mixHex(F.mid, F.shadow, 0.62)} />
+            <stop offset={0} stopColor={mixHex(F.mid, F.light, 0.2)} />
+            <stop offset={0.42} stopColor={mixHex(F.mid, "#8A3E1A", 0.45)} />
+            <stop offset={0.56} stopColor={mixHex(F.mid, F.shadow, 0.5)} />
+            <stop offset={1} stopColor={mixHex(F.mid, F.shadow, 0.7)} />
           </linearGradient>
         </defs>
         <rect x={OLY.x0 - 500} y={-400} width={7400} height={2400} fill="url(#olyRamp)" />
         {/* old flow terraces: the skyline repeated lower and flatter, so the dome reads as stacked flows */}
-        <g fill="none" stroke={F.shadow} strokeLinecap="round" opacity={0.16}>
+        <g fill="none" stroke={F.shadow} strokeLinecap="round" opacity={0.1} filter="url(#soft-4)">
           {[0.86, 0.7, 0.52, 0.34].map((q, i) => (
-            <path key={i} d={smoothPath(OLY_PTS.slice(3, -3).filter((_, j) => j % 2 === 0).map(([x, y]): Pt => [x, OLY.base - (OLY.base - y) * q + 30]))} strokeWidth={10 - i * 1.5} />
+            <path key={i} d={smoothPath(OLY_PTS.slice(3, -3).filter((_, j) => j % 2 === 0).map(([x, y]): Pt => [x, OLY.base - (OLY.base - y) * q + 30]))} strokeWidth={26 - i * 4} />
           ))}
         </g>
         <g fill={mixHex(F.mid, F.light, 0.45)} opacity={0.16}>
@@ -276,8 +276,9 @@ const DustDevil: React.FC<{ f: number; x: number; h: number; speed?: number; see
   }
   return (
     <g>
-      <path d={roundPoly(pts, 30)} fill={col} opacity={0.34} />
+      <path d={roundPoly(pts, 30)} fill={col} opacity={0.3} />
       <path d={roundPoly(pts.map(([px, py]) => [cx + (px - cx) * 0.45, py] as Pt), 20)} fill={col} opacity={0.3} />
+      <ellipse cx={cx + Math.sin(f / 9 + 7 + seed) * 20} cy={base - h} rx={110} ry={38} fill={col} opacity={0.22} filter="url(#soft-16)" />
       <Puffs frame={f + seed * 40} x={cx} y={base} color={col} period={18} size={16} rise={0.2} drift={0.35} life={50} seed={seed} />
     </g>
   );
@@ -650,12 +651,12 @@ const ShotOlympus: ShotFC<CL07> = ({ f, len }) => {
   const F = MARS;
   const L = Math.max(len, 80);
   // the shield lives on a depth-0.6 layer: `onLayer` centres a world point of it on screen at an effective scale
-  const cam = pop(f, cameraAt(f, [onLayer(0, 120, 330, 0.6), onLayer(L + 30, 520, 300, 0.66)]));
+  const cam = pop(f, cameraAt(f, [onLayer(0, 260, 300, 0.7), onLayer(L + 30, 640, 270, 0.76)]));
   const pillIn = sm(f, 6, 22);
   const slide = -f * 0.7; // the foreground slides against the pan (screen-locked silhouettes with their own parallax)
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.22} grain={0.5}>
-      <MarsSky f={f} sun={{ x: 330, y: 500 }} F={F} />
+      <MarsSky f={f} sun={{ x: 300, y: 470 }} F={F} />
       <Layer depth={0.2} haze={{ color: F.haze, amount: 0.55 }}>
         {/* a far shield on the horizon behind the sun (schematic; Olympus has neighbours) and the dust horizon */}
         <path d={smoothPath([[-900, 760], [-300, 700], [200, 668], [700, 690], [1300, 752]]) + " L1300 1300 L-900 1300 Z"} fill={hazed(F, F.far, 0.2)} />
@@ -807,14 +808,14 @@ const ARIZONA: Pt[] = [
 
 const ShotArizona: ShotFC<CL07> = ({ f, len }) => {
   const F = MARS;
-  const cam = pop(f, cameraAt(f, [onLayer(0, OLY_XC, 640, 0.25), onLayer(len + 20, OLY_XC + 80, 620, 0.275)]));
+  const cam = pop(f, cameraAt(f, [onLayer(0, OLY_XC, 700, 0.24), onLayer(len + 20, OLY_XC + 80, 690, 0.262)]));
   // the outline lies flat on the plain in front of the shield: the base's width (585 km, #18) is "wider than Arizona"
   // (#18) and its area "as large as Arizona" (#20); drawn in perspective (squashed), dropped in from above
   const W = OLY.x1 - OLY.x0;
-  const H = W * 0.34;
+  const H = W * 0.2;
   const k = sm(f, 6, 26);
   const land = impact(f, 26, 0.05, 10);
-  const cy = OLY.base + 620;
+  const cy = OLY.base + 520;
   const az = ARIZONA.map(([u, v]): Pt => [OLY.x0 + u * W, cy - H / 2 + v * H]);
   const d = roundPoly(az, 50);
   return (
@@ -967,26 +968,26 @@ const ShotCutaway: ShotFC<CL07> = ({ f, len, c }) => {
         })}
         <Embers frame={f} x0={cx - 160} x1={cx + 160} y={topY - 40} n={14} color={F.second} seed={84} rise={0.5} life={60} size={2} />
         {/* the Hawaii inset (from 5-16): a plate sliding over its heat, carrying each cone away */}
-        <Inset cx={1300} cy={760} r={150} at={[1300, 760]} scale={1} family={F} t={sm(f, 10, 34)}>
-          <rect x={1140} y={600} width={320} height={320} fill="#0A3C4C" />
-          <rect x={1140} y={790} width={320} height={140} fill="#5A1C0C" />
-          <circle cx={1300} cy={850} r={30 * glyphP} fill="#FF9A3C" />
-          <rect x={1140} y={760} width={320} height={40} fill="#56656F" />
-          {lane(f, 3, 1100, 1500, 1.1, 5).map((p, i) => (
-            <path key={i} d={`M${p.x - 26} 760 L${p.x} ${722 + i * 6} L${p.x + 26} 760 Z`} fill={i === 0 ? "#7FAE9F" : "#3F7F8E"} />
+        <Inset cx={1260} cy={800} r={150} at={[1260, 800]} scale={1} family={F} t={sm(f, 10, 34)}>
+          <rect x={1100} y={640} width={320} height={320} fill="#0A3C4C" />
+          <rect x={1100} y={830} width={320} height={140} fill="#5A1C0C" />
+          <circle cx={1260} cy={890} r={30 * glyphP} fill="#FF9A3C" />
+          <rect x={1100} y={800} width={320} height={40} fill="#56656F" />
+          {lane(f, 3, 1060, 1460, 1.1, 5).map((p, i) => (
+            <path key={i} d={`M${p.x - 26} 800 L${p.x} ${762 + i * 6} L${p.x + 26} 800 Z`} fill={i === 0 ? "#7FAE9F" : "#3F7F8E"} />
           ))}
-          {lane(f, 4, 1140, 1460, 1.1, 6).map((p, i) => (
-            <path key={i} d={`M${p.x} 780 h18 m-6 -6 l6 6 l-6 6`} stroke="#FFF0DC" strokeWidth={2.5} fill="none" />
+          {lane(f, 4, 1100, 1420, 1.1, 6).map((p, i) => (
+            <path key={i} d={`M${p.x} 820 h18 m-6 -6 l6 6 l-6 6`} stroke="#FFF0DC" strokeWidth={2.5} fill="none" />
           ))}
         </Inset>
         <g opacity={sm(f, 20, 40) * (1 - sm(f, t1, t1 + 20))}>
-          <Pill x={1300} y={950} text="EARTH · THE PLATE MOVES" fill={pillFill(F)} color={F.text} dot="#7FAE9F" size={16} align="middle" />
+          <Pill x={1260} y={990} text="EARTH · THE PLATE MOVES" fill={pillFill(F)} color={F.text} dot="#7FAE9F" size={16} align="middle" />
         </g>
       </Layer>
       <Layer depth={0}>
         <g opacity={sm(f, 8, 28)}>
           <Pill x={120} y={128} text="MARS · NO PLATE TECTONICS" fill={pillFill(F)} color={F.text} dot={F.second} size={22} />
-          <Kicker x={120} y={182} text="— PLANETARY SCIENTIST, PURDUE" color={F.dim} size={18} />
+          <Kicker x={120} y={182} text="— PLANETARY SCIENTIST, PURDUE" color={F.text} size={18} />
         </g>
         {f > t1 ? (
           <g opacity={sm(f, t1 + 20, t1 + 40)}>
@@ -1138,7 +1139,6 @@ const ShotMaxwell: ShotFC<CL07> = ({ f, len, c }) => {
       <Layer depth={0.6} haze={{ color: F.haze, amount: 0.1 }}>
         <Form d={ridgePath(MAXWELL, 1300, 6)} fill={mixHex(F.near, F.mid, 0.35)} light={270} shadow={F.shadow} inset={34} shadowOpacity={0.55} rim={F.light} rimWidth={4} rimOpacity={0.8} bounce={F.bounce}>
           <Facets pts={MAXWELL} base={1300} light={315} fill={F.shadow} opacity={0.45} depth={170} />
-          <Facets pts={MAXWELL} base={1300} light={315} fill={mixHex(F.mid, F.light, 0.35)} opacity={0.55} depth={120} lit />
           {[0, 1, 2, 3, 4, 5].map((i) => (
             <path key={i} d={`M${300 + i * 260} ${640 + (i % 2) * 60} l${90 + i * 10} 260 l-40 200`} fill="none" stroke={F.shadow} strokeWidth={5} opacity={0.22} strokeLinejoin="round" />
           ))}

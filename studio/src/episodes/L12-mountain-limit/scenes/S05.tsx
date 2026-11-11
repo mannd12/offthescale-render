@@ -67,6 +67,9 @@ const NOON = familyOf("noon");
 const PETROL = familyOf("petrol");
 const VOID = familyOf("void");
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+/** pills and counters over bright (noon) art use the petrol plate + bone text: dark-on-dark was illegible (round 1) */
+const PF = pillFill(PETROL);
+const HT = PETROL.text;
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 /** eased 0..1 from frame `a` to frame `b` */
 const ease = (f: number, a: number, b: number) => smooth(clamp01((f - a) / Math.max(1, b - a)));
@@ -87,8 +90,8 @@ const MILE = 1609; // m; "about a mile" (#10)
 const shieldPts = (sink = 0): Pt[] => {
   const pts: Pt[] = [];
   const H = FLOOR_Y - MK_SUMMIT_Y;
-  for (let i = 0; i <= 40; i++) {
-    const u = -1 + (2 * i) / 40;
+  for (let i = 0; i <= 120; i++) {
+    const u = -1 + (2 * i) / 120;
     const hw = u < 0 ? 760 : 700;
     let y = MK_SUMMIT_Y + H * Math.pow(Math.abs(u), 1.9);
     // cinder cones on the summit plateau (Mauna Kea's summit is a cluster of cones, #16; schematic)
@@ -106,16 +109,20 @@ const shieldY = (x: number, sink = 0) => {
 
 /** Everest's ghost (height comparison only, flag F11: drawn narrow, no width claimed). Base on the sea line. */
 const everestPts = (): Pt[] => [
-  [EV_X - 170, SEA_Y],
-  [EV_X - 120, SEA_Y - 160],
-  [EV_X - 80, SEA_Y - 300],
-  [EV_X - 36, SEA_Y - 470],
-  [EV_X - 10, EV_TOP_Y + 26],
+  [EV_X - 250, SEA_Y],
+  [EV_X - 196, SEA_Y - 130],
+  [EV_X - 150, SEA_Y - 190],
+  [EV_X - 118, SEA_Y - 330],
+  [EV_X - 84, SEA_Y - 372],
+  [EV_X - 44, SEA_Y - 540],
+  [EV_X - 16, EV_TOP_Y + 40],
   [EV_X, EV_TOP_Y],
-  [EV_X + 14, EV_TOP_Y + 30],
-  [EV_X + 46, SEA_Y - 440],
-  [EV_X + 90, SEA_Y - 250],
-  [EV_X + 150, SEA_Y],
+  [EV_X + 22, EV_TOP_Y + 52],
+  [EV_X + 58, SEA_Y - 470],
+  [EV_X + 96, SEA_Y - 430],
+  [EV_X + 130, SEA_Y - 270],
+  [EV_X + 178, SEA_Y - 210],
+  [EV_X + 240, SEA_Y],
 ];
 
 const ROCK = mixHex(L12_COLORS.slate, "#5B4A3A", 0.35); // basalt shield, warm slate
@@ -182,13 +189,12 @@ const Section: React.FC<{
           </Form>
           <Sky stops={["#0C2E3A", "#2A1810"]} x={-1200} y={FLOOR_Y + 216} w={4400} h={900} />
         </g>
-        {/* the floor */}
-        <path d={floorD} fill="#0A2C36" />
-        <path d={`M${floorLine(FLOOR_Y).join(" L")}`} fill="none" stroke="#2FBFA8" strokeWidth={2} opacity={0.35} />
         {/* the mountain, one Form: lit flank, shade flank, base */}
-        <Form d={d} fill={ROCK} light={light} shadow={PETROL.shadow} inset={34} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.8} bounce={F.bounce}>
-          <Facets pts={pts} base={FLOOR_Y + bend + 40} light={light} fill={PETROL.shadow} opacity={0.42} />
-          <Facets pts={pts} base={FLOOR_Y + bend + 40} light={light} fill={mixHex(ROCK, F.light, 0.5)} opacity={0.38} lit />
+        <Form d={d} fill={ROCK} light={light} shadow={PETROL.shadow} inset={30} shadowOpacity={0.35} rim={F.light} rimWidth={4} rimOpacity={0.85}>
+          {/* three tonal steps with CURVED edges (a dome has no facets): shade flank, base, lit flank */}
+          <path d={`M${MK_X + 30} ${MK_SUMMIT_Y - 60 + sink} Q${MK_X + 150} ${SEA_Y} ${MK_X + 330} 1200 L3000 1200 L3000 -300 Z`} fill={PETROL.shadow} opacity={0.4} />
+          <path d={`M${MK_X + 250} ${MK_SUMMIT_Y + sink} Q${MK_X + 420} ${SEA_Y} ${MK_X + 640} 1200 L3000 1200 L3000 -300 Z`} fill={PETROL.shadow} opacity={0.25} />
+          <path d={`M${MK_X - 200} ${MK_SUMMIT_Y - 60 + sink} Q${MK_X - 380} ${SEA_Y - 60} ${MK_X - 640} 1200 L-2000 1200 L-2000 -300 Z`} fill={mixHex(ROCK, F.light, 0.6)} opacity={0.32} />
           {/* the underwater flank: wet, bluer rock, darker with depth */}
           <Sky stops={[alpha("#1FA69A", 0.45), alpha("#0E4E5C", 0.7), alpha("#061C26", 0.9)]} x={-1200} y={SEA_Y} w={4400} h={1340} />
           {/* bedding lines of the stacked flows */}
@@ -197,6 +203,12 @@ const Section: React.FC<{
             return <path key={i} d={`M${MK_X - 760 * Math.pow(k, 1 / 1.9)} ${y} Q${MK_X} ${y - 26} ${MK_X + 700 * Math.pow(k, 1 / 1.9)} ${y}`} fill="none" stroke={PETROL.shadow} strokeWidth={1.5} opacity={0.3} />;
           })}
         </Form>
+        {/* the floor, in front of the mountain's foot: sediment with a lit lip and a few boulders */}
+        <path d={floorD} fill="#0A2C36" />
+        <path d={`M${floorLine(FLOOR_Y).join(" L")}`} fill="none" stroke="#3FCDB8" strokeWidth={3} opacity={0.4} />
+        {[-520, -260, 130, 1290, 1620, 1900, 2240].map((x, i) => (
+          <ellipse key={i} cx={x} cy={FLOOR_Y + bow(x) + 4} rx={40 + (i % 3) * 22} ry={14 + (i % 2) * 8} fill="#0E3A46" stroke="#3FCDB8" strokeWidth={1.5} strokeOpacity={0.35} />
+        ))}
         {/* light shafts from the surface (they flicker) */}
         {[-300, 60, 420, 1120, 1560, 1980].map((x, i) => (
           <LightCone key={i} x={x} y={SEA_Y + 6} angle={97 + (i % 3) * 3} length={520} spread={6 + (i % 2) * 3} color="#9FEFDC" strength={0.2 * shafts * flicker(f, 3 + i, 0.4)} />
@@ -209,22 +221,24 @@ const Section: React.FC<{
         <Bubbles frame={f} x0={MK_X - 520} x1={MK_X + 500} y={FLOOR_Y - 40} n={22} color="#CFF7EE" seed={5} />
         {/* Everest's ghost: height only, narrow (F11), base on the sea line, a vermilion summit dot */}
         <g opacity={everest}>
-          <Form d={roundPoly(ev, 10)} fill={alpha(familyOf("dusk").mid, 0.62)} light={light} shadow={PETROL.shadow} inset={20} shadowOpacity={0.4} rim={F.light} rimWidth={3} rimOpacity={0.6} hard>
-            <path d={roundPoly([ev[3], ev[4], ev[5], ev[6], ev[7], [EV_X + 70, SEA_Y - 330], [EV_X - 70, SEA_Y - 330]], 8)} fill={alpha(L12_COLORS.snow, 0.8)} />
+          <Form d={roundPoly(ev, 7)} fill={mixHex(familyOf("dusk").far, "#8FD2E6", 0.35)} light={light} shadow={familyOf("dusk").near} inset={22} shadowOpacity={0.35} rim="#FFFFFF" rimWidth={3} rimOpacity={0.7} opacity={0.9}>
+            <path d={`M${EV_X + 4} ${EV_TOP_Y - 20} L${EV_X + 60} ${SEA_Y - 300} L${EV_X + 110} ${SEA_Y + 20} L${EV_X + 400} ${SEA_Y + 20} L${EV_X + 400} ${EV_TOP_Y - 20} Z`} fill={familyOf("dusk").near} opacity={0.3} />
+            <path d={`M${EV_X - 200} ${EV_TOP_Y - 30} L${EV_X + 200} ${EV_TOP_Y - 30} L${EV_X + 200} ${SEA_Y - 400} L${EV_X + 90} ${SEA_Y - 380} L${EV_X + 40} ${SEA_Y - 430} L${EV_X - 10} ${SEA_Y - 392} L${EV_X - 60} ${SEA_Y - 440} L${EV_X - 200} ${SEA_Y - 400} Z`} fill={L12_COLORS.snow} />
           </Form>
+          <path d={roundPoly(ev, 7)} fill="none" stroke={PETROL.near} strokeWidth={3} strokeDasharray="12 9" opacity={0.7} />
           <circle cx={EV_X} cy={EV_TOP_Y + 2} r={8 + Math.sin(f / 9) * 1.5} fill={P.vermilion} />
           <circle cx={EV_X} cy={EV_TOP_Y + 2} r={12 + ((f * 0.5) % 20)} fill="none" stroke={P.vermilion} strokeWidth={2} opacity={1 - ((f * 0.5) % 20) / 20} />
         </g>
         {/* the in-world ruler from the floor (5-03): sea-glass, ticks every 2 km, its top follows the Counter */}
         {floorBar > 0 ? (
           <g>
-            <line x1={barX} y1={FLOOR_Y} x2={barX} y2={barTop} stroke={L12_COLORS.seaGlass} strokeWidth={10} strokeLinecap="butt" />
-            <line x1={barX - 24} y1={FLOOR_Y} x2={barX + 24} y2={FLOOR_Y} stroke={L12_COLORS.seaGlass} strokeWidth={4} />
+            <line x1={barX} y1={FLOOR_Y} x2={barX} y2={barTop} stroke="#E6F5EA" strokeWidth={8} strokeLinecap="butt" />
+            <line x1={barX - 24} y1={FLOOR_Y} x2={barX + 24} y2={FLOOR_Y} stroke="#E6F5EA" strokeWidth={4} />
             {[2000, 4000, 6000, 8000, 10000].map((m) => {
               const y = FLOOR_Y - m * S;
-              return y >= barTop ? <line key={m} x1={barX - 14} y1={y} x2={barX + 14} y2={y} stroke={L12_COLORS.seaGlass} strokeWidth={3} /> : null;
+              return y >= barTop ? <line key={m} x1={barX - 14} y1={y} x2={barX + 14} y2={y} stroke="#E6F5EA" strokeWidth={3} /> : null;
             })}
-            <path d={`M${barX - 16} ${barTop} L${barX + 16} ${barTop} L${barX} ${barTop - 18} Z`} fill={L12_COLORS.seaGlass} />
+            <path d={`M${barX - 16} ${barTop} L${barX + 16} ${barTop} L${barX} ${barTop - 18} Z`} fill="#E6F5EA" />
           </g>
         ) : null}
         {children}
@@ -234,9 +248,9 @@ const Section: React.FC<{
 };
 
 /** The HUD for the section shots: the gauge with one or two bars, each base labelled (F3). */
-const SectionHud: React.FC<{ F: Family; mk: number; everest?: boolean; mkBar?: number; ghostMile?: boolean; readout?: string | false }> = ({ F, mk, everest = false, mkBar, ghostMile = false, readout }) => (
+const SectionHud: React.FC<{ F?: Family; mk: number; everest?: boolean; mkBar?: number; ghostMile?: boolean; readout?: string | false }> = ({ mk, everest = false, mkBar, ghostMile = false, readout }) => (
   <L12Gauge
-    family={F}
+    family={PETROL}
     value={everest ? HEIGHTS.everest /* #1 */ : mk}
     max={12000}
     base={everest ? "ABOVE SEA LEVEL" : "ABOVE SEA LEVEL"}
@@ -244,7 +258,7 @@ const SectionHud: React.FC<{ F: Family; mk: number; everest?: boolean; mkBar?: n
     rolling={!everest}
     bars={[
       ...(mkBar !== undefined && mkBar > 0 ? [{ value: mkBar, color: L12_COLORS.seaGlass, base: "FROM THE SEA FLOOR" }] : []),
-      ...(ghostMile ? [{ value: HEIGHTS.everest + MILE /* #10: "about a mile more", attributed */, color: F.text, dashed: true }] : []),
+      ...(ghostMile ? [{ value: HEIGHTS.everest + MILE /* #10: "about a mile more", attributed */, color: PETROL.text, dashed: true }] : []),
     ]}
   />
 );
@@ -317,12 +331,12 @@ const ShotDescent: ShotFC<C> = ({ f, len, c }) => {
       <Layer depth={0}>
         {floorBar > 0 ? (
           <g>
-            <rect x={120} y={822} width={300} height={66} rx={8} fill={alpha(PETROL.shadow, 0.6)} />
-            <Counter x={270} y={870} value={barM} max={10211} size={40} color={F.text} unit="m" align="middle" />
-            <Pill x={120} y={930} text="FROM THE SEA FLOOR" fill={pillFill(F)} color={F.text} dot={L12_COLORS.seaGlass} size={16} />
+            <rect x={120} y={822} width={300} height={66} rx={8} fill={alpha(PETROL.shadow, 0.8)} />
+            <Counter x={270} y={870} value={Math.round(barM)} max={10211} size={40} color={HT} unit="m" align="middle" />
+            <Pill x={120} y={930} text="FROM THE SEA FLOOR" fill={PF} color={HT} dot={L12_COLORS.seaGlass} size={16} />
           </g>
         ) : null}
-        <SectionHud F={F} mk={mk} mkBar={barM} readout={rise >= 1 && barT === 0 ? "4,205 m" : undefined} />
+        <SectionHud mk={mk} mkBar={barM} readout={rise >= 1 && barT === 0 ? "4,205 m" : undefined} />
       </Layer>
     </Stage>
   );
@@ -333,8 +347,8 @@ const ShotWide: ShotFC<C> = ({ f, c }) => {
   const F = NOON;
   const cam = cameraAt(f, [
     { f: 0, x: 960, y: 560, zoom: 1.0 },
-    { f: 50, x: 960, y: 470, zoom: 0.8 },
-    { f: 400, x: 980, y: 460, zoom: 0.76 },
+    { f: 50, x: 980, y: 445, zoom: 0.75 },
+    { f: 400, x: 1000, y: 440, zoom: 0.72 },
   ]);
   const ev = ease(f, 8, 40);
   const br = ease(f, c.bracket - c.wide, c.bracket - c.wide + 24);
@@ -351,13 +365,16 @@ const ShotWide: ShotFC<C> = ({ f, c }) => {
       </Layer>
       <Layer depth={0}>
         <g opacity={ev}>
-          <Pill x={120} y={128} text="EVEREST · 8,849 m ABOVE SEA" fill={pillFill(F)} color={F.text} dot={P.vermilion} size={18} />
-          <Pill x={120} y={176} text="MAUNA KEA · 10,211 m FROM THE FLOOR" fill={pillFill(F)} color={F.text} dot={L12_COLORS.seaGlass} size={18} />
+          <Pill x={1010} y={300} text="EVEREST · 8,849 m ABOVE SEA" fill={PF} color={HT} dot={P.vermilion} size={20} align="end" />
+          <Pill x={520} y={850} text="MAUNA KEA · 10,211 m FROM THE FLOOR" fill={PF} color={HT} dot="#E6F5EA" size={20} />
         </g>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
         <g opacity={br}>
-          <path d={`M1842 ${gy(HEIGHTS.everest)} L1862 ${gy(HEIGHTS.everest)} L1862 ${gy(10211)} L1842 ${gy(10211)}`} fill="none" stroke={F.text} strokeWidth={2.5} />
-          <Metric x={1870} y={(gy(HEIGHTS.everest) + gy(10211)) / 2 + 12} value="+1.4" unit="km" size={30} color={F.text} align="end" />
+          <path d={`M1816 ${gy(HEIGHTS.everest)} L1830 ${gy(HEIGHTS.everest)} L1830 ${gy(10211)} L1816 ${gy(10211)}`} fill="none" stroke={HT} strokeWidth={2.5} />
+          <rect x={1836} y={(gy(HEIGHTS.everest) + gy(10211)) / 2 - 66} width={76} height={34} rx={6} fill={PF} />
+          <text x={1874} y={(gy(HEIGHTS.everest) + gy(10211)) / 2 - 42} textAnchor="middle" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 19, fill: HT }}>
+            +1.4 km
+          </text>
         </g>
       </Layer>
     </Stage>
@@ -368,70 +385,71 @@ const ShotWide: ShotFC<C> = ({ f, c }) => {
 const ShotShrug: ShotFC<C> = ({ f }) => {
   const F = NOON;
   const cam = cameraAt(f, [
-    { f: 0, x: 790, y: 190, zoom: 2.7 },
-    { f: 140, x: 800, y: 180, zoom: 2.95 },
+    { f: 0, x: 800, y: 170, zoom: 2.5 },
+    { f: 140, x: 810, y: 160, zoom: 2.75 },
   ]);
   const pt = clamp01((f - 14) / 28) * 1.6;
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.1} grain={0.5}>
       <Section f={f} floorBar={0} shafts={0}>
-        <GroundShadow x={MK_X + 14} y={MK_SUMMIT_Y - 18} rx={44} color={PETROL.shadow} opacity={0.4} blur={4} />
-        <Tick x={MK_X + 12} y={MK_SUMMIT_Y - 19} pxPerM={110} frame={f} pose="stand" poseTo="shrug" poseT={pt} expression="thinking" expressionTo="thinking" look={-0.3} facing={-1} outline={PETROL.shadow} staff />
+        <GroundShadow x={MK_X + 16} y={shieldY(MK_X + 14) + 1} rx={44} color={PETROL.shadow} opacity={0.4} blur={4} />
+        <Tick x={MK_X + 14} y={shieldY(MK_X + 14) - 1} pxPerM={110} frame={f} pose="stand" poseTo="shrug" poseT={pt} expression="thinking" expressionTo="thinking" look={-0.3} facing={-1} outline={PETROL.shadow} staff />
         <Puffs frame={f} x={MK_X - 8} y={MK_SUMMIT_Y - 165} color={alpha("#FFFFFF", 0.55)} period={70} size={7} rise={0.35} drift={-0.4} life={60} seed={4} />
       </Section>
       <Layer depth={0}>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
       </Layer>
     </Stage>
   );
 };
 
 // ---- 5-06a / 5-06b: the sheets (lava flows as thin cooling sheets, F4) -------------------------------------------
-/** A flow sheet on the upper right flank: born amber (Emissive), cools to slate over `cool` frames. */
-const Sheet: React.FC<{ f: number; born: number; i: number; light: number }> = ({ f, born, i, light }) => {
+/** A flow sheet on the upper right flank. It hugs the surface (layer i lies on layer i-1), its front creeps downslope,
+ *  and it cools from amber (Emissive) to basalt over ~70 frames. No column, no fountain: flows only. */
+const Sheet: React.FC<{ f: number; born: number; i: number }> = ({ f, born, i }) => {
   const age = f - born;
   if (age < 0) return null;
-  const arrive = ease(age, 0, 26);
-  const cool = clamp01((age - 20) / 70);
-  const x0 = MK_X + 40 + (i % 2) * 30;
-  const slope = 0.3;
-  const y0 = shieldY(x0) - 6 - i * 9;
-  const L = 260 - (i % 3) * 30;
-  const x = x0 + (1 - arrive) * -90;
-  const y = y0 - (1 - arrive) * 40;
-  const dd = roundPoly(
-    [
-      [x, y],
-      [x + L, y + L * slope],
-      [x + L + 6, y + L * slope + 9],
-      [x + L - 10, y + L * slope + 12],
-      [x + 10, y + 13],
-      [x - 6, y + 6],
-    ],
-    5,
-  );
-  const col = mixHex(L12_COLORS.amber, L12_COLORS.slateDark, cool);
+  const adv = ease(age, 0, 44);
+  const cool = clamp01((age - 26) / 70);
+  const h = 8;
+  const xa = MK_X + 36 + (i % 2) * 26;
+  const xb = xa + (340 - (i % 3) * 46) * adv;
+  if (xb - xa < 14) return null;
+  const top: string[] = [];
+  const bot: string[] = [];
+  for (let x = xa; x <= xb; x += 10) {
+    const taper = Math.min(1, (x - xa) / 30, (xb - x) / 44 + 0.12);
+    const y = shieldY(x);
+    top.push(`${x.toFixed(1)} ${(y - i * h - h * taper).toFixed(1)}`);
+    bot.push(`${x.toFixed(1)} ${(y - i * h + 1).toFixed(1)}`);
+  }
+  const dd = `M${top.join(" L")} L${bot.reverse().join(" L")} Z`;
+  const basalt = mixHex(ROCK, PETROL.shadow, 0.18 + (i % 2) * 0.12);
+  const col = mixHex(L12_COLORS.amber, basalt, cool);
+  const fx = xb - 6;
+  const fy = shieldY(xb) - i * h - 4;
   return (
     <g>
-      {cool < 1 ? <Emissive d={dd} color={L12_COLORS.amber} core={mixHex("#FFD28A", col, cool)} fill strength={1 - cool} glow={16} /> : null}
-      <Form d={dd} fill={col} light={light} shadow={PETROL.shadow} inset={5} shadowOpacity={0.5} rim={mixHex(NOON.light, L12_COLORS.amber, 1 - cool)} rimWidth={1.5} rimOpacity={0.7} hard opacity={cool > 0 ? 1 : 0.0} />
-      {cool < 1 ? <Embers frame={f} x0={x + 20} x1={x + L - 20} y={y + 4} n={10} color="#FFC070" seed={i + 3} rise={0.5} life={50} size={1.6} /> : null}
+      {cool < 1 ? <Emissive d={dd} color={L12_COLORS.amber} core={mixHex("#FFD28A", col, cool)} fill strength={(1 - cool) * 0.9} glow={8} /> : <path d={dd} fill={col} />}
+      {cool >= 1 ? <path d={`M${top.join(" L")}`} fill="none" stroke={mixHex(basalt, NOON.light, 0.5)} strokeWidth={1.2} opacity={0.7} /> : null}
+      {cool < 0.6 ? <Embers frame={f} x0={fx - 40} x1={fx + 6} y={fy} n={8} color="#FFC070" seed={i + 3} rise={0.5} life={46} size={1.5} /> : null}
     </g>
   );
 };
 const ShotSheet: ShotFC<C> = ({ f }) => {
   const F = NOON;
+  const cx = MK_X + 190;
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 300, zoom: 3.0 },
-    { f: 120, x: 980, y: 290, zoom: 3.2 },
+    { f: 0, x: cx - 40, y: shieldY(cx) - 40, zoom: 3.4 },
+    { f: 120, x: cx + 20, y: shieldY(cx) - 30, zoom: 3.7 },
   ]);
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.1} grain={0.5}>
       <Section f={f} shafts={0}>
-        <Sheet f={f} born={6} i={0} light={200} />
+        <Sheet f={f} born={4} i={0} />
       </Section>
       <Layer depth={0}>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
       </Layer>
     </Stage>
   );
@@ -439,21 +457,22 @@ const ShotSheet: ShotFC<C> = ({ f }) => {
 const ShotStack: ShotFC<C> = ({ f, len }) => {
   const F = NOON;
   const n = 6;
-  const gap = Math.max(26, Math.floor((len - 30) / n));
+  const gap = Math.max(22, Math.floor((len - 40) / n));
   const cam = cameraAt(f, [
-    { f: 0, x: 1000, y: 330, zoom: 2.2 },
-    { f: len, x: 990, y: 280, zoom: 2.35 },
+    { f: 0, x: MK_X + 210, y: 300, zoom: 2.3 },
+    { f: len, x: MK_X + 200, y: 262, zoom: 2.5 },
   ]);
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.1} grain={0.5}>
       <Section f={f} shafts={0}>
+        <Sheet f={1000} born={0} i={0} />
         {Array.from({ length: n }, (_, i) => (
-          <Sheet key={i} f={f} born={i * gap} i={i + 1} light={200} />
+          <Sheet key={i} f={f} born={i * gap} i={i + 1} />
         ))}
       </Section>
       <Layer depth={0}>
-        <Pill x={120} y={128} text="ONE FLOW AT A TIME" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={18} />
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
+        <Pill x={120} y={128} text="ONE FLOW AT A TIME" fill={PF} color={HT} dot={L12_COLORS.amber} size={20} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
       </Layer>
     </Stage>
   );
@@ -463,28 +482,29 @@ const ShotStack: ShotFC<C> = ({ f, len }) => {
 const ShotMile: ShotFC<C> = ({ f, c }) => {
   const F = NOON;
   const cam = cameraAt(f, [
-    { f: 0, x: 980, y: 300, zoom: 1.7 },
-    { f: 240, x: 1000, y: 290, zoom: 1.82 },
+    { f: 0, x: 800, y: 250, zoom: 1.7 },
+    { f: 240, x: 830, y: 240, zoom: 1.84 },
   ]);
-  const tx = MK_X + 250;
-  const ty = shieldY(tx) - 4;
+  const tx = MK_X - 150;
+  const ty = shieldY(tx) - 2;
   const pt = clamp01((f - (c.onlyWay - c.mile)) / 26) * 1.6;
   const ghost = ease(f, 12, 36);
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.1} grain={0.5}>
       <Section f={f} shafts={0}>
-        {Array.from({ length: 6 }, (_, i) => (
-          <Sheet key={i} f={1000} born={0} i={i + 1} light={200} />
+        {Array.from({ length: 7 }, (_, i) => (
+          <Sheet key={i} f={1000} born={0} i={i} />
         ))}
-        <GroundShadow x={tx + 8} y={ty + 2} rx={60} color={PETROL.shadow} opacity={0.4} blur={4} />
-        <Tick x={tx} y={ty} pxPerM={160} frame={f} pose="stand" poseTo="point" poseT={pt} expression="neutral" expressionTo="proud" expressionT={pt} look={0.6} facing={1} outline={PETROL.shadow} staff tilt={-8} />
+        <GroundShadow x={tx + 8} y={ty + 3} rx={60} color={PETROL.shadow} opacity={0.4} blur={4} />
+        <Tick x={tx} y={ty} pxPerM={150} frame={f} pose="stand" poseTo="point" poseT={pt} expression="neutral" expressionTo="proud" expressionT={pt} look={0.7} facing={1} outline={PETROL.shadow} staff tilt={3} />
+        <Puffs frame={f} x={tx + 30} y={ty - 230} color={alpha("#FFFFFF", 0.5)} period={70} size={7} rise={0.35} drift={0.4} life={60} seed={4} />
       </Section>
       <Layer depth={0}>
         <g opacity={ghost}>
-          <Kicker x={120} y={128} text="— ONE GEOPHYSICIST'S GUESS" color={F.dim} size={22} />
-          <Pill x={120} y={178} text="~1 MILE MORE · ONLY BY VOLCANO" fill={pillFill(F)} color={F.text} size={18} />
+          <Kicker x={120} y={128} text="— ONE GEOPHYSICIST'S GUESS" color={PETROL.shadow} size={26} />
+          <Pill x={120} y={184} text="~1 MILE MORE · ONLY BY VOLCANO" fill={PF} color={HT} size={20} />
         </g>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} ghostMile={ghost > 0.5} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} ghostMile={ghost > 0.5} />
       </Layer>
     </Stage>
   );
@@ -523,12 +543,12 @@ const ShotPlate: ShotFC<C> = ({ f, c, len }) => {
       <Layer depth={0}>
         <g opacity={plate}>
           <Metric x={1520} y={930} value="80" unit="km" size={60} color={F.text} align="end" />
-          <Pill x={1520} y={972} text="PACIFIC PLATE · UNDER HAWAII" fill={pillFill(F)} color={F.text} dot={L12_COLORS.slate} size={17} align="end" />
+          <Pill x={1520} y={972} text="PACIFIC PLATE · UNDER HAWAII" fill={PF} color={HT} dot={L12_COLORS.slate} size={17} align="end" />
         </g>
         <g opacity={ticksOn}>
-          <Pill x={120} y={128} text="BEND EXAGGERATED" fill={pillFill(F)} color={F.text} size={18} />
+          <Pill x={120} y={128} text="BEND EXAGGERATED" fill={PF} color={HT} size={18} />
         </g>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
       </Layer>
     </Stage>
   );
@@ -540,8 +560,8 @@ const ShotTilt: ShotFC<C> = ({ f }) => {
   const sx = MK_X - 470; // the western shoreline
   const sy = shieldY(sx) - 2;
   const cam = cameraAt(f, [
-    { f: 0, x: sx + 40, y: sy - 80, zoom: 2.4 },
-    { f: 150, x: sx + 60, y: sy - 90, zoom: 2.55 },
+    { f: 0, x: sx + 90, y: sy - 110, zoom: 2.0 },
+    { f: 150, x: sx + 110, y: sy - 120, zoom: 2.15 },
   ]);
   const tilt = 2.2 * ease(f, 0, 110); // degrees: the ground tips toward the sea
   const bub = 36 * ease(f, 20, 110);
@@ -553,7 +573,7 @@ const ShotTilt: ShotFC<C> = ({ f }) => {
           <GroundShadow x={sx + 30} y={sy + 2} rx={60} color={PETROL.shadow} opacity={0.4} blur={4} />
           <Tick x={sx + 20} y={sy} pxPerM={150} frame={f} pose="stand" poseTo="lean" poseT={pt} expression="thinking" expressionTo="worried" expressionT={pt} look={0.7} facing={1} outline={PETROL.shadow} />
           {/* the spirit level on the rock: a tube, its bubble drifting off centre */}
-          <g transform={`translate(${sx + 90} ${sy - 12})`}>
+          <g transform={`translate(${sx + 190} ${sy - 66}) rotate(-22) scale(1.5)`}>
             <rect x={-60} y={-10} width={120} height={20} rx={6} fill={L12_COLORS.slateDark} />
             <rect x={-44} y={-6} width={88} height={12} rx={6} fill="#CFF7EE" />
             <line x1={-9} y1={-8} x2={-9} y2={8} stroke={L12_COLORS.slateDark} strokeWidth={2} />
@@ -564,7 +584,7 @@ const ShotTilt: ShotFC<C> = ({ f }) => {
         <Puffs frame={f} x={sx - 10} y={sy - 230} color={alpha("#FFFFFF", 0.5)} period={80} size={6} rise={0.3} drift={0.4} life={60} seed={6} />
       </Section>
       <Layer depth={0}>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
       </Layer>
     </Stage>
   );
@@ -683,8 +703,8 @@ const Pier: React.FC<{ f: number; water: number; children?: React.ReactNode }> =
 const ShotHilo: ShotFC<C> = ({ f, len }) => {
   const F = NOON;
   const cam = cameraAt(f, [
-    { f: 0, x: 1120, y: 600, zoom: 1.5 },
-    { f: len, x: 1100, y: 590, zoom: 1.62 },
+    { f: 0, x: 1180, y: 500, zoom: 1.3 },
+    { f: len, x: 1150, y: 500, zoom: 1.42 },
   ]);
   const water = 6 * (f / Math.max(1, len)); // the water line creeps up the staff (schematic, the rate is the Counter)
   const deck = H_SEA - 120;
@@ -694,17 +714,17 @@ const ShotHilo: ShotFC<C> = ({ f, len }) => {
       <Harbour f={f} water={water}>
         <Pier f={f} water={water}>
           <GroundShadow x={1120} y={deck - 20} rx={60} color={F.shadow} opacity={0.35} blur={4} />
-          <Tick x={1110} y={deck - 22} pxPerM={200} frame={f} pose="crouch-reach" expression="thinking" look={0.9} facing={-1} outline={F.shadow} />
+          <Tick x={1150} y={deck - 22} pxPerM={185} frame={f} pose="crouch-reach" expression="thinking" look={0.9} facing={-1} outline={F.shadow} headTilt={Math.sin(f / 30) * 3} />
         </Pier>
       </Harbour>
       <Layer depth={0}>
-        <Pill x={120} y={128} text="HILO" fill={pillFill(F)} color={F.text} dot={P.vermilion} size={18} />
+        <Pill x={120} y={128} text="HILO" fill={PF} color={HT} dot={P.vermilion} size={22} />
         <g opacity={ease(f, 20, 40)}>
-          <rect x={120} y={162} width={330} height={74} rx={8} fill={alpha(F.shadow, 0.55)} />
-          <text x={140} y={214} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 44, fontVariantNumeric: "tabular-nums", fill: F.text }}>
+          <rect x={120} y={162} width={350} height={74} rx={8} fill={PF} />
+          <text x={140} y={214} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 44, fontVariantNumeric: "tabular-nums", fill: HT }}>
             {rate.toFixed(1)}
           </text>
-          <text x={226} y={214} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 22, fill: F.text }}>
+          <text x={226} y={214} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 22, fill: HT }}>
             mm a year, down
           </text>
         </g>
@@ -718,9 +738,9 @@ const ShotLine: ShotFC<C> = ({ f, len }) => {
   const deck = H_SEA - 120;
   const drop = ease(f, 20, len) * 700;
   const cam = cameraAt(f, [
-    { f: 0, x: 1080, y: 620, zoom: 1.4 },
-    { f: 30, x: 1080, y: 640, zoom: 1.4 },
-    { f: len, x: 1060, y: 640 + drop * 0.9, zoom: 1.5 },
+    { f: 0, x: 1150, y: 520, zoom: 1.35 },
+    { f: 30, x: 1140, y: 560, zoom: 1.35 },
+    { f: len, x: 1100, y: 600 + drop * 0.9, zoom: 1.5 },
   ]);
   const under = clamp01((cam.y - H_SEA) / 250);
   const pt = clamp01((f - 4) / 26) * 1.6;
@@ -729,11 +749,11 @@ const ShotLine: ShotFC<C> = ({ f, len }) => {
       <Harbour f={f} water={6}>
         <Pier f={f} water={6}>
           <GroundShadow x={1120} y={deck - 20} rx={60} color={F.shadow} opacity={0.35} blur={4} />
-          <Tick x={1120} y={deck - 22} pxPerM={200} frame={f} pose="crouch-reach" poseTo="lean" poseT={pt} expression="determined" look={0.9} facing={-1} outline={F.shadow} />
+          <Tick x={1150} y={deck - 22} pxPerM={185} frame={f} pose="crouch-reach" poseTo="lean" poseT={pt} expression="determined" look={0.9} facing={-1} outline={F.shadow} />
           {/* the weighted line: from the mitten, down past the deck, into the water */}
-          <line x1={1012} y1={deck - 60} x2={1012} y2={deck - 60 + 40 + drop} stroke="#F7F1E4" strokeWidth={2.5} />
-          <path d={`M1004 ${deck - 20 + drop} L1020 ${deck - 20 + drop} L1016 ${deck + 6 + drop} L1008 ${deck + 6 + drop} Z`} fill={L12_COLORS.slateDark} />
-          <Bubbles frame={f} x0={1000} x1={1024} y={deck + 10 + drop} n={8} color="#CFF7EE" seed={3} rise={1.2} life={60} size={2.2} />
+          <line x1={1076} y1={deck - 100} x2={1076} y2={deck - 20 + drop} stroke="#F7F1E4" strokeWidth={3.5} />
+          <path d={`M1062 ${deck - 20 + drop} L1090 ${deck - 20 + drop} L1086 ${deck + 26 + drop} L1076 ${deck + 40 + drop} L1066 ${deck + 26 + drop} Z`} fill={L12_COLORS.slateDark} stroke="#F7F1E4" strokeWidth={1.5} />
+          <Bubbles frame={f} x0={1060} x1={1092} y={deck + 10 + drop} n={10} color="#CFF7EE" seed={3} rise={1.2} life={60} size={2.2} />
         </Pier>
       </Harbour>
       <Layer depth={1}>
@@ -741,7 +761,7 @@ const ShotLine: ShotFC<C> = ({ f, len }) => {
         <Sky stops={[alpha("#082A36", 0), alpha("#061C26", 0.85)]} x={-800} y={H_SEA + 200} w={3400} h={1200} />
       </Layer>
       <Layer depth={0}>
-        <Pill x={120} y={128} text="HILO" fill={pillFill(F)} color={F.text} dot={P.vermilion} size={18} />
+        <Pill x={120} y={128} text="HILO" fill={PF} color={HT} dot={P.vermilion} size={22} />
       </Layer>
     </Stage>
   );
@@ -808,24 +828,22 @@ const ReefWorld: React.FC<{ f: number; shafts?: number; children?: React.ReactNo
 
 const ShotReefs: ShotFC<C> = ({ f, c, len }) => {
   const F = PETROL;
-  const steps = REEFS.map(([x, y], i): { f: number; x: number; y: number; zoom: number } => ({ f: Math.round((i / (REEFS.length - 1)) * (len - 20)) + (i === 0 ? 0 : 10), x: x + 180, y: y - 40, zoom: 1.35 }));
-  const cam = cameraAt(f, steps);
-  const tagAt = c.deepest - c.reefs;
-  const tag = ease(f, tagAt, tagAt + 20);
+  // the camera steps down the staircase and reaches the deepest reef as "thirteen hundred" is spoken, then drifts
+  const tagAt = Math.max(60, c.deepest - c.reefs);
+  const steps = REEFS.map(([x, y], i): { f: number; x: number; y: number; zoom: number } => ({ f: Math.round((i / (REEFS.length - 1)) * tagAt), x: x + 180, y: y - 60, zoom: 1.3 }));
   const [dx, dy] = REEFS[REEFS.length - 1];
+  const cam = cameraAt(f, [...steps, { f: Math.max(tagAt + 1, len), x: dx + 210, y: dy - 90, zoom: 1.42 }]);
+  const tag = ease(f, tagAt - 4, tagAt + 16);
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.28} grain={0.5}>
       <ReefWorld f={f}>
         <g opacity={tag}>
-          <Leader from={[dx + 10, dy - 30]} to={[dx + 150, dy - 130]} color={F.text} />
+          <line x1={dx + 40} y1={dy - 50} x2={dx + 150} y2={dy - 170} stroke={F.text} strokeWidth={2.5} />
+          <circle cx={dx + 40} cy={dy - 50} r={5} fill={F.text} />
+          <Metric x={dx + 160} y={dy - 190} value="1,335" unit="m down" size={64} color={F.text} />
+          <Pill x={dx + 160} y={dy - 140} text="REEF · ~465,000 YEARS OLD" fill={pillFill(F)} color={F.text} dot={L12_COLORS.seaGlass} size={19} />
         </g>
       </ReefWorld>
-      <Layer depth={0}>
-        <g opacity={tag}>
-          <Metric x={1180} y={420} value="1,335" unit="m below the sea" size={60} color={F.text} />
-          <Pill x={1180} y={466} text="REEF · ~465,000 YEARS OLD" fill={pillFill(F)} color={F.text} dot={L12_COLORS.seaGlass} size={17} />
-        </g>
-      </Layer>
     </Stage>
   );
 };
@@ -839,23 +857,20 @@ const ShotSinking: ShotFC<C> = ({ f }) => {
   const [dx, dy] = REEFS[REEFS.length - 1];
   const br = ease(f, 6, 30);
   const nudge = 10 * (0.5 + 0.5 * Math.sin(f / 10));
+  const lx = dx + 300;
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.28} grain={0.5}>
       <ReefWorld f={f} shafts={0.8}>
         <g opacity={br}>
-          <line x1={dx + 240} y1={R_SEA + 20} x2={dx + 240} y2={dy - 10} stroke={F.text} strokeWidth={3} strokeDasharray="10 8" />
-          <line x1={dx + 200} y1={R_SEA + 20} x2={dx + 280} y2={R_SEA + 20} stroke={F.text} strokeWidth={3} />
-          <line x1={dx + 200} y1={dy - 10} x2={dx + 280} y2={dy - 10} stroke={F.text} strokeWidth={3} />
-          <path d={`M${dx + 240} ${dy + 30 + nudge} L${dx + 222} ${dy + 10 + nudge} L${dx + 258} ${dy + 10 + nudge} Z`} fill={L12_COLORS.amber} />
-          <rect x={dx + 234} y={dy - 2 + nudge} width={12} height={16} fill={L12_COLORS.amber} />
+          <line x1={lx} y1={R_SEA + 20} x2={lx} y2={dy - 10} stroke={F.text} strokeWidth={3} strokeDasharray="10 8" />
+          <line x1={lx - 40} y1={R_SEA + 20} x2={lx + 40} y2={R_SEA + 20} stroke={F.text} strokeWidth={3} />
+          <line x1={lx - 40} y1={dy - 10} x2={lx + 40} y2={dy - 10} stroke={F.text} strokeWidth={3} />
+          <path d={`M${lx} ${dy + 44 + nudge} L${lx - 26} ${dy + 16 + nudge} L${lx + 26} ${dy + 16 + nudge} Z`} fill={L12_COLORS.amber} />
+          <rect x={lx - 8} y={dy - 2 + nudge} width={16} height={20} fill={L12_COLORS.amber} />
+          <Metric x={lx - 60} y={470} value="≥ 1.3" unit="km sunk" size={66} color={F.text} align="end" />
+          <Pill x={lx - 60} y={520} text="STILL SINKING" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={20} align="end" />
         </g>
       </ReefWorld>
-      <Layer depth={0}>
-        <g opacity={br}>
-          <Metric x={1480} y={560} value="≥ 1.3" unit="km sunk" size={60} color={F.text} />
-          <Pill x={1480} y={606} text="STILL SINKING" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={18} />
-        </g>
-      </Layer>
     </Stage>
   );
 };
@@ -902,8 +917,8 @@ const ChainMap: React.FC<{ f: number; shift: number; glyph?: number; children?: 
           ))}
         </g>
         {/* the heat source: fixed in the frame, the plate moves over it (F7: never "fixed" or "hotspot" on screen) */}
-        <LightWash x={gx} y={gy} rx={420 * g} ry={300 * g} color={L12_COLORS.amber} strength={0.45} />
-        <Emissive d={blob(gx, gy, 120, 7)} color={L12_COLORS.amber} core="#FFD28A" fill strength={g} glow={32} />
+        <LightWash x={gx} y={gy} rx={460 * g} ry={330 * g} color={L12_COLORS.amber} strength={0.6} />
+        <Emissive d={blob(gx, gy, 84, 7)} color={L12_COLORS.amber} core="#FFA850" fill strength={0.8 * g} glow={32} />
         <Embers frame={f} x0={gx - 120} x1={gx + 120} y={gy + 40} n={26} color="#FFC070" seed={4} rise={0.5} life={90} size={2} />
         {/* the islands, carried NW: older, smaller, more worn (#15); seamounts beyond Kauai as dotted rings */}
         <g transform={`translate(${-shift * 0.86} ${-shift * 0.5})`}>
@@ -939,72 +954,84 @@ const ShotMap: ShotFC<C> = ({ f, len }) => {
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.28} grain={0.5}>
       <ChainMap f={f} shift={f * 0.35} />
       <Layer depth={0}>
-        <Pill x={120} y={128} text="HEAT SOURCE" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={18} />
-        <Pill x={120} y={176} text="SCHEMATIC" fill={pillFill(F)} color={F.text} size={16} />
+        <Pill x={120} y={128} text="HEAT SOURCE" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={20} />
+        <Pill x={120} y={180} text="SCHEMATIC" fill={pillFill(F)} color={F.text} size={17} />
         <g opacity={ease(f, 30, 50)}>
-          <path d={`M1500 400 L1240 250`} stroke={F.text} strokeWidth={3} markerEnd="none" />
-          <path d={`M1240 250 L1282 254 L1256 292 Z`} fill={F.text} />
-          <Kicker x={1300} y={320} text="— THE PLATE MOVES" color={F.dim} size={20} />
+          <path d={`M1640 420 L1420 293`} stroke={F.text} strokeWidth={4} />
+          <path d={`M1384 272 L1438 276 L1412 322 Z`} fill={F.text} />
+          <Kicker x={1420} y={236} text="— THE PLATE MOVES" color={F.text} size={22} />
         </g>
       </Layer>
     </Stage>
   );
 };
 
-// 5-16: a side section (void): the slab slides left over the fixed heat; the volcano's feed thread thins and goes dark.
+// 5-16: a side section (void): the slab slides left over the heat below; the volcano's feed thread thins and goes
+// dark, the growth arrow fades and the sinking arrow wins (the cone settles lower).
 const ShotCutOff: ShotFC<C> = ({ f, len }) => {
   const F = VOID;
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 560, zoom: 1.0 },
-    { f: len, x: 940, y: 540, zoom: 1.1 },
+    { f: 0, x: 980, y: 560, zoom: 1.0 },
+    { f: len, x: 900, y: 550, zoom: 1.1 },
   ]);
+  const SEA = 470;
+  const SLAB = 700;
   const gx = 1180;
-  const gy = 820;
-  const slide = -f * 1.1;
-  const vx = gx + 60 + slide; // the volcano, carried left
-  const off = clamp01((gx - vx) / 160); // 0 over the heat … 1 carried off
+  const gy = 960;
+  const slide = -f * 1.3;
+  const vx = gx + 40 + slide; // the volcano, carried left
+  const off = clamp01((gx - vx) / 190); // 0 over the heat … 1 carried off
   const g = pulse(f, 50, 0.1, 2);
-  const cone = roundPoly([[vx - 220, 560], [vx - 60, 400 + off * 16], [vx + 50, 395 + off * 16], [vx + 220, 560]], 14);
+  const sinkPx = off * 34;
+  const cone: Pt[] = [[vx - 360, SLAB + 10], [vx - 170, 540 + sinkPx], [vx - 50, 392 + sinkPx], [vx + 36, 386 + sinkPx], [vx + 170, 540 + sinkPx], [vx + 360, SLAB + 10]];
+  const slab = "#4C6470";
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.28} grain={0.5}>
       <Layer depth={0.05}>
         <Sky family={F} />
-        <Stars frame={f} n={60} w={1920} h={500} color={F.text} seed={11} size={1.1} twinkle={0.5} />
+        <Stars frame={f} n={60} w={1920} h={460} color={F.text} seed={11} size={1.1} twinkle={0.5} />
+        <Bloom x={420} y={160} r={520} color={F.light} strength={0.3} spread={0.3} />
       </Layer>
       <Layer depth={1}>
-        {/* the sea */}
-        <Sky stops={["#1C8E8C", "#0E4E5C", "#082A36"]} x={-800} y={560} w={3400} h={100} />
-        <path d={seaSurface(f, -800, 2600, 560, 4, 240, 1.2, 580, 40)} fill="#8FE6D6" opacity={0.7} />
-        {/* the plate slab, sliding left */}
-        <g transform={`translate(${slide} 0)`}>
-          <Form d={`M-800 660 L4000 660 L4000 790 L-800 790 Z`} fill={mixHex(L12_COLORS.slateDark, F.near, 0.3)} light={270} shadow={F.shadow} inset={24} shadowOpacity={0.5} rim={F.light} rimWidth={2} rimOpacity={0.4} hard>
-            {Array.from({ length: 30 }, (_, i) => (
-              <line key={i} x1={-800 + i * 170} y1={660} x2={-800 + i * 170 - 30} y2={790} stroke={F.shadow} strokeWidth={1.5} opacity={0.35} />
-            ))}
-          </Form>
-        </g>
-        {/* the volcano on the slab, its root; the feed thread from the heat (Emissive) thins as it is carried off */}
-        <Form d={cone} fill={ROCK} light={225} shadow={F.shadow} inset={22} shadowOpacity={0.5} rim={F.light} rimWidth={3} rimOpacity={0.6} bounce={F.bounce} />
-        <path d={`M${vx - 160} 660 Q${vx} 760 ${vx + 160} 660 Z`} fill={mixHex(ROCK, F.shadow, 0.3)} />
+        {/* the sea body */}
+        <Sky stops={["#1C8E8C", "#0E4E5C", "#082A36"]} x={-900} y={SEA} w={3600} h={SLAB - SEA + 4} />
+        {/* the hot rock under the plate: dark maroon, a glow where the heat source is (F7) */}
+        <Sky stops={["#2A1410", "#3A1810", "#4A2010"]} x={-900} y={SLAB + 120} w={3600} h={900} />
+        <LightWash x={gx} y={gy} rx={520 * g} ry={300 * g} color={L12_COLORS.amber} strength={0.55} />
+        <Emissive d={blob(gx, gy + 20, 86, 5, 1)} color={L12_COLORS.amber} core="#FFB868" fill strength={0.8 * g} glow={32} />
+        <Embers frame={f} x0={gx - 110} x1={gx + 110} y={gy} n={22} color="#FFC070" seed={6} rise={0.6} life={90} size={2} />
+        {/* the feed thread from the heat to the volcano's root: thins and goes dark as it is carried off */}
         <g opacity={1 - off}>
-          <Emissive d={`M${gx} ${gy - 40} Q${(gx + vx) / 2} 760 ${vx} 700`} color={L12_COLORS.amber} core="#FFD28A" width={8 * (1 - off) + 1} strength={1 - off} />
+          <Emissive d={`M${gx} ${gy - 60} Q${(gx + vx) / 2 + 30} ${SLAB + 150} ${vx} ${SLAB + 20}`} color={L12_COLORS.amber} core="#FFD28A" width={9 * (1 - off) + 1} strength={1 - off} />
         </g>
-        {/* the heat source, fixed below (F7) */}
-        <LightWash x={gx} y={gy + 40} rx={360 * g} ry={200 * g} color={L12_COLORS.amber} strength={0.4} />
-        <Emissive d={blob(gx, gy + 60, 110, 5, 1)} color={L12_COLORS.amber} core="#FFD28A" fill strength={g} glow={32} />
-        <Embers frame={f} x0={gx - 100} x1={gx + 100} y={gy + 40} n={20} color="#FFC070" seed={6} rise={0.5} life={90} size={2} />
-        {/* arrows: growth (fades), sinking (wins) */}
-        <g opacity={0.9 * (1 - off)}>
-          <path d={`M${vx} 370 L${vx - 22} 400 L${vx + 22} 400 Z`} fill={L12_COLORS.amber} />
-          <rect x={vx - 8} y={398} width={16} height={30 * (1 - off)} fill={L12_COLORS.amber} />
+        {/* the volcano standing on the plate, through the sea surface */}
+        <Form d={roundPoly(cone, 16)} fill={ROCK} light={225} shadow={F.shadow} inset={24} shadowOpacity={0.4} rim={F.light} rimWidth={3} rimOpacity={0.7}>
+          <path d={`M${vx + 10} 300 Q${vx + 90} 560 ${vx + 200} 760 L${vx + 600} 760 L${vx + 600} 300 Z`} fill={F.shadow} opacity={0.4} />
+        </Form>
+        {/* the plate slab, sliding left: lit top edge, joint lines moving with it */}
+        <g transform={`translate(${slide} 0)`}>
+          <rect x={-900} y={SLAB} width={5200} height={124} fill={slab} />
+          <rect x={-900} y={SLAB} width={5200} height={10} fill={mixHex(slab, F.light, 0.45)} />
+          <rect x={-900} y={SLAB + 96} width={5200} height={28} fill={mixHex(slab, "#FF7A30", 0.3)} />
+          {Array.from({ length: 34 }, (_, i) => (
+            <line key={i} x1={-900 + i * 150} y1={SLAB + 10} x2={-900 + i * 150 - 34} y2={SLAB + 124} stroke={F.shadow} strokeWidth={2} opacity={0.4} />
+          ))}
         </g>
-        <g opacity={0.3 + 0.7 * off}>
-          <rect x={vx + 250 - 8} y={440} width={16} height={60 * (0.4 + 0.6 * off)} fill={L12_COLORS.seaGlass} />
-          <path d={`M${vx + 250} ${440 + 60 * (0.4 + 0.6 * off) + 28} L${vx + 250 - 22} ${440 + 60 * (0.4 + 0.6 * off)} L${vx + 250 + 22} ${440 + 60 * (0.4 + 0.6 * off)} Z`} fill={L12_COLORS.seaGlass} />
+        {/* water over everything below the surface, then the swell */}
+        <Sky stops={[alpha("#1FA69A", 0.4), alpha("#0E4E5C", 0.6)]} x={-900} y={SEA} w={3600} h={SLAB - SEA} />
+        <path d={seaSurface(f, -900, 2700, SEA, 5, 240, 1.2, SEA + 26, 40)} fill="#8FE6D6" opacity={0.8} />
+        {/* growth (fades) and sinking (wins) */}
+        <g opacity={1 - off}>
+          <path d={`M${vx - 6} ${300 + sinkPx} L${vx - 34} ${340 + sinkPx} L${vx + 22} ${340 + sinkPx} Z`} fill={L12_COLORS.amber} />
+          <rect x={vx - 15} y={338 + sinkPx} width={18} height={34 * (1 - off)} fill={L12_COLORS.amber} />
+        </g>
+        <g opacity={0.25 + 0.75 * off}>
+          <rect x={vx + 260} y={330} width={20} height={50 + 50 * off} fill="#D8FFF4" />
+          <path d={`M${vx + 270} ${420 + 50 * off} L${vx + 240} ${378 + 50 * off} L${vx + 300} ${378 + 50 * off} Z`} fill="#D8FFF4" />
         </g>
       </Layer>
       <Layer depth={0}>
-        <Pill x={120} y={128} text="CUT OFF FROM ITS MAGMA" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={18} />
+        <Pill x={120} y={128} text="CUT OFF FROM ITS MAGMA" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={20} />
       </Layer>
     </Stage>
   );
@@ -1014,7 +1041,7 @@ const ShotChain: ShotFC<C> = ({ f, len }) => {
   const F = VOID;
   const cam = cameraAt(f, [
     { f: 0, x: 1200, y: 640, zoom: 1.1 },
-    { f: len, x: 860, y: 440, zoom: 1.2 },
+    { f: len, x: 900, y: 470, zoom: 1.18 },
   ]);
   const shift = 180 + f * 0.35;
   const t1 = ease(f, 10, 30);
@@ -1025,12 +1052,12 @@ const ShotChain: ShotFC<C> = ({ f, len }) => {
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.28} grain={0.5}>
       <ChainMap f={f} shift={shift}>
         <g opacity={t2}>
-          <Leader from={[1500 + sx, 700 + sy]} to={[1640 + sx, 540 + sy]} color={F.text} />
-          <Pill x={1650 + sx} y={540 + sy} text="BIG ISLAND · < 0.7 MILLION YR" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={17} />
+          <Leader from={[1500 + sx, 690 + sy]} to={[1600 + sx, 560 + sy]} color={F.text} />
+          <Pill x={1250 + sx} y={530 + sy} text="BIG ISLAND · < 0.7 MILLION YR" fill={pillFill(F)} color={F.text} dot={L12_COLORS.amber} size={19} />
         </g>
         <g opacity={t1}>
-          <Leader from={[620 + sx, 330 + sy]} to={[520 + sx, 220 + sy]} color={F.text} />
-          <Pill x={510 + sx} y={220 + sy} text="KAUAI · ~5.5 MILLION YR" fill={pillFill(F)} color={F.text} dot={L12_COLORS.seaGlass} size={17} align="end" />
+          <Leader from={[640 + sx, 330 + sy]} to={[760 + sx, 250 + sy]} color={F.text} />
+          <Pill x={770 + sx} y={250 + sy} text="KAUAI · ~5.5 MILLION YR" fill={pillFill(F)} color={F.text} dot={L12_COLORS.seaGlass} size={19} />
         </g>
       </ChainMap>
     </Stage>
@@ -1041,42 +1068,49 @@ const ShotChain: ShotFC<C> = ({ f, len }) => {
 const ShotSeamounts: ShotFC<C> = ({ f, len }) => {
   const F = PETROL;
   const cam = cameraAt(f, [
-    { f: 0, x: 900, y: 560, zoom: 1.0 },
-    { f: len, x: 760, y: 540, zoom: 1.08 },
+    { f: 0, x: 1000, y: 540, zoom: 1.1 },
+    { f: len, x: 880, y: 530, zoom: 1.2 },
   ]);
   const sea = 600;
   const mounts = [
-    { x: 1500, top: sea - 140, w: 330 },
-    { x: 1060, top: sea - 10, w: 240 }, // the last islet, just at the water
-    { x: 660, top: sea + 70, w: 210 },
-    { x: 320, top: sea + 150, w: 180 },
-    { x: 0, top: sea + 220, w: 160 },
+    { x: 1640, top: sea - 150, w: 330 },
+    { x: 1080, top: sea - 30, w: 250 }, // the last islet, a hair above the water
+    { x: 660, top: sea + 80, w: 220 },
+    { x: 300, top: sea + 170, w: 190 },
+    { x: -40, top: sea + 250, w: 170 },
   ];
-  const tx = 1060;
-  const ty = sea - 12;
-  const lift = ease(f, 20, 44) * (1 - ease(f, 60, 80));
+  const tx = 1082;
+  const ty = sea - 30;
+  const lift = ease(f, 14, 34) * (1 - ease(f, 54, 74));
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.26} grain={0.5}>
       <Layer depth={0.05}>
         <Sky family={F} />
         <Stars frame={f} n={70} w={1920} h={520} color={F.text} seed={13} size={1.2} twinkle={0.6} />
-        <Bloom x={1560} y={160} r={520} color={F.light} strength={0.45} spread={0.3} />
-        <Bloom x={1560} y={160} r={90} color="#E6F5EA" strength={0.9} spread={0.45} core={38} coreColor="#F4FBF4" />
+        <Bloom x={520} y={170} r={520} color={F.light} strength={0.45} spread={0.3} />
+        <Bloom x={520} y={170} r={90} color="#E6F5EA" strength={0.9} spread={0.45} core={38} coreColor="#F4FBF4" />
       </Layer>
       <Layer depth={1}>
-        {mounts.map((m, i) => (
-          <Form key={i} d={roundPoly([[m.x - m.w, 1300], [m.x - m.w * 0.5, m.top + 60], [m.x - 20, m.top], [m.x + 30, m.top + 4], [m.x + m.w * 0.55, m.top + 70], [m.x + m.w, 1300]], 16)} fill={mixHex(ROCK, F.near, 0.2 + i * 0.1)} light={300} shadow={F.shadow} inset={24} shadowOpacity={0.5} rim={F.light} rimWidth={3} rimOpacity={0.6} bounce={F.bounce} />
-        ))}
-        <Sky stops={[alpha("#1FA69A", 0.5), alpha("#0E4E5C", 0.8), alpha("#061C26", 0.95)]} x={-800} y={sea} w={3400} h={900} />
-        <path d={seaSurface(f, -800, 2600, sea, 6, 240, 1.3, sea + 36, 40)} fill="#8FE6D6" opacity={0.8} />
-        <path d={seaSurface(f + 12, -800, 2600, sea + 1, 4, 160, -1.0, sea + 14, 40)} fill="#D8FFF4" opacity={0.45} />
+        <Sky stops={["#1C8E8C", "#0E4E5C", "#082A36", "#061C26"]} x={-900} y={sea} w={3600} h={900} />
+        {mounts.map((m, i) => {
+          const pts: Pt[] = [[m.x - m.w * 1.3, 1400], [m.x - m.w * 0.6, m.top + 90], [m.x - 60, m.top + 6], [m.x - 20, m.top], [m.x + 40, m.top + 4], [m.x + m.w * 0.6, m.top + 100], [m.x + m.w * 1.3, 1400]];
+          return (
+            <Form key={i} d={roundPoly(pts, 18)} fill={mixHex(ROCK, "#3A6A70", 0.15 + i * 0.12)} light={300} shadow={F.shadow} inset={26} shadowOpacity={0.4} rim={F.light} rimWidth={3} rimOpacity={0.7}>
+              <path d={`M${m.x + 10} ${m.top - 20} Q${m.x + 80} ${m.top + 200} ${m.x + 220} 1400 L${m.x + 900} 1400 L${m.x + 900} ${m.top - 20} Z`} fill={F.shadow} opacity={0.4} />
+              {i <= 1 ? <rect x={m.x - 100} y={m.top - 10} width={200} height={16} fill="#E8D8A8" opacity={0.9} /> : null}
+            </Form>
+          );
+        })}
+        <Sky stops={[alpha("#1FA69A", 0.3), alpha("#0E4E5C", 0.55), alpha("#061C26", 0.8)]} x={-900} y={sea} w={3600} h={900} />
+        <path d={seaSurface(f, -900, 2700, sea, 6, 240, 1.3, sea + 30, 40)} fill="#8FE6D6" opacity={0.8} />
+        <path d={seaSurface(f + 12, -900, 2700, sea + 1, 4, 160, -1.0, sea + 12, 40)} fill="#D8FFF4" opacity={0.45} />
         <Motes frame={f} n={30} x={-200} y={sea + 60} w={2300} h={500} color="#BFF5E8" seed={17} size={2} drift={10} />
-        <GroundShadow x={tx + 6} y={ty + 2} rx={40} color={F.shadow} opacity={0.4} blur={4} />
-        <g transform={`translate(0 ${-lift * 10})`}>
-          <Tick x={tx} y={ty} pxPerM={120} frame={f} pose="stand" expression="worried" look={-0.7} facing={-1} outline={F.shadow} staff tilt={lift * 6} />
+        <GroundShadow x={tx + 6} y={ty + 2} rx={44} color={F.shadow} opacity={0.4} blur={4} />
+        <g transform={`translate(0 ${-lift * 12})`}>
+          <Tick x={tx} y={ty} pxPerM={130} frame={f} pose="stand" poseTo="shrug" poseT={lift} expression="worried" look={-0.6} facing={-1} outline={F.shadow} staff tilt={lift * 6} />
         </g>
-        {/* the wet boot: a splash ring at the feet */}
-        <ellipse cx={tx} cy={sea + 2} rx={30 + ((f * 0.8) % 30)} ry={6} fill="none" stroke="#D8FFF4" strokeWidth={2} opacity={1 - ((f * 0.8) % 30) / 30} />
+        {/* the water laps the islet: splash rings at the feet */}
+        <ellipse cx={tx} cy={sea + 2} rx={70 + ((f * 0.9) % 40)} ry={7} fill="none" stroke="#D8FFF4" strokeWidth={2.5} opacity={1 - ((f * 0.9) % 40) / 40} />
       </Layer>
       <Layer depth={1.3}>
         <path d={ridgePath([[-500, 1500], [-100, 1200], [300, 1140], [700, 1240], [1000, 1500]], 1900, 40)} fill={F.near} />
@@ -1091,15 +1125,17 @@ const VoidField: React.FC<{ f: number; children?: React.ReactNode }> = ({ f, chi
   return (
     <>
       <Layer depth={0.05}>
-        <Sky family={F} />
-        <Stars frame={f} n={90} w={1920} h={1080} color={F.text} seed={19} size={1.2} twinkle={0.6} />
-        <Bloom x={1100} y={700} r={800} color={L12_COLORS.amber} strength={0.22} spread={0.3} />
+        <Sky stops={["#0A2430", "#103846", "#1A5560"]} />
+        <Stars frame={f} n={90} w={1920} h={900} color={F.text} seed={19} size={1.2} twinkle={0.6} />
+        <Bloom x={380} y={200} r={640} color={F.light} strength={0.3 * pulse(f, 80, 0.08, 4)} spread={0.3} />
+        <Bloom x={900} y={980} r={900} color={L12_COLORS.amber} strength={0.3} spread={0.3} squash={0.5} />
       </Layer>
       <Layer depth={0.3} haze={{ color: F.haze, amount: 0.4 }}>
-        <path d={ridgePath([[-600, 1000], [200, 940], [700, 900], [1100, 860], [1500, 900], [2500, 980]], 1500, 60)} fill={F.far} />
+        <path d={ridgePath([[-600, 1000], [200, 900], [700, 860], [1100, 800], [1500, 870], [2500, 960]], 1500, 60)} fill={F.far} />
       </Layer>
       <Layer depth={1}>
-        <rect x={-800} y={1000} width={3400} height={400} fill={F.near} />
+        <path d={ridgePath([[-800, 1010], [-200, 990], [500, 1004], [1200, 986], [2000, 1006], [2800, 996]], 1500, 40)} fill={F.mid} />
+        <rect x={-800} y={1030} width={3600} height={400} fill={F.near} />
         <Motes frame={f} n={30} x={0} y={100} w={1900} h={900} color={F.light} seed={23} size={3} drift={30} />
         {children}
       </Layer>
@@ -1107,35 +1143,43 @@ const VoidField: React.FC<{ f: number; children?: React.ReactNode }> = ({ f, chi
   );
 };
 
-const Stamp: React.FC<{ f: number; at: number; x: number; y: number; text: string; F: Family }> = ({ f, at, x, y, text, F }) => {
+const Stamp: React.FC<{ f: number; at: number; x: number; y: number; text: string }> = ({ f, at, x, y, text }) => {
   const t = f - at;
   if (t < 0) return null;
-  const s = 1 + (1 - clamp01(t / 10)) * 0.5;
-  const sq = impact(f, at, 0.14, 10);
+  const s = 1 + (1 - clamp01(t / 9)) * 0.7;
+  const sq = impact(f, at + 8, 0.14, 10);
   return (
-    <g transform={`translate(${x} ${y}) scale(${s * sq.sx} ${s * sq.sy}) translate(${-x} ${-y})`}>
-      <Pill x={x} y={y} text={text} fill={alpha(L12_COLORS.amber, 0.92)} color={F.shadow} size={20} align="end" />
+    <g transform={`translate(${x} ${y}) scale(${s * sq.sx} ${s * sq.sy}) rotate(-4) translate(${-x} ${-y})`} opacity={clamp01(t / 4)}>
+      <Pill x={x} y={y} text={text} fill={alpha(L12_COLORS.amber, 0.95)} color={VOID.shadow} size={30} align="end" />
     </g>
   );
 };
 
 const ShotStamps: ShotFC<C> = ({ f, c }) => {
   const F = VOID;
-  const gy = (m: number) => 160 + 560 - (m / 12000) * 560;
+  const s1 = c.stamp1 - c.stamps;
+  const s2 = c.stamp2 - c.stamps;
+  const sink = 26 * ease(f, s1, s1 + 70);
+  const carry = -140 * ease(f, s2, s2 + 80);
+  const isl: Pt[] = [[360, 1010], [600, 800], [820, 690], [900, 676], [990, 700], [1180, 820], [1380, 1010]];
   return (
     <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.1, panX: 0.05, seed: 3 }} vignette={0.28} grain={0.5}>
       <VoidField f={f}>
-        {/* the island in section, small, sinking a hair as the stamps land */}
-        <g transform={`translate(0 ${6 * ease(f, c.stamp1 - c.stamps, c.stamp1 - c.stamps + 60)})`}>
-          <Form d={roundPoly([[300, 1000], [600, 760], [760, 700], [900, 720], [1200, 1000]], 20)} fill={mixHex(ROCK, F.near, 0.3)} light={225} shadow={F.shadow} inset={26} shadowOpacity={0.5} rim={F.light} rimWidth={3} rimOpacity={0.6} bounce={F.bounce} />
+        {/* the island in section: it sinks when SINKS lands and slides off its heat when CARRIED OFF lands */}
+        <LightWash x={880} y={1010} rx={420} ry={150} color={L12_COLORS.amber} strength={0.6 * pulse(f, 50, 0.1, 2)} />
+        <Embers frame={f} x0={760} x1={1000} y={1010} n={18} color="#FFC070" seed={4} rise={0.5} life={80} size={2} />
+        <g transform={`translate(${carry} ${sink})`}>
+          <Form d={roundPoly(isl, 22)} fill={mixHex(ROCK, F.mid, 0.2)} light={225} shadow={F.shadow} inset={28} shadowOpacity={0.4} rim={F.light} rimWidth={4} rimOpacity={0.8}>
+            <path d={`M900 600 Q1000 800 1120 1100 L1500 1100 L1500 600 Z`} fill={F.shadow} opacity={0.42} />
+          </Form>
         </g>
-        <Sky stops={[alpha("#1FA69A", 0.35), alpha("#061C26", 0.8)]} x={-800} y={820} w={3400} h={300} />
-        <path d={seaSurface(f, -800, 2600, 820, 5, 240, 1.2, 850, 40)} fill="#8FE6D6" opacity={0.6} />
+        <Sky stops={[alpha("#1FA69A", 0.45), alpha("#0A3040", 0.75)]} x={-800} y={840} w={3600} h={190} />
+        <path d={seaSurface(f, -800, 2800, 840, 5, 240, 1.2, 866, 40)} fill="#8FE6D6" opacity={0.75} />
       </VoidField>
       <Layer depth={0}>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
-        <Stamp f={f} at={c.stamp1 - c.stamps} x={1600} y={gy(10211) + 60} text="SINKS" F={F} />
-        <Stamp f={f} at={c.stamp2 - c.stamps} x={1600} y={gy(10211) + 110} text="CARRIED OFF" F={F} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
+        <Stamp f={f} at={s1} x={1380} y={430} text="SINKS" />
+        <Stamp f={f} at={s2} x={1380} y={510} text="CARRIED OFF" />
       </Layer>
     </Stage>
   );
@@ -1171,7 +1215,7 @@ const ShotPebble: ShotFC<C> = ({ f, len }) => {
         </g>
       </VoidField>
       <Layer depth={0}>
-        <SectionHud F={F} everest mk={0} mkBar={10211 /* #13 */} />
+        <SectionHud everest mk={0} mkBar={10211 /* #13 */} />
       </Layer>
     </Stage>
   );
