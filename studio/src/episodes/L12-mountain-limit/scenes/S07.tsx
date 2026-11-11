@@ -6,7 +6,7 @@
 // are exported for the closer / scene 8 builders if they want the same silhouettes (import from "./S07").
 //
 // Vertical exaggeration: the Olympus Mons profile (7-07 … 7-11) is drawn at ×3 vertically (true slopes are 2-5°,
-// #18, so a true-scale profile is a 1:25 sliver); every profile shot carries the kicker "— PROFILE · VERTICAL ×3".
+// #18, so a true-scale profile is a 1:25 sliver); every profile shot carries the kicker "— PROFILE · VERTICAL SCALE X3".
 // Olympus Mons' height is always a RANGE or a stated base (art-director note): the gauge reads the band 22-26 km (#18
 // #19) and the base pill "ABOVE THE PLAINS"; the Mars and Venus skies are the L12 MARS / VENUS families (ochre on
 // butterscotch; dim amber haze), never a red disc on indigo or a yellow ball.
@@ -158,7 +158,7 @@ export const Disc: React.FC<{ x: number; y: number; r: number; world: World; f: 
           </g>
         ) : null}
         {/* terminator */}
-        <ellipse cx={tx} cy={ty} rx={r * 1.05} ry={r * 1.05} fill={bg.shadow} opacity={0.62} />
+        <circle cx={x + (tx - x) * 1.9} cy={y + (ty - y) * 1.9} r={r * 1.3} fill={bg.shadow} opacity={0.62} filter={`url(#soft-${r > 150 ? 32 : r > 60 ? 16 : 8})`} />
       </Form>
     </g>
   );
@@ -219,16 +219,30 @@ export const OlympusProfile: React.FC<{ f: number; light?: number; F?: Family }>
       <LightWash x={OLY.x0 - 900} y={OLY.base + 160} rx={2600} ry={260} color={F.light} strength={0.28} />
       <path d={`M${OLY.x1 - 300} ${OLY.base} L${OLY.x1 + 4200} ${OLY.base + 20} L${OLY.x1 + 5200} ${OLY.base + 420} L${OLY.x1 - 200} ${OLY.base + 60} Z`} fill={F.shadow} opacity={0.22} />
       <Form d={d} fill={F.mid} light={light} shadow={F.shadow} inset={40} shadowOpacity={0.4} rim={F.light} rimWidth={4} rimOpacity={0.85} bounce={F.bounce} bounceOpacity={0.3}>
-        <Facets pts={OLY_PTS} base={OLY.base + 900} light={light} fill={F.shadow} opacity={0.4} />
-        <Facets pts={OLY_PTS} base={OLY.base + 900} light={light} fill={dusk} opacity={0.5} lit />
-        <g fill={mixHex(F.mid, F.light, 0.32)} opacity={0.2}>
+        {/* one plane per flank (STYLE-V2 round 5): a horizontal ramp from the sunlit west flank to the shaded east flank */}
+        <defs>
+          <linearGradient id="olyRamp" gradientUnits="userSpaceOnUse" x1={OLY.x0} y1={0} x2={OLY.x1} y2={0}>
+            <stop offset={0} stopColor={mixHex(dusk, F.light, 0.3)} />
+            <stop offset={0.42} stopColor={dusk} />
+            <stop offset={0.56} stopColor={mixHex(F.mid, F.shadow, 0.35)} />
+            <stop offset={1} stopColor={mixHex(F.mid, F.shadow, 0.62)} />
+          </linearGradient>
+        </defs>
+        <rect x={OLY.x0 - 500} y={-400} width={7400} height={2400} fill="url(#olyRamp)" />
+        {/* old flow terraces: the skyline repeated lower and flatter, so the dome reads as stacked flows */}
+        <g fill="none" stroke={F.shadow} strokeLinecap="round" opacity={0.16}>
+          {[0.86, 0.7, 0.52, 0.34].map((q, i) => (
+            <path key={i} d={smoothPath(OLY_PTS.slice(3, -3).filter((_, j) => j % 2 === 0).map(([x, y]): Pt => [x, OLY.base - (OLY.base - y) * q + 30]))} strokeWidth={10 - i * 1.5} />
+          ))}
+        </g>
+        <g fill={mixHex(F.mid, F.light, 0.45)} opacity={0.16}>
           {tongues.map((p, i) => (
             <path key={i} d={p} />
           ))}
         </g>
         {/* the caldera floor, a hair darker, and the dust haze creeping up the lower flank */}
         <ellipse cx={OLY_XC} cy={olympusY(OLY_XC) + 30} rx={400} ry={28} fill={F.shadow} opacity={0.28} />
-        <HazeBand y={OLY.base - 320} h={340} color={F.haze} strength={0.5} x={-6000} w={16000} />
+        <HazeBand y={OLY.base - 220} h={230} color={F.haze} strength={0.3} x={-6000} w={16000} />
       </Form>
       {/* ground-contact grain: a few boulders along the foot */}
       {[-1500, -900, -300, 600, 1500, 2600, 3600, 4400, 5300].map((x, i) => (
@@ -326,7 +340,7 @@ export const Vesta: React.FC<{ x: number; y: number; r: number; f: number; rot?:
         <ellipse cx={0} cy={r * 0.62} rx={r * 0.72} ry={r * 0.2} fill={mixHex(body, F.shadow, 0.35)} opacity={0.55} />
         <ellipse cx={0} cy={r * 0.62} rx={r * 0.16} ry={r * 0.07} fill={mixHex(body, F.light, 0.3)} opacity={0.8} />
         {/* night-side fill: the petrol bounce so no frame is near-grey */}
-        <ellipse cx={r * 0.7} cy={r * 0.45} rx={r * 0.9} ry={r} fill="#2A6E78" opacity={0.35} />
+        <ellipse cx={r * 0.9} cy={r * 0.5} rx={r * 0.8} ry={r} fill="#2A6E78" opacity={0.5} filter="url(#soft-32)" />
       </Form>
       <g opacity={0}>{f}</g>
     </g>
@@ -386,7 +400,7 @@ const ShotPad: ShotFC<CL07> = ({ f, len }) => {
       </Layer>
       <Layer depth={0}>
         <g opacity={sm(f, 10, 34)} transform={`translate(0 ${((1 - sm(f, 10, 34)) * 20).toFixed(1)})`}>
-          <Headline x={1080} y={300} lines={["weight = mass × gravity"]} size={70} color={F.text} accent={P.vermilion} />
+          <Headline x={120} y={230} lines={["weight = mass × gravity"]} size={66} color={F.text} accent={P.vermilion} />
         </g>
         <L12Gauge family={F} value={HEIGHTS.everest /* #1 */} ceiling={{ v: 9000 /* #9 ~9 km */ }} base="ABOVE SEA LEVEL" />
       </Layer>
@@ -662,7 +676,7 @@ const ShotOlympus: ShotFC<CL07> = ({ f, len }) => {
       <Layer depth={0}>
         <g opacity={pillIn}>
           <Pill x={120} y={128} text="OLYMPUS MONS" fill={pillFill(F)} color={F.text} dot={F.light} size={20} />
-          <Kicker x={120} y={1000} text="— PROFILE · VERTICAL ×3" color={F.dim} size={20} />
+          <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
         </g>
         <L12Gauge family={F} value={HEIGHTS.everest /* #1 */} max={30000} ceiling={{ v: HEIGHTS.predictedMars /* #26 */, label: "PREDICTED ~23 km" }} base="EVEREST · ABOVE SEA LEVEL" />
       </Layer>
@@ -701,7 +715,7 @@ const ShotFits: ShotFC<CL07> = ({ f, len }) => {
         </g>
       </Layer>
       <Layer depth={0}>
-        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL ×3" color={F.dim} size={20} />
+        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
         <L12Gauge
           family={F}
           value={value}
@@ -758,7 +772,7 @@ const ShotStack: ShotFC<CL07> = ({ f, len }) => {
         })}
       </Layer>
       <Layer depth={0}>
-        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL ×3" color={F.dim} size={20} />
+        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
         <L12Gauge family={F} value={HEIGHTS.olympusLow / 2 + HEIGHTS.olympusHigh / 2} max={100000} ceiling={{ v: HEIGHTS.predictedMars /* #26 */, label: "PREDICTED ~23 km" }} bands={[{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: F.light, label: "22-26 km · BASE-DEPENDENT" }]} readout="22-26 km" base="ABOVE THE PLAINS" />
       </Layer>
     </Stage>
@@ -817,7 +831,7 @@ const ShotArizona: ShotFC<CL07> = ({ f, len }) => {
           <Pill x={120} y={128} text="BASE · THE SIZE OF ARIZONA" fill={pillFill(F)} color={F.text} dot={F.light} size={20} />
           <Pill x={120} y={178} text="SCHEMATIC" fill={pillFill(F)} color={F.text} size={16} />
         </g>
-        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL ×3" color={F.dim} size={20} />
+        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
         <L12Gauge family={F} value={HEIGHTS.olympusLow / 2 + HEIGHTS.olympusHigh / 2} max={100000} bands={[{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: F.light }]} readout="22-26 km" base="ABOVE THE PLAINS" />
       </Layer>
     </Stage>

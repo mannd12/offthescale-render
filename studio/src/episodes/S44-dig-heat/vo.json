@@ -1,0 +1,66 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "They expected the bottom of the hole to be about a hundred degrees.",
+    "file": "S44-dig-heat/vo/cold-00-dfe414dc7f.wav",
+    "seconds": 3.16,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "It was about a hundred and eighty.",
+    "file": "S44-dig-heat/vo/cold-01-33eea7f2a0.wav",
+    "seconds": 1.71,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "That's eighty degrees hotter than boiling water.",
+    "file": "S44-dig-heat/vo/cold-02-ef68d11852.wav",
+    "seconds": 2.31,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "The plan was fifteen kilometres. The team's own straight-line projection put the rock there at about two hundred and sixty-six degrees.",
+    "file": "S44-dig-heat/vo/cold-03-8ef82666d2.wav",
+    "seconds": 6.53,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Going down, rock warms up. Near the top here, about one degree every hundred metres.",
+    "file": "S44-dig-heat/vo/cold-04-5f02c072bd.wav",
+    "seconds": 4.959958333333334,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "By six or seven kilometres, closer to two. The warming itself was speeding up.",
+    "file": "S44-dig-heat/vo/cold-05-df0f11758b.wav",
+    "seconds": 4.52,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "And heat doesn't just feel bad. It breaks machines.",
+    "file": "S44-dig-heat/vo/cold-06-b3153b7c99.wav",
+    "seconds": 2.85,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So what does rock eighty degrees past boiling do to a drill? The full video shows what broke.",
+    "file": "S44-dig-heat/vo/cold-07-f62a273a5e.wav",
+    "seconds": 5.38,
+    "pauseAfter": 0.55
+  }
+]

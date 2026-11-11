@@ -124,7 +124,7 @@ export const SlateBlock: React.FC<{
       <path d={topD} fill={top} />
       {/* bedding line on the top face */}
       <path d={`M${x + dd * 0.3} ${y - h - dd * 0.18} L${x + w + dd * 0.3} ${y - h - dd * 0.18}`} stroke={mixHex(top, F.shadow, 0.25)} strokeWidth={1.5} opacity={0.6} />
-      <Form d={frontD} fill={front} light={light} shadow={F.shadow} inset={Math.max(6, Math.min(w, h) * 0.12)} shadowOpacity={0.35} rim={F.light} rimWidth={2} rimOpacity={0.6} bounce={F.bounce} hard>
+      <Form d={frontD} fill={front} light={light} shadow={F.shadow} inset={Math.max(4, Math.min(w, h) * 0.07)} shadowOpacity={0.2} rim={F.light} rimWidth={1.5} rimOpacity={0.45}>
         <clipPath id={id}>
           <path d={frontD} />
         </clipPath>

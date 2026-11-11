@@ -101,6 +101,8 @@ export type SummitProps = {
   far?: boolean;
   /** draw the massif plane (depth 0.6); false for close-ups that draw their own summit shelf at depth 1 (C-03…C-05) */
   massif?: boolean;
+  /** drawn between the far planes and the massif (clouds that must pass BEHIND the mountain) */
+  behind?: React.ReactNode;
 };
 
 /**
@@ -108,7 +110,7 @@ export type SummitProps = {
  * your own near-plane Layer (depth 1) and snow (depth 1.25) around it. Camera: the peak is at SUMMIT; a mid shot of
  * Tick on the summit is roughly cam { x: 940, y: 330, zoom: 3 }.
  */
-export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = { x: 1560, y: 560 }, sunGlow = 1, sky = true, stars = 70, tick = {}, spot = false, emberFill = 0, spindrift = true, far = true, massif = true }) => {
+export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = { x: 1560, y: 560 }, sunGlow = 1, sky = true, stars = 70, tick = {}, spot = false, emberFill = 0, spindrift = true, far = true, massif = true, behind = null }) => {
   const snow = L12_COLORS.snow;
   const ppm = tick && tick.pxPerM ? tick.pxPerM : 40;
   const glowAt = sun ?? { x: 1560, y: 640 };
@@ -126,23 +128,24 @@ export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = 
         <>
           <Layer depth={0.2} haze={{ color: F.haze, amount: 0.45 }}>
             <Form d={ridgePath(FAR_RANGE, 1300, 40)} fill={hazed(F, F.far, 0.1)} light={light} shadow={F.shadow} inset={36} shadowOpacity={0.3} rim={F.light} rimWidth={4} rimOpacity={0.7} bounce={F.bounce}>
-              <Facets pts={FAR_RANGE} base={1300} light={light} fill={F.shadow} opacity={0.3} />
+              <Facets pts={FAR_RANGE} base={1300} light={light} fill={F.shadow} opacity={0.22} depth={90} />
             </Form>
           </Layer>
           <Layer depth={0.32} haze={{ color: F.haze, amount: 0.24 }}>
             <Form d={ridgePath(FAR_RIDGE, 1300, 26)} fill={F.far} light={light} shadow={F.shadow} inset={26} shadowOpacity={0.45} rim={F.light} rimWidth={3} rimOpacity={0.6} bounce={F.bounce}>
-              <Facets pts={FAR_RIDGE} base={1300} light={light} fill={F.shadow} opacity={0.35} />
+              <Facets pts={FAR_RIDGE} base={1300} light={light} fill={F.shadow} opacity={0.26} depth={110} />
             </Form>
             <HazeBand y={660} h={300} color={F.haze} strength={0.3} />
             <Flock frame={f} x={-140} y={560} vx={1.1} n={6} size={9} color={F.shadow} seed={3} />
           </Layer>
         </>
       ) : null}
+      {behind}
       {/* the massif: lit flank, base, shadow flank (three clean tonal planes) + the snow cap above SNOW_LINE */}
       {massif ? (
-      <Layer depth={0.6} haze={{ color: F.haze, amount: 0.07 }}>
+      <Layer depth={0.6} haze={{ color: F.haze, amount: 0.03 }}>
         <Form d={ridgePath(MASSIF, 1300, 14)} fill={F.mid} light={light} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
-          <Facets pts={MASSIF} base={1300} light={light} fill={F.shadow} opacity={0.45} />
+          <Facets pts={MASSIF} base={1300} light={light} fill={mixHex(F.near, F.sky[0], 0.5)} opacity={0.72} />
           <Facets pts={MASSIF} base={1300} light={light} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.4} lit />
           {emberFill > 0 ? <HazeBand y={700} h={600} color="#FF7A30" strength={0.55 * emberFill} /> : null}
           <path d={snowCap(MASSIF, 3, 12, SNOW_LINE, 16)} fill={mixHex("#F4EFE6", F.light, 0.18)} />

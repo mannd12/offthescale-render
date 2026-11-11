@@ -161,7 +161,7 @@ const Column: React.FC<{ h: number; crack?: number; split?: number; opacity?: nu
     <g opacity={opacity}>
       {/* the shaft: front + side faces in two tones, course lines */}
       <path d={`M${BX + BW} ${FLOOR} L${BX + BW + 46} ${FLOOR - 28} L${BX + BW + 46} ${FLOOR - h - 28} L${BX + BW} ${FLOOR - h} Z`} fill={mixHex(L12_COLORS.slate, F.shadow, 0.4)} />
-      <Form d={`M${BX} ${FLOOR} H${BX + BW} V${FLOOR - h} H${BX} Z`} fill={mixHex(L12_COLORS.slate, F.light, 0.08)} light={KEY_LIGHT} shadow={F.shadow} inset={18} shadowOpacity={0.3} rim={F.light} rimWidth={2.5} rimOpacity={0.6} bounce={F.bounce} hard>
+      <Form d={`M${BX} ${FLOOR} H${BX + BW} V${FLOOR - h} H${BX} Z`} fill={mixHex(L12_COLORS.slate, F.light, 0.08)} light={KEY_LIGHT} shadow={F.shadow} inset={8} shadowOpacity={0.2} rim={F.light} rimWidth={1.5} rimOpacity={0.45}>
         <g stroke={mixHex(L12_COLORS.slate, F.shadow, 0.45)} strokeWidth={1.6} opacity={0.6}>
           {Array.from({ length: n }, (_, i) => (
             <line key={i} x1={BX} y1={FLOOR - i * course} x2={BX + BW} y2={FLOOR - i * course + (i % 2 ? 2 : -2)} />
@@ -179,6 +179,17 @@ const Gauge: React.FC<{ v: number; readout?: string | false; band?: boolean; rol
 );
 
 const fmtMPa = (v: number) => `${Math.round(v)}`;
+
+/** The dial's band label, drawn here (not as a kit Pill) so the unit keeps its case: "MPa", never "MPA". Rows: #7. */
+const GraniteTag: React.FC<{ x: number; y: number }> = ({ x, y }) => (
+  <g>
+    <rect x={x - 232} y={y - 22} width={464} height={44} rx={22} fill={pillFill(F)} />
+    <circle cx={x - 206} cy={y} r={7} fill={AMBER} />
+    <text x={x - 186} y={y + 9} style={{ fontFamily: "'Anton', sans-serif", fontSize: 26, letterSpacing: 2.4, fill: F.text }}>
+      GRANITE CRUSHES · 100-250 MPa
+    </text>
+  </g>
+);
 
 // ---------------------------------------------------------------------------------------------
 // 1-01 · Tick walks in carrying a slate block, sets it down (landing squash, dust), turns to fetch the next.
@@ -328,7 +339,8 @@ const ShotDialPress: ShotFC<CL01> = ({ f, len, c }) => {
           {/* the dial on a short post beside the bottom block */}
           <rect x={DIAL.x - 8} y={DIAL.y + DIAL.r} width={16} height={FLOOR - DIAL.y - DIAL.r} fill={F.near} />
           <GroundShadow x={DIAL.x + 20} y={FLOOR + 3} rx={90} color={F.shadow} opacity={0.25} blur={8} />
-          <Dial x={DIAL.x} y={DIAL.y} r={DIAL.r} value={v} min={0} max={300} ticks={6} family={F} unit="MPa" format={fmtMPa} frame={f} title="PRESSURE" band={{ from: 100 /* #7 */, to: 250 /* #7 */, color: AMBER, label: "GRANITE CRUSHES · 100-250 MPa" }} />
+          <Dial x={DIAL.x} y={DIAL.y} r={DIAL.r} value={v} min={0} max={300} ticks={6} family={F} unit="MPa" format={fmtMPa} frame={f} title="PRESSURE" band={{ from: 100 /* #7 */, to: 250 /* #7 */, color: AMBER }} />
+          <GraniteTag x={DIAL.x} y={DIAL.y - DIAL.r - 52} />
           {/* the press */}
           <g transform={`translate(${shake.toFixed(1)} 0)`}>
             <GroundShadow x={PX + 30} y={FLOOR + 4} rx={190} color={F.shadow} opacity={0.28} blur={8} />
@@ -483,8 +495,8 @@ const ShotDial235: ShotFC<CL01> = ({ f, len, c }) => {
   const v = 60 + (235 - 60) * (swing < 1 ? smooth(swing) * 1.06 - 0.06 * Math.pow(swing, 6) : 1) + (f > n + 16 && f < n + 40 ? Math.sin((f - n - 16) / 3) * 4 * (1 - (f - n - 16) / 24) : 0);
   const shown = f >= n + 16;
   const cam = cameraAt(f, [
-    { f: 0, x: 690, y: 640, zoom: 1.75 },
-    { f: len + 30, x: 730, y: 660, zoom: 1.95 },
+    { f: 0, x: 560, y: 640, zoom: 1.6 },
+    { f: len + 30, x: 590, y: 656, zoom: 1.76 },
   ]);
   const crack = 0.55 + 0.4 * ramp(f, lim, len);
   return (
@@ -495,7 +507,8 @@ const ShotDial235: ShotFC<CL01> = ({ f, len, c }) => {
           <Column h={TOWER_PX} crack={crack} />
           <rect x={DIAL.x - 8} y={DIAL.y + DIAL.r} width={16} height={FLOOR - DIAL.y - DIAL.r} fill={F.near} />
           <GroundShadow x={DIAL.x + 20} y={FLOOR + 3} rx={90} color={F.shadow} opacity={0.25} blur={8} />
-          <Dial x={DIAL.x} y={DIAL.y} r={DIAL.r} value={v} min={0} max={300} ticks={6} family={F} unit="MPa" format={fmtMPa} frame={f} title="PRESSURE" band={{ from: 100 /* #7 */, to: 250 /* #7 */, color: AMBER, label: "GRANITE CRUSHES · 100-250 MPa" }} />
+          <Dial x={DIAL.x} y={DIAL.y} r={DIAL.r} value={v} min={0} max={300} ticks={6} family={F} unit="MPa" format={fmtMPa} frame={f} title="PRESSURE" band={{ from: 100 /* #7 */, to: 250 /* #7 */, color: AMBER }} />
+          <GraniteTag x={DIAL.x} y={DIAL.y - DIAL.r - 52} />
         </Studio>
         <Layer depth={0}>
           <g opacity={ramp(f, n - 4, n + 8)}>
@@ -588,7 +601,7 @@ const ShotCollapse: ShotFC<CL01> = ({ f, len, c }) => {
 // (#1; inside the amber band, #9); a "?" pops between them; Tick looks from one to the other, then the camera pushes in
 // and it narrows its eyes: "So it must be cheating." Tail: BlackBeat + sting → ChapterCard 2 (ember) "Mountains Float".
 const EV: Pt[] = [
-  [-330, 0],
+  [-326, -8],
   [-250, -150],
   [-170, -330],
   [-96, -520],
@@ -599,7 +612,7 @@ const EV: Pt[] = [
   [110, -500],
   [190, -330],
   [270, -160],
-  [350, 0],
+  [346, -8],
 ];
 const ShotCheat: ShotFC<CL01> = ({ f, len, c }) => {
   const brk = c.brk - c.awkward;
@@ -609,7 +622,7 @@ const ShotCheat: ShotFC<CL01> = ({ f, len, c }) => {
     const cardLen = Math.max(1, len - brk - BB);
     return (
       <AbsoluteFill style={{ background: "#000" }}>
-        {bf >= BB ? <ChapterCard family={EMBER} kicker="— CHAPTER TWO · THE ROOT" title="Mountains Float" t={Math.min(0.84, ((bf - BB) / cardLen) * 0.84)} frame={bf} /> : null}
+        {bf >= BB ? <ChapterCard family={EMBER} kicker="Chapter two · The root" title="Mountains Float" t={Math.min(0.84, ((bf - BB) / cardLen) * 0.84)} frame={bf} /> : null}
         {bf < BB + 8 ? <BlackBeat t={Math.min(1, (bf + 6) / (BB + 14))} fadeIn={0.3} fadeOut={0.35} /> : null}
       </AbsoluteFill>
     );
@@ -628,9 +641,7 @@ const ShotCheat: ShotFC<CL01> = ({ f, len, c }) => {
     { f: brk + 20, x: tx + 46, y: FLOOR - 166, zoom: 3.3 },
   ]);
   const ex = 1300;
-  const pts: Pt[] = EV.map(([x, y]) => [ex + x, FLOOR - y * -1 * rise * -1] as Pt).map(([x, y]) => [x, FLOOR + (y - FLOOR)] as Pt);
   const evPts: Pt[] = EV.map(([x, y]) => [ex + x, FLOOR + y * rise]);
-  void pts;
   const lookOsc = f < ch ? Math.sin((f - ev) / 9) : 1;
   const qT = ramp(f, q, q + 8);
   const blackOut = ramp(f, brk - 5, brk);
@@ -650,10 +661,10 @@ const ShotCheat: ShotFC<CL01> = ({ f, len, c }) => {
             {rise > 0.01 ? (
               <g>
                 <path d={`M${ex - 330} ${FLOOR} L${ex + 350} ${FLOOR} L${ex + 1100} ${FLOOR + 130} L${ex + 500} ${FLOOR + 150} Z`} fill={F.shadow} opacity={0.18 * rise} />
-                <Form d={ridgePath(evPts, FLOOR, 10)} fill={DUSK.mid} light={KEY_LIGHT} shadow={DUSK.shadow} inset={30} shadowOpacity={0.45} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={DUSK.bounce}>
+                <Form d={ridgePath(evPts, FLOOR + 1, 10)} fill={DUSK.mid} light={KEY_LIGHT} shadow={DUSK.shadow} inset={30} shadowOpacity={0.45} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={DUSK.bounce}>
                   <Facets pts={evPts} base={FLOOR} light={KEY_LIGHT} fill={DUSK.shadow} opacity={0.4} />
                   <Facets pts={evPts} base={FLOOR} light={KEY_LIGHT} fill={mixHex(DUSK.mid, F.light, 0.5)} opacity={0.35} lit />
-                  <path d={ridgePath(evPts.slice(3, 9).map(([x, y]) => [x, y] as Pt), FLOOR - TOWER_PX * 0.72 * rise, 8)} fill={L12_COLORS.snow} />
+                  <path d={ridgePath(evPts.slice(2, 10).map(([x, y]) => [x, y] as Pt), FLOOR - TOWER_PX * 0.7 * rise, 8)} fill={L12_COLORS.snow} />
                 </Form>
                 {rise > 0.95 ? <circle cx={ex + 4} cy={FLOOR - TOWER_PX - 6} r={8 + Math.sin(f / 8) * 1.5} fill="#E4572E" /> : null}
               </g>

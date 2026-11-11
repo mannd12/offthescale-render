@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Seismic surveys said the drill would hit a layer of basalt, at around seven kilometres down.",
+    "file": "S43-dig-basalt/vo/cold-00-e4deddc503.wav",
+    "seconds": 5.11,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "The plan was to go through it, all the way to fifteen kilometres.",
+    "file": "S43-dig-basalt/vo/cold-01-62bd4dac3d.wav",
+    "seconds": 3.11,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "So they drilled.",
+    "file": "S43-dig-basalt/vo/cold-02-5de3741ac2.wav",
+    "seconds": 0.76,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "They passed seven kilometres, then seven and a half.",
+    "file": "S43-dig-basalt/vo/cold-03-d6c52ed7a0.wav",
+    "seconds": 2.82,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "No basalt. Just gneiss, an old, granite-like rock, all the way through.",
+    "file": "S43-dig-basalt/vo/cold-04-91799120b7.wav",
+    "seconds": 4.88,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "That's the kind of thing you only learn by going there.",
+    "file": "S43-dig-basalt/vo/cold-05-f6350b8bba.wav",
+    "seconds": 2.51,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "And yet something down there really did make those waves bounce.",
+    "file": "S43-dig-basalt/vo/cold-06-d9dd7cc241.wav",
+    "seconds": 3.21,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So what had they been bouncing off?",
+    "file": "S43-dig-basalt/vo/cold-07-8c12179b4d.wav",
+    "seconds": 1.47,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "The full video has the answer.",
+    "file": "S43-dig-basalt/vo/cold-08-7968e9cb1a.wav",
+    "seconds": 1.32,
+    "pauseAfter": 0.55
+  }
+]

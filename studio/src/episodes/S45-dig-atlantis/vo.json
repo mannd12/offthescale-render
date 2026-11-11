@@ -1,0 +1,58 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "In 2023, a ship drilled into rock from deep inside the Earth.",
+    "file": "S45-dig-atlantis/vo/cold-00-82ff58f9b0.wav",
+    "seconds": 4.1,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "The hole was one thousand two hundred and sixty-eight metres deep, and mostly rock changed by seawater.",
+    "file": "S45-dig-atlantis/vo/cold-01-4b738cac33.wav",
+    "seconds": 5.52,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "That's more than six times further than the deepest hole into sea-floor mantle rock before it.",
+    "file": "S45-dig-atlantis/vo/cold-02-3655696779.wav",
+    "seconds": 4.4,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "But the Kola hole is about ten times deeper.",
+    "file": "S45-dig-atlantis/vo/cold-03-9f21e441c7.wav",
+    "seconds": 2.5,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Under continents, the mantle starts, on average, about forty kilometres down.",
+    "file": "S45-dig-atlantis/vo/cold-04-d758d8d799.wav",
+    "seconds": 4.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "So how did a much shorter hole get to rock from below the crust?",
+    "file": "S45-dig-atlantis/vo/cold-05-05809d7302.wav",
+    "seconds": 3.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "The trick isn't digging deeper. The full video shows where they dug.",
+    "file": "S45-dig-atlantis/vo/cold-06-c5a761dc51.wav",
+    "seconds": 3.5,
+    "pauseAfter": 0.55
+  }
+]

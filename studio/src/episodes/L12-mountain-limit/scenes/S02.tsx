@@ -124,6 +124,8 @@ type SectionProps = {
   /** 0..1 tighter mantle texture ("hotter, denser") */
   dense?: number;
   squeeze?: number;
+  /** width of the open gap ahead of India's edge (px); 0 = in contact */
+  gap?: number;
   children?: React.ReactNode;
 };
 
@@ -141,7 +143,7 @@ const crustLines = (root: number, peaks: number, x0 = -900, x1 = 2800) => {
   return { top, bot };
 };
 
-const Section: React.FC<SectionProps> = ({ f, root = 1, peaks = 1, heat = 0.6, glow = 0, india, dense = 0, squeeze = 0, children }) => {
+const Section: React.FC<SectionProps> = ({ f, root = 1, peaks = 1, heat = 0.6, glow = 0, india, dense = 0, squeeze = 0, gap = 0, children }) => {
   const { top, bot } = crustLines(root, peaks);
   const crustD = `${smoothPath(top)} L${bot
     .slice()
@@ -184,7 +186,7 @@ const Section: React.FC<SectionProps> = ({ f, root = 1, peaks = 1, heat = 0.6, g
         {glow > 0 ? <LightWash x={CX} y={rootY + 30} rx={520} ry={150} color="#FFB347" strength={0.75 * glow * hp} /> : null}
         {/* the crust: slate, lit top edge, coloured bounce from the heat below */}
         <g transform={squeeze ? `translate(${CX} 0) scale(${1 - squeeze * 0.02} 1) translate(${-CX} 0)` : undefined}>
-          <Form d={crustD} fill={CRUST_COL} light={270} shadow={F.shadow} inset={36} shadowOpacity={0.5} rim="#FFF1D6" rimWidth={4} rimOpacity={0.85} bounce={F.bounce} bounceOpacity={0.5}>
+          <Form d={crustD} fill={CRUST_COL} light={90} shadow={F.shadow} inset={26} shadowOpacity={0.4} rim="#FFF1D6" rimWidth={4} rimOpacity={0.9} bounce={F.bounce} bounceOpacity={0.55}>
             {/* strata hatch */}
             <g stroke={mixHex(CRUST_COL, F.shadow, 0.4)} strokeWidth={1.6} opacity={0.5}>
               {[0.25, 0.5, 0.75].map((k) => (
@@ -192,7 +194,14 @@ const Section: React.FC<SectionProps> = ({ f, root = 1, peaks = 1, heat = 0.6, g
               ))}
             </g>
             {glow > 0 ? <LightWash x={CX} y={rootY} rx={420} ry={110} color="#FF7A30" strength={0.7 * glow * hp} /> : null}
-            {india !== undefined ? <path d={`M${india} ${SURF - 60} L${india - 26} ${SURF + CRUST + 30}`} stroke={F.shadow} strokeWidth={5} opacity={0.75} /> : null}
+            {india !== undefined ? (
+              <g>
+                <path d={`M${india} ${SURF - 60} L${india + gap} ${SURF - 60} L${india + gap + 30} ${SURF + CRUST + 30} L${india - 30} ${SURF + CRUST + 30} Z`} fill="#D9C7A2" />
+                <path d={`M${india - 6} ${SURF + 18} L${india + gap + 6} ${SURF + 18} L${india + gap + 30} ${SURF + CRUST + 30} L${india - 30} ${SURF + CRUST + 30} Z`} fill="#4E1C10" />
+                <path d={`M${india} ${SURF - 60} L${india - 30} ${SURF + CRUST + 30}`} stroke={F.shadow} strokeWidth={5} opacity={0.8} />
+                <path d={`M${india + gap} ${SURF - 60} L${india + gap + 30} ${SURF + CRUST + 30}`} stroke={F.shadow} strokeWidth={5} opacity={0.8} />
+              </g>
+            ) : null}
           </Form>
           {/* snow on the high ground */}
           {peaks > 0.5 ? <path d={smoothPath(top.filter(([x]) => x > CX - 380 && x < CX + 260))} fill="none" stroke={L12_COLORS.snow} strokeWidth={3} strokeLinecap="round" opacity={0.9 * peaks} /> : null}
@@ -251,8 +260,8 @@ const ShotCutaway: ShotFC<CL02> = ({ f, len, c }) => {
           <Pill x={150} y={150} text="TIBET · CRUST ~70 km" fill={pillFill(F)} color={F.text} dot={CRUST_COL} size={22} />
         </g>
         <g opacity={b70}>
-          <Metric x={1010} y={SURF + 190} value="70" unit="km" size={104} color={F.text} unitColor={F.dim} />
-          <Pill x={1014} y={SURF + 232} text="UNDER TIBET" fill={pillFill(F)} color={F.text} dot={CRUST_COL} size={18} />
+          <Metric x={1004} y={SURF + 400} value="70" unit="km" size={104} color={F.text} unitColor={F.dim} />
+          <Pill x={1008} y={SURF + 442} text="UNDER TIBET" fill={pillFill(F)} color={F.text} dot={CRUST_COL} size={18} />
         </g>
         <g opacity={b35}>
           <Pill x={1612} y={SURF + CRUST + 56} text="ORDINARY CRUST · ~35 km" fill={pillFill(F)} color={F.text} dot={CRUST_COL} size={18} align="end" />
@@ -466,8 +475,8 @@ const ShotUnloadIso: ShotFC<CL02> = ({ f, len, c }) => {
         </Tank>
         <Layer depth={0}>
           <g opacity={word} transform={`translate(0 ${((1 - word) * 18).toFixed(1)})`}>
-            <Kicker x={150} y={150} text="— THE KEY" color={N.dim} size={24} />
-            <Headline x={150} y={270} lines={["Isostasy"]} size={120} color={N.text} accent={N.second} />
+            <Kicker x={150} y={130} text="The key" color={N.dim} size={24} />
+            <Headline x={150} y={290} lines={["Isostasy"]} size={120} color={N.text} accent={N.second} />
           </g>
           <g opacity={1 - word}>
             <Pill x={150} y={150} text="MODEL" fill={pillFill(N)} color={N.light} dot={L12_COLORS.seaGlass} size={22} />
@@ -484,28 +493,30 @@ const ShotUnloadIso: ShotFC<CL02> = ({ f, len, c }) => {
 const ShotIndia: ShotFC<CL02> = ({ f, len, c }) => {
   const meet = c.same - c.india - 20;
   const slide = smooth(ramp(f, 4, meet));
-  const edge = -700 + (CX - 330 + 700) * slide; // India's leading edge → the contact
+  const contact = CX - 250;
+  const gap = 760 * (1 - slide); // the sea between them closes
+  const edge = contact - gap; // India's leading edge
   const jam = f - meet;
   const shake = jam >= 0 && jam < 22 ? Math.sin(jam * 2.2) * (1 - jam / 22) * 10 : 0;
   const cam = cameraAt(f, [
-    { f: 0, x: 620, y: 560, zoom: 1.08 },
-    { f: meet, x: 900, y: 560, zoom: 1.12 },
-    { f: len + 40, x: 940, y: 560, zoom: 1.24 },
+    { f: 0, x: 560, y: 540, zoom: 1.15 },
+    { f: meet, x: 720, y: 540, zoom: 1.3 },
+    { f: len + 40, x: 740, y: 530, zoom: 1.46 },
   ]);
   const sameT = ramp(f, c.same - c.india - 4, c.same - c.india + 10);
   return (
     <Pop f={f}>
       <AbsoluteFill style={{ transform: `translate(${shake.toFixed(1)}px, 0)` }}>
         <Stage theme={F.theme} cam={cam} vignette={0.2} grain={0.5}>
-          <Section f={f} root={0} peaks={jam > 0 ? Math.min(0.12, jam / 400) : 0} heat={0.6} india={edge} squeeze={jam > 0 ? Math.min(1, jam / 30) : 0}>
+          <Section f={f} root={0} peaks={jam > 0 ? Math.min(0.12, jam / 400) : 0} heat={0.6} india={edge} gap={gap} squeeze={jam > 0 ? Math.min(1, jam / 30) : 0}>
             {/* motion arrows riding India */}
             {[0, 1, 2].map((i) => (
-              <path key={i} d={`M${edge - 420 + i * 120} ${SURF + 46} l 44 26 l -44 26`} fill="none" stroke={F.text} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" opacity={(jam > 0 ? Math.max(0.15, 1 - jam / 30) : 1) * (0.45 + 0.4 * (0.5 + 0.5 * Math.sin(f / 5 - i)))} />
+              <path key={i} d={`M${edge - 420 + i * 120} ${SURF + 46} l 44 26 l -44 26`} fill="none" stroke="#FFF1D6" strokeWidth={9} strokeLinecap="round" strokeLinejoin="round" opacity={(jam > 0 ? Math.max(0.15, 1 - jam / 30) : 1) * (0.6 + 0.4 * (0.5 + 0.5 * Math.sin(f / 5 - i)))} />
             ))}
             {jam >= 0 && jam < 50 ? <Puffs frame={jam + 40} x={edge} y={SURF - 6} color={alpha("#E9D9BC", 0.8)} period={12} size={16} rise={0.8} drift={0.2} life={40} seed={5} /> : null}
           </Section>
           <Layer depth={0}>
-            <Kicker x={150} y={150} text="— 50 MILLION YEARS AGO" color={F.text} size={24} />
+            <Kicker x={150} y={150} text="50 million years ago" color={"#3A1208"} size={26} />
             <g opacity={ramp(f, 12, 26)}>
               <Pill x={150} y={206} text="INDIA" fill={pillFill(F)} color={F.text} dot={CRUST_COL} size={22} />
             </g>
@@ -593,22 +604,32 @@ const ShotTwoGauges: ShotFC<CL02> = ({ f, len, c }) => {
         </Layer>
         <Layer depth={1}>
           {/* the ledge Tick stands on = sea level; below it the crust drops away */}
-          <Form d={`M-600 ${ground} H${rx - 70} V${ground + 2400} H-600 Z`} fill={mixHex(CRUST_COL, F.shadow, 0.3)} light={270} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim="#FFE2B8" rimWidth={4} rimOpacity={0.8} bounce={F.bounce} />
-          <Form d={`M${rx + 90} ${ground} H2600 V${ground + 2400} H${rx + 90} Z`} fill={mixHex(CRUST_COL, F.shadow, 0.4)} light={270} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim="#FFE2B8" rimWidth={4} rimOpacity={0.7} bounce={F.bounce} />
+          {[
+            `M-600 ${ground} H${rx - 70} V${ground + 2400} H-600 Z`,
+            `M${rx + 90} ${ground} H2600 V${ground + 2400} H${rx + 90} Z`,
+          ].map((d, i) => (
+            <Form key={i} d={d} fill={mixHex(CRUST_COL, "#2B4A5C", 0.45)} light={90} shadow={false} rim="#FFE2B8" rimWidth={4} rimOpacity={0.9}>
+              <HazeBand y={ground + 200} h={1100} color="#7A2C12" strength={0.85} />
+              <g stroke={mixHex(CRUST_COL, F.shadow, 0.5)} strokeWidth={2} opacity={0.45}>
+                {Array.from({ length: 9 }, (_, k) => (
+                  <path key={k} d={`M-600 ${ground + 70 + k * 96} q 800 ${k % 2 ? 26 : -22} 1600 0 t 1600 0`} fill="none" />
+                ))}
+              </g>
+            </Form>
+          ))}
           {/* the shaft the ROOT gauge hangs in, glowing from below */}
           <Sky stops={["#2B0C08", "#5A1C0E", "#B04A18", "#FF8A2A"]} x={rx - 70} y={ground} w={160} h={rootPx + 300} />
           <LightWash x={rx + 10} y={ground + rootPx} rx={260} ry={260} color="#FF7A30" strength={0.6 * hp} />
           <Embers frame={f} x0={rx - 60} x1={rx + 80} y={ground + rootPx + 40} n={22} color="#FFB347" seed={4} rise={2.2} life={170} size={2.6} wiggle={12} />
           {/* HEIGHT: short, vermilion */}
-          <rect x={hx - 9} y={ground - 150} width={18} height={150} fill={alpha(F.text, 0.14)} stroke={F.text} strokeWidth={1.5} />
-          <rect x={hx - 9} y={ground - heightPx * hT} width={18} height={heightPx * hT} fill={P.vermilion} />
-          <text x={hx} y={ground - 172} textAnchor="middle" style={{ fontFamily: "'Anton', sans-serif", fontSize: 26, letterSpacing: 5, fill: F.dim }}>HEIGHT</text>
+          <rect x={hx - 14} y={ground - heightPx * hT} width={28} height={heightPx * hT} fill={P.vermilion} />
+          <path d={`M${hx - 30} ${ground - heightPx * hT} h 60`} stroke={F.text} strokeWidth={3} opacity={hT} />
+          <text x={hx} y={ground - heightPx - 26} textAnchor="middle" style={{ fontFamily: "'Anton', sans-serif", fontSize: 26, letterSpacing: 5, fill: F.dim }}>HEIGHT</text>
           {/* ROOT: long, slate, off the frame */}
-          <rect x={rx - 9} y={ground} width={18} height={rootPx} fill={alpha(F.text, 0.12)} stroke={F.text} strokeWidth={1.5} />
-          <rect x={rx - 9} y={ground} width={18} height={rootPx * rT} fill={L12_COLORS.slate} stroke="#C9D3D8" strokeWidth={1.5} />
+          <rect x={rx - 14} y={ground} width={28} height={rootPx * rT} fill="#9FB4BF" stroke="#E3ECEF" strokeWidth={2} />
           {Array.from({ length: 8 }, (_, i) => (
             <g key={i} opacity={rT * rootPx > i * 5 * G2 ? 0.9 : 0}>
-              <line x1={rx + 9} y1={ground + i * 5 * G2} x2={rx + 30} y2={ground + i * 5 * G2} stroke={F.text} strokeWidth={2} />
+              <line x1={rx + 14} y1={ground + i * 5 * G2} x2={rx + 32} y2={ground + i * 5 * G2} stroke={F.text} strokeWidth={2} />
               <text x={rx + 40} y={ground + i * 5 * G2 + 7} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 20, fill: F.dim, fontVariantNumeric: "tabular-nums" }}>{i === 0 ? "0" : `${i * 5} km`}</text>
             </g>
           ))}
@@ -646,7 +667,7 @@ const ShotRatio: ShotFC<CL02> = ({ f, len }) => {
         </Layer>
         <Layer depth={1}>
           <rect x={560} y={line - 2} width={800} height={5} fill={F.text} />
-          <text x={548} y={line + 8} textAnchor="end" style={{ fontFamily: "'Anton', sans-serif", fontSize: 20, letterSpacing: 3, fill: F.dim }}>SEA LEVEL</text>
+          <text x={1376} y={line + 8} textAnchor="start" style={{ fontFamily: "'Anton', sans-serif", fontSize: 20, letterSpacing: 3, fill: F.dim }}>SEA LEVEL</text>
           <SlateBlock x={x} y={line - 3} w={bw} h={bh} d={34} family={F} light={KEY_LIGHT} color="#E9D9BC" shadow={false} squash={impact(f, 2, 0.14, 9)} />
           {Array.from({ length: n }, (_, i) => {
             const born = 6 + i * 9;

@@ -13,7 +13,6 @@ import {
   Bloom,
   ChapterCard,
   Counter,
-  Cumulus,
   Embers,
   Emissive,
   Facets,
@@ -61,7 +60,7 @@ import { Cue, SFX, cutHit } from "./cue-types";
 
 const F = familyOf("dusk");
 const STUDIO = familyOf("studio");
-const SUN = { x: 1560, y: 560 };
+const SUN = { x: 1385, y: 566 }; // left of the gauge plate and its readout at every zoom used here
 const LIGHT = 10; // degrees toward the low sun at the right
 const EVEREST = HEIGHTS.everest; // 8,848.86 m (#1)
 /** The dashed line "just above" the summit (C-04). No number is claimed: it stays unlabelled all through Act I. */
@@ -110,17 +109,35 @@ const Pop: React.FC<{ f: number; children: React.ReactNode }> = ({ f, children }
   <AbsoluteFill style={{ transform: `scale(${cutPop(f, 0)})`, transformOrigin: "50% 50%" }}>{children}</AbsoluteFill>
 );
 
-/** Two cumulus bands on the far plane, both kept left of the HUD (world x ≤ 1300) whatever the push does. */
-const Clouds: React.FC<{ f: number; opacity?: number }> = ({ f, opacity = 1 }) => {
-  const cloud = mixHex(F.haze, "#FFF4E6", 0.55);
-  const shade = mixHex(F.far, F.haze, 0.35);
+/** A simple clean cloud: a flat base, three or four merged lobes, one body tone and a lit underside (low sun). No
+ *  crescents, no strokes (art-director note: "keep clouds simple and clean"). x = left, y = the flat base line. */
+const SimpleCloud: React.FC<{ id: string; x: number; y: number; w: number; h: number; lobes: [number, number, number][] }> = ({ id, x, y, w, h, lobes }) => {
+  const body = mixHex(F.haze, "#FFF4E6", 0.5);
+  const under = mixHex(F.light, "#FFFFFF", 0.35);
+  const shape = (
+    <>
+      <rect x={x} y={y - h * 0.34} width={w} height={h * 0.34} rx={h * 0.17} />
+      {lobes.map(([u, r, lift], i) => (
+        <ellipse key={i} cx={x + u * w} cy={y - h * 0.2 - lift * h} rx={r * h} ry={r * h * 0.92} />
+      ))}
+    </>
+  );
   return (
-    <Layer depth={0.18} haze={{ color: F.haze, amount: 0.3 }} opacity={opacity}>
-      <Cumulus x={60 + f * 0.22} y={392} w={420} h={64} fill={cloud} shade={shade} lit="#FFF8E8" light={LIGHT} seed={4} frame={f} lobes={4} />
-      <Cumulus x={1000 + f * 0.16} y={446} w={240} h={44} fill={cloud} shade={shade} lit="#FFF8E8" light={LIGHT} seed={9} frame={f} lobes={3} opacity={0.9} />
-    </Layer>
+    <g>
+      <clipPath id={id}>{shape}</clipPath>
+      <g fill={body}>{shape}</g>
+      <rect x={x - 10} y={y - h * 0.2} width={w + 20} height={h * 0.3} fill={under} opacity={0.75} clipPath={`url(#${id})`} />
+    </g>
   );
 };
+
+/** Two cloud bands on the far plane, BEHIND the massif (Summit `behind` slot) and left of the HUD at every zoom. */
+const Clouds: React.FC<{ f: number; opacity?: number; right?: boolean }> = ({ f, opacity = 1, right = true }) => (
+  <Layer depth={0.18} haze={{ color: F.haze, amount: 0.22 }} opacity={opacity}>
+    <SimpleCloud id="cold-cl-a" x={70 + f * 0.2} y={410} w={360} h={84} lobes={[[0.2, 0.42, 0.1], [0.45, 0.62, 0.3], [0.7, 0.46, 0.14], [0.87, 0.3, 0.02]]} />
+    {right ? <SimpleCloud id="cold-cl-b" x={1090 + f * 0.14} y={520} w={210} h={50} lobes={[[0.26, 0.5, 0.16], [0.56, 0.66, 0.3], [0.8, 0.4, 0.06]]} /> : null}
+  </Layer>
+);
 
 /** Snow in the near plane: n flakes wrapping the frame. */
 const Snow: React.FC<{ f: number; n?: number; r?: number; speed?: number; depth?: number; seed?: number }> = ({ f, n = 70, r = 0.9, speed = 1.4, depth = 1.25, seed = 4 }) => (
@@ -166,7 +183,8 @@ const shelfY = (x: number) => {
 const Shelf: React.FC<{ f: number; children?: React.ReactNode }> = ({ f, children }) => (
   <Layer depth={1}>
     <Form d={ridgePath(SHELF, 1300, 30)} fill={L12_COLORS.snow} light={LIGHT} shadow={F.shadow} inset={44} shadowOpacity={0.28} rim={F.light} rimWidth={5} rimOpacity={0.8} bounce={F.bounce}>
-      <Facets pts={SHELF} base={1300} light={LIGHT} fill={mixHex(L12_COLORS.snow, F.shadow, 0.5)} opacity={0.22} />
+      <LightWash x={260} y={1060} rx={900} ry={380} color={mixHex(F.sky[1], F.shadow, 0.3)} strength={0.42} />
+      <LightWash x={1500} y={900} rx={700} ry={260} color={F.light} strength={0.35} />
       {/* wind-carved sastrugi lines */}
       {[0, 1, 2, 3].map((i) => (
         <path key={i} d={`M${200 + i * 380} ${shelfY(200 + i * 380) + 40 + i * 30} q 120 -14 260 8`} fill="none" stroke={mixHex(L12_COLORS.snow, F.shadow, 0.35)} strokeWidth={2} opacity={0.35} />
@@ -180,8 +198,7 @@ const Shelf: React.FC<{ f: number; children?: React.ReactNode }> = ({ f, childre
 /** Sky + far planes of the summit world without the massif (for the shelf shots). */
 const FarWorld: React.FC<{ f: number }> = ({ f }) => (
   <>
-    <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={false} massif={false} />
-    <Clouds f={f} />
+    <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={false} massif={false} behind={<Clouds f={f} right={false} />} />
   </>
 );
 
@@ -202,8 +219,7 @@ const ShotApproach: ShotFC<CCold> = ({ f, len, c }) => {
   const proudT = ramp(f, stop - 4, stop + 16);
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.22} grain={0.5}>
-      <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={{ pxPerM: 40, pose: "stand", expression: "neutral", expressionTo: "proud", expressionT: proudT, look: 0.6 }} spot={stopped} />
-      <Clouds f={f} />
+      <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={{ pxPerM: 40, pose: "stand", expression: "neutral", expressionTo: "proud", expressionT: proudT, look: 0.6 }} spot={stopped} behind={<Clouds f={f} />} />
       <Layer depth={0.6}>
         <Breath f={f} x={SUMMIT.x} y={SUMMIT.y} ppm={40} />
       </Layer>
@@ -248,12 +264,13 @@ const ShotGps: ShotFC<CCold> = ({ f, len, c }) => {
         <Layer depth={0}>
           {/* the counter: "+" Counter "mm" · A YEAR, left of the gauge plate */}
           <g opacity={ramp(f, 8, 22)}>
-            <text x={1118} y={400} textAnchor="end" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 84, fill: F.text }}>+</text>
-            <Counter x={1132} y={400} value={mm} max={9} digits={1} size={84} color={F.text} unit="mm" unitColor={F.dim} />
-            <Kicker x={1132} y={448} text="a year" color={F.dim} size={22} />
+            <text x={1098} y={290} textAnchor="end" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 84, fill: F.text }}>+</text>
+            <Counter x={1112} y={290} value={mm} max={9} digits={1} size={84} color={F.text} unit="mm" unitColor={F.dim} />
+            <Kicker x={1040} y={340} text="a year" color={F.text} size={24} />
           </g>
           <g opacity={ramp(f, 14, 28)}>
-            <TimeStrip x={430} y={960} w={720} value={12 * year} span={16} step={3} family={F} kicker="— ONE YEAR" format={(v) => MONTHS[(((Math.round(v) % 12) + 12) % 12)]} />
+            <Kicker x={430} y={920} text="one year" color={F.shadow} size={22} />
+            <TimeStrip x={430} y={966} w={720} value={12 * year} span={16} step={3} family={F} format={(v) => MONTHS[(((Math.round(v) % 12) + 12) % 12)]} />
           </g>
           <L12Gauge family={F} value={EVEREST} base="ABOVE SEA LEVEL" readout="8,848.86 m" />
         </Layer>
@@ -365,11 +382,11 @@ const StoneInside: React.FC<{ f: number; len: number; c: CCold }> = ({ f, len, c
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.16} grain={0.6}>
       <Layer depth={0.05}>
-        <Sky stops={[mixHex(lime, F.shadow, 0.35), lime, mixHex(lime, "#FFFFFF", 0.25)]} />
+        <Sky stops={[mixHex(sea, F.sky[1], 0.55), mixHex(lime, sea, 0.45), mixHex(lime, F.haze, 0.3)]} />
         {/* the warm shallow sea ghosts behind the stone: a caustic wobble */}
-        <LightWash x={900} y={520} rx={900} ry={520} color={sea} strength={0.28 * (0.4 + 0.6 * ink1)} />
-        <g opacity={0.5 * ink1}>
-          <Ripples frame={f} cx={940} cy={560} rx={1000} ry={560} period={70} count={5} color={sea} width={5} strength={0.45} />
+        <LightWash x={900} y={520} rx={900} ry={520} color={sea} strength={0.5 * (0.4 + 0.6 * ink1)} />
+        <g opacity={0.9 * ink1}>
+          <Ripples frame={f} cx={940} cy={560} rx={1000} ry={560} period={70} count={5} color="#EAF6EE" width={6} strength={0.5} />
         </g>
       </Layer>
       <Layer depth={0.5}>
@@ -469,8 +486,8 @@ const TimeBar: React.FC<{ f: number; len: number }> = ({ f, len }) => {
         <line x1={x0 - 40} y1={top} x2={x1 + 60} y2={top} stroke={F.text} strokeWidth={2.5} strokeDasharray="10 8" opacity={0.85} />
         {/* the ghost range rising toward it */}
         {rangeD ? (
-          <Form d={rangeD} fill={alpha(F.mid, 0.9)} light={LIGHT} shadow={F.shadow} inset={22} shadowOpacity={0.4} rim={F.light} rimWidth={3} rimOpacity={0.7} bounce={F.bounce} opacity={0.75}>
-            <Facets pts={pts} base={yb} light={LIGHT} fill={F.shadow} opacity={0.3} />
+          <Form d={rangeD} fill={mixHex(F.far, F.haze, 0.45)} light={LIGHT} shadow={F.shadow} inset={22} shadowOpacity={0.35} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce} opacity={0.9}>
+            <Facets pts={pts} base={yb} light={LIGHT} fill={F.near} opacity={0.35} depth={70} />
           </Form>
         ) : null}
         {/* the bar */}
@@ -491,7 +508,7 @@ const TimeBar: React.FC<{ f: number; len: number }> = ({ f, len }) => {
         <text x={x0} y={yb + 100} style={{ fontFamily: "'Anton', sans-serif", fontSize: 18, letterSpacing: 3, fill: F.dim }}>MILLION YEARS AGO</text>
       </Layer>
       <Layer depth={0}>
-        <Kicker x={160} y={230} text="— 50 MILLION YEARS" color={F.dim} size={26} />
+        <Kicker x={160} y={230} text="50 million years" color={F.dim} size={26} />
         <Pill x={160} y={284} text="SCHEMATIC" fill={pillFill(F)} color={F.text} size={18} />
       </Layer>
     </Stage>
@@ -499,7 +516,7 @@ const TimeBar: React.FC<{ f: number; len: number }> = ({ f, len }) => {
 };
 
 /** The ink continent (an organic slab in the near colour) that slides in from the left and shoves the range's base. */
-const continentD = roundPoly(blobPts(-720, 1060, 900, 14, 7, 0.14, 0.34), 60);
+const continentD = roundPoly(blobPts(-720, 900, 900, 14, 7, 0.12, 0.3), 60);
 
 const SummitShove: React.FC<{ f: number; len: number; c: CCold; shotStart: number }> = ({ f, len, c, shotStart }) => {
   const shoveAt = c.shove - shotStart;
@@ -508,15 +525,14 @@ const SummitShove: React.FC<{ f: number; len: number; c: CCold; shotStart: numbe
   const shake = hit >= 0 && hit < 24 ? Math.sin(hit * 1.9) * (1 - hit / 24) * 9 : 0;
   const braceT = Math.min(1.8, Math.max(0, (f - (shoveAt - 12)) / 22));
   const cam = cameraAt(f, [
-    { f: 0, x: 940, y: 440, zoom: 1.55 },
-    { f: len + 40, x: 930, y: 430, zoom: 1.68 },
+    { f: 0, x: 930, y: 470, zoom: 1.34 },
+    { f: len + 40, x: 900, y: 500, zoom: 1.44 },
   ]);
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.22} grain={0.5}>
       <g transform={`translate(${shake.toFixed(1)} 0)`}>
-        <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={{ pxPerM: 40, pose: "hips", poseTo: "lean", poseT: braceT, expression: "determined", look: -0.4, facing: -1 }} spot />
+        <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={{ pxPerM: 40, pose: "hips", poseTo: "lean", poseT: braceT, expression: "determined", look: -0.4, facing: -1 }} spot behind={<Clouds f={f} />} />
       </g>
-      <Clouds f={f} />
       <Layer depth={0.6}>
         <Breath f={f} x={SUMMIT.x} y={SUMMIT.y} ppm={40} facing={-1} />
       </Layer>
@@ -526,10 +542,10 @@ const SummitShove: React.FC<{ f: number; len: number; c: CCold; shotStart: numbe
           <Form d={continentD} fill={F.near} light={LIGHT} shadow={F.shadow} inset={50} shadowOpacity={0.5} rim={F.light} rimWidth={6} rimOpacity={0.55} bounce={F.bounce} />
           {/* motion chevrons on the slab */}
           {[0, 1, 2].map((i) => (
-            <path key={i} d={`M${-420 + i * 110} 1030 l 44 30 l -44 30`} fill="none" stroke={F.light} strokeWidth={5} strokeLinecap="round" opacity={0.4 + 0.4 * (0.5 + 0.5 * Math.sin(f / 5 - i))} />
+            <path key={i} d={`M${-420 + i * 110} 850 l 44 30 l -44 30`} fill="none" stroke={F.light} strokeWidth={5} strokeLinecap="round" opacity={0.4 + 0.4 * (0.5 + 0.5 * Math.sin(f / 5 - i))} />
           ))}
         </g>
-        {hit >= 0 && hit < 40 ? <Puffs frame={hit} x={330} y={1010} color={alpha(F.haze, 0.8)} period={6} size={20} rise={0.9} drift={-0.6} life={34} seed={4} /> : null}
+        {hit >= 0 && hit < 40 ? <Puffs frame={hit} x={330} y={800} color={alpha(F.haze, 0.8)} period={6} size={20} rise={0.9} drift={-0.6} life={34} seed={4} /> : null}
       </Layer>
       <Snow f={f} n={70} r={0.9} />
       <Hud v={EVEREST} ceiling readout="8,848.86 m" />
@@ -557,8 +573,7 @@ const ShotWind: ShotFC<CCold> = ({ f, len }) => {
   return (
     <Pop f={f}>
       <Stage theme={F.theme} cam={cam} vignette={0.22} grain={0.5}>
-        <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={{ pxPerM: 40, pose: "stand", expression: "determined", tilt: -9, look: -0.3, facing: -1 }} spot />
-        <Clouds f={f} />
+        <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={{ pxPerM: 40, pose: "stand", expression: "determined", tilt: -9, look: -0.3, facing: -1 }} spot behind={<Clouds f={f} />} />
         <Layer depth={1.1}>
           {streaks.map((s, i) => {
             const y = 180 + rnd(i * 3 + 1) * 700;
@@ -576,18 +591,19 @@ const ShotWind: ShotFC<CCold> = ({ f, len }) => {
 // C-09b · rain hatching on a lower flank; rings on a ledge pool (micro-shot).
 const ShotRain: ShotFC<CCold> = ({ f, len }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 300, y: 790, zoom: 2.0 },
-    { f: len + 10, x: 330, y: 800, zoom: 2.08 },
+    { f: 0, x: 330, y: 700, zoom: 1.5 },
+    { f: len + 10, x: 360, y: 712, zoom: 1.58 },
   ]);
-  const rain = fall(f, 140, 1920, 1080, 6, 16, 1);
+  const rain = fall(f, 260, 1920, 1080, 6, 16, 1);
   return (
     <Pop f={f}>
       <Stage theme={F.theme} cam={cam} vignette={0.26} grain={0.5}>
         <Summit f={f} family={F} light={LIGHT} sun={SUN} tick={false} spindrift={false} />
         <Layer depth={0.6}>
           {/* a ledge pool inside the flank */}
-          <path d={roundPoly([[40, 826], [360, 826], [372, 850], [28, 850]], 6)} fill={mixHex(F.mid, F.light, 0.25)} />
-          <ellipse cx={200} cy={830} rx={126} ry={9} fill={L12_COLORS.seaGlass} opacity={0.9} />
+          <ellipse cx={200} cy={838} rx={168} ry={22} fill={F.shadow} opacity={0.55} />
+          <ellipse cx={200} cy={832} rx={140} ry={13} fill={mixHex(L12_COLORS.seaGlass, F.sky[1], 0.35)} />
+          <ellipse cx={230} cy={829} rx={70} ry={4} fill={F.light} opacity={0.5} />
           {[0, 1, 2].map((i) => (
             <Ripples key={i} frame={f + i * 13} cx={150 + i * 48} cy={830} rx={60} ry={5} period={26} count={3} color="#FFFFFF" width={1.4} strength={0.6} />
           ))}
@@ -630,7 +646,7 @@ const ShotIceSwell: ShotFC<CCold> = ({ f, len, c }) => {
     const vy = -3.2 - rnd(i * 7) * 2;
     return { x: 1036 + vx * age, y: 334 + vy * age + 0.14 * age * age, r: 2.2 + rnd(i) * 3, rot: age * (20 + i * 7), o: 1 - age / 44 };
   });
-  const domeTop = 1180 - swell * 230;
+  const domeTop = 1210 - swell * 330; // world y of the dome's crest
   const dome = roundPoly(blobPts(960, 1330, 760, 16, 3, 0.05, 0.42), 80);
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.24} grain={0.5}>
@@ -640,16 +656,17 @@ const ShotIceSwell: ShotFC<CCold> = ({ f, len, c }) => {
         <Bloom x={SUN.x} y={SUN.y} r={170} color="#FFF1C8" strength={0.95} spread={0.42} core={48} coreColor="#FFF8E0" />
       </Layer>
       <g transform={`translate(0 ${sag.toFixed(1)})`}>
-        <Summit f={f} family={F} light={LIGHT} sun={SUN} sky={false} emberFill={swell} tick={{ pxPerM: 40, pose: "stand", expression: "neutral", expressionTo: "worried", expressionT: worried, look: 0.3, headTilt: 14 * worried }} spot />
+        <Summit f={f} family={F} light={LIGHT} sun={SUN} sky={false} emberFill={swell} tick={{ pxPerM: 40, pose: "stand", expression: "neutral", expressionTo: "worried", expressionT: worried, look: 0.3, headTilt: 14 * worried }} spot behind={<Clouds f={f} />} />
       </g>
-      <Clouds f={f} opacity={1 - swell * 0.3} />
       <Layer depth={0.6}>
         {/* the base darkens, then the ember bulge swells beneath it (hot solid rock: a glow band, no liquid, flag F2) */}
         <HazeBand y={760} h={420} color={F.shadow} strength={0.55 * swell} />
-        <g transform={`translate(0 ${(domeTop - 1180 + 390).toFixed(1)})`} opacity={swell > 0 ? 1 : 0}>
-          <Emissive d={dome} color="#FF7A30" core="#FFB347" fill strength={0.9 * heat * swell} glow={32} opacity={0.35 + 0.65 * swell} />
+        <g transform={`translate(0 ${(domeTop - 1011).toFixed(1)})`} opacity={swell > 0 ? 1 : 0}>
+          <Emissive d={dome} color="#FF7A30" core="#E8641E" fill strength={heat * swell} glow={32} opacity={0.4 + 0.6 * swell} />
+          {/* hotter toward its core, banded like the heat bands of scene 2 */}
+          <Emissive d={roundPoly(blobPts(960, 1400, 560, 14, 5, 0.05, 0.42), 70)} color="#FFB347" core="#FF9A3A" fill strength={0.6 * heat * swell} glow={16} opacity={0.9 * swell} />
         </g>
-        <LightWash x={960} y={domeTop - 40} rx={820} ry={220} color="#FF7A30" strength={0.5 * swell * heat} />
+        <LightWash x={960} y={domeTop - 30} rx={900} ry={260} color="#FF7A30" strength={0.5 * swell * heat} />
         {swell > 0.05 ? <Embers frame={f} x0={420} x1={1500} y={domeTop + 10} n={Math.round(40 * swell)} color="#FFB347" seed={12} rise={1.4} life={120} size={2.6} wiggle={18} /> : null}
         {/* ice chips at the cornice */}
         {chips.map((p, i) =>
@@ -689,8 +706,7 @@ const ShotCard: ShotFC<CCold> = ({ f, len, c }) => {
   const snow = fall(f, 60, 1920, 1080, 4, 1.4, 14);
   const base = (
     <Stage theme={F.theme} shotFrame={f + 60} drift={{ zoom: 1.06, panX: 0.02, panY: 0.02, frames: 400, seed: 4 }} vignette={0.24} grain={0.5}>
-      <Summit f={f + 400} family={F} light={LIGHT} sun={SUN} emberFill={0.45} tick={{ pxPerM: 40, pose: "stand", expression: "worried", look: 0.3, headTilt: 10 }} spot />
-      <Clouds f={f + 400} opacity={0.7} />
+      <Summit f={f + 400} family={F} light={LIGHT} sun={SUN} emberFill={0.45} tick={{ pxPerM: 40, pose: "stand", expression: "worried", look: 0.3, headTilt: 10 }} spot behind={<Clouds f={f + 400} />} />
       <Layer depth={0.6}>
         <HazeBand y={760} h={420} color={F.shadow} strength={0.4} />
         <LightWash x={960} y={1060} rx={820} ry={200} color="#FF7A30" strength={0.3 * pulse(f, 40, 0.1)} />
@@ -705,7 +721,7 @@ const ShotCard: ShotFC<CCold> = ({ f, len, c }) => {
     <>
       {base}
       <AbsoluteFill style={{ opacity: fieldIn * fieldOut }}>
-        <ChapterCard family={F} kicker="— OFF THE SCALE · MOUNTAINS" title="How Tall Can a Mountain Get?" t={cardT} frame={f} />
+        <ChapterCard family={F} kicker="Off the Scale · Mountains" title="How Tall Can a Mountain Get?" t={cardT} frame={f} />
         <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0 }}>
           {snow.map((p, i) => (
             <circle key={i} cx={p.x} cy={p.y} r={p.r * 1.1} fill="#FFFFFF" opacity={0.6} />
