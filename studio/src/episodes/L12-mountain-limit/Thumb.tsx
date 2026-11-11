@@ -18,7 +18,7 @@ const L12Thumb: React.FC<{ lines: [string, string] }> = ({ lines }) => (
     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(100deg, rgba(10,24,34,0.55) 0%, rgba(10,24,34,0.25) 38%, rgba(10,24,34,0) 55%)" }} />
     <svg width={1280} height={720} viewBox="0 0 1280 720" style={{ position: "absolute", inset: 0 }}>
       {lines.map((l, i) => (
-        <text key={i} x={44} y={150 + i * 158} style={{ fontFamily: IF.label, fontSize: 150, letterSpacing: 2, fill: P.bone, textTransform: "uppercase", paintOrder: "stroke", stroke: "rgba(10,24,34,0.6)", strokeWidth: 6 }}>
+        <text key={i} x={44} y={172 + i * 150} style={{ fontFamily: IF.label, fontSize: 142, letterSpacing: 2, fill: P.bone, textTransform: "uppercase", paintOrder: "stroke", stroke: "rgba(10,24,34,0.6)", strokeWidth: 6 }}>
           {l}
         </text>
       ))}

@@ -100,7 +100,7 @@ export const CloudRack: React.FC<{ f: number; n: number; x0: number; x1: number;
   <g>
     {lane(f, n, x0, x1, speed, seed, dir).map((p, i) => {
       const s = size * (0.65 + rnd(seed * 13 + i) * 0.7);
-      const w = s * (3.2 + rnd(seed * 7 + i) * 1.6) * flat;
+      const w = s * (2.3 + rnd(seed * 7 + i) * 0.7) * flat;
       const y = y0 + ((i + rnd(seed * 3 + i) * 0.6) / Math.max(1, n)) * (y1 - y0);
       const x = p.x - w / 2;
       const lobes: [number, number, number][] = [
@@ -112,7 +112,8 @@ export const CloudRack: React.FC<{ f: number; n: number; x0: number; x1: number;
       return (
         <g key={i} opacity={o}>
           <g fill={body}>
-            <rect x={x} y={y - s * 0.34} width={w} height={s * 0.34} rx={s * 0.17} />
+            {/* the flat base only spans the lobes (a slab wider than the lobes reads as "balls on a bar") */}
+            <rect x={x + w * 0.16} y={y - s * 0.3} width={w * 0.68} height={s * 0.3} rx={s * 0.15} />
             {lobes.map(([u, r, lift], k) => (
               <ellipse key={k} cx={x + u * w} cy={y - s * 0.2 - lift * s} rx={r * s * flat} ry={r * s * 0.9} />
             ))}
@@ -120,7 +121,7 @@ export const CloudRack: React.FC<{ f: number; n: number; x0: number; x1: number;
           {top ? (
             <ellipse cx={x + 0.47 * w - s * 0.1} cy={y - s * 0.2 - 0.28 * s - s * 0.32} rx={s * 0.34 * flat} ry={s * 0.16} fill={top} opacity={0.8} />
           ) : null}
-          {under ? <rect x={x + s * 0.12} y={y - s * 0.15} width={w - s * 0.24} height={s * 0.15} rx={s * 0.075} fill={under} opacity={0.85} /> : null}
+          {under ? <ellipse cx={x + w * 0.5} cy={y - s * 0.12} rx={w * 0.3} ry={s * 0.09} fill={under} opacity={0.45} /> : null}
         </g>
       );
     })}
@@ -150,13 +151,12 @@ export const Caustics: React.FC<{ f: number; x: number; y: number; w: number; h:
     <g stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={opacity}>
       {Array.from({ length: rows + 1 }, (_, i) => {
         const y0 = y + (i - 1) * gap + off;
-        const pts: string[] = [];
-        for (let k = 0; k <= 24; k++) {
-          const px = x + (w * k) / 24;
-          const py = y0 + Math.sin(px / 130 + f / 17 + i * 1.7) * gap * 0.22 + Math.sin(px / 47 - f / 23 + i) * gap * 0.1 + (px - x) * 0.12;
-          pts.push(`${k ? "L" : "M"}${px.toFixed(1)} ${py.toFixed(1)}`);
+        const pts: Pt[] = [];
+        for (let k = 0; k <= 16; k++) {
+          const px = x + (w * k) / 16;
+          pts.push([px, y0 + Math.sin(px / 150 + f / 17 + i * 1.7) * gap * 0.22 + Math.sin(px / 70 - f / 23 + i) * gap * 0.08 + (px - x) * 0.12]);
         }
-        return <path key={i} d={pts.join(" ")} strokeWidth={width * (0.7 + 0.3 * Math.sin(f / 13 + i * 2.1))} />;
+        return <path key={i} d={smoothPath(pts)} strokeWidth={width * (0.7 + 0.3 * Math.sin(f / 13 + i * 2.1))} />;
       })}
     </g>
   );
@@ -1212,7 +1212,7 @@ const ShotMaxwell: ShotFC<CL07> = ({ f, len, c }) => {
           return <ellipse key={i} cx={x} cy={y} rx={1100 + i * 100} ry={22 + i * 8} fill={i % 2 ? F.haze : F.shadow} opacity={0.16} />;
         })}
         {/* pass b: the cloud deck's lower edge, defined masses streaming past (Venus' upper winds are fast) */}
-        <CloudRack f={f} n={6} x0={-900} x1={2900} y0={160} y1={420} size={80} speed={2.4} body={mixHex(F.haze, F.light, 0.3)} under={mixHex(F.haze, F.shadow, 0.35)} opacity={0.75} seed={16} flat={1.5} />
+        <CloudRack f={f} n={6} x0={-900} x1={2900} y0={400} y1={540} size={80} speed={2.4} body={mixHex(F.haze, F.light, 0.3)} under={mixHex(F.haze, F.shadow, 0.35)} opacity={0.75} seed={16} flat={1.5} />
       </Layer>
       <Layer depth={0.25} haze={{ color: F.haze, amount: 0.5 }}>
         <path d={ridgePath([[-600, 900], [-200, 820], [200, 860], [600, 780], [1000, 830], [1400, 770], [1900, 840], [2500, 800]], 1300, 30)} fill={F.far} />
