@@ -57,3 +57,10 @@ print(f"| Near-grey samples (sat < 0.15) | {100 * (sat < 0.15).mean():.0f} % | <
 print(f"| Value range (5th-95th pct, median) | {np.median(val_lo):.2f}-{np.median(val_hi):.2f} | wide: dark scenes with bright accents |")
 print()
 print("Windows (cuts per 30 s): " + " ".join(f"{mm(a * 30)}:{w}" for a, w in enumerate(wins)))
+print()
+print("| Window | Cuts | Alive % | Median moving % | Saturation |")
+print("|---|---|---|---|---|")
+for a, w in enumerate(wins):
+    s, e = a * 30 * FPS, (a + 1) * 30 * FPS
+    mv = moving[s:min(e, len(moving))]
+    print(f"| {mm(a * 30)} | {w} | {100 * (mv > 0.03).mean():.0f} | {100 * np.median(mv):.1f} | {sat[s:e].mean():.2f} |")
