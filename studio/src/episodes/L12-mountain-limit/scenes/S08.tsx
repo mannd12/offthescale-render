@@ -444,7 +444,7 @@ const StudioRoom: React.FC<{ f: number; floor?: number; lamp?: boolean }> = ({ f
       {lamp ? <Bloom x={260} y={40} r={820} color="#FFE4A8" strength={0.5 * pulse(f, 120, 0.1, 5)} spread={0.3} squash={0.8} /> : null}
     </Layer>
     <Layer depth={0.2}>
-      <CycClouds f={f} y={140} seed={3} />
+      <CycClouds f={f} y={330} seed={3} />
     </Layer>
     <Layer depth={0.3} haze={{ color: S.haze, amount: 0.35 }}>
       <path d={ridgePath([[-400, floor - 110], [200, floor - 170], [700, floor - 130], [1200, floor - 190], [1700, floor - 140], [2320, floor - 180]], floor + 400, 70)} fill={S.far} />

@@ -135,7 +135,7 @@ const WinterRange: React.FC<{ f: number; shave?: number; shaveY?: number; pack?:
       </Layer>
       <Layer depth={1}>
         <Form d={ridgePath(pts, 1500, 8)} fill={rock} light={225} shadow={F.shadow} inset={26} shadowOpacity={0.4} rim="#FFFFFF" rimWidth={4} rimOpacity={0.9} bounce={F.bounce} hard>
-          <Facets pts={pts} base={1500} light={225} fill="#2B4E86" opacity={0.5} />
+          <Facets pts={pts} base={1500} light={225} fill="#1F5E7A" opacity={0.4} />
           <Facets pts={pts} base={1500} light={225} fill="#FFD49A" opacity={0.3} lit />
           {/* snow above the snowline: two tones, hard edge */}
           <path d={cap(SNOWLINE)} fill="#BFDDF2" />
@@ -369,7 +369,7 @@ const ShotPaper: ShotFC<C> = ({ f, len, c }) => {
           );
         })}
         {/* weather drifting over the map (fades as the chart takes over) */}
-        <CycClouds f={f} y={200} n={3} seed={12} opacity={0.9 * (1 - k)} />
+        <CycClouds f={f} y={330} n={3} seed={12} opacity={0.55 * (1 - k)} />
         <Motes frame={f} n={26} x={100} y={120} w={1720} h={860} color="#FFFFFF" seed={4} size={4} drift={36} />
       </Layer>
       <Layer depth={0}>
