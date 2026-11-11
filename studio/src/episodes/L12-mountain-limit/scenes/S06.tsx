@@ -127,7 +127,7 @@ const ShotDawn: ShotFC<CL06> = ({ f, len, c }) => {
         </g>
         {/* 6-02: the ground goes faintly see-through and an upward arrow glows under the summit */}
         <g opacity={glow}>
-          <ellipse cx={SUMMIT.x} cy={SUMMIT.y + 66} rx={56} ry={50} fill={F.shadow} opacity={0.4} />
+          <ellipse cx={SUMMIT.x} cy={SUMMIT.y + 66} rx={50} ry={46} fill={F.shadow} opacity={0.22} />
           <g transform={`translate(0 ${(-((f * 0.5) % 14)).toFixed(1)})`}>
             <Emissive d={`M${SUMMIT.x} ${SUMMIT.y + 104} V${SUMMIT.y + 44} M${SUMMIT.x - 16} ${SUMMIT.y + 62} L${SUMMIT.x} ${SUMMIT.y + 42} L${SUMMIT.x + 16} ${SUMMIT.y + 62}`} color={F.light} core="#FFF6DC" width={4} glow={8} strength={0.9} />
           </g>
@@ -237,7 +237,8 @@ const ShotGorge: ShotFC<CL06> = ({ f, len }) => {
       </Layer>
       <Layer depth={0.3} haze={{ color: F.haze, amount: 0.45 }}>
         <path d={ridgePath([[-400, 520], [100, 380], [500, 450], [960, 330], [1400, 440], [1900, 360], [2400, 480]], 1300, 20)} fill={F.far} />
-        <path d={`M700 380 L960 300 L1240 390 L1100 520 L860 520 Z`} fill="#F4F2EA" opacity={0.9} />
+        <path d={ridgePath([[560, 700], [760, 420], [900, 300], [960, 250], [1040, 310], [1200, 440], [1400, 700]], 1300, 8)} fill="#DCE9E4" />
+        <path d={roundPoly([[820, 380], [900, 300], [960, 250], [1040, 310], [1110, 370], [1000, 350], [930, 372]], 6)} fill="#FFFFFF" />
       </Layer>
       <Layer depth={1}>
         <path d={`M700 ${deep - 30} L1220 ${deep - 30} L1300 1300 L600 1300 Z`} fill="#3E8E98" />
@@ -249,7 +250,15 @@ const ShotGorge: ShotFC<CL06> = ({ f, len }) => {
         </Form>
         <Form d={roundPoly(right, 14)} fill={mixHex(rock, F.light, 0.25)} light={225} shadow={F.shadow} inset={40} rim={F.light} rimWidth={4} bounce={F.bounce}>
           <Facets pts={right.slice(1, 6)} base={1300} light={225} fill={F.shadow} opacity={0.2} />
+          {[420, 560, 700, 840].map((y, i) => (
+            <path key={y} d={`M1040 ${y + 60} L1500 ${y - 20 + i * 6} L2300 ${y + 10}`} fill="none" stroke={F.shadow} strokeWidth={4} opacity={0.14} />
+          ))}
         </Form>
+        <g>
+          {[420, 560, 700, 840].map((y, i) => (
+            <path key={y} d={`M-300 ${y + 10} L400 ${y - 16 + i * 5} L880 ${y + 70}`} fill="none" stroke={F.shadow} strokeWidth={4} opacity={0.12} />
+          ))}
+        </g>
         {lane(f, 8, 0, 300, 2.6, 7).map((p, i) => (
           <circle key={i} cx={880 + rnd(i) * 160} cy={deep - 60 - p.x} r={5 + rnd(i * 3) * 6} fill="#FFFFFF" opacity={0.35 * (1 - p.phase)} />
         ))}
@@ -288,8 +297,8 @@ const ShotSection: ShotFC<CL06> = ({ f, len, c }) => {
         <Embers frame={f} x0={-200} x1={2100} y={1080} n={30} color="#FFB347" seed={13} rise={0.6} life={120} size={2.2} />
         <g transform={`translate(0 ${(-lift).toFixed(1)})`}>
           <Form d={crust} fill={F.mid} light={12} shadow={F.shadow} inset={34} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce}>
-            <Facets pts={top} base={900} light={12} fill={F.shadow} opacity={0.42} />
-            <Facets pts={top} base={900} light={12} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.35} lit />
+            <Facets pts={top} base={900} light={12} fill={F.shadow} opacity={0.4} depth={150} />
+            <Facets pts={top} base={900} light={12} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.35} depth={110} lit />
             <path d={roundPoly([[440, 340], [480, 300], [640, 360], [700, 400], [600, 384], [520, 372]], 6)} fill={L12_COLORS.snow} />
             <path d={roundPoly([[1200, 376], [1260, 330], [1420, 270], [1500, 316], [1400, 330], [1300, 372]], 6)} fill={L12_COLORS.snow} />
             <HazeBand y={700} h={200} color="#FF8A2A" strength={0.4} />
@@ -297,7 +306,7 @@ const ShotSection: ShotFC<CL06> = ({ f, len, c }) => {
           {/* the river in the notch and the rock it carries off downstream (right) */}
           <rect x={902} y={notch - 12} width={106} height={14} rx={6} fill="#7FD0E8" />
           {lane(f, 16, 960, 2200, 5, 14).map((p, i) => (
-            <circle key={i} cx={p.x} cy={notch - 8 + (p.x - 960) * 0.06 + rnd(i) * 30 - 60 * Math.sin(p.phase * Math.PI)} r={3 + rnd(i * 3) * 4} fill={mixHex(F.mid, F.light, 0.4)} opacity={(1 - p.phase) * 0.9 * cut} />
+            <circle key={i} cx={p.x} cy={notch - 20 + rnd(i) * 30 - 380 * Math.sin(p.phase * Math.PI)} r={3 + rnd(i * 3) * 4} fill={mixHex(F.mid, F.light, 0.4)} opacity={(1 - p.phase) * 0.9 * cut} />
           ))}
         </g>
         {/* ghost of where the surface was, and the up arrows */}
@@ -408,8 +417,8 @@ const ShotBand: ShotFC<CL06> = ({ f, len, c }) => {
           const lit = sm(f, p.at, p.at + 12);
           return (
             <g key={i} opacity={sm(f, t1 - 16 + i * 4, t1 + i * 4)} transform={`translate(0 ${(-hop).toFixed(1)}) translate(${p.x} ${base}) scale(${sq.sx} ${sq.sy}) translate(${-p.x} ${-base})`}>
-              <Form d={ridgePath(pts, base + 200, 10)} fill={i === 1 ? F.mid : hazed(F, F.mid, 0.18)} light={12} shadow={F.shadow} inset={26} rim={F.light} rimWidth={3.5} bounce={F.bounce}>
-                <Facets pts={pts} base={base + 200} light={12} fill={F.shadow} opacity={0.42} />
+              <Form d={ridgePath(pts, base + 700, 10)} fill={i === 1 ? F.mid : hazed(F, F.mid, 0.18)} light={12} shadow={F.shadow} inset={26} rim={F.light} rimWidth={3.5} bounce={F.bounce}>
+                <Facets pts={pts} base={base + 700} light={12} fill={F.shadow} opacity={0.4} depth={140} />
                 <path d={roundPoly([[p.x - 90, base - p.h * 0.74], [p.x - 50, base - p.h * 0.9], [p.x, base - p.h], [p.x + 60, base - p.h * 0.86], [p.x + 110, base - p.h * 0.7], [p.x + 20, base - p.h * 0.76]], 6)} fill={L12_COLORS.snow} />
                 <rect x={p.x - 200} y={base - p.h - 4} width={400} height={16} fill="#7FD0E8" opacity={0.85 * lit} />
               </Form>
@@ -426,7 +435,7 @@ const ShotBand: ShotFC<CL06> = ({ f, len, c }) => {
           <rect x={rx - 150} y={200} width={220} height={700} fill={alpha(F.theme.bg, 0.94)} stroke={F.text} strokeWidth={1.5} />
           <rect x={rx} y={220} width={22} height={660} fill={F.theme.panel} stroke={F.text} strokeWidth={1.5} />
           <rect x={rx} y={yOf(topM)} width={22} height={880 - yOf(topM)} fill={P.vermilion} />
-          <rect x={rx} y={yOf(bandHi)} width={22} height={Math.max(0, yOf(bandLo) - yOf(bandHi))} fill="#7FD0E8" opacity={0.6 + 0.4 * Math.sin(f / 8)} />
+          <rect x={rx} y={yOf(bandHi)} width={22} height={Math.max(0, yOf(bandLo) - yOf(bandHi))} fill="#7FD0E8" />
           <rect x={rx + 28} y={yOf(topM)} width={10} height={Math.max(0, yOf(bandLo) - yOf(topM))} fill="#7FD0E8" />
           {[8760, 8780, 8800, 8820, 8840, 8860, 8880].map((m) => (
             <g key={m}>
@@ -580,8 +589,6 @@ const ShotShell: ShotFC<CL06> = ({ f, len }) => {
       <Layer depth={0.6}>
         <Bloom x={hx + 8} y={hy - 18} r={60} color={F.light} strength={0.5 * crest} spread={0.4} />
         <FossilShell x={hx + 8} y={hy - 20} r={0.13 * ppm} family={F} light={10} rot={-12 + Math.sin(f / 30) * 3} />
-        {/* rim light on Tick from the cresting sun */}
-        <ellipse cx={SUMMIT.x + 0.3 * ppm} cy={SUMMIT.y - 1.5 * ppm} rx={0.34 * ppm} ry={0.36 * ppm} fill="none" stroke={F.light} strokeWidth={3} opacity={0.5 * crest} strokeDasharray={`${0.7 * ppm} ${3 * ppm}`} strokeDashoffset={0.35 * ppm} />
       </Layer>
       <Layer depth={1.25}>
         <Snow f={f} n={40} />
@@ -600,7 +607,7 @@ const ShotZoomOut: ShotFC<CL06> = ({ f, len }) => {
   const k = sm(f, 0, 46);
   const cam = pop(f, cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 20, x: 990, y: 540, zoom: 1.08 }]));
   const r = Math.exp(lerp(Math.log(2600), Math.log(170), k));
-  const ex = lerp(960, 600, k);
+  const ex = lerp(960, 520, k);
   const ey = lerp(540 + 2600 - 240, 560, k);
   const slide = sm(f, 34, 70);
   const s = 170 / DISC_KM.earth;
@@ -620,8 +627,8 @@ const ShotZoomOut: ShotFC<CL06> = ({ f, len }) => {
             <circle key={i} cx={ex} cy={ey} r={r * q * (1 + 0.01 * Math.sin(f / 20 + i))} strokeWidth={1.5} strokeDasharray="4 10" strokeDashoffset={f * (i ? -0.4 : 0.4)} />
           ))}
         </g>
-        <Disc x={lerp(2300, 1010, slide)} y={560} r={DISC_KM.venus * s} world="venus" f={f} light={200} bg={F} />
-        <Disc x={lerp(2700, 1330, slide)} y={560} r={DISC_KM.mars * s} world="mars" f={f} light={200} bg={F} />
+        <Disc x={lerp(2300, 930, slide)} y={560} r={DISC_KM.venus * s} world="venus" f={f} light={200} bg={F} />
+        <Disc x={lerp(2700, 1210, slide)} y={560} r={DISC_KM.mars * s} world="mars" f={f} light={200} bg={F} />
       </Layer>
       <Layer depth={0}>
         <g opacity={sm(f, 44, 60)}>

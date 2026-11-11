@@ -82,6 +82,8 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 type Cam = { x: number; y: number; zoom: number };
 /** the hard cut's pop (1.035 → 1 over 9 frames) folded into the shot's camera */
 const pop = (f: number, cam: Cam): Cam => ({ ...cam, zoom: cam.zoom * cutPop(f, 0) });
+/** Camera key that centres world point (tx, ty) of a depth-0.6 layer on screen at an effective scale `eff`. */
+const onLayer = (f: number, tx: number, ty: number, eff: number) => ({ f, x: 960 + (tx - 960) / 0.6, y: 540 + (ty - 540) / 0.6, zoom: Math.pow(eff, 1 / 0.6) });
 
 // ---------------------------------------------------------------------------------------------------------------
 // Cue table: every shot boundary and hit keyed to a phrase (never a timecode).
@@ -646,37 +648,40 @@ const MarsSky: React.FC<{ f: number; sun: { x: number; y: number } | null; F?: F
 
 const ShotOlympus: ShotFC<CL07> = ({ f, len }) => {
   const F = MARS;
-  const L = Math.max(len, 120);
-  const cam = pop(f, cameraAt(f, [{ f: 0, x: -560, y: 600, zoom: 1.28 }, { f: L + 30, x: 140, y: 560, zoom: 1.2 }]));
-  const sun = { x: -1180, y: 330 };
-  const pillIn = sm(f, 12, 32);
+  const L = Math.max(len, 80);
+  // the shield lives on a depth-0.6 layer: `onLayer` centres a world point of it on screen at an effective scale
+  const cam = pop(f, cameraAt(f, [onLayer(0, 120, 330, 0.6), onLayer(L + 30, 520, 300, 0.66)]));
+  const pillIn = sm(f, 6, 22);
+  const slide = -f * 0.7; // the foreground slides against the pan (screen-locked silhouettes with their own parallax)
   return (
-    <Stage theme={F.theme} cam={cam} vignette={0.2} grain={0.5}>
-      <MarsSky f={f} sun={sun} F={F} />
-      <Layer depth={0.22} haze={{ color: F.haze, amount: 0.5 }}>
-        {/* far dust horizon and a distant mesa line (schematic) */}
-        <HazeBand y={560} h={260} color={F.haze} strength={0.7} />
-        <path d={ridgePath([[-2600, 790], [-1800, 770], [-1000, 782], [-200, 760], [700, 778], [1600, 758], [2600, 775], [3600, 766]], 1200, 40)} fill={hazed(F, F.far, 0.3)} />
+    <Stage theme={F.theme} cam={cam} vignette={0.22} grain={0.5}>
+      <MarsSky f={f} sun={{ x: 330, y: 500 }} F={F} />
+      <Layer depth={0.2} haze={{ color: F.haze, amount: 0.55 }}>
+        {/* a far shield on the horizon behind the sun (schematic; Olympus has neighbours) and the dust horizon */}
+        <path d={smoothPath([[-900, 760], [-300, 700], [200, 668], [700, 690], [1300, 752]]) + " L1300 1300 L-900 1300 Z"} fill={hazed(F, F.far, 0.2)} />
+        <HazeBand y={520} h={300} color={F.haze} strength={0.75} />
       </Layer>
-      <Layer depth={0.6} haze={{ color: F.haze, amount: 0.08 }}>
+      <Layer depth={0.6}>
         <OlympusProfile f={f} light={172} F={F} />
-        <DustDevil f={f} x={-80} h={300} speed={0.45} seed={1} F={F} />
-        <DustDevil f={f} x={760} h={200} speed={0.3} seed={2} F={F} />
-        <Motes frame={f} n={46} x={-1400} y={100} w={3200} h={760} color={F.haze} seed={78} size={3.6} drift={40} />
-      </Layer>
-      <Layer depth={1.3}>
-        {/* foreground: wind-cut rocks in the near colour, sage-grey tops where the sun grazes them */}
-        <Form d={roundPoly([[-1700, 1200], [-1660, 1010], [-1540, 950], [-1380, 980], [-1300, 1060], [-1250, 1200]], 24)} fill={F.near} light={172} shadow={F.shadow} inset={20} rim={F.light} rimWidth={3} bounce={F.bounce} />
-        <Form d={roundPoly([[-1260, 1200], [-1200, 1090], [-1080, 1060], [-980, 1120], [-940, 1200]], 20)} fill={mixHex(F.near, F.second, 0.3)} light={172} shadow={F.shadow} inset={14} rim={F.light} rimWidth={2.5} bounce={F.bounce} />
-        <Form d={roundPoly([[1100, 1200], [1180, 1050], [1320, 1000], [1480, 1040], [1560, 1130], [1600, 1200]], 24)} fill={F.near} light={172} shadow={F.shadow} inset={20} rim={F.light} rimWidth={3} bounce={F.bounce} />
-        {[-1500, -1340, -1120, 1200, 1400].map((x, i) => (
-          <ellipse key={i} cx={x + rnd(i) * 60} cy={1170 - rnd(i * 2) * 30} rx={10 + rnd(i * 3) * 14} ry={5 + rnd(i * 5) * 5} fill={F.shadow} opacity={0.6} />
-        ))}
+        <DustDevil f={f} x={-760} h={330} speed={0.5} seed={1} F={F} />
+        <DustDevil f={f} x={260} h={230} speed={0.35} seed={2} F={F} />
+        <DustDevil f={f} x={-1700} h={260} speed={0.6} seed={5} F={F} />
+        <Motes frame={f} n={50} x={-1800} y={-500} w={4200} h={1500} color={F.haze} seed={78} size={5.5} drift={44} />
+        {/* low sun grazing the foot of the west flank */}
+        <LightWash x={OLY.x0 + 300} y={OLY.base - 60} rx={1500} ry={300} color={F.light} strength={0.3} />
       </Layer>
       <Layer depth={0}>
+        {/* foreground frame: wind-cut rocks, lit on their sunward (left) edges */}
+        <g transform={`translate(${slide.toFixed(1)} 0)`}>
+          <Form d={roundPoly([[-60, 1100], [-40, 900], [60, 820], [210, 800], [330, 860], [420, 960], [470, 1100]], 26)} fill={F.near} light={172} shadow={F.shadow} inset={26} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce} />
+          <Form d={roundPoly([[430, 1100], [470, 990], [570, 950], [680, 1000], [720, 1100]], 20)} fill={mixHex(F.near, F.second, 0.28)} light={172} shadow={F.shadow} inset={16} rim={F.light} rimWidth={3} bounce={F.bounce} />
+          <Form d={roundPoly([[1180, 1100], [1230, 980], [1380, 930], [1560, 960], [1650, 1040], [1700, 1100]], 24)} fill={F.near} light={172} shadow={F.shadow} inset={22} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce} />
+          {/* long shadows thrown to the right by the low sun */}
+          <path d="M420 1010 L1000 1040 L1000 1070 L470 1080 Z" fill={F.shadow} opacity={0.25} />
+        </g>
         <g opacity={pillIn}>
-          <Pill x={120} y={128} text="OLYMPUS MONS" fill={pillFill(F)} color={F.text} dot={F.light} size={20} />
-          <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
+          <Pill x={120} y={128} text="OLYMPUS MONS" fill={pillFill(F)} color={F.text} dot={F.light} size={26} />
+          <Kicker x={120} y={186} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={18} />
         </g>
         <L12Gauge family={F} value={HEIGHTS.everest /* #1 */} max={30000} ceiling={{ v: HEIGHTS.predictedMars /* #26 */, label: "PREDICTED ~23 km" }} base="EVEREST · ABOVE SEA LEVEL" />
       </Layer>
@@ -710,20 +715,24 @@ const ShotFits: ShotFC<CL07> = ({ f, len }) => {
         {/* Everest, height only, narrow, standing on the plain inside the lower corner of the flank (F11) */}
         <g opacity={silIn}>
           <EverestSil x={everestX} base={OLY.base} pxPerKm={pxPerKm} F={F} />
-          <Leader from={[everestX, OLY.base - (HEIGHTS.everestRounded / 1000) * pxPerKm - 10]} to={[everestX - 420, OLY.base - 520]} color={F.text} />
-          <Pill x={everestX - 420} y={OLY.base - 520} text="EVEREST · HEIGHT ONLY" fill={pillFill(F)} color={F.text} dot={P.vermilion} size={30} align="end" />
+          <Leader from={[everestX, OLY.base - (HEIGHTS.everestRounded / 1000) * pxPerKm - 10]} to={[everestX + 260, OLY.base - 470]} color={F.text} />
+          <Pill x={everestX + 270} y={OLY.base - 470} text="EVEREST · HEIGHT ONLY" fill={pillFill(F)} color={F.text} dot={P.vermilion} size={30} />
         </g>
       </Layer>
       <Layer depth={0}>
-        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
+        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={18} />
+        <g opacity={sm(f, 50, 66)}>
+          <Pill x={120} y={128} text="OLYMPUS MONS · ABOVE THE PLAINS" fill={pillFill(F)} color={F.text} dot={F.light} size={22} />
+          <Pill x={120} y={180} text="22 OR 26 km · DEPENDS ON THE BASE" fill={pillFill(F)} color={F.text} size={16} />
+        </g>
         <L12Gauge
           family={F}
           value={value}
           max={30000}
           zoomTo={100000}
           zoomT={zoomT}
-          ceiling={{ v: HEIGHTS.predictedMars /* #26 */, label: settled ? "PREDICTED ~23 km" : undefined }}
-          bands={settled ? [{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: F.light, label: "22-26 km · BASE-DEPENDENT" }] : []}
+          ceiling={{ v: HEIGHTS.predictedMars /* #26 */ }}
+          bands={settled ? [{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: F.light }] : []}
           readout={settled ? "22-26 km" : undefined}
           base={settled ? "ABOVE THE PLAINS" : undefined}
         />
@@ -773,7 +782,7 @@ const ShotStack: ShotFC<CL07> = ({ f, len }) => {
       </Layer>
       <Layer depth={0}>
         <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
-        <L12Gauge family={F} value={HEIGHTS.olympusLow / 2 + HEIGHTS.olympusHigh / 2} max={100000} ceiling={{ v: HEIGHTS.predictedMars /* #26 */, label: "PREDICTED ~23 km" }} bands={[{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: F.light, label: "22-26 km · BASE-DEPENDENT" }]} readout="22-26 km" base="ABOVE THE PLAINS" />
+        <L12Gauge family={F} value={HEIGHTS.olympusLow / 2 + HEIGHTS.olympusHigh / 2} max={100000} ceiling={{ v: HEIGHTS.predictedMars /* #26 */ }} bands={[{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: F.light }]} readout="22-26 km" base="ABOVE THE PLAINS" />
       </Layer>
     </Stage>
   );
@@ -798,40 +807,39 @@ const ARIZONA: Pt[] = [
 
 const ShotArizona: ShotFC<CL07> = ({ f, len }) => {
   const F = MARS;
-  const cam = pop(f, cameraAt(f, [{ f: 0, x: OLY_XC, y: 560, zoom: 0.27 }, { f: len + 20, x: OLY_XC, y: 600, zoom: 0.3 }]));
-  // the outline lies on the plain: the shield's base width (585 km) ≈ Arizona's width (#18 "wider than Arizona", #20
-  // "an area as large as Arizona"), drawn in perspective (squashed 0.42) and dropped in from above
+  const cam = pop(f, cameraAt(f, [onLayer(0, OLY_XC, 640, 0.25), onLayer(len + 20, OLY_XC + 80, 620, 0.275)]));
+  // the outline lies flat on the plain in front of the shield: the base's width (585 km, #18) is "wider than Arizona"
+  // (#18) and its area "as large as Arizona" (#20); drawn in perspective (squashed), dropped in from above
   const W = OLY.x1 - OLY.x0;
-  const H = W * 1.1 * 0.42;
-  const drop = sm(f, 6, 30);
-  const cover = sm(f, 36, 70);
-  const az = ARIZONA.map(([u, v]): Pt => [OLY.x0 + u * W, OLY.base - H / 2 + v * H + (1 - drop) * -700]);
-  const d = roundPoly(az, 60);
+  const H = W * 0.34;
+  const k = sm(f, 6, 26);
+  const land = impact(f, 26, 0.05, 10);
+  const cy = OLY.base + 620;
+  const az = ARIZONA.map(([u, v]): Pt => [OLY.x0 + u * W, cy - H / 2 + v * H]);
+  const d = roundPoly(az, 50);
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.2} grain={0.5}>
-      <MarsSky f={f} sun={{ x: -3600, y: 0 }} F={F} />
-      <Layer depth={0.22} haze={{ color: F.haze, amount: 0.5 }}>
-        <HazeBand y={560} h={260} color={F.haze} strength={0.7} />
+      <MarsSky f={f} sun={{ x: 240, y: 380 }} F={F} />
+      <Layer depth={0.2} haze={{ color: F.haze, amount: 0.5 }}>
+        <HazeBand y={480} h={300} color={F.haze} strength={0.7} />
       </Layer>
-      <Layer depth={0.6} haze={{ color: F.haze, amount: 0.08 }}>
-        {/* the outline first (under the shield), then the shield fades up over it */}
-        <g opacity={drop}>
-          <path d={d} fill={alpha(F.text, 0.18)} stroke={F.text} strokeWidth={10} strokeLinejoin="round" />
+      <Layer depth={0.6}>
+        <OlympusProfile f={f} light={172} F={F} />
+        {/* the shield's footprint on the plain, then Arizona dropped over it */}
+        <ellipse cx={OLY_XC} cy={cy} rx={W / 2} ry={H / 2} fill={F.shadow} opacity={0.22} />
+        <ellipse cx={OLY_XC} cy={cy} rx={W / 2} ry={H / 2} fill="none" stroke={F.light} strokeWidth={10} strokeDasharray="60 40" strokeDashoffset={-f * 3} opacity={0.7} />
+        <g opacity={k} transform={`translate(0 ${((1 - k) * -1600).toFixed(1)}) translate(${OLY_XC} ${cy}) scale(${land.sx} ${land.sy}) translate(${-OLY_XC} ${-cy})`}>
+          <path d={d} fill={alpha("#FFF4E2", 0.3)} stroke="#FFF4E2" strokeWidth={16} strokeLinejoin="round" />
         </g>
-        <g opacity={lerp(0.25, 1, cover)}>
-          <OlympusProfile f={f} light={172} F={F} />
-        </g>
-        <g opacity={drop * (1 - cover * 0.5)}>
-          <path d={d} fill="none" stroke={F.text} strokeWidth={10} strokeDasharray="40 30" strokeLinejoin="round" />
-        </g>
-        <Motes frame={f} n={30} x={-3000} y={-1200} w={9000} h={2400} color={F.haze} seed={81} size={9} drift={40} />
+        <DustDevil f={f} x={-600} h={420} speed={0.8} seed={7} F={F} />
+        <Motes frame={f} n={30} x={-3000} y={-1200} w={9000} h={3400} color={F.haze} seed={81} size={12} drift={44} />
       </Layer>
       <Layer depth={0}>
-        <g opacity={sm(f, 20, 40)}>
-          <Pill x={120} y={128} text="BASE · THE SIZE OF ARIZONA" fill={pillFill(F)} color={F.text} dot={F.light} size={20} />
-          <Pill x={120} y={178} text="SCHEMATIC" fill={pillFill(F)} color={F.text} size={16} />
+        <g opacity={sm(f, 16, 34)}>
+          <Pill x={120} y={128} text="BASE · THE SIZE OF ARIZONA" fill={pillFill(F)} color={F.text} dot={F.light} size={24} />
+          <Pill x={120} y={182} text="OUTLINE SCHEMATIC" fill={pillFill(F)} color={F.text} size={16} />
         </g>
-        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={20} />
+        <Kicker x={120} y={1000} text="— PROFILE · VERTICAL SCALE X3" color={F.dim} size={18} />
         <L12Gauge family={F} value={HEIGHTS.olympusLow / 2 + HEIGHTS.olympusHigh / 2} max={100000} bands={[{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: F.light }]} readout="22-26 km" base="ABOVE THE PLAINS" />
       </Layer>
     </Stage>
@@ -902,85 +910,88 @@ const ShotLevel: ShotFC<CL07> = ({ f, len }) => {
 
 const ShotCutaway: ShotFC<CL07> = ({ f, len, c }) => {
   const F = EMBER;
-  const t1 = c.sheets - c.cutaway; // tilt up starts here
+  const t1 = c.sheets - c.cutaway; // the tilt up starts here
   const cam = pop(
     f,
     cameraAt(f, [
-      { f: 0, x: 960, y: 640, zoom: 1.0 },
-      { f: t1 - 20, x: 960, y: 620, zoom: 1.06 },
-      { f: t1 + 40, x: 960, y: 300, zoom: 1.5 },
-      { f: len + 20, x: 960, y: 250, zoom: 1.6 },
+      { f: 0, x: 900, y: 600, zoom: 1.0 },
+      { f: t1 - 10, x: 900, y: 580, zoom: 1.07 },
+      { f: t1 + 44, x: 900, y: 250, zoom: 1.45 },
+      { f: len + 20, x: 900, y: 215, zoom: 1.58 },
     ]),
   );
-  const surf = 300;
-  const crustBot = 470;
-  // a small shield on the surface (the same profile, shrunk), sheets land on top of it from t1
-  const sPts: Pt[] = OLY_PTS.filter((_, i) => i % 3 === 0).map(([x, y]): Pt => [960 + (x - OLY_XC) * 0.22, surf - (OLY.base - y) * 0.18]);
-  const sheetsN = 14;
-  const sheets = Array.from({ length: sheetsN }, (_, i) => {
-    const at = t1 + i * 18;
-    const k = clamp01((f - at) / 16);
-    const cool = clamp01((f - at - 16) / 40);
-    return { i, k, cool, at };
+  const surf = 330;
+  const crustBot = 520;
+  const cx = 860;
+  // the shield on the surface (the same profile, shrunk); sheets land on its top from t1
+  const sPts: Pt[] = OLY_PTS.filter((_, i) => i % 3 === 0).map(([x, y]): Pt => [cx + (x - OLY_XC) * 0.2, surf - (OLY.base - y) * 0.2]);
+  const topY = surf - OLY_H * 0.2 + 16;
+  const sheets = Array.from({ length: 9 }, (_, i) => {
+    const at = t1 + 10 + i * 22;
+    return { i, k: sm(f, at, at + 14), cool: clamp01((f - at - 14) / 46) };
   });
   const glyphP = pulse(f, 50, 0.08, 3);
-  const stripV = f * 0.9;
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.26} grain={0.5}>
-      <Layer depth={0.05}>
-        <Sky stops={["#1A0806", "#2B0C08", "#6A2210"]} />
-        {/* a sliver of ochre Mars sky above the surface */}
-        <rect x={-400} y={-600} width={2720} height={surf + 600} fill="#B86A2E" />
-        <HazeBand y={surf - 260} h={260} color="#EDC27C" strength={0.5} />
-      </Layer>
-      <Layer depth={0.6}>
-        {/* mantle with heat bands rising toward the glyph */}
-        <rect x={-400} y={crustBot} width={2720} height={1200} fill={F.mid} />
-        {[0, 1, 2, 3, 4].map((i) => (
-          <path key={i} d={smoothPath([[-400, crustBot + 90 + i * 110], [300, crustBot + 60 + i * 110 + Math.sin(f / 80 + i) * 8], [960, crustBot + 20 + i * 100], [1600, crustBot + 70 + i * 110 - Math.sin(f / 70 + i) * 8], [2320, crustBot + 100 + i * 110]])} fill="none" stroke={mixHex(F.second, F.mid, 0.3 + i * 0.12)} strokeWidth={14 - i * 2} opacity={0.5 - i * 0.07} />
-        ))}
-        <LightWash x={960} y={crustBot + 40} rx={700} ry={260} color={F.light} strength={0.45 * glyphP} />
-        <Emissive d={roundPoly(blobPts(960, crustBot + 150, 120 * glyphP, 10, 6, 0.2, 0.7), 40)} color={F.second} core="#FFF0C0" fill strength={1} glow={32} />
-        <Embers frame={f} x0={820} x1={1100} y={crustBot + 120} n={26} color={F.second} seed={83} rise={0.9} life={90} />
-      </Layer>
       <Layer depth={1}>
-        {/* the crust: a lit terracotta band with the surface line; it does not move */}
-        <Form d={`M-400 ${surf} L2320 ${surf} L2320 ${crustBot + Math.sin(f / 200) * 0} L1400 ${crustBot + 40} L960 ${crustBot + 70} L500 ${crustBot + 40} L-400 ${crustBot} Z`} fill="#7E3D1C" light={90} shadow={F.shadow} inset={30} shadowOpacity={0.5} rim={F.light} rimWidth={4} rimOpacity={0.7} bounce={F.bounce}>
-          <LightWash x={960} y={crustBot + 60} rx={640} ry={120} color={F.light} strength={0.4 * glyphP} />
+        {/* ochre Mars sky above the surface, hot solid mantle below (bands glow with depth; nothing molten) */}
+        <rect x={-800} y={-1600} width={3600} height={surf + 1600} fill="#B86A2E" />
+        <HazeBand y={surf - 420} h={420} color="#EDC27C" strength={0.6} x={-800} w={3600} />
+        <rect x={-800} y={crustBot - 40} width={3600} height={1500} fill="#5A1C0C" />
+        {[0, 1, 2, 3].map((i) => (
+          <path key={i} d={smoothPath([[-800, crustBot + 210 + i * 120], [200, crustBot + 170 + i * 120 + Math.sin(f / 80 + i) * 10], [cx, crustBot + 120 + i * 112], [1500, crustBot + 180 + i * 120 - Math.sin(f / 70 + i) * 10], [2800, crustBot + 215 + i * 120]]) + ` L2800 2200 L-800 2200 Z`} fill={mixHex("#7A2A10", "#B04A18", i / 3)} opacity={0.75} />
+        ))}
+        <LightWash x={cx} y={crustBot + 110} rx={760} ry={300} color={F.light} strength={0.5 * glyphP} />
+        <Emissive d={roundPoly(blobPts(cx, crustBot + 150, 84 * glyphP, 10, 6, 0.16, 0.72), 34)} color="#FF9A3C" core="#FFD27A" fill strength={0.9} glow={32} />
+        <Embers frame={f} x0={cx - 130} x1={cx + 130} y={crustBot + 130} n={22} color={F.second} seed={83} rise={0.8} life={80} />
+        {/* the crust: one still slab, lit from below by the heat */}
+        <Form d={`M-800 ${surf} L2800 ${surf} L2800 ${crustBot} L${cx + 500} ${crustBot + 26} L${cx} ${crustBot + 50} L${cx - 500} ${crustBot + 26} L-800 ${crustBot} Z`} fill="#8A4420" light={90} shadow={F.shadow} inset={34} shadowOpacity={0.45} rim="#FFB347" rimWidth={5} rimOpacity={0.8} bounce={F.bounce}>
+          {[0.3, 0.62].map((q) => (
+            <line key={q} x1={-800} y1={surf + (crustBot - surf) * q} x2={2800} y2={surf + (crustBot - surf) * q + 8} stroke={F.shadow} strokeWidth={3} opacity={0.25} />
+          ))}
         </Form>
-        {/* the shield on the surface + arriving lava sheets (thin, cooling amber → terracotta; never a column, F4) */}
-        <Form d={ridgePath(sPts, surf + 40, 10)} fill="#A85E2C" light={172} shadow={F.shadow} inset={16} rim={F.light} rimWidth={3} bounce={F.bounce} />
+        <Form d={ridgePath(sPts, surf + 30, 10)} fill="#B86A2E" light={172} shadow={F.shadow} inset={18} rim="#FFE4AE" rimWidth={3} bounce={F.bounce} />
+        {/* lava sheets: thin, arriving amber, cooling to terracotta on top of the last (never a column, F4) */}
         {sheets.map((s) => {
           if (s.k <= 0) return null;
-          const top = surf - 120 - s.i * 7;
-          const w = 420 - s.i * 14;
-          const d = roundPoly([[960 - w * (0.5 + s.k * 0.3), top + 7], [960 - w * 0.3, top - 2], [960, top - 5], [960 + w * 0.3, top - 2], [960 + w * (0.5 + s.k * 0.3), top + 7], [960, top + 9]], 4);
-          const col = mixHex("#FFB347", "#8F4420", s.cool);
-          return s.cool < 0.9 ? <Emissive key={s.i} d={d} color={col} fill strength={(1 - s.cool) * 0.9} glow={16} /> : <path key={s.i} d={d} fill={col} />;
+          const y = topY - s.i * 11;
+          const w = (300 - s.i * 16) * (0.4 + 0.6 * s.k);
+          const d = rrect(cx - w / 2, y - 10, w, 12, 6);
+          const col = mixHex("#FFB347", "#9A4A1E", s.cool);
+          return (
+            <g key={s.i}>
+              {s.cool < 1 ? <path d={d} fill="#FF9A3C" filter="url(#soft-8)" opacity={(1 - s.cool) * 0.8} /> : null}
+              <path d={d} fill={col} stroke={F.shadow} strokeWidth={1} />
+            </g>
+          );
         })}
-        <Embers frame={f} x0={700} x1={1220} y={surf - 110} n={16} color={F.second} seed={84} rise={0.6} life={60} size={2} />
-        {/* the Hawaii inset: a slab sliding right over a glyph, a cone riding off its heat (from 5-16) */}
-        <Inset cx={1500} cy={700} r={150} at={[1500, 700]} scale={1} family={F} t={sm(f, 10, 34)}>
-          <rect x={1340} y={560} width={320} height={320} fill={F.sky[1]} />
-          <circle cx={1500} cy={790} r={34 * glyphP} fill={F.second} opacity={0.9} />
-          <rect x={1340} y={700} width={320} height={44} fill="#56656F" />
-          {lane(f, 3, 1300, 1700, 1.1, 5).map((p, i) => (
-            <path key={i} d={`M${p.x} 700 l34 0 l-17 -40 Z`} fill={i === 0 ? "#8F4420" : "#3A1208"} opacity={0.9} />
+        <Embers frame={f} x0={cx - 160} x1={cx + 160} y={topY - 40} n={14} color={F.second} seed={84} rise={0.5} life={60} size={2} />
+        {/* the Hawaii inset (from 5-16): a plate sliding over its heat, carrying each cone away */}
+        <Inset cx={1300} cy={760} r={150} at={[1300, 760]} scale={1} family={F} t={sm(f, 10, 34)}>
+          <rect x={1140} y={600} width={320} height={320} fill="#0A3C4C" />
+          <rect x={1140} y={790} width={320} height={140} fill="#5A1C0C" />
+          <circle cx={1300} cy={850} r={30 * glyphP} fill="#FF9A3C" />
+          <rect x={1140} y={760} width={320} height={40} fill="#56656F" />
+          {lane(f, 3, 1100, 1500, 1.1, 5).map((p, i) => (
+            <path key={i} d={`M${p.x - 26} 760 L${p.x} ${722 + i * 6} L${p.x + 26} 760 Z`} fill={i === 0 ? "#7FAE9F" : "#3F7F8E"} />
           ))}
-          {lane(f, 4, 1340, 1660, 1.1, 6).map((p, i) => (
-            <path key={i} d={`M${p.x} 722 l18 0 l-6 -6 m6 6 l-6 6`} stroke={F.text} strokeWidth={2} fill="none" />
+          {lane(f, 4, 1140, 1460, 1.1, 6).map((p, i) => (
+            <path key={i} d={`M${p.x} 780 h18 m-6 -6 l6 6 l-6 6`} stroke="#FFF0DC" strokeWidth={2.5} fill="none" />
           ))}
         </Inset>
+        <g opacity={sm(f, 20, 40) * (1 - sm(f, t1, t1 + 20))}>
+          <Pill x={1300} y={950} text="EARTH · THE PLATE MOVES" fill={pillFill(F)} color={F.text} dot="#7FAE9F" size={16} align="middle" />
+        </g>
       </Layer>
       <Layer depth={0}>
         <g opacity={sm(f, 8, 28)}>
-          <Pill x={120} y={128} text="NO PLATE TECTONICS" fill={pillFill(F)} color={F.text} dot={F.second} size={20} />
-          <Kicker x={120} y={176} text="— PLANETARY SCIENTIST, PURDUE" color={F.dim} size={18} />
+          <Pill x={120} y={128} text="MARS · NO PLATE TECTONICS" fill={pillFill(F)} color={F.text} dot={F.second} size={22} />
+          <Kicker x={120} y={182} text="— PLANETARY SCIENTIST, PURDUE" color={F.dim} size={18} />
         </g>
         {f > t1 ? (
-          <g opacity={sm(f, t1, t1 + 20)}>
-            {/* the calendar strip: it blurs past unnumbered (no count of years is claimed: "hundreds of millions, maybe billions", #10) */}
-            <TimeStrip x={120} y={1000} w={1200} value={stripV} span={40} step={4} family={F} format={() => ""} height={40} kicker="FLOW ON FLOW" />
+          <g opacity={sm(f, t1 + 20, t1 + 40)}>
+            {/* the strip blurs past unnumbered: no count of years is claimed ("hundreds of millions, maybe billions", #10) */}
+            <TimeStrip x={120} y={1000} w={1100} value={f * 0.9} span={40} step={4} family={F} format={() => ""} height={40} kicker="FLOW ON FLOW" />
           </g>
         ) : null}
         <L12Gauge family={F} value={HEIGHTS.olympusLow / 2 + HEIGHTS.olympusHigh / 2} max={100000} bands={[{ from: HEIGHTS.olympusLow /* #19 */, to: HEIGHTS.olympusHigh /* #18 */, color: L12_COLORS.amber }]} readout="22-26 km" base="ABOVE THE PLAINS" />
@@ -1000,9 +1011,10 @@ const ShotPads: ShotFC<CL07> = ({ f, len }) => {
   const mult = lerp(1, 0.38 /* #17 */, k);
   const pile = (x: number) => (
     <g>
-      {Array.from({ length: 9 }, (_, i) => (
-        <path key={i} d={roundPoly([[x - 150 + i * 6, floor - 26 - i * 14], [x - 40, floor - 34 - i * 14], [x + 40, floor - 34 - i * 14], [x + 150 - i * 6, floor - 26 - i * 14], [x, floor - 20 - i * 14]], 3)} fill={mixHex("#8F4420", F.shadow, i % 2 ? 0.2 : 0.05)} stroke={F.shadow} strokeWidth={1} />
+      {Array.from({ length: 8 }, (_, i) => (
+        <rect key={i} x={x - 150 + i * 12} y={floor - 46 - i * 18} width={300 - i * 24} height={17} rx={7} fill={mixHex("#B86A2E", F.shadow, i % 2 ? 0.3 : 0.12)} stroke={F.shadow} strokeWidth={1.5} />
       ))}
+      <rect x={x - 150 + 84} y={floor - 46 - 7 * 18} width={300 - 168} height={5} rx={2} fill="#FFB347" opacity={0.7} />
     </g>
   );
   return (
@@ -1015,13 +1027,13 @@ const ShotPads: ShotFC<CL07> = ({ f, len }) => {
         <rect x={-400} y={floor} width={2720} height={600} fill={F.near} />
         <LightWash x={960} y={floor} rx={1200} ry={200} color={F.light} strength={0.35} />
         <Embers frame={f} x0={-200} x1={2100} y={floor + 60} n={40} color={F.second} seed={85} rise={0.7} life={120} size={2.2} />
-        <ScalePad x={520} y={floor} w={360} value={70} max={100} F={F} f={f} light={90} title="EARTH">
-          {pile(520)}
-          <Disc x={300} y={floor - 60} r={44} world="earth" f={f} light={200} bg={F} />
+        <ScalePad x={440} y={floor} w={360} value={70} max={100} F={F} f={f} light={90} title="EARTH">
+          {pile(440)}
+          <Disc x={200} y={floor - 60} r={48} world="earth" f={f} light={200} bg={F} />
         </ScalePad>
-        <ScalePad x={1240} y={floor} w={360} value={70 * mult} max={100} F={F} f={f} light={90} title="MARS">
-          {pile(1240)}
-          <Disc x={1020} y={floor - 60} r={44} world="mars" f={f} light={200} bg={F} />
+        <ScalePad x={1060} y={floor} w={360} value={70 * mult} max={100} F={F} f={f} light={90} title="MARS">
+          {pile(1060)}
+          <Disc x={820} y={floor - 60} r={48} world="mars" f={f} light={200} bg={F} />
         </ScalePad>
       </Layer>
       <Layer depth={0}>
@@ -1124,10 +1136,13 @@ const ShotMaxwell: ShotFC<CL07> = ({ f, len, c }) => {
         <HazeBand y={700} h={300} color={F.haze} strength={0.6} />
       </Layer>
       <Layer depth={0.6} haze={{ color: F.haze, amount: 0.1 }}>
-        <Form d={ridgePath(MAXWELL, 1300, 10)} fill={F.mid} light={270} shadow={F.shadow} inset={34} shadowOpacity={0.55} rim={F.light} rimWidth={4} rimOpacity={0.8} bounce={F.bounce}>
-          <Facets pts={MAXWELL} base={1300} light={300} fill={F.shadow} opacity={0.42} />
-          <Facets pts={MAXWELL} base={1300} light={300} fill={mixHex(F.mid, F.light, 0.5)} opacity={0.4} lit />
-          <HazeBand y={760} h={400} color={F.haze} strength={0.5} />
+        <Form d={ridgePath(MAXWELL, 1300, 6)} fill={mixHex(F.near, F.mid, 0.35)} light={270} shadow={F.shadow} inset={34} shadowOpacity={0.55} rim={F.light} rimWidth={4} rimOpacity={0.8} bounce={F.bounce}>
+          <Facets pts={MAXWELL} base={1300} light={315} fill={F.shadow} opacity={0.45} depth={170} />
+          <Facets pts={MAXWELL} base={1300} light={315} fill={mixHex(F.mid, F.light, 0.35)} opacity={0.55} depth={120} lit />
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <path key={i} d={`M${300 + i * 260} ${640 + (i % 2) * 60} l${90 + i * 10} 260 l-40 200`} fill="none" stroke={F.shadow} strokeWidth={5} opacity={0.22} strokeLinejoin="round" />
+          ))}
+          <HazeBand y={820} h={300} color={F.haze} strength={0.45} />
         </Form>
         {glints.map((g, i) => (
           <circle key={i} cx={g.x} cy={g.y + 2} r={3} fill={F.light} opacity={g.o * 0.9} />
