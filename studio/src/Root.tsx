@@ -30,6 +30,7 @@ import { ThumbL11, ThumbL11B } from "./episodes/L11-dig-depth/Thumb";
 import { TestL11, l11TestFrames } from "./episodes/L11-dig-depth/Episode";
 import { FullL11, l11Frames } from "./episodes/L11-dig-depth/Full";
 import { FullL12, KeyArt1, KeyArt2, KeyArt3, KeyArt4, l12Frames } from "./episodes/L12-mountain-limit/Full";
+import { ThumbL12, ThumbL12B } from "./episodes/L12-mountain-limit/Thumb";
 import { DuskScene } from "./style-v2/Dusk";
 import { CavernScene } from "./style-v2/Cavern";
 import { SoundSeaScene } from "./style-v2/SoundSea";
@@ -119,6 +120,8 @@ export const Root: React.FC = () => (
     <Still id="l12-key-2" component={KeyArt2} width={WIDTH} height={HEIGHT} />
     <Still id="l12-key-3" component={KeyArt3} width={WIDTH} height={HEIGHT} />
     <Still id="l12-key-4" component={KeyArt4} width={WIDTH} height={HEIGHT} />
+    <Still id="l12-thumb" component={ThumbL12} width={1280} height={720} />
+    <Still id="l12-thumb-b" component={ThumbL12B} width={1280} height={720} />
 
     {/* S01 - the first Short (cliffhanger for L01), vertical, under 60 s */}
     <Composition id="s01-short" component={ShortS01} durationInFrames={s01.totalFrames} fps={FPS} width={1080} height={1920} />
