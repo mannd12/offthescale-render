@@ -566,5 +566,13 @@
     "file": "L12-mountain-limit/vo/closer-03-f46f820410.wav",
     "seconds": 6.44,
     "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 4,
+    "text": "Next time, the same question for sound. How loud can a noise get before the air itself gives up?",
+    "file": "L12-mountain-limit/vo/closer-04-db85623b3b.wav",
+    "seconds": 6.61,
+    "pauseAfter": 0.55
   }
 ]
