@@ -54,6 +54,10 @@ import { Cue, SFX, cutHit } from "./cue-types";
 type Pt = [number, number];
 const EMBER = familyOf("ember");
 const NOON = familyOf("noon");
+const PETROL = familyOf("petrol");
+/** pills, counters and the HUD over bright (noon) art: petrol plate + bone text (round 1: dark-on-dark, glaring plate) */
+const PF = pillFill(PETROL);
+const HT = PETROL.text;
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 const ease = (f: number, a: number, b: number) => smooth(clamp01((f - a) / Math.max(1, b - a)));
@@ -165,9 +169,9 @@ const ShotRoot: ShotFC<C> = ({ f, len, c }) => {
 
 // ---------------------------------------------------------------------------------------------------------------
 // 3-03 / 3-04: the kitchen (grounding scene 1): window light from the right, a busy warm room, Tick large.
-const TABLE_Y = 760;
-const DOUGH_TALL: Pt[] = [[830, TABLE_Y], [822, 700], [850, 640], [910, 606], [980, 600], [1050, 612], [1100, 650], [1120, 706], [1110, TABLE_Y]];
-const DOUGH_FLAT: Pt[] = [[640, TABLE_Y], [630, 738], [680, 716], [800, 704], [970, 700], [1140, 704], [1260, 716], [1310, 738], [1300, TABLE_Y]];
+const TABLE_Y = 830;
+const DOUGH_TALL: Pt[] = [[870, TABLE_Y], [862, TABLE_Y - 60], [890, TABLE_Y - 120], [950, TABLE_Y - 154], [1020, TABLE_Y - 160], [1090, TABLE_Y - 148], [1140, TABLE_Y - 110], [1160, TABLE_Y - 54], [1150, TABLE_Y]];
+const DOUGH_FLAT: Pt[] = [[700, TABLE_Y], [690, TABLE_Y - 22], [740, TABLE_Y - 44], [860, TABLE_Y - 56], [1030, TABLE_Y - 60], [1200, TABLE_Y - 56], [1320, TABLE_Y - 44], [1370, TABLE_Y - 22], [1360, TABLE_Y]];
 
 const Kitchen: React.FC<{ f: number; dough: number; press?: number; clock: number; children?: React.ReactNode }> = ({ f, dough, press = 0, clock, children }) => {
   const F = NOON;
@@ -177,7 +181,7 @@ const Kitchen: React.FC<{ f: number; dough: number; press?: number; clock: numbe
     const [bx, by] = DOUGH_FLAT[i];
     const xx = lerp(x, bx, dough);
     const yy = lerp(y, by, dough);
-    return [960 + (xx - 960) * (1 + press * 0.12), TABLE_Y - (TABLE_Y - yy) * (1 - press * 0.22)];
+    return [1010 + (xx - 1010) * (1 + press * 0.12), TABLE_Y - (TABLE_Y - yy) * (1 - press * 0.22)];
   });
   const dd = roundPoly(dPts, 26);
   return (
@@ -242,7 +246,7 @@ const Kitchen: React.FC<{ f: number; dough: number; press?: number; clock: numbe
         ))}
         <LightWash x={1180} y={TABLE_Y + 16} rx={560} ry={40} color="#FFF8D8" strength={0.6} />
         {/* the dough: a lit bone lump with a cast shadow away from the window; flour dust */}
-        <GroundShadow x={900 - 40} y={TABLE_Y + 6} rx={200 + dough * 170} ry={16} color={mixHex(wood, F.shadow, 0.6)} opacity={0.45} blur={8} />
+        <GroundShadow x={960} y={TABLE_Y + 6} rx={200 + dough * 170} ry={16} color={mixHex(wood, F.shadow, 0.6)} opacity={0.45} blur={8} />
         <Form d={dd} fill="#F4E4C4" light={340} shadow="#B98850" inset={30} shadowOpacity={0.5} rim="#FFFFFF" rimWidth={5} rimOpacity={0.9} bounce="#F4C890" />
         {[0, 1, 2, 3, 4, 5, 6].map((i) => (
           <ellipse key={i} cx={560 + i * 150 + rnd(i) * 60} cy={TABLE_Y + 10 + rnd(i + 5) * 22} rx={16 + rnd(i + 2) * 22} ry={4} fill="#FFFFFF" opacity={0.6} />
@@ -261,8 +265,8 @@ const Kitchen: React.FC<{ f: number; dough: number; press?: number; clock: numbe
 const ShotKitchen: ShotFC<C> = ({ f, len }) => {
   const F = NOON;
   const cam = cameraAt(f, [
-    { f: 0, x: 980, y: 520, zoom: 1.0 },
-    { f: len, x: 960, y: 540, zoom: 1.14 },
+    { f: 0, x: 980, y: 540, zoom: 1.0 },
+    { f: len, x: 940, y: 560, zoom: 1.14 },
   ]);
   // Tick presses twice: down on a ~44-frame rhythm
   const beat = (f % 44) / 44;
@@ -270,8 +274,8 @@ const ShotKitchen: ShotFC<C> = ({ f, len }) => {
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.1} grain={0.5}>
       <Kitchen f={f} dough={0} press={press} clock={f / 60}>
-        <g transform={`translate(0 ${press * 12})`}>
-          <Tick x={880} y={1010} pxPerM={290} frame={f} pose="press" expression="happy" look={0.7} facing={1} outline={F.shadow} />
+        <g transform={`translate(0 ${press * 16})`}>
+          <Tick x={800} y={1090} pxPerM={420} frame={f} pose="press" expression="happy" look={0.8} facing={1} outline={F.shadow} />
         </g>
       </Kitchen>
     </Stage>
@@ -281,8 +285,8 @@ const ShotKitchen: ShotFC<C> = ({ f, len }) => {
 const ShotSlump: ShotFC<C> = ({ f, len, c }) => {
   const F = NOON;
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 600, zoom: 1.5 },
-    { f: len, x: 960, y: 620, zoom: 1.72 },
+    { f: 0, x: 940, y: 600, zoom: 1.25 },
+    { f: len, x: 960, y: 620, zoom: 1.42 },
   ]);
   const dough = ease(f, 6, len - 12); // the whole shot: slow, steady
   const tapAt = c.flattens - c.slump;
@@ -291,10 +295,10 @@ const ShotSlump: ShotFC<C> = ({ f, len, c }) => {
   return (
     <Stage theme={F.theme} cam={{ ...cam, zoom: cam.zoom * cutPop(f, 0) }} vignette={0.1} grain={0.5}>
       <Kitchen f={f} dough={dough} clock={f * 0.5}>
-        <Tick x={700} y={1010} pxPerM={290} frame={f} pose="press" poseTo="think" poseT={pt} expression="surprised" expressionTo="thinking" expressionT={clamp01((f - tapAt) / 16)} look={0.9} facing={1} headTilt={nod} outline={F.shadow} />
+        <Tick x={600} y={1090} pxPerM={420} frame={f} pose="press" poseTo="lean" poseT={pt} expression="surprised" expressionTo="thinking" expressionT={clamp01((f - tapAt) / 16)} look={0.9} facing={1} headTilt={nod} outline={F.shadow} />
       </Kitchen>
       <Layer depth={0}>
-        <Kicker x={120} y={128} text="— GIVE IT TIME" color={F.shadow} size={26} />
+        <Kicker x={1240} y={1000} text="— GIVE IT TIME" color="#FFF3D8" size={34} />
       </Layer>
     </Stage>
   );
@@ -303,6 +307,7 @@ const ShotSlump: ShotFC<C> = ({ f, len, c }) => {
 // ---------------------------------------------------------------------------------------------------------------
 // 3-05 … 3-12: the plateau (noon, sun upper left 225). One vertical scale: PS px per metre.
 const PS = 0.06;
+const PX = -320; // the section sits left of the HUD gauge (round 1: the spikes hid under it)
 const P_SEA = 830; // sea level (the datum; lowland haze in front)
 const P_TOP = P_SEA - HEIGHTS.tibet /* #5 */ * PS; // 560
 const P_BAL = P_SEA - 5000 /* #10: "near five kilometres", attributed */ * PS; // 530
@@ -347,9 +352,8 @@ const PlateauWorld: React.FC<{ f: number; bulge?: number; lift?: number; morph?:
         <Flock frame={f} x={-100} y={380} vx={1.2} n={6} size={9} color={F.shadow} seed={3} />
       </Layer>
       <Layer depth={1}>
+       <g transform={`translate(${PX} 0)`}>
         {under}
-        {/* the lowland in front: hazy green plain */}
-        <rect x={-1400} y={P_SEA + 30} width={5000} height={700} fill={mixHex(F.near, F.haze, 0.25)} />
         {/* the central Andes (3-09): a second, narrower high plateau with volcanic cones, sliding in from the left */}
         {andes > 0 ? (
           <g transform={`translate(${-(1 - andes) * 900} 0)`} opacity={clamp01(andes * 2)}>
@@ -357,7 +361,8 @@ const PlateauWorld: React.FC<{ f: number; bulge?: number; lift?: number; morph?:
               const ap: Pt[] = [[-760, P_SEA + 40], [-700, P_SEA - 60], [-640, 600], [-600, 584], [-520, 520], [-470, 580], [-360, 576], [-300, 500], [-250, 574], [-140, 584], [-100, 600], [-50, P_SEA - 60], [10, P_SEA + 40]];
               return (
                 <Form d={roundPoly(ap, 12)} fill={mixHex(rock, "#8C6A5A", 0.4)} light={225} shadow={F.shadow} inset={30} shadowOpacity={0.4} rim={F.light} rimWidth={4} rimOpacity={0.8} bounce={F.bounce}>
-                  <Facets pts={ap} base={P_SEA + 60} light={225} fill={F.shadow} opacity={0.3} />
+                  <path d={`M-300 440 L-250 574 L-200 ${P_SEA + 60} L200 ${P_SEA + 60} L200 440 Z`} fill={F.shadow} opacity={0.25} />
+                  <path d={`M-520 480 L-470 580 L-430 ${P_SEA + 60} L-300 ${P_SEA + 60} L-320 520 Z`} fill={F.shadow} opacity={0.18} />
                   <path d={roundPoly([[-560, 552], [-520, 520], [-488, 556]], 4)} fill={L12_COLORS.snow} />
                   <path d={roundPoly([[-336, 540], [-300, 500], [-270, 544]], 4)} fill={L12_COLORS.snow} />
                 </Form>
@@ -371,11 +376,13 @@ const PlateauWorld: React.FC<{ f: number; bulge?: number; lift?: number; morph?:
           <Form d={roundPoly([...SPIKES, [1440, 830]], 6)} fill={mixHex(L12_COLORS.slate, rock, 0.25)} light={225} shadow={F.shadow} inset={18} shadowOpacity={0.45} rim={F.light} rimWidth={3} rimOpacity={0.9} bounce={F.bounce}>
             <Facets pts={SPIKES} base={900} light={225} fill={F.shadow} opacity={0.4} />
             <Facets pts={SPIKES} base={900} light={225} fill="#FFFFFF" opacity={0.25} lit />
-            <path d={roundPoly([[1560, 440], [1580, 400], [1612, 430], [EV.x, EV.y], [1690, 410], [1730, 380], [1756, 440], [1700, 462], [1640, 446], [1600, 470]], 5)} fill={L12_COLORS.snow} />
+            <path d={`M1300 200 L2000 200 L2000 452 L1770 440 L1736 470 L1700 436 L1664 474 L1628 440 L1596 468 L1560 430 L1300 440 Z`} fill={L12_COLORS.snow} />
+            <Facets pts={SPIKES} base={480} light={225} fill="#9FC0D6" opacity={0.45} />
           </Form>
         ) : null}
         {/* Tibet: the slab */}
-        <Form d={d} fill={rock} light={225} shadow={F.shadow} inset={36} shadowOpacity={0.42} rim={F.light} rimWidth={5} rimOpacity={0.9} bounce={F.bounce}>
+        <Form d={d} fill={rock} light={225} shadow={F.shadow} inset={36} shadowOpacity={0.3} rim={F.light} rimWidth={5} rimOpacity={0.9}>
+          <path d={`M900 300 L2000 300 L2000 1000 L1100 1000 Z`} fill={F.shadow} opacity={0.14 * morph} />
           {/* three tonal steps: lit top band, the face, a warm soft base */}
           <rect x={-400} y={P_TOP - 40 - lift} width={2600} height={64} fill={mixHex(rock, "#FFF3C8", 0.5)} opacity={0.75 * morph} />
           {[0.3, 0.52, 0.74].map((k) => (
@@ -391,7 +398,12 @@ const PlateauWorld: React.FC<{ f: number; bulge?: number; lift?: number; morph?:
             <ellipse key={i} cx={((i * 900 + f * 1.6) % 1900) + 100} cy={P_TOP + 30 - lift} rx={190} ry={34} fill={F.shadow} opacity={0.14} />
           ))}
         </Form>
+        {/* the lowland IN FRONT of the slab's foot: foothills, a hazy plain, a river glint */}
+        <path d={ridgePath([[-1700, P_SEA + 10], [-1200, P_SEA - 14], [-800, P_SEA + 6], [-300, P_SEA - 30], [100, P_SEA - 6], [520, P_SEA - 26], [900, P_SEA - 4], [1300, P_SEA - 30], [1700, P_SEA - 2], [2100, P_SEA - 22], [2700, P_SEA + 8]], 1700, 40)} fill={mixHex("#8FB07A", F.haze, 0.3)} />
+        <path d={ridgePath([[-1700, P_SEA + 70], [-900, P_SEA + 44], [-200, P_SEA + 66], [600, P_SEA + 40], [1400, P_SEA + 70], [2700, P_SEA + 50]], 1700, 40)} fill={mixHex("#6F9A68", F.haze, 0.15)} />
+        <path d={`M-1700 ${P_SEA + 120} Q-600 ${P_SEA + 90} 200 ${P_SEA + 130} T2700 ${P_SEA + 110}`} fill="none" stroke="#D8F4F0" strokeWidth={5} opacity={0.6} strokeDasharray="60 30" strokeDashoffset={-f * 0.8} />
         {children}
+       </g>
         {snow.map((p, i) => (
           <circle key={i} cx={p.x - 200} cy={p.y} r={p.r * 0.8} fill="#FFFFFF" opacity={0.55} />
         ))}
@@ -407,14 +419,14 @@ const PlateauWorld: React.FC<{ f: number; bulge?: number; lift?: number; morph?:
 /** The dashed BALANCE line just above the plateau top (at ~5 km, #10). */
 const Balance: React.FC<{ x0?: number; x1?: number; o?: number }> = ({ x0 = 140, x1 = 1900, o = 1 }) => <line x1={x0} y1={P_BAL} x2={x1} y2={P_BAL} stroke={NOON.shadow} strokeWidth={4} strokeDasharray="16 12" opacity={o} />;
 
-const Hud: React.FC<{ value?: number; bands?: { from: number; to: number; color: string }[] }> = ({ value = HEIGHTS.tibet /* #5 */, bands = [] }) => <L12Gauge family={NOON} value={value} base="ABOVE SEA LEVEL" bands={bands} />;
+const Hud: React.FC<{ value?: number; bands?: { from: number; to: number; color: string }[] }> = ({ value = HEIGHTS.tibet /* #5 */, bands = [] }) => <L12Gauge family={PETROL} value={value} base="ABOVE SEA LEVEL" bands={bands} />;
 
 // 3-05 → 3-06: the slab arrives out of the dough's outline; the area tiles across its top
 const ShotPlateau: ShotFC<C> = ({ f, len, c }) => {
   const F = NOON;
   const cam = cameraAt(f, [
-    { f: 0, x: 820, y: 540, zoom: 1.12 },
-    { f: len, x: 1010, y: 520, zoom: 0.98 },
+    { f: 0, x: 500, y: 540, zoom: 1.12 },
+    { f: len, x: 690, y: 520, zoom: 0.98 },
   ]);
   const morph = ease(f, 0, 34);
   const tA = c.area - c.plateau;
@@ -432,13 +444,13 @@ const ShotPlateau: ShotFC<C> = ({ f, len, c }) => {
         ))}
       </PlateauWorld>
       <Layer depth={0}>
-        <Pill x={120} y={128} text="TIBETAN PLATEAU" fill={pillFill(F)} color={F.text} dot={"#B58E62"} size={20} />
+        <Pill x={120} y={128} text="TIBETAN PLATEAU" fill={PF} color={HT} dot={"#B58E62"} size={20} />
         <g opacity={ease(f, tA - 4, tA + 12)}>
-          <rect x={120} y={164} width={520} height={92} rx={10} fill={alpha(F.shadow, 0.55)} />
-          <text x={142} y={230} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 62, fontVariantNumeric: "tabular-nums", fill: F.text }}>
+          <rect x={120} y={164} width={520} height={92} rx={10} fill={PF} />
+          <text x={142} y={230} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 62, fontVariantNumeric: "tabular-nums", fill: HT }}>
             {area.toFixed(1)}
           </text>
-          <text x={258} y={230} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 28, fill: F.text }}>
+          <text x={258} y={230} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 28, fill: HT }}>
             million km²
           </text>
         </g>
@@ -453,9 +465,9 @@ const ShotBalance: ShotFC<C> = ({ f, len, c }) => {
   const F = NOON;
   const tP = c.pile - c.balance;
   const cam = cameraAt(f, [
-    { f: 0, x: 900, y: 560, zoom: 1.2 },
-    { f: tP, x: 880, y: 560, zoom: 1.32 },
-    { f: len, x: 870, y: 580, zoom: 1.42 },
+    { f: 0, x: 580, y: 560, zoom: 1.2 },
+    { f: tP, x: 560, y: 560, zoom: 1.32 },
+    { f: len, x: 550, y: 580, zoom: 1.42 },
   ]);
   // two pile-and-sink cycles after `pile`
   const cyc = Math.max(1, (len - tP) / 2);
@@ -480,9 +492,9 @@ const ShotBalance: ShotFC<C> = ({ f, len, c }) => {
         ))}
       </PlateauWorld>
       <Layer depth={0}>
-        <Kicker x={120} y={128} text="— ONE GEOLOGIST'S READING" color={F.shadow} size={22} />
+        <Kicker x={120} y={128} text="— ONE GEOLOGIST'S READING" color={PETROL.shadow} size={26} />
         <g opacity={ease(f, 8, 26)}>
-          <Pill x={120} y={178} text="BALANCE · ~5 km" fill={pillFill(F)} color={F.text} size={20} />
+          <Pill x={120} y={186} text="BALANCE · ~5 km" fill={PF} color={HT} size={20} />
         </g>
         <Hud />
       </Layer>
@@ -495,9 +507,9 @@ const ShotAndes: ShotFC<C> = ({ f, len, c }) => {
   const F = NOON;
   const tIn = Math.max(10, c.andesIn - c.andes);
   const cam = cameraAt(f, [
-    { f: 0, x: 900, y: 560, zoom: 1.0 },
-    { f: tIn + 40, x: 520, y: 580, zoom: 0.74 },
-    { f: len, x: 480, y: 580, zoom: 0.7 },
+    { f: 0, x: 580, y: 560, zoom: 1.0 },
+    { f: tIn + 40, x: 240, y: 580, zoom: 0.74 },
+    { f: len, x: 200, y: 580, zoom: 0.7 },
   ]);
   const andes = ease(f, tIn - 30, tIn + 30);
   const br = ease(f, tIn + 20, tIn + 46);
@@ -513,11 +525,11 @@ const ShotAndes: ShotFC<C> = ({ f, len, c }) => {
         </g>
       </PlateauWorld>
       <Layer depth={0}>
-        <Kicker x={120} y={128} text="— NATURE, 2009" color={F.shadow} size={22} />
+        <Kicker x={120} y={128} text="— NATURE, 2009" color={PETROL.shadow} size={26} />
         <g opacity={andes}>
-          <Pill x={300} y={470} text="CENTRAL ANDES" fill={pillFill(F)} color={F.text} dot={"#8C6A5A"} size={20} />
+          <Pill x={250} y={440} text="CENTRAL ANDES" fill={PF} color={HT} dot={"#8C6A5A"} size={20} />
         </g>
-        <Pill x={1100} y={470} text="TIBET" fill={pillFill(F)} color={F.text} dot={"#B58E62"} size={20} />
+        <Pill x={1060} y={440} text="TIBET" fill={PF} color={HT} dot={"#B58E62"} size={20} />
         <Hud />
       </Layer>
     </Stage>
@@ -529,9 +541,9 @@ const ShotSpikes: ShotFC<C> = ({ f, len, c }) => {
   const F = NOON;
   const tE = c.everest - c.spikes;
   const cam = cameraAt(f, [
-    { f: 0, x: 1100, y: 540, zoom: 1.05 },
-    { f: tE, x: 1560, y: 450, zoom: 2.0 },
-    { f: len, x: 1580, y: 430, zoom: 2.25 },
+    { f: 0, x: 780, y: 540, zoom: 1.05 },
+    { f: tE, x: 1220, y: 450, zoom: 2.0 },
+    { f: len, x: 1240, y: 430, zoom: 2.25 },
   ]);
   const v = lerp(HEIGHTS.tibet, HEIGHTS.everest, ease(f, 20, tE)); // the gauge brackets the gap: 4,500 → 8,848.86 m (#5, #1)
   const dot = ease(f, tE - 4, tE + 10);
@@ -551,7 +563,7 @@ const ShotSpikes: ShotFC<C> = ({ f, len, c }) => {
       </PlateauWorld>
       <Layer depth={0}>
         <g opacity={dot}>
-          <Pill x={120} y={128} text="EVEREST" fill={pillFill(F)} color={F.text} dot={P.vermilion} size={20} />
+          <Pill x={120} y={128} text="EVEREST" fill={PF} color={HT} dot={P.vermilion} size={20} />
         </g>
         <Hud value={v} bands={[{ from: HEIGHTS.tibet, to: HEIGHTS.everest, color: F.shadow }]} />
       </Layer>
@@ -563,8 +575,8 @@ const ShotSpikes: ShotFC<C> = ({ f, len, c }) => {
 const ShotTrim: ShotFC<C> = ({ f, len }) => {
   const F = NOON;
   const cam = cameraAt(f, [
-    { f: 0, x: 1650, y: 350, zoom: 3.4 },
-    { f: len, x: 1656, y: 346, zoom: 3.8 },
+    { f: 0, x: 1320, y: 360, zoom: 3.0 },
+    { f: len, x: 1326, y: 356, zoom: 3.3 },
   ]);
   const slide = ease(f, 4, 40);
   const gx = lerp(1430, 1600, slide);

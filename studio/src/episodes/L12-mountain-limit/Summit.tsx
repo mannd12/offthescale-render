@@ -128,12 +128,12 @@ export const Summit: React.FC<SummitProps> = ({ f, family: F, light = 10, sun = 
         <>
           <Layer depth={0.2} haze={{ color: F.haze, amount: 0.45 }}>
             <Form d={ridgePath(FAR_RANGE, 1300, 40)} fill={hazed(F, F.far, 0.1)} light={light} shadow={F.shadow} inset={36} shadowOpacity={0.3} rim={F.light} rimWidth={4} rimOpacity={0.7} bounce={F.bounce}>
-              <Facets pts={FAR_RANGE} base={1300} light={light} fill={F.shadow} opacity={0.22} depth={90} />
+              {massif ? <Facets pts={FAR_RANGE} base={1300} light={light} fill={F.shadow} opacity={0.3} /> : null}
             </Form>
           </Layer>
           <Layer depth={0.32} haze={{ color: F.haze, amount: 0.24 }}>
             <Form d={ridgePath(FAR_RIDGE, 1300, 26)} fill={F.far} light={light} shadow={F.shadow} inset={26} shadowOpacity={0.45} rim={F.light} rimWidth={3} rimOpacity={0.6} bounce={F.bounce}>
-              <Facets pts={FAR_RIDGE} base={1300} light={light} fill={F.shadow} opacity={0.26} depth={110} />
+              {massif ? <Facets pts={FAR_RIDGE} base={1300} light={light} fill={F.shadow} opacity={0.35} /> : null}
             </Form>
             <HazeBand y={660} h={300} color={F.haze} strength={0.3} />
             <Flock frame={f} x={-140} y={560} vx={1.1} n={6} size={9} color={F.shadow} seed={3} />

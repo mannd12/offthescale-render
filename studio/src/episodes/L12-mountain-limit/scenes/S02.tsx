@@ -196,8 +196,9 @@ const Section: React.FC<SectionProps> = ({ f, root = 1, peaks = 1, heat = 0.6, g
             {glow > 0 ? <LightWash x={CX} y={rootY} rx={420} ry={110} color="#FF7A30" strength={0.7 * glow * hp} /> : null}
             {india !== undefined ? (
               <g>
-                <path d={`M${india} ${SURF - 60} L${india + gap} ${SURF - 60} L${india + gap + 30} ${SURF + CRUST + 30} L${india - 30} ${SURF + CRUST + 30} Z`} fill="#D9C7A2" />
-                <path d={`M${india - 6} ${SURF + 18} L${india + gap + 6} ${SURF + 18} L${india + gap + 30} ${SURF + CRUST + 30} L${india - 30} ${SURF + CRUST + 30} Z`} fill="#4E1C10" />
+                <path d={`M${india} ${SURF - 60} L${india + gap} ${SURF - 60} L${india + gap + 30} ${SURF + CRUST + 30} L${india - 30} ${SURF + CRUST + 30} Z`} fill="#F1DDB8" />
+                <path d={`M${india - 2} ${SURF + 4} L${india + gap + 2} ${SURF + 4} L${india + gap + 12} ${SURF + 46} L${india - 12} ${SURF + 46} Z`} fill={L12_COLORS.seaGlass} />
+                <path d={`M${india - 12} ${SURF + 44} L${india + gap + 12} ${SURF + 44} L${india + gap + 30} ${SURF + CRUST + 30} L${india - 30} ${SURF + CRUST + 30} Z`} fill="#4E1C10" />
                 <path d={`M${india} ${SURF - 60} L${india - 30} ${SURF + CRUST + 30}`} stroke={F.shadow} strokeWidth={5} opacity={0.8} />
                 <path d={`M${india + gap} ${SURF - 60} L${india + gap + 30} ${SURF + CRUST + 30}`} stroke={F.shadow} strokeWidth={5} opacity={0.8} />
               </g>

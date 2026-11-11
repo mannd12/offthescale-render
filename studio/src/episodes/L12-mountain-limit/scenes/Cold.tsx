@@ -470,7 +470,7 @@ const TimeBar: React.FC<{ f: number; len: number }> = ({ f, len }) => {
     pts.push([x, yb - h]);
   }
   if (pts.length > 1) pts[pts.length - 1] = [pts[pts.length - 1][0], Math.max(top, pts[pts.length - 1][1])];
-  const rangeD = pts.length > 2 ? ridgePath(pts, yb, 8) : "";
+  const rangeD = pts.length > 3 ? ridgePath(pts.slice(1), yb + 2, 8) : "";
   const ticks = [0, 1, 2, 3, 4, 5];
   return (
     <Stage theme={F.theme} cam={cam} vignette={0.24} grain={0.5}>
@@ -487,7 +487,7 @@ const TimeBar: React.FC<{ f: number; len: number }> = ({ f, len }) => {
         {/* the ghost range rising toward it */}
         {rangeD ? (
           <Form d={rangeD} fill={mixHex(F.far, F.haze, 0.45)} light={LIGHT} shadow={F.shadow} inset={22} shadowOpacity={0.35} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={F.bounce} opacity={0.9}>
-            <Facets pts={pts} base={yb} light={LIGHT} fill={F.near} opacity={0.35} depth={70} />
+            <Facets pts={pts.slice(1)} base={yb} light={LIGHT} fill={F.near} opacity={0.35} depth={70} />
           </Form>
         ) : null}
         {/* the bar */}
@@ -538,14 +538,14 @@ const SummitShove: React.FC<{ f: number; len: number; c: CCold; shotStart: numbe
       </Layer>
       {/* the continent, under the range, from the left */}
       <Layer depth={0.9}>
-        <g transform={`translate(${(-900 + 1220 * slide).toFixed(1)} 0)`} opacity={slide > 0 ? 1 : 0}>
+        <g transform={`translate(${(-900 + 1750 * slide).toFixed(1)} 0)`} opacity={slide > 0 ? 1 : 0}>
           <Form d={continentD} fill={F.near} light={LIGHT} shadow={F.shadow} inset={50} shadowOpacity={0.5} rim={F.light} rimWidth={6} rimOpacity={0.55} bounce={F.bounce} />
           {/* motion chevrons on the slab */}
           {[0, 1, 2].map((i) => (
             <path key={i} d={`M${-420 + i * 110} 850 l 44 30 l -44 30`} fill="none" stroke={F.light} strokeWidth={5} strokeLinecap="round" opacity={0.4 + 0.4 * (0.5 + 0.5 * Math.sin(f / 5 - i))} />
           ))}
         </g>
-        {hit >= 0 && hit < 40 ? <Puffs frame={hit} x={330} y={800} color={alpha(F.haze, 0.8)} period={6} size={20} rise={0.9} drift={-0.6} life={34} seed={4} /> : null}
+        {hit >= 0 && hit < 40 ? <Puffs frame={hit} x={760} y={690} color={alpha(F.haze, 0.8)} period={6} size={12} rise={0.9} drift={-0.6} life={34} seed={4} /> : null}
       </Layer>
       <Snow f={f} n={70} r={0.9} />
       <Hud v={EVEREST} ceiling readout="8,848.86 m" />

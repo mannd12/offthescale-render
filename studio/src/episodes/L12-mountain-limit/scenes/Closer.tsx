@@ -10,7 +10,6 @@ import React from "react";
 import { useCurrentFrame } from "remotion";
 import {
   Bloom,
-  Counter,
   Dissolve,
   EndCard,
   Form,
@@ -46,7 +45,7 @@ import { HEIGHTS, L12Gauge } from "../L12Gauge";
 import { FossilShell } from "../props";
 import { SUMMIT, Summit } from "../Summit";
 import { ShotDef, ShotFC, playShots } from "../shots";
-import { EarthDisc, Pop, Vesta } from "./S08";
+import { EarthDisc, Lit, Pop, REPLAY_DISC, Vesta } from "./S08";
 import { Cue, SFX, cutHit } from "./cue-types";
 
 loadIllustratedFonts();
@@ -110,13 +109,11 @@ const Room: React.FC<{ f: number }> = ({ f }) => (
   </>
 );
 
-/** A matte model ball on the floor: lit from 225, soft core shadow, rim, a broad highlight, a contact shadow. */
+/** A matte model ball on the floor: one lit mass (key 225, warm bounce on the far edge) and a contact shadow. */
 const Ball: React.FC<{ x: number; r: number; fill: string; y?: number }> = ({ x, r, fill, y = FLOOR - r }) => (
   <g>
-    <GroundShadow x={x + r * 0.25} y={FLOOR + 2} rx={r * 1.05} ry={r * 0.16} color={S.shadow} opacity={0.4} blur={r > 60 ? 16 : 8} />
-    <Form d={circlePath(x, y, r)} fill={fill} light={225} shadow={S.shadow} inset={r * 0.45} shadowOpacity={0.5} rim={S.light} rimWidth={Math.max(2, r * 0.035)} rimOpacity={0.95} bounce={S.bounce} bounceOpacity={0.5}>
-      <ellipse cx={x - r * 0.36} cy={y - r * 0.4} rx={r * 0.34} ry={r * 0.24} fill="#FFFFFF" opacity={0.5} transform={`rotate(-38 ${x - r * 0.36} ${y - r * 0.4})`} filter="url(#soft-8)" />
-    </Form>
+    <GroundShadow x={x + r * 0.3} y={FLOOR + 2} rx={r * 1.05} ry={r * 0.15} color={S.shadow} opacity={0.42} blur={r > 60 ? 16 : 8} />
+    <Lit d={circlePath(x, y, r)} cx={x} cy={y} R={r} fill={fill} family={S} light={225} fillRim={S.bounce} depth={0.75} rim="#FFFFFF" />
   </g>
 );
 
@@ -147,9 +144,10 @@ const ShotBall: ShotFC<CCloser> = ({ f, len, c }) => {
   const bx = 720;
   const by = FLOOR - 135;
   const bump: [number, number] = [bx - 87, by - 103];
+  const MZ = REPLAY_DISC.r / 135;
   const cam = cameraAt(f, [
-    { f: 0, x: 648, y: 760, zoom: 2.09 }, // MATCH: the ball sits where M-01's Earth disc ended
-    { f: 14, x: 648, y: 760, zoom: 2.02 },
+    { f: 0, x: bx - (REPLAY_DISC.x - 960) / MZ, y: by - (REPLAY_DISC.y - 540) / MZ, zoom: MZ }, // MATCH: the ball sits on M-01's Earth disc
+    { f: 14, x: bx - (REPLAY_DISC.x - 960) / MZ, y: by - (REPLAY_DISC.y - 540) / MZ + 6, zoom: MZ * 0.97 },
     { f: 62, x: 930, y: 610, zoom: 1.0 },
     { f: len + 20, x: 900, y: 600, zoom: 1.07 },
   ]);
@@ -217,46 +215,49 @@ const ShotBump: ShotFC<CCloser> = ({ f, len }) => {
   );
 };
 
-/** Z-03 (key art IV): the Mars ball, half the size, beside the Earth ball; Tick crouches between them, a fingertip on
+/** Z-03 (key art IV): the Mars ball, half the size, beside the Earth ball; Tick leans in between them, a fingertip on
  *  the Mars bump; two magnifiers. Olympus Mons: about two millimetres (#27). */
 const ShotMars: ShotFC<CCloser> = ({ f, len, c }) => {
-  const ex = 620;
+  const ex = 590;
   const er = 135; // 1 m
   const mr = 0.53 * 135; // #27: the Mars ball is 0.53 m
-  const mx = 1118;
+  const mx = 1012;
   const my = FLOOR - mr;
+  const tx = 868;
   const eBump: [number, number] = [ex - 87, FLOOR - er - 103];
-  const mBump: [number, number] = [mx - mr * 0.82, my - mr * 0.57];
+  const mBump: [number, number] = [mx - mr * 0.34, my - mr * 0.94];
   const cam = cameraAt(f, [
-    { f: 0, x: 940, y: 590, zoom: 1.0 },
-    { f: len + 10, x: 980, y: 600, zoom: 1.1 },
+    { f: 0, x: 950, y: 560, zoom: 1.02 },
+    { f: len + 10, x: 985, y: 572, zoom: 1.12 },
   ]);
   const t0 = c.touch - c.mars;
   const poke = f > t0 ? Math.sin(Math.min(1, (f - t0) / 14) * Math.PI) : 0;
   const insetT = smooth(f, 6, 26);
-  const happy = smooth(f, t0 - 4, t0 + 12);
+  const lean = smooth(f, 0, 22);
   return (
     <Pop f={f}>
       <Stage theme={S.theme} cam={cam} vignette={0.1} grain={0.5}>
         <Room f={f} />
         <Layer depth={1}>
           <Ball x={ex} r={er} fill={BONE_BALL} />
+          <GroundShadow x={tx + 6} y={FLOOR - 1} rx={PPM * 0.42} color={S.shadow} opacity={0.42} blur={8} />
+          <Tick x={tx} y={FLOOR + poke * 3} pxPerM={PPM} frame={f} pose="stand" poseTo="press" poseT={lean * 1.6} expression="happy" look={0.9} seed={2} outline={S.shadow} headTilt={8 + poke * 5} />
           <Ball x={mx} r={mr} fill={MARS_BALL} />
-          <GroundShadow x={850} y={FLOOR - 1} rx={PPM * 0.46} color={S.shadow} opacity={0.42} blur={8} />
-          <Tick x={846 + poke * 6} y={FLOOR} pxPerM={PPM} frame={f} pose="crouch-reach" expression="thinking" expressionTo="happy" expressionT={happy} look={0.8} seed={2} outline={S.shadow} />
           <Motes frame={f} n={26} x={60} y={60} w={1700} h={760} color={S.light} seed={7} size={3} drift={30} />
           {/* the Earth's magnifier stays from Z-01, quiet (no metric) */}
-          <Inset cx={300} cy={420} r={112} at={eBump} scale={1} family={S} t={1}>
+          <Inset cx={290} cy={400} r={112} at={eBump} scale={1} family={S} t={1}>
             <BumpView at={eBump} fill={BONE_BALL} h={14} w={90} f={f} />
           </Inset>
-          <Inset cx={1400} cy={400} r={156} at={mBump} scale={1} family={S} t={insetT} metric={{ value: "~2", unit: "mm" /* #27: 1.7-2.0 mm */ }}>
-            <BumpView at={mBump} fill={MARS_BALL} h={34} w={230} f={f} flat />
+          <Inset cx={1390} cy={420} r={160} at={mBump} scale={1} family={S} t={insetT} metric={{ value: "~2", unit: "mm" /* #27: 1.7-2.0 mm */ }}>
+            <BumpView at={mBump} fill={MARS_BALL} h={34} w={236} f={f} flat />
           </Inset>
+          <g opacity={insetT}>
+            <Pill x={1390} y={420 - 160 - 34} text="MAGNIFIED" fill={pillFill(S)} color={S.light} size={17} align="middle" />
+          </g>
         </Layer>
         <Layer depth={0}>
           <g opacity={insetT}>
-            <Pill x={1400} y={206} text="MAGNIFIED" fill={pillFill(S)} color={S.light} size={16} align="middle" />
-            <Pill x={960} y={1000} text="OLYMPUS MONS · MARS AS A 0.5-m BALL" fill={pillFill(S)} color={S.light} dot={MARS.mid} size={19} align="middle" />
+            <Pill x={960} y={990} text="OLYMPUS MONS · MARS AS A 0.5-m BALL" fill={pillFill(S)} color={S.light} dot={MARS.mid} size={21} align="middle" />
           </g>
         </Layer>
       </Stage>
@@ -264,23 +265,23 @@ const ShotMars: ShotFC<CCloser> = ({ f, len, c }) => {
   );
 };
 
-/** Z-04: Tick large, a 4-cm Vesta pebble in its mitten; the other mitten feels the bump: 1.6 mm, true proportion (#27). */
+/** Z-04: Tick large, a 4-cm Vesta pebble on its mitten; the magnifier shows the bump at true proportion: 1.6 mm (#27). */
 const ShotPebble: ShotFC<CCloser> = ({ f, len, c }) => {
-  const ppm = 470;
-  const tx = 1120;
-  const ty = 1330;
+  const ppm = 520;
+  const tx = 1230;
+  const ty = 1440;
+  const lift = Math.sin(f / 26) * 6; // Tick weighs the pebble
   const hand: [number, number] = [tx - 0.36 * ppm, ty - 1.04 * ppm];
   const pr = 0.02 * ppm; // 4 cm across (#27: 4.1 cm)
-  const peb: [number, number] = [hand[0] - 4, hand[1] - pr - 14];
+  const peb: [number, number] = [hand[0] - 8, hand[1] - 0.085 * ppm - pr + 2];
   const cam = cameraAt(f, [
     { f: 0, x: 950, y: 560, zoom: 1.0 },
     { f: len + 10, x: 930, y: 550, zoom: 1.07 },
   ]);
   const fe = c.feel - c.pebble;
-  const feel = 0.5 + 0.5 * Math.sin(f / 9); // the other mitten strokes the bump
   const insetT = smooth(f, 4, 24);
-  const smile = smooth(f, fe - 6, fe + 10);
-  const pebble = <Vesta cx={peb[0]} cy={peb[1]} R={pr} frame={f} rot={0} poleDeg={250} dish={1} peak={1} family={S} light={225} fill="#A48E72" bloom={false} craters={false} />;
+  const feel = smooth(f, fe - 6, fe + 10);
+  const pebble = <Vesta cx={peb[0]} cy={peb[1]} R={pr} frame={f} rot={0} poleDeg={300} dish={1} peak={1} lump={0.6} family={S} light={225} fill="#A48E72" fillRim={S.bounce} bloom={false} craters={false} />;
   return (
     <Pop f={f}>
       <Stage theme={S.theme} cam={cam} vignette={0.1} grain={0.5}>
@@ -291,24 +292,28 @@ const ShotPebble: ShotFC<CCloser> = ({ f, len, c }) => {
         <Layer depth={0.4} haze={{ color: S.haze, amount: 0.3 }}>
           <path d={ridgePath([[-400, 820], [300, 740], [900, 800], [1500, 730], [2320, 790]], 1500, 90)} fill={S.far} />
         </Layer>
+        <Layer depth={0.7} haze={{ color: S.haze, amount: 0.12 }}>
+          <path d={ridgePath([[-400, 940], [400, 890], [1000, 930], [1600, 880], [2320, 920]], 1500, 90)} fill={S.mid} />
+        </Layer>
         <Layer depth={1}>
-          <Tick x={tx} y={ty} pxPerM={ppm} frame={f} facing={-1} pose="hold" poseTo="carry" poseT={0.35 + 0.5 * feel} expression="thinking" expressionTo="happy" expressionT={smile} look={0.7} seed={2} />
-          {pebble}
-          <Motes frame={f} n={24} x={60} y={60} w={1700} h={900} color={S.light} seed={11} size={3} drift={30} />
-          <Inset cx={470} cy={470} r={236} at={peb} scale={17} family={S} t={insetT} metric={{ value: "4", unit: "cm" /* #27 */ }}>
-            <rect x={peb[0] - 60} y={peb[1] - 60} width={120} height={120} fill={S.sky[1]} />
+          <g transform={`translate(0 ${lift.toFixed(1)})`}>
+            <Tick x={tx} y={ty} pxPerM={ppm} frame={f} facing={-1} pose="hold" expression="happy" look={0.8} seed={2} headTilt={6 + 4 * feel} />
             {pebble}
+          </g>
+          <Motes frame={f} n={24} x={60} y={60} w={1700} h={900} color={S.light} seed={11} size={3} drift={30} />
+          <Inset cx={470} cy={470} r={236} at={[peb[0], peb[1] + lift]} scale={15} family={S} t={insetT} metric={{ value: "4", unit: "cm" /* #27 */ }}>
+            <rect x={peb[0] - 60} y={peb[1] - 60} width={120} height={160} fill={S.sky[1]} />
+            <g transform={`translate(0 ${lift.toFixed(1)})`}>{pebble}</g>
           </Inset>
         </Layer>
         <Layer depth={0}>
           <g opacity={insetT}>
-            <Pill x={470} y={176} text="VESTA" fill={pillFill(S)} color={S.light} dot="#A48E72" size={19} align="middle" />
-            <g opacity={smile}>
-              <line x1={560} y1={286} x2={640} y2={250} stroke={S.text} strokeWidth={1.6} />
-              <text x={648} y={254} style={{ fontFamily: "'Anton', sans-serif", fontSize: 20, letterSpacing: 2.5, fill: S.dim }}>
-                BUMP · 1.6 mm
-              </text>
-            </g>
+            <Pill x={470} y={176} text="VESTA" fill={pillFill(S)} color={S.light} dot="#A48E72" size={21} align="middle" />
+          </g>
+          <g opacity={feel}>
+            <text x={760} y={330} style={{ fontFamily: "'Anton', sans-serif", fontSize: 24, letterSpacing: 3, fill: S.dim }}>
+              BUMP · 1.6 mm
+            </text>
           </g>
         </Layer>
       </Stage>
@@ -350,8 +355,8 @@ const ShotSummit: ShotFC<CCloser> = ({ f, c }) => {
   const DIS = 40;
   if (f >= d0 + DIS) return <DiscView f={f - d0} />;
   const cam = cameraAt(f, [
-    { f: 0, x: 946, y: 268, zoom: 5.6 },
-    { f: r0 - 20, x: 946, y: 272, zoom: 5.0 },
+    { f: 0, x: 936, y: 100, zoom: 17 }, // the massif is a depth-0.6 layer: 17^0.6 = 5.5x on the summit
+    { f: r0 - 20, x: 936, y: 106, zoom: 14 },
     { f: r0 + 60, x: 940, y: 470, zoom: 1.25 },
     { f: l0 + 10, x: 940, y: 560, zoom: 0.8 },
     { f: d0 + DIS, x: 940, y: 600, zoom: 0.6 },
@@ -375,10 +380,9 @@ const ShotSummit: ShotFC<CCloser> = ({ f, c }) => {
           <FossilShell x={hand[0] + 1} y={hand[1] - 5} r={4.6} family={DUSK} light={10} rot={-14} />
           <g opacity={counterO} transform={`translate(${SUMMIT.x + 34} ${SUMMIT.y - 46})`}>
             <rect x={-4} y={-13} width={62} height={18} rx={3} fill={alpha(DUSK.shadow, 0.7)} />
-            <text x={0} y={0} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 11, fill: DUSK.text }}>
-              +
+            <text x={0} y={0} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, fontSize: 11, fill: DUSK.text, fontVariantNumeric: "tabular-nums" }}>
+              +{mm.toFixed(1)} mm
             </text>
-            <Counter x={8} y={0} value={mm} max={9} size={11} color={DUSK.text} unit="mm a year" />
           </g>
         </g>
         {/* Z-07: the dashed ceiling across the whole range, a hair above the summit (~9 km, #9) */}
@@ -390,16 +394,16 @@ const ShotSummit: ShotFC<CCloser> = ({ f, c }) => {
       <Layer depth={1}>
         <g transform={`translate(0 ${lower.toFixed(2)})`}>
           <path d={ridgePath([[-700, 1010], [-200, 950], [300, 990], [800, 960], [1300, 1000], [1800, 950], [2600, 1000]], 1700, 60)} fill={DUSK.near} />
-          <path d={riv} fill="none" stroke={L12_COLORS.seaGlass} strokeWidth={10} strokeLinecap="round" opacity={0.85} />
+          <path d={riv} fill="none" stroke={L12_COLORS.seaGlass} strokeWidth={18} strokeLinecap="round" opacity={0.95} />
           <path d={riv} fill="none" stroke={DUSK.light} strokeWidth={3} strokeDasharray="14 22" strokeDashoffset={crawl(f, 1.6)} strokeLinecap="round" opacity={0.9} />
           {specks.map((s) => (
             <circle key={s.i} cx={s.x} cy={1002 + Math.sin(s.x / 160) * 22} r={3} fill={DUSK.text} opacity={0.7 * (1 - s.phase)} />
           ))}
         </g>
       </Layer>
-      <Layer depth={1.25}>
+      <Layer depth={0.6}>
         {snow.map((p, i) => (
-          <circle key={i} cx={p.x - 240} cy={p.y - 100} r={p.r * 0.5} fill="#FFFFFF" opacity={0.5} />
+          <circle key={i} cx={p.x - 240} cy={p.y - 300} r={0.5 + p.r * 0.35} fill="#FFFFFF" opacity={0.6} />
         ))}
       </Layer>
       <Layer depth={0}>

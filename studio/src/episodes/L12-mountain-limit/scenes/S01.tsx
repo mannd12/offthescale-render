@@ -48,6 +48,7 @@ import { L12_COLORS, familyOf, pillFill } from "../families";
 import { cueKit } from "../cues";
 import { HEIGHTS, L12Gauge } from "../L12Gauge";
 import { SlateBlock } from "../props";
+import { snowCap } from "../Summit";
 import { ShotDef, ShotFC, actBreakAt, playShots } from "../shots";
 import { Cue, SFX, cutHit, sting } from "./cue-types";
 
@@ -640,8 +641,8 @@ const ShotCheat: ShotFC<CL01> = ({ f, len, c }) => {
     { f: ch + 22, x: tx + 40, y: FLOOR - 160, zoom: 3.0 },
     { f: brk + 20, x: tx + 46, y: FLOOR - 166, zoom: 3.3 },
   ]);
-  const ex = 1300;
-  const evPts: Pt[] = EV.map(([x, y]) => [ex + x, FLOOR + y * rise]);
+  const ex = 1230;
+  const evPts: Pt[] = EV.map(([x, y]) => [ex + x * 0.74, FLOOR + y * rise]);
   const lookOsc = f < ch ? Math.sin((f - ev) / 9) : 1;
   const qT = ramp(f, q, q + 8);
   const blackOut = ramp(f, brk - 5, brk);
@@ -660,16 +661,16 @@ const ShotCheat: ShotFC<CL01> = ({ f, len, c }) => {
             {/* Everest: the dusk mid colour, lit from the upper left, snow above its own line */}
             {rise > 0.01 ? (
               <g>
-                <path d={`M${ex - 330} ${FLOOR} L${ex + 350} ${FLOOR} L${ex + 1100} ${FLOOR + 130} L${ex + 500} ${FLOOR + 150} Z`} fill={F.shadow} opacity={0.18 * rise} />
+                <path d={`M${ex - 240} ${FLOOR} L${ex + 256} ${FLOOR} L${ex + 1000} ${FLOOR + 130} L${ex + 420} ${FLOOR + 150} Z`} fill={F.shadow} opacity={0.18 * rise} />
                 <Form d={ridgePath(evPts, FLOOR + 1, 10)} fill={DUSK.mid} light={KEY_LIGHT} shadow={DUSK.shadow} inset={30} shadowOpacity={0.45} rim={F.light} rimWidth={4} rimOpacity={0.9} bounce={DUSK.bounce}>
                   <Facets pts={evPts} base={FLOOR} light={KEY_LIGHT} fill={DUSK.shadow} opacity={0.4} />
                   <Facets pts={evPts} base={FLOOR} light={KEY_LIGHT} fill={mixHex(DUSK.mid, F.light, 0.5)} opacity={0.35} lit />
-                  <path d={ridgePath(evPts.slice(2, 10).map(([x, y]) => [x, y] as Pt), FLOOR - TOWER_PX * 0.7 * rise, 8)} fill={L12_COLORS.snow} />
+                  <path d={snowCap(evPts, 2, 9, FLOOR - TOWER_PX * 0.66 * rise, 16)} fill={L12_COLORS.snow} />
                 </Form>
-                {rise > 0.95 ? <circle cx={ex + 4} cy={FLOOR - TOWER_PX - 6} r={8 + Math.sin(f / 8) * 1.5} fill="#E4572E" /> : null}
+                {rise > 0.95 ? <circle cx={ex + 3} cy={FLOOR - TOWER_PX - 6} r={8 + Math.sin(f / 8) * 1.5} fill="#E4572E" /> : null}
               </g>
             ) : null}
-            <g opacity={qT} transform={`translate(1085 ${420 - (1 - qT) * 20}) scale(${0.6 + 0.4 * qT + impact(f, q + 8, 0.2, 8).sx - 1})`}>
+            <g opacity={qT} transform={`translate(1082 ${330 - (1 - qT) * 20}) scale(${0.6 + 0.4 * qT + impact(f, q + 8, 0.2, 8).sx - 1})`}>
               <UnknownTag x={0} y={0} size={44} />
             </g>
             <GroundShadow x={tx + 8} y={FLOOR + 3} rx={TICK_PPM * 0.42} color={F.shadow} opacity={0.3} blur={8} />
