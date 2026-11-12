@@ -239,9 +239,9 @@ const ShotClimb20: ShotFC<CL02> = ({ f, len }) => {
   const k = smooth(ramp(f, 6, 40));
   const ty = rungY(0) + 20 - k * 140;
   const cam = cameraAt(f, [
-    { f: 0, x: 1000, y: 760, zoom: 1.55 },
-    { f: 44, x: 1010, y: 650, zoom: 1.6 },
-    { f: len + 30, x: 1015, y: 640, zoom: 1.66 },
+    { f: 0, x: 900, y: 760, zoom: 1.55 },
+    { f: 44, x: 905, y: 650, zoom: 1.6 },
+    { f: len + 30, x: 910, y: 640, zoom: 1.66 },
   ]);
   const amp = 8 + 72 * k; // ×10 the pressure (#9)
   return (
@@ -257,7 +257,7 @@ const ShotClimb20: ShotFC<CL02> = ({ f, len }) => {
             </g>
           }
         >
-          <PressureWave f={f} y={ty - 140} x0={900} x1={1420} amp={amp} wavelength={170} speed={5} color="#1F8F8A" core="#E6F5EA" width={5} lineColor={alpha(N.text, 0.4)} />
+          <PressureWave f={f} y={ty - 140} x0={880} x1={1300} amp={amp} wavelength={170} speed={5} color="#1F8F8A" core="#E6F5EA" width={5} lineColor={alpha(N.text, 0.4)} />
           <Climber f={f} y={ty} ppm={110} climbing={k < 0.98} />
         </Meadow>
       </Stage>
@@ -311,7 +311,7 @@ const ShotCubes: ShotFC<CL02> = ({ f, len }) => {
 const ShotZero: ShotFC<CL02> = ({ f, len }) => {
   const tap = Math.max(0, (f - 10) / 14);
   const lis = Math.max(0, (f - Math.round(len * 0.45)) / 14);
-  const cam = { x: 860 - f * 0.25, y: 760, zoom: 2.0 + f * 0.0015 };
+  const cam = { x: 760 - f * 0.25, y: 760, zoom: 2.0 + f * 0.0015 };
   const at0: [number, number] = [960 + (LXC - cam.x) * cam.zoom, 540 + (rungY(0) - cam.y) * cam.zoom];
   return (
     <Pop f={f}>
@@ -324,8 +324,8 @@ const ShotZero: ShotFC<CL02> = ({ f, len }) => {
             <g>
               <Metric x={120} y={190} value="0" unit="dB" /* #9 #10 */ size={96} color={N.text} />
               <Tag x={120} y={252} text="20 µPa · THE SCALE'S ZERO" /* #9, F17 */ dot={L13_COLORS.vermilion} size={24} />
-              <Inset cx={1300} cy={560} r={210} at={at0} scale={9} family={N}>
-                <PressureWave f={f} y={at0[1]} x0={at0[0] - 60} x1={at0[0] + 60} amp={0.7} wavelength={26} speed={1} width={0.7} glow={false} color="#1F8F8A" line={false} />
+              <Inset cx={1420} cy={560} r={210} at={at0} scale={9} family={N}>
+                <PressureWave f={f} y={at0[1]} x0={at0[0] - 60} x1={at0[0] + 60} amp={2.6} wavelength={30} speed={1} width={1} glow={false} color="#1F8F8A" line={false} />
               </Inset>
             </g>
           }
@@ -341,7 +341,7 @@ const ShotZero: ShotFC<CL02> = ({ f, len }) => {
 // 2-05 … 2-09 · one tilt up the everyday rungs (#10, A-weighted, F6): leaves blow off a branch at 20; crickets ring at
 // 40; two Ticks talk at 60; a storm rolls in at 100; a jet crosses at 120.
 const RUNG_SHELF = (v: number) => (
-  <path d={`M${LX1 + 10} ${rungY(v) + 12} L1760 ${rungY(v) + 12} Q 1790 ${rungY(v) + 34} 1740 ${rungY(v) + 40} L${LX1 + 10} ${rungY(v) + 40} Z`} fill={N.mid} stroke={N.near} strokeWidth={3} />
+  <path d={`M${LX1 + 10} ${rungY(v) + 12} L1600 ${rungY(v) + 12} Q 1630 ${rungY(v) + 34} 1580 ${rungY(v) + 40} L${LX1 + 10} ${rungY(v) + 40} Z`} fill={N.mid} stroke={N.near} strokeWidth={3} />
 );
 const STOPS = [
   { v: DB.leaves, label: "LEAVES · 20" },
@@ -353,12 +353,12 @@ const STOPS = [
 const ShotRungs: ShotFC<CL02> = ({ f, len, c }) => {
   const cuts = [0, c.crickets - c.leaves, c.talk - c.leaves, c.thunder - c.leaves, c.jet - c.leaves];
   const ys = STOPS.map((s) => rungY(s.v) - 30);
-  const keys = [{ f: 0, x: 1180, y: ys[0], zoom: 1.32 }];
+  const keys = [{ f: 0, x: 1060, y: ys[0], zoom: 1.32 }];
   for (let i = 1; i < 5; i++) {
-    keys.push({ f: cuts[i], x: 1180, y: ys[i - 1], zoom: 1.32 });
-    keys.push({ f: cuts[i] + 22, x: 1180, y: ys[i], zoom: 1.32 });
+    keys.push({ f: cuts[i], x: 1060, y: ys[i - 1], zoom: 1.32 });
+    keys.push({ f: cuts[i] + 22, x: 1060, y: ys[i], zoom: 1.32 });
   }
-  keys.push({ f: len + 20, x: 1190, y: ys[4] - 20, zoom: 1.38 });
+  keys.push({ f: len + 20, x: 1070, y: ys[4] - 20, zoom: 1.38 });
   const cam = cameraAt(f, keys);
   let stop = 0;
   for (let i = 0; i < 5; i++) if (f >= cuts[i]) stop = i;
@@ -418,9 +418,9 @@ const ShotRungs: ShotFC<CL02> = ({ f, len, c }) => {
         {/* 60 · two Ticks talking 5 m apart, speech rings crossing between them */}
         <g>
           <Tick x={1020} y={rungY(60) + 12} pxPerM={90} frame={f} facing={1} pose={Math.sin(f / 10) > 0 ? "wave" : "point"} expression="happy" />
-          <Tick x={1560} y={rungY(60) + 12} pxPerM={90} frame={f} facing={-1} pose={Math.sin(f / 10) > 0 ? "point" : "shrug"} expression="happy" color="#5F7A84" seed={4} />
+          <Tick x={1450} y={rungY(60) + 12} pxPerM={90} frame={f} facing={-1} pose={Math.sin(f / 10) > 0 ? "point" : "shrug"} expression="happy" color="#5F7A84" seed={4} />
           <Rings f={f} cx={1080} cy={rungY(60) - 120} period={22} speed={6} maxR={420} width={4} color="#1F8F8A" arc={[-40, 40]} glow={false} />
-          <Rings f={f} cx={1500} cy={rungY(60) - 120} period={22} speed={6} maxR={420} width={4} color={L13_COLORS.vermilion} arc={[140, 220]} start={11} glow={false} />
+          <Rings f={f} cx={1390} cy={rungY(60) - 120} period={22} speed={6} maxR={420} width={4} color={L13_COLORS.vermilion} arc={[140, 220]} start={11} glow={false} />
         </g>
         {/* 100 · the storm cloud rolls in (~3 px/f, 40 % of the frame), rain streaks, a flash */}
         <g transform={`translate(${stormX - 1950} 0)`}>
@@ -573,7 +573,7 @@ const ShotCubeField: ShotFC<CL02> = ({ f, len }) => {
   ]);
   const front = Math.max(0, f - 6) * 22; // the pour front (px along the slope)
   const s = 34;
-  const tx = 1640 - ramp(f, 30, len) * -200;
+  const tx = 1300 + ramp(f, 30, len) * 160;
   return (
     <Pop f={f}>
       <Stage theme={N.theme} cam={cam} vignette={0.08} grain={0.5}>

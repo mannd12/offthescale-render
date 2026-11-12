@@ -112,9 +112,10 @@ const World: React.FC<{
   palmPeriod?: number;
   palmBend?: number;
   wind?: number;
+  fgPalms?: boolean;
   children?: React.ReactNode;
   hud?: React.ReactNode;
-}> = ({ f, sun = [1640, 560], sky, cloudSpeed = 2.4, palmSway = 30, palmPeriod = 80, palmBend = 0, wind = 6, children, hud }) => (
+}> = ({ f, sun = [1640, 560], sky, cloudSpeed = 2.4, palmSway = 30, palmPeriod = 80, palmBend = 0, wind = 6, fgPalms = true, children, hud }) => (
   <>
     <Layer depth={0.05}>
       <Sky family={D} stops={sky} />
@@ -153,7 +154,7 @@ const World: React.FC<{
     <Layer depth={1.2}>
       <Streamers f={f} n={9} x0={-300} x1={2300} y0={280} y1={880} len={150} width={3.5} speed={wind} color={alpha("#FFE9C8", 0.7)} opacity={0.35} seed={6} dir={-1} />
     </Layer>
-    <Layer depth={1.35}>
+    <Layer depth={1.35} opacity={fgPalms ? 1 : 0}>
       <Palm x={40} y={1220} h={980} f={f} sway={palmSway} period={palmPeriod} bend={palmBend} lean={0.18} silhouette="#0A2730" seed={1} />
       <Palm x={1900} y={1260} h={860} f={f} sway={palmSway} period={palmPeriod * 0.9} bend={palmBend} lean={-0.2} silhouette="#0A2730" seed={9} />
     </Layer>
@@ -291,6 +292,7 @@ const ShotTimeLapse: ShotFC<CCold> = ({ f, len }) => {
           sun={sun}
           sky={sky}
           cloudSpeed={3}
+          fgPalms={false}
           hud={
             <g>
               {hits.map((h, i) => (
@@ -519,6 +521,7 @@ const ShotGaugeRise: ShotFC<CCold> = ({ f, len, c }) => {
       <Stage theme={D.theme} cam={{ ...cam, y: cam.y + shake * 0.3, x: cam.x + shake * 0.2 }} vignette={0.16} grain={0.5}>
         <World
           f={f + 600}
+          fgPalms={false}
           hud={
             <g transform={`translate(0 ${shake.toFixed(1)})`}>
               <L13Gauge family={D} value={v} frame={f} ceiling={CEILING} labelled={false} readout={false} tremble={f > hit ? 2.5 : 0} />
@@ -595,12 +598,12 @@ const ShotSlot: ShotFC<CCold> = ({ f, len }) => {
           <CloudRack f={f + 500} n={5} x0={-700} x1={2700} y0={600} y1={900} size={130} speed={2.6} body="#F4B183" under="#B8613F" top="#FFE2B6" seed={11} />
         </Layer>
         <Layer depth={1}>
-          <g transform={`translate(1180 430) scale(${S}) translate(${-plate.x} ${-plate.y})`}>
+          <g transform={`translate(1060 470) scale(${S}) translate(${-plate.x} ${-plate.y})`}>
             <L13Gauge family={D} value={DB.ceiling /* the fill sits at the line; its number is not shown (F1) */} frame={f + 37} ceiling={CEILING} labelled={false} spin={f < stop ? 1 : 0} readout={f < stop ? undefined : " "} />
           </g>
-          {f >= stop ? <rect x={1180 - 150} y={430 - 66} width={300} height={132} fill="#FFF4E6" opacity={flash(f, stop, 8, 0.5)} /> : null}
+          {f >= stop ? <rect x={1060 - 150} y={470 - 66} width={300} height={132} fill="#FFF4E6" opacity={flash(f, stop, 8, 0.5)} /> : null}
           <GroundShadow x={620} y={1010} rx={150} color={D.shadow} opacity={0.3} blur={8} />
-          <Tick x={600} y={1010} pxPerM={290} frame={f} facing={1} pose="stand" poseTo="point" poseT={Math.min(1.6, tap)} expression="thinking" look={f > stop + 6 ? -0.6 : 0.7} headTilt={f > stop + 6 ? 6 : -6} />
+          <Tick x={520} y={1010} pxPerM={290} frame={f} facing={1} pose="stand" poseTo="point" poseT={Math.min(1.6, tap)} expression="thinking" look={f > stop + 6 ? -0.6 : 0.7} headTilt={f > stop + 6 ? 6 : -6} />
         </Layer>
       </Stage>
     </Pop>

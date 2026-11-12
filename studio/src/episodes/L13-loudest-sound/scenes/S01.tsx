@@ -223,7 +223,7 @@ const ShotRoom: ShotFC<CL01> = ({ f, len, c }) => {
         hud={
           <g>
             <g opacity={metricA}>
-              <Metric x={120} y={190} value="101,325" unit="Pa" /* #8 */ size={92} color="#FFF4DE" />
+              <Metric x={120} y={190} value="101,325" unit="Pa" /* #8 */ size={92} color={S.shadow} />
               <Pill x={120} y={250} text="AIR PRESSURE AT SEA LEVEL" /* #8 */ fill={pillFill(S)} color="#FFF4DE" dot={TEAL} size={24} />
             </g>
             <g opacity={flatA}>
@@ -566,8 +566,8 @@ const ShotFold: ShotFC<CL01> = ({ f, len }) => {
 // 1-12 · the fold snaps into a ladder with evenly spaced rungs 0 · 20 · 40 · 60 (#9); Tick, hands on hips, proud.
 const RUNG_DB = [0, 20, 40, 60]; // #9 (the dB scale)
 const ShotLadder: ShotFC<CL01> = ({ f, len }) => {
-  const close = smooth(ramp(f, 0, 12));
-  const snap = 14;
+  const close = smooth(ramp(f, 0, 6));
+  const snap = 7;
   const rails = ramp(f, snap, snap + 8);
   const ppm = 170;
   return (
