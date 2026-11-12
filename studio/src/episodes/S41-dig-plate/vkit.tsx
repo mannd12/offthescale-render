@@ -202,8 +202,14 @@ export const EndShot: React.FC<{ f: number; stops: string[]; q: string[]; accent
     {q.map((l, i) => (
       <T key={i} x={540} y={720 + i * (size + 12)} text={l} size={size} color={C.cream} />
     ))}
-    <g transform={`translate(540 ${1000 + 26 * Math.abs(Math.sin(f / 7))})`}>
-      <path d="M0 -60 V50 M-50 8 L0 62 L50 8" stroke={accent} strokeWidth={22} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    {/* the ask (owner, 2026-11-12: every Short points at the full video and asks for a like + subscribe) */}
+    <T x={540} y={930} text="FULL VIDEO ON OUR CHANNEL" size={46} color={C.cream} />
+    <g transform={`translate(540 ${1010 + 14 * Math.abs(Math.sin(f / 7))})`}>
+      <path d="M0 -40 V30 M-36 2 L0 40 L36 2" stroke={accent} strokeWidth={18} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </g>
+    <g transform={`translate(540 1118) scale(${1 + 0.05 * Math.sin(f / 5)})`}>
+      <rect x={-330} y={-52} width={660} height={104} rx={52} fill={accent} />
+      <T x={0} y={22} text="LIKE + SUBSCRIBE" size={60} color={C.ink} halo={accent} />
     </g>
   </g>
 );
