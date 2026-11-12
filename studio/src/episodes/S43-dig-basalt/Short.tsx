@@ -116,8 +116,8 @@ const c: Shot = ({ f }) => {
       </defs>
       <rect x={0} y={420} width={W} height={460} fill={`url(#${id})`} />
       <Glow x={540} y={650} r={560} color={C.amber} f={f} strength={0.5} />
-      <Plaque x={540} y={620} text="BASALT?" size={140} bg={C.ink} fg={C.amber} />
-      <Plaque x={540} y={790} text="PREDICTED AT ~7 KM" size={50} bg={C.ink} fg={C.cream} />
+      <Plaque x={470} y={620} text="BASALT?" size={140} bg={C.ink} fg={C.amber} />
+      <Plaque x={470} y={790} text="PREDICTED AT ~7 KM" size={50} bg={C.ink} fg={C.cream} />
       <Tick x={900} y={1210} pxPerM={300} frame={f} pose="think" expression="thinking" facing={-1} />
     </g>
   );
@@ -142,11 +142,11 @@ const d: Shot = ({ f, n }) => {
       ))}
       <g transform={`translate(0 ${flagY})`}>
         <line x1={160} x2={900} y1={0} y2={0} stroke={C.amber} strokeWidth={8} strokeDasharray="22 14" strokeDashoffset={-f * 3} />
-        <Plaque x={680} y={-4} text="TARGET" size={50} bg={C.amber} fg={C.ink} />
+        <Plaque x={470} y={-4} text="TARGET" size={50} bg={C.amber} fg={C.ink} />
       </g>
       <rect x={380} y={170} width={620} height={220} rx={40} fill={C.ink} opacity={0.92} />
       <Counter x={560} y={330} value={15 * k} max={15} size={150} color={C.amber} align="middle" digits={2} />
-      <text x={780} y={330} style={{ fontFamily: FONT, fontWeight: 800, fontSize: 70, fill: C.cream }}>
+      <text x={690} y={330} style={{ fontFamily: FONT, fontWeight: 800, fontSize: 70, fill: C.cream }}>
         km
       </text>
       <Tick x={880} y={1220} pxPerM={260} frame={f} pose="point" expression="determined" facing={-1} />
@@ -200,7 +200,7 @@ const f_: Shot = ({ f }) => {
           ))}
         </g>
       </g>
-      <T x={540} y={230} text="SO THEY DRILLED" size={92} />
+      <Plaque x={540} y={200} text="SO THEY DRILLED" size={84} bg={C.ink} fg={C.cream} />
     </g>
   );
 };
@@ -335,7 +335,7 @@ const m: Shot = ({ f }) => (
     </g>
     <Chips f={f} n={10} y0={150} y1={1100} color={C.cream} speed={9} opacity={0.5} seed={11} />
     <Tick x={420} y={1230} pxPerM={560} frame={f} pose="cheer" expression="proud" facing={1} />
-    <Plaque x={760} y={420} text="GO AND SEE" size={76} bg={C.ink} fg={C.cream} />
+    <Plaque x={800} y={300} text="GO AND SEE" size={76} bg={C.ink} fg={C.cream} />
   </g>
 );
 
@@ -402,7 +402,7 @@ const p: Shot = ({ f, n }) => {
       <Sky stops={["#0A3C4C", "#11707A", "#1FA69A"]} x={0} y={0} w={W} h={H} />
       <Streamers f={f} n={8} x0={-300} x1={1400} y0={150} y1={1150} len={400} width={24} speed={5} color={C.mint} opacity={0.3} slope={0.04} seed={4} />
       <path d="M-40 260 L540 760 L1120 260" stroke={C.amber} strokeWidth={12} fill="none" strokeDasharray="30 20" strokeDashoffset={-f * 5} />
-      <text x={540} y={1010} textAnchor="middle" style={{ fontFamily: FONT, fontWeight: 800, fontSize: 820, fill: "none", stroke: C.amber, strokeWidth: 16, strokeDasharray: "26 16", strokeDashoffset: -f * 3 }} opacity={k}>
+      <text x={540} y={1010} textAnchor="middle" style={{ fontFamily: FONT, fontWeight: 800, fontSize: 820, fill: "none", stroke: C.amber, strokeWidth: 24, strokeDasharray: "30 16", strokeDashoffset: -f * 3 }} opacity={k}>
         ?
       </text>
       <Glow x={540} y={760} r={300} color={C.cream} f={f} strength={0.6} period={14} />

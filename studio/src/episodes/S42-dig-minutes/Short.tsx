@@ -135,7 +135,7 @@ const c: Shot = ({ f }) => {
       <Rays f={f} cx={540} cy={640} color={C.teal} opacity={0.35} speed={-1.6} n={16} />
       <Clock cx={540} cy={640} r={400} hand={hand} share={SLIVER} />
       <g transform={`translate(${540 + 480 * Math.cos(ang)} ${640 + 480 * Math.sin(ang)}) scale(${zoom})`}>
-        <Plaque x={170} y={-40} text="1.9 MIN" size={86} bg={C.ink} fg={C.amber} />
+        <Plaque x={170 - 150} y={-60} text="1.9 MIN" size={86} bg={C.ink} fg={C.amber} />
       </g>
       <T x={540} y={1160} text="THE REST: SLATE" size={64} color={C.mint} opacity={ez(f, 10, 20)} />
     </g>
@@ -154,8 +154,8 @@ const d: Shot = ({ f, n }) => {
       <rect x={140} y={800} width={800} height={150} rx={20} fill={C.amber} opacity={0.22} />
       <Plaque x={540} y={260} text="BELOW 10 KM" size={96} bg={C.ink} fg={C.cream} />
       <rect x={110} y={420} width={860} height={220} rx={40} fill={C.ink} opacity={0.92} />
-      <Counter x={430} y={570} value={v} max={11500} size={124} color={C.amber} align="middle" />
-      <text x={810} y={570} style={{ fontFamily: FONT, fontWeight: 800, fontSize: 64, fill: C.cream }}>
+      <Counter x={470} y={570} value={v} max={11500} size={124} color={C.amber} align="middle" />
+      <text x={750} y={570} style={{ fontFamily: FONT, fontWeight: 800, fontSize: 64, fill: C.cream }}>
         m
       </text>
       <Chips f={f} n={10} y0={700} y1={1200} color={C.gold} speed={7} opacity={0.4} seed={6} len={100} width={9} />
@@ -223,6 +223,9 @@ const g: Shot = ({ f, n }) => {
         <rect x={-330} y={-330} width={660} height={650} rx={50} fill={C.ink} />
         <rect x={-300} y={-300} width={600} height={590} rx={30} fill={cols[(idx + 1) % 3]} />
         <rect x={-260} y={-240} width={520} height={90} rx={20} fill={C.teal} opacity={0.6} />
+        {Array.from({ length: 12 }, (_, i) => (
+          <circle key={i} cx={-215 + (i % 4) * 143} cy={-70 + Math.floor(i / 4) * 120} r={36} fill="#B7E0D6" />
+        ))}
         <g transform={`translate(0 -300) scale(1 ${flip}) translate(0 300)`}>
           <rect x={-300} y={-300} width={600} height={590} rx={30} fill={cols[idx % 3]} />
           <rect x={-260} y={-240} width={520} height={90} rx={20} fill={C.teal} />
@@ -387,7 +390,7 @@ const m: Shot = ({ f }) => {
 /** n - end card with the sliver of the clock. */
 const n_: Shot = ({ f }) => (
   <EndShot f={f} stops={["#2B0C08", "#B04A18", "#E3813F"]} q={["WHERE DID THE", "HOUR GO?"]}>
-    <Clock cx={880} cy={330} r={100} hand={(f / 40) % 1} share={SLIVER} />
+    <Clock cx={900} cy={170} r={64} hand={(f / 40) % 1} share={SLIVER} />
   </EndShot>
 );
 

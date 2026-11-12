@@ -56,7 +56,7 @@ const a: Shot = ({ f }) => (
     <path d={seaSurface(f * 2.8 + 90, -40, 1120, 980, 22, 300, 2, 1300, 30)} fill="#11707A" />
     <Chips f={f} n={12} y0={850} y1={1150} color={C.foam} speed={10} opacity={0.5} seed={8} dir={-1} />
     <rect x={528} y={880} width={14} height={400} fill={C.cream} opacity={0.85} />
-    <Plaque x={540} y={230} text="2023" size={140} bg={C.ink} fg={C.amber} />
+    <Plaque x={250} y={230} text="2023" size={140} bg={C.ink} fg={C.amber} />
   </g>
 );
 
@@ -97,7 +97,7 @@ const c: Shot = ({ f }) => (
       <rect x={-70} y={-170} width={140} height={340} rx={64} fill={C.green} stroke={C.ink} strokeWidth={10} />
       <path d="M-60 -80 L40 -40 M-50 20 L60 70 M-40 100 L30 120" stroke={C.deep} strokeWidth={10} strokeLinecap="round" />
     </g>
-    <Plaque x={640} y={1010} text="ROCK FROM THE MANTLE" size={52} bg={C.ink} fg={C.amber} />
+    <Plaque x={540} y={1060} text="ROCK FROM THE MANTLE" size={48} bg={C.ink} fg={C.amber} />
   </g>
 );
 
@@ -136,7 +136,7 @@ const e: Shot = ({ f }) => (
     <rect x={BAR_X - 50} y={BAR_TOP} width={100} height={1.268 * PXKM} rx={30} fill={C.ink} />
     <rect x={BAR_X - 32} y={BAR_TOP} width={64} height={1.268 * PXKM} rx={20} fill={C.amber} />
     <path d={`M${BAR_X + 90} ${BAR_TOP} h30 V${BAR_TOP + 1.268 * PXKM} h-30`} stroke={C.cream} strokeWidth={8} fill="none" strokeLinecap="round" opacity={0.6 + 0.4 * Math.sin(f / 5)} />
-    <Plaque x={720} y={BAR_TOP + 300} text="1,268 M" size={110} bg={C.ink} fg={C.amber} />
+    <Plaque x={700} y={470} text="1,268 M" size={110} bg={C.ink} fg={C.amber} />
     <Tick x={880} y={1230} pxPerM={380} frame={f} pose="point" expression="happy" facing={-1} />
   </g>
 );
@@ -168,7 +168,6 @@ const f_: Shot = ({ f, n }) => {
       <Bubbles frame={f} x0={100} x1={980} y={520} n={20} color={C.foam} seed={2} rise={2} size={8} />
       <path d={seaSurface(f * 2, -40, 1120, 500, 10, 220, 2, 560, 30)} fill="#7FD0E8" />
       <Plaque x={540} y={230} text="CHANGED BY SEAWATER" size={62} bg={C.ink} fg={C.cream} />
-      <T x={540} y={1180} text="MOSTLY" size={60} color={C.green} opacity={ez(f, 6, 14)} />
     </g>
   );
 };
@@ -203,7 +202,7 @@ const h: Shot = ({ f, n }) => {
       <rect x={BAR_X - 50} y={BAR_TOP} width={100} height={len} rx={30} fill={C.ink} />
       <rect x={BAR_X - 32} y={BAR_TOP} width={64} height={len} rx={20} fill={C.amber} />
       <Glow x={BAR_X} y={BAR_TOP + len} r={170} color={C.gold} f={f} strength={0.8} period={12} />
-      <Plaque x={720} y={BAR_TOP + 250} text="OLD RECORD" size={48} bg={C.ink} fg={C.cream} />
+      <Plaque x={720} y={BAR_TOP + 160} text="OLD RECORD" size={48} bg={C.ink} fg={C.cream} />
       <Tick x={880} y={1230} pxPerM={340} frame={f} pose="cheer" expression="happy" facing={-1} />
     </g>
   );
@@ -222,9 +221,9 @@ const i_: Shot = ({ f }) => {
         const t = ez(f, i * 4, i * 4 + 8);
         const y = mix(BAR_TOP - 400, BAR_TOP + i * unit, t);
         const sq = f >= i * 4 + 8 && f < i * 4 + 14 ? 1.08 : 1;
-        return <rect key={i} x={720 - 50} y={y} width={100} height={unit - 6} rx={20} fill={i % 2 ? C.cream : C.ice} opacity={ramp(f, i * 4, i * 4 + 3)} transform={`scale(${sq} 1)`} style={{ transformOrigin: `720px ${y}px` }} />;
+        return <rect key={i} x={600 - 50} y={y} width={100} height={unit - 6} rx={20} fill={i % 2 ? C.cream : C.ice} opacity={ramp(f, i * 4, i * 4 + 3)} transform={`scale(${sq} 1)`} style={{ transformOrigin: `600px ${y}px` }} />;
       })}
-      <Plaque x={540} y={1090} text="6×" size={230} bg={C.ink} fg={C.amber} scale={0.7 + 0.3 * ez(f, 20, 30)} />
+      <Plaque x={810} y={760} text="6×" size={200} bg={C.ink} fg={C.amber} scale={0.7 + 0.3 * ez(f, 20, 30)} />
     </g>
   );
 };
@@ -232,7 +231,7 @@ const i_: Shot = ({ f }) => {
 /** j - zoom out: the Kola hole rises beside it. */
 const j: Shot = ({ f, n }) => {
   const k = ez(f, 0, n - 3);
-  const px = mix(PXKM, 70, k);
+  const px = mix(PXKM, 62, k);
   const top = 340;
   return (
     <g>
@@ -266,7 +265,7 @@ const k_: Shot = ({ f }) => {
         const h2 = Math.min(unit, 12.262 * px - i * unit) - 6;
         return <rect key={i} x={540 - 54} y={top + i * unit + 3} width={108} height={h2} rx={18} fill={i % 2 ? C.amber : C.gold} opacity={on ? 1 : 0.15} />;
       })}
-      <Plaque x={880} y={top + 12.262 * px * 0.5} text="~10×" size={170} bg={C.ink} fg={C.amber} scale={0.8 + 0.2 * Math.abs(Math.sin(f / 6))} />
+      <Plaque x={800} y={top + 12.262 * px * 0.5} text="~10×" size={130} bg={C.ink} fg={C.amber} scale={0.8 + 0.2 * Math.abs(Math.sin(f / 6))} />
       <T x={200} y={top + 12.262 * px * 0.5} text="KOLA" size={70} />
     </g>
   );
@@ -293,7 +292,7 @@ const l: Shot = ({ f, n }) => (
   <g>
     <CrustScene f={f} k={ez(f, 4, n - 2)} />
     <Plaque x={540} y={180} text="UNDER CONTINENTS" size={56} bg={C.ink} fg={C.cream} />
-    <Tick x={190} y={320} pxPerM={200} frame={f} pose="point" expression="neutral" facing={1} />
+    <Tick x={190} y={320} pxPerM={140} frame={f} pose="point" expression="neutral" facing={1} />
   </g>
 );
 
@@ -339,7 +338,7 @@ const o: Shot = ({ f }) => {
       <rect x={529} y={top} width={22} height={holeBot - top + 20} rx={11} fill={C.ink} />
       <circle cx={540} cy={holeBot + 20} r={16} fill={C.amber} />
       <path d={`M540 ${holeBot + 50} V${base - 20}`} stroke={C.cream} strokeWidth={8} strokeDasharray="14 14" strokeDashoffset={-f * 2} />
-      <text x={540} y={(holeBot + base) / 2 + 150} textAnchor="middle" style={{ fontFamily: FONT, fontWeight: 800, fontSize: 520, fill: "none", stroke: C.amber, strokeWidth: 16, strokeDasharray: "26 16", strokeDashoffset: -f * 3 }} opacity={0.6 + 0.4 * Math.sin(f / 4)}>
+      <text x={540} y={(holeBot + base) / 2 + 150} textAnchor="middle" style={{ fontFamily: FONT, fontWeight: 800, fontSize: 520, fill: "none", stroke: C.amber, strokeWidth: 26, strokeDasharray: "30 16", strokeDashoffset: -f * 3 }} opacity={0.75 + 0.25 * Math.sin(f / 4)}>
         ?
       </text>
       <Plaque x={760} y={holeBot + 20} text="1,268 M" size={56} bg={C.ink} fg={C.amber} />
@@ -394,7 +393,7 @@ const q: Shot = ({ f }) => (
 /** r - end card. */
 const r_: Shot = ({ f }) => (
   <EndShot f={f} stops={["#0A3C4C", "#11707A", "#1FA69A"]} q={["WHERE DID", "THEY DIG?"]}>
-    <rect x={850} y={200} width={50} height={190} rx={22} fill={C.amber} />
+    <rect x={110} y={200} width={50} height={190} rx={22} fill={C.amber} />
   </EndShot>
 );
 

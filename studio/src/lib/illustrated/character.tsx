@@ -30,7 +30,9 @@ export type Pose =
   | "heave"
   | "lean"
   | "shield"
-  | "wipe-brow";
+  | "wipe-brow"
+  // v2.2, from the L13 storyboard: the back mitten cupped behind the head, head tilted toward it (the "Listener")
+  | "listen";
 
 /** Body offsets per pose: `drop` lowers the hips (knees bend), `lean` rotates the upper body forward (+) or back (-). */
 const POSE_BODY: Partial<Record<Pose, { drop?: number; lean?: number }>> = {
@@ -41,6 +43,7 @@ const POSE_BODY: Partial<Record<Pose, { drop?: number; lean?: number }>> = {
   heave: { lean: -8 },
   lean: { lean: 18 },
   shield: { lean: -4 },
+  listen: { lean: 4 },
 };
 
 type Pt = [number, number];
@@ -215,6 +218,9 @@ const handTargets = (pose: Pose, f: number, walkPh?: number): { front: Pt; back:
       return { front: [42, -78], back: [-22, -68], frontBend: 1, backBend: -1 };
     case "shield":
       return { front: [20, -186], back: [-18, -188], frontBend: -1, backBend: 1 };
+    case "listen":
+      // back mitten cupped at the back of the (tilted) head, clear of the visor and eyes; front arm relaxed
+      return { front: [30, -66 + idle * 0.3], back: [-34, -146 + idle * 0.4], frontBend: 1, backBend: -1 };
     case "wipe-brow":
       return { front: [16, -164 + Math.sin(f / 9) * 2], back: [-30, -62], frontBend: 1, backBend: -1 };
     case "stand":
@@ -353,6 +359,14 @@ export const Tick: React.FC<TickProps> = ({
   const armB = ik(shB, ht.back, ARM1, ARM2, ht.backBend);
   // the staff goes to whichever hand is free: the back hand when the front one points, waves, cheers or covers an ear
   const effPose: Pose = tweenT !== undefined && poseTo && tweenT >= 0.5 ? poseTo : pose;
+  // listen: the back mitten is drawn over the head (like cover-ears), and the head tilts toward it
+  const backOnTop = pose === "cover-ears" || effPose === "listen";
+  const listenK = (() => {
+    const a = pose === "listen" ? 1 : 0;
+    if (tweenT === undefined || !poseTo) return a;
+    const b = poseTo === "listen" ? 1 : 0;
+    return lerp(a, b, Math.max(0, Math.min(1, anticipate(Math.min(1, tweenT)))));
+  })();
   const staffHand = effPose === "point" || effPose === "wave" || effPose === "cheer" || effPose === "cover-ears" || effPose === "shrug" || effPose === "think" ? armB.end : armF.end;
 
   // ---- face ---------------------------------------------------------------------------------------------------
@@ -416,8 +430,8 @@ export const Tick: React.FC<TickProps> = ({
         {bootAt(legBack.foot, mixHex(boot, "#000", 0.2))}
         {/* upper body (back half): rotates about the hips for lean / slump */}
         <g transform={`rotate(${LEAN.toFixed(2)} 0 ${HIP[1]})`}>
-        {pose !== "cover-ears" ? limb(shB, armB.j, armB.end, 12, suitShade) : null}
-        {pose !== "cover-ears" ? <circle cx={armB.end[0]} cy={armB.end[1]} r={8.5} fill={mixHex(mitt, "#000", 0.18)} {...stroke} /> : null}
+        {!backOnTop ? limb(shB, armB.j, armB.end, 12, suitShade) : null}
+        {!backOnTop ? <circle cx={armB.end[0]} cy={armB.end[1]} r={8.5} fill={mixHex(mitt, "#000", 0.18)} {...stroke} /> : null}
         {/* backpack on the back (behind the torso, toward -x); lags the body on a pose change */}
         <g transform={`translate(${(-packLag).toFixed(2)} ${Math.abs(packLag).toFixed(2)}) rotate(${(ft * 4).toFixed(2)} -31 -56)`}>
           <rect x={-44} y={-110} width={26} height={54} rx={10} fill={suitShade} {...stroke} />
@@ -436,7 +450,7 @@ export const Tick: React.FC<TickProps> = ({
           <path d="M8 -92 L11 -89 L16 -96" fill="none" stroke={color} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
         </g>
         {/* head */}
-        <g transform={`rotate(${face.tilt + look * 4 + ft * 3 + headTilt + slump * 10} 0 ${HEAD[1] + 20})`}>
+        <g transform={`rotate(${face.tilt + look * 4 + ft * 3 + headTilt + slump * 10 - listenK * 9} 0 ${HEAD[1] + 20})`}>
           <circle cx={HEAD[0]} cy={HEAD[1]} r={HEAD_R} fill={color} {...stroke} />
           <path d={`M${-HEAD_R + 4} ${HEAD[1] - 6} A${HEAD_R} ${HEAD_R} 0 0 1 ${HEAD[0] - 2} ${HEAD[1] - HEAD_R + 1}`} fill="none" stroke={suitLit} strokeWidth={4} strokeLinecap="round" opacity={0.7} />
           {/* visor: a bone plate toward the facing side */}
@@ -480,10 +494,14 @@ export const Tick: React.FC<TickProps> = ({
               return <path d={`M${armF.end[0]} ${armF.end[1]} L${(armF.end[0] + (vx / l) * 15).toFixed(1)} ${(armF.end[1] + (vy / l) * 15).toFixed(1)}`} stroke={mitt} strokeWidth={5.5} strokeLinecap="round" />;
             })()
           : null}
-        {pose === "cover-ears" ? (
+        {backOnTop ? (
           <>
             {limb(shB, armB.j, armB.end, 12, suitShade)}
             <circle cx={armB.end[0]} cy={armB.end[1]} r={8.5} fill={mixHex(mitt, "#000", 0.18)} />
+            {effPose === "listen" ? (
+              // the cup: a curved thumb edge opening toward the head
+              <path d={`M${armB.end[0] + 2} ${armB.end[1] - 8} Q${armB.end[0] + 9} ${armB.end[1]} ${armB.end[0] + 2} ${armB.end[1] + 8}`} fill="none" stroke={mixHex(mitt, "#000", 0.38)} strokeWidth={2.2} strokeLinecap="round" />
+            ) : null}
           </>
         ) : null}
         </g>

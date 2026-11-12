@@ -378,9 +378,9 @@
   {
     "scene": "l06",
     "index": 5,
-    "text": "It moved at six hundred and seventy to seven hundred and thirty miles an hour, a little slower than ordinary sound in warm sea-level air.",
-    "file": "L13-loudest-sound/vo/l06-05-fe1886c836.wav",
-    "seconds": 7.15,
+    "text": "It moved at six hundred and seventy to seven hundred and thirty miles an hour, a little slower than ordinary sound in sea-level air.",
+    "file": "L13-loudest-sound/vo/l06-05-cf033792de.wav",
+    "seconds": 7.02,
     "pauseAfter": 0.55
   },
   {
@@ -498,9 +498,9 @@
   {
     "scene": "l08",
     "index": 4,
-    "text": "On Mars, a rover carries a microphone. It told us sound there travels at about two hundred and forty metres a second, against three hundred and forty here, because the air is a hundred and seventy times thinner.",
-    "file": "L13-loudest-sound/vo/l08-04-a9469c0b96.wav",
-    "seconds": 10.390041666666667,
+    "text": "On Mars, a rover carries a microphone. It told us sound there travels at about two hundred and forty metres a second, against three hundred and forty here, in thin air made mostly of carbon dioxide.",
+    "file": "L13-loudest-sound/vo/l08-04-80f4d5125f.wav",
+    "seconds": 23.71,
     "pauseAfter": 0.25
   },
   {

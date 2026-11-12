@@ -75,13 +75,13 @@ const a: Shot = ({ f, n }) => {
       <rect x={0} y={420} width={W} height={H - 420} fill="#146A6C" />
       <Strata f={f} speed={7} bands={HOT} y0={420} amp={20} seed={3} />
       <rect x={500} y={420} width={80} height={H} fill={C.ink} />
-      <line x1={540} y1={300} x2={540} y2={ty} stroke={C.cream} strokeWidth={8} />
+      <path d={`M250 350 L540 400 V${ty}`} stroke={C.cream} strokeWidth={8} fill="none" />
       <g transform={`translate(540 ${ty + 100}) scale(0.5)`}>
         <rect x={-60} y={-200} width={120} height={360} rx={60} fill={C.cream} />
         <rect x={-30} y={-60} width={60} height={200} rx={30} fill={C.verm} />
         <circle cy={170} r={76} fill={C.verm} />
       </g>
-      <Tick x={200} y={430} pxPerM={250} frame={f} pose="heave" expression="determined" facing={1} />
+      <Tick x={170} y={430} pxPerM={200} frame={f} pose="heave" expression="determined" facing={1} />
       <Plaque x={540} y={1100} text="EXPECTED: ~100 °C" size={62} bg={C.ink} fg={C.amber} />
     </g>
   );
@@ -139,7 +139,7 @@ const d: Shot = ({ f, n }) => {
         <path d={`M610 ${yOf(100)} V${mix(yOf(100), yOf(180), k)}`} stroke={C.amber} strokeWidth={14} strokeLinecap="round" />
         <path d={`M586 ${mix(yOf(100), yOf(180), k) + 28} L610 ${mix(yOf(100), yOf(180), k)} L634 ${mix(yOf(100), yOf(180), k) + 28}`} stroke={C.amber} strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </g>
-      <Plaque x={810} y={mix(yOf(100), yOf(180), 0.5)} text="+80 °C" size={120} bg={C.ink} fg={C.amber} scale={0.6 + 0.4 * k} />
+      <Plaque x={780} y={mix(yOf(100), yOf(180), 0.5)} text="+80 °C" size={100} bg={C.ink} fg={C.amber} scale={0.6 + 0.4 * k} />
       <Plaque x={540} y={yOf(100) + 90} text="BOILING" size={56} bg={C.sea} fg={C.cream} />
       <Embers frame={f} x0={260} x1={340} y={yOf(180)} n={18} color={C.amber} seed={6} rise={4} />
     </g>
@@ -171,7 +171,7 @@ const f_: Shot = ({ f, n }) => {
       <Glow x={520} y={tip} r={170} color={C.amber} f={f} strength={0.8} />
       <circle cx={520} cy={tip} r={18} fill={C.cream} />
       <Derrick f={f * 2} x={250} y={340} s={1.2} />
-      <Plaque x={780} y={1130} text="PLAN: 15 KM" size={72} bg={C.ink} fg={C.amber} />
+      <Plaque x={700} y={1130} text="PLAN: 15 KM" size={72} bg={C.ink} fg={C.amber} />
       <rect x={560} y={400} width={420} height={210} rx={40} fill={C.ink} opacity={0.93} />
       <Counter x={720} y={550} value={15 * k} max={15} size={140} color={C.amber} align="middle" digits={2} />
       <text x={850} y={550} style={{ fontFamily: FONT, fontWeight: 800, fontSize: 50, fill: C.cream }}>
@@ -182,7 +182,7 @@ const f_: Shot = ({ f, n }) => {
 };
 
 /** g - the graph: found at 12 km, projected to 15 km. */
-const Chart: React.FC<{ f: number; draw: number; proj: number }> = ({ f, draw, proj }) => {
+const Chart: React.FC<{ f: number; draw: number; proj: number; labels?: boolean }> = ({ f, draw, proj, labels = true }) => {
   const x0 = 150;
   const y0 = 1100;
   const px = 52;
@@ -193,14 +193,16 @@ const Chart: React.FC<{ f: number; draw: number; proj: number }> = ({ f, draw, p
   return (
     <g>
       <path d={`M${x0} ${y0} H940 M${x0} ${y0} V330`} stroke={C.cream} strokeWidth={8} fill="none" strokeLinecap="round" />
-      {[0, 5, 10, 15].map((km) => (
+      {(labels ? [0, 5, 10, 15] : []).map((km) => (
         <text key={km} x={x0 + km * px} y={y0 + 50} textAnchor="middle" style={{ fontFamily: FONT, fontWeight: 800, fontSize: 38, fill: C.cream }}>
           {km}
         </text>
       ))}
-      <text x={540} y={y0 + 100} textAnchor="middle" style={{ fontFamily: FONT, fontWeight: 800, fontSize: 36, fill: C.mint }}>
-        DEPTH (KM)
-      </text>
+      {labels ? (
+        <text x={540} y={y0 + 100} textAnchor="middle" style={{ fontFamily: FONT, fontWeight: 800, fontSize: 36, fill: C.mint }}>
+          DEPTH (KM)
+        </text>
+      ) : null}
       <path d={curve} stroke={C.verm} strokeWidth={16} fill="none" strokeLinecap="round" strokeDasharray="1600" strokeDashoffset={1600 * (1 - draw)} />
       <path d={`M${P(12.262, 180)[0]} ${P(12.262, 180)[1]} L${P(15, 266)[0]} ${P(15, 266)[1]}`} stroke={C.amber} strokeWidth={14} fill="none" strokeLinecap="round" strokeDasharray="24 16" strokeDashoffset={-f * 2} opacity={proj} />
       <circle cx={P(12.262, 180)[0]} cy={P(12.262, 180)[1]} r={18} fill={C.cream} />
@@ -229,7 +231,7 @@ const h: Shot = ({ f }) => {
       <Strata f={f} speed={3} bands={HOT} amp={20} seed={9} />
       <rect x={0} y={0} width={W} height={H} fill={C.maroon} opacity={0.5} />
       <g transform={`translate(720 600) scale(${z}) translate(${-(150 + 15 * 52)} ${-(1100 - 266 * 2.4)})`}>
-        <Chart f={f} draw={1} proj={1} />
+        <Chart f={f} draw={1} proj={1} labels={false} />
       </g>
       <Glow x={720} y={600} r={380} color={C.gold} f={f} strength={0.7} period={20} />
       <Plaque x={540} y={260} text="~266 °C" size={160} bg={C.ink} fg={C.amber} />
@@ -279,7 +281,7 @@ const j: Shot = ({ f, n }) => {
 };
 
 /** k - a tight ruler: about 1 degree every 100 m. */
-const Ruler: React.FC<{ f: number; speed: number; gap: number; label: string; sub?: string; bg: string[] }> = ({ f, speed, gap, label, sub, bg }) => {
+const Ruler: React.FC<{ f: number; speed: number; gap: number; label: string; sub?: string; bg: string[]; deg?: string }> = ({ f, speed, gap, label, sub, bg, deg }) => {
   const off = (f * speed) % gap;
   return (
     <g>
@@ -291,17 +293,17 @@ const Ruler: React.FC<{ f: number; speed: number; gap: number; label: string; su
         return (
           <g key={i}>
             <line x1={120} x2={i % 2 ? 330 : 420} y1={y} y2={y} stroke={C.cream} strokeWidth={8} strokeLinecap="round" />
-            {i % 2 === 0 ? <text x={440} y={y + 14} style={{ fontFamily: FONT, fontWeight: 800, fontSize: 34, fill: C.amber }}>+1°</text> : null}
+            {deg && i % 2 === 0 ? <text x={440} y={y + 14} style={{ fontFamily: FONT, fontWeight: 800, fontSize: 34, fill: C.amber }}>{deg}</text> : null}
           </g>
         );
       })}
-      <Plaque x={780} y={420} text={label} size={88} bg={C.ink} fg={C.amber} />
+      <Plaque x={770} y={420} text={label} size={label.length > 8 ? 66 : 88} bg={C.ink} fg={C.amber} />
       {sub ? <Plaque x={780} y={560} text={sub} size={50} bg={C.ink} fg={C.cream} /> : null}
     </g>
   );
 };
 
-const k_: Shot = ({ f }) => <Ruler f={f} speed={6} gap={110} label="~1°" sub="PER 100 M" bg={["#146A6C", "#1FA69A"]} />;
+const k_: Shot = ({ f }) => <Ruler f={f} speed={6} gap={110} label="~1°" sub="PER 100 M" bg={["#146A6C", "#1FA69A"]} deg="+1°" />;
 
 /** l - the bars climb one degree at a time. */
 const l: Shot = ({ f, n }) => (
@@ -330,7 +332,7 @@ const m: Shot = ({ f, n }) => {
 };
 
 /** n - closer to two. */
-const n_: Shot = ({ f }) => <Ruler f={f} speed={9} gap={56} label="CLOSER TO 2°" sub="PER 100 M" bg={["#6A2210", "#B04A18"]} />;
+const n_: Shot = ({ f }) => <Ruler f={f} speed={9} gap={56} label="CLOSER TO 2°" sub="PER 100 M" bg={["#6A2210", "#B04A18"]} deg="+2°" />;
 
 /** o - the curve steepens. */
 const o: Shot = ({ f, n }) => {
@@ -346,7 +348,7 @@ const o: Shot = ({ f, n }) => {
       <path d={d} stroke={C.amber} strokeWidth={18} fill="none" strokeLinecap="round" strokeDasharray="1400" strokeDashoffset={1400 * (1 - k)} />
       <Glow x={870} y={540} r={300} color={C.gold} f={f} strength={0.7 * k} />
       <Plaque x={540} y={250} text="IT SPEEDS UP" size={90} bg={C.ink} fg={C.amber} />
-      <Tick x={300} y={1230} pxPerM={300} frame={f} pose="shrug" expression="surprised" facing={1} />
+      <Tick x={900} y={1230} pxPerM={300} frame={f} pose="shrug" expression="surprised" facing={-1} />
     </g>
   );
 };
@@ -437,7 +439,7 @@ const s_: Shot = ({ f }) => (
 /** t - end card. */
 const t_: Shot = ({ f }) => (
   <EndShot f={f} stops={EMBER_SKY} q={["WHAT BROKE", "DOWN THERE?"]}>
-    <g transform="translate(880 330) scale(0.3)">
+    <g transform="translate(930 40) scale(0.3)">
       <Thermo x={0} level={180} f={f} marks={false} />
     </g>
   </EndShot>
