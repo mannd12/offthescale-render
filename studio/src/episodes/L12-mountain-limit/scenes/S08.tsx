@@ -65,36 +65,9 @@ const TAU = Math.PI * 2;
 const rad = (d: number) => (d * Math.PI) / 180;
 
 const F = familyOf("void");
-/**
- * The L12 studio set (polish pass (a), 2026-11-11). The bone room measured as the greyest stretch of the video (HSV
- * saturation 0.18-0.19 at 1:00, 3:30 and 9:00), so the studio keeps its roles but is pushed to the colour targets: a
- * teal cyclorama (the family's mint `second`, deepened), warm ochre floor and hills under the gold key, cool blue-teal
- * shadows. Text stays dark (the cyc's top is mid-value). Shared by l01, l04, l08 and the closer.
- */
-export const STUDIO_SET: Family = {
-  ...familyOf("studio"),
-  sky: ["#2A8890", "#3AA29F", "#66BEAD", "#A4DBC5"],
-  far: "#5AAE9F",
-  mid: "#E3A256",
-  near: "#D2843F",
-  haze: "#A4DBC5",
-  shadow: "#1E4A5C",
-  dim: "#1F4549",
-};
+export { STUDIO_SET, CycClouds } from "../../../lib/illustrated";
+import { CycClouds, STUDIO_SET } from "../../../lib/illustrated";
 const S = STUDIO_SET;
-
-/** Painted cut-out clouds sliding across the studio cyc at ~1.6-2.4 px per frame: the motion floor of the studio shots
- *  (defined cream edges on teal register at the probe's 96×54 / 0.5-s steps; a slow push over flat paper did not). */
-export const CycClouds: React.FC<{ f: number; y?: number; n?: number; seed?: number; opacity?: number }> = ({ f, y = 150, n = 4, seed = 1, opacity = 1 }) => (
-  <g opacity={opacity}>
-    {Array.from({ length: n }, (_, i) => {
-      const w = 380 + rnd(seed * 7 + i) * 220;
-      const v = 1.6 + rnd(seed * 3 + i) * 0.8;
-      const x = ((((i / n) * 2900 + rnd(seed + i) * 300 + f * v) % 2900) + 2900) % 2900 - 700;
-      return <Cumulus key={i} x={x} y={y + rnd(seed * 11 + i) * 230} w={w} h={w * 0.27} fill="#FFF4DE" shade="#BFE3D6" lit="#FFFFFF" seed={seed * 5 + i} frame={f} />;
-    })}
-  </g>
-);
 const DUSK = familyOf("dusk");
 const PETROL = familyOf("petrol");
 /** The void high key: gold from the upper left; the petrol fill comes from the lower right (storyboard §1, scene 8). */

@@ -22,3 +22,4 @@ export * from "./widgets";
 export * from "./shotlist";
 export * from "./props";
 export * from "./widgets2";
+export * from "./movers";

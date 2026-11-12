@@ -31,6 +31,7 @@ import { TestL11, l11TestFrames } from "./episodes/L11-dig-depth/Episode";
 import { FullL11, l11Frames } from "./episodes/L11-dig-depth/Full";
 import { FullL12, KeyArt1, KeyArt2, KeyArt3, KeyArt4, l12Frames } from "./episodes/L12-mountain-limit/Full";
 import { ThumbL12, ThumbL12B } from "./episodes/L12-mountain-limit/Thumb";
+import { FullL13, l13Frames } from "./episodes/L13-loudest-sound/Full";
 import { DuskScene } from "./style-v2/Dusk";
 import { CavernScene } from "./style-v2/Cavern";
 import { SoundSeaScene } from "./style-v2/SoundSea";
@@ -78,6 +79,7 @@ import { ShortS37, timeline as s37 } from "./episodes/S37-temperature-dropped/Sh
 import { ShortS38, timeline as s38 } from "./episodes/S38-temperature-pluto/Short";
 import { ShortS39, timeline as s39 } from "./episodes/S39-temperature-corona/Short";
 import { ShortS40, timeline as s40 } from "./episodes/S40-temperature-negative/Short";
+import { ShortS41, timeline as s41 } from "./episodes/S41-dig-plate/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 
 export const Root: React.FC = () => (
@@ -120,6 +122,7 @@ export const Root: React.FC = () => (
     <Still id="l12-key-2" component={KeyArt2} width={WIDTH} height={HEIGHT} />
     <Still id="l12-key-3" component={KeyArt3} width={WIDTH} height={HEIGHT} />
     <Still id="l12-key-4" component={KeyArt4} width={WIDTH} height={HEIGHT} />
+    <Composition id="l13" component={FullL13} durationInFrames={l13Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Still id="l12-thumb" component={ThumbL12} width={1280} height={720} />
     <Still id="l12-thumb-b" component={ThumbL12B} width={1280} height={720} />
 
@@ -164,6 +167,7 @@ export const Root: React.FC = () => (
     <Composition id="s38-short" component={ShortS38} durationInFrames={s38.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s39-short" component={ShortS39} durationInFrames={s39.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s40-short" component={ShortS40} durationInFrames={s40.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s41-short" component={ShortS41} durationInFrames={s41.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 
