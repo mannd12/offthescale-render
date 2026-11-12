@@ -187,7 +187,12 @@ const NeedleDial: React.FC<{ cx: number; cy: number; r: number; d0: number; d1: 
   const [tx, ty] = pt(cx, cy, r * 0.22, a + 180);
   return (
     <g>
-      <circle cx={cx} cy={cy} r={r + 10} fill={alpha("#000", 0.18)} />
+      {/* backdrop: a half-disc for the half-dial (a full disc spilled below the plate), a disc otherwise */}
+      {d1 - d0 <= 180 ? (
+        <path d={`${arcD(cx, cy, r + 10, d0, d1)} Z`} fill={alpha("#000", 0.18)} />
+      ) : (
+        <circle cx={cx} cy={cy} r={r + 10} fill={alpha("#000", 0.18)} />
+      )}
       <path d={arcD(cx, cy, r, d0, stopA)} fill="none" stroke={ink.dim} strokeWidth={6} strokeLinecap="round" />
       {/* the overflow zone past the stop, saffron dashes */}
       <path d={arcD(cx, cy, r, stopA, d1)} fill="none" stroke={L14_COLORS.saffron} strokeWidth={6} strokeDasharray="6 6" opacity={0.7} />
@@ -320,7 +325,7 @@ export const PressureGauge: React.FC<{ x: number; y: number; s: GaugeState; f: n
       {s.unknown ? (
         <UnknownTag x={ox + ow / 2} y={oy + oh / 2} size={26} />
       ) : s.readout != null ? (
-        <Readout x={x + 250} y={y + 132} s={s} unit={s.unit ?? "atm"} size={21} />
+        <Readout x={x + 245} y={y + 190} s={s} unit={s.unit ?? "atm"} size={21} />
       ) : (
         <g>
           <defs>
