@@ -170,57 +170,73 @@
   {
     "scene": "l03",
     "index": 1,
-    "text": "A group of physicists modelled a vehicle in this tunnel, and found it reaches that steady speed almost immediately. Nowhere near eight kilometres a second.",
-    "file": "L14-earth-tunnel/vo/l03-01-c56b27b006.wav",
-    "seconds": 7.67,
+    "text": "The push isn't simple. It grows with the square of the speed. Go twice as fast and the air pushes back four times as hard.",
+    "file": "L14-earth-tunnel/vo/l03-01-d5ed8b5ba0.wav",
+    "seconds": 7.21,
     "pauseAfter": 0.25
   },
   {
     "scene": "l03",
     "index": 2,
-    "text": "The same capsule that would hit the speed of an orbit in a vacuum settles into a steady crawl in air.",
-    "file": "L14-earth-tunnel/vo/l03-02-90ee5ac206.wav",
-    "seconds": 5.16,
+    "text": "So the faster the probe falls, the harder the air fights it, and that is why the climb flattens so early.",
+    "file": "L14-earth-tunnel/vo/l03-02-7e92114738.wav",
+    "seconds": 5.91,
     "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 3,
-    "text": "It gets worse with depth, because the air is squeezed. Its pressure and density climb quickly. The authors say that beyond about a hundred and seventy-five kilometres, realistic travel is out.",
-    "file": "L14-earth-tunnel/vo/l03-03-568063f8e2.wav",
-    "seconds": 10.43,
+    "text": "A group of physicists modelled a vehicle in this tunnel, and found it reaches that steady speed almost immediately. Nowhere near eight kilometres a second.",
+    "file": "L14-earth-tunnel/vo/l03-03-c56b27b006.wav",
+    "seconds": 8.23,
     "pauseAfter": 0.25
   },
   {
     "scene": "l03",
     "index": 4,
-    "text": "And around four hundred and twenty kilometres down, the nitrogen would turn solid.",
-    "file": "L14-earth-tunnel/vo/l03-04-5dfe5198e9.wav",
-    "seconds": 4.02,
+    "text": "The same capsule that would hit the speed of an orbit in a vacuum settles into a steady crawl in air.",
+    "file": "L14-earth-tunnel/vo/l03-04-90ee5ac206.wav",
+    "seconds": 5.58,
     "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 5,
-    "text": "Their numbers for a tunnel full of air: about one point eight years just to reach the centre. Then a slow wobble through a few tens of kilometres. Not a thirty-eight-minute trip.",
-    "file": "L14-earth-tunnel/vo/l03-05-2d78a62b08.wav",
-    "seconds": 10.22,
+    "text": "It gets worse with depth, because the air is squeezed. Its pressure and density climb quickly. The authors say that beyond about a hundred and seventy-five kilometres, realistic travel is out.",
+    "file": "L14-earth-tunnel/vo/l03-05-568063f8e2.wav",
+    "seconds": 10.86,
     "pauseAfter": 0.25
   },
   {
     "scene": "l03",
     "index": 6,
-    "text": "A year and a half stuck in the traffic of your own atmosphere.",
-    "file": "L14-earth-tunnel/vo/l03-06-5f9e484932.wav",
-    "seconds": 2.94,
+    "text": "And around four hundred and twenty kilometres down, the nitrogen would turn solid.",
+    "file": "L14-earth-tunnel/vo/l03-06-5dfe5198e9.wav",
+    "seconds": 4.070041666666667,
     "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 7,
+    "text": "Their numbers for a tunnel full of air: about one point eight years just to reach the centre. Then a slow wobble through a few tens of kilometres. Not a thirty-eight-minute trip.",
+    "file": "L14-earth-tunnel/vo/l03-07-2d78a62b08.wav",
+    "seconds": 10.6,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 8,
+    "text": "A year and a half stuck in the traffic of your own atmosphere.",
+    "file": "L14-earth-tunnel/vo/l03-08-5f9e484932.wav",
+    "seconds": 3.26,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 9,
     "text": "So every serious model starts the same way: pump the air out. We will too. From here, the tunnel is a vacuum, and the probe falls the way the maths wants it to.",
-    "file": "L14-earth-tunnel/vo/l03-07-75db032e08.wav",
-    "seconds": 10.13,
+    "file": "L14-earth-tunnel/vo/l03-09-75db032e08.wav",
+    "seconds": 9.95,
     "pauseAfter": 0.55
   },
   {
@@ -282,33 +298,57 @@
   {
     "scene": "l05",
     "index": 3,
-    "text": "Under the crust is the mantle: more than two thousand eight hundred kilometres of it. It's solid, but only just. Over long times it deforms and flows.",
-    "file": "L14-earth-tunnel/vo/l05-03-0796e813b2.wav",
-    "seconds": 9.18,
-    "pauseAfter": 0.25
+    "text": "The crust, the rock under our feet, is a thin skin: about five to forty kilometres thick. Against a tunnel twelve thousand seven hundred kilometres long, it is a coat of paint.",
+    "file": "L14-earth-tunnel/vo/l05-03-d9888ae509.wav",
+    "seconds": 9.77,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 4,
-    "text": "At Kola, the project's scientists described the deep rock as behaving more like plastic than rock. Our drawn tunnel holds its shape, because we are drawing it that way.",
-    "file": "L14-earth-tunnel/vo/l05-04-7b03d6e331.wav",
-    "seconds": 9.15,
+    "text": "Under the crust is the mantle: more than two thousand eight hundred kilometres of it. It's solid, but only just. Over long times it deforms and flows.",
+    "file": "L14-earth-tunnel/vo/l05-04-0796e813b2.wav",
+    "seconds": 8.87,
     "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 5,
-    "text": "A real one would have a long argument with the rock.",
-    "file": "L14-earth-tunnel/vo/l05-05-1ae3dda51d.wav",
-    "seconds": 2.54,
-    "pauseAfter": 0.55
+    "text": "At Kola, the project's scientists described the deep rock as behaving more like plastic than rock. Our drawn tunnel holds its shape, because we are drawing it that way.",
+    "file": "L14-earth-tunnel/vo/l05-05-7b03d6e331.wav",
+    "seconds": 8.57,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 6,
+    "text": "A real one would have a long argument with the rock.",
+    "file": "L14-earth-tunnel/vo/l05-06-1ae3dda51d.wav",
+    "seconds": 2.45,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 7,
+    "text": "The mantle reaches down to about two thousand nine hundred kilometres. Count the far side of the planet too, and the two mantle stretches add up to nearly half of the whole trip.",
+    "file": "L14-earth-tunnel/vo/l05-07-a71639f9fe.wav",
+    "seconds": 8.46,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 8,
+    "text": "Half the journey, through rock that looks frozen and is not.",
+    "file": "L14-earth-tunnel/vo/l05-08-138acf44d9.wav",
+    "seconds": 3.1,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 9,
     "text": "The probe covers this distance fast, with the pull still high. Without air, it takes about nineteen minutes to reach the very centre. But the core boundary comes first, almost three thousand kilometres down.",
-    "file": "L14-earth-tunnel/vo/l05-06-33b0307767.wav",
-    "seconds": 11.16,
+    "file": "L14-earth-tunnel/vo/l05-09-33b0307767.wav",
+    "seconds": 10.83,
     "pauseAfter": 0.55
   },
   {
@@ -346,17 +386,89 @@
   {
     "scene": "l06",
     "index": 4,
-    "text": "At the boundary of that solid ball, laboratory work puts the pressure at about three point three million atmospheres. And the temperature at around six thousand degrees, give or take five hundred.",
-    "file": "L14-earth-tunnel/vo/l06-04-f6260b2ad4.wav",
-    "seconds": 9.84,
+    "text": "The liquid stretch is about twenty-two hundred kilometres thick. The solid ball inside it measures about twelve hundred and fifty kilometres from its edge to its centre.",
+    "file": "L14-earth-tunnel/vo/l06-04-df0c843c7d.wav",
+    "seconds": 7.425,
     "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 5,
+    "text": "The probe crosses a sea of liquid metal, and then it enters the ball, with that much left to fall.",
+    "file": "L14-earth-tunnel/vo/l06-05-aca4ef5b74.wav",
+    "seconds": 6.545,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "Add both halves and the core is the bigger part of the tunnel: about sixty-nine hundred of its twelve thousand seven hundred kilometres. Yet the core holds only about a sixth of the planet's volume.",
+    "file": "L14-earth-tunnel/vo/l06-06-416bc4a6f7.wav",
+    "seconds": 10.16,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 7,
+    "text": "Most of this trip is spent in a small part of the Earth.",
+    "file": "L14-earth-tunnel/vo/l06-07-df559739e8.wav",
+    "seconds": 2.63,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 8,
+    "text": "At the boundary of that solid ball, laboratory work puts the pressure at about three point three million atmospheres. And the temperature at around six thousand degrees, give or take five hundred.",
+    "file": "L14-earth-tunnel/vo/l06-08-f6260b2ad4.wav",
+    "seconds": 9.7,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 9,
     "text": "Compare Kola: more than thirty times hotter. The second and third gauges are now off the scale. Heat first, then pressure, and then the probe is somewhere no instrument of ours has ever been.",
-    "file": "L14-earth-tunnel/vo/l06-05-1f09b1ce88.wav",
-    "seconds": 11.01,
+    "file": "L14-earth-tunnel/vo/l06-09-1f09b1ce88.wav",
+    "seconds": 11.410041666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 10,
+    "text": "What does three point three million atmospheres mean? About three thousand four hundred tonnes pressing on every square centimetre. At the surface, the air presses on the same square with about one kilogram.",
+    "file": "L14-earth-tunnel/vo/l06-10-d1df7097dd.wav",
+    "seconds": 11.36,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 11,
+    "text": "That is three point three million times as much.",
+    "file": "L14-earth-tunnel/vo/l06-11-16f702246b.wav",
+    "seconds": 2.11,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 12,
+    "text": "So how does anyone put a number on that? Not by going there.",
+    "file": "L14-earth-tunnel/vo/l06-12-c31e31cfeb.wav",
+    "seconds": 3.61,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 13,
+    "text": "Scientists squeeze a speck of iron between two diamonds to several million atmospheres, heat it with lasers to around five thousand kelvin, and watch with X-rays to see whether it is solid or liquid.",
+    "file": "L14-earth-tunnel/vo/l06-13-e3b66fe969.wav",
+    "seconds": 10.62,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 14,
+    "text": "Then they carry the trend up to the boundary.",
+    "file": "L14-earth-tunnel/vo/l06-14-e228476c8b.wav",
+    "seconds": 2.17,
     "pauseAfter": 0.55
   },
   {

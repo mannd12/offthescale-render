@@ -9,6 +9,17 @@ import { Stage } from "./camera";
 import { Sky, Vignette } from "./light";
 import { Motes, Stars } from "./ambient";
 
+/** Labels are set in capitals, but unit symbols keep their case: "194 dB", never "194 DB" (L13 review, 2026-11-12). */
+const UNIT = /(dB|µPa|kPa|MPa|GPa|hPa|Pa|kHz|Hz|m\/s|km\/s|km\/h|mph)(?![A-Za-z])/g;
+export const labelCase = (t: string) => {
+  let out = "", last = 0;
+  for (const m of t.matchAll(UNIT)) {
+    out += t.slice(last, m.index).toUpperCase() + m[0];
+    last = (m.index ?? 0) + m[0].length;
+  }
+  return out + t.slice(last).toUpperCase();
+};
+
 export const IF2 = {
   display: "'Outfit', 'Inter', 'Helvetica Neue', Arial, sans-serif",
   label: IF.label,
@@ -64,8 +75,8 @@ export const Headline: React.FC<{
 export const Kicker: React.FC<{ x: number; y: number; text: string; color: string; size?: number; align?: "start" | "end" }> = ({ x, y, text, color, size = 24, align = "start" }) => (
   <g>
     <rect x={align === "start" ? x : x - size * 1.1} y={y - size * 0.36} width={size * 1.1} height={2.5} fill={color} opacity={0.8} />
-    <text x={align === "start" ? x + size * 1.5 : x - size * 1.5} y={y} textAnchor={align} style={{ fontFamily: IF2.label, fontSize: size, letterSpacing: size * 0.22, fill: color, textTransform: "uppercase" }}>
-      {text}
+    <text x={align === "start" ? x + size * 1.5 : x - size * 1.5} y={y} textAnchor={align} style={{ fontFamily: IF2.label, fontSize: size, letterSpacing: size * 0.22, fill: color, }}>
+      {labelCase(text)}
     </text>
   </g>
 );
@@ -109,8 +120,8 @@ export const Pill: React.FC<{ x: number; y: number; text: string; fill: string; 
     <g>
       <rect x={x0} y={y - h / 2} width={w} height={h} rx={h / 2} fill={fill} />
       {dot ? <circle cx={x0 + size * 0.95} cy={y} r={size * 0.26} fill={dot} /> : null}
-      <text x={x0 + (dot ? size * 1.6 : size * 0.7)} y={y + size * 0.36} style={{ fontFamily: IF2.label, fontSize: size, letterSpacing: size * 0.12, fill: color, textTransform: "uppercase" }}>
-        {text}
+      <text x={x0 + (dot ? size * 1.6 : size * 0.7)} y={y + size * 0.36} style={{ fontFamily: IF2.label, fontSize: size, letterSpacing: size * 0.12, fill: color, }}>
+        {labelCase(text)}
       </text>
     </g>
   );
