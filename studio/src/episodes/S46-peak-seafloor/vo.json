@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Pick up a stone from the very top of Mount Everest, and look closely.",
+    "file": "S46-peak-seafloor/vo/cold-00-904799a046.wav",
+    "seconds": 3.46,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "It's full of shells.",
+    "file": "S46-peak-seafloor/vo/cold-01-d3074f6806.wav",
+    "seconds": 1.31,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Crinoids and brachiopods, the remains of sea creatures.",
+    "file": "S46-peak-seafloor/vo/cold-02-fa86848fe6.wav",
+    "seconds": 3.23,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "The summit is limestone, laid down in a warm, shallow sea about four hundred and fifty million years ago.",
+    "file": "S46-peak-seafloor/vo/cold-03-d2342af802.wav",
+    "seconds": 5.630041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Now that seafloor sits almost nine kilometres above the ocean.",
+    "file": "S46-peak-seafloor/vo/cold-04-c6c08aff8a.wav",
+    "seconds": 3.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Something pushed it up there, over about fifty million years.",
+    "file": "S46-peak-seafloor/vo/cold-05-8636220638.wav",
+    "seconds": 3.36,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "It's still rising, about two millimetres every year.",
+    "file": "S46-peak-seafloor/vo/cold-06-2eba2cf53a.wav",
+    "seconds": 2.75,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "And yet it will never get much higher than this.",
+    "file": "S46-peak-seafloor/vo/cold-07-4d5f704df6.wav",
+    "seconds": 1.88,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "So what stops a mountain from climbing? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S46-peak-seafloor/vo/cold-08-8bc96f948c.wav",
+    "seconds": 7.45,
+    "pauseAfter": 0.55
+  }
+]

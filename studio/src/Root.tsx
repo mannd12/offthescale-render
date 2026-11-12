@@ -87,6 +87,11 @@ import { ShortS42, timeline as s42 } from "./episodes/S42-dig-minutes/Short";
 import { ShortS43, timeline as s43 } from "./episodes/S43-dig-basalt/Short";
 import { ShortS44, timeline as s44 } from "./episodes/S44-dig-heat/Short";
 import { ShortS45, timeline as s45 } from "./episodes/S45-dig-atlantis/Short";
+import { ShortS46, timeline as s46 } from "./episodes/S46-peak-seafloor/Short";
+import { ShortS47, timeline as s47 } from "./episodes/S47-crush-column/Short";
+import { ShortS48, timeline as s48 } from "./episodes/S48-sinking-giant/Short";
+import { ShortS49, timeline as s49 } from "./episodes/S49-giant-volcano/Short";
+import { ShortS50, timeline as s50 } from "./episodes/S50-too-tall-world/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 
 export const Root: React.FC = () => (
@@ -186,6 +191,11 @@ export const Root: React.FC = () => (
     <Composition id="s43-short" component={ShortS43} durationInFrames={s43.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s44-short" component={ShortS44} durationInFrames={s44.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s45-short" component={ShortS45} durationInFrames={s45.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s46-short" component={ShortS46} durationInFrames={s46.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s47-short" component={ShortS47} durationInFrames={s47.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s48-short" component={ShortS48} durationInFrames={s48.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s49-short" component={ShortS49} durationInFrames={s49.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s50-short" component={ShortS50} durationInFrames={s50.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 

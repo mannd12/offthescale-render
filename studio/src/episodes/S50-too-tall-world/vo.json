@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "There's a rule for how tall a mountain can get. On this asteroid, it says three hundred and forty kilometres.",
+    "file": "S50-too-tall-world/vo/cold-00-2f875958b4.wav",
+    "seconds": 6.529958333333333,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "The asteroid is Vesta, about five hundred kilometres across.",
+    "file": "S50-too-tall-world/vo/cold-01-2c9729b026.wav",
+    "seconds": 3.45,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "From its surface to its centre is only about two hundred and sixty kilometres.",
+    "file": "S50-too-tall-world/vo/cold-02-4bcdbed526.wav",
+    "seconds": 4.13,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "So that mountain would be taller than the world beneath it.",
+    "file": "S50-too-tall-world/vo/cold-03-01d4cad675.wav",
+    "seconds": 2.83,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That can't be right.",
+    "file": "S50-too-tall-world/vo/cold-04-b60b6d1e1b.wav",
+    "seconds": 1.2199583333333333,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "What Vesta really has is a crater at its south pole, five hundred kilometres wide.",
+    "file": "S50-too-tall-world/vo/cold-05-e96c32bff5.wav",
+    "seconds": 4.39,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Nearly as wide as Vesta itself, and nineteen kilometres deep.",
+    "file": "S50-too-tall-world/vo/cold-06-adb56ed0af.wav",
+    "seconds": 3.83,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "Right in the middle, a peak about twenty kilometres high.",
+    "file": "S50-too-tall-world/vo/cold-07-ff4d39ed8e.wav",
+    "seconds": 2.8,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "So where does the rule break? The full video on our channel explains the break. Like and subscribe so you don't miss the next one.",
+    "file": "S50-too-tall-world/vo/cold-08-ccf4ea4a76.wav",
+    "seconds": 6.600041666666667,
+    "pauseAfter": 0.55
+  }
+]

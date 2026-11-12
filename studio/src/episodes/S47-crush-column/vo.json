@@ -1,0 +1,82 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Stack blocks of granite, one on top of another.",
+    "file": "S47-crush-column/vo/cold-00-d9acdf2f03.wav",
+    "seconds": 2.62,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "The bottom one carries every block above it.",
+    "file": "S47-crush-column/vo/cold-01-61030f17e3.wav",
+    "seconds": 2.129958333333333,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Squeeze granite with a hundred to two hundred and fifty million pascals, and it crushes.",
+    "file": "S47-crush-column/vo/cold-02-96348a9ca1.wav",
+    "seconds": 4.72,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "That's a thousand to two and a half thousand times the pressure of the air around you.",
+    "file": "S47-crush-column/vo/cold-03-7ffed1d822.wav",
+    "seconds": 3.84,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Now build the tower as tall as Everest.",
+    "file": "S47-crush-column/vo/cold-04-ded85d3850.wav",
+    "seconds": 2.19,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "The pressure on the bottom block: about two hundred and thirty-five million pascals.",
+    "file": "S47-crush-column/vo/cold-05-1048de9ba2.wav",
+    "seconds": 4.05,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Right at the crushing limit.",
+    "file": "S47-crush-column/vo/cold-06-a770f0b00b.wav",
+    "seconds": 1.19,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "A tower of solid rock gives way somewhere between about four and nine kilometres.",
+    "file": "S47-crush-column/vo/cold-07-e898c3c3f3.wav",
+    "seconds": 4.64,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "But Everest is taller than that, and it's standing right there.",
+    "file": "S47-crush-column/vo/cold-08-afeb59aacf.wav",
+    "seconds": 3.01,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 9,
+    "text": "So how does Everest stay standing? The full video on our channel shows the trick. Like and subscribe.",
+    "file": "S47-crush-column/vo/cold-09-c5d5e58d14.wav",
+    "seconds": 5.32,
+    "pauseAfter": 0.55
+  }
+]

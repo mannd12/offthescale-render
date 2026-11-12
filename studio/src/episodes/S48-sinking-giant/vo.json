@@ -1,0 +1,58 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "There's a mountain taller than Everest, by more than a kilometre.",
+    "file": "S48-sinking-giant/vo/cold-00-37a2f7e04a.wav",
+    "seconds": 3.26,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "It's Mauna Kea, in Hawaii. Its summit is only four thousand two hundred and five metres above the sea.",
+    "file": "S48-sinking-giant/vo/cold-01-44e66f8167.wav",
+    "seconds": 5.55,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "But it keeps going, another six thousand metres, down to the ocean floor.",
+    "file": "S48-sinking-giant/vo/cold-02-9af50b5efd.wav",
+    "seconds": 3.98,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Base to summit, that's about ten thousand two hundred metres.",
+    "file": "S48-sinking-giant/vo/cold-03-948f0cb286.wav",
+    "seconds": 3.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "But it's going down. At Hilo, the land sinks about two and a half millimetres every year.",
+    "file": "S48-sinking-giant/vo/cold-04-c34af465f1.wav",
+    "seconds": 5.19,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Old coral reefs that once grew at the surface now sit more than thirteen hundred metres underwater.",
+    "file": "S48-sinking-giant/vo/cold-05-973b767b50.wav",
+    "seconds": 4.91,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So how did it get that tall, and what is pulling it under? The full video on our channel has both answers. Like and subscribe so you don't miss the next one.",
+    "file": "S48-sinking-giant/vo/cold-06-ddc27df69c.wav",
+    "seconds": 7.64,
+    "pauseAfter": 0.55
+  }
+]

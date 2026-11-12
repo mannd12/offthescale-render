@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "This is the biggest volcano in the solar system.",
+    "file": "S49-giant-volcano/vo/cold-00-0037d03979.wav",
+    "seconds": 2.78,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "It's called Olympus Mons, and it's on Mars.",
+    "file": "S49-giant-volcano/vo/cold-01-8a66556c64.wav",
+    "seconds": 2.56,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "It rises between twenty-two and twenty-six kilometres above the plains around it.",
+    "file": "S49-giant-volcano/vo/cold-02-2442b733d6.wav",
+    "seconds": 4.37,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "That's two and a half to three Everests.",
+    "file": "S49-giant-volcano/vo/cold-03-b1a7c04683.wav",
+    "seconds": 2.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Its base is wider than Arizona.",
+    "file": "S49-giant-volcano/vo/cold-04-e30512711f.wav",
+    "seconds": 1.98,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "The slopes are only two to five degrees, so you'd hardly know you were climbing.",
+    "file": "S49-giant-volcano/vo/cold-05-37e1bc353b.wav",
+    "seconds": 4.03,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "On Earth, the highest peak above the sea stops short of nine kilometres.",
+    "file": "S49-giant-volcano/vo/cold-06-dea6aedcba.wav",
+    "seconds": 3.69,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "Earth's mountains hit a ceiling. This one sailed straight through it.",
+    "file": "S49-giant-volcano/vo/cold-07-aae9e507ac.wav",
+    "seconds": 3.71,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "So what does Mars have that Earth doesn't? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S49-giant-volcano/vo/cold-08-c5bc62ce01.wav",
+    "seconds": 7.85,
+    "pauseAfter": 0.55
+  }
+]
