@@ -284,7 +284,7 @@ const ShotPower: ShotFC<CL04> = ({ f, len }) => {
         <CloudRack f={f} n={5} x0={-400} x1={2400} y0={900} y1={1000} size={150} speed={3} body={STEAM.body} under={STEAM.under} top={STEAM.top} seed={21} opacity={0.9} />
       </Layer>
       <Layer depth={1}>
-        <PowerMeter x={620} y={470} r={240} value={v} family={DUSK} frame={f} />
+        <PowerMeter x={620} y={470} r={240} value={v} family={DUSK} frame={f} readout={f >= 44 ? "203 dB" /* #14 */ : false} />
         {/* the model curve and the 1960s data dots dropping onto it (schematic shape; no axis numbers) */}
         <rect x={1080} y={300} width={680} height={460} rx={24} fill={alpha(DUSK.shadow, 0.5)} />
         <path d={"M" + pts.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(" L")} fill="none" stroke={L13_COLORS.gold} strokeWidth={6} strokeDasharray="16 10" strokeDashoffset={-f * 2} />
@@ -311,7 +311,7 @@ const Cyc: React.FC<{ f: number; seed?: number }> = ({ f, seed = 1 }) => (
       <Sky family={STUDIO} />
     </Layer>
     <Layer depth={0.3}>
-      <CycClouds f={f} y={120} n={4} seed={seed} />
+      <CycClouds f={f} y={250} n={4} seed={seed} />
     </Layer>
     <Layer depth={1}>
       <path d={`M-600 ${FLOOR_Y - 40} Q 960 ${FLOOR_Y - 70} 2600 ${FLOOR_Y - 40} V 1500 H -600 Z`} fill={STUDIO.mid} />
@@ -510,8 +510,8 @@ const ShotEngines: ShotFC<CL04> = ({ f, len, c }) => {
         })}
       </Layer>
       <Layer depth={0} opacity={k}>
-        <PowerMeter x={1640} y={230} r={120} value={POWER.tenEngines /* #14 */} family={NOON} frame={f} readout="170 dB" /* #14 */ />
-        <Pill x={1490} y={470} text="≈ 10 JET ENGINES" /* #14 */ fill={pillFill(NOON)} color={NOON.text} dot={L13_COLORS.gold} size={20} />
+        <PowerMeter x={1620} y={250} r={150} value={POWER.tenEngines /* #14 */} family={NOON} frame={f} readout="170 dB" /* #14 */ />
+        <Pill x={1800} y={560} align="end" text="≈ 10 JET ENGINES" /* #14 */ fill={pillFill(NOON)} color={NOON.text} dot={L13_COLORS.gold} size={20} />
       </Layer>
     </Stage>
   );
@@ -551,8 +551,8 @@ const ShotGrid: ShotFC<CL04> = ({ f, len }) => {
         })}
       </Layer>
       <Layer depth={0}>
-        <PowerMeter x={1640} y={230} r={120} value={v} family={NOON} frame={f} readout={v > 199.5 ? "200 dB" /* #14 */ : undefined} />
-        <Pill x={1450} y={470} text="≈ 10,000 JET ENGINES" /* #14 */ fill={pillFill(NOON)} color={NOON.text} dot={L13_COLORS.gold} size={20} />
+        <PowerMeter x={1620} y={250} r={150} value={v} family={NOON} frame={f} readout={v > 199.5 ? "200 dB" /* #14 */ : false} />
+        <Pill x={1800} y={560} align="end" text="≈ 10,000 JET ENGINES" /* #14 */ fill={pillFill(NOON)} color={NOON.text} dot={L13_COLORS.gold} size={20} />
       </Layer>
     </Stage>
   );

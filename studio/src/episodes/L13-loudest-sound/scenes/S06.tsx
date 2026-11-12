@@ -328,8 +328,8 @@ const ShotTally: ShotFC<CL06> = ({ f, len, c }) => {
       </Layer>
       <Layer depth={0}>
         <g opacity={sm(f, tSeven, tSeven + 10)}>
-          <Metric x={120} y={200} value="≥ 7" /* #6 */ size={110} color="#3A2412" />
-          <Pill x={120} y={258} text="AT MANY STATIONS" /* #6 */ fill={pillFill(NOON)} color={NOON.text} dot={L13_COLORS.saffron} size={20} />
+          <Metric x={640} y={200} value="≥ 7" /* #6 */ size={110} color="#3A2412" />
+          <Pill x={640} y={258} text="AT MANY STATIONS" /* #6 */ fill={pillFill(NOON)} color={NOON.text} dot={L13_COLORS.saffron} size={20} />
         </g>
       </Layer>
     </Stage>
@@ -497,7 +497,7 @@ const ShotSprint: ShotFC<CL06> = ({ f, len }) => {
 
 // 6-14 · KEY ART II "One Instrument": the void globe, barograph strips fanned around it like petals, each pen drawing
 // the same seven blips at once
-const PETALS = [0, 24, -24, 180, 156, 204, 50, 130, -50];
+const PETALS = [0, 24, -24, 180, 156, 198, 50, 130, -50];
 const ShotPetals: ShotFC<CL06> = ({ f, len }) => {
   const g = { cx: 1100, cy: 540, R: 250, rot: 80 + f * 0.3, tilt: 10 };
   const blips = passageBlips(34, 16);
@@ -521,7 +521,7 @@ const ShotPetals: ShotFC<CL06> = ({ f, len }) => {
         <Rings f={f} cx={g.cx} cy={g.cy} period={34} speed={5} maxR={900} width={4} color={L13_COLORS.saffron} opacity={0.5} start={10} />
       </Layer>
       <Layer depth={0}>
-        <Headline x={110} y={170} lines={["One Instrument"]} size={84} color={VOID.text} accent={L13_COLORS.saffron} />
+        <Headline x={110} y={120} lines={["One Instrument"]} size={76} color={VOID.text} accent={L13_COLORS.saffron} />
       </Layer>
     </Stage>
   );
@@ -618,7 +618,7 @@ const ShotTimeline: ShotFC<CL06> = ({ f, len }) => {
         <Sky family={STUDIO} />
       </Layer>
       <Layer depth={0.3}>
-        <CycClouds f={f} y={80} n={4} seed={11} />
+        <CycClouds f={f} y={230} n={3} seed={11} />
       </Layer>
       <Layer depth={1}>
         <path d={`M-600 860 Q 960 830 2600 860 V 1500 H -600 Z`} fill={STUDIO.mid} />

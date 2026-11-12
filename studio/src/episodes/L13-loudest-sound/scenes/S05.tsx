@@ -194,20 +194,20 @@ const ClockBody: React.FC<{ f: number; len: number; tBlast: number }> = ({ f, le
 const ShotClock: ShotFC<CL05> = ({ f, len, c }) => <ClockBody f={f} len={len} tBlast={c.blast - c.clock} />;
 
 // 5-04 · muted dusk: a long coastline seen from the sea; a dark band of sea waves rolls in; the sky dims (F15)
-const MUTE = (c: string, k = 0.32) => mixHex(c, "#7C8A90", k);
+const MUTE = (c: string, k = 0.18) => mixHex(c, "#7C8A90", k);
 const CoastBody: React.FC<{ f: number }> = ({ f }) => {
   const HZ = 520;
   const dim = sm(f, 0, 160) * 0.25;
   const bands = Array.from({ length: 5 }, (_, k) => {
-    const u = (((f * 3 + k * 150) % 750) + 750) % 750; // px travelled from the near edge
-    const y = 1180 - u * (1 - (u / 750) * 0.55);
+    const u = (((f * 4 + k * 150) % 750) + 750) % 750; // px travelled from the near edge (4 px/f near)
+    const y = 1180 - 660 * Math.pow(u / 750, 0.8);
     const d = clamp01((y - HZ) / 660);
     return { y, d, k };
   });
   return (
     <Stage theme={DUSK.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.04 }, { f: 240, x: 960, y: 530, zoom: 1.1 }])} vignette={0.3} grain={0.6}>
       <Layer depth={0.05}>
-        <Sky stops={DUSK.sky.map((s) => MUTE(s, 0.3 + dim))} />
+        <Sky stops={DUSK.sky.map((s) => MUTE(s, 0.15 + dim))} />
       </Layer>
       <Layer depth={0.3}>
         <CloudRack f={f} n={5} x0={-500} x1={2500} y0={250} y1={440} size={120} speed={1.8} body={MUTE(DUSK.far, 0.25)} under={MUTE(DUSK.shadow, 0.2)} seed={17} />
@@ -218,14 +218,14 @@ const CoastBody: React.FC<{ f: number }> = ({ f }) => {
       </Layer>
       <Layer depth={1}>
         {bands.map(({ y, d, k }) => {
-          const th = 30 + 90 * d;
-          const amp = 6 + 14 * d;
+          const th = 24 + 150 * d;
+          const amp = 6 + 20 * d;
           const pts: string[] = [];
           for (let x = -400; x <= 2400; x += 80) pts.push(`${x} ${(y + Math.sin(x / 140 + k) * amp).toFixed(1)}`);
           const top = "M" + pts.join(" L");
           return (
             <g key={k} opacity={0.35 + 0.6 * d}>
-              <path d={`${top} L2400 ${y + th} L-400 ${y + th} Z`} fill={MUTE("#123642", 0.2)} />
+              <path d={`${top} L2400 ${y + th} L-400 ${y + th} Z`} fill={MUTE("#0B2A36", 0.1)} />
               <path d={top} fill="none" stroke={MUTE("#E6F5EA", 0.25)} strokeWidth={2 + 5 * d} />
             </g>
           );
@@ -329,7 +329,7 @@ const DeskBody: React.FC<{ f: number }> = ({ f }) => {
         <Sky family={STUDIO} />
       </Layer>
       <Layer depth={0.3}>
-        <CycClouds f={f} y={40} n={4} seed={3} />
+        <CycClouds f={f} y={210} n={3} seed={3} />
       </Layer>
       <Layer depth={1}>
         <rect x={-600} y={DESK_Y} width={3200} height={1200} fill={STUDIO.mid} />
@@ -396,7 +396,7 @@ const ShotDesk: ShotFC<CL05> = ({ f, len, c }) => {
       focal={{ x: 1140, y: 630 }}
       from={body}
       to={
-        <Stage theme={NOON.theme} cam={{ x: 1340, y: 640, zoom: 1.15 }} vignette={0.12} grain={0.5}>
+        <Stage theme={NOON.theme} cam={{ x: 1360, y: 690, zoom: 1.15 }} vignette={0.12} grain={0.5}>
           <HemiSet f={F} F={F} c={c} />
         </Stage>
       }
@@ -411,7 +411,7 @@ const ShotPerth: ShotFC<CL05> = ({ f, len, c }) => {
   const showPerth = sm(f, 24, 34) * (1 - sm(f, t2 - 4, t2 + 6));
   const showCeylon = sm(f, t2 + 6, t2 + 16);
   return (
-    <Stage theme={NOON.theme} cam={cameraAt(f, [{ f: 0, x: 1340, y: 640, zoom: 1.15 }, { f: t2 - 6, x: 1300, y: 600, zoom: 1.12 }, { f: t2 + 30, x: 1040, y: 470, zoom: 1.16 }, { f: len + 10, x: 1000, y: 470, zoom: 1.18 }])} vignette={0.12} grain={0.5}>
+    <Stage theme={NOON.theme} cam={cameraAt(f, [{ f: 0, x: 1360, y: 690, zoom: 1.15 }, { f: t2 - 6, x: 1320, y: 650, zoom: 1.12 }, { f: t2 + 30, x: 1040, y: 470, zoom: 1.16 }, { f: len + 10, x: 1000, y: 470, zoom: 1.18 }])} vignette={0.12} grain={0.5}>
       <HemiSet f={F} F={F} c={c} pins={["perth", ...(showCeylon > 0 ? (["ceylon"] as const) : [])]} />
       <Layer depth={0}>
         <g opacity={showPerth}>
