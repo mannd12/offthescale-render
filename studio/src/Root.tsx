@@ -80,6 +80,10 @@ import { ShortS38, timeline as s38 } from "./episodes/S38-temperature-pluto/Shor
 import { ShortS39, timeline as s39 } from "./episodes/S39-temperature-corona/Short";
 import { ShortS40, timeline as s40 } from "./episodes/S40-temperature-negative/Short";
 import { ShortS41, timeline as s41 } from "./episodes/S41-dig-plate/Short";
+import { ShortS42, timeline as s42 } from "./episodes/S42-dig-minutes/Short";
+import { ShortS43, timeline as s43 } from "./episodes/S43-dig-basalt/Short";
+import { ShortS44, timeline as s44 } from "./episodes/S44-dig-heat/Short";
+import { ShortS45, timeline as s45 } from "./episodes/S45-dig-atlantis/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 
 export const Root: React.FC = () => (
@@ -168,6 +172,10 @@ export const Root: React.FC = () => (
     <Composition id="s39-short" component={ShortS39} durationInFrames={s39.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s40-short" component={ShortS40} durationInFrames={s40.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s41-short" component={ShortS41} durationInFrames={s41.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s42-short" component={ShortS42} durationInFrames={s42.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s43-short" component={ShortS43} durationInFrames={s43.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s44-short" component={ShortS44} durationInFrames={s44.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s45-short" component={ShortS45} durationInFrames={s45.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 

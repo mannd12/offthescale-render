@@ -13,7 +13,11 @@ import vo from "./vo.json";
  * act's ChapterCard at the end of an act-closing scene, or a music-only beat. The storyboard decides them
  * (episodes/L13-loudest-sound/storyboard.md); publish-kit reads this table, so captions and chapters stay in sync.
  */
-export const HOLDS: Record<string, number> = {};
+export const HOLDS: Record<string, number> = {
+  "l03:7": 2.4,
+  "l06:7": 2.4,
+  "l08:9": 10,
+};
 
 export const LINES: VoLine[] = (vo as VoLine[]).map((l) => {
   const extra = HOLDS[`${l.scene}:${l.index}`];
