@@ -214,7 +214,7 @@
           "text": "One lap of the Earth took the wave about thirty-six hours. That's seven passages in about five days: three and a half times round the world."
         },
         {
-          "text": "It moved at six hundred and seventy to seven hundred and thirty miles an hour, a little slower than ordinary sound in warm sea-level air.",
+          "text": "It moved at six hundred and seventy to seven hundred and thirty miles an hour, a little slower than ordinary sound in sea-level air.",
           "pause": 0.55
         },
         {
@@ -282,10 +282,13 @@
           "pause": 0.55
         },
         {
-          "text": "On Mars, a rover carries a microphone. It told us sound there travels at about two hundred and forty metres a second, against three hundred and forty here, because the air is a hundred and seventy times thinner."
+          "text": "On Mars, a rover carries a microphone. It told us sound there travels at about two hundred and forty metres a second, against three hundred and forty here."
         },
         {
-          "text": "High notes even travel at a different speed from low ones. The researchers' own summary: two people five metres apart would struggle to hold a conversation.",
+          "text": "The air is mostly carbon dioxide, and a hundred and seventy times thinner. High notes even travel at a different speed from low ones."
+        },
+        {
+          "text": "The researchers' own summary: two people five metres apart would struggle to hold a conversation.",
           "pause": 0.55
         },
         {

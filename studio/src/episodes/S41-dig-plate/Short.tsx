@@ -53,9 +53,9 @@ const s0: Shot = ({ f, n }) => {
       <Tundra f={f} hy={1060} />
       <Chips f={f} n={14} y0={1080} y1={1250} color={C.foam} speed={16} opacity={0.6} seed={2} />
       <g>
-        <line x1={0} x2={W} y1={420} y2={420} stroke={C.gold} strokeWidth={6} strokeDasharray="30 22" strokeDashoffset={-f * 3} opacity={0.9} />
-        <Plaque x={540} y={420} text="ARCTIC CIRCLE" size={50} bg={C.ink} fg={C.gold} />
-        <Plaque x={540} y={540} text="KOLA PENINSULA" size={62} bg={C.sea} fg={C.cream} />
+        <line x1={0} x2={W} y1={250} y2={250} stroke={C.gold} strokeWidth={6} strokeDasharray="30 22" strokeDashoffset={-f * 3} opacity={0.9} />
+        <Plaque x={540} y={250} text="ARCTIC CIRCLE" size={50} bg={C.ink} fg={C.gold} />
+        <Plaque x={540} y={350} text="KOLA PENINSULA" size={62} bg={C.sea} fg={C.cream} />
       </g>
       <Tick x={x} y={1190} pxPerM={430} frame={f} walk={ph} pose="carry" expression="determined" facing={1} lamp={false} />
       <g transform={`translate(${x + 176} ${1190 - 408 + 10 * Math.sin(ph * 6.28)}) rotate(-6)`}>
@@ -174,9 +174,9 @@ const s5: Shot = ({ f, n }) => {
       {[0, 1].map((i) => (
         <path key={i} d={`M150 ${170 - i * 70 + (1 - pop) * 60} L205 ${110 - i * 70 + (1 - pop) * 60} L260 ${170 - i * 70 + (1 - pop) * 60}`} stroke={C.amber} strokeWidth={26} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={pop} />
       ))}
-      <Plaque x={640} y={350} text="12,262 M" size={110} bg={C.ink} fg={C.amber} scale={0.7 + 0.3 * pop} />
-      <T x={640} y={500} text="OFF THE SCALE" size={66} color={C.cream} opacity={pop} />
-      <Tick x={760} y={1150} pxPerM={480} frame={f} expression="surprised" pose="shield" facing={-1} />
+      <Plaque x={600} y={330} text="12,262 M" size={110} bg={C.ink} fg={C.amber} scale={0.7 + 0.3 * pop} />
+      <T x={600} y={470} text="OFF THE SCALE" size={66} color={C.cream} opacity={pop} />
+      <Tick x={780} y={1150} pxPerM={330} frame={f} expression="surprised" pose="shield" facing={-1} />
     </g>
   );
 };
@@ -252,7 +252,7 @@ const s8: Shot = ({ f }) => {
           <path d={`M${HX + 130} ${GY + SEA_H} h26 V${HOLE_BOT} h-26`} stroke={C.amber} strokeWidth={10} fill="none" strokeLinecap="round" />
         </g>
         <Plaque x={300} y={GY + SEA_H + 50} text="1 KM+" size={96} bg={C.ink} fg={C.amber} />
-        <T x={300} y={GY + SEA_H + 150} text="TO SPARE" size={64} />
+        <T x={300} y={GY + SEA_H + 170} text="TO SPARE" size={64} />
         <Tick x={190} y={900 + 0} pxPerM={300} frame={f} pose="point" expression="happy" />
       </BoreScene>
     </g>
@@ -306,8 +306,8 @@ const s10: Shot = ({ f, n }) => {
       <circle cx={cx} cy={cy} r={R} fill="none" stroke="#0A3C4C" strokeWidth={70} />
       <path d={`M${cx} ${cy - R} A${R} ${R} 0 ${big} 1 ${cx + R * Math.cos(a)} ${cy + R * Math.sin(a)}`} stroke={C.amber} strokeWidth={70} fill="none" strokeLinecap="round" />
       <circle cx={cx + R * Math.cos(a)} cy={cy + R * Math.sin(a)} r={46 + 8 * Math.sin(f / 3)} fill={C.cream} opacity={0.8} />
-      <T x={cx} y={cy - 10} text="NOT EVEN" size={84} />
-      <T x={cx} y={cy + 90} text="1/3" size={150} color={C.amber} />
+      <T x={cx} y={cy - 110} text="NOT EVEN" size={84} />
+      <T x={cx} y={cy + 60} text="1/3" size={170} color={C.amber} />
       <T x={cx} y={1100} text="OF THE CRUST" size={78} opacity={ez(f, 10, 20)} />
     </g>
   );
@@ -345,7 +345,7 @@ const s12: Shot = ({ f, n }) => {
       <Tundra f={f} hy={1040} night speed={2.6} />
       <Derrick f={f} x={320} y={1060} s={1.8} on={f < 8} body="#0E4658" />
       <Tick x={800} y={1180} pxPerM={430} frame={f} expression="sleepy" pose="shrug" slump={0.6} facing={-1} />
-      <g transform={`translate(${540 + shake} 520) rotate(-8) scale(${sc})`} opacity={slam}>
+      <g transform={`translate(${540 + shake} 330) rotate(-8) scale(${sc})`} opacity={slam}>
         <rect x={-360} y={-100} width={720} height={200} rx={36} fill={C.ink} stroke={C.amber} strokeWidth={12} />
         <text x={0} y={52} textAnchor="middle" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 136, fill: C.amber, letterSpacing: 4 }}>
           STOPPED
@@ -365,29 +365,29 @@ const EARTH: [number, string][] = [
 
 /** 13 Not out of planet: the globe is vast, the hole a scratch. */
 const s13: Shot = ({ f, n }) => {
-  const zoom = mix(0.8, 1.15, ez(f, 0, n));
+  const zoom = mix(0.82, 1.0, ez(f, 0, n));
   return (
     <g>
       <Sky stops={["#06222B", "#0A3C4C", "#11707A"]} x={0} y={0} w={W} h={H} />
       <Stars frame={f} n={90} w={W} h={H - 300} color={C.foam} size={3.2} twinkle={0.75} seed={7} />
       <Streamers f={f} n={6} x0={-300} x1={1400} y0={100} y1={1100} len={500} width={30} speed={3} color={C.teal} opacity={0.3} slope={0.04} seed={3} />
-      <g transform={`translate(540 700) scale(${zoom}) translate(-540 -700)`}>
-        <circle cx={540} cy={700} r={560} fill="#1E8A88" />
-        <circle cx={540} cy={700} r={520} fill={C.orange} />
-        <circle cx={540} cy={700} r={330} fill={C.gold} />
-        <circle cx={540} cy={700} r={170} fill={C.amber} />
-        <g transform={`rotate(${f * 1.4} 540 700)`}>
+      <g transform={`translate(540 640) scale(${zoom}) translate(-540 -640)`}>
+        <circle cx={540} cy={640} r={470} fill="#1E8A88" />
+        <circle cx={540} cy={640} r={440} fill={C.orange} />
+        <circle cx={540} cy={640} r={280} fill={C.gold} />
+        <circle cx={540} cy={640} r={145} fill={C.amber} />
+        <g transform={`rotate(${f * 1.4} 540 640)`}>
           {Array.from({ length: 8 }, (_, i) => (
-            <path key={i} d={`M540 ${700 - 420} q 40 -24 80 0`} stroke={C.cream} strokeWidth={14} fill="none" strokeLinecap="round" transform={`rotate(${i * 45} 540 700)`} opacity={0.8} />
+            <path key={i} d="M540 240 q 40 -24 80 0" stroke={C.cream} strokeWidth={14} fill="none" strokeLinecap="round" transform={`rotate(${i * 45} 540 640)`} opacity={0.8} />
           ))}
         </g>
-        <g transform={`rotate(${-f * 2.2} 540 700)`} opacity={0.65}>
-          <circle cx={540} cy={700} r={250} fill="none" stroke={C.cream} strokeWidth={14} strokeDasharray="60 90" strokeLinecap="round" />
+        <g transform={`rotate(${-f * 2.2} 540 640)`} opacity={0.65}>
+          <circle cx={540} cy={640} r={215} fill="none" stroke={C.cream} strokeWidth={14} strokeDasharray="60 90" strokeLinecap="round" />
         </g>
-        <circle cx={540} cy={140} r={20 + 10 * Math.sin(f / 3)} fill="none" stroke={C.cream} strokeWidth={6} />
-        <rect x={538} y={140} width={4} height={6} fill={C.ink} />
+        <circle cx={540} cy={172} r={22 + 10 * Math.sin(f / 3)} fill="none" stroke={C.cream} strokeWidth={6} />
+        <rect x={538} y={172} width={4} height={8} fill={C.ink} />
       </g>
-      <T x={540} y={1130} text="THE HOLE: A SCRATCH" size={64} opacity={ez(f, 8, 18)} />
+      <T x={540} y={1215} text="THE HOLE: A SCRATCH" size={64} opacity={ez(f, 8, 18)} />
     </g>
   );
 };
@@ -454,6 +454,6 @@ const s16: Shot = ({ f, n }) => (
 );
 
 /** 17 End card. */
-const s17: Shot = ({ f }) => <EndShot f={f} stops={["#2B0C08", "#B04A18", "#E3813F"]} q={["WHAT STOPPED THE", "DEEPEST HOLE EVER DUG?"]} />;
+const s17: Shot = ({ f }) => <EndShot f={f} stops={["#2B0C08", "#B04A18", "#E3813F"]} q={["WHAT STOPPED THE", "DEEPEST HOLE EVER DUG?"]} size={62} />;
 
 export const ShortS41 = makeShort(timeline, [[s0, s1, s2], [s3, s4, s5], [s6, s7, s8], [s9, s10], [s11, s12], [s13, s14], [s15, s16, s17]]);

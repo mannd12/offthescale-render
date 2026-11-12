@@ -190,7 +190,7 @@ export const Glow: React.FC<{ x: number; y: number; r: number; color: string; f:
 );
 
 /** End card: wordmark, the unanswered question, and a bouncing arrow to the full video. `bg` = sky stops. */
-export const EndShot: React.FC<{ f: number; stops: string[]; q: string[]; accent?: string; children?: React.ReactNode }> = ({ f, stops, q, accent = C.amber, children }) => (
+export const EndShot: React.FC<{ f: number; stops: string[]; q: string[]; accent?: string; size?: number; children?: React.ReactNode }> = ({ f, stops, q, accent = C.amber, size = 76, children }) => (
   <g>
     <Backdrop stops={stops} />
     <Glow x={540} y={700} r={760} color={C.gold} f={f} strength={0.55} />
@@ -199,7 +199,7 @@ export const EndShot: React.FC<{ f: number; stops: string[]; q: string[]; accent
     <T x={540} y={360} text="OFF THE" size={150} color={C.cream} />
     <T x={540} y={520} text="SCALE" size={170} color={accent} />
     {q.map((l, i) => (
-      <T key={i} x={540} y={720 + i * 86} text={l} size={76} color={C.cream} />
+      <T key={i} x={540} y={720 + i * (size + 12)} text={l} size={size} color={C.cream} />
     ))}
     <g transform={`translate(540 ${1000 + 26 * Math.abs(Math.sin(f / 7))})`}>
       <path d="M0 -60 V50 M-50 8 L0 62 L50 8" stroke={accent} strokeWidth={22} fill="none" strokeLinecap="round" strokeLinejoin="round" />
