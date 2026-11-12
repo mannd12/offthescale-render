@@ -14,8 +14,8 @@ const L13Thumb: React.FC<{ lines: [string, string] }> = ({ lines }) => (
     <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transform: "scale(0.6667)", transformOrigin: "0 0" }}>
       <KeyArt1 />
     </div>
-    {/* a soft dark wash behind the headline so it reads at 168 px, fading out before the summit */}
-    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(100deg, rgba(10,24,34,0.55) 0%, rgba(10,24,34,0.25) 38%, rgba(10,24,34,0) 55%)" }} />
+    {/* an opaque ember panel behind the headline: it also covers the shot's own "Shock wave" headline (r1 defect) */}
+    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(96deg, rgba(48,16,10,0.98) 0%, rgba(48,16,10,0.97) 34%, rgba(48,16,10,0) 46%)" }} />
     <svg width={1280} height={720} viewBox="0 0 1280 720" style={{ position: "absolute", inset: 0 }}>
       {lines.map((l, i) => (
         <text key={i} x={44} y={172 + i * 150} style={{ fontFamily: IF.label, fontSize: 142, letterSpacing: 2, fill: P.bone, textTransform: "uppercase", paintOrder: "stroke", stroke: "rgba(10,24,34,0.6)", strokeWidth: 6 }}>
