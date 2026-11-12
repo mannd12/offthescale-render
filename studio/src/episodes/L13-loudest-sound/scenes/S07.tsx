@@ -156,7 +156,7 @@ const ShotPlume: ShotFC<CL07> = ({ f, len }) => {
         <Flock frame={f} x={1300 + f * 6} y={420 - f * 1.5} vx={6} n={7} size={16} color="#2E3A40" seed={4} />
       </Layer>
       <Layer depth={0}>
-        <Kicker x={120} y={130} text="— 15 JAN 2022 · HUNGA, TONGA" /* #16 · F11 */ color="#13343E" size={28} />
+        <Kicker x={120} y={130} text="15 JAN 2022 · HUNGA, TONGA" /* #16 · F11 */ color="#13343E" size={28} />
       </Layer>
     </Stage>
   );
@@ -582,7 +582,7 @@ const ShotStreak: ShotFC<CL07> = ({ f, len }) => {
         <LightWash x={bx} y={900} rx={1400} ry={500} color="#FFE4AE" strength={flash * 0.6} />
       </Layer>
       <Layer depth={0}>
-        <Kicker x={120} y={130} text="— 2013 · CHELYABINSK" /* #17 */ color={DUSK.text} size={28} />
+        <Kicker x={120} y={130} text="2013 · CHELYABINSK" /* #17 */ color={DUSK.text} size={28} />
       </Layer>
     </Stage>
   );

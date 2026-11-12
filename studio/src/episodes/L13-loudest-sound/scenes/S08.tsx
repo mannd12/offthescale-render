@@ -220,7 +220,7 @@ const ShotRace: ShotFC<CL08> = ({ f, len }) => (
 const ShotSlide: ShotFC<CL08> = ({ f, len }) => {
   const ppd = 4;
   const k = sm(f, 8, Math.min(len - 30, 130));
-  const zA = 820;
+  const zA = 600;
   const zW = zA + 61.5 * ppd * k; // #18: the water ruler's zero ends 61.5 dB below the air ruler's
   return (
     <Stage theme={PET.theme} cam={cam(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len, x: 1000, y: 540, zoom: 1.05 }])} vignette={0.2} grain={0.5}>
@@ -230,8 +230,8 @@ const ShotSlide: ShotFC<CL08> = ({ f, len }) => {
         <Bubbles frame={f} x0={100} x1={1800} y={1100} n={30} color={alpha(BONE, 0.7)} seed={7} size={6} />
       </Layer>
       <Layer depth={0}>
-        <Ruler x={1060} top={170} bottom={960} zeroY={zA} ppd={ppd} color={L13_COLORS.vermilion} label={AIR_TAG} F={PET} tagY={140} />
-        <Ruler x={1300} top={170} bottom={1000} zeroY={zW} ppd={ppd} color={BONE} label={WATER_TAG} F={PET} tagY={140} />
+        <Ruler x={1060} top={170} bottom={940} zeroY={zA} ppd={ppd} color={L13_COLORS.vermilion} label={AIR_TAG} F={PET} tagY={140} />
+        <Ruler x={1300} top={170} bottom={940} zeroY={zW} ppd={ppd} color={BONE} label={WATER_TAG} F={PET} tagY={140} />
         <path d={`M1360 ${zA} L1400 ${zA} L1400 ${zW} L1360 ${zW}`} fill="none" stroke={SAF} strokeWidth={6} />
         <g opacity={sm(f, Math.min(len - 30, 130), Math.min(len - 20, 142))}>
           <Metric x={1440} y={(zA + zW) / 2 + 30} value="61.5" unit="dB" /* #18 */ size={88} color={PET.text} />
@@ -295,7 +295,10 @@ const Deep: React.FC<{ f: number; seed?: number }> = ({ f, seed = 1 }) => (
   </>
 );
 const WhaleBody: React.FC<{ f: number; len: number; grow: number }> = ({ f, len, grow }) => {
-  const wl = lerp(1500, 2700, grow);
+  // the shared nose-on view read as a box at key-art size (r1), so the whale glides in three-quarter side view instead:
+  // it grows from ~40 % to ~70 % of the frame width while it slides in from the dark at left
+  const wl = lerp(1150, 1750, grow);
+  const wx = lerp(120, 760, grow);
   return (
     <Stage theme={PET.theme} cam={cam(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len, x: 960, y: 560, zoom: 1.06 }])} vignette={0.3} grain={0.5}>
       <Deep f={f} seed={5} />
@@ -303,13 +306,13 @@ const WhaleBody: React.FC<{ f: number; len: number; grow: number }> = ({ f, len,
         <Motes frame={f} n={30} x={-100} y={60} w={2100} h={980} color={alpha(BONE, 0.6)} seed={7} size={4} drift={30} />
       </Layer>
       <Layer depth={1}>
-        <g opacity={lerp(0.55, 1, grow)}>
-          <SpermWhale x={900} y={lerp(560, 600, grow)} len={wl} view="nose" family={PET} f={f} color="#4E6A78" />
+        <g transform={`rotate(-7 ${wx} 640)`}>
+          <SpermWhale x={wx} y={640} len={wl} view="side" family={PET} f={f} color="#4E6A78" facing={1} />
         </g>
-        {/* haze in front of the far body: the water column */}
-        <rect x={-400} y={-200} width={2800} height={1500} fill="#0C4452" opacity={lerp(0.35, 0.05, grow)} />
-        <Tick x={1560} y={760 + Math.sin(f / 16) * 14} pxPerM={110} frame={f} facing={-1} pose="stand" expression="surprised" tilt={-10} lamp lampColor="#FFF4C8" />
-        <Bubbles frame={f} x0={1500} x1={1600} y={600} n={10} color={alpha(BONE, 0.85)} seed={9} size={7} />
+        {/* haze in front of the far body: the water column clears as it comes close */}
+        <rect x={-400} y={-200} width={2800} height={1500} fill="#0C4452" opacity={lerp(0.45, 0.08, grow)} />
+        <Tick x={1600} y={420 + Math.sin(f / 16) * 14} pxPerM={110} frame={f} facing={-1} pose="stand" expression="surprised" tilt={-10} lamp lampColor="#FFF4C8" />
+        <Bubbles frame={f} x0={1560} x1={1640} y={260} n={10} color={alpha(BONE, 0.85)} seed={9} size={7} />
         <Bubbles frame={f} x0={0} x1={1900} y={1100} n={26} color={alpha(BONE, 0.6)} seed={15} size={6} />
       </Layer>
       <Layer depth={0}>
@@ -500,6 +503,8 @@ const ShotDial: ShotFC<CL08> = ({ f, len }) => {
         })}
       </Layer>
       <Layer depth={1}>
+        <Streamers f={f} n={14} x0={-200} x1={2200} y0={200} y1={880} len={180} width={5} speed={9} color={MARS.light} opacity={0.4} seed={13} />
+        <circle cx={1280} cy={520} r={262} fill={mixHex(MARS.near, MARS.mid, 0.4)} />
         <Dial x={1280} y={520} r={250} value={v} min={0} max={100} family={MARS} frame={f} ticks={10} format={() => ""} title="PRESSURE" />
       </Layer>
       <Layer depth={0}>
@@ -672,7 +677,7 @@ const ShotPerseus: ShotFC<CL08> = ({ f, len }) => (
   <Stage theme={VOID.theme} cam={cam(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len, x: 960, y: 540, zoom: 1.12 }])} vignette={0.24} grain={0.5}>
     <PerseusField f={f + 22} seed={2} />
     <Layer depth={0}>
-      <Kicker x={120} y={130} text="— PERSEUS CLUSTER · 250 MILLION LIGHT YEARS" /* #21 */ color={VOID.text} size={24} />
+      <Kicker x={120} y={130} text="PERSEUS CLUSTER · 250 MILLION LIGHT YEARS" /* #21 */ color={VOID.text} size={24} />
     </Layer>
   </Stage>
 );
@@ -765,7 +770,7 @@ const ShotYears: ShotFC<CL08> = ({ f, len }) => (
       <TimeStrip x={120} y={860} w={1680} value={f * 0.05} span={10} step={0.5} family={VOID} height={64} format={() => ""} />
     </Layer>
     <Layer depth={0}>
-      <Kicker x={120} y={130} text="— ~2.5 BILLION YEARS" /* #21 */ color={VOID.text} size={30} />
+      <Kicker x={120} y={130} text="~2.5 BILLION YEARS" /* #21 */ color={VOID.text} size={30} />
     </Layer>
   </Stage>
 );

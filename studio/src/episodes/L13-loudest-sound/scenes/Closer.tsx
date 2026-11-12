@@ -583,7 +583,7 @@ const ShotWrote: ShotFC<CCloser> = ({ f, len }) => {
       <Layer depth={0.4}>
         <rect x={-400} y={HORIZON} width={2800} height={900} fill="#3E8C94" />
         <path d={seaSurface(f, -400, 2400, HORIZON + 60, 10, 240, 4, 1600, 30)} fill="#2F7484" />
-        {[[200, 640, 420, 3], [1500, 660, 380, 6]].map(([x, y, h, s]) => (
+        {[[200, 640, 420, 3], [1840, 660, 380, 6]].map(([x, y, h, s]) => (
           <Palm key={s} x={x} y={y} h={h} f={f} sway={30} period={60} seed={s} trunk="#6B4428" frond="#2F8F6E" frondDark="#1D5A4A" />
         ))}
       </Layer>
