@@ -65,9 +65,9 @@ const a: Shot = ({ f, n }) => {
     <g>
       <Sky stops={SPACE} x={0} y={0} w={W} h={H} />
       <Stars f={f} speed={4} />
-      <Rock x={540} y={650} r={mix(120, 440, k)} f={f} spin={0.02} />
-      <g transform={`translate(540 650) rotate(${f * 1.1}) translate(0 ${-mix(120, 440, k)})`}>
-        <Tick x={0} y={6} pxPerM={mix(40, 100, k)} frame={f} pose="stand" expression="neutral" facing={1} />
+      <Rock x={540} y={650} r={mix(260, 440, k)} f={f} spin={0.02} />
+      <g transform={`translate(540 650) rotate(${f * 1.1}) translate(0 ${-mix(260, 440, k)})`}>
+        <Tick x={0} y={6} pxPerM={mix(70, 100, k)} frame={f} pose="stand" expression="neutral" facing={1} />
       </g>
       <Plaque x={540} y={190} text="THERE'S A RULE" size={96} bg={C.ink} fg={C.amber} />
     </g>
@@ -366,7 +366,7 @@ const q: Shot = ({ f }) => (
 
 const r_: Shot = ({ f }) => (
   <EndShot f={f} stops={SPACE} q={["WHERE DOES THE", "RULE BREAK?"]}>
-    <Rock x={900} y={1180} r={110} f={f} spin={0.05} />
+    <Rock x={975} y={1130} r={75} f={f} spin={0.05} />
   </EndShot>
 );
 

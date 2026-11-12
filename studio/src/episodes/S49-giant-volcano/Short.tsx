@@ -351,7 +351,7 @@ const p: Shot = ({ f }) => (
 
 const q: Shot = ({ f }) => (
   <EndShot f={f} stops={["#06222B", "#0A3C4C", "#4B2A8C"]} q={["WHAT DOES MARS HAVE", "THAT EARTH DOESN'T?"]} size={64}>
-    <Planet x={900} y={1150} r={110} f={f} />
+    <Planet x={975} y={1130} r={75} f={f} />
   </EndShot>
 );
 

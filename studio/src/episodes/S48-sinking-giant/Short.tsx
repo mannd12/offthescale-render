@@ -288,7 +288,7 @@ const n_: Shot = ({ f, n }) => {
       {Array.from({ length: 5 }, (_, i) => (
         <rect key={i} x={80 + i * 170} y={420 + i * 170} width={400} height={110} rx={34} fill={i % 2 ? C.orange : C.verm} stroke={C.ink} strokeWidth={8} />
       ))}
-      <Tick x={mix(200, 760, k)} y={mix(400, 1000, k)} pxPerM={210} frame={f} pose="stand" expression="surprised" facing={1} walk={f / 10} tilt={20} />
+      <Tick x={mix(200, 760, k)} y={mix(560, 1000, k)} pxPerM={210} frame={f} pose="stand" expression="surprised" facing={1} walk={f / 10} tilt={20} />
       <Plaque x={mix(300, 800, k)} y={mix(230, 800, k)} text="465,000 YEARS" size={50} bg={C.ink} fg={C.amber} />
     </g>
   );
@@ -330,7 +330,7 @@ const p: Shot = ({ f }) => {
 
 const q: Shot = ({ f }) => (
   <EndShot f={f} stops={["#1B6FA8", "#0A3C4C", "#06222B"]} q={["HOW SO TALL?", "WHAT PULLS IT UNDER?"]} size={66}>
-    <Shield x={900} y={1220} w={420} h={170} />
+    <Shield x={975} y={1200} w={200} h={90} />
   </EndShot>
 );
 

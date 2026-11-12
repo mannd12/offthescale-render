@@ -295,8 +295,8 @@ const n_: Shot = ({ f, n }) => {
         <Block x={540} y={1130} i={0} stress={0.8} f={f} w={560} />
         <path d={`M440 ${1130 - 128} L${480} ${1130 - 128 + 40 * k} L430 ${1130 - 128 + 70 * k} L500 ${1130 - 128 + 128 * k}`} stroke={C.ink} strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </g>
-      <Tick x={900} y={1250} pxPerM={300} frame={f} pose="cheer" expression="scared" facing={-1} />
-      <Plaque x={540} y={880} text="THE LIMIT" size={92} bg={C.verm} fg={C.cream} scale={1 + 0.05 * Math.sin(f / 3)} />
+      <Tick x={940} y={1250} pxPerM={300} frame={f} pose="cheer" expression="scared" facing={-1} />
+      <Plaque x={400} y={880} text="THE LIMIT" size={92} bg={C.verm} fg={C.cream} scale={1 + 0.05 * Math.sin(f / 3)} />
     </g>
   );
 };
@@ -401,7 +401,7 @@ const t_: Shot = ({ f }) => (
 
 const u: Shot = ({ f }) => (
   <EndShot f={f} stops={BG} q={["HOW DOES EVEREST", "STAY STANDING?"]}>
-    <Peak x={900} y={1220} w={420} h={300} body={C.orange} shade={C.rust} />
+    <Peak x={975} y={1200} w={200} h={150} body={C.orange} shade={C.rust} />
   </EndShot>
 );
 

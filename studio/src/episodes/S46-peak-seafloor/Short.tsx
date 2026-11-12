@@ -39,7 +39,7 @@ const a: Shot = ({ f, n }) => {
       <Rain f={f} n={22} color={C.foam} speed={7} len={34} width={9} opacity={0.85} seed={4} />
       <Peak x={300} y={1260} w={1500} h={900} body="#7A3418" shade="#4A140C" />
       <Tick x={250} y={1190} pxPerM={330} frame={f} pose="crouch-reach" expression="happy" facing={1} />
-      <Stone x={mix(380, 560, k)} y={mix(940, 640, k)} s={mix(0.7, 3.6, k)} rot={mix(-14, 4, k)} />
+      <Stone x={mix(380, 560, k)} y={mix(940, 640, k)} s={mix(1.2, 3.6, k)} rot={mix(-14, 4, k)} />
       <T x={540} y={190} text="EVEREST SUMMIT" size={86} color={C.amber} />
     </g>
   );
@@ -346,7 +346,7 @@ const p: Shot = ({ f }) => (
 
 const q: Shot = ({ f }) => (
   <EndShot f={f} stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} q={["WHAT STOPS A", "MOUNTAIN?"]}>
-    <Peak x={910} y={1220} w={420} h={300} body={C.orange} shade={C.rust} />
+    <Peak x={975} y={1200} w={200} h={150} body={C.orange} shade={C.rust} />
   </EndShot>
 );
 

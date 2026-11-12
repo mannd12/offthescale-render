@@ -66,9 +66,9 @@
   {
     "scene": "l01",
     "index": 5,
-    "text": "The fall one way is half of that: forty-two minutes, or forty-two and twelve seconds to be exact. Bigger planet or smaller, the answer doesn't change.",
-    "file": "L14-earth-tunnel/vo/l01-05-9c361ef4a3.wav",
-    "seconds": 8.74,
+    "text": "The fall one way is half of that: forty-two minutes, or forty-two and twelve seconds to be exact. Same density, any size: the answer doesn't change.",
+    "file": "L14-earth-tunnel/vo/l01-05-be3f6dd29a.wav",
+    "seconds": 8.07,
     "pauseAfter": 0.55
   },
   {
@@ -226,9 +226,9 @@
   {
     "scene": "l03",
     "index": 8,
-    "text": "A year and a half stuck in the traffic of your own atmosphere.",
-    "file": "L14-earth-tunnel/vo/l03-08-5f9e484932.wav",
-    "seconds": 3.26,
+    "text": "Nearly two years stuck in the traffic of your own atmosphere.",
+    "file": "L14-earth-tunnel/vo/l03-08-43dbd6d44d.wav",
+    "seconds": 3.5300416666666665,
     "pauseAfter": 0.55
   },
   {
@@ -562,9 +562,9 @@
   {
     "scene": "l08",
     "index": 6,
-    "text": "So the honest answer is stranger than forty-two minutes. In a perfect tunnel, thirty-eight, and then a swing back again. In a tunnel with air, about a year and a half to the middle.",
-    "file": "L14-earth-tunnel/vo/l08-06-3b65c45ed4.wav",
-    "seconds": 8.61,
+    "text": "So the honest answer is stranger than forty-two minutes. In a perfect tunnel, thirty-eight, and then a swing back again. In a tunnel with air, nearly two years to the middle.",
+    "file": "L14-earth-tunnel/vo/l08-06-d3101ef9ff.wav",
+    "seconds": 9.78,
     "pauseAfter": 0.25
   },
   {
