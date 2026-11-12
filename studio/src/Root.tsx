@@ -31,6 +31,7 @@ import { TestL11, l11TestFrames } from "./episodes/L11-dig-depth/Episode";
 import { FullL11, l11Frames } from "./episodes/L11-dig-depth/Full";
 import { FullL12, KeyArt1, KeyArt2, KeyArt3, KeyArt4, l12Frames } from "./episodes/L12-mountain-limit/Full";
 import { ThumbL12, ThumbL12B } from "./episodes/L12-mountain-limit/Thumb";
+import { ThumbL13, ThumbL13B } from "./episodes/L13-loudest-sound/Thumb";
 import { FullL13, KeyArt1 as KeyArtL13a, KeyArt2 as KeyArtL13b, KeyArt3 as KeyArtL13c, l13Frames } from "./episodes/L13-loudest-sound/Full";
 import { L13KitDemo, L13_KIT_DEMO_FRAMES } from "./episodes/L13-loudest-sound/KitDemo";
 import { DuskScene } from "./style-v2/Dusk";
@@ -132,6 +133,8 @@ export const Root: React.FC = () => (
     <Still id="l13-key-2" component={KeyArtL13b} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-3" component={KeyArtL13c} width={WIDTH} height={HEIGHT} />
     <Composition id="l13-kit-demo" component={L13KitDemo} durationInFrames={L13_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Still id="l13-thumb" component={ThumbL13} width={1280} height={720} />
+    <Still id="l13-thumb-b" component={ThumbL13B} width={1280} height={720} />
     <Still id="l12-thumb" component={ThumbL12} width={1280} height={720} />
     <Still id="l12-thumb-b" component={ThumbL12B} width={1280} height={720} />
 
