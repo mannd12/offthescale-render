@@ -655,7 +655,7 @@ const ShotOrbit: ShotFC<CL06> = ({ f, len }) => {
         </g>
       </Layer>
       <Layer depth={0.5}>
-        <Satellite x={-200 + f * 10} y={250 + Math.sin(f / 30) * 10} s={1.6} family={VOID} f={f} rot={-8} />
+        <Satellite x={-200 + f * 10} y={250 + Math.sin(f / 30) * 10} s={110} family={VOID} f={f} rot={-8} />
       </Layer>
       <Layer depth={1}>
         <path d={`M-600 900 Q 960 870 2600 900 V 1500 H -600 Z`} fill={mixHex(STUDIO.mid, "#1E4A5C", open * 0.5)} />

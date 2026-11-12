@@ -498,9 +498,9 @@
   {
     "scene": "l08",
     "index": 4,
-    "text": "On Mars, a rover carries a microphone. It told us sound there travels at about two hundred and forty metres a second, against three hundred and forty here, in thin air made mostly of carbon dioxide.",
-    "file": "L13-loudest-sound/vo/l08-04-80f4d5125f.wav",
-    "seconds": 23.71,
+    "text": "On Mars, a rover carries a microphone. It found that sound there travels at about two hundred and forty metres a second, against three hundred and forty here, in thin air made mostly of carbon dioxide.",
+    "file": "L13-loudest-sound/vo/l08-04-783fa0fb37.wav",
+    "seconds": 10.95,
     "pauseAfter": 0.25
   },
   {
