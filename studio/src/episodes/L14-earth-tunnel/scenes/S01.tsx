@@ -174,8 +174,8 @@ const ShotSpring: ShotFC<CL01> = ({ f, len, c }) => {
           </g>
         }
       >
-        <Gantry x={380} y={150} />
-        <SpringWeight x={470} y={150} stretch={300 + bob * 140} probe f={f} weight={90} />
+        <Gantry x={380} y={230} />
+        <SpringWeight x={470} y={230} stretch={250 + bob * 120} probe f={f} weight={90} />
         <Ball cx={B.cx} cy={B.cy} r={B.r} f={f} fill={f < pour ? 0 : fillK} id="b101" />
         {/* the ghost probe swinging through the ball in step with the weight */}
         <g opacity={f < pour ? 0.7 : 0.7 * (1 - ez(f, pour, pour + 20))}>
@@ -396,7 +396,7 @@ const ShotLine: ShotFC<CL01> = ({ f, len, c }) => {
           <Dot x={B.cx} y={dy} />
           {/* the chart: pull (up) vs depth (along), drawn from the surface down to zero at the centre */}
           <g opacity={chartIn}>
-            <rect x={A.x - 50} y={A.y - 80} width={Z.x - A.x + 110} height={Z.y - A.y + 150} rx={24} fill={alpha(CREAM, 0.92)} />
+            <rect x={A.x - 50} y={A.y - 80} width={Z.x - A.x + 110} height={Z.y - A.y + 150} rx={24} fill={CREAM} stroke={INK} strokeWidth={4} />
             <line x1={A.x - 10} y1={A.y - 40} x2={A.x - 10} y2={Z.y + 20} stroke={INK} strokeWidth={5} />
             <line x1={A.x - 10} y1={Z.y + 20} x2={Z.x + 30} y2={Z.y + 20} stroke={INK} strokeWidth={5} />
             <text x={A.x} y={A.y - 44} style={{ fontFamily: IF2.label, fontSize: 24, letterSpacing: 2, fill: INK }}>
@@ -664,7 +664,7 @@ const ShotSound: ShotFC<CL01> = ({ f, len }) => {
   return (
     <Pop f={f}>
       <Stage theme={S.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.03, panY: 0.0, frames: len + 40, seed: 8 }} vignette={0.12} grain={0.5}>
-        <StudioRoom f={f + 2000} seed={22} hud={<Tag x={120} y={980} text="OVER 20× THE SPEED OF SOUND" /* #13 #18 */ F={S} dot={C.saffron} size={30} />}>
+        <StudioRoom f={f + 2000} seed={22} hud={<Tag x={120} y={980} text="OVER 20 TIMES THE SPEED OF SOUND" /* #13 #18 */ F={S} dot={C.saffron} size={30} />}>
           <rect x={80} y={y + 70} width={1760} height={26} rx={8} fill={INK} />
           {Array.from({ length: 23 }, (_, i) => (
             <rect key={i} x={100 + i * 76} y={y + 50} width={8} height={i % 5 ? 30 : 60} fill={INK} />

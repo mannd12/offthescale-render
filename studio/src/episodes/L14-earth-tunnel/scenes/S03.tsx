@@ -314,8 +314,8 @@ const ShotTimes: ShotFC<CL03> = ({ f, len, c }) => {
         <StudioRoom f={f + 300} seed={7}>
           <BigDial x={460} y={520} r={250} v={s} max={2} title="SPEED" f={f} />
           <BigDial x={1180} y={520} r={250} v={pu} max={4} title="PUSH" f={f + 9} />
-          <Metric x={460} y={250} value={`×${s >= 1.98 ? 2 : 1}`} /* #23a */ size={110} color={INK} align="middle" />
-          <Metric x={1180} y={250} value={`×${Math.min(4, Math.floor(pu + 0.02))}`} /* #23a: counts 1 → 4 */ size={110} color={INK} align="middle" />
+          <Metric x={460} y={170} value={`×${s >= 1.98 ? 2 : 1}`} /* #23a */ size={100} color={INK} align="middle" />
+          <Metric x={1180} y={170} value={`×${Math.min(4, Math.floor(pu + 0.02))}`} /* #23a: counts 1 → 4 */ size={100} color={INK} align="middle" />
           {st > 0 ? (
             <g transform={`translate(1460 330) rotate(-14) scale(${2.2 - 1.2 * st})`} opacity={Math.min(1, st * 3)}>
               <rect x={-110} y={-70} width={220} height={140} rx={20} fill={C.saffron} stroke={INK} strokeWidth={8} />
@@ -429,9 +429,9 @@ const ShotLow: ShotFC<CL03> = ({ f, len, c }) => {
   const a1 = angOf(1);
   const bk = ez(f, nw, nw + 26);
   const am = a0 + (a1 - a0) * bk;
-  const R = 150 * sc;
+  const R = 78 * sc;
   const pt = (deg: number, r: number): [number, number] => [cxs + Math.cos((deg * Math.PI) / 180) * r, cys + Math.sin((deg * Math.PI) / 180) * r];
-  const [px, py] = pt(a1, 132 * sc);
+  const [px, py] = pt(a1, 158 * sc);
   const wv = Math.sin(f / 4);
   return (
     <Pop f={f}>
@@ -596,10 +596,7 @@ const ShotCrystals: ShotFC<CL03> = ({ f, len }) => (
   <Pop f={f}>
     <Stage theme={P.theme} cam={{ x: 700, y: 500, zoom: 1.35 + f * 0.002 }} vignette={0.3} grain={0.5}>
       <Layer depth={1}>
-        <AirTunnel f={f + 1200} scroll={8000 + f * 8} density={1} hazeSpeed={10} crystals={Math.min(1, 0.3 + f / 40)} probeY={470} seed={15} />
-        <g opacity={0.9}>
-          <AirHaze f={f} x={SLOT.cx - 260} w={520} speed={9} density={0} crystals={Math.min(1, f / 50)} seed={31} y0={-200} y1={1300} />
-        </g>
+        <AirTunnel f={f + 1200} scroll={8000 + f * 8} density={1} hazeSpeed={10} crystals={Math.min(1, 0.5 + f / 30)} probeY={470} seed={15} />
       </Layer>
       <Layer depth={0}>
         <Tag x={120} y={980} text="NITROGEN TURNS SOLID" /* #8 */ F={P} dot={C.ice} size={32} opacity={ez(f, 6, 18)} />
