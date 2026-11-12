@@ -99,10 +99,12 @@ export const PowerMeter: React.FC<PowerMeterProps> = ({ x, y, r, value, family: 
         const [bx, by] = pt(v, r * (i % 2 ? 0.94 : 0.98));
         return <line key={i} x1={ax} y1={ay} x2={bx} y2={by} stroke={ink} strokeWidth={2} opacity={0.6} />;
       })}
-      {marks.map((m) => {
+      {[...marks].sort((a, b) => a.v - b.v).map((m, i, arr) => {
         const [ax, ay] = pt(m.v, r * 0.66);
         const [bx, by] = pt(m.v, r * 0.98);
-        const [lx, ly] = pt(m.v, r * 0.52);
+        // close marks (200 / 203) alternate their labels inward / outward so they never overlap
+        const close = arr.some((o) => o !== m && Math.abs(o.v - m.v) < (max - min) * 0.12);
+        const [lx, ly] = pt(m.v, r * (close && i % 2 ? 1.16 : 0.52));
         return (
           <g key={m.label}>
             <line x1={ax} y1={ay} x2={bx} y2={by} stroke={ink} strokeWidth={3} />

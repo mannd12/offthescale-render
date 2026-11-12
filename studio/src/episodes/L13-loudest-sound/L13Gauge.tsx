@@ -196,16 +196,19 @@ export const L13Gauge: React.FC<L13GaugeProps> = ({
       {ceiling ? (
         <g>
           <Emissive d={`M${leftEdge + 6} ${cy} L${x + W + 26} ${cy}`} color={L13_COLORS.saffron} core={L13_COLORS.saffronCore} width={4} strength={glow} glow={8} />
-          {labelled ? <Pill x={leftEdge - 14} y={cy} text={ceiling.label ?? `${ceiling.v} dB`} fill={pill} color={F.text} dot={L13_COLORS.saffron} size={17} align="end" /> : null}
+          {/* label right of the spine (the readout plate owns the left side at the fill top) */}
+          {labelled ? <Pill x={x + W + 30} y={cy} text={ceiling.label ?? `${ceiling.v} dB`} fill={pill} color={F.text} dot={L13_COLORS.saffron} size={15} align="start" /> : null}
         </g>
       ) : null}
-      {/* chevrons above the ceiling: the fill wants to go further than the air allows */}
+      {/* chevrons pushing up through the ceiling: the fill wants to go further than the air allows. They sit on the
+          spine's axis just above the ceiling and climb */}
       {over
         ? [0, 1, 2].map((k) => {
-            const lift = ((frame * 1.6 + k * 14) % 42) - 4;
-            const yy = cy - 14 - k * 16 - lift * 0.4;
-            const o = Math.max(0, 1 - k * 0.28) * (0.75 + 0.25 * Math.sin(frame / 5 + k));
-            return <path key={k} d={`M${x - 7} ${yy} L${x + W / 2} ${yy - 13} L${x + W + 7} ${yy} L${x + W + 7} ${yy + 6} L${x + W / 2} ${yy - 7} L${x - 7} ${yy + 6} Z`} fill={P.vermilion} opacity={o} />;
+            const cyc = (frame * 1.4 + k * 14) % 42; // each chevron climbs 42 px and recycles (clear of the title)
+            const yy = cy - 6 - cyc;
+            const cxk = x + W / 2;
+            const o = Math.min(1, cyc / 8) * Math.max(0, 1 - cyc / 42);
+            return <path key={k} d={`M${cxk - 13} ${yy} L${cxk} ${yy - 13} L${cxk + 13} ${yy} L${cxk + 13} ${yy + 7} L${cxk} ${yy - 6} L${cxk - 13} ${yy + 7} Z`} fill={P.vermilion} stroke={P.bone} strokeWidth={1.5} opacity={o} />;
           })
         : null}
       {/* base pill */}

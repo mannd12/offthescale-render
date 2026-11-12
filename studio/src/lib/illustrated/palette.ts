@@ -27,7 +27,11 @@ export type Theme = { bg: string; panel: string; line: string; text: string; dim
 export const BONE: Theme = { bg: P.bone, panel: P.boneDeep, line: P.ink, text: P.ink, dim: P.inkSoft, dark: false };
 export const GRAPHITE: Theme = { bg: P.graphite, panel: P.graphiteLift, line: P.chalk, text: P.chalk, dim: P.chalkSoft, dark: true };
 
-const hex = (c: string) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
+// accepts #RRGGBB and #RGB (a 3-digit "#000" used to parse as NaN and paint black, 2026-11-11 fix)
+const hex = (c: string) => {
+  const h = c.length === 4 ? "#" + c[1] + c[1] + c[2] + c[2] + c[3] + c[3] : c;
+  return [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+};
 const toHex = (v: number[]) => "#" + v.map((x) => Math.round(Math.max(0, Math.min(255, x))).toString(16).padStart(2, "0")).join("");
 
 /** Flat mix of two colours (k = 0 → a, 1 → b). Use for tints/shades instead of gradients. */

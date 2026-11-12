@@ -208,13 +208,15 @@ export const Counter: React.FC<{ x: number; y: number; value: number; max?: numb
   const commaW = size * 0.22;
   const lh = size * 1.1;
   // odometer positions per column (place p = 10^k)
+  // odometer: a column rolls only while the column below it rolls past 9 (2026-11-11 fix: the old carry used the lower
+  // column's digit + fraction, so 194 showed its hundreds column 0.4 of the way to 2)
+  const posOf: number[] = [];
+  for (let p = 0; p < n; p++) posOf[p] = p === 0 ? v % 10 : (Math.floor(v / Math.pow(10, p)) % 10) + Math.max(0, posOf[p - 1] - 9);
   const cols = Array.from({ length: n }, (_, k) => {
     const p = n - 1 - k;
     const r = (v / Math.pow(10, p)) % 10;
-    const lower = p === 0 ? 0 : (v / Math.pow(10, p - 1)) % 10;
-    const carry = p === 0 ? r - Math.floor(r) : Math.max(0, lower - 9);
     const leadingZero = p > 0 && v < Math.pow(10, p) - 0.5;
-    return { pos: Math.floor(r) + carry, hidden: leadingZero && Math.floor(r) === 0, p };
+    return { pos: posOf[p], hidden: leadingZero && Math.floor(r) === 0, p };
   });
   const visible = cols.filter((c) => !c.hidden);
   const totalW = visible.length * colW + Math.floor((visible.length - 1) / 3) * commaW;

@@ -69,7 +69,8 @@ export const makeShort = (timeline: ReturnType<typeof buildTimeline>, lines: Sho
       <AbsoluteFill style={{ backgroundColor: C.ink }}>
         <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ position: "absolute", inset: 0 }}>
           <LightDefs />
-          <g transform={`translate(540 800) scale(${pop}) translate(-540 -800)`}>{shots[k]({ f, n, p: f / n })}</g>
+          <g transform={`translate(540 800) scale(${pop}) translate(-540 -800)`}>{/* a component (not a plain call), keyed per shot: shots may use hooks such as useId (React error 310 otherwise) */}
+            {React.createElement(shots[k] as React.FC<{ f: number; n: number; p: number }>, { key: `${i}-${k}`, f, n, p: f / n })}</g>
         </svg>
         <AbsoluteFill style={{ background: `rgba(255,248,230,${0.32 * Math.max(0, 1 - f / 4)})`, pointerEvents: "none" }} />
         {scrim ? <div style={{ position: "absolute", left: 0, right: 0, top: 1180, bottom: 0, background: "linear-gradient(rgba(4,28,38,0), rgba(4,28,38,0.7) 28%, rgba(4,28,38,0.78))" }} /> : null}
