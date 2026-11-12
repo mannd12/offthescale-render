@@ -1,0 +1,522 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Drop into a tunnel that runs straight through the centre of the Earth, and you come out the other side in forty-two minutes. That's the famous answer. It's also wrong, twice.",
+    "file": "L14-earth-tunnel/vo/cold-00-cab488ae84.wav",
+    "seconds": 9.22,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Wrong in the number. And wrong in the ending. So we're going to send a probe down that tunnel, with Tick watching four gauges, and follow it layer by layer. Every gauge will run off its scale.",
+    "file": "L14-earth-tunnel/vo/cold-01-9880fc1017.wav",
+    "seconds": 11.030041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "So what does the trip really look like, and what stops it first?",
+    "file": "L14-earth-tunnel/vo/cold-02-c54f53766b.wav",
+    "seconds": 3.45,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Start with the version in the textbooks. Make the Earth one ball of the same rock all the way through. Then only the rock closer to the centre than you pulls on you, and that pull fades steadily as you sink.",
+    "file": "L14-earth-tunnel/vo/l01-00-7c1f4fac85.wav",
+    "seconds": 11.54,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "The fall turns into a weight on a spring.",
+    "file": "L14-earth-tunnel/vo/l01-01-3076d81459.wav",
+    "seconds": 2.26,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "That's the trick that makes the sum easy. The rock above you, in a shell all the way around, pulls in every direction at once, and the pulls cancel. Only what is below you counts.",
+    "file": "L14-earth-tunnel/vo/l01-02-44c8c90344.wav",
+    "seconds": 9.71,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "The deeper you go, the less there is below you, so the pull weakens in a straight line all the way to nothing.",
+    "file": "L14-earth-tunnel/vo/l01-03-1d3d09e12a.wav",
+    "seconds": 5.29,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "A full swing there and back takes eighty-four minutes. Exactly the time a satellite skimming the surface takes to go once round.",
+    "file": "L14-earth-tunnel/vo/l01-04-650313cadc.wav",
+    "seconds": 7.18,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 5,
+    "text": "The fall one way is half of that: forty-two minutes, or forty-two and twelve seconds to be exact. Bigger planet or smaller, the answer doesn't change.",
+    "file": "L14-earth-tunnel/vo/l01-05-9c361ef4a3.wav",
+    "seconds": 8.74,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 6,
+    "text": "At the middle you would be moving at nearly eight kilometres a second. That's about twenty-eight thousand kilometres an hour. More than twenty times the speed of sound. The first gauge is already at its stop.",
+    "file": "L14-earth-tunnel/vo/l01-06-d0c6a1a43a.wav",
+    "seconds": 11.43,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 7,
+    "text": "And this is the clean, friendly version of the trip.",
+    "file": "L14-earth-tunnel/vo/l01-07-3236cdde84.wav",
+    "seconds": 2.6500416666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "But the Earth isn't one ball of the same rock. On average it's about fifty-five hundred kilograms in every cubic metre. At the centre, thirteen thousand.",
+    "file": "L14-earth-tunnel/vo/l02-00-fdef6adb86.wav",
+    "seconds": 8.32,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "A scientific reference model, called PREM, lays out the real layers by depth.",
+    "file": "L14-earth-tunnel/vo/l02-01-2b70428e5a.wav",
+    "seconds": 4.01,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "Put that dense core in and the pull behaves differently. It stays strong almost all the way down. It even peaks below the surface, at about one point oh nine times the pull at the top.",
+    "file": "L14-earth-tunnel/vo/l02-02-d83a94124c.wav",
+    "seconds": 9.66,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "A stronger pull for longer means a faster fall. With the real density profile the trip takes thirty-eight minutes and eleven seconds.",
+    "file": "L14-earth-tunnel/vo/l02-03-7f5a6f4cb3.wav",
+    "seconds": 7.4,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "Here's the odd part. Pretend the pull never changed at all, and you get thirty-eight minutes exactly. Nearly the same as the real thing. The dense core keeps the pull high for most of the way.",
+    "file": "L14-earth-tunnel/vo/l02-04-524c353660.wav",
+    "seconds": 10.34,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "It doesn't even have to go through the middle. Dig between any two points on the surface, and the same maths applies.",
+    "file": "L14-earth-tunnel/vo/l02-05-10024675f7.wav",
+    "seconds": 5.72,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 6,
+    "text": "Short trips take about forty-two minutes, long ones about thirty-eight, and everything in between slides from one to the other. So a tunnel between two cities takes about the same time as the long way through the middle.",
+    "file": "L14-earth-tunnel/vo/l02-06-1e67cde99e.wav",
+    "seconds": 11.29,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 7,
+    "text": "The tunnel is twelve thousand seven hundred and forty kilometres long. Cross it in thirty-eight minutes and the average speed is five and a half kilometres a second. That is the best case.",
+    "file": "L14-earth-tunnel/vo/l02-07-81ef8a13b7.wav",
+    "seconds": 9.86,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 8,
+    "text": "It needs one thing we have not mentioned yet, and the rest of the trip is about what happens when that one thing is missing. Keep the eight kilometres a second in mind. It's about to be tested.",
+    "file": "L14-earth-tunnel/vo/l02-08-2caced57e1.wav",
+    "seconds": 9.6,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "The tunnel is full of air. Air pushes back harder the faster you go, until the push matches the pull. Then you stop speeding up. You fall at a steady speed. It's called terminal velocity.",
+    "file": "L14-earth-tunnel/vo/l03-00-5150a55d23.wav",
+    "seconds": 11.28,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "A group of physicists modelled a vehicle in this tunnel, and found it reaches that steady speed almost immediately. Nowhere near eight kilometres a second.",
+    "file": "L14-earth-tunnel/vo/l03-01-c56b27b006.wav",
+    "seconds": 7.67,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "The same capsule that would hit the speed of an orbit in a vacuum settles into a steady crawl in air.",
+    "file": "L14-earth-tunnel/vo/l03-02-90ee5ac206.wav",
+    "seconds": 5.16,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "It gets worse with depth, because the air is squeezed. Its pressure and density climb quickly. The authors say that beyond about a hundred and seventy-five kilometres, realistic travel is out.",
+    "file": "L14-earth-tunnel/vo/l03-03-568063f8e2.wav",
+    "seconds": 10.43,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "And around four hundred and twenty kilometres down, the nitrogen would turn solid.",
+    "file": "L14-earth-tunnel/vo/l03-04-5dfe5198e9.wav",
+    "seconds": 4.02,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "Their numbers for a tunnel full of air: about one point eight years just to reach the centre. Then a slow wobble through a few tens of kilometres. Not a thirty-eight-minute trip.",
+    "file": "L14-earth-tunnel/vo/l03-05-2d78a62b08.wav",
+    "seconds": 10.22,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 6,
+    "text": "A year and a half stuck in the traffic of your own atmosphere.",
+    "file": "L14-earth-tunnel/vo/l03-06-5f9e484932.wav",
+    "seconds": 2.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 7,
+    "text": "So every serious model starts the same way: pump the air out. We will too. From here, the tunnel is a vacuum, and the probe falls the way the maths wants it to.",
+    "file": "L14-earth-tunnel/vo/l03-07-75db032e08.wav",
+    "seconds": 10.13,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "There is a second villain, and it is quieter. The Earth is spinning once every twenty-three point nine hours. Stand at the equator and you're being carried east at about sixteen hundred and seventy kilometres an hour.",
+    "file": "L14-earth-tunnel/vo/l04-00-6928e23a27.wav",
+    "seconds": 12.19,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "Drop the probe in there and it carries that sideways speed down with it, while the rock below it, closer to the axis, is moving slower. So the probe drifts and hits the wall.",
+    "file": "L14-earth-tunnel/vo/l04-01-dda35930b4.wav",
+    "seconds": 10.12,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "Within a few kilometres, by one well-known account.",
+    "file": "L14-earth-tunnel/vo/l04-02-7a1980d88a.wav",
+    "seconds": 2.32,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "There's a way out. Run the tunnel from pole to pole, where there is no sideways speed to carry. That is what the famous forty-two quietly assumes. The textbook Earth doesn't spin.",
+    "file": "L14-earth-tunnel/vo/l04-03-362f87a537.wav",
+    "seconds": 10.440041666666668,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "So, an airless, pole-to-pole tunnel. Now go down.",
+    "file": "L14-earth-tunnel/vo/l05-00-ab96a57e05.wav",
+    "seconds": 3.95,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "Twelve kilometres and we're in familiar territory: the deepest hole ever dug stopped at twelve thousand two hundred and sixty-two metres, with the rock at about a hundred and eighty degrees.",
+    "file": "L14-earth-tunnel/vo/l05-01-8a007fa9cd.wav",
+    "seconds": 9.44,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "That is as far as humans have been. The heat dial is already past the warm end.",
+    "file": "L14-earth-tunnel/vo/l05-02-42faf7e955.wav",
+    "seconds": 4.29,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "Under the crust is the mantle: more than two thousand eight hundred kilometres of it. It's solid, but only just. Over long times it deforms and flows.",
+    "file": "L14-earth-tunnel/vo/l05-03-0796e813b2.wav",
+    "seconds": 9.18,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "At Kola, the project's scientists described the deep rock as behaving more like plastic than rock. Our drawn tunnel holds its shape, because we are drawing it that way.",
+    "file": "L14-earth-tunnel/vo/l05-04-7b03d6e331.wav",
+    "seconds": 9.15,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "A real one would have a long argument with the rock.",
+    "file": "L14-earth-tunnel/vo/l05-05-1ae3dda51d.wav",
+    "seconds": 2.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "The probe covers this distance fast, with the pull still high. Without air, it takes about nineteen minutes to reach the very centre. But the core boundary comes first, almost three thousand kilometres down.",
+    "file": "L14-earth-tunnel/vo/l05-06-33b0307767.wav",
+    "seconds": 11.16,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "At the core boundary, the rock ends and the iron begins. The outer core is liquid. We know that because earthquake waves of one kind cannot cross it. Inside, a ball of iron at the centre stays solid.",
+    "file": "L14-earth-tunnel/vo/l06-00-6b0e3af4c2.wav",
+    "seconds": 11.68,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "It's hot, but the weight of everything above squeezes it hard enough to keep it solid.",
+    "file": "L14-earth-tunnel/vo/l06-01-d988163f92.wav",
+    "seconds": 4.36,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "That detail is how we know. Earthquakes send out two kinds of wave, and only one of them can cross a liquid. The other stops at the edge of the outer core. Nobody has seen the inside.",
+    "file": "L14-earth-tunnel/vo/l06-02-8ac06a4302.wav",
+    "seconds": 10.22,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "We read it from the shadows of waves.",
+    "file": "L14-earth-tunnel/vo/l06-03-f12f766c5f.wav",
+    "seconds": 1.77,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "At the boundary of that solid ball, laboratory work puts the pressure at about three point three million atmospheres. And the temperature at around six thousand degrees, give or take five hundred.",
+    "file": "L14-earth-tunnel/vo/l06-04-f6260b2ad4.wav",
+    "seconds": 9.84,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "Compare Kola: more than thirty times hotter. The second and third gauges are now off the scale. Heat first, then pressure, and then the probe is somewhere no instrument of ours has ever been.",
+    "file": "L14-earth-tunnel/vo/l06-05-1f09b1ce88.wav",
+    "seconds": 11.01,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "And then the middle. Here the pull from the rock around you comes from every side, and it cancels. The pull dial reads zero. The fourth gauge hits the other end of its scale. Three of our gauges ran up past their stops.",
+    "file": "L14-earth-tunnel/vo/l07-00-fd012ad3a5.wav",
+    "seconds": 13.52,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "The last one ran down through the floor.",
+    "file": "L14-earth-tunnel/vo/l07-01-78bef30336.wav",
+    "seconds": 2,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "With nothing pulling it either way, the probe has no weight, even though it is still racing along at full speed. It doesn't stop there. It coasts straight through.",
+    "file": "L14-earth-tunnel/vo/l07-02-b230497417.wav",
+    "seconds": 8.65,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "The probe is moving faster here than anywhere else on the trip: nearly eight kilometres a second, as fast as an orbit. The moment it passes the centre, the whole planet is behind it, and everything pulls it back.",
+    "file": "L14-earth-tunnel/vo/l07-03-a6e407e58d.wav",
+    "seconds": 10.96,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "From here on it slows, as if the fall were running backwards.",
+    "file": "L14-earth-tunnel/vo/l07-04-9aab7ef671.wav",
+    "seconds": 3.78,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Everything so far has been a perfect tunnel. Now give it a wall. A real vehicle touches something: rails, guides, the sides. That contact, however small, takes energy on every metre.",
+    "file": "L14-earth-tunnel/vo/l08-00-772382c2b5.wav",
+    "seconds": 11.18,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "The friction in the model is small next to the Earth's pull. It doesn't matter. Over a trip this long, small losses add up.",
+    "file": "L14-earth-tunnel/vo/l08-01-6e488d9d37.wav",
+    "seconds": 6.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "In the model with friction on the sides, the probe never reaches the far end. It swings back and forth, each swing a little shorter, and ends up resting at the middle of the planet.",
+    "file": "L14-earth-tunnel/vo/l08-02-ad36fd99f1.wav",
+    "seconds": 9.17,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "As one report on the study put it, you'd never make it to the other side.",
+    "file": "L14-earth-tunnel/vo/l08-03-381ddbfe5c.wav",
+    "seconds": 3.77,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "The same study asked whether the tunnel could beat an airliner. A long jet flight of about twenty thousand kilometres takes at least twenty-one hours. The tunnel only wins if its friction stays below a tight limit.",
+    "file": "L14-earth-tunnel/vo/l08-04-6c2353821c.wav",
+    "seconds": 11.61,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "The shortcut has to be nearly perfect to be a shortcut at all.",
+    "file": "L14-earth-tunnel/vo/l08-05-660ae3b7f9.wav",
+    "seconds": 3.09,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "So the honest answer is stranger than forty-two minutes. In a perfect tunnel, thirty-eight, and then a swing back again. In a tunnel with air, about a year and a half to the middle.",
+    "file": "L14-earth-tunnel/vo/l08-06-3b65c45ed4.wav",
+    "seconds": 8.61,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "In a tunnel with friction, a one-way trip to the centre, and a stop.",
+    "file": "L14-earth-tunnel/vo/l08-07-b1da1fe0f7.wav",
+    "seconds": 3.25,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "A few things we simplified. The famous forty-two minutes is an answer to a clean question: a spinning ball, but pretend it isn't, with no air, and no wall.",
+    "file": "L14-earth-tunnel/vo/closer-00-ce6265d050.wav",
+    "seconds": 9.62,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "The thirty-eight minutes comes from a model of the Earth that's smooth and the same in every direction. Corrections for the true shape and the spin add up to seconds.",
+    "file": "L14-earth-tunnel/vo/closer-01-fade1b0525.wav",
+    "seconds": 7.720041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "The six thousand degrees is an extrapolation, and an older estimate sat about a thousand degrees lower. And the friction in the drag study is a value its authors chose, to keep the swing from stalling.",
+    "file": "L14-earth-tunnel/vo/closer-02-7b6a8fd085.wav",
+    "seconds": 10.39,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "We have shown a tunnel because it's a clean way to ask where the planet gets hard to cross, not because anyone has the walls for it.",
+    "file": "L14-earth-tunnel/vo/closer-03-18ae5c4209.wav",
+    "seconds": 6.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 4,
+    "text": "Because here is what we have actually done. Dug twelve kilometres, out of twelve thousand seven hundred and forty. Less than a tenth of one percent of the way across.",
+    "file": "L14-earth-tunnel/vo/closer-04-d31366b165.wav",
+    "seconds": 9.27,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 5,
+    "text": "Everything else, the heat, the iron and the middle with no pull in it, we know from waves and from physics. The tunnel is a drawing. And the drawing says the trip ends at the centre. Not on the other side.",
+    "file": "L14-earth-tunnel/vo/closer-05-f24697b1da.wav",
+    "seconds": 11.48,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 6,
+    "text": "In the one place on the planet where nothing pulls you anywhere at all.",
+    "file": "L14-earth-tunnel/vo/closer-06-ad9b76f533.wav",
+    "seconds": 3.89,
+    "pauseAfter": 0.55
+  }
+]
