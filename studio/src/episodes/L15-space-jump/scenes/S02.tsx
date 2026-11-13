@@ -471,7 +471,7 @@ const ShotEustace: ShotFC<C02> = ({ f, len, c }) => {
 // ================================================================================================================
 const ShotTube: ShotFC<C02> = ({ f, len }) => {
   const k = ez(f, 6, len * 0.55);
-  const fan = ez(f, len * 0.35, len - 8);
+  const fan = ez(f, len * 0.25, len - 8);
   const jx = 700;
   const jy = 820; // feet
   const tubeTop = jy - 110 - 300 * k;
@@ -480,6 +480,8 @@ const ShotTube: ShotFC<C02> = ({ f, len }) => {
       <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 560, zoom: 1.0 }, { f: len, x: 820, y: 480, zoom: 1.3 }])} vignette={0.12} grain={0.5}>
         <StudioRoom f={f + 900} seed={11}>
           <circle cx={jx} cy={560} r={330} fill={alpha(INK, 0.5)} />
+          {/* a saffron measuring ring turning round the plate (≈ 7 px/f at the rim): the shot's large-area mover */}
+          <circle cx={jx} cy={560} r={350} fill="none" stroke={C.saffron} strokeWidth={14} strokeDasharray="60 44" strokeDashoffset={-f * 7} opacity={0.85} />
           <rect x={jx - 14} y={tubeTop} width={28} height={jy - 100 - tubeTop} rx={12} fill="#1B3A44" stroke={C.limb} strokeWidth={3} />
           {[-1, -0.4, 0.4, 1].map((u, i) => (
             <line key={i} x1={jx} y1={tubeTop} x2={jx + u * 150 * fan} y2={tubeTop - 160 * fan} stroke={CREAM} strokeWidth={3} opacity={0.85} />

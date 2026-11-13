@@ -321,7 +321,7 @@ export const SoundRings: React.FC<{ f: number; x: number; y: number; speed?: num
       const age = (f % every) + k * every;
       const r = age * speed;
       if (r > max) return null;
-      return <circle key={k} cx={x} cy={y} r={r} strokeWidth={10} opacity={0.35 * (1 - r / max)} />;
+      return <circle key={k} cx={x} cy={y} r={r} strokeWidth={12} opacity={0.6 * (1 - r / max)} />;
     })}
   </g>
 );

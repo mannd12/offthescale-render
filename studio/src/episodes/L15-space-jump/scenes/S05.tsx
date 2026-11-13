@@ -252,7 +252,7 @@ const ShotSeesaw: ShotFC<CL05> = ({ f, len }) => {
             left={<XTag x={0} y={-60} text="SPEED RECORD" F={PET} dot={V} size={32} align="middle" />}
             right={<XTag x={0} y={-60} text="SAFETY NET" F={PET} dot={C.teal} size={32} align="middle" />}
           />
-          <Tick x={lx - 170} y={860} pxPerM={150} frame={f} facing={1} pose="press" expression="proud" look={0.2} squash={impact(f % 28, 0, 0.06, 10)} />
+          <Tick x={lx - 270} y={860} pxPerM={150} frame={f} facing={1} pose="press" expression="proud" look={0.2} squash={impact(f % 28, 0, 0.06, 10)} />
         </StudioSet>
       </Stage>
     </Pop>
