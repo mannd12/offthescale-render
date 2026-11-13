@@ -1,0 +1,92 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Put a one-centimetre square tile on a table.",
+    "file": "S59-core-pressure/vo/cold-00.wav",
+    "seconds": 2.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "At the surface, the air above it presses on that square with about one kilogram.",
+    "file": "S59-core-pressure/vo/cold-01.wav",
+    "seconds": 5.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Now take the tile down the tunnel, to the edge of the Earth's solid iron ball.",
+    "file": "S59-core-pressure/vo/cold-02.wav",
+    "seconds": 5.33,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "The pressure there is about three point three million atmospheres.",
+    "file": "S59-core-pressure/vo/cold-03.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That's about thirty-four hundred tonnes pressing on that one square centimetre.",
+    "file": "S59-core-pressure/vo/cold-04.wav",
+    "seconds": 3.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "That's the same as a stack of thirty-four hundred one-tonne blocks, all on that one tile.",
+    "file": "S59-core-pressure/vo/cold-05.wav",
+    "seconds": 5.33,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Three point three million times the air at the surface.",
+    "file": "S59-core-pressure/vo/cold-06.wav",
+    "seconds": 3.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "The pressure gauge runs off its scale.",
+    "file": "S59-core-pressure/vo/cold-07.wav",
+    "seconds": 2.39,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "And the deepest hole we have ever dug is twelve kilometres, out of twelve thousand seven hundred and forty.",
+    "file": "S59-core-pressure/vo/cold-08.wav",
+    "seconds": 6.28,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 9,
+    "text": "So how does anyone put a number on that? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S59-core-pressure/vo/cold-09.wav",
+    "seconds": 9.38,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

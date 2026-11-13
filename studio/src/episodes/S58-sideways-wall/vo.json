@@ -1,0 +1,92 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Lower a probe into a tunnel dug right on the equator.",
+    "file": "S58-sideways-wall/vo/cold-00.wav",
+    "seconds": 3.65,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "The Earth turns once every twenty-three point nine hours.",
+    "file": "S58-sideways-wall/vo/cold-01.wav",
+    "seconds": 3.02,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "That carries the equator east at about sixteen hundred and seventy kilometres an hour.",
+    "file": "S58-sideways-wall/vo/cold-02.wav",
+    "seconds": 4.6,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "That's the speed of the ground itself, right where the tunnel starts.",
+    "file": "S58-sideways-wall/vo/cold-03.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "The probe is carried along with it, sideways.",
+    "file": "S58-sideways-wall/vo/cold-04.wav",
+    "seconds": 2.81,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "It keeps that sideways speed as it falls.",
+    "file": "S58-sideways-wall/vo/cold-05.wav",
+    "seconds": 2.71,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "But the rock deeper down is closer to the axis, so it's moving slower.",
+    "file": "S58-sideways-wall/vo/cold-06.wav",
+    "seconds": 4.7,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So the probe drifts sideways, faster than the wall beside it, and the gap keeps growing as it sinks.",
+    "file": "S58-sideways-wall/vo/cold-07.wav",
+    "seconds": 6.38,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "And it scrapes the wall.",
+    "file": "S58-sideways-wall/vo/cold-08.wav",
+    "seconds": 1.76,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 9,
+    "text": "So where would you dig the tunnel, so the probe falls straight? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S58-sideways-wall/vo/cold-09.wav",
+    "seconds": 10.43,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
