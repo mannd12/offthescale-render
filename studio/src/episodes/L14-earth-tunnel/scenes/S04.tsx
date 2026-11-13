@@ -71,7 +71,7 @@ export const DeepShaft: React.FC<{
 }> = ({ f, F, scroll, depth = 600, pxPerKm = 2, layers = L14_STRATA, cx = 640, gap = 320, hatch = null, wobble = 0, ruler = null, probe = { y: 470 }, embers = 26, shimmer = 0, seed = 1, children, over }) => (
   <g>
     <rect x={-400} y={-400} width={2800} height={1900} fill={F.sky[0]} />
-    <StrataWall f={f} family={F} layers={layers} depth={depth} pxPerKm={pxPerKm} scroll={scroll} cx={cx} gap={gap} x0={-300} x1={1500} hatch={hatch} wobble={wobble} ruler={ruler} lamp={probe ? { y: probe.y } : null} />
+    <StrataWall f={f} family={F} layers={layers} depth={depth} pxPerKm={pxPerKm} scroll={scroll} cx={cx} gap={gap} x0={-700} x1={2300} hatch={hatch} wobble={wobble} ruler={ruler} lamp={probe ? { y: probe.y } : null} />
     <Bloom x={cx} y={1180} r={620} color={F.light} core={0} strength={0.35} />
     {shimmer > 0 ? <Shimmer f={f} x={cx - gap / 2} y={0} w={gap} h={1080} speed={6} opacity={0.3 * shimmer} /> : null}
     {children}
@@ -470,7 +470,7 @@ const ShotPoles: ShotFC<CL04> = ({ f, len, c }) => {
 // MOVER: stamp slam + ring (8 px/f); then the spin (5 → 0 px/f) + the lever + the closing push.
 // ================================================================================================================
 const ShotNoSpin: ShotFC<CL04> = ({ f, len, c }) => {
-  const g = { cx: 720, cy: 470, R: 300 };
+  const g = { cx: 720, cy: 540, R: 260 };
   const ph = c.textbook - c.famous;
   const stamp = ramp(f, 8, 16);
   const ringR = (f - 16) * 8;

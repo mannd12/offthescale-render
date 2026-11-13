@@ -144,7 +144,7 @@ const ShotPole: ShotFC<CL05> = ({ f, len, c }) => {
     return (
       <Stage theme={P.theme} cam={cameraAt(g, [{ f: 0, x: 900, y: 540, zoom: 1.2 }, { f: len - ph, x: 940, y: 540, zoom: 1.0 }])} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <DeepShaft f={g} F={P} scroll={scroll} depth={-20} pxPerKm={6} layers={KOLA.concat([{ from: 44, to: 400, color: C.mantle, pattern: "taffy" }])} probe={{ y: 440 + Math.sin(g / 8) * 4 }} embers={0} ruler={1120} />
+          <DeepShaft f={g} F={P} scroll={scroll} depth={-20} pxPerKm={6} probe={{ y: 440 + Math.sin(g / 8) * 4 }} embers={0} ruler={1120} />
         </Layer>
         <Layer depth={0}>
           <ShaftGauges f={g} F={P} speed={0.05 + 0.12 * ez(g, 0, 60)} heat={0.03} pressure={0.03} pull={pullValue(GAUGE.pullSurface)} appear={ez(g, 0, 14)} />
@@ -230,7 +230,7 @@ const ShotKola: ShotFC<CL05> = ({ f, len, c }) => {
           <rect x={-400} y={groundY - 10} width={2800} height={14} fill={mixHex(C.crust, CREAM, 0.3)} />
           <Rig x={640} y={groundY} h={300} f={f} cableTo={Math.min(holeBottom, groundY + 2000)} />
           {/* the bottom of the hole and its marker plate */}
-          <rect x={560} y={holeBottom} width={160} height={1400} fill={C.crustDeep} />
+          <rect x={602} y={holeBottom} width={76} height={1400} fill={C.crustDeep} />
           <ellipse cx={640} cy={holeBottom} rx={35} ry={10} fill={C.saffron} opacity={0.6 + 0.4 * Math.sin(f / 3)} />
           <rect x={720} y={holeBottom - 40} width={140} height={46} rx={10} fill={C.saffron} opacity={k > 0.9 ? 1 : 0} />
           <Shimmer f={f} x={590} y={holeBottom - 500} w={100} h={500} speed={6} opacity={0.35 * heatK} />
@@ -409,7 +409,7 @@ const ShotPaint: ShotFC<CL05> = ({ f, len, c }) => {
           <GroundShadow x={tx + 40} y={FLOOR + 3} rx={50} color={S.shadow} opacity={0.35} blur={8} />
           <Tick x={tx + 40} y={FLOOR} pxPerM={150} frame={f} facing={-1} walk={tx < x1 - 10 ? walkPhase(f, 20) : undefined} pose={tx < x1 - 10 ? "stand" : "hips"} expression="happy" look={0.4} />
           {ins > 0 ? (
-            <Inset cx={560} cy={330} r={190} at={[x0 + 24, ry - 6]} scale={9} family={S} t={ins}>
+            <Inset cx={900} cy={330} r={190} at={[x0 + 24, ry - 6]} scale={5} family={S} t={ins}>
               <rect x={x0 - 40} y={ry - 30} width={200} height={60} fill={mixHex(S.sky[1], S.sky[0], 0.5)} />
               <Ruler x0={x0 - 40} x1={x0 + 120} y={ry} color={INK} step={6} slide={(f - ph) * 1.6} w={2} />
               <rect x={x0} y={ry - 1 - thick} width={120} height={thick} fill={C.crust} stroke={C.crustDeep} strokeWidth={0.5} />
@@ -573,7 +573,7 @@ const ShotDrawWall: ShotFC<CL05> = ({ f, len }) => {
 const ShotFall: ShotFC<CL05> = ({ f, len }) => (
   <Stage theme={E.theme} cam={cameraAt(f, [{ f: 0, x: 900, y: 520, zoom: 1.08 }, { f: len, x: 900, y: 540, zoom: 1.0 }])} vignette={0.3} grain={0.5}>
     <Layer depth={1}>
-      <DeepShaft f={f} F={E} scroll={3000 + f * 16} depth={900} hatch="taffy" probe={{ y: 470 + Math.sin(f / 9) * 5 }} shimmer={0.5} seed={5} />
+      <DeepShaft f={f} F={E} scroll={f * 16} depth={1200} hatch="taffy" probe={{ y: 470 + Math.sin(f / 9) * 5 }} shimmer={0.5} seed={5} />
     </Layer>
     <Layer depth={0}>
       <ShaftGauges f={f} F={E} speed={0.42 + 0.06 * clamp01(f / len)} heat={0.7} pressure={0.55} pull={pullValue(1.02)} />
@@ -586,7 +586,7 @@ const ShotClose: ShotFC<CL05> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={E.theme} cam={cameraAt(f, [{ f: 0, x: 820, y: 520, zoom: 1.12 }, { f: len, x: 700, y: 500, zoom: 1.3 }])} vignette={0.35} grain={0.5}>
         <Layer depth={1}>
-          <DeepShaft f={f} F={E} scroll={4200 + f * 12} depth={1100} hatch="taffy" gap={gap} wobble={0.6} probe={{ y: 470, size: 130, tilt: Math.sin(f / 3) * 4 }} seed={6} />
+          <DeepShaft f={f} F={E} scroll={f * 12} depth={1400} hatch="taffy" gap={gap} wobble={0.6} probe={{ y: 470, size: 130, tilt: Math.sin(f / 3) * 4 }} seed={6} />
         </Layer>
       </Stage>
     </Pop>
@@ -753,14 +753,14 @@ const ShotFrost: ShotFC<CL05> = ({ f, len, c }) => {
 const ShotAccel: ShotFC<CL05> = ({ f, len, c }) => {
   const ph = c.nineteen - c.fast;
   const v = Math.min(30, 14 + f * 0.12);
-  const scroll = 5000 + f * 14 + 0.06 * f * f;
+  const scroll = f * 14 + 0.06 * f * f;
   const sp = 0.3 + 0.55 * ez(f, 0, ph + 60);
   const ring = ez(f, ph + 6, ph + 50);
   return (
     <Pop f={f}>
       <Stage theme={E.theme} cam={cameraAt(f, [{ f: 0, x: 880, y: 540, zoom: 1.04 }, { f: len, x: 860, y: 540, zoom: 1.12 }])} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <DeepShaft f={f} F={E} scroll={scroll} depth={1600} hatch="taffy" probe={{ y: 470 + Math.sin(f / 7) * 4 }} shimmer={0.5} seed={8} />
+          <DeepShaft f={f} F={E} scroll={scroll} depth={1500} pxPerKm={6} hatch="taffy" probe={{ y: 470 + Math.sin(f / 7) * 4 }} shimmer={0.5} seed={8} />
           {/* speed streaks in the slot, faster as it accelerates */}
           <g transform="rotate(-90 640 540)">
             <Streamers f={f} n={8} x0={-200} x1={1300} y0={500} y1={780} len={200} width={5} speed={v} color={E.light} opacity={0.4} seed={11} />

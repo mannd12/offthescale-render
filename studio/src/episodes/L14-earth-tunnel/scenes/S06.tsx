@@ -181,7 +181,7 @@ const ShotSeam: ShotFC<CL06> = ({ f, len, c }) => {
       <Stage theme={I.theme} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
           <rect x={-400} y={-400} width={2800} height={1900} fill={I.sky[0]} />
-          <StrataWall f={f} family={I} depth={2886} pxPerKm={2} scroll={scroll} cx={640} gap={320} x0={-300} x1={1500} hatch="iron" lamp={{ y: py }} />
+          <StrataWall f={f} family={I} depth={2886} pxPerKm={2} scroll={scroll} cx={640} gap={320} x0={-700} x1={2300} hatch="iron" lamp={{ y: py }} />
           <clipPath id="l06sea">
             <rect x={-400} y={seamY + 6} width={2800} height={2000} />
           </clipPath>
@@ -779,10 +779,10 @@ const ShotStack: ShotFC<CL06> = ({ f, len, c }) => {
           </g>
           {f >= ph - 6 ? (
             <g transform={`translate(${(1 - out) * 1400} 0)`}>
-              <g transform="translate(560 220) scale(2)">
+              <g transform="translate(600 180) scale(1.7)">
                 <HeatGauge x={0} y={0} s={{ value: 1.1, pinned: true }} f={f} ink={inkLight(V)} />
               </g>
-              <g transform="translate(560 560) scale(2)">
+              <g transform="translate(600 560) scale(1.7)">
                 <PressureGauge x={0} y={0} s={{ value: 1.1, pinned: true }} f={f + 1} ink={inkLight(V)} />
               </g>
             </g>
@@ -1016,12 +1016,13 @@ const ShotTrend: ShotFC<CL06> = ({ f, len, c }) => {
 // ================================================================================================================
 const LabRoom: React.FC<{ f: number; children: React.ReactNode }> = ({ f, children }) => (
   <g>
-    <Sky family={NOON} stops={["#8FD2E6", "#CFEFF0", "#F3E9C8"]} />
+    <Sky family={NOON} stops={["#8FD2E6", "#CFEFF0", "#F3E9C8"]} w={3800} />
     <rect x={1250} y={120} width={420} height={500} rx={20} fill={alpha("#FFF3C8", 0.85)} stroke={NOON.shadow} strokeWidth={10} />
     <line x1={1460} y1={120} x2={1460} y2={620} stroke={NOON.shadow} strokeWidth={8} />
     <Bloom x={1460} y={300} r={420} color={NOON.light} core={30} coreColor="#FFFFFF" strength={0.7} />
-    <rect x={-400} y={780} width={2800} height={500} fill={mixHex(C.crust, NOON.near, 0.25)} />
-    <rect x={-400} y={770} width={2800} height={20} fill={C.crustDeep} />
+    <rect x={-400} y={780} width={3800} height={500} fill={mixHex(C.crust, NOON.near, 0.25)} />
+    <rect x={-400} y={770} width={3800} height={20} fill={C.crustDeep} />
+    <circle cx={700} cy={470} r={290} fill={alpha(C.tealDeep, 0.8)} />
     {children}
     <Motes frame={f} n={20} x={-100} y={60} w={2100} h={860} color={alpha("#FFFFFF", 0.85)} seed={21} size={5} drift={40} />
   </g>
@@ -1041,7 +1042,7 @@ const ShotAnvil: ShotFC<CL06> = ({ f, len, c }) => {
             <rect x={gx - 30} y={150} width={60} height={640} fill={alpha("#FFFFFF", 0.5)} transform={`skewX(-20)`} opacity={1 - laser * 0.5} />
             {laser > 0 ? (
               <g>
-                <Emissive d={`M-200 ${300} L700 470`} color={C.vermilion} core="#FFF0E0" width={10 + 6 * Math.sin(f / 2)} strength={laser} glow={16} />
+                <Emissive d={`M-200 650 L700 470`} color={C.vermilion} core="#FFF0E0" width={10 + 6 * Math.sin(f / 2)} strength={laser} glow={16} />
                 <Emissive d={`M1600 ${260} L700 470`} color={C.vermilion} core="#FFF0E0" width={10 + 6 * Math.cos(f / 2)} strength={laser} glow={16} />
                 <Bloom x={700} y={470} r={60 + 140 * k} color={C.saffronCore} core={10 + 20 * k} coreColor="#FFFFFF" strength={0.6 + 0.4 * k} />
               </g>
