@@ -35,6 +35,8 @@ import { ThumbL14, ThumbL14B } from "./episodes/L14-earth-tunnel/Thumb";
 import { ThumbL13, ThumbL13B } from "./episodes/L13-loudest-sound/Thumb";
 import { FullL14, KeyArt1 as KeyArtL14a, KeyArt2 as KeyArtL14b, KeyArt3 as KeyArtL14c, l14Frames } from "./episodes/L14-earth-tunnel/Full";
 import { L14KitDemo, L14_KIT_DEMO_FRAMES } from "./episodes/L14-earth-tunnel/KitDemo";
+import { FullL15SPACEJUMP, L15SpaceJumpFrames } from "./episodes/L15-space-jump/Full";
+import { L15KitDemo, L15_KIT_DEMO_FRAMES } from "./episodes/L15-space-jump/KitDemo";
 import { FullL13, KeyArt1 as KeyArtL13a, KeyArt2 as KeyArtL13b, KeyArt3 as KeyArtL13c, l13Frames } from "./episodes/L13-loudest-sound/Full";
 import { L13KitDemo, L13_KIT_DEMO_FRAMES } from "./episodes/L13-loudest-sound/KitDemo";
 import { DuskScene } from "./style-v2/Dusk";
@@ -141,6 +143,8 @@ export const Root: React.FC = () => (
     <Still id="l14-key-2" component={KeyArtL14b} width={WIDTH} height={HEIGHT} />
     <Still id="l14-key-3" component={KeyArtL14c} width={WIDTH} height={HEIGHT} />
     <Composition id="l14-kit-demo" component={L14KitDemo} durationInFrames={L14_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="L15SpaceJump" component={FullL15SPACEJUMP} durationInFrames={L15SpaceJumpFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="L15KitDemo" component={L15KitDemo} durationInFrames={L15_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="l13" component={FullL13} durationInFrames={l13Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-1" component={KeyArtL13a} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-2" component={KeyArtL13b} width={WIDTH} height={HEIGHT} />

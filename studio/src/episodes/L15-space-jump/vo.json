@@ -1,0 +1,610 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "If you jumped from the edge of space, how fast would you fall, and what would stop you?",
+    "file": "L15-space-jump/vo/cold-00-8307230682.wav",
+    "seconds": 4.579958333333333,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Here's the strange part. You wouldn't keep speeding up. You'd pass the speed of sound, and then slow down, a long way above the ground.",
+    "file": "L15-space-jump/vo/cold-01-5e4d685b7b.wav",
+    "seconds": 7.52,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "We'll drop a probe instead, with Tick watching four gauges: speed, air, push and cold. Every one runs off its scale, and comes back. And the real jumps, three of them, give us the numbers to check it against.",
+    "file": "L15-space-jump/vo/cold-02-c163ec316e.wav",
+    "seconds": 13.34,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Then we'll go higher than any of them, all the way to where the space station flies.",
+    "file": "L15-space-jump/vo/cold-03-045d866d6c.wav",
+    "seconds": 3.87,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "But first there's a problem with the word edge.",
+    "file": "L15-space-jump/vo/cold-04-880299f234.wav",
+    "seconds": 2.35,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "Ask where space begins, and you get three answers.",
+    "file": "L15-space-jump/vo/l01-00-9ce1797025.wav",
+    "seconds": 2.68,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "The international body that keeps aviation records, the FAI, draws the line at one hundred kilometres. The United States armed forces gave astronaut wings to anyone who flew higher than fifty miles.",
+    "file": "L15-space-jump/vo/l01-01-b6c1f05ba1.wav",
+    "seconds": 10.720041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "Fifty miles is eighty point five kilometres, so about eighty.",
+    "file": "L15-space-jump/vo/l01-02-d42c0a779e.wav",
+    "seconds": 3.52,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "Neither one is a wall. The hundred was a rough estimate, rounded to a tidy number. Later calculations put the limit for aircraft near eighty-four kilometres. In 2018 the astronomer Jonathan McDowell argued for eighty.",
+    "file": "L15-space-jump/vo/l01-03-330b1a07e8.wav",
+    "seconds": 12.59,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "Now look at where the record jumps began. Felix Baumgartner, in 2012: almost thirty-nine kilometres. Alan Eustace, in 2014: forty-one point four.",
+    "file": "L15-space-jump/vo/l01-04-171a0dd3be.wav",
+    "seconds": 9.2,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 5,
+    "text": "That's less than half of the hundred-kilometre line, and only about half of the eighty.",
+    "file": "L15-space-jump/vo/l01-05-a3b5ad0ac8.wav",
+    "seconds": 3.91,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 6,
+    "text": "So \"jumping from the edge of space\" is a nickname. Those jumps started in the stratosphere, which ends at about fifty kilometres.",
+    "file": "L15-space-jump/vo/l01-06-a85c0b466e.wav",
+    "seconds": 6.560041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 7,
+    "text": "Above that comes the mesosphere, which reaches to about eighty-five kilometres, and then the thermosphere. We'll keep the nickname for the title, and use real numbers for the rest.",
+    "file": "L15-space-jump/vo/l01-07-c808832451.wav",
+    "seconds": 8.610041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "Three real jumps set the numbers, and they didn't play by the same rules.",
+    "file": "L15-space-jump/vo/l02-00-bf222e955b.wav",
+    "seconds": 3.22,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "In 1960, Joe Kittinger jumped from a balloon at thirty-one thousand three hundred and thirty-three metres. A small stabiliser parachute, two metres across, kept him steady.",
+    "file": "L15-space-jump/vo/l02-01-85f83f9aa6.wav",
+    "seconds": 9.43,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "The fall lasted four minutes and thirty-seven seconds. His balloon held nearly three million cubic feet of helium, and the whole descent, parachute included, took more than thirteen minutes.",
+    "file": "L15-space-jump/vo/l02-02-da40290d8f.wav",
+    "seconds": 10.71,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "In 2012, Baumgartner jumped from thirty-eight thousand nine hundred and sixty-nine metres. His fastest moment was thirteen hundred and fifty-seven point six kilometres an hour, Mach one point two five.",
+    "file": "L15-space-jump/vo/l02-03-106d724b3e.wav",
+    "seconds": 11.38,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "The whole free fall took four minutes and twenty seconds. He used no stabiliser parachute. The fall covered thirty-six thousand four hundred and two point six metres before the main parachute.",
+    "file": "L15-space-jump/vo/l02-04-f00877547a.wav",
+    "seconds": 10.49,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "The climb in the balloon had taken about two and a half hours.",
+    "file": "L15-space-jump/vo/l02-05-eb3d3e7555.wav",
+    "seconds": 2.7,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 6,
+    "text": "In 2014, Eustace jumped from forty-one thousand four hundred and nineteen metres, hanging from a balloon with no capsule around him.",
+    "file": "L15-space-jump/vo/l02-06-2c7bccc0e7.wav",
+    "seconds": 7.66,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 7,
+    "text": "He reached thirteen hundred and twenty-one kilometres an hour, Mach one point two three, and he did use a stabiliser parachute.",
+    "file": "L15-space-jump/vo/l02-07-2592f3a8ae.wav",
+    "seconds": 6.73,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 8,
+    "text": "A carbon fibre tube about three point six six metres long kept the chute's lines clear of the suit. An explosive device cut him loose from the balloon, and he reached the ground about fifteen minutes later.",
+    "file": "L15-space-jump/vo/l02-08-c117b90880.wav",
+    "seconds": 10.61,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 9,
+    "text": "So the best data we have is from just above forty-one kilometres, and the fastest anyone has fallen is a little over Mach one. Which raises the question. Up there, the air is almost gone. So why isn't the speed enormous?",
+    "file": "L15-space-jump/vo/l02-09-8a12275726.wav",
+    "seconds": 12.38,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "The first gauge is air. At sea level, one cubic metre of air has a mass of one point two two five kilograms. At forty kilometres, it's under four grams. That's about three hundred times thinner.",
+    "file": "L15-space-jump/vo/l03-00-87e2280e28.wav",
+    "seconds": 12.42,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "At eighty kilometres, about sixty-six thousand times thinner. In between, at ten kilometres a cubic metre of air has four hundred and thirteen grams, and at twenty kilometres, eighty-nine. The air doesn't thin steadily.",
+    "file": "L15-space-jump/vo/l03-01-a7857066d6.wav",
+    "seconds": 12.96,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "It falls away fast, and most of it is below.",
+    "file": "L15-space-jump/vo/l03-02-b5170cfbf9.wav",
+    "seconds": 2.7,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "Now remember what stops anything falling. It's drag. It grows with the thickness of the air and with the square of the speed. When it balances the weight, the fall stops speeding up. That's terminal velocity.",
+    "file": "L15-space-jump/vo/l03-03-5bea838915.wav",
+    "seconds": 11.14,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "Double the speed, and the push is four times as big.",
+    "file": "L15-space-jump/vo/l03-04-afd8b01abe.wav",
+    "seconds": 3.18,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "Here's the catch: the speed the air allows rises as the air thins, in proportion to one over the square root of the density. At forty kilometres, the limit is about seventeen and a half times what it is at the ground.",
+    "file": "L15-space-jump/vo/l03-05-5ca3517fd3.wav",
+    "seconds": 11.95,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 6,
+    "text": "So at the top, there's no limit to meet. Gravity there is still about ninety-seven percent of what it is on the ground.",
+    "file": "L15-space-jump/vo/l03-06-d13ccaeebf.wav",
+    "seconds": 5.819958333333333,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 7,
+    "text": "In our model, a probe let go at the hundred-kilometre line falls almost as it would in a vacuum, and the push gauge sits at zero.",
+    "file": "L15-space-jump/vo/l03-07-c00d886dbf.wav",
+    "seconds": 7.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "The second gauge is the temperature of the air, and it doesn't just fall as you rise. At the ground it's fifteen degrees Celsius. At twenty kilometres, minus fifty-six point five. At fifty, minus two point five.",
+    "file": "L15-space-jump/vo/l04-00-0c847b88da.wav",
+    "seconds": 13.07,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "At eighty, minus seventy-four point five. The stratosphere warms with height, to just below zero at its top. The mesosphere is the coldest layer of the atmosphere, around minus eighty-five degrees on average.",
+    "file": "L15-space-jump/vo/l04-01-5354029789.wav",
+    "seconds": 12.5,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "And above that, the thermosphere, where the air can reach two thousand degrees. So the temperature gauge swings up, down, up, down and up again.",
+    "file": "L15-space-jump/vo/l04-02-923f4948bf.wav",
+    "seconds": 9.95,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "That matters for one reason. The speed of sound depends on the temperature of the air, and not on how thick it is. At the ground, it's about three hundred and forty metres a second.",
+    "file": "L15-space-jump/vo/l04-03-6483aedfe5.wav",
+    "seconds": 8.67,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "At twenty kilometres, about two hundred and ninety-five, which is one thousand and sixty-two kilometres an hour.",
+    "file": "L15-space-jump/vo/l04-04-9a4f2a0ac5.wav",
+    "seconds": 5.73,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 5,
+    "text": "Baumgartner passed the speed of sound thirty-four seconds into the fall. His peak came at fifty seconds. At Mach one point two five, that is a local speed of sound near one thousand and eighty-six kilometres an hour.",
+    "file": "L15-space-jump/vo/l04-05-11f21ea7d8.wav",
+    "seconds": 11.9,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 6,
+    "text": "That fits air near minus forty-seven degrees, which is the standard atmosphere at thirty kilometres.",
+    "file": "L15-space-jump/vo/l04-06-d66dcf5136.wav",
+    "seconds": 5.2,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 7,
+    "text": "Fifty seconds in, the speed stopped growing. Something had started pushing back. And it wasn't the sound barrier, since the fall had passed that sixteen seconds earlier.",
+    "file": "L15-space-jump/vo/l04-07-4d841f9cbf.wav",
+    "seconds": 9.24,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "It isn't the height. It's two things the height hides.",
+    "file": "L15-space-jump/vo/l05-00-eb2da60c6a.wav",
+    "seconds": 3.03,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "The first is spin. A jumper falling from this height has a known tendency to enter a fast spin. In Baumgartner's fall, a spin began inside the first minute.",
+    "file": "L15-space-jump/vo/l05-01-d1e82357d2.wav",
+    "seconds": 8.35,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "The mission's own data count about thirteen seconds of flat spin. A stabiliser parachute would have stopped it, and capped the speed at the same time.",
+    "file": "L15-space-jump/vo/l05-02-6ca23b2db5.wav",
+    "seconds": 7.49,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "So the team kept it as an emergency option, and chose the speed record over the safety net. The other two jumps, Kittinger's and Eustace's, used one.",
+    "file": "L15-space-jump/vo/l05-03-fa2e42ba6a.wav",
+    "seconds": 8.13,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "The second villain is the air itself, and how fast it arrives. From forty kilometres down to twenty, the air gets about twenty-two times thicker. Push depends on the density times the speed squared.",
+    "file": "L15-space-jump/vo/l05-04-f708fdbbb2.wav",
+    "seconds": 10.41,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "So the push climbs much faster than the speed.",
+    "file": "L15-space-jump/vo/l05-05-441960d7c3.wav",
+    "seconds": 2.08,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "When push passes weight, the fall turns into a braking. In our model, the push peaks at about five times the probe's weight, at twenty kilometres.",
+    "file": "L15-space-jump/vo/l05-06-5597044c90.wav",
+    "seconds": 7.31,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 7,
+    "text": "The air was nothing for the first minute and a half, and then it was everything.",
+    "file": "L15-space-jump/vo/l05-07-9e089cc3b7.wav",
+    "seconds": 3.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 8,
+    "text": "Which is why the record falls end where they do. Not with a bigger number, but with a smaller one. A parachute opened at about two and a half kilometres above sea level.",
+    "file": "L15-space-jump/vo/l05-08-482b2a13a4.wav",
+    "seconds": 8.09,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Now the drop nobody has made: from the hundred-kilometre line. We ran a simple model, with a hundred-kilogram capsule, sixty centimetres wide, and a fixed drag coefficient.",
+    "file": "L15-space-jump/vo/l06-00-94903a6e8c.wav",
+    "seconds": 9.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "Through the first minute and a half, it just speeds up, as the air does nothing. At eighty kilometres it's moving at about six hundred and eighteen metres a second. At sixty, about eight hundred and seventy-four.",
+    "file": "L15-space-jump/vo/l06-01-317ebcb499.wav",
+    "seconds": 10.09,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "At fifty, about nine hundred and seventy-two. And at forty kilometres, about one thousand and forty-three, which is Mach three point three, because the sound speed there is only about three hundred and seventeen.",
+    "file": "L15-space-jump/vo/l06-02-0c13438607.wav",
+    "seconds": 10.43,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "The peak comes at about thirty-six kilometres: roughly one thousand and fifty metres a second. That is about thirty-eight hundred kilometres an hour, almost three times Baumgartner's best. Then it drops.",
+    "file": "L15-space-jump/vo/l06-03-955e97ed86.wav",
+    "seconds": 10.86,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "About seven hundred metres a second at twenty kilometres, and a hundred and seventy at ten.",
+    "file": "L15-space-jump/vo/l06-04-8b539d43f8.wav",
+    "seconds": 5.61,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "At the ground it moves at the speed the air allows: about eighty-six metres a second, just over four minutes after the drop. So the hundred-kilometre line gives a bigger peak than any record jump, and the same ending.",
+    "file": "L15-space-jump/vo/l06-05-8ccb127a24.wav",
+    "seconds": 11.24,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "The air decides. The height only sets how big the peak can get, and the air takes it all back, in the same few tens of kilometres.",
+    "file": "L15-space-jump/vo/l06-06-b979d642fa.wav",
+    "seconds": 7.1,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "Push the start line further out, to where the space station flies. Between three hundred and seventy and four hundred and sixty kilometres up. It circles the Earth about every ninety minutes, sixteen times a day.",
+    "file": "L15-space-jump/vo/l07-00-0f004c73f7.wav",
+    "seconds": 10.82,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "If you could drop the probe from rest at about four hundred, the height alone would give it about two point three kilometres a second by the time it reached the hundred-kilometre line.",
+    "file": "L15-space-jump/vo/l07-01-259cf10f2d.wav",
+    "seconds": 7.9,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "But you can't drop it from rest, because nothing up there is at rest. The station moves at seventeen thousand five hundred miles an hour. By our arithmetic, that's seven point six seven kilometres a second.",
+    "file": "L15-space-jump/vo/l07-02-fcc62d2289.wav",
+    "seconds": 11.190041666666668,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "Let go of the probe, and it keeps that speed. It doesn't fall away. It falls around the Earth, with the station. Gravity there is still about ninety percent of what it is on the ground.",
+    "file": "L15-space-jump/vo/l07-03-82f6c0a97d.wav",
+    "seconds": 8.94,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "So the speed that matters isn't from the height. It's the sideways speed. Seven point six seven against two point three three: more than three times as much.",
+    "file": "L15-space-jump/vo/l07-04-3dae37f804.wav",
+    "seconds": 8.24,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "Even at the hundred-kilometre line, the speed to stay in orbit would be seven point eight four kilometres a second. That is about twenty-eight thousand kilometres an hour, and about twenty-one times Baumgartner's best.",
+    "file": "L15-space-jump/vo/l07-05-54d8b9e01a.wav",
+    "seconds": 10.400041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 6,
+    "text": "And the height-only drop? In our model it peaks at about two and a half kilometres a second, at about forty-eight kilometres up.",
+    "file": "L15-space-jump/vo/l07-06-a23f7b8a95.wav",
+    "seconds": 6.110041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 7,
+    "text": "What brings something down from there is the air, slowly. The station itself loses height to air drag, and needs rocket burns to be lifted back. The height is the cheap part. A balloon can supply it.",
+    "file": "L15-space-jump/vo/l07-07-e8dafc8b1c.wav",
+    "seconds": 10.14,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 8,
+    "text": "The orbit's speed is what turns a fall into a lap of the planet. The station's own slow loss of height shows how slowly the air takes it back.",
+    "file": "L15-space-jump/vo/l07-08-df06bf69b4.wav",
+    "seconds": 7.18,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 9,
+    "text": "The sideways speed is the expensive part, and the one that no jump has ever come near.",
+    "file": "L15-space-jump/vo/l07-09-20c3ce79dd.wav",
+    "seconds": 4.5,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Here is what we have simplified. Our model has a fixed drag coefficient, and a straight vertical fall, with no wind. It has no spin, no heating, and no tumbling. The temperature we showed is the air's, not the probe's.",
+    "file": "L15-space-jump/vo/l08-00-4010ac5a9e.wav",
+    "seconds": 13.11,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "The air model is a standard average, not any one particular day. And a fixed drag coefficient is the biggest shortcut, because a real capsule's drag changes with its speed and its shape.",
+    "file": "L15-space-jump/vo/l08-01-b0e7827bd9.wav",
+    "seconds": 9.82,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "We kept it fixed so the story stays visible, not because it's true.",
+    "file": "L15-space-jump/vo/l08-02-c68083bd63.wav",
+    "seconds": 3.49,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "And the records are less tidy than they look. Baumgartner's first reported top speed was thirteen hundred and forty-two kilometres an hour, and the official one is higher.",
+    "file": "L15-space-jump/vo/l08-03-089239fe1d.wav",
+    "seconds": 8.6,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "Eustace's free-fall time appears in sources as four minutes twenty-seven seconds, flagged as contradictory.",
+    "file": "L15-space-jump/vo/l08-04-1f3c2f2d44.wav",
+    "seconds": 5.850041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "Even the edge isn't settled. Whether you draw it at eighty kilometres or one hundred, the three jumps never got there.",
+    "file": "L15-space-jump/vo/l08-05-d4fd2b152e.wav",
+    "seconds": 6.35,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "What we can say is that the jumps happened where the air was thin enough to let a fall go supersonic, and thick enough to end it.",
+    "file": "L15-space-jump/vo/l08-06-6c877bee2c.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "So here is the honest answer. If you jumped from where Eustace did, you'd pass the speed of sound once, and then the air would take that speed back.",
+    "file": "L15-space-jump/vo/closer-00-57c211e4c1.wav",
+    "seconds": 7.38,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "If you jumped from the hundred-kilometre line, our model says about three times as fast, and the same ending. And if you let go at the space station, you wouldn't fall at all.",
+    "file": "L15-space-jump/vo/closer-01-340c36662f.wav",
+    "seconds": 8.65,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "You would circle the Earth, at about seven point six seven kilometres a second, until the air slowly pulled you down.",
+    "file": "L15-space-jump/vo/closer-02-d1fb403eee.wav",
+    "seconds": 6.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "The edge of space isn't a height you can jump from. It's a speed you have to lose first.",
+    "file": "L15-space-jump/vo/closer-03-d13fa574ed.wav",
+    "seconds": 4.7,
+    "pauseAfter": 0.55
+  }
+]
