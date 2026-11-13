@@ -67,9 +67,9 @@ const Rig: React.FC<{ f: number; tickPose?: "hold" | "point"; probe?: boolean }>
 const ShotLaunch: ShotFC<CCold> = ({ f, len, c }) => {
   const T2 = c.tilt - c.launch;
   // phase 1: a fake 1.2-"km" window over the launch field, tilting up 8 px/f
-  const b = -0.08 + f * (8 / 900);
-  const gy = altY(0, b + 1.2, b);
-  const rigY = gy - 150 - f * 1.6; // the rig lifting off the field
+  const gy = 800 + f * 5; // the field sliding down as the camera tilts up (5 px/f)
+  const b = (gy * 1.2) / 1080 - 1.2; // the fake 1.2-"km" window that puts the ground at gy
+  const rigY = 640 - f * 1.2; // the rig lifting off the field (≈ 6 px/f relative to the ground)
   const x2 = ez(f, T2 - 4, T2 + 12); // crossfade into phase 2
   const g = f - T2;
   const headY = Math.max(150, 980 - Math.max(0, g) * 60);
@@ -85,10 +85,10 @@ const ShotLaunch: ShotFC<CCold> = ({ f, len, c }) => {
           <Streamers f={f} n={14} x0={-300} x1={2300} y0={gy - 320} y1={gy - 20} len={220} width={5} speed={9} color={alpha("#FFE0B0", 0.9)} opacity={0.45} slope={-0.02} seed={5} />
           {/* the dotted line from the deck down to the far ground */}
           {Array.from({ length: 30 }, (_, i) => {
-            const y = rigY + 150 + i * 40;
+            const y = rigY + 150 + i * 30;
             return y < gy - 6 ? <circle key={i} cx={980} cy={y} r={7} fill={C.saffron} opacity={0.85} /> : null;
           })}
-          <Balloon x={980} y={rigY} size={380} f={f} inflate={lerp(0.3, 0.8, ez(f, 0, T2 + 20))} variant="beam" payload={<Rig f={f} />} />
+          <Balloon x={980} y={rigY} size={340} f={f} inflate={lerp(0.3, 0.8, ez(f, 0, T2 + 20))} variant="beam" payload={<Rig f={f} />} />
         </Layer>
         <Layer depth={0}>
           <g opacity={1 - x2}>
@@ -306,7 +306,7 @@ const ShotClimb: ShotFC<CCold> = ({ f, len, c }) => {
         </Layer>
         <Layer depth={0}>
           <g opacity={ez(f, T8 + 6, T8 + 20)}>
-            <Kicker x={160} y={130} text="THEN HIGHER" color={CREAM} size={30} />
+            <Kicker x={240} y={130} text="THEN HIGHER" color={CREAM} size={30} />
           </g>
         </Layer>
       </Stage>
@@ -370,7 +370,7 @@ const ShotEdge: ShotFC<CCold> = ({ f, len }) => {
           <Tick x={250} y={ly + 300} pxPerM={90} frame={f} facing={1} pose="think" expression="thinking" look={0.6} headTilt={14} />
         </Layer>
         <Layer depth={0}>
-          <Kicker x={120} y={130} text="THE WORD EDGE" color={CREAM} size={28} />
+          <Kicker x={240} y={130} text="THE WORD EDGE" color={CREAM} size={28} />
         </Layer>
       </Stage>
     </Pop>

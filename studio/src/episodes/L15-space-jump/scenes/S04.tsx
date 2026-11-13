@@ -96,7 +96,7 @@ const ShotGround: ShotFC<CL04> = ({ f, len }) => {
           <SkyBack f={f} altTop={6} altBottom={-0.4} drift={0.3} />
           <CloudRack f={f} n={6} x0={-300} x1={2200} y0={160} y1={620} size={64} speed={2.4} body={C.cloud} under={C.cloudShade} seed={4} />
           <TempChart f={f} altTop={6} altBottom={-0.4} bead={0.25} words={false} beadR={30} />
-          <Bloom x={lerp(360, 1120, (TEMP_READ.sea - T_LO) / (T_HI - T_LO))} y={altY(0.25, 6, -0.4)} r={170 + Math.sin(f / 5) * 20} color={C.saffronCore} strength={0.7} />
+          <Bloom x={lerp(450, 1190, (TEMP_READ.sea - T_LO) / (T_HI - T_LO))} y={altY(0.25, 6, -0.4)} r={170 + Math.sin(f / 5) * 20} color={C.saffronCore} strength={0.7} />
         </Layer>
         <Layer depth={0}>
           <Slab x={520} y={430} value={tempStd(TEMP_READ.sea /* #11 */, k, 0)} unit="°C" size={120} F={PET} sub={STD} />
@@ -155,10 +155,10 @@ const ShotStrato: ShotFC<CL04> = ({ f, len }) => {
         <Layer depth={1}>
           <SkyBack f={f} altTop={top} altBottom={bot} drift={0.3} />
           <TempChart f={f} altTop={top} altBottom={bot} head={top} words={false} />
-          <rect x={236} y={Y(w)} width={84} height={Y(LAYER_TOPS.tropo) - Y(w)} rx={12} fill={C.saffron} opacity={pulse} />
-          <rect x={230} y={Y(w) - 5} width={96} height={10} rx={5} fill={C.saffronCore} />
-          <Arrow x1={400} y1={Y(LAYER_TOPS.tropo) - 10} x2={400} y2={Y(LAYER_TOPS.tropo) - 10 - Math.max(4, arrow)} color={C.saffronCore} w={18} head={46} />
-          <Tick x={560} y={Y(0) + 6} pxPerM={110} frame={f} facing={-1} pose="point" staff expression="thinking" look={0.3 + 0.4 * ez(f, 10, len)} headTilt={-20 * ez(f, 10, len)} />
+          <rect x={316} y={Y(w)} width={84} height={Y(LAYER_TOPS.tropo) - Y(w)} rx={12} fill={C.saffron} opacity={pulse} />
+          <rect x={310} y={Y(w) - 5} width={96} height={10} rx={5} fill={C.saffronCore} />
+          <Arrow x1={470} y1={Y(LAYER_TOPS.tropo) - 10} x2={470} y2={Y(LAYER_TOPS.tropo) - 10 - Math.max(4, arrow)} color={C.saffronCore} w={18} head={46} />
+          <Tick x={640} y={Y(0) + 6} pxPerM={110} frame={f} facing={-1} pose="point" staff expression="thinking" look={0.3 + 0.4 * ez(f, 10, len)} headTilt={-20 * ez(f, 10, len)} />
         </Layer>
         <Layer depth={0}>
           <XTag x={720} y={120} text="STRATOSPHERE WARMS WITH HEIGHT" F={PET} dot={C.saffron} size={32} opacity={ez(f, 14, 26)} />
@@ -202,7 +202,7 @@ const ShotMeso: ShotFC<CL04> = ({ f, len }) => {
             />
           ))}
           <TempChart f={f} altTop={top} altBottom={bot} head={bead} bead={bead} words={false} beadR={26} />
-          <Arrow x1={1180} y1={Y(60)} x2={1180} y2={Y(60) + 60 + 200 * ez(f, 10, 60)} color={C.frost} w={18} head={46} />
+          <Arrow x1={1110} y1={Y(60)} x2={1110} y2={Y(60) + 60 + 200 * ez(f, 10, 60)} color={C.frost} w={18} head={46} />
         </Layer>
         <Layer depth={0}>
           <XTag x={560} y={110} text="MESOSPHERE · COLDEST LAYER" F={VOID} dot={C.frost} size={32} opacity={ez(f, 10, 22)} />
@@ -228,7 +228,7 @@ const ShotThermo: ShotFC<CL04> = ({ f, len }) => {
         <Layer depth={1}>
           <SkyBack f={f} altTop={top} altBottom={bot} drift={0.6} aurora={1} />
           <TempChart f={f} altTop={top} altBottom={bot} head={bead} bead={bead} words={false} flare={ez(f, 4, 30)} beadR={28} />
-          <Bloom x={260 + 28} y={altY(100, top, bot)} r={260} color={L15_COLORS.thermo} strength={0.35 * ez(f, 4, 30)} />
+          <Bloom x={330 + 28} y={altY(100, top, bot)} r={260} color={L15_COLORS.thermo} strength={0.35 * ez(f, 4, 30)} />
         </Layer>
         <Layer depth={0}>
           <XTag x={560} y={980} text="THERMOSPHERE · HOT, THIN AIR" F={VOID} dot={L15_COLORS.thermo} size={32} opacity={ez(f, 10, 22)} />
@@ -590,7 +590,7 @@ const ShotEarlier: ShotFC<CL04> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.4}>
         <Layer depth={1}>
-          <SkyBack f={f} altTop={110} altBottom={90} drift={3} streak={10} ruler={false} />
+          <SkyBack f={f} altTop={110} altBottom={90} drift={3} streak={10} ruler={false} bands={false} />
           <TimeStrip f={f} s={B.peakAtS + 3} flag={1} peakLabel={1} />
           <Bracket x1={tx(B.soundAtS)} y1={TY + 120} x2={tx(B.peakAtS)} y2={TY + 120} draw={lin(f, 6, 30)} label={`${B.gapS} s` /* #4 arithmetic */} color={C.saffron} />
           <Tick x={1200} y={TY - 14} pxPerM={100} frame={f} facing={1} pose="think" expression="thinking" look={0.9} headTilt={Math.sin(f / 16) * 6} />
@@ -599,7 +599,7 @@ const ShotEarlier: ShotFC<CL04> = ({ f, len }) => {
           <XTag x={160} y={110} text={`${B.gapS} s EARLIER`} F={VOID} dot={C.saffron} size={32} opacity={ez(f, 24, 36)} />
           <PushGauge x={1480} y={250} s={{ value: 1.5, unknown: true, pinned: true }} f={f} family={VOID} theme="light" scale={1.9} />
           <g opacity={blink}>
-            <UnknownTag x={1646} y={330} size={58} />
+            <UnknownTag x={1769} y={565} size={58} />
           </g>
         </Layer>
       </Stage>

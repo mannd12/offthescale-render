@@ -226,7 +226,7 @@ export const TempChart: React.FC<{
   flare?: number;
   words?: boolean;
   beadR?: number;
-}> = ({ f, altTop, altBottom, sx = 250, ax = 360, aw = 760, head = null, bead = null, wipe = 1e9, flare = 0, words = true, beadR = 22 }) => {
+}> = ({ f, altTop, altBottom, sx = 330, ax = 450, aw = 740, head = null, bead = null, wipe = 1e9, flare = 0, words = true, beadR = 22 }) => {
   const Y = (a: number) => altY(a, altTop, altBottom);
   const lo = Math.max(0, altBottom - 2);
   const hi = Math.min(wipe, altTop + 2);

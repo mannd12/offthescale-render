@@ -3,9 +3,8 @@
 // are added in the foundation step, from the storyboard. Audio licences: studio/public/audio/LICENSES.md.
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
-import { P } from "../../lib/illustrated";
 import { SceneTiming, within } from "../../lib/timeline";
-import { Sfx, scene, timeline } from "./Episode";
+import { Bed, Sfx, scene, timeline } from "./Episode";
 import { Cue } from "./scenes/cue-types";
 import { SceneCold, soundCold } from "./scenes/Cold";
 import { SceneL01, soundL01 } from "./scenes/S01";
@@ -42,8 +41,34 @@ export const frameOf = (sceneId: string, line: number, fraction = 0) => {
   return t.from + within(t, line, fraction);
 };
 
+/** Music beds (all Kevin MacLeod, CC BY 4.0, logged in public/audio/LICENSES.md; credit in the description). Each bed
+ *  changes at a scene start, never mid-line; neighbours crossfade. */
+const Music: React.FC = () => {
+  const at = (id: string) => scene(id).from;
+  return (
+    <>
+      {/* cold open: the pre-dawn launch and the question */}
+      <Bed file="macleod-mirage.mp3" from={0} to={at("l01") + 30} fade={30} />
+      {/* l01-l02: the edge that isn't one, and the three jumps */}
+      <Bed file="macleod-floating-cities.mp3" from={at("l01") - 30} to={at("l03") + 30} />
+      {/* l03-l04: the gauges - air, push, cold, sound */}
+      <Bed file="macleod-jellyfish-in-space.mp3" from={at("l03") - 30} to={at("l05") + 30} />
+      {/* l05: the villain - the spin and the thickening air */}
+      <Bed file="macleod-ossuary-6-air.mp3" from={at("l05") - 30} to={at("l06") + 30} />
+      {/* l06: our probe from the hundred-kilometre line */}
+      <Bed file="macleod-impact-lento.mp3" from={at("l06") - 30} to={at("l07") + 30} />
+      {/* l07: orbit height - sideways speed */}
+      <Bed file="macleod-mana-two-part-2.mp3" from={at("l07") - 30} to={at("l08") + 30} />
+      {/* l08: what we simplified */}
+      <Bed file="macleod-ossuary-5-rest.mp3" from={at("l08") - 30} to={at("closer") + 30} />
+      {/* the close, resolving into the end card */}
+      <Bed file="macleod-soaring.mp3" from={at("closer") - 30} to={L15SpaceJumpFrames} fade={60} />
+    </>
+  );
+};
+
 export const FullL15SPACEJUMP: React.FC = () => (
-  <AbsoluteFill style={{ backgroundColor: P.bone }}>
+  <AbsoluteFill style={{ backgroundColor: "#04051A" }}>
     {SCENES.map(({ id, Body }) => {
       const t = scene(id);
       const len = t.frames + (id === "closer" ? closerTail : 0);
@@ -62,6 +87,7 @@ export const FullL15SPACEJUMP: React.FC = () => (
           </Sequence>
         )),
     )}
+    <Music />
     {SCENES.flatMap(({ id, sound }) => {
       const t = scene(id);
       return sound(t).map((c, k) => <Sfx key={`${id}-${k}`} {...c} at={t.from + c.at} />);

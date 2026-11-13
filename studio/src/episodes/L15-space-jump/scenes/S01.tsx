@@ -79,7 +79,7 @@ const ShotAsk: ShotFC<C01> = ({ f, len }) => {
         ) : null}
       </Layer>
       <Layer depth={0}>
-        <Kicker x={120} y={130} text="THE EDGE THAT ISN'T THERE" color={CREAM} size={28} />
+        <Kicker x={240} y={130} text="THE EDGE THAT ISN'T THERE" color={CREAM} size={28} />
         {[0, 1, 2].map((i) => {
           const k = ez(f, 10 + i * 12, 20 + i * 12);
           const s = k * (1 + 0.25 * Math.sin(Math.min(1, (f - 20 - i * 12) / 10) * Math.PI) * (f > 20 + i * 12 ? 1 : 0));
@@ -123,7 +123,7 @@ const ShotLines: ShotFC<C01> = ({ f, len, c }) => {
   return (
     <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.5}>
       <Layer depth={1}>
-        <NightColumn f={f} altTop={top} altBottom={bottom} seed={22} ground={false} />
+        <NightColumn f={f} altTop={top} altBottom={bottom} seed={22} ground={false} drift={8} />
         <AltRuler
           f={f}
           altTop={top}
@@ -202,7 +202,7 @@ const ShotWall: ShotFC<C01> = ({ f, len }) => {
 const ShotLimit: ShotFC<C01> = ({ f, len, c }) => {
   const P7 = c.calc - c.round;
   const P8 = c.mcd - c.round;
-  const mid = path1(f, [[0, 97], [P7, 94], [P8, 88], [len, 85]]);
+  const mid = path1(f, [[0, 101], [P7, 98], [P8, 90], [len, 87]]);
   const span = path1(f, [[0, 34], [P7, 34], [P8, 44], [len, 44]]);
   const top = mid + span / 2;
   const bottom = mid - span / 2;
@@ -382,15 +382,15 @@ const ShotRecords: ShotFC<C01> = ({ f, len, c }) => {
       </Layer>
       <Layer depth={0}>
         {f < P10 + 10 ? (
-          <g opacity={1 - ez(f, P10, P10 + 10)}>
+          <g opacity={1 - ez(f, P10 - 8, P10)}>
             <Slab x={1040} y={330} value={rollText(JUMPS.baumgartner.exitKm, ez(f, 4, P10 - 12), 2) /* 38.97 #4 */} unit="km" size={100} F={DUSK} />
             <PillA x={1010} y={420} text={`BAUMGARTNER ${JUMPS.baumgartner.year}`} F={DUSK} dot={C.saffron} opacity={ez(f, 10, 22)} />
           </g>
         ) : null}
         {f > P10 && g < 10 ? (
-          <g opacity={ez(f, P10, P10 + 10) * (1 - ez(g, 0, 10))}>
-            <Slab x={1100} y={290} value={rollText(JUMPS.eustace.exitKm, ez(f, P10 + 4, P11 - 16), 1) /* 41.4 #8 */} unit="km" size={100} F={DUSK} />
-            <PillA x={1070} y={380} text={`EUSTACE ${JUMPS.eustace.year}`} F={DUSK} dot={C.saffron} opacity={ez(f, P10 + 10, P10 + 22)} />
+          <g opacity={ez(f, P10, P10 + 8) * (1 - ez(g, 0, 10))}>
+            <Slab x={1040} y={330} value={rollText(JUMPS.eustace.exitKm, ez(f, P10 + 4, P11 - 16), 1) /* 41.4 #8 */} unit="km" size={100} F={DUSK} />
+            <PillA x={1010} y={420} text={`EUSTACE ${JUMPS.eustace.year}`} F={DUSK} dot={C.saffron} opacity={ez(f, P10 + 10, P10 + 22)} />
           </g>
         ) : null}
         {g > 0 ? (

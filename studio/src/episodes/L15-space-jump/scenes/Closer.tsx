@@ -20,7 +20,7 @@ import { AltRuler, Limb, RulerFlag } from "../sky";
 import { Probe, Stamp, Station, Trace } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, CREAM, INK, ModelChip, OrbitStars, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, ez, lin, view, vy } from "./c-parts";
+import { C, CREAM, INK, ModelChip, OrbitStars, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, clamp01, ez, lin, view, vy } from "./c-parts";
 
 /** Frames after the last line for the 20-s end card (EndCard from the kit). */
 export const closerTail = 600;
@@ -155,9 +155,9 @@ const shortPts: Pt[] = (() => {
   const out: Pt[] = [];
   for (let a = top; a >= 0; a -= 1) {
     const u = (top - a) / top;
-    const hump = Math.sin(Math.min(1, u / 0.22) * Math.PI * 0.5);
-    const sp = a > 14 ? peak * hump * (1 - Math.max(0, u - 0.22) * 0.9) : modelSpeedAt(a);
-    out.push([HX(a), SY(Math.max(sp, a > 14 ? 0 : modelSpeedAt(a)))]);
+    const hump = peak * Math.sin(Math.min(1, u / 0.22) * Math.PI * 0.5) * (1 - Math.max(0, u - 0.22) * 0.6);
+    const w = clamp01((a - 4) / 14); // blend onto the model's lower branch: the same ending
+    out.push([HX(a), SY(hump * w + Math.min(hump, modelSpeedAt(a)) * (1 - w))]);
   }
   return out;
 })();
@@ -179,7 +179,7 @@ const ShotTaller: ShotFC<CCloser> = ({ f, len, c }) => {
           <Trace pts={shortPts} head={hs} f={f} color={C.limb} width={8} />
           <Trace pts={tallPts} head={ht} f={f} color={C.saffronCore} width={9} />
           {ht >= 1 ? <Rings f={f - (len - 30)} cx={HX(0)} cy={SY(MODEL.ground)} every={18} speed={4} maxR={140} color={C.saffronCore} width={5} /> : null}
-          <Tick x={1720} y={940} pxPerM={110} frame={f} facing={-1} pose="point" expression="happy" look={0.6} />
+          <Tick x={1810} y={960} pxPerM={100} frame={f} facing={-1} pose="point" expression="happy" look={0.6} />
           <Motes frame={f} n={22} x={0} y={0} w={1920} h={1080} color={alpha(CREAM, 0.7)} seed={17} size={3} drift={40} />
         </Layer>
         <Layer depth={0}>
@@ -321,7 +321,7 @@ const ShotDial: ShotFC<CCloser> = ({ f, len, c }) => {
         {pinned ? <Bloom x={stx} y={sty} r={220 + Math.sin(f / 3) * 30} color={C.vermilion} strength={0.55} /> : null}
         {pinned ? <Rings f={f - pinAt} cx={stx} cy={sty} every={12} speed={6} maxR={300} color={C.vermilion} width={6} /> : null}
         <SpeedGauge x={DX} y={DY} s={{ value, pinned }} f={f} family={V} scale={DS} theme="light" />
-        <Tick x={DX + 200} y={DY + 300 * DS + 60} pxPerM={60} frame={f} facing={-1} pose="cheer" staff expression="proud" look={0.8} />
+        <Tick x={DX - 70} y={DY + 300 * DS + 90} pxPerM={60} frame={f} facing={-1} pose="cheer" staff expression="proud" look={0.8} />
         {stamp >= 0 ? <Stamp x={DX + 396} y={DY + 330} text="off the scale" age={stamp} size={62} rotate={-9} /> : null}
       </Layer>
       <Layer depth={0}>

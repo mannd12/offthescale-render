@@ -18,9 +18,9 @@ import { Bloom, IF2, Kicker, Layer, Pill, Stage, Streamers, Tick, alpha, cameraA
 import { SceneTiming } from "../../../lib/timeline";
 import { cueKit } from "../cues";
 import { familyOf, pillFill, skyFamily } from "../families";
-import { BOUNDARY, JUMPS, MODEL, ORBIT } from "../jumpdata";
+import { BOUNDARY, JUMPS, LAYERS, MODEL, ORBIT } from "../jumpdata";
 import { L15GaugesHUD, SpeedGauge } from "../L15Gauges";
-import { AltRuler, Limb } from "../sky";
+import { AltRuler, FLAGS, Limb } from "../sky";
 import { Balloon, Flame, Probe, Station, Trace } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
@@ -64,11 +64,11 @@ const STOP = 8;
 const sv = (kms: number) => kms / STOP;
 
 /** Orbit-scene cluster: SPEED (+ AIR, empty up here) only; no COLD above 100 km. */
-const OrbitCluster: React.FC<{ f: number; value: number; pinned?: boolean; readout?: number; roll?: number; ghost?: number }> = ({ f, value, pinned, readout, roll, ghost }) => (
+const OrbitCluster: React.FC<{ f: number; value: number; pinned?: boolean; readout?: number; roll?: number; ghost?: number; speedOnly?: boolean }> = ({ f, value, pinned, readout, roll, ghost, speedOnly }) => (
   <L15GaugesHUD
     family={skyFamily(400)}
     frame={f}
-    only={["speed", "air"]}
+    only={speedOnly ? ["speed"] : ["speed", "air"]}
     speed={{ value, pinned, readout: readout ?? null, roll, unit: "km/s", ghost }}
     air={{ value: 0 }}
     stdTag={false}
@@ -99,7 +99,7 @@ const ShotClimb: ShotFC<C07> = ({ f, c }) => {
   const altC = 100 + (ORBIT.drawKm - 100) * climb + 30 * ez(f, b, b + 40);
   const pk = 15 - 10 * ez(f, b - 10, b + 30);
   const v = view(altC, pk);
-  const sx = 960 + f * 3;
+  const sx = 760 + f * 3;
   const sy = vy(v, ORBIT.drawKm);
   const wipe = ez(f, b + 6, b + 36);
   return (
@@ -115,7 +115,7 @@ const ShotClimb: ShotFC<C07> = ({ f, c }) => {
           <Tick x={430} y={1012} pxPerM={40} frame={f} facing={1} pose="stand" poseTo="point" poseT={ez(f, 60, 80)} expression="surprised" look={1} headTilt={18} />
         </Layer>
         <Layer depth={0}>
-          <Kicker x={120} y={110} text="from orbit height" color={CREAM} size={30} />
+          <Kicker x={420} y={110} text="from orbit height" color={CREAM} size={30} />
           <g opacity={wipe}>
             <Pill x={1200} y={200} text={`${ORBIT.issLowKm} – ${ORBIT.issHighKm} km` /* #16 */} fill={pillFill(V)} color={C.limb} dot={C.limb} size={32} />
           </g>
@@ -196,7 +196,7 @@ const ShotDrop: ShotFC<C07> = ({ f, len, c }) => {
       <Stage theme={VT} shotFrame={f} drift={{ zoom: 1.03, panX: 0.004, frames: 260, seed: 5 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
           <SkyView f={f} v={v} rulerX={220} bands={0.8} aurora={0.8} drift={0.6} ground={false} streak={Math.min(40, speedK * 16)} pins={[{ altKm: BOUNDARY.fai, label: "", draw: lineK, len: 1500 }]} />
-          <Station x={980} y={vy(v, ORBIT.drawKm) - 70} size={220} f={f} />
+          <Station x={820} y={vy(v, ORBIT.drawKm) - 150} size={220} f={f} />
           <Probe x={820} y={probeY} size={130} f={f} trail={Math.min(160, f * 3)} />
           {f >= cross ? <Rings f={f - cross} cx={820} cy={vy(v, BOUNDARY.fai)} once speed={10} maxR={420} color={C.saffronCore} width={7} /> : null}
           {f >= cross ? <Rings f={f - cross - 10} cx={820} cy={vy(v, BOUNDARY.fai)} once speed={10} maxR={420} color={C.saffron} width={4} /> : null}
@@ -403,7 +403,7 @@ const ShotNeedles: ShotFC<C07> = ({ f, len }) => {
   const [hx, hy] = dialPt(gv, 150);
   const [ox, oy] = dialPt(nv, 150);
   const tag = (x: number, y: number, t: string, o: number, anchor: "start" | "end") => (
-    <text x={x} y={y} textAnchor={anchor} opacity={o} style={{ fontFamily: IF2.label, fontSize: 30, letterSpacing: 4, fill: INK }}>
+    <text x={x} y={y} textAnchor={anchor} opacity={o} style={{ fontFamily: IF2.label, fontSize: 30, letterSpacing: 4, fill: CREAM, stroke: INK, strokeWidth: 6, paintOrder: "stroke" }}>
       {t}
     </text>
   );
@@ -442,7 +442,7 @@ const ShotBars2: ShotFC<C07> = ({ f, len }) => {
     { f: len, x: 990, y: 540, zoom: 1.08 },
   ]);
   const lab = (y: number, t: string) => (
-    <text x={x0} y={y} style={{ fontFamily: IF2.label, fontSize: 30, letterSpacing: 4, fill: INK }}>
+    <text x={x0} y={y} style={{ fontFamily: IF2.label, fontSize: 30, letterSpacing: 4, fill: CREAM, stroke: INK, strokeWidth: 6, paintOrder: "stroke" }}>
       {t}
     </text>
   );
@@ -562,7 +562,7 @@ const ShotCurve: ShotFC<C07> = ({ f, len }) => {
   const h = lin(f, 6, 150);
   const peakOn = h >= peakIdx / (pts.length - 1) + 0.02;
   const cam = cameraAt(f, [
-    { f: 0, x: 900, y: 330, zoom: 1.25 },
+    { f: 0, x: 900, y: 380, zoom: 1.2 },
     { f: 150, x: 960, y: 640, zoom: 1.2 },
     { f: len, x: 960, y: 620, zoom: 1.15 },
   ]);
@@ -571,7 +571,7 @@ const ShotCurve: ShotFC<C07> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VT} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={v} rulerX={rx} bands={0.8} aurora={0.6} drift={3} pins={[{ altKm: MODEL.from400PeakKm, label: "", draw: peakOn ? 1 : 0, len: 1400 }]} />
+          <SkyView f={f} v={v} rulerX={rx} bands={0.8} aurora={0.6} drift={3} pins={[{ altKm: MODEL.from400PeakKm, label: "", draw: peakOn ? 1 : 0, len: 1400 }]} flags={FLAGS.filter((x) => ([LAYERS.stratoTop, BOUNDARY.fai, ORBIT.drawKm] as number[]).includes(x.altKm))} />
           <Trace pts={pts} head={h} f={f} color={C.saffronCore} width={8} peak={peakIdx} />
           {peakOn ? <Rings f={f - Math.round(6 + 144 * (peakIdx / (pts.length - 1)))} cx={pxk} cy={pyk} every={16} speed={5} maxR={200} color={C.saffronCore} width={5} /> : null}
         </Layer>
@@ -657,7 +657,7 @@ const ShotBalloon: ShotFC<C07> = ({ f, len }) => {
           {slam >= 6 ? <Rings f={slam - 6} cx={mx + 90} cy={my} once speed={10} maxR={200} color={C.saffronCore} width={5} /> : null}
         </Layer>
         <Layer depth={0}>
-          <Pill x={120} y={120} text="the height is the cheap part" fill={pillFill(D)} color={CREAM} dot={C.saffron} size={32} />
+          <Pill x={480} y={120} text="the height is the cheap part" fill={pillFill(D)} color={CREAM} dot={C.saffron} size={32} />
         </Layer>
       </Stage>
     </Pop>
@@ -738,7 +738,7 @@ const ShotSpiral: ShotFC<C07> = ({ f }) => {
 // 2-s hold. MOVER: the long arrow drawing, then chevrons marching along it (12 px/f) + the needle rattle.
 // ===============================================================================================================
 const ShotOffScale: ShotFC<C07> = ({ f }) => {
-  const ay = 600;
+  const ay = 560;
   const L = Math.max(0, (f - 10) * 40);
   return (
     <Pop f={f}>
@@ -747,14 +747,14 @@ const ShotOffScale: ShotFC<C07> = ({ f }) => {
           <OrbitStars f={f} speed={2} seed={41} />
         </Layer>
         <Layer depth={1}>
-          <Limb f={f} cy={900} R={2600} slide={8} />
+          <Limb f={f} cy={950} R={2600} slide={8} />
           {[0, 1, 2].map((i) => {
             const bx = 220 + i * 150;
-            const by = 820 - i * 18;
+            const by = 900 - i * 14;
             return (
               <g key={i}>
                 <Balloon x={bx} y={by} size={110} f={f + i * 20} variant="gondola" />
-                <Arrow x={bx + 26} y={by - 10} len={46 + i * 10} angle={-90} width={8} color={C.limb} />
+                <Arrow x={bx} y={by - 190} len={by - 190 - ay - 24} angle={-90} width={8} color={C.limb} />
               </g>
             );
           })}
@@ -765,14 +765,14 @@ const ShotOffScale: ShotFC<C07> = ({ f }) => {
                 return cx < 180 + L - 60 ? <path key={i} d={`M${cx} ${ay - 22} L${cx + 22} ${ay} L${cx} ${ay + 22} L${cx - 9} ${ay + 22} L${cx + 13} ${ay} L${cx - 9} ${ay - 22} Z`} fill={C.saffronCore} /> : null;
               })
             : null}
-          <Tick x={820} y={952} pxPerM={50} frame={f} facing={1} pose="stand" poseTo="shrug" poseT={ez(f, 20, 40)} expression="surprised" look={0.8} />
+          <Tick x={820} y={954} pxPerM={50} frame={f} facing={1} pose="stand" poseTo="shrug" poseT={ez(f, 20, 40)} expression="surprised" look={0.8} />
         </Layer>
         <Layer depth={0}>
           <g opacity={ez(f, 50, 60)}>
             <Pill x={120} y={120} text="off the scale" fill={pillFill(V)} color={C.saffronCore} dot={C.saffron} size={34} />
           </g>
         </Layer>
-        <OrbitCluster f={f} value={Math.min(1, ez(f, 6, 46) * 1.0)} pinned={f > 46} />
+        <OrbitCluster f={f} value={Math.min(1, ez(f, 6, 46) * 1.0)} pinned={f > 46} speedOnly />
       </Stage>
     </Pop>
   );

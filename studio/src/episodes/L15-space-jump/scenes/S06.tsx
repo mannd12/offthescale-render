@@ -51,7 +51,7 @@ export const cuesL06 = (t: SceneTiming) => {
     traces: p(5, "So the hundred"), // 6-13
     same: p(5, "the same ending"),
     decides: at(6), // 6-14
-    band: p(6, "The height only"), // 6-15
+    band: frac(6, 0.45), // 6-15 (storyboard 54@0.45)
     end: t.frames,
   };
 };
@@ -97,8 +97,8 @@ const Cluster: React.FC<{ f: number; alt: number; extra?: Partial<React.Componen
 // + the label dropping in (20 px/f).
 // ===============================================================================================================
 const ShotLine: ShotFC<C06> = ({ f, len }) => {
-  const altC = 126 - 27 * ez(f, 0, len * 0.85) - 1.2 * lin(f, len * 0.85, len);
-  const v = view(altC, 64);
+  const altC = 104.6 - 4.4 * ez(f, 0, len * 0.9) - 0.4 * lin(f, len * 0.9, len);
+  const v = view(altC, 300);
   const py = vy(v, BOUNDARY.fai);
   const drop = ez(f, 34, 58);
   const lx = 1010;
@@ -107,14 +107,14 @@ const ShotLine: ShotFC<C06> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={skyFamily(110).theme} shotFrame={f} drift={{ zoom: 1.03, panX: 0.006, panY: 0, frames: 200, seed: 2 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={v} aurora={0.9} drift={0.6} />
+          <SkyView f={f} v={v} aurora={0.45} drift={0.6} />
           <Probe x={820} y={py + 60} size={150} f={f} variant="float" tilt={0} />
           <Ledge x={1180} y={py + 110} />
           <Tick x={1180} y={py + 110} pxPerM={58} frame={f} facing={-1} pose="point" expression="proud" look={0.4} />
           <Pin x={890} y={py + 30} text="our model, not a record" draw={drop} dx={lx - 890} dy={ly - py - 30} size={22} />
         </Layer>
         <Layer depth={0}>
-          <Kicker x={120} y={110} text={`from the ${BOUNDARY.fai} km line` /* #1 */} color={CREAM} size={30} />
+          <Kicker x={360} y={110} text={`from the ${BOUNDARY.fai} km line` /* #1 */} color={CREAM} size={30} />
         </Layer>
       </Stage>
     </Pop>

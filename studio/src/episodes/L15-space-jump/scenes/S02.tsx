@@ -19,6 +19,7 @@ import { SpeedGauge } from "../L15Gauges";
 import { Balloon, Bracket, CardPanel, Chute, ClockFace, Jumper, JumperPose, Stopwatch } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
+import { pillFill } from "../families";
 import { C, CREAM, DUSK, INK, LongDial, NOON, PillA, Pop, STUDIO, Slab, StudioRoom, VOID, cl01, ez, lerp, path1, rollText } from "./a-parts";
 
 export const cuesL02 = (t: SceneTiming) => {
@@ -121,7 +122,8 @@ const ShotThree: ShotFC<C02> = ({ f, len }) => {
         <Tick x={tx} y={1000} pxPerM={150} frame={f} facing={1} walk={f / 15} expression="determined" look={-0.6} headTilt={-10} />
       </StudioRoom>
       <Layer depth={0}>
-        <Kicker x={120} y={130} text="THREE JUMPS" color={CREAM} size={30} />
+        <rect x={100} y={96} width={400} height={56} rx={28} fill={pillFill(STUDIO)} />
+        <Kicker x={124} y={134} text="THREE JUMPS" color={CREAM} size={30} />
       </Layer>
     </Stage>
   );
@@ -192,7 +194,7 @@ const ShotWatch1: ShotFC<C02> = ({ f, len }) => (
     <Stage theme={STUDIO.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.01, panY: 0, frames: 200, seed: 4 }} vignette={0.12} grain={0.5}>
       <StudioRoom f={f + 100}>
         <JumpCard i={0} x={170} y={180} w={380} h={680} f={f} rise={0.7} scroll={f * 2} />
-        <Stopwatch x={1000} y={470} r={250} f={f} end={JUMPS.kittinger.freefallS /* #7 4:37 */} t={ez(f, 6, len - 14)} family={STUDIO} />
+        <Stopwatch x={1000} y={470} r={250} f={f} end={JUMPS.kittinger.freefallS /* #7 4:37 */} t={ez(f, 6, len - 14)} />
         <Tick x={1430} y={1000} pxPerM={170} frame={f} facing={-1} pose={f < 10 ? "point" : "press"} expression="determined" look={0.4} squash={impact(f, 8, 0.12, 10)} />
       </StudioRoom>
     </Stage>
@@ -242,7 +244,7 @@ const ShotRun: ShotFC<C02> = ({ f, len, c }) => {
   const barX0 = 200;
   const barX1 = lerp(barX0, 1860, barK);
   const rise = ez(f, P7, P8 - 10);
-  const needle = ez(f, P8 + 8, P8 + 60);
+  const needle = ez(f, P8 + 8, len - 8); // the sweep runs the whole close-up (the shot's mover)
   const cam = cameraAt(f, [
     { f: 0, x: 760, y: 540, zoom: 1.0 },
     { f: P7, x: 1500, y: 540, zoom: 1.0 },
@@ -299,7 +301,7 @@ const ShotWatch2: ShotFC<C02> = ({ f, len }) => (
   <Pop f={f}>
     <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len, x: 860, y: 520, zoom: 1.14 }])} vignette={0.12} grain={0.5}>
       <StudioRoom f={f + 300} seed={6}>
-        <Stopwatch x={760} y={480} r={270} f={f} end={JUMPS.baumgartner.freefallS /* #4 4:20 */} t={ez(f, 6, len - 14)} family={STUDIO} />
+        <Stopwatch x={760} y={480} r={270} f={f} end={JUMPS.baumgartner.freefallS /* #4 4:20 */} t={ez(f, 6, len - 14)} />
         <JumpCard i={1} x={1360} y={190} w={380} h={660} f={f} rise={0.75} />
         <Tick x={1180} y={1000} pxPerM={150} frame={f} facing={-1} pose={f < 8 ? "point" : "press"} expression="neutral" look={0.3} squash={impact(f, 6, 0.12, 10)} />
       </StudioRoom>
@@ -404,7 +406,7 @@ const ShotDistance: ShotFC<C02> = ({ f, len, c }) => {
 const ShotEustace: ShotFC<C02> = ({ f, len, c }) => {
   const P14 = c.eusDial - c.eus;
   const rise = ez(f, 0, P14 - 20);
-  const needle = ez(f, P14 + 8, P14 + 70);
+  const needle = ez(f, P14 + 8, P14 + 130);
   const open = ez(f, P14 + 60, P14 + 100);
   const kmh = JUMPS.eustace.topKmh;
   const cam = cameraAt(f, [
@@ -476,7 +478,7 @@ const ShotTube: ShotFC<C02> = ({ f, len }) => {
           {[-1, -0.4, 0.4, 1].map((u, i) => (
             <line key={i} x1={jx} y1={tubeTop} x2={jx + u * 150 * fan} y2={tubeTop - 160 * fan} stroke={CREAM} strokeWidth={3} opacity={0.85} />
           ))}
-          {fan > 0.1 ? <Chute x={jx} y={tubeTop} size={150 * fan + 20} f={f} open={fan} /> : null}
+          {fan > 0.1 ? <Chute x={jx} y={tubeTop} size={80 * fan + 20} f={f} open={fan} /> : null}
           <Jumper x={jx} y={jy} h={110} f={f} pose="stand" />
           <Bracket x1={jx + 70} y1={jy - 100} x2={jx + 70} y2={tubeTop} draw={ez(f, 34, 60)} />
           <Tick x={1180} y={1000} pxPerM={160} frame={f} facing={-1} staff pose="point" expression="proud" look={0.5} />

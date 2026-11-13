@@ -236,7 +236,6 @@ const ShotSeesaw: ShotFC<CL05> = ({ f, len }) => {
   const tilt = 8 - 22 * ez(f, 18, 44) + (f > 44 ? 5 * Math.sin(g / 5) * Math.exp(-g / 30) : 0) + 2 * Math.sin(f / 7);
   const a = (tilt * Math.PI) / 180;
   const lx = 700 - Math.cos(a) * 900 * 0.45;
-  const ly = 744 - Math.sin(a) * 900 * 0.45;
   return (
     <Pop f={f}>
       <Stage theme={STU.theme} shotFrame={f} drift={{ zoom: 1.15, panX: 0.03, panY: 0.02, frames: len + 20, seed: 6 }} vignette={0.12} grain={0.4}>
@@ -249,7 +248,7 @@ const ShotSeesaw: ShotFC<CL05> = ({ f, len }) => {
             left={<XTag x={0} y={-60} text="SPEED RECORD" F={PET} dot={V} size={32} align="middle" />}
             right={<XTag x={0} y={-60} text="SAFETY NET" F={PET} dot={C.teal} size={32} align="middle" />}
           />
-          <Tick x={lx - 40} y={860} pxPerM={150} frame={f} facing={1} pose="press" expression="proud" look={0.2} squash={impact(f % 28, 0, 0.06, 10)} />
+          <Tick x={lx - 170} y={860} pxPerM={150} frame={f} facing={1} pose="press" expression="proud" look={0.2} squash={impact(f % 28, 0, 0.06, 10)} />
         </StudioSet>
       </Stage>
     </Pop>
@@ -319,7 +318,7 @@ const ShotAirItself: ShotFC<CL05> = ({ f, len }) => {
             return (
               <g key={i}>
                 <line x1={150} y1={y} x2={560} y2={y} stroke={C.saffron} strokeWidth={4} strokeDasharray="10 8" />
-                <AirCube x={240} y={y - 150} size={130} n={q.n} f={f} speed={5} color={C.saffronCore} glass={C.saffron} seed={30 + i} />
+                <AirCube x={300} y={y + 24} size={130} n={q.n} f={f} speed={5} color={C.saffronCore} glass={C.saffron} seed={30 + i} />
                 <XTag x={580} y={y} text={q.text(k)} F={EMB} dot={C.saffron} size={34} />
               </g>
             );
@@ -392,9 +391,8 @@ const ShotEquation: ShotFC<CL05> = ({ f, len }) => {
             ×
           </text>
           {box(900, 360, "SPEED²", a2, <Arrow x1={960} y1={450} x2={960 + 240 * a2} y2={450} color={C.limb} w={18} head={40} />)}
-          <path d={`M660 640 Q660 760 ${lerp(660, 260, conn)} ${lerp(640, 760, Math.sin(conn * Math.PI) * 0.3 + conn * 0)} `} fill="none" stroke={C.saffronCore} strokeWidth={6} opacity={conn > 0 ? 1 : 0} />
-          <path d={`M1080 640 Q1080 820 ${lerp(1080, 260, conn)} ${lerp(640, 800, Math.sin(conn * Math.PI) * 0.4)}`} fill="none" stroke={C.saffronCore} strokeWidth={6} opacity={conn > 0 ? 1 : 0} />
-          {conn > 0 && conn < 1 ? <circle cx={lerp(1080, 260, conn)} cy={lerp(640, 800, Math.sin(conn * Math.PI) * 0.4)} r={12} fill={C.saffronCore} /> : null}
+          <path d="M660 640 L660 760 L260 760 L260 640" pathLength={1} fill="none" stroke={C.saffronCore} strokeWidth={6} strokeLinejoin="round" strokeDasharray={`${conn} 1`} opacity={conn > 0 ? 1 : 0} />
+          <path d="M1080 640 L1080 800 L230 800 L230 640" pathLength={1} fill="none" stroke={C.saffronCore} strokeWidth={6} strokeLinejoin="round" strokeDasharray={`${conn} 1`} opacity={conn > 0 ? 1 : 0} />
           <rect x={-400} y={1000} width={2720} height={400} fill={mixHex(EMB.sky[0], "#000", 0.3)} />
           <Tick x={1400} y={1004} pxPerM={130} frame={f} facing={-1} pose="point" expression="proud" look={look} squash={impact(f, 30, 0.06, 8)} />
         </Layer>
@@ -441,7 +439,7 @@ const ShotBraking: ShotFC<CL05> = ({ f, len }) => {
   const alt = 40 - 18 * lin(f, 0, len);
   const cam = cameraAt(f, [
     { f: 0, x: 960, y: 540, zoom: 1.0 },
-    { f: len, x: 1000, y: 500, zoom: 1.18 },
+    { f: len, x: 900, y: 500, zoom: 1.15 },
   ]);
   return (
     <Pop f={f}>
@@ -535,7 +533,7 @@ const ShotNothing: ShotFC<CL05> = ({ f, len, c }) => {
         </g>
       </Layer>
       <Layer depth={0}>
-        <ModelChip x={110} y={90} f={f} />
+        {g < 4 ? <ModelChip x={110} y={90} f={f} /> : null}
         {g >= 0 ? (
           <g transform={`translate(${(1 - slide) * 1400} 0)`}>
             {groups.map((q, i) => {

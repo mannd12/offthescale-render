@@ -277,7 +277,7 @@ const ShotPush: ShotFC<CL03> = ({ f, len, c }) => {
   const W = 260;
   const alt = 20 - 9 * lin(f, 0, len);
   const sp = 0.55 * (1 - Math.exp(-f / 70));
-  const cardX = lerp(-900, 110, ez(f, g, g + 40)) - lerp(0, 1100, ez(f, lv, lv + 20));
+  const cardX = lerp(-1200, 110, ez(f, g, g + 40)) - lerp(0, 1100, ez(f, lv, lv + 20));
   const slam = f - tv;
   const sc = slam < 0 ? 0 : 1 + 1.4 * Math.pow(1 - cl01(slam / 8), 2);
   const cam = cameraAt(f, [
@@ -454,10 +454,10 @@ const ShotSeventeen: ShotFC<CL03> = ({ f, len }) => {
         <Layer depth={1}>
           <PetrolBack f={f} seed={6} />
           <Bloom x={760} y={560} r={520} color={C.limb} strength={0.15} />
-          <SpeedGauge x={280} y={120} s={{ value: v, ghost, pinned }} f={f} family={PET} theme="dark" scale={2.6} />
+          <SpeedGauge x={230} y={170} s={{ value: v, ghost, pinned }} f={f} family={PET} theme="dark" scale={2.3} />
         </Layer>
         <Layer depth={0}>
-          <Slab x={1180} y={560} value={`${rollText(RATIOS.terminal40 /* #14 */, k, 1)}×`} size={130} F={PET} />
+          <Slab x={1250} y={620} value={`${rollText(RATIOS.terminal40 /* #14 */, k, 1)}×`} size={130} F={PET} />
         </Layer>
       </Stage>
     </Pop>
@@ -474,7 +474,7 @@ const ShotTop: ShotFC<CL03> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.01, panY: 0.01, frames: len + 40, seed: 5 }} vignette={0.3} grain={0.4}>
         <Layer depth={1}>
-          <SkyBack f={f} altTop={alt + 6} altBottom={alt - 6} drift={8} streak={34} aurora={0.6} />
+          <SkyBack f={f} altTop={alt + 6} altBottom={alt - 6} drift={8} streak={34} aurora={0.6} bands={false} />
           <Probe x={640} y={430} size={160} f={f} trail={180} />
           <Arrow x1={640} y1={560} x2={640} y2={780} color={C.saffron} w={20} head={46} />
           <text x={680} y={740} style={{ fontFamily: IF2.label, fontSize: 24, letterSpacing: 3, fill: C.saffronCore }}>
@@ -515,7 +515,7 @@ const ShotModel: ShotFC<CL03> = ({ f, len, c }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.4}>
         <Layer depth={1}>
-          <SkyBack f={f} altTop={alt + 7} altBottom={alt - 7} drift={8} streak={28} aurora={0.5} />
+          <SkyBack f={f} altTop={alt + 7} altBottom={alt - 7} drift={8} streak={28} aurora={0.5} bands={false} />
           <line x1={720} y1={-200} x2={720} y2={1300} stroke={alpha(C.saffron, 0.7)} strokeWidth={4} strokeDasharray="14 12" />
           <Streaks f={f} x0={330} x1={620} seed={1} />
           <Streaks f={f} x0={820} x1={1120} seed={2} />

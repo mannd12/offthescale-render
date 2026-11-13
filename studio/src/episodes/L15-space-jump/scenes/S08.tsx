@@ -18,6 +18,7 @@ import { AirCube, Balloon, Flame, Jumper, Probe, Spiral, Trace } from "../props"
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
 import { JumpCard } from "./S02";
+import { pillFill } from "../families";
 import { BlankWatch, C, CREAM, INK, Ledge, NightColumn, NotePlate, PETROL, PillA, Pop, STUDIO, Strike, StudioRoom, VOID, cl01, ez, lerp, path1 } from "./a-parts";
 
 export const cuesL08 = (t: SceneTiming) => {
@@ -51,8 +52,9 @@ const ShotNotes: ShotFC<C08> = ({ f }) => {
   return (
     <Stage theme={STUDIO.theme} shotFrame={f} drift={drift(1)} vignette={0.12} grain={0.5}>
       <StudioRoom f={f}>
-        <g transform={`translate(360 900) scale(${(1 - 2 * turn).toFixed(3)} 1)`}>
-          <rect x={0} y={-40} width={300} height={24} rx={6} fill={turn < 0.5 ? CREAM : mixHex(CREAM, C.limb, 0.3)} stroke={INK} strokeWidth={3} />
+        <g transform={`translate(330 640) scale(${(1 - 2 * turn).toFixed(3)} 1)`}>
+          <rect x={0} y={0} width={230} height={170} rx={10} fill={turn < 0.5 ? CREAM : mixHex(CREAM, C.limb, 0.3)} stroke={INK} strokeWidth={4} />
+          {turn < 0.5 ? [0, 1, 2, 3].map((l) => <line key={l} x1={24} y1={36 + l * 32} x2={200} y2={36 + l * 32} stroke={INK} strokeWidth={4} opacity={0.6} />) : null}
         </g>
         {[0, 1, 2, 3].map((i) => {
           const k = ez(f, 12 + i * 14, 26 + i * 14);
@@ -66,7 +68,8 @@ const ShotNotes: ShotFC<C08> = ({ f }) => {
         <Tick x={220} y={1000} pxPerM={150} frame={f} facing={1} pose={f < 16 ? "crouch-reach" : "point"} expression="determined" look={0.4} squash={impact(f, 16, 0.1, 10)} />
       </StudioRoom>
       <Layer depth={0}>
-        <Kicker x={120} y={130} text="WHAT WE DON'T KNOW" color={CREAM} size={30} />
+        <rect x={100} y={96} width={540} height={56} rx={28} fill={pillFill(STUDIO)} />
+        <Kicker x={124} y={134} text="WHAT WE DON'T KNOW" color={CREAM} size={30} />
       </Layer>
     </Stage>
   );
@@ -321,7 +324,8 @@ const ShotRecords: ShotFC<C08> = ({ f, len }) => {
           <Tick x={1700} y={1000} pxPerM={140} frame={f} facing={-1} pose="lean" expression="worried" look={0.7} headTilt={-12} />
         </StudioRoom>
         <Layer depth={0}>
-          <Kicker x={120} y={130} text="THE RECORDS ARE LESS TIDY" color={CREAM} size={30} />
+          <rect x={100} y={96} width={680} height={56} rx={28} fill={pillFill(STUDIO)} />
+          <Kicker x={124} y={134} text="THE RECORDS ARE LESS TIDY" color={CREAM} size={30} />
         </Layer>
       </Stage>
     </Pop>
@@ -381,7 +385,7 @@ const ShotWatches: ShotFC<C08> = ({ f }) => {
           <Tick x={960} y={1000} pxPerM={140} frame={f} facing={1} pose="shrug" expression="worried" look={Math.sin(f / 20) * 0.9} />
         </StudioRoom>
         <Layer depth={0}>
-          <PillA x={960} y={840} text="SOURCES DISAGREE" F={STUDIO} dot={C.vermilion} align="middle" opacity={ez(f, 20, 32)} />
+          <PillA x={960} y={170} text="SOURCES DISAGREE" F={STUDIO} dot={C.vermilion} align="middle" opacity={ez(f, 20, 32)} />
         </Layer>
       </Stage>
     </Pop>
