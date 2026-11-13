@@ -57,9 +57,12 @@ const CARDS = [
   { name: "Eustace", year: JUMPS.eustace.year, sky: E_SKY, kind: "beam" as const, pose: "hang" as JumperPose },
 ];
 
+/** Where a card's balloon hangs (payload hook y) and how big it is, for rise 0 (low) … 1 (high). */
+const cardBalloon = (pw: number, ph: number, rise: number) => ({ by: lerp(ph * 0.92, ph * 0.62, rise), size: pw * 0.55 });
+
 /** One jump card: CardPanel with its panel sky, a balloon at `rise` (0 low … 1 high), a silhouette on it (unless
  *  `payload` overrides), a mini ruler on the panel's left edge whose ticks scroll by `scroll` px. */
-const JumpCard: React.FC<{ i: number; x: number; y: number; w: number; h: number; f: number; rise?: number; scroll?: number; appear?: number; payload?: React.ReactNode | null; jh?: number; children?: React.ReactNode }> = ({
+export const JumpCard: React.FC<{ i: number; x: number; y: number; w: number; h: number; f: number; rise?: number; scroll?: number; appear?: number; payload?: React.ReactNode | null; jh?: number; children?: React.ReactNode }> = ({
   i,
   x,
   y,
@@ -76,7 +79,7 @@ const JumpCard: React.FC<{ i: number; x: number; y: number; w: number; h: number
   const cd = CARDS[i];
   const pw = w - 36;
   const ph = h - 104;
-  const by = lerp(ph * 0.92, ph * 0.5, rise);
+  const { by, size } = cardBalloon(pw, ph, rise);
   const pl = payload === undefined ? <Jumper x={0} y={0} h={jh} f={f} pose={cd.pose} color={i === 1 ? C.saffron : C.teal} /> : payload;
   return (
     <CardPanel x={x} y={y} w={w} h={h} f={f} title={cd.name} sub={`${cd.year}`} sky={cd.sky} appear={appear}>
@@ -84,7 +87,7 @@ const JumpCard: React.FC<{ i: number; x: number; y: number; w: number; h: number
         const ty = ((((k * 70 + scroll) % 980) + 980) % 980) - 60;
         return <line key={k} x1={0} y1={ty} x2={k % 5 === 0 ? 34 : 18} y2={ty} stroke={CREAM} strokeWidth={k % 5 === 0 ? 4 : 2.5} opacity={0.75} />;
       })}
-      <Balloon x={pw / 2} y={by} size={pw * 0.62} f={f + i * 40} variant={cd.kind} payload={pl ?? undefined} />
+      <Balloon x={pw / 2} y={by} size={size} f={f + i * 40} variant={cd.kind} payload={pl ?? undefined} />
       {children}
     </CardPanel>
   );
@@ -135,8 +138,8 @@ const ShotKittinger: ShotFC<C02> = ({ f, len, c }) => {
   const step = ez(f, P3 - 40, P3 - 24);
   const pw = 520 - 36;
   const ph = 900 - 104;
-  const by = lerp(ph * 0.92, ph * 0.5, rise);
-  const gondolaRail = { x: pw / 2 + 0.62 * pw * 0.13, y: by + 0.62 * pw * 0.12 };
+  const { by, size } = cardBalloon(pw, ph, rise);
+  const gondolaRail = { x: pw / 2 + size * 0.13, y: by + size * 0.12 };
   const fallY = f > P3 - 24 ? Math.min(260, (f - (P3 - 24)) * 9) : 0;
   const jx = gondolaRail.x + 30 * step + Math.sin(f / 6) * 20 * ez(f, P3, P3 + 30);
   const jy = gondolaRail.y + fallY;
@@ -144,8 +147,8 @@ const ShotKittinger: ShotFC<C02> = ({ f, len, c }) => {
   const cam = cameraAt(f, [
     { f: 0, x: 980, y: 540, zoom: 1.0 },
     { f: P3 - 20, x: 940, y: 520, zoom: 1.08 },
-    { f: P3 + 20, x: 560 + jx, y: 90 + 86 + jy - 40, zoom: 1.75 },
-    { f: len, x: 560 + jx, y: 90 + 86 + jy - 60, zoom: 1.85 },
+    { f: P3 + 20, x: 578 + jx, y: 90 + 86 + jy - 40, zoom: 1.75 },
+    { f: len, x: 578 + jx, y: 90 + 86 + jy - 60, zoom: 1.85 },
   ]);
   return (
     <Stage theme={STUDIO.theme} cam={cam} vignette={0.12} grain={0.5}>
@@ -216,7 +219,7 @@ const ShotHelium: ShotFC<C02> = ({ f, len }) => {
           <CloudRack f={f} n={5} x0={-700} x1={2700} y0={700} y1={980} size={90} speed={2.6} body={alpha("#F3A35C", 0.8)} under={alpha("#7A3A20", 0.5)} top={alpha("#FFE0A8", 0.7)} seed={14} flat={1.8} />
         </Layer>
         <Layer depth={1}>
-          <Balloon x={960} y={960 + Math.sin(f / 7) * 6} size={lerp(300, 820, k)} f={f} inflate={lerp(0.15, 1, k)} variant="gondola" />
+          <Balloon x={960} y={1000 + Math.sin(f / 7) * 6} size={lerp(260, 600, k)} f={f} inflate={lerp(0.15, 1, k)} variant="gondola" />
         </Layer>
         <Layer depth={0}>
           <PillA x={120} y={140} text="A HELIUM BALLOON" F={DUSK} dot={C.teal} opacity={ez(f, 8, 20)} />
@@ -245,8 +248,8 @@ const ShotRun: ShotFC<C02> = ({ f, len, c }) => {
     { f: P7, x: 1500, y: 540, zoom: 1.0 },
     { f: P7 + 50, x: 2180, y: 520, zoom: 1.2 },
     { f: P8, x: 2200, y: 520, zoom: 1.24 },
-    { f: P8 + 40, x: 2420, y: 470, zoom: 1.5 },
-    { f: len, x: 2440, y: 460, zoom: 1.58 },
+    { f: P8 + 40, x: 2170, y: 580, zoom: 1.5 },
+    { f: len, x: 2175, y: 585, zoom: 1.58 },
   ]);
   const kmh = JUMPS.baumgartner.topKmh;
   return (
@@ -259,10 +262,10 @@ const ShotRun: ShotFC<C02> = ({ f, len, c }) => {
         <JumpCard i={1} x={1960} y={140} w={420} h={720} f={f} rise={0.25 + 0.5 * rise} scroll={f * 8} jh={42} />
         {f > P8 - 10 ? (
           <g opacity={ez(f, P8 - 10, P8 + 6)}>
-            <SpeedGauge x={2250} y={330} scale={1.0} f={f} family={STUDIO} theme="dark" s={{ value: (kmh / DIAL_MAX_KMH) * needle, soundT: ATM[3].tC, max: DIAL_MAX_KMH / 3.6 }} />
+            <SpeedGauge x={1990} y={420} scale={1.0} f={f} family={STUDIO} theme="dark" s={{ value: (kmh / DIAL_MAX_KMH) * needle, soundT: ATM[3].tC, max: DIAL_MAX_KMH / 3.6 }} />
           </g>
         ) : null}
-        <Tick x={2540} y={1000} pxPerM={120} frame={f} facing={-1} pose={f > P8 ? "lean" : "stand"} expression={f > P8 + 40 ? "surprised" : "neutral"} look={0.6} />
+        <Tick x={2470} y={880} pxPerM={110} frame={f} facing={-1} pose={f > P8 ? "lean" : "stand"} expression={f > P8 + 40 ? "surprised" : "neutral"} look={0.6} />
       </StudioRoom>
       <Layer depth={0}>
         <PillA x={120} y={140} text={`${JUMPS.kittinger.descentMin}+ MIN DOWN` /* #7 */} F={STUDIO} dot={C.saffron} opacity={ez(f, 20, 32) * (1 - ez(f, P7 - 8, P7 + 4))} />
@@ -280,7 +283,7 @@ const ShotRun: ShotFC<C02> = ({ f, len, c }) => {
         ) : null}
         {f > P8 ? (
           <g opacity={ez(f, P8 + 10, P8 + 22)}>
-            <Slab x={150} y={300} value={rollText(kmh, needle, 1) /* 1,357.6 #4 */} unit="km/h" size={100} F={STUDIO} />
+            <Slab x={130} y={300} value={rollText(kmh, needle, 1) /* 1,357.6 #4 */} unit="km/h" size={80} F={STUDIO} />
             <PillA x={130} y={400} text={`MACH ${JUMPS.baumgartner.mach}` /* #4 */} F={STUDIO} dot={C.limb} opacity={ez(f, P8 + 56, P8 + 68)} />
           </g>
         ) : null}
@@ -407,43 +410,46 @@ const ShotEustace: ShotFC<C02> = ({ f, len, c }) => {
   const cam = cameraAt(f, [
     { f: 0, x: 900, y: 540, zoom: 1.0 },
     { f: P14 - 10, x: 820, y: 520, zoom: 1.18 },
-    { f: P14 + 30, x: 1200, y: 500, zoom: 1.25 },
-    { f: len, x: 1240, y: 490, zoom: 1.34 },
+    { f: P14 + 30, x: 1160, y: 590, zoom: 1.22 },
+    { f: len, x: 1180, y: 600, zoom: 1.26 },
   ]);
   const pw = 480 - 36;
   const ph = 840 - 104;
-  const by = lerp(ph * 0.92, ph * 0.5, 0.3 + 0.4 * rise);
+  const { by } = cardBalloon(pw, ph, 0.3 + 0.4 * rise);
   return (
     <Stage theme={STUDIO.theme} cam={cam} vignette={0.12} grain={0.5}>
       <StudioRoom f={f + 700} seed={10}>
         <JumpCard i={2} x={560} y={120} w={480} h={840} f={f} rise={0.3 + 0.4 * rise} scroll={f * 8}>
-          <Chute x={pw / 2} y={by - 4} size={70} f={f} open={open} />
+          {open > 0 ? (
+            <g transform={`rotate(48 ${pw / 2 + 4} ${by + 40})`}>
+              <Chute x={pw / 2 + 4} y={by + 40} size={64} f={f} open={open} />
+            </g>
+          ) : null}
         </JumpCard>
         {f > P14 - 10 ? (
           <g opacity={ez(f, P14 - 10, P14 + 6)}>
             <SpeedGauge x={1120} y={300} scale={1.0} f={f} family={STUDIO} theme="dark" s={{ value: (kmh / DIAL_MAX_KMH) * needle, soundT: ATM[4].tC, max: DIAL_MAX_KMH / 3.6 }} />
           </g>
         ) : null}
-        <Tick x={1600} y={1000} pxPerM={130} frame={f} facing={-1} pose={f > P14 ? "point" : "stand"} expression={f > P14 + 60 ? "happy" : "neutral"} look={0.5} />
-        {ph > 0 ? null : null}
+        <Tick x={1480} y={880} pxPerM={130} frame={f} facing={-1} pose={f > P14 ? "point" : "stand"} expression={f > P14 + 60 ? "happy" : "neutral"} look={0.5} />
       </StudioRoom>
       <Layer depth={0}>
         {f < P14 + 12 ? (
           <g opacity={ez(f, 10, 22) * (1 - ez(f, P14, P14 + 12))}>
-            <g transform="translate(1200 330)">
+            <g transform="translate(1270 330)">
               <rect x={-30} y={-104} width={560} height={136} rx={22} fill={alpha(INK, 0.72)} />
               <Counter x={0} y={0} value={JUMPS.eustace.exitM * ez(f, 10, P14 - 30)} max={JUMPS.eustace.exitM} size={104} color={CREAM} />
               <text x={450} y={0} style={{ fontFamily: IF2.num, fontWeight: 600, fontSize: 48, fill: CREAM }}>
                 m
               </text>
             </g>
-            <PillA x={1170} y={420} text={`${JUMPS.eustace.year} · EUSTACE`} F={STUDIO} dot={C.saffron} />
+            <PillA x={1240} y={420} text={`${JUMPS.eustace.year} · EUSTACE`} F={STUDIO} dot={C.saffron} />
           </g>
         ) : null}
         {f > P14 ? (
           <g opacity={ez(f, P14 + 10, P14 + 22)}>
-            <Slab x={150} y={300} value={rollText(kmh, needle, 0) /* 1,321 #8 */} unit="km/h" size={100} F={STUDIO} />
-            <PillA x={130} y={400} text={`MACH ${JUMPS.eustace.mach}` /* #8 */} F={STUDIO} dot={C.limb} opacity={ez(f, P14 + 66, P14 + 78)} />
+            <Slab x={1420} y={330} value={rollText(kmh, needle, 0) /* 1,321 #8 */} unit="km/h" size={90} F={STUDIO} />
+            <PillA x={1400} y={430} text={`MACH ${JUMPS.eustace.mach}` /* #8 */} F={STUDIO} dot={C.limb} opacity={ez(f, P14 + 66, P14 + 78)} />
           </g>
         ) : null}
       </Layer>
