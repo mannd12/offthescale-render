@@ -51,8 +51,8 @@ const Orbit: React.FC<{ f: number; rate: number; probe?: boolean; pips?: number;
 const a1: Shot = ({ f }) => (
   <g>
     <Space f={f} />
-    <Station x={540 + Math.sin(f / 30) * 20} y={620} size={700} f={f} />
-    <Tick x={220} y={1080} pxPerM={230} frame={f} pose="hold" expression="happy" facing={1} tilt={14} />
+    <Station x={540 + Math.sin(f / 30) * 20} y={520} size={560} f={f} />
+    <Tick x={220} y={1110} pxPerM={200} frame={f} pose="hold" expression="happy" facing={1} tilt={14} />
     <Plaque x={540} y={190} text="THE SPACE STATION" size={80} bg={C.ink} fg={C.cream} />
   </g>
 );

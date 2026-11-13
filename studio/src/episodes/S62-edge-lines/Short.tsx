@@ -54,7 +54,7 @@ const Wings: React.FC<{ x: number; y: number; s: number; f: number }> = ({ x, y,
 
 const BAL1 = 420;
 const BAL2 = 700;
-const bal = (x: number, km: number, f: number, rise = 1) => <Balloon x={x} y={mix(KM(0) - 40, KM(km), rise) + Math.sin(f / 9) * 5} size={240} f={f} variant="capsule" />;
+const bal = (x: number, km: number, f: number, rise = 1) => <Balloon x={x} y={mix(KM(0) - 40, KM(km), rise) + Math.sin(f / 9) * 5} size={190} f={f} variant="capsule" />;
 
 /** a - draw a line across the sky. */
 const a1: Shot = ({ f, n }) => (
@@ -90,7 +90,7 @@ const b1: Shot = ({ f, n }) => (
   <g>
     <SK f={f} />
     <Spine />
-    <Balloon x={540} y={mix(KM(0) - 40, KM(70), ez(f, 0, n))} size={240} f={f} variant="capsule" />
+    <Balloon x={540} y={mix(KM(0) - 40, KM(70), ez(f, 0, n))} size={190} f={f} variant="capsule" />
     <Plaque x={540} y={190} text="FAI" size={140} bg={C.ink} fg={C.amber} w={380} />
   </g>
 );
@@ -269,7 +269,7 @@ const h2: Shot = ({ f, n }) => (
     {bal(BAL1, 39, f)}
     {bal(BAL2, 41.4, f)}
     <Count x={540} y={190} f={f} a={0} b={50} f1={n - 6} unit=" KM" w={520} size={120} />
-    <Plaque x={540} y={KM(50) - 70} text="ENDS ABOUT HERE" size={46} bg={C.ink} fg={C.cream} />
+    <Plaque x={560} y={KM(50) + 190} text="ENDS ABOUT HERE" size={46} bg={C.ink} fg={C.cream} />
   </g>
 );
 const h3: Shot = ({ f }) => (
@@ -279,7 +279,7 @@ const h3: Shot = ({ f }) => (
     {STRAT(f, 1)}
     {bal(BAL1, 39, f)}
     {bal(BAL2, 41.4, f)}
-    <Tick x={870} y={1250} pxPerM={250} frame={f} pose="point" expression="neutral" facing={-1} />
+    <Tick x={905} y={1260} pxPerM={200} frame={f} pose="point" expression="neutral" facing={-1} />
     <Plaque x={540} y={190} text="BOTH JUMPS BEGAN INSIDE IT" size={46} bg={C.ink} fg={C.cream} />
   </g>
 );

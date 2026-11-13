@@ -196,7 +196,7 @@ const g3: Shot = ({ f }) => (
     <Sky stops={BG_STUDIO} x={0} y={0} w={W} h={H} />
     <HBar x={100} y={500} w={880} k={1.25 / 3.5} color={C.foam} h={56} />
     <HBar x={100} y={600} w={880} k={3.3 / 3.5} color={C.amber} h={56} />
-    <Plaque x={540} y={900} text="MORE THAN 2X" size={150} bg={C.ink} fg={C.amber} w={880} scale={1 + 0.05 * Math.sin(f / 4)} />
+    <Plaque x={540} y={780} text="MORE THAN 2X" size={104} bg={C.ink} fg={C.amber} w={800} scale={1 + 0.05 * Math.sin(f / 4)} />
     <Plaque x={540} y={220} text="HIS SPEED" size={90} bg={C.ink} fg={C.cream} />
     <Tick x={190} y={1330} pxPerM={230} frame={f} pose="point" expression="surprised" facing={1} />
     <ModelChip y={62} />
@@ -232,7 +232,7 @@ const h3: Shot = ({ f, n }) => {
     <g>
       <SkyColumn f={f} altTop={46} altBottom={-4} x={0} y={0} w={W} h={H} />
       <Probe x={420} y={mix(400, 620, k)} size={300} f={f} trail={240} />
-      <Plaque x={720} y={mix(500, 800, k)} text="40 KM LEFT" size={70} bg={C.ink} fg={C.amber} />
+      <Plaque x={620} y={mix(470, 700, k)} text="40 KM LEFT" size={70} bg={C.ink} fg={C.amber} />
       <Tick x={840} y={1250} pxPerM={230} frame={f} pose="point" expression="worried" facing={-1} />
       <ModelChip y={62} />
     </g>

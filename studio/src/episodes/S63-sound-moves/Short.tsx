@@ -32,7 +32,7 @@ const a1: Shot = ({ f }) => (
     <rect x={90} y={820} width={860} height={130} rx={65} fill={C.ink} opacity={0.85} />
     <Flyer x={190} y={625 + Math.sin(f / 4) * 6} f={f} />
     <Rings x={190} y={885} f={f} n={3} period={36} max={110} color={C.foam} width={9} />
-    <T x={540} y={1060} text="PROBE VS SOUND" size={60} color={C.cream} />
+    <T x={400} y={1060} text="PROBE VS SOUND" size={56} color={C.cream} />
     <Plaque x={540} y={190} text="RACE THE SOUND" size={90} bg={C.ink} fg={C.amber} />
     <Tick x={870} y={1330} pxPerM={200} frame={f} pose="point" expression="determined" facing={-1} />
   </g>
@@ -116,7 +116,7 @@ const Slide: React.FC<{ f: number; x: number; ground: number }> = ({ f, x, groun
     <rect x={100} y={740} width={880} height={36} rx={18} fill={C.ink} opacity={0.9} />
     <line x1={x} y1={640} x2={x} y2={870} stroke={C.amber} strokeWidth={16} strokeLinecap="round" />
     <Plaque x={x} y={570} text="MACH 1" size={64} bg={C.ink} fg={C.amber} />
-    <Probe x={x} y={1010 + Math.sin(f / 5) * 8} size={200} f={f} tilt={180} lamp={false} />
+    <Probe x={x} y={1090 + Math.sin(f / 5) * 8} size={170} f={f} tilt={180} lamp={false} />
     <T x={XV(340)} y={940} text="GROUND" size={40} color={C.cream} opacity={ground} />
     <T x={XV(295)} y={940} text="20 KM" size={40} color={C.cream} opacity={1 - ground} />
   </g>
@@ -190,7 +190,7 @@ const f3: Shot = ({ f }) => (
   <g>
     <Sky stops={BG_STUDIO} x={0} y={0} w={W} h={H} />
     <Stamp x={540} y={600} text="ABOUT 1,086" size={100} age={f} rotate={-4} />
-    <Plaque x={540} y={190} text="KM/H, HIGH UP" size={90} bg={C.ink} fg={C.cream} />
+    <Plaque x={540} y={190} text="KM/H, UP THERE" size={90} bg={C.ink} fg={C.cream} />
     <Tick x={190} y={1330} pxPerM={230} frame={f} pose="point" expression="surprised" facing={1} />
   </g>
 );

@@ -153,13 +153,13 @@ const e3: Shot = ({ f }) => (
 
 /** g - the gap on a timeline: 0 S .. 34 S (sound) .. 50 S (top speed) = 16 S more. */
 const X0 = 100;
-const PXS = 17.6;
+const PXS = 15.6;
 const g1: Shot = ({ f, n }) => {
   const k = ez(f, 0, n - 6);
   return (
     <g>
       <Sky stops={["#0B1B3A", "#1B3A6B", "#2A6FA8"]} x={0} y={0} w={W} h={H} />
-      <HBar x={X0} y={820} w={880} k={(k * 34) / 50} />
+      <HBar x={X0} y={820} w={780} k={(k * 34) / 50} />
       <line x1={X0 + 34 * PXS} y1={740} x2={X0 + 34 * PXS} y2={900} stroke={C.cream} strokeWidth={10} />
       <Plaque x={X0 + 34 * PXS} y={1000} text="SOUND" size={56} bg={C.ink} fg={C.cream} />
       <Probe x={X0 + 40 + 34 * PXS * k} y={640} size={230} f={f} variant="plain" tilt={-90} lamp={false} />
@@ -172,9 +172,9 @@ const g2: Shot = ({ f, n }) => {
   return (
     <g>
       <Sky stops={["#0B1B3A", "#1B3A6B", "#2A6FA8"]} x={0} y={0} w={W} h={H} />
-      <HBar x={X0} y={820} w={880} k={(34 + 16 * k) / 50} />
+      <HBar x={X0} y={820} w={780} k={(34 + 16 * k) / 50} />
       <line x1={X0 + 34 * PXS} y1={740} x2={X0 + 34 * PXS} y2={900} stroke={C.cream} strokeWidth={10} />
-      <Probe x={X0 + 40 + (34 + 16 * k) * PXS * 0.95} y={640} size={230} f={f} tilt={-90} lamp={false} />
+      <Probe x={X0 + 40 + (34 + 16 * k) * PXS * 0.92} y={640} size={230} f={f} tilt={-90} lamp={false} />
       <Bracket x1={X0 + 34 * PXS} y1={940} x2={X0 + 34 * PXS + 16 * PXS * k} y2={940} draw={1} label="" color={C.amber} />
       <Plaque x={540} y={190} text="50 S" size={130} bg={C.ink} fg={C.amber} w={330} />
       <Plaque x={540} y={1100} text="TOP SPEED" size={64} bg={C.ink} fg={C.cream} opacity={ez(f, n - 14, n - 6)} />
@@ -185,7 +185,7 @@ const g3: Shot = ({ f }) => (
   <g>
     <Sky stops={["#0A3C4C", "#11707A", "#1FA69A"]} x={0} y={0} w={W} h={H} />
     <Chips f={f} n={12} y0={150} y1={1150} color={C.gold} speed={9} opacity={0.4} seed={4} />
-    <Plaque x={540} y={620} text="+16 S" size={280} bg={C.ink} fg={C.amber} w={780} scale={1 + 0.05 * Math.sin(f / 4)} />
+    <Plaque x={540} y={560} text="+16 S" size={280} bg={C.ink} fg={C.amber} w={780} scale={1 + 0.05 * Math.sin(f / 4)} />
     <Plaque x={540} y={190} text="KEPT SPEEDING UP" size={72} bg={C.ink} fg={C.cream} />
     <Tick x={190} y={1250} pxPerM={250} frame={f} pose="point" expression="surprised" facing={1} />
   </g>
@@ -221,7 +221,8 @@ const h3: Shot = ({ f, n }) => (
     <Sky stops={BG_STUDIO} x={0} y={0} w={W} h={H} />
     <line x1={110} y1={1030} x2={980} y2={1030} stroke={C.cream} strokeWidth={8} strokeLinecap="round" />
     <line x1={110} y1={1030} x2={110} y2={330} stroke={C.cream} strokeWidth={8} strokeLinecap="round" />
-    <Trace pts={CURVE} head={ez(f, 0, n - 6)} f={f} color={C.amber} width={16} peak={4} peakLabel="50 S" />
+    <Trace pts={CURVE} head={ez(f, 0, n - 6)} f={f} color={C.amber} width={16} peak={4} />
+    <Plaque x={790} y={330} text="50 S" size={54} bg={C.ink} fg={C.cream} opacity={ez(f, n - 18, n - 10)} />
     <Plaque x={540} y={190} text="SPEED" size={120} bg={C.ink} fg={C.amber} />
     <Plaque x={540} y={1130} text="FLAT FROM 50 S" size={64} bg={C.ink} fg={C.cream} scale={ez(f, n - 14, n - 6)} />
   </g>
@@ -238,8 +239,8 @@ const i1: Shot = ({ f, n }) => (
 const i2: Shot = ({ f }) => (
   <g>
     <Sky stops={["#0A3C4C", "#11707A", "#1FA69A"]} x={0} y={0} w={W} h={H} />
-    <Probe x={330} y={760 + Math.sin(f / 5) * 10} size={300} f={f} trail={120} />
-    <Qmark f={f} x={720} y={900} size={620} />
+    <Probe x={470} y={760 + Math.sin(f / 5) * 10} size={300} f={f} trail={120} />
+    <Qmark f={f} x={790} y={900} size={560} />
     <Plaque x={540} y={190} text="16 S EARLIER" size={96} bg={C.ink} fg={C.cream} />
     <Tick x={180} y={1250} pxPerM={250} frame={f} pose="shrug" expression="thinking" facing={1} />
   </g>
