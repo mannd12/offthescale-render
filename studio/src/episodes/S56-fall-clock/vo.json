@@ -3,90 +3,80 @@
     "scene": "cold",
     "index": 0,
     "text": "Let go of a probe above a tunnel straight through the Earth.",
-    "file": "S56-fall-clock/vo/cold-00.wav",
-    "seconds": 3.97,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-00-e739556646.wav",
+    "seconds": 2.9,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "The famous answer: forty-two minutes to come out the other side.",
-    "file": "S56-fall-clock/vo/cold-01.wav",
-    "seconds": 3.75,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-01-60a71aed56.wav",
+    "seconds": 3.13,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "That's the textbook version, for an Earth made of one ball of the same rock, all the way through.",
-    "file": "S56-fall-clock/vo/cold-02.wav",
-    "seconds": 6.38,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-02-419bb4f2ff.wav",
+    "seconds": 4.96,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "At the middle, the probe would be doing nearly eight kilometres a second.",
-    "file": "S56-fall-clock/vo/cold-03.wav",
-    "seconds": 4.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-03-2e79a25336.wav",
+    "seconds": 3.53,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "Now use the real Earth, with its dense core. The fall takes thirty-eight minutes and eleven seconds.",
-    "file": "S56-fall-clock/vo/cold-04.wav",
-    "seconds": 5.83,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-04-8c562828ee.wav",
+    "seconds": 5.71,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Four minutes quicker than the famous answer.",
-    "file": "S56-fall-clock/vo/cold-05.wav",
-    "seconds": 2.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-05-cc3186b60e.wav",
+    "seconds": 2.01,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "Now pretend the pull never changes at all, the same all the way down.",
-    "file": "S56-fall-clock/vo/cold-06.wav",
-    "seconds": 4.7,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-06-38cbbb396f.wav",
+    "seconds": 3.52,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "That gives thirty-eight minutes exactly.",
-    "file": "S56-fall-clock/vo/cold-07.wav",
-    "seconds": 1.76,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-07-0822ce5ad9.wav",
+    "seconds": 2.44,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 8,
     "text": "Two very different pulls, and the answers sit eleven seconds apart.",
-    "file": "S56-fall-clock/vo/cold-08.wav",
-    "seconds": 3.75,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-08-870338bb47.wav",
+    "seconds": 3.48,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 9,
     "text": "So why does a pull that never changes land so close? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S56-fall-clock/vo/cold-09.wav",
-    "seconds": 10.01,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S56-fall-clock/vo/cold-09-636861d0ed.wav",
+    "seconds": 7.360041666666667,
+    "pauseAfter": 0.55
   }
 ]

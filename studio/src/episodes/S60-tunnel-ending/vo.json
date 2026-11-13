@@ -3,90 +3,80 @@
     "scene": "cold",
     "index": 0,
     "text": "Release a probe into an airless tunnel straight through the Earth.",
-    "file": "S60-tunnel-ending/vo/cold-00.wav",
-    "seconds": 3.65,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-00-109f4ea19b.wav",
+    "seconds": 3.32,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "With nothing in the way, it crosses in thirty-eight minutes, then pops out the far side.",
-    "file": "S60-tunnel-ending/vo/cold-01.wav",
-    "seconds": 5.43,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-01-453d8d98be.wav",
+    "seconds": 4.27,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "That model has no air, no spin, and no friction on the walls.",
-    "file": "S60-tunnel-ending/vo/cold-02.wav",
-    "seconds": 4.49,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-02-b1f9313348.wav",
+    "seconds": 3.2800416666666665,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Now add friction on the walls, and keep it small, a value the authors chose to keep the motion from stalling.",
-    "file": "S60-tunnel-ending/vo/cold-03.wav",
-    "seconds": 7.01,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-03-eca1bce421.wav",
+    "seconds": 5.06,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "The first half of the fall still takes about nineteen and a half minutes.",
-    "file": "S60-tunnel-ending/vo/cold-04.wav",
-    "seconds": 4.6,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-04-f94b418adb.wav",
+    "seconds": 3.08,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "It shoots past the middle and starts climbing toward the far side.",
-    "file": "S60-tunnel-ending/vo/cold-05.wav",
-    "seconds": 3.97,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-05-4091e2664f.wav",
+    "seconds": 2.77,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "But it never gets there.",
-    "file": "S60-tunnel-ending/vo/cold-06.wav",
-    "seconds": 1.76,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-06-c56c267ee9.wav",
+    "seconds": 1.15,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "It swings back and forth, each swing a little shorter.",
-    "file": "S60-tunnel-ending/vo/cold-07.wav",
-    "seconds": 3.44,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-07-7efb8caeec.wav",
+    "seconds": 3.19,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 8,
     "text": "The friction is small next to the pull, but over a trip this long, small losses add up.",
-    "file": "S60-tunnel-ending/vo/cold-08.wav",
-    "seconds": 6.06,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-08-b91e91f695.wav",
+    "seconds": 4.58,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 9,
     "text": "So where does the probe finally stop? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S60-tunnel-ending/vo/cold-09.wav",
-    "seconds": 8.75,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S60-tunnel-ending/vo/cold-09-772175bb8b.wav",
+    "seconds": 6.4900416666666665,
+    "pauseAfter": 0.55
   }
 ]

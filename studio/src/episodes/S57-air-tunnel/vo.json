@@ -3,90 +3,80 @@
     "scene": "cold",
     "index": 0,
     "text": "Open the hatch and drop a capsule down a tunnel straight through the Earth.",
-    "file": "S57-air-tunnel/vo/cold-00.wav",
-    "seconds": 4.6,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-00-34eed79104.wav",
+    "seconds": 3.4,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "With no air in the way, the fall takes thirty-eight minutes, and the probe tops nearly eight kilometres a second.",
-    "file": "S57-air-tunnel/vo/cold-01.wav",
-    "seconds": 6.7,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-01-da213646d0.wav",
+    "seconds": 5.34,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "That's more than twenty times the speed of sound.",
-    "file": "S57-air-tunnel/vo/cold-02.wav",
-    "seconds": 3.02,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-02-44957a0ffa.wav",
+    "seconds": 2.06,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "But the real tunnel is full of air, all the way down.",
-    "file": "S57-air-tunnel/vo/cold-03.wav",
-    "seconds": 4.07,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-03-23a287e117.wav",
+    "seconds": 2.81,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "Physicists modelled a vehicle in it, and it reaches a steady speed almost immediately.",
-    "file": "S57-air-tunnel/vo/cold-04.wav",
-    "seconds": 4.7,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-04-49b8cbd7f1.wav",
+    "seconds": 4.41,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Nowhere near eight kilometres a second.",
-    "file": "S57-air-tunnel/vo/cold-05.wav",
-    "seconds": 2.07,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-05-76f944b9cf.wav",
+    "seconds": 1.9,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "And the deeper it goes, the more the air is squeezed. Its pressure and density climb quickly.",
-    "file": "S57-air-tunnel/vo/cold-06.wav",
-    "seconds": 5.83,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-06-6355466cc1.wav",
+    "seconds": 4.43,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "Their number for the trip to the centre: about one point eight years.",
-    "file": "S57-air-tunnel/vo/cold-07.wav",
-    "seconds": 4.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-07-5982226fc0.wav",
+    "seconds": 4.26,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 8,
     "text": "Thirty-eight minutes became nearly two years.",
-    "file": "S57-air-tunnel/vo/cold-08.wav",
-    "seconds": 2.07,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-08-7afc03d3dd.wav",
+    "seconds": 2.45,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 9,
     "text": "So what is the air actually doing to the probe? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S57-air-tunnel/vo/cold-09.wav",
-    "seconds": 9.7,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S57-air-tunnel/vo/cold-09-619beab6c5.wav",
+    "seconds": 7.05,
+    "pauseAfter": 0.55
   }
 ]

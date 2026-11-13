@@ -3,90 +3,80 @@
     "scene": "cold",
     "index": 0,
     "text": "Put a one-centimetre square tile on a table.",
-    "file": "S59-core-pressure/vo/cold-00.wav",
-    "seconds": 2.71,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-00-998c3013c4.wav",
+    "seconds": 2.55,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "At the surface, the air above it presses on that square with about one kilogram.",
-    "file": "S59-core-pressure/vo/cold-01.wav",
-    "seconds": 5.02,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-01-a26a327f0a.wav",
+    "seconds": 4.45,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "Now take the tile down the tunnel, to the edge of the Earth's solid iron ball.",
-    "file": "S59-core-pressure/vo/cold-02.wav",
-    "seconds": 5.33,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-02-65ad9842bb.wav",
+    "seconds": 4.550041666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "The pressure there is about three point three million atmospheres.",
-    "file": "S59-core-pressure/vo/cold-03.wav",
-    "seconds": 3.34,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-03-e1b14ef49d.wav",
+    "seconds": 3.2799583333333335,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "That's about thirty-four hundred tonnes pressing on that one square centimetre.",
-    "file": "S59-core-pressure/vo/cold-04.wav",
-    "seconds": 3.65,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-04-cb5dc92345.wav",
+    "seconds": 4.149958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "That's the same as a stack of thirty-four hundred one-tonne blocks, all on that one tile.",
-    "file": "S59-core-pressure/vo/cold-05.wav",
-    "seconds": 5.33,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-05-f33306817e.wav",
+    "seconds": 4.5,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "Three point three million times the air at the surface.",
-    "file": "S59-core-pressure/vo/cold-06.wav",
-    "seconds": 3.34,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-06-c4e709320f.wav",
+    "seconds": 3.77,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "The pressure gauge runs off its scale.",
-    "file": "S59-core-pressure/vo/cold-07.wav",
-    "seconds": 2.39,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-07-104b000a20.wav",
+    "seconds": 1.98,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 8,
     "text": "And the deepest hole we have ever dug is twelve kilometres, out of twelve thousand seven hundred and forty.",
-    "file": "S59-core-pressure/vo/cold-08.wav",
-    "seconds": 6.28,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-08-7469897e75.wav",
+    "seconds": 6.1,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 9,
     "text": "So how does anyone put a number on that? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S59-core-pressure/vo/cold-09.wav",
-    "seconds": 9.38,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S59-core-pressure/vo/cold-09-6a2097bf6d.wav",
+    "seconds": 6.64,
+    "pauseAfter": 0.55
   }
 ]
