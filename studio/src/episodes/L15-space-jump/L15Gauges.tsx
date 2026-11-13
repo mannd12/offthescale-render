@@ -182,8 +182,9 @@ const SpeedInner: React.FC<InnerProps<SpeedState>> = ({ s, f, F, ink }) => {
         const a = ang(v) * D2R;
         const [ox, oy] = [cx + Math.cos(a) * (r + 12), cy + Math.sin(a) * (r + 12)];
         const [ix, iy] = [cx + Math.cos(a) * (r - 16), cy + Math.sin(a) * (r - 16)];
-        const [lx, ly] = [cx + Math.cos(a) * (r + 40), cy + Math.sin(a) * (r + 40)];
-        const side = Math.cos(a) < -0.2 ? "end" : Math.cos(a) > 0.2 ? "start" : "middle";
+        // the label sits INSIDE the arc (outside, it spilled off the panel at low speeds; kit-demo review 2026-11-13)
+        const [lx, ly] = [cx + Math.cos(a) * (r - 44), cy + Math.sin(a) * (r - 44) + 4];
+        const side = "middle";
         return (
           <g>
             <line x1={ix} y1={iy} x2={ox} y2={oy} stroke={C.limb} strokeWidth={5} strokeLinecap="round" />

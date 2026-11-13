@@ -239,13 +239,14 @@ export const AltRuler: React.FC<{
   const k0 = Math.ceil(altBottom / minor);
   const k1 = Math.floor(altTop / minor);
   const flagList = flags === true ? FLAGS : flags === false ? [] : flags;
+  const flagYs = flagList.map((fl) => A(fl.altKm));
   const ticks: React.ReactNode[] = [];
   for (let k = Math.max(0, k0); k <= k1; k++) {
     const a = +(k * minor).toFixed(4);
     const ty = A(a);
     const major = Math.abs(a / st - Math.round(a / st)) < 1e-6;
     ticks.push(<line key={k} x1={x} y1={ty} x2={x + dir * (major ? 34 : 16)} y2={ty} stroke={color} strokeWidth={major ? 4 : 2.5} opacity={major ? 1 : 0.7} />);
-    if (major && numbers)
+    if (major && numbers && !flagYs.some((fy) => Math.abs(fy - ty) < 26))
       ticks.push(
         <text key={"t" + k} x={x + dir * 44} y={ty + 8} textAnchor={side === "left" ? "start" : "end"} style={{ fontFamily: IF2.num, fontWeight: 700, fontSize: 22, fill: color, fontVariantNumeric: "tabular-nums" }}>
           {Math.round(a).toLocaleString("en-US")}

@@ -3,7 +3,8 @@
 // 24 px and fades in over the first 18 % of `t`, holds, fades out over the last 15 %; title wrapped at 22 chars, 104 px
 // (84 for 3+ lines).
 // USAGE
-//   <L15Card family={familyOf("void")} kicker="— OFF THE SCALE · THE EDGE" title="What If You Jumped From the Edge of Space?"
+//   <L15Card family={familyOf("void")} kicker="Off the Scale · The Edge"   (Kicker draws its own rule: no leading "—")
+//             title="What If You Jumped From the Edge of Space?"
 //            t={0..1 over the card} frame={card frame} />          a full-frame <Stage> (use as a shot body)
 //   <OrbitRings f cx? cy? every?=40 speed?=4.4 />                   the rings alone (for 1-xx or the closer)
 //   Background mover: OrbitRings, concentric arcs launched every 40 f from below the bottom edge, rising at 4.4 px/f

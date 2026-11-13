@@ -63,7 +63,7 @@ const Sheet: React.FC<{ f: number }> = ({ f }) => {
       {/* C · 78-118 km locked: aurora, 100 km flag, a pin line drawing, probe spinning */}
       <Panel id="kC" x={PW * 2} y={0} w={PW} h={PH} bg={skyAt(100)} label="C 78-118 km · aurora · pin · Probe spin">
         <SkyColumn f={f} altTop={118} altBottom={78} x={PW * 2} y={0} w={PW} h={PH} bands={0.8} aurora drift={6} />
-        <AltRuler f={f} altTop={118} altBottom={78} x={PW * 2 + 30} y={0} h={PH} step={10} pins={[{ altKm: 100, label: "edge?", draw: cl(f / 60), len: 360 }]} />
+        <AltRuler f={f} altTop={118} altBottom={78} x={PW * 2 + 30} y={0} h={PH} step={10} pins={[{ altKm: 94, label: "edge?", draw: cl(f / 60), len: 360 }]} />
         <Probe x={PW * 2 + 280} y={380} size={100} f={f} variant="spin" />
       </Panel>
       {/* D · orbit: Limb sliding 8 px/f, Station glint, probe floating beside it, thruster flame */}
@@ -152,7 +152,7 @@ export const L15KitDemo: React.FC = () => {
   const f = useCurrentFrame();
   if (f >= CARD_AT) {
     const cf = f - CARD_AT;
-    return <L15Card family={familyOf("void") as Family} kicker="— Off the Scale · The Edge" title="What If You Jumped From the Edge of Space?" t={0.3 + (cf / 35) * 0.4} frame={cf} />;
+    return <L15Card family={familyOf("void") as Family} kicker="Off the Scale · The Edge" title="What If You Jumped From the Edge of Space?" t={0.3 + (cf / 35) * 0.4} frame={cf} />;
   }
   return (
     <Stage theme={familyOf("studio").theme} drift={false} grain={0} vignette={0}>
