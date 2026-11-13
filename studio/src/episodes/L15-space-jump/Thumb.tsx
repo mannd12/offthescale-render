@@ -20,14 +20,17 @@ const Art: React.FC = () => (
     <defs>
       <linearGradient id="l15dawn" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stopColor="#FF8A3D" stopOpacity="0" />
-        <stop offset="0.6" stopColor="#FF8A3D" stopOpacity="0.5" />
+        <stop offset="0.6" stopColor="#FF8A3D" stopOpacity="0.6" />
         <stop offset="1" stopColor="#FFC27A" stopOpacity="0.85" />
       </linearGradient>
     </defs>
-    <rect x={0} y={560} width={1920} height={520} fill="url(#l15dawn)" />
-    <Probe x={930} y={330} size={290} f={F} trail={260} />
+    <rect x={0} y={420} width={1920} height={660} fill="url(#l15dawn)" />
+    {[-70, -28, 24, 66].map((dx, i) => (
+      <line key={i} x1={930 + dx} y1={20 + i * 30} x2={930 + dx} y2={170 + i * 36} stroke="#F4EBDD" strokeWidth={7 - (i % 2) * 2} strokeLinecap="round" opacity={0.7} />
+    ))}
+    <Probe x={930} y={380} size={290} f={F} lamp={false} />
     <SpeedGauge x={1260} y={560} scale={1.45} f={F} family={familyOf("void")} s={{ value: 0.42, ghost: 0.955, soundT: -46.6, max: 1100 }} />
-    <Tick x={1180} y={1010} pxPerM={70} frame={F} facing={1} pose="point" expression="determined" look={-0.4} />
+    <Tick x={1110} y={1010} pxPerM={70} frame={F} facing={1} pose="point" expression="determined" look={-0.4} />
   </svg>
 );
 
