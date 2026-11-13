@@ -769,7 +769,7 @@ const ShotOffScale: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={0}>
           <g opacity={ez(f, 50, 60)}>
-            <Pill x={120} y={120} text="off the scale" fill={pillFill(V)} color={C.saffronCore} dot={C.vermilion} size={34} />
+            <Pill x={120} y={120} text="off the scale" fill={pillFill(V)} color={C.saffronCore} dot={C.saffron} size={34} />
           </g>
         </Layer>
         <OrbitCluster f={f} value={Math.min(1, ez(f, 6, 46) * 1.0)} pinned={f > 46} />

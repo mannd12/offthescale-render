@@ -147,7 +147,7 @@ const ShotSpec: ShotFC<C06> = ({ f }) => {
           {Array.from({ length: 10 }, (_, i) => (
             <line key={"v" + i} x1={px - 360 + i * 80} y1={py - 320} x2={px - 360 + i * 80} y2={py + 320} stroke={alpha(C.limb, 0.16)} strokeWidth={2} />
           ))}
-          <Probe x={px} y={py} size={L} f={f} variant="float" lamp={false} />
+          <Probe x={px} y={py} size={L} f={f} variant="plain" lamp={false} />
           <line x1={px - 300} y1={scan} x2={px + 300} y2={scan} stroke={C.limb} strokeWidth={4} opacity={0.75} />
           <Bloom x={px} y={scan} r={160} color={C.limb} strength={0.25} squash={0.15} />
           <Bracket x1={px - w / 2} y1={py - 170} x2={px + w / 2} y2={py - 170} draw={ez(f, 8, 36)} color={C.saffron} />
@@ -292,7 +292,7 @@ const ShotMach: ShotFC<C06> = ({ f, len, c }) => {
             <RollMetric x={150} y={210} value={MODEL.v40 /* #20 */} k={ez(f, 10, 50)} unit="m/s" size={100} color={CREAM} slab={alpha("#04051A", 0.5)} who="6-07 speed" />
           </g>
           <g opacity={machK}>
-            <Pill x={150} y={320} text={`mach ${MODEL.mach40}` /* #23 */} fill={pillFill(familyOf("petrol"))} color={CREAM} dot={P_VERM} size={30} />
+            <Pill x={150} y={320} text={`mach ${MODEL.mach40}` /* #23 */} fill={pillFill(familyOf("petrol"))} color={CREAM} dot={C.saffron} size={30} />
           </g>
           <g opacity={soundK}>
             <Pill x={150} y={400} text={`sound ${SOUND.at40} m/s` /* #15 #23 */} fill={pillFill(familyOf("petrol"))} color={C.limb} dot={C.limb} size={30} />
@@ -302,7 +302,6 @@ const ShotMach: ShotFC<C06> = ({ f, len, c }) => {
     </Pop>
   );
 };
-const P_VERM = C.vermilion;
 
 // ===============================================================================================================
 // 6-08 · the peak: the ruler ticks pass (close scale), a saffron pin pops at 36 km, the needle at its high point, the
