@@ -809,7 +809,7 @@ const ShotStack: ShotFC<CL06> = ({ f, len, c }) => {
 const ShotBeyond: ShotFC<CL06> = ({ f, len, c }) => {
   const ph = c.beyond - c.heatfirst;
   const g = { cx: 2700, cy: 540, R: 400 };
-  const head = 1080 + f * 24;
+  const head = Math.min(1080 + f * 24, g.cx - g.R - 80);
   const cam = cameraAt(f, [
     { f: 0, x: 960, y: 540, zoom: 1.0 },
     { f: ph, x: 1060, y: 540, zoom: 1.0 },

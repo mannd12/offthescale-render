@@ -235,12 +235,12 @@ const ShotLumpy: ShotFC<CCloser> = ({ f, c }) => {
           {tk > 0 ? (
             <g opacity={ez(f, sec, sec + 8)}>
               <ClockFace x={1280} y={700} r={90} minutes={tk * 1.2} family={S} />
-              <g transform="translate(800 260)">
+              <g transform="translate(796 650)">
                 <rect x={-12} y={-150} width={24} height={300} rx={8} fill={C.saffron} stroke={INK} strokeWidth={4} />
                 <rect x={-12} y={-150} width={90} height={22} rx={6} fill={C.saffron} stroke={INK} strokeWidth={4} />
                 <rect x={-12 + jaw} y={-150} width={22} height={90} rx={6} fill={C.saffronCore} stroke={INK} strokeWidth={4} />
               </g>
-              <Tick x={960} y={860} pxPerM={150} frame={f} facing={-1} pose="hold" expression="thinking" look={0.7} headTilt={-12} />
+              <Tick x={940} y={860} pxPerM={150} frame={f} facing={-1} pose="hold" expression="thinking" look={0.7} headTilt={-12} />
             </g>
           ) : null}
         </StudioRoom>

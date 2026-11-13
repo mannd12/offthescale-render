@@ -226,6 +226,7 @@ const ShotPullZero: ShotFC<CL07> = ({ f, len, c }) => {
           <Rings f={f} cx={GX + 170 * SC} cy={GY + 102 * SC} start={land} every={22} speed={7} maxR={700} color={C.saffron} width={10} />
           <Ledge y={900} />
           <g transform={`translate(${GX} ${GY}) scale(${SC})`}>
+            <rect x={-8} y={-8} width={356} height={221} rx={26} fill={alpha(INK, 0.9)} />
             <L14Gauges family={V} frame={f} x={0} y={-705} pull={{ value: v + v2 }} />
           </g>
           <Tick x={-120 + 420 * tk} y={900} pxPerM={130} frame={f} facing={1} pose="stand" walk={tk < 1 ? f / 18 : undefined} expression="surprised" look={0.6} headTilt={-8} />
@@ -259,8 +260,8 @@ const ShotKey: ShotFC<CL07> = ({ f, len }) => {
         </Layer>
         <Layer depth={1}>
           <Probe x={420 + f * 8} y={470 + Math.sin(f / 14) * 10} size={120} f={f} tilt={-90} />
-          <Ledge y={930} x0={1200} />
-          <Tick x={1380} y={930} pxPerM={110} frame={f} facing={1} pose="point" staff expression="surprised" look={0.7} headTilt={-10} />
+          <Ledge y={930} x0={1120} />
+          <Tick x={1290} y={930} pxPerM={110} frame={f} facing={1} pose="point" staff expression="surprised" look={0.7} headTilt={-10} />
         </Layer>
         <Layer depth={0}>
           <Tag x={120} y={150} text="THREE UP · ONE DOWN" F={V} dot={C.saffron} size={32} />
@@ -309,6 +310,7 @@ const ShotDrop: ShotFC<CL07> = ({ f, len, c }) => {
         <Layer depth={1}>
           <Ledge y={LY} />
           <g transform="translate(560 120) scale(1.7)">
+            <rect x={-8} y={-8} width={356} height={221} rx={26} fill={alpha(INK, 0.9)} />
             <L14Gauges family={V} frame={f} x={0} y={-705} pull={{ value: 0 }} />
           </g>
           {/* the broken-off needle (a gauge needle: vermilion) */}

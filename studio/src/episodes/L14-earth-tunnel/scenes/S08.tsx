@@ -678,7 +678,7 @@ const ShotHonest: ShotFC<CL08> = ({ f, c }) => {
 // ===============================================================================================================
 const ShotThree: ShotFC<CL08> = ({ f, len }) => {
   const sl = ez(f, 46, Math.min(len, 86));
-  const xs = [960 + (PX[0] - 960) * (1 - 0.1 * sl), PX[1], 960 + (PX[2] - 960) * (1 - 0.1 * sl)];
+  const xs = [PX[0], PX[1], PX[2]];
   const lift = -150 * sl;
   const cam = cameraAt(f, [
     { f: 0, x: 960, y: 520, zoom: 1.08 },
