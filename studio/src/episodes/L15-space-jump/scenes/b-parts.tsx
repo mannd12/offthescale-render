@@ -288,3 +288,43 @@ export const TempChart: React.FC<{
     </g>
   );
 };
+
+/** Large-area mover: vertical streaks flowing up (dir -1, as past a falling probe) or down at `speed` px/f. */
+export const FlowStreaks: React.FC<{ f: number; speed?: number; n?: number; color?: string; opacity?: number; dir?: 1 | -1; x0?: number; x1?: number; width?: number; seed?: number }> = ({
+  f,
+  speed = 10,
+  n = 34,
+  color = C.bone,
+  opacity = 0.35,
+  dir = -1,
+  x0 = -200,
+  x1 = 2120,
+  width = 5,
+  seed = 1,
+}) => (
+  <g stroke={color} strokeLinecap="round" opacity={opacity}>
+    {Array.from({ length: n }, (_, i) => {
+      const r1 = Math.abs(Math.sin(seed * 91.3 + i * 12.9898) * 43758.5453) % 1;
+      const r2 = Math.abs(Math.sin(seed * 17.1 + i * 78.233) * 12345.678) % 1;
+      const L = 140 + r2 * 220;
+      const x = x0 + r1 * (x1 - x0);
+      const y = ((((r2 * 1600 + dir * f * speed * (0.75 + r1 * 0.5)) % 1600) + 1600) % 1600) - 260;
+      return <line key={i} x1={x} y1={y} x2={x} y2={y + L} strokeWidth={width * (0.6 + r1 * 0.8)} />;
+    })}
+  </g>
+);
+
+/** Large-area mover: sound rings expanding from (x, y) at `speed` px/f, one every `every` frames. */
+export const SoundRings: React.FC<{ f: number; x: number; y: number; speed?: number; every?: number; max?: number; color?: string }> = ({ f, x, y, speed = 7, every = 22, max = 1100, color = C.limb }) => (
+  <g fill="none" stroke={color}>
+    {Array.from({ length: Math.ceil(max / (speed * every)) + 1 }, (_, k) => {
+      const age = (f % every) + k * every;
+      const r = age * speed;
+      if (r > max) return null;
+      return <circle key={k} cx={x} cy={y} r={r} strokeWidth={10} opacity={0.35 * (1 - r / max)} />;
+    })}
+  </g>
+);
+
+/** Deep saturated indigo (value ≈ 0.3-0.4): the lifted "void" for shots that are dark but not the top of the sky. */
+export const INDIGO = ["#120E46", "#1B1560", "#271E7A"];

@@ -21,7 +21,7 @@ import { L15Gauges, L15GaugesHUD, SpeedGauge, airValue, speedValue } from "../L1
 import { Bracket, Pin, Probe, Stamp, Trace } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { AltClouds, Bar, C, CREAM, INK, Ledge, ModelChip, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, clamp01, ez, lin, path1, view, vy } from "./c-parts";
+import { AirStream, AltClouds, Bar, Wisps, C, CREAM, INK, Ledge, ModelChip, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, clamp01, ez, lin, path1, view, vy } from "./c-parts";
 
 export const cuesL06 = (t: SceneTiming) => {
   const { at, p, frac } = cueKit(t);
@@ -58,6 +58,9 @@ export const cuesL06 = (t: SceneTiming) => {
 export type C06 = ReturnType<typeof cuesL06>;
 
 /** The model probe's altitude (km) at a SCENE frame: rest at 100 km until release, then through the line cues (#20). */
+/** Air thickness 0..1 for the streak density (thin above 60 km, full near the ground). */
+const thickAt = (alt: number) => 0.2 + 0.8 * clamp01((60 - alt) / 55);
+
 const altAt = (c: C06, sf: number) =>
   path1(sf, [
     [c.release, 100],
@@ -107,7 +110,8 @@ const ShotLine: ShotFC<C06> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={skyFamily(110).theme} shotFrame={f} drift={{ zoom: 1.03, panX: 0.006, panY: 0, frames: 200, seed: 2 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={v} aurora={0.45} drift={0.6} />
+          <SkyView f={f} v={v} aurora={0.45} drift={6} />
+          <Wisps f={f} vx={7} vy={0} n={8} seed={21} colors={[C.teal, C.limb, C.saffron]} opacity={0.28} />
           <Probe x={820} y={py + 60} size={150} f={f} variant="float" tilt={0} />
           <Ledge x={1180} y={py + 110} />
           <Tick x={1180} y={py + 110} pxPerM={58} frame={f} facing={-1} pose="point" expression="proud" look={0.4} />
@@ -139,10 +143,11 @@ const ShotSpec: ShotFC<C06> = ({ f }) => {
     <Pop f={f}>
       <Stage theme={skyFamily(100).theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.01, frames: 200, seed: 5 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={view(104, 30)} ruler={false} drift={9} aurora={0.6} bands={0.6} />
+          <SkyView f={f} v={view(104, 30)} ruler={false} drift={9} aurora={0.6} />
+          <Wisps f={f} vx={-7} vy={0} n={8} seed={23} colors={[C.limb, C.teal, C.saffron]} opacity={0.26} />
           {/* blueprint grid */}
           {Array.from({ length: 9 }, (_, i) => (
-            <line key={i} x1={px - 360} y1={py - 320 + i * 80} x2={px + 360} y2={py - 320 + i * 80} stroke={alpha(C.limb, 0.16)} strokeWidth={2} />
+            <line key={i} x1={px - 360} y1={py - 320 + ((i * 80 + f * 6) % 640)} x2={px + 360} y2={py - 320 + ((i * 80 + f * 6) % 640)} stroke={alpha(C.limb, 0.16)} strokeWidth={2} />
           ))}
           {Array.from({ length: 10 }, (_, i) => (
             <line key={"v" + i} x1={px - 360 + i * 80} y1={py - 320} x2={px - 360 + i * 80} y2={py + 320} stroke={alpha(C.limb, 0.16)} strokeWidth={2} />
@@ -182,6 +187,7 @@ const ShotRelease: ShotFC<C06> = ({ f, c }) => {
       <Stage theme={skyFamily(alt).theme} shotFrame={f} drift={{ zoom: 1.03, panX: 0.005, frames: 200, seed: 7 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
           <SkyView f={f} v={v} aurora={0.8} drift={12} streak={18 + f * 0.2} />
+          <AirStream f={f} speed={10 + f * 0.06} thick={thickAt(alt)} seed={31} />
           <Probe x={820} y={470} size={170} f={f} trail={Math.min(150, f * 2)} />
         </Layer>
         <Cluster f={f} alt={alt} />
@@ -215,6 +221,7 @@ const ShotMarks: ShotFC<C06> = ({ f, c }) => {
     <Stage theme={skyFamily(alt).theme} shotFrame={f} drift={{ zoom: 1.03, panX: 0.005, frames: 260, seed: 9 }} vignette={0.3} grain={0.5}>
       <Layer depth={1}>
         <SkyView f={f} v={v} aurora={0.6} drift={10} streak={30} />
+        <AirStream f={f} speed={20} thick={thickAt(alt)} seed={33} />
         <Probe x={820} y={470} size={160} f={f} trail={150} />
       </Layer>
       <Layer depth={0}>
@@ -271,6 +278,7 @@ const ShotMach: ShotFC<C06> = ({ f, len, c }) => {
       <Stage theme={F.theme} cam={cam} vignette={0.32} grain={0.5}>
         <Layer depth={0.6}>
           <SkyView f={f} v={v} ruler={false} drift={12} streak={26} bands={0.6} />
+          <AirStream f={f} speed={18} thick={thickAt(alt)} seed={35} />
           <HazeStreaks f={f} />
         </Layer>
         <Layer depth={1}>
@@ -317,6 +325,7 @@ const ShotPeak: ShotFC<C06> = ({ f, c }) => {
     <Pop f={f}>
       <Stage theme={skyFamily(alt).theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.006, frames: 200, seed: 11 }} vignette={0.32} grain={0.5}>
         <Layer depth={1}>
+          <AirStream f={f} speed={18} thick={thickAt(alt)} seed={37} />
           <SkyView f={f} v={v} drift={12} streak={30} pins={[{ altKm: MODEL.peakKmShown /* #20 */, label: "", draw: pinK, len: 1300 }]} step={1} />
           <Probe x={820} y={470} size={160} f={f} trail={150} />
           {pinK > 0.95 ? <Rings f={sf - c.peakWord - 4} cx={820} cy={vy(v, MODEL.peakKmShown)} every={14} speed={6} maxR={260} color={C.saffronCore} width={5} /> : null}
@@ -352,6 +361,10 @@ const ShotBars: ShotFC<C06> = ({ f }) => {
         <Layer depth={1}>
           <ModelChip x={x0} y={370} f={f} size={22} />
           <Bar x={x0} y={450} len={mLen} h={84} color={C.saffron} />
+          {Array.from({ length: 9 }, (_, i) => {
+            const cx = x0 + 30 + ((((i * 120 + f * 9) % 1080) + 1080) % 1080);
+            return cx < x0 + mLen - 40 ? <path key={i} d={`M${cx} 426 L${cx + 24} 450 L${cx} 474 L${cx - 10} 474 L${cx + 14} 450 L${cx - 10} 426 Z`} fill={C.saffronCore} opacity={0.9} /> : null;
+          })}
           <text x={x0} y={590} style={{ fontFamily: IF2.label, fontSize: 30, letterSpacing: 4, fill: INK }}>
             BAUMGARTNER
           </text>
@@ -392,8 +405,9 @@ const ShotDrops: ShotFC<C06> = ({ f, len, c }) => {
           {Array.from({ length: 6 }, (_, i) => {
             const span = 1500;
             const y = ((((i * 250 - f * 12) % span) + span) % span) - 210;
-            return <rect key={i} x={-300} y={y} width={2520} height={60 + (i % 3) * 30} fill={mixHex(C.teal, C.limb, i / 6)} opacity={0.14} />;
+            return <rect key={i} x={-300} y={y} width={2520} height={60 + (i % 3) * 30} fill={mixHex(C.teal, C.limb, i / 6)} opacity={0.26} />;
           })}
+          <AirStream f={f} speed={16} thick={thickAt(alt)} seed={39} />
         </Layer>
         <Layer depth={1}>
           <SpeedGauge x={360} y={150} s={{ value: speedValue(modelSpeedAt(alt)), soundT: T, max: 1100, ghost: speedValue(MODEL.peak) }} f={f} family={F} scale={2.2} />
@@ -425,6 +439,7 @@ const ShotClouds: ShotFC<C06> = ({ f, c }) => {
         <Layer depth={1}>
           <SkyView f={f} v={v} drift={2} rulerColor={alt < 14 ? INK : undefined} />
           <AltClouds f={f} v={v} from={1.5} to={19} n={22} seed={5} />
+          <AirStream f={f} speed={16} thick={thickAt(alt)} seed={41} />
           <Probe x={820} y={470} size={160} f={f} trail={140} />
         </Layer>
         <Layer depth={0}>
@@ -462,6 +477,7 @@ const ShotLand: ShotFC<C06> = ({ f, c }) => {
         <Layer depth={1}>
           <SkyView f={f} v={v} drift={1} rulerColor={INK} step={1} />
           <AltClouds f={f} v={v} from={1.2} to={6} n={14} seed={9} />
+          {!landed ? <AirStream f={f} speed={22} thick={1} seed={43} /> : <Wisps f={f} vx={-6} vy={-2} n={6} seed={45} colors={[C.cloud, C.dune1]} opacity={0.35} />}
           <Probe x={820} y={pyr} size={160} f={f} trail={landed ? 0 : 140} tilt={landed ? Math.sin((f - T0) / 4) * 6 * Math.exp(-(f - T0) / 12) : 0} />
           {landed ? <Puffs frame={f - T0} x={820} y={gy - 10} color={C.dune1} period={4} size={30} rise={1.2} drift={2.5} life={40} seed={3} /> : null}
           {landed ? <Rings f={f - T0} cx={820} cy={gy} once speed={9} maxR={360} color={alpha(C.cloud, 0.9)} width={6} /> : null}
@@ -550,6 +566,7 @@ const ShotTraces: ShotFC<C06> = ({ f, len, c }) => {
           <Trace pts={modelPts} head={hm} f={f} color={C.saffron} width={8} peak={32} />
           <Trace pts={baumPts} head={hb} f={f} color={C.limb} width={7} />
           <Trace pts={eustPts} head={he} f={f} color={C.bone} width={7} />
+          {hm >= 1 ? <Trace pts={modelPts.slice(Math.max(0, Math.floor(((f - 96) * 0.6) % modelPts.length) - 6), Math.floor(((f - 96) * 0.6) % modelPts.length) + 1)} head={1} f={f} color={C.saffronCore} width={14} /> : null}
           <Tick x={250} y={900} pxPerM={140} frame={f} facing={1} pose="point" staff expression="proud" look={0.3} />
           {hm >= 1 ? <Rings f={f - 96} cx={px(MODEL.ground)} cy={py(0)} every={20} speed={4} maxR={120} color={C.saffronCore} width={5} /> : null}
         </Layer>
@@ -620,6 +637,7 @@ const ShotBand: ShotFC<C06> = ({ f, len }) => {
       <Stage theme={skyFamily(40).theme} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
           <SkyView f={f} v={v} rulerX={rx} drift={3} band={{ from: 0, to: 50, wipe }} flags={false} />
+          <Wisps f={f} vx={3} vy={-7} n={8} seed={47} colors={[C.teal, C.limb, C.saffron]} opacity={0.22} />
           <Trace pts={pts} head={1} f={f} color={C.saffronCore} width={8} />
           <Tick x={rx - 70} y={vy(v, 0) - 4} pxPerM={60} frame={f} facing={1} pose="point" poseTo="lean" poseT={ez(f, 20, 60)} expression="proud" look={0.2} />
           <Motes frame={f} n={18} x={0} y={0} w={1920} h={1080} color={alpha(C.bone, 0.7)} seed={15} size={3} drift={40} />

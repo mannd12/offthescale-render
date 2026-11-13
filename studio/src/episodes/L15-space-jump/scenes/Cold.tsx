@@ -16,7 +16,7 @@ import { AltRuler, Limb, SkyColumn, altY } from "../sky";
 import { Balloon, Jumper, Probe, Station } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, CREAM, DUSK, Ledge, NOON, NightColumn, Pop, VOID, cl01, ez, lerp, lin, path1 } from "./a-parts";
+import { AuroraBand, C, CREAM, DUSK, Ledge, NOON, NightColumn, Pop, VOID, cl01, ez, lerp, lin, path1 } from "./a-parts";
 
 // ================================================================================================================
 // cues
@@ -80,8 +80,9 @@ const ShotLaunch: ShotFC<CCold> = ({ f, len, c }) => {
     <AbsoluteFill>
       <Stage theme={DUSK.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.01, panY: 0, frames: 200, seed: 2 }} vignette={0.25} grain={0.5}>
         <Layer depth={1}>
-          <NightColumn f={f} altTop={b + 1.2} altBottom={b} seed={4} tint="#2A1E5A" tintK={0.15} />
-          <Bloom x={1500} y={gy - 30} r={520} color={C.cityGlow} core={0} strength={0.45} />
+          {/* pre-dawn black at the first beat, brightening toward dawn as the balloon climbs */}
+          <NightColumn f={f} altTop={b + 1.2} altBottom={b} seed={4} tint="#070618" tintK={0.65 * (1 - ez(f, 0, T2 + 10))} />
+          <Bloom x={1500} y={gy - 30} r={520 + 260 * ez(f, 0, T2)} color={C.cityGlow} core={0} strength={0.45 + 0.35 * ez(f, 0, T2)} />
           <Streamers f={f} n={14} x0={-300} x1={2300} y0={gy - 320} y1={gy - 20} len={220} width={5} speed={9} color={alpha("#FFE0B0", 0.9)} opacity={0.45} slope={-0.02} seed={5} />
           {/* the dotted line from the deck down to the far ground */}
           {Array.from({ length: 30 }, (_, i) => {
@@ -191,7 +192,7 @@ const ShotCluster: ShotFC<CCold> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={0.6}>
-          <NightColumn f={f} altTop={160} altBottom={80} ground={false} seed={9} drift={22} streak={22} />
+          <NightColumn f={f} altTop={75} altBottom={0} ground={false} seed={9} drift={22} streak={22} />
         </Layer>
         <Layer depth={1}>
           <Probe x={480} y={520} size={130} f={f} trail={110} />
@@ -229,7 +230,7 @@ const ShotScale: ShotFC<CCold> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={0.6}>
-          <NightColumn f={f + 160} altTop={160} altBottom={80} ground={false} seed={9} drift={22} streak={22} />
+          <NightColumn f={f + 160} altTop={75} altBottom={0} ground={false} seed={9} drift={22} streak={22} />
         </Layer>
         <Layer depth={1}>
           <L15Gauges
@@ -273,7 +274,7 @@ const ShotClimb: ShotFC<CCold> = ({ f, len, c }) => {
         <Layer depth={1}>
           <SkyColumn f={f} altTop={top} altBottom={bottom} x={-200} w={2320} streak={g > 0 ? 30 : 0} />
           <g transform={`translate(0 ${(altY(8, top, bottom) - 700).toFixed(1)})`} opacity={1 - ez(f, T8 - 30, T8 + 10)}>
-            <CloudRack f={f} n={5} x0={-700} x1={2700} y0={560} y1={820} size={80} speed={2.4} body={alpha(C.cloud, 0.85)} under={alpha(C.cloudShade, 0.7)} seed={11} flat={2.2} />
+            <CloudRack f={f} n={6} x0={-700} x1={2700} y0={520} y1={860} size={130} speed={6} body={alpha(C.cloud, 0.85)} under={alpha(C.cloudShade, 0.7)} seed={11} flat={2.2} />
           </g>
           {targets.map((h, i) => {
             const a = h * ez(f, 4 + i * 12, 96 + i * 12);
@@ -318,7 +319,14 @@ const ShotClimb: ShotFC<CCold> = ({ f, len, c }) => {
 // C-09 · the chapter card on a void field; orbit-arc rings rise behind the type. MOVER: the rings (one every 40 f).
 // ================================================================================================================
 const ShotCard: ShotFC<CCold> = ({ f, len }) => (
-  <L15Card family={VOID} kicker="Off the Scale · The Edge" title="What If You Jumped From the Edge of Space?" t={Math.min(0.97, f / len)} frame={f + 60} />
+  <L15Card
+    family={VOID}
+    kicker="Off the Scale · The Edge"
+    title="What If You Jumped From the Edge of Space?"
+    t={Math.min(0.97, f / len)}
+    frame={f + 60}
+    behind={(fr) => <OrbitRings f={fr} every={26} speed={9} width={56} maxR={2300} />}
+  />
 );
 
 // ================================================================================================================
@@ -347,6 +355,7 @@ const ShotEdge: ShotFC<CCold> = ({ f, len }) => {
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
           <NightColumn f={f} altTop={top} altBottom={bottom} ground={false} seed={12} />
+          <AuroraBand f={f} y={ly - 230} />
           <g opacity={0.55}>
             <OrbitRings f={f + 200} cy={1700} r0={500} maxR={1500} width={20} />
           </g>

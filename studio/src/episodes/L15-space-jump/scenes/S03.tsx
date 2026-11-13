@@ -19,7 +19,7 @@ import { AirCube, Bracket, Probe } from "../props";
 import { altY } from "../sky";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { Arrow, C, Perch, Pop, SkyBack, Slab, StudioSet, XTag, cl01, ez, lerp, lin, rollText } from "./b-parts";
+import { Arrow, C, FlowStreaks, Perch, Pop, SkyBack, Slab, StudioSet, XTag, cl01, ez, lerp, lin, rollText } from "./b-parts";
 
 const NOON = familyOf("noon");
 const PET = familyOf("petrol");
@@ -397,6 +397,7 @@ const PetrolBack: React.FC<{ f: number; seed?: number }> = ({ f, seed = 2 }) => 
     <g transform="rotate(-90 960 540)">
       <Streamers f={f} n={18} x0={-400} x1={2400} y0={-300} y1={1500} len={200} width={8} speed={8} color={alpha(PET.light, 0.4)} opacity={0.5} seed={seed} />
     </g>
+    <FlowStreaks f={f} speed={9} color={PET.light} opacity={0.28} seed={seed} />
     <Motes frame={f} n={26} x={-200} y={0} w={2300} h={1080} color={alpha(C.bone, 0.7)} seed={seed + 4} size={4} drift={30} />
   </g>
 );

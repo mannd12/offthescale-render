@@ -19,7 +19,7 @@ import { AirCube, Chute, Jumper, Probe, Seesaw, Spiral, Trace } from "../props";
 import { AltRuler, altY } from "../sky";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { Arrow, C, ModelChip, Perch, Pop, SkyBack, Slab, StudioSet, XTag, cl01, ez, lerp, lin, rollText } from "./b-parts";
+import { Arrow, C, FlowStreaks, INDIGO, ModelChip, Perch, Pop, SkyBack, Slab, StudioSet, XTag, cl01, ez, lerp, lin, rollText } from "./b-parts";
 
 const PET = familyOf("petrol");
 const VOID = familyOf("void");
@@ -54,10 +54,12 @@ export const cuesL05 = (t: SceneTiming) => {
 };
 export type CL05 = ReturnType<typeof cuesL05>;
 
-const VoidBack: React.FC<{ f: number; drift?: number; seed?: number }> = ({ f, drift = 0.6, seed = 3 }) => (
+// Lifted to deep saturated indigo (probe fix round); `black` keeps the true black for the villain's first beat.
+const VoidBack: React.FC<{ f: number; drift?: number; seed?: number; black?: boolean }> = ({ f, drift = 0.6, seed = 3, black = false }) => (
   <g>
-    <Sky stops={["#020812", "#06121E", "#0B2030"]} />
-    <SkyBack f={f} altTop={112} altBottom={88} drift={drift} ruler={false} bands={false} seed={seed} />
+    {black ? <SkyBack f={f} altTop={112} altBottom={88} drift={drift} ruler={false} bands={false} seed={seed} /> : <Sky stops={INDIGO} />}
+    {black ? null : <Motes frame={f} n={40} x={-200} y={0} w={2300} h={1080} color={alpha(C.starTeal, 0.85)} seed={seed} size={4} drift={30} />}
+    <FlowStreaks f={f} speed={9} color={black ? C.starTeal : C.limb} opacity={black ? 0.22 : 0.3} seed={seed} />
   </g>
 );
 
@@ -83,9 +85,9 @@ const ShotVillain: ShotFC<CL05> = ({ f, len }) => {
     <AbsoluteFill>
       <Stage theme={VOID.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.02, panY: 0.01, frames: len + 30, seed: 1 }} vignette={0.35} grain={0.4}>
         <Layer depth={1}>
-          <VoidBack f={f} />
-          <Bloom x={700} y={520} r={360} color={V} strength={0.3} />
-          <Spiral x={700} y={520} r={230} f={f} speed={4} width={9} />
+          <VoidBack f={f} black />
+          <Bloom x={700} y={520} r={420} color={V} strength={0.3} />
+          <Spiral x={700} y={520} r={340} f={f} speed={4} width={11} />
           <Probe x={700} y={520} size={150} f={f} variant="float" tilt={20} />
           <Tag x={430} y={250} n="1" age={f - 34} />
           <Tag x={970} y={250} n="2" age={f - 52} />
@@ -109,7 +111,7 @@ const ShotSpin: ShotFC<CL05> = ({ f }) => {
         <Layer depth={1}>
           <VoidBack f={f} seed={5} />
           <Bloom x={720} y={540} r={320} color={L15_COLORS.meso} strength={0.4} />
-          <Spiral x={720} y={540} r={260} f={f} speed={-4} width={8} />
+          <Spiral x={720} y={540} r={380} f={f} speed={-4} width={10} />
           <Probe x={720} y={540} size={190} f={f} variant="spin" spinRate={5} />
         </Layer>
         <Layer depth={0}>
@@ -171,7 +173,8 @@ const ShotFlat: ShotFC<CL05> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={PET.theme} shotFrame={f} drift={{ zoom: 1.1, panX: 0.03, panY: 0.01, frames: len + 30, seed: 4 }} vignette={0.25} grain={0.4}>
         <Layer depth={1}>
-          <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.5), PET.sky[0], PET.sky[1]]} />
+          <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.3), PET.sky[0], PET.sky[1]]} />
+          <FlowStreaks f={f} speed={10} color={PET.light} opacity={0.3} />
           <Motes frame={f} n={26} x={-200} y={0} w={2300} h={1080} color={alpha(C.bone, 0.7)} seed={4} size={4} drift={30} />
           <ellipse cx={cx} cy={cy + 26} rx={rx} ry={ry} fill={alpha("#04121A", 0.5)} />
           <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill={mixHex(L15_COLORS.meso, "#04121A", 0.3)} stroke={C.limb} strokeWidth={5} />
@@ -204,7 +207,8 @@ const ShotDrogue: ShotFC<CL05> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={PET.theme} shotFrame={f} drift={{ zoom: 1.08, panX: -0.02, panY: 0.01, frames: len + 30, seed: 5 }} vignette={0.25} grain={0.4}>
         <Layer depth={1}>
-          <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.5), PET.sky[0], PET.sky[1]]} />
+          <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.3), PET.sky[0], PET.sky[1]]} />
+          <FlowStreaks f={f} speed={10} color={PET.light} opacity={0.3} />
           <Motes frame={f} n={26} x={-200} y={0} w={2300} h={1080} color={alpha(C.bone, 0.7)} seed={6} size={4} drift={30} />
           <g transform={`rotate(${-ang * 0.8} ${px} ${py})`}>
             <Spiral x={px} y={py} r={200} f={0} speed={0} width={7} opacity={0.75 * (1 - 0.6 * ez(f, 20, 80))} />
@@ -233,7 +237,7 @@ const ShotDrogue: ShotFC<CL05> = ({ f, len }) => {
 // MOVER: seesaw tipping (end ≈ 9 px/f) + Tick pumping it. Row 6 secondary: words only.
 const ShotSeesaw: ShotFC<CL05> = ({ f, len }) => {
   const g = Math.max(0, f - 44);
-  const tilt = 8 - 22 * ez(f, 18, 44) + (f > 44 ? 5 * Math.sin(g / 5) * Math.exp(-g / 30) : 0) + 2 * Math.sin(f / 7);
+  const tilt = 8 - 22 * ez(f, 18, 44) + (f > 44 ? 5 * Math.sin(g / 5) * Math.exp(-g / 30) : 0) + 6 * Math.sin(f / 7);
   const a = (tilt * Math.PI) / 180;
   const lx = 700 - Math.cos(a) * 900 * 0.45;
   return (
@@ -277,6 +281,7 @@ const ShotUsed: ShotFC<CL05> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={STU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: -0.03, panY: 0.02, frames: len + 20, seed: 7 }} vignette={0.12} grain={0.4}>
         <StudioSet f={f + 300} seed={12}>
+          <FlowStreaks f={f} speed={8} color="#FFFFFF" opacity={0.35} seed={12} />
           {one(500, 6, JUMPS.kittinger.year /* #7 */, C.teal)}
           {one(1000, 26, JUMPS.eustace.year /* #8 */, C.saffron)}
         </StudioSet>
@@ -291,6 +296,7 @@ const ShotUsed: ShotFC<CL05> = ({ f, len }) => {
 const EmberBack: React.FC<{ f: number }> = ({ f }) => (
   <g>
     <Sky family={EMB} />
+    <FlowStreaks f={f} speed={8} color={C.saffronCore} opacity={0.22} dir={-1} seed={6} />
     <Bloom x={760} y={1180} r={820} color={EMB.light} strength={0.55} />
     <Embers frame={f} x0={-100} x1={2000} y={1120} n={46} color={C.saffronCore} seed={4} />
   </g>
@@ -586,11 +592,13 @@ const ShotRecords: ShotFC<CL05> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={PET.theme} shotFrame={f} drift={{ zoom: 1.08, panX: 0.03, panY: 0.0, frames: len + 30, seed: 13 }} vignette={0.25} grain={0.4}>
         <Layer depth={1}>
-          <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.5), PET.sky[0], PET.sky[1]]} />
+          <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.3), PET.sky[0], PET.sky[1]]} />
+          <FlowStreaks f={f} speed={10} color={PET.light} opacity={0.3} />
           <Motes frame={f} n={26} x={-200} y={0} w={2300} h={1080} color={alpha(C.bone, 0.7)} seed={8} size={4} drift={30} />
           {lanes.map((l, i) => {
             const pts: [number, number][] = Array.from({ length: 40 }, (_, j) => [400 + j * 22, l.y - shape(j / 39) * 190]);
-            const h = lin(f, 6 + l.d, 6 + l.d + 70);
+            const done = len - 26 + l.d * 0.4;
+            const h = lin(f, 6 + l.d, done);
             const end = pts[pts.length - 1];
             return (
               <g key={i}>
@@ -599,7 +607,7 @@ const ShotRecords: ShotFC<CL05> = ({ f, len }) => {
                   {l.name}
                 </text>
                 <Trace pts={pts} head={h} f={f} color={i === 1 ? C.saffron : C.limb} width={7} />
-                {h >= 1 ? <Chute x={end[0] + 30} y={end[1] + 10} size={40} f={f} open={ez(f, 6 + l.d + 70, 6 + l.d + 84)} kind="main" /> : null}
+                {h >= 1 ? <Chute x={end[0] + 30} y={end[1] + 10} size={40} f={f} open={ez(f, done, done + 14)} kind="main" /> : null}
               </g>
             );
           })}

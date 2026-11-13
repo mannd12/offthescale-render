@@ -18,7 +18,7 @@ import { Bracket } from "../props";
 import { altY } from "../sky";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { Arrow, C, Perch, Pop, SkyBack, Slab, StudioSet, T_HI, T_LO, TempChart, XTag, cl01, ez, lerp, lin, num, rollText, tProfile } from "./b-parts";
+import { Arrow, C, FlowStreaks, INDIGO, Perch, SoundRings, Pop, SkyBack, Slab, StudioSet, T_HI, T_LO, TempChart, XTag, cl01, ez, lerp, lin, num, rollText, tProfile } from "./b-parts";
 
 const NOON = familyOf("noon");
 const PET = familyOf("petrol");
@@ -186,7 +186,7 @@ const ShotMeso: ShotFC<CL04> = ({ f, len }) => {
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.4}>
         <Layer depth={1}>
           <SkyBack f={f} altTop={top} altBottom={bot} drift={0.6} aurora={0.35} />
-          <rect x={160} y={Y(LAYER_TOPS.meso)} width={1240} height={Y(LAYER_TOPS.strato) - Y(LAYER_TOPS.meso)} fill={L15_COLORS.meso} opacity={0.32} />
+          <rect x={160} y={Y(LAYER_TOPS.meso)} width={1240} height={Y(LAYER_TOPS.strato) - Y(LAYER_TOPS.meso)} fill={L15_COLORS.meso} opacity={0.55} />
           {Array.from({ length: 9 }, (_, i) => (
             <line
               key={i}
@@ -311,6 +311,7 @@ const ShotPlate: ShotFC<CL04> = ({ f, len }) => {
           seed={7}
           hud={<XTag x={110} y={110} text="SOUND ← TEMPERATURE, NOT THICKNESS" F={STU} dot={C.saffron} size={30} opacity={ez(f, 8, 20)} />}
         >
+          <SoundRings f={f} x={1130} y={557} />
           <rect x={560} y={470} width={420} height={18} rx={9} fill={C.saffronDeep} />
           <Thermo x={560} y={210} h={460} tC={tC} f={f} />
           <SpeedGauge x={860} y={230} s={{ value: 0, soundT: tC, max: 400 }} f={f} family={STU} theme="dark" scale={1.5} />
@@ -334,6 +335,7 @@ const ShotSea: ShotFC<CL04> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={STU.theme} cam={cam} vignette={0.12} grain={0.4}>
         <StudioSet f={f + 260} seed={8}>
+          <SoundRings f={f} x={798} y={627} speed={8} />
           <SpeedGauge x={330} y={60} s={{ value: 0, soundT: tC, max: 360, soundReadout: f > 90 ? SOUND.sea : undefined }} f={f} family={STU} theme="dark" scale={2.6} />
         </StudioSet>
         <Layer depth={0}>
@@ -361,6 +363,7 @@ const ShotCool: ShotFC<CL04> = ({ f, len }) => {
             </g>
           }
         >
+          <SoundRings f={f} x={1045} y={692} />
           <rect x={560} y={470} width={330} height={18} rx={9} fill={C.saffronDeep} />
           <Thermo x={560} y={210} h={460} tC={tC} f={f} />
           <SpeedGauge x={820} y={420} s={{ value: 0, soundT: tC, max: 360 }} f={f} family={STU} theme="dark" scale={1.25} />
@@ -435,7 +438,8 @@ const TimeStrip: React.FC<{ f: number; s: number; flag?: number; peakLabel?: num
 };
 const PetBack: React.FC<{ f: number }> = ({ f }) => (
   <g>
-    <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.5), PET.sky[0], PET.sky[1]]} />
+    <Sky stops={[mixHex(PET.sky[0], "#04121A", 0.3), PET.sky[0], PET.sky[1]]} />
+    <FlowStreaks f={f} speed={10} color={PET.light} opacity={0.3} />
     <Motes frame={f} n={30} x={-200} y={0} w={2300} h={1080} color={alpha(C.bone, 0.7)} seed={5} size={4} drift={30} />
   </g>
 );
@@ -525,7 +529,7 @@ const ShotPeakSum: ShotFC<CL04> = ({ f, len, c }) => {
 // ===============================================================================================================
 const ShotFits: ShotFC<CL04> = ({ f, len }) => {
   const bead = lerp(8, KM30, ez(f, 4, 100));
-  const centre = bead + 3 + 0.05 * Math.max(0, f - 100);
+  const centre = bead + 3 + 0.2 * Math.max(0, f - 100);
   const top = centre + 10;
   const bot = centre - 10;
   const tick = ez(f, 104, 114);
@@ -590,7 +594,9 @@ const ShotEarlier: ShotFC<CL04> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.4}>
         <Layer depth={1}>
-          <SkyBack f={f} altTop={110} altBottom={90} drift={3} streak={10} ruler={false} bands={false} />
+          <Sky stops={INDIGO} />
+          <FlowStreaks f={f} speed={9} color={C.limb} opacity={0.3} />
+          <Motes frame={f} n={30} x={-200} y={0} w={2300} h={1080} color={alpha(C.starTeal, 0.8)} seed={9} size={4} drift={30} />
           <TimeStrip f={f} s={B.peakAtS + 3} flag={1} peakLabel={1} />
           <Bracket x1={tx(B.soundAtS)} y1={TY + 120} x2={tx(B.peakAtS)} y2={TY + 120} draw={lin(f, 6, 30)} label={`${B.gapS} s` /* #4 arithmetic */} color={C.saffron} />
           <Tick x={1200} y={TY - 14} pxPerM={100} frame={f} facing={1} pose="think" expression="thinking" look={0.9} headTilt={Math.sin(f / 16) * 6} />

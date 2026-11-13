@@ -80,12 +80,72 @@ export const SkyView: React.FC<{
   numbers?: boolean;
   step?: number;
   rulerColor?: string;
-}> = ({ f, v, rulerX = 200, ruler = true, pins, band, flags = true, bands = true, aurora = false, ground = true, drift = 0.4, streak = 0, numbers = true, step, rulerColor }) => (
+  /** indigo lift over the near-black sky (value ≈ 0.3-0.4, high saturation); default by altitude, 0 = off */
+  lift?: number;
+}> = ({ f, v, rulerX = 200, ruler = true, pins, band, flags = true, bands, aurora = false, ground = true, drift = 0.4, streak = 0, numbers = true, step, rulerColor, lift }) => (
   <g>
-    <SkyColumn f={f} altTop={v.altTop} altBottom={v.altBottom} x={-260} y={v.y} w={2440} h={v.h} bands={bands} aurora={aurora} ground={ground} drift={drift} streak={streak} />
+    <SkyColumn f={f} altTop={v.altTop} altBottom={v.altBottom} x={-260} y={v.y} w={2440} h={v.h} bands={bands ?? (v.altC < 78 ? 1 : 0)} aurora={aurora} ground={ground} drift={drift} streak={streak} />
+    {(lift ?? liftAt(v.altC)) > 0 ? <rect x={-260} y={v.y} width={2440} height={v.h} fill={LIFT} opacity={lift ?? liftAt(v.altC)} /> : null}
     {ruler ? <AltRuler f={f} altTop={v.altTop} altBottom={v.altBottom} x={rulerX} y={v.y} h={v.h} flags={flags} pins={pins} band={band} numbers={numbers} step={step} color={rulerColor} /> : null}
   </g>
 );
+
+/** Deep saturated indigo laid over the sky between ~35 and ~85 km (keeps true black for orbit and the edge). */
+export const LIFT = "#3A2FC8";
+export const liftAt = (alt: number) => 0.34 * sm((alt - 30) / 12) * (1 - sm((alt - 78) / 10));
+
+/** The air passing a falling probe: vertical streaks scrolling UP at `speed` px/f over the whole frame; denser and
+ *  brighter as the air thickens (`thick` 0..1). Teal-white streaks with a few saffron ones (never grey). */
+export const AirStream: React.FC<{ f: number; speed: number; thick?: number; n?: number; seed?: number; x0?: number; x1?: number; tint?: string }> = ({ f, speed, thick = 0.5, n = 46, seed = 7, x0 = -100, x1 = 2020, tint = C.cloud }) => {
+  const k = Math.max(0.15, Math.min(1, thick));
+  const span = 1500;
+  const m = Math.round(n * (0.45 + 0.55 * k));
+  return (
+    <g strokeLinecap="round">
+      {Array.from({ length: m }, (_, i) => {
+        const x = x0 + rnd(seed * 7 + i) * (x1 - x0);
+        const len = 90 + rnd(seed * 3 + i) * 320 * (0.6 + k);
+        const sp = speed * (0.7 + rnd(seed * 5 + i) * 0.6);
+        const y = ((((rnd(seed * 11 + i) * span - f * sp) % span) + span) % span) - 220;
+        const col = rnd(seed * 13 + i) > 0.82 ? C.saffronCore : rnd(seed * 17 + i) > 0.5 ? C.limb : tint;
+        return <line key={i} x1={x} y1={y} x2={x} y2={y + len} stroke={col} strokeWidth={3 + rnd(i * 5 + seed) * 7 * (0.5 + k)} opacity={(0.18 + 0.32 * k) * (0.6 + rnd(i * 9) * 0.4)} />;
+      })}
+    </g>
+  );
+};
+
+/** Wide soft wisps (airglow, haze, thin cloud) drifting at `vx`, `vy` px/f across the frame; large-area movers. */
+export const Wisps: React.FC<{ f: number; vx?: number; vy?: number; n?: number; seed?: number; colors?: string[]; opacity?: number; y0?: number; y1?: number }> = ({
+  f,
+  vx = 0,
+  vy = -8,
+  n = 7,
+  seed = 3,
+  colors = [C.limb, C.teal, C.saffron],
+  opacity = 0.22,
+  y0 = -200,
+  y1 = 1280,
+}) => {
+  const W = 2800;
+  const H = y1 - y0;
+  return (
+    <g>
+      {Array.from({ length: n }, (_, i) => {
+        const w = 500 + rnd(seed * 7 + i) * 700;
+        const h = 40 + rnd(seed * 3 + i) * 90;
+        const x = ((((rnd(seed * 11 + i) * W + f * vx) % W) + W) % W) - 440;
+        const y = ((((rnd(seed * 13 + i) * H + f * vy) % H) + H) % H) + y0;
+        const c = colors[i % colors.length];
+        return (
+          <g key={i} opacity={opacity}>
+            <ellipse cx={x} cy={y} rx={w / 2} ry={h / 2} fill={c} opacity={0.55} />
+            <ellipse cx={x} cy={y} rx={w * 0.32} ry={h * 0.22} fill={c} />
+          </g>
+        );
+      })}
+    </g>
+  );
+};
 
 /** Clouds pinned to altitudes (km), so they stream past with the camera (6-11, 6-12). Teal-white, never grey. */
 export const AltClouds: React.FC<{ f: number; v: View; n?: number; seed?: number; from?: number; to?: number }> = ({ f, v, n = 16, seed = 3, from = 1, to = 9 }) => (
@@ -232,7 +292,7 @@ export const StudioSet: React.FC<{ f: number; seed?: number; floor?: number }> =
       <Sky family={STUDIO} />
     </Layer>
     <Layer depth={0.2}>
-      <CycClouds f={f} y={60} n={5} seed={seed} />
+      <CycClouds f={f * 3} y={60} n={6} seed={seed} />
     </Layer>
     <Layer depth={0.6}>
       <rect x={-1400} y={floor - 20} width={4800} height={1200} fill={mixHex(STUDIO.mid, "#FFE4A8", 0.15)} />

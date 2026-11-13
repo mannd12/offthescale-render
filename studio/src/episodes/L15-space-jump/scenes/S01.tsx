@@ -16,7 +16,7 @@ import { AltRuler, RulerFlag, altY } from "../sky";
 import { Balloon, Bracket, Jumper, Stamp } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, CREAM, DUSK, INK, Ledge, NightColumn, PETROL, PillA, Pop, Slab, Strike, VOID, WallIcon, cl01, ez, lerp, path1, rollText } from "./a-parts";
+import { AuroraBand, C, CREAM, DUSK, INK, Ledge, NightColumn, PETROL, PillA, Pop, Slab, Strike, VOID, WallIcon, cl01, ez, lerp, path1, rollText } from "./a-parts";
 
 export const cuesL01 = (t: SceneTiming) => {
   const { at, p } = cueKit(t);
@@ -123,7 +123,8 @@ const ShotLines: ShotFC<C01> = ({ f, len, c }) => {
   return (
     <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.5}>
       <Layer depth={1}>
-        <NightColumn f={f} altTop={top} altBottom={bottom} seed={22} ground={false} drift={8} />
+        <NightColumn f={f} altTop={top} altBottom={bottom} seed={22} ground={false} drift={12} streak={10} />
+        <AuroraBand f={f} y={altY(108, top, bottom)} />
         <AltRuler
           f={f}
           altTop={top}
@@ -177,7 +178,8 @@ const ShotWall: ShotFC<C01> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} shotFrame={f} drift={{ zoom: 1.08, panX: 0.012, panY: 0, frames: 160, seed: 2 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <NightColumn f={f + 100} altTop={top} altBottom={bottom} seed={23} ground={false} drift={4} />
+          <NightColumn f={f + 100} altTop={top} altBottom={bottom} seed={23} ground={false} drift={12} streak={10} />
+          <AuroraBand f={f} y={altY(109, top, bottom)} amp={1.3} />
           {[0, 1].map((i) => (
             <path key={i} d={wob(i)} fill="none" stroke={C.saffron} strokeWidth={7 - i * 2} strokeDasharray="24 14" strokeDashoffset={-f * 4 - i * 11} strokeLinecap="round" opacity={1 - i * 0.35} />
           ))}
@@ -230,7 +232,8 @@ const ShotLimit: ShotFC<C01> = ({ f, len, c }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.01, panY: 0, frames: 300, seed: 3 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <NightColumn f={f} altTop={top} altBottom={bottom} seed={24} ground={false} tint={PETROL.sky[1]} tintK={0.35 * petrolK} />
+          <NightColumn f={f} altTop={top} altBottom={bottom} seed={24} ground={false} tint={PETROL.sky[1]} tintK={0.35 * petrolK} drift={12} streak={10} />
+          <AuroraBand f={f} y={altY(108, top, bottom)} amp={1.3} />
           <AltRuler
             f={f}
             altTop={top}
@@ -419,7 +422,7 @@ const ShotNickname: ShotFC<C01> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={0.5}>
-          <NightColumn f={f} altTop={120} altBottom={70} seed={26} ground={false} drift={14} />
+          <NightColumn f={f} altTop={60} altBottom={10} seed={26} ground={false} drift={14} streak={12} />
         </Layer>
         <Layer depth={1}>
           <g transform={`translate(960 ${(560 - (1 - drop) * 260).toFixed(1)})`} opacity={drop}>

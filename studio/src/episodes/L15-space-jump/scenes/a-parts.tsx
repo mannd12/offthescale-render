@@ -80,12 +80,15 @@ export const rollText = (end: number, k: number, dp = 0) => (end * cl01(k)).toLo
 // The night ruler world (scene 1, C-10, 8-11): a dark altitude column (NOT the day sky: value < 0.25 over most of it),
 // two tinted star layers that stream with the camera's altitude, an optional night-ground sliver with a city glow.
 // ---------------------------------------------------------------------------------------------------------------
+// probe fix round (2026-11-13): lifted to deep saturated indigo below ~80 km (value ≈ 0.3-0.45); true black only above
+// ~90 km (the "above 80 km" rule), so the night ruler reads as colour, not near-black.
 const NIGHT: [number, string][] = [
-  [0, "#16246A"],
-  [10, "#101A52"],
-  [30, "#0B1140"],
-  [60, "#080C32"],
-  [90, "#060824"],
+  [0, "#2C3D7A"],
+  [15, "#2A3474"],
+  [35, "#2A2A6E"],
+  [60, "#221F62"],
+  [80, "#171552"],
+  [92, "#0A0B34"],
   [110, "#04051A"],
 ];
 export const nightAt = (alt: number) => {
@@ -341,6 +344,33 @@ export const LongDial: React.FC<{
         );
       })}
       <circle cx={x} cy={y} r={22} fill={C.vermilion} />
+    </g>
+  );
+};
+
+/** Aurora ribbons above `y` (the 85 km+ layer): teal and cyan curtains with one vermilion thread, rippling 5 px/f.
+ *  A large-area, saturated mover for the high night shots (1-02, 1-05, 1-06, C-10). */
+export const AuroraBand: React.FC<{ f: number; y: number; k?: number; amp?: number }> = ({ f, y, k = 1, amp = 1 }) => {
+  const ribbons = [
+    { c: C.teal, o: 0.55, ph: 0, a: 1, w: 46 },
+    { c: C.limb, o: 0.42, ph: 2.1, a: 0.8, w: 30 },
+    { c: C.meso, o: 0.6, ph: 3.3, a: 0.9, w: 60 },
+    { c: C.vermilion, o: 0.8, ph: 4.2, a: 0.6, w: 4 },
+  ];
+  return k <= 0 ? null : (
+    <g opacity={k}>
+      {ribbons.map((r, j) => {
+        const d = Array.from({ length: 19 }, (_, i) => {
+          const px = -200 + (2320 * i) / 18;
+          return `${i ? "L" : "M"}${px.toFixed(1)} ${(y - j * 46 + Math.sin(px / 170 + f / 6 + r.ph) * 44 * r.a * amp + Math.sin(px / 61 - f / 4 + r.ph) * 12).toFixed(1)}`;
+        }).join(" ");
+        return (
+          <g key={j}>
+            {r.w > 10 ? <path d={d} fill="none" stroke={r.c} strokeWidth={r.w * 2.6} opacity={r.o * 0.3} strokeLinecap="round" /> : null}
+            <path d={d} fill="none" stroke={r.c} strokeWidth={r.w} opacity={r.o} strokeLinecap="round" />
+          </g>
+        );
+      })}
     </g>
   );
 };
