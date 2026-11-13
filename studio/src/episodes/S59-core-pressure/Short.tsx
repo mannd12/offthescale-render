@@ -254,7 +254,7 @@ const q: Shot = ({ f }) => (
     <Sky stops={BG_DEEP} x={0} y={0} w={W} h={H} />
     <CutGlobe cx={540} cy={700} R={430} f={f} family={FAM} notch={1} />
     <circle cx={540} cy={270} r={34 + 10 * Math.sin(f / 3)} fill="none" stroke={C.amber} strokeWidth={10} />
-    <Tick x={870} y={1260} pxPerM={300} frame={f} pose="point" expression="neutral" facing={-1} />
+    <Tick x={980} y={1250} pxPerM={230} frame={f} pose="point" expression="neutral" facing={-1} />
     <Plaque x={540} y={1180} text="DEEPEST HOLE: 12 KM" size={64} bg={C.ink} fg={C.amber} />
   </g>
 );
@@ -284,7 +284,7 @@ const s_: Shot = ({ f }) => (
 
 const t_: Shot = ({ f }) => (
   <EndShot f={f} stops={["#2B0C08", "#7A2A0E", "#C2561A"]} q={["HOW DO WE", "KNOW?"]}>
-    <Tile x={940} y={1250} s={140} />
+    <Tile x={950} y={1300} s={120} />
   </EndShot>
 );
 

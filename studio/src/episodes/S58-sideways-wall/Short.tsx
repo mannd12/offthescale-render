@@ -113,7 +113,7 @@ const g: Shot = ({ f }) => (
     {[0, 1, 2].map((i) => (
       <Arrow key={i} x={120 + ((f * 6 + i * 300) % 900) - 300} y={960 + i * 90} len={260} w={22} color={C.cream} />
     ))}
-    <Tick x={300} y={880} pxPerM={360} frame={f} pose="point" expression="happy" facing={1} />
+    <Tick x={300} y={900} pxPerM={270} frame={f} pose="point" expression="happy" facing={1} />
     <Plaque x={540} y={190} text="THE GROUND ITSELF" size={80} bg={C.ink} fg={C.amber} />
   </g>
 );

@@ -99,7 +99,7 @@ const f_: Shot = ({ f }) => (
     <Glow x={540} y={620} r={640} color={C.gold} f={f} strength={0.6} />
     <Plaque x={540} y={620} text="20X+" size={300} bg={C.ink} fg={C.amber} w={760} scale={ez(f, 0, 8) * (1 + 0.04 * Math.sin(f / 4))} />
     <Plaque x={540} y={900} text="SPEED OF SOUND" size={70} bg={C.ink} fg={C.cream} />
-    <Tick x={190} y={1250} pxPerM={320} frame={f} pose="point" expression="surprised" facing={1} />
+    <Tick x={900} y={1250} pxPerM={300} frame={f} pose="point" expression="surprised" facing={-1} />
   </g>
 );
 
@@ -167,7 +167,7 @@ const k_: Shot = ({ f }) => {
       <Sky stops={BG_STUDIO} x={0} y={0} w={W} h={H} />
       <Dial x={540} y={560} r={300} v={0.12} f={f} />
       <line x1={540} y1={560} x2={gx + Math.sin(f * 2) * 8} y2={gy + Math.cos(f * 2.3) * 8} stroke={C.amber} strokeWidth={10} strokeDasharray="22 16" strokeLinecap="round" opacity={0.7} />
-      <Tick x={190} y={1250} pxPerM={380} frame={f} pose="point" expression="worried" facing={1} />
+      <Tick x={920} y={1250} pxPerM={300} frame={f} pose="point" expression="worried" facing={-1} />
       <Plaque x={540} y={1060} text="NOWHERE NEAR" size={90} bg={C.ink} fg={C.amber} />
       <Plaque x={540} y={190} text="8 KM/S?" size={130} bg={C.ink} fg={C.cream} />
     </g>

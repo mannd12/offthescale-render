@@ -106,8 +106,8 @@ const e: Shot = ({ f }) => (
       return (
         <g key={t} transform={`translate(540 ${400 + i * 250}) scale(${s})`}>
           <rect x={-380} y={-90} width={760} height={180} rx={50} fill={C.ink} stroke={C.cream} strokeWidth={6} />
-          <T x={-60} y={34} text={t} size={86} color={C.cream} />
-          <path d="M270 4 l36 40 l70 -80" transform="translate(-60 0)" stroke={C.green} strokeWidth={22} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <T x={-110} y={34} text={t} size={80} color={C.cream} />
+          <path d="M270 4 l36 40 l70 -80" transform="translate(-30 0)" stroke={C.green} strokeWidth={22} fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </g>
       );
     })}
@@ -223,7 +223,7 @@ const n_: Shot = ({ f, n }) => {
   return (
     <g>
       <Sky stops={BG_DEEP} x={0} y={0} w={W} h={H} />
-      <Chart u={mix(1, 4.6, k)} envelope />
+      <Chart u={mix(1, 4.6, k)} />
       <Plaque x={540} y={190} text="EACH SWING SHORTER" size={78} bg={C.ink} fg={C.amber} />
     </g>
   );
@@ -264,7 +264,7 @@ const q: Shot = ({ f, n }) => {
   return (
     <g>
       <Sky stops={BG_DEEP} x={0} y={0} w={W} h={H} />
-      <Chart u={mix(2, 4.6, k)} envelope />
+      <Chart u={mix(2, 4.6, k)} />
       <Plaque x={540} y={190} text="LOSSES ADD UP" size={100} bg={C.ink} fg={C.amber} />
     </g>
   );
