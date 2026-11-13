@@ -24,7 +24,7 @@ import { AltRuler, FLAGS, Limb } from "../sky";
 import { Balloon, Flame, Probe, Station, Trace } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { Arrow, Bar, C, CREAM, INK, Ledge, ModelChip, OrbitStars, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, clamp01, ez, lin, view, vy } from "./c-parts";
+import { AirStream, Arrow, Bar, Wisps, C, CREAM, INK, Ledge, ModelChip, OrbitStars, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, clamp01, ez, lin, view, vy } from "./c-parts";
 
 export const cuesL07 = (t: SceneTiming) => {
   const { at, p } = cueKit(t);
@@ -80,7 +80,7 @@ const onC = (cx: number, cy: number, r: number, deg: number): Pt => [cx + Math.c
 const arcPts = (cx: number, cy: number, r: number, d0: number, d1: number, n = 60): Pt[] => Array.from({ length: n + 1 }, (_, i) => onC(cx, cy, r, d0 + ((d1 - d0) * i) / n));
 
 /** The whole globe (the Limb drawn as a small planet): rim, city glow, sliding hatch. */
-const Globe: React.FC<{ f: number; cx: number; cy: number; R: number; slide?: number }> = ({ f, cx, cy, R, slide = 3 }) => (
+const Globe: React.FC<{ f: number; cx: number; cy: number; R: number; slide?: number }> = ({ f, cx, cy, R, slide = 9 }) => (
   <g>
     <Bloom x={cx} y={cy} r={R * 1.5} color={C.limb} strength={0.22} />
     <Limb f={f} cx={cx} cy={cy - R} R={R} slide={slide} w={R * 2.4} />
@@ -106,7 +106,8 @@ const ShotClimb: ShotFC<C07> = ({ f, c }) => {
     <Pop f={f}>
       <Stage theme={VT} shotFrame={f} drift={{ zoom: 1.03, panX: 0.004, frames: 260, seed: 1 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={v} rulerX={220} bands={0.8} aurora={0.7} drift={0.6} ground={false} band={{ from: ORBIT.issLowKm, to: ORBIT.issHighKm, wipe, color: C.limb }} />
+          <SkyView f={f} v={v} rulerX={220} aurora={0.7} drift={0.6} ground={false} band={{ from: ORBIT.issLowKm, to: ORBIT.issHighKm, wipe, color: C.limb }} />
+          <Wisps f={f} vx={0} vy={16 * (1 - ez(f, b - 6, b + 10)) + 2} n={8} seed={51} colors={[C.limb, C.teal, C.saffron]} opacity={0.22} />
           <Station x={sx} y={sy} size={230} f={f} />
           <Arrow x={sx + 150} y={sy} len={260 * ez(f, 30, 70)} dashed f={f} width={10} color={C.saffron} />
         </Layer>
@@ -195,7 +196,8 @@ const ShotDrop: ShotFC<C07> = ({ f, len, c }) => {
     <Pop f={f}>
       <Stage theme={VT} shotFrame={f} drift={{ zoom: 1.03, panX: 0.004, frames: 260, seed: 5 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={v} rulerX={220} bands={0.8} aurora={0.8} drift={0.6} ground={false} streak={Math.min(40, speedK * 16)} pins={[{ altKm: BOUNDARY.fai, label: "", draw: lineK, len: 1500 }]} />
+          <AirStream f={f} speed={8 + speedK * 6} thick={0.15} seed={53} tint={C.limb} />
+          <SkyView f={f} v={v} rulerX={220} aurora={0.8} drift={0.6} ground={false} streak={Math.min(40, speedK * 16)} pins={[{ altKm: BOUNDARY.fai, label: "", draw: lineK, len: 1500 }]} />
           <Station x={820} y={vy(v, ORBIT.drawKm) - 150} size={220} f={f} />
           <Probe x={820} y={probeY} size={130} f={f} trail={Math.min(160, f * 3)} />
           {f >= cross ? <Rings f={f - cross} cx={820} cy={vy(v, BOUNDARY.fai)} once speed={10} maxR={420} color={C.saffronCore} width={7} /> : null}
@@ -244,6 +246,7 @@ const ShotRest: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={1}>
           <Limb f={f} cy={820} R={2600} slide={8} />
+          <Wisps f={f} vx={-9} vy={0} n={9} seed={55} colors={[C.limb, C.teal, C.saffron]} opacity={0.3} y0={640} y1={900} />
           <Bloom x={960} y={840} r={900} color={C.limb} strength={0.16} squash={0.25} />
           <Pair f={f} x={x} y={y} sep={sep} />
           <Arrow x={x + 260} y={y + 40} len={300} dashed f={f} width={10} color={C.saffron} />
@@ -274,6 +277,7 @@ const ShotArrow: ShotFC<C07> = ({ f, len }) => {
         </Layer>
         <Layer depth={1}>
           <Limb f={f} cy={900} R={2600} slide={8} />
+          <Wisps f={f} vx={-9} vy={0} n={9} seed={57} colors={[C.limb, C.teal, C.saffron]} opacity={0.3} y0={720} y1={960} />
           <Pair f={f} x={440} y={520} s={0.8} />
           <Arrow x={640} y={560} len={540 * ez(f, 4, 64)} width={22} color={C.saffron} glow />
         </Layer>
@@ -337,7 +341,7 @@ const ShotAround: ShotFC<C07> = ({ f, len }) => {
           <OrbitStars f={f} speed={2} seed={17} />
         </Layer>
         <Layer depth={1}>
-          <Globe f={f} cx={cx} cy={cy} R={R} slide={6} />
+          <Globe f={f} cx={cx} cy={cy} R={R} slide={10} />
           <Trace pts={arcPts(cx, cy, r, a0, a1, 80)} head={h} f={f} color={C.saffron} width={7} ghost={0.25} />
           <g transform={`rotate(${a + 90} ${x} ${y})`}>
             <Pair f={f} x={x - 30} y={y - 90} s={0.55} tilt={0} />
@@ -367,6 +371,7 @@ const ShotGravity: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={1}>
           <Limb f={f} cy={860} R={2600} slide={10} />
+          <Wisps f={f} vx={-9} vy={0} n={9} seed={59} colors={[C.limb, C.teal, C.saffron]} opacity={0.3} y0={680} y1={920} />
           <Probe x={x} y={y} size={200} f={f} variant="float" tilt={90} lamp={false} />
           <Arrow x={x} y={y + 90} len={300 * pulse} angle={90} width={22} color={C.saffron} glow />
           <Arrow x={x + 130} y={y} len={240} dashed f={f} width={10} color={alpha(C.limb, 0.9)} />
@@ -483,6 +488,7 @@ const ShotOrbit100: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={1}>
           <Limb f={f} cy={cy} R={R} slide={8} />
+          <Wisps f={f} vx={-9} vy={0} n={9} seed={61} colors={[C.limb, C.teal, C.saffron]} opacity={0.3} y0={560} y1={820} />
           <circle cx={960} cy={lineCy} r={lineR} fill="none" stroke={C.saffron} strokeWidth={5} strokeDasharray="22 14" strokeDashoffset={-f * 3} />
           <Probe x={x} y={y - 40} size={110} f={f} variant="float" tilt={90} lamp={false} />
           <Arrow x={x + 80} y={y - 40} len={720 * ez(f, 6, 76)} angle={-2} width={24} color={C.saffron} glow />
@@ -571,7 +577,8 @@ const ShotCurve: ShotFC<C07> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VT} cam={cam} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={v} rulerX={rx} bands={0.8} aurora={0.6} drift={3} pins={[{ altKm: MODEL.from400PeakKm, label: "", draw: peakOn ? 1 : 0, len: 1400 }]} flags={FLAGS.filter((x) => ([LAYERS.stratoTop, BOUNDARY.fai, ORBIT.drawKm] as number[]).includes(x.altKm))} />
+          <SkyView f={f} v={v} rulerX={rx} aurora={0.6} drift={3} pins={[{ altKm: MODEL.from400PeakKm, label: "", draw: peakOn ? 1 : 0, len: 1400 }]} flags={FLAGS.filter((x) => ([LAYERS.stratoTop, BOUNDARY.fai, ORBIT.drawKm] as number[]).includes(x.altKm))} />
+          <Wisps f={f} vx={0} vy={-7} n={7} seed={67} colors={[C.limb, C.teal, C.saffron]} opacity={0.2} />
           <Trace pts={pts} head={h} f={f} color={C.saffronCore} width={8} peak={peakIdx} />
           {peakOn ? <Rings f={f - Math.round(6 + 144 * (peakIdx / (pts.length - 1)))} cx={pxk} cy={pyk} every={16} speed={5} maxR={200} color={C.saffronCore} width={5} /> : null}
         </Layer>
@@ -604,6 +611,7 @@ const ShotBurn: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={1}>
           <Limb f={f} cy={900} R={2600} slide={8} />
+          <Wisps f={f} vx={-9} vy={0} n={9} seed={63} colors={[C.limb, C.teal, C.saffron]} opacity={0.3} y0={720} y1={960} />
           <line x1={-100} y1={oldY} x2={2020} y2={oldY} stroke={C.limb} strokeWidth={4} strokeDasharray="6 16" strokeDashoffset={f * 3} opacity={0.8} />
           <Streamers f={f} n={14} x0={-200} x1={2100} y0={oldY - 160 + dip} y1={oldY + 160 + dip} len={180} width={4} speed={14} color={alpha(C.cloud, 0.8)} opacity={0.5} dir={-1} seed={5} />
           <Station x={900} y={oldY + dip} size={460} f={f} tilt={-3} />
@@ -646,6 +654,7 @@ const ShotBalloon: ShotFC<C07> = ({ f, len }) => {
           <rect x={-300} y={vy(v, 3)} width={2520} height={vy(v, 0) - vy(v, 3)} fill={D.sky[2]} opacity={0.8} />
           <rect x={-300} y={vy(v, 0)} width={2520} height={600} fill={mixHex(C.dune3, "#1A1030", 0.35)} />
           <AltRuler f={f} altTop={v.altTop} altBottom={v.altBottom} x={mx} y={v.y} h={v.h} flags={false} step={10} />
+          <Wisps f={f} vx={-2} vy={10} n={8} seed={69} colors={[C.cloud, C.saffron, C.limb]} opacity={0.22} />
           <Balloon x={900} y={by} size={300} f={f} variant="gondola" />
           <Tick x={760} y={vy(v, 0)} pxPerM={60} frame={f} facing={1} pose="press" poseTo="stand" poseT={ez(f, 14, 30)} expression="happy" look={0.6 + 0.3 * rise} headTilt={10} />
           {slam >= 0 ? (
@@ -748,6 +757,7 @@ const ShotOffScale: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={1}>
           <Limb f={f} cy={950} R={2600} slide={8} />
+          <Wisps f={f} vx={-9} vy={0} n={9} seed={65} colors={[C.limb, C.teal, C.saffron]} opacity={0.3} y0={780} y1={1000} />
           {[0, 1, 2].map((i) => {
             const bx = 220 + i * 150;
             const by = 900 - i * 14;

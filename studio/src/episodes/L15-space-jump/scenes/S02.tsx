@@ -35,7 +35,7 @@ export const cuesL02 = (t: SceneTiming) => {
     fastest: p(3, "His fastest moment"), // 2-08 (phase)
     watch2: at(4), // 2-09
     nodrogue: p(4, "He used no stabiliser"), // 2-10
-    dist: p(4, "The fall covered"), // 2-11
+    dist: Math.max(p(4, "The fall covered"), p(4, "He used no stabiliser") + 76), // 2-11 (2-10 held ≥ 2.5 s: probe fix round)
     climb: at(5), // 2-12 (phase)
     eus: at(6), // 2-13
     eusDial: at(7), // 2-14 (phase)
@@ -88,6 +88,12 @@ export const JumpCard: React.FC<{ i: number; x: number; y: number; w: number; h:
         const ty = ((((k * 70 + scroll) % 980) + 980) % 980) - 60;
         return <line key={k} x1={0} y1={ty} x2={k % 5 === 0 ? 34 : 18} y2={ty} stroke={CREAM} strokeWidth={k % 5 === 0 ? 4 : 2.5} opacity={0.75} />;
       })}
+      {scroll !== 0
+        ? Array.from({ length: 3 }, (_, k) => {
+            const cy = ((((k * 330 + scroll) % 990) + 990) % 990) - 80;
+            return <ellipse key={"cl" + k} cx={pw * (0.2 + 0.3 * k)} cy={cy} rx={pw * 0.42} ry={34} fill={C.cloud} opacity={0.38} />;
+          })
+        : null}
       <Balloon x={pw / 2} y={by} size={size} f={f + i * 40} variant={cd.kind} payload={pl ?? undefined} />
       {children}
     </CardPanel>
@@ -115,7 +121,7 @@ const ShotThree: ShotFC<C02> = ({ f, len }) => {
           const k = ez(f, 2 + i * 12, 30 + i * 12);
           return (
             <g key={i} transform={`translate(0 ${((1 - k) * 640).toFixed(1)})`}>
-              <JumpCard i={i} x={300 + i * 470} y={250} w={320} h={590} f={f} rise={0.35 + 0.15 * i} jh={30} />
+              <JumpCard i={i} x={300 + i * 470} y={250} w={320} h={590} f={f} rise={0.35 + 0.15 * i} jh={30} scroll={f * 6} />
             </g>
           );
         })}
@@ -193,7 +199,7 @@ const ShotWatch1: ShotFC<C02> = ({ f, len }) => (
   <Pop f={f}>
     <Stage theme={STUDIO.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.01, panY: 0, frames: 200, seed: 4 }} vignette={0.12} grain={0.5}>
       <StudioRoom f={f + 100}>
-        <JumpCard i={0} x={170} y={180} w={380} h={680} f={f} rise={0.7} scroll={f * 2} />
+        <JumpCard i={0} x={170} y={180} w={380} h={680} f={f} rise={0.7} scroll={f * 7} />
         <Stopwatch x={1000} y={470} r={250} f={f} end={JUMPS.kittinger.freefallS /* #7 4:37 */} t={ez(f, 6, len - 14)} />
         <Tick x={1430} y={1000} pxPerM={170} frame={f} facing={-1} pose={f < 10 ? "point" : "press"} expression="determined" look={0.4} squash={impact(f, 8, 0.12, 10)} />
       </StudioRoom>
@@ -302,7 +308,7 @@ const ShotWatch2: ShotFC<C02> = ({ f, len }) => (
     <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len, x: 860, y: 520, zoom: 1.14 }])} vignette={0.12} grain={0.5}>
       <StudioRoom f={f + 300} seed={6}>
         <Stopwatch x={760} y={480} r={270} f={f} end={JUMPS.baumgartner.freefallS /* #4 4:20 */} t={ez(f, 6, len - 14)} />
-        <JumpCard i={1} x={1360} y={190} w={380} h={660} f={f} rise={0.75} />
+        <JumpCard i={1} x={1360} y={190} w={380} h={660} f={f} rise={0.75} scroll={f * 7} />
         <Tick x={1180} y={1000} pxPerM={150} frame={f} facing={-1} pose={f < 8 ? "point" : "press"} expression="neutral" look={0.3} squash={impact(f, 6, 0.12, 10)} />
       </StudioRoom>
     </Stage>
@@ -406,7 +412,7 @@ const ShotDistance: ShotFC<C02> = ({ f, len, c }) => {
 const ShotEustace: ShotFC<C02> = ({ f, len, c }) => {
   const P14 = c.eusDial - c.eus;
   const rise = ez(f, 0, P14 - 20);
-  const needle = ez(f, P14 + 8, P14 + 130);
+  const needle = ez(f, P14 + 8, len - 10);
   const open = ez(f, P14 + 60, P14 + 100);
   const kmh = JUMPS.eustace.topKmh;
   const cam = cameraAt(f, [
@@ -464,14 +470,14 @@ const ShotEustace: ShotFC<C02> = ({ f, len, c }) => {
 // it. MOVER: the tube extending (20 px/f) + the lines fanning + the push + Tick measuring.
 // ================================================================================================================
 const ShotTube: ShotFC<C02> = ({ f, len }) => {
-  const k = ez(f, 6, 30);
-  const fan = ez(f, 24, 70);
+  const k = ez(f, 6, len * 0.55);
+  const fan = ez(f, len * 0.35, len - 8);
   const jx = 700;
   const jy = 820; // feet
   const tubeTop = jy - 110 - 300 * k;
   return (
     <Pop f={f}>
-      <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 560, zoom: 1.0 }, { f: len, x: 900, y: 520, zoom: 1.1 }])} vignette={0.12} grain={0.5}>
+      <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 560, zoom: 1.0 }, { f: len, x: 820, y: 480, zoom: 1.3 }])} vignette={0.12} grain={0.5}>
         <StudioRoom f={f + 900} seed={11}>
           <circle cx={jx} cy={560} r={330} fill={alpha(INK, 0.5)} />
           <rect x={jx - 14} y={tubeTop} width={28} height={jy - 100 - tubeTop} rx={12} fill="#1B3A44" stroke={C.limb} strokeWidth={3} />
@@ -480,7 +486,7 @@ const ShotTube: ShotFC<C02> = ({ f, len }) => {
           ))}
           {fan > 0.1 ? <Chute x={jx} y={tubeTop} size={80 * fan + 20} f={f} open={fan} /> : null}
           <Jumper x={jx} y={jy} h={110} f={f} pose="stand" />
-          <Bracket x1={jx + 70} y1={jy - 100} x2={jx + 70} y2={tubeTop} draw={ez(f, 34, 60)} />
+          <Bracket x1={jx + 70} y1={jy - 100} x2={jx + 70} y2={tubeTop} draw={ez(f, len * 0.5, len - 10)} />
           <Tick x={1180} y={1000} pxPerM={160} frame={f} facing={-1} staff pose="point" expression="proud" look={0.5} />
         </StudioRoom>
         <Layer depth={0}>
@@ -514,6 +520,13 @@ const ShotLoose: ShotFC<C02> = ({ f, len, c }) => {
         <Stage theme={DUSK.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.008, panY: 0, frames: 200, seed: 7 }} vignette={0.25} grain={0.5}>
           <Layer depth={0.2}>
             <Sky stops={E_SKY} x={-200} y={-200} w={2320} h={1480} />
+          </Layer>
+          <Layer depth={0.6}>
+            {/* big dusk cloud banks streaming up past the drop (large-area mover, ≈ 11 px/f) */}
+            {Array.from({ length: 5 }, (_, k) => {
+              const cy = ((((k * 330 - scroll * 0.8) % 1650) + 1650) % 1650) - 260;
+              return <ellipse key={k} cx={300 + rnd(k * 4 + 1) * 1300} cy={cy} rx={280 + rnd(k) * 160} ry={70} fill={k % 2 ? "#F3A35C" : "#FFE0A8"} opacity={0.4} />;
+            })}
           </Layer>
           <Layer depth={1}>
             {Array.from({ length: 16 }, (_, k) => {
@@ -550,8 +563,8 @@ const ShotLoose: ShotFC<C02> = ({ f, len, c }) => {
                 max={ORBIT.modelPeakKmh /* the stop: unlabelled */}
                 sound={soundKmh}
                 marks={[
-                  { v: JUMPS.baumgartner.topKmh, label: "Baumgartner", k: ez(g, 10, 50) },
-                  { v: JUMPS.eustace.topKmh, label: "Eustace", k: ez(g, 26, 66) },
+                  { v: JUMPS.baumgartner.topKmh, label: "Baumgartner", k: ez(g, 10, len - P17 - 30) },
+                  { v: JUMPS.eustace.topKmh, label: "Eustace", k: ez(g, 30, len - P17 - 8) },
                 ]}
               />
               <Tick x={1560} y={1000} pxPerM={150} frame={f} facing={-1} pose={g > 60 ? "hips" : "point"} expression="proud" look={0.4} />

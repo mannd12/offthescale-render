@@ -343,12 +343,12 @@ const ShotTwoNeedles: ShotFC<C08> = ({ f, len }) => {
   const cy = G.y + 218 * G.s;
   const r = 128 * G.s * 0.82;
   const firstV = 0.78 * ez(f, 2, 30); // drawn lower; NOT scaled to the secondary figure (F3)
-  const offV = lerp(0, 0.85, ez(f, 30, 66)) + 0.03 * Math.sin((f - 66) / 3) * Math.exp(-Math.max(0, f - 66) / 10) * (f > 66 ? 1 : 0);
-  const fade = 1 - 0.75 * ez(f, 60, 100);
+  const offV = lerp(0, 0.85, ez(f, 30, len - 10));
+  const fade = 1 - 0.75 * ez(f, 60, len - 4);
   const a = (v: number) => ((180 + (v / 1.15) * 180) * Math.PI) / 180;
   return (
     <Pop f={f}>
-      <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 10, x: 940, y: 520, zoom: 1.1 }])} vignette={0.12} grain={0.5}>
+      <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 10, x: 900, y: 480, zoom: 1.28 }])} vignette={0.12} grain={0.5}>
         <StudioRoom f={f + 760}>
           <SpeedGauge x={G.x} y={G.y} scale={G.s} f={f} family={STUDIO} theme="dark" s={{ value: offV }} />
           <line x1={cx} y1={cy} x2={cx + Math.cos(a(firstV)) * r} y2={cy + Math.sin(a(firstV)) * r} stroke={CREAM} strokeWidth={9} strokeDasharray="16 12" strokeLinecap="round" opacity={fade} />
@@ -368,14 +368,19 @@ const ShotTwoNeedles: ShotFC<C08> = ({ f, len }) => {
 // whose hands stop in different places; a "?" tag pops. MOVER: two hands sweeping (6°/f) to different stops + the "?".
 // ================================================================================================================
 const ShotWatches: ShotFC<C08> = ({ f }) => {
-  const hand = (stop: number) => Math.min(stop, f * 6);
+  const hand = (stop: number) => Math.min(stop, f * 5);
+  const swing = (k: number) => Math.sin(f / 14 + k) * 6;
   const q = ez(f, 160, 172);
   return (
     <Pop f={f}>
       <Stage theme={STUDIO.theme} shotFrame={f} drift={drift(5, 260)} vignette={0.12} grain={0.5}>
         <StudioRoom f={f + 880}>
-          <BlankWatch x={560} y={480} r={220} angle={hand(720 + 140)} f={f} />
-          <BlankWatch x={1360} y={480} r={220} angle={hand(720 + 250)} f={f} ring={C.limb} />
+          <g transform={`rotate(${swing(0).toFixed(2)} 560 160)`}>
+            <BlankWatch x={560} y={480} r={220} angle={hand(720 + 140)} f={f} />
+          </g>
+          <g transform={`rotate(${swing(2).toFixed(2)} 1360 160)`}>
+            <BlankWatch x={1360} y={480} r={220} angle={hand(720 + 250)} f={f} ring={C.limb} />
+          </g>
           {q > 0 ? (
             <g transform={`translate(960 260) scale(${(q * (1 + 0.1 * Math.sin(f / 3))).toFixed(3)})`}>
               <Bloom x={0} y={0} r={120} color={C.vermilion} core={0} strength={0.5} />
@@ -445,9 +450,9 @@ const ShotThin: ShotFC<C08> = ({ f, len }) => {
     const sp = Math.sin(Math.min(1, u / 0.45) * Math.PI * 0.5) * (u < 0.45 ? 1 : Math.exp(-(u - 0.45) * 3.2));
     return [380 + sp * 900, A(alt)] as [number, number];
   });
-  const w1 = ez(f, 40, 110);
-  const w2 = ez(f, 90, 160);
-  const head = ez(f, 4, len * 0.7);
+  const w1 = ez(f, 40, len - 50);
+  const w2 = ez(f, 90, len - 6);
+  const head = ez(f, 4, len - 10);
   const end = pts[pts.length - 1];
   return (
     <Pop f={f}>

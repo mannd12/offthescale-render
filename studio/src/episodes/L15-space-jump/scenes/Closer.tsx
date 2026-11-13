@@ -20,7 +20,7 @@ import { AltRuler, Limb, RulerFlag } from "../sky";
 import { Probe, Stamp, Station, Trace } from "../props";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, CREAM, INK, ModelChip, OrbitStars, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, clamp01, ez, lin, view, vy } from "./c-parts";
+import { C, CREAM, INK, ModelChip, Wisps, OrbitStars, Pop, RollMetric, Rings, STUDIO, SkyView, StudioSet, clamp01, ez, lin, view, vy } from "./c-parts";
 
 /** Frames after the last line for the 20-s end card (EndCard from the kit). */
 export const closerTail = 600;
@@ -181,6 +181,7 @@ const ShotTaller: ShotFC<CCloser> = ({ f, len, c }) => {
           {ht >= 1 ? <Rings f={f - (len - 30)} cx={HX(0)} cy={SY(MODEL.ground)} every={18} speed={4} maxR={140} color={C.saffronCore} width={5} /> : null}
           <Tick x={1810} y={960} pxPerM={100} frame={f} facing={-1} pose="point" expression="happy" look={0.6} />
           <Motes frame={f} n={22} x={0} y={0} w={1920} h={1080} color={alpha(CREAM, 0.7)} seed={17} size={3} drift={40} />
+          <Wisps f={f} vx={8} vy={-2} n={7} seed={71} colors={[C.teal, C.limb, C.saffron]} opacity={0.2} />
         </Layer>
         <Layer depth={0}>
           <ModelChip x={1520} y={110} f={f} />
@@ -209,7 +210,7 @@ const ShotLetGo: ShotFC<CCloser> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={skyFamily(Math.min(altC, 100)).theme} shotFrame={f} drift={{ zoom: 1.02, panX: 0.004, frames: 200, seed: 7 }} vignette={0.3} grain={0.5}>
         <Layer depth={1}>
-          <SkyView f={f} v={v} rulerX={200} bands={0.8} aurora={0.7} drift={0.5} />
+          <SkyView f={f} v={v} rulerX={200} aurora={0.7} drift={0.5} />
           <Tick x={760} y={vy(v, 0)} pxPerM={40} frame={f} facing={1} pose="stand" expression="surprised" look={1} headTilt={24} />
           <Station x={sx} y={sy} size={240} f={f} />
           <Probe x={sx + 110} y={sy + 120} size={70} f={f} variant="float" tilt={90} lamp={false} />
@@ -258,7 +259,7 @@ const ShotCircle: ShotFC<CCloser> = ({ f, len }) => {
           {back.length > 1 ? <Trace pts={back} head={1} f={f} color={alpha(C.saffron, 0.7)} width={6} /> : null}
           {!inFront ? pair : null}
           <Bloom x={cx} y={cy} r={R * 1.5} color={C.limb} strength={0.22} />
-          <Limb f={f} cx={cx} cy={cy - R} R={R} slide={3} w={R * 2.4} />
+          <Limb f={f} cx={cx} cy={cy - R} R={R} slide={9} w={R * 2.4} />
           <Trace pts={arcSeg(T, 0, 180)} head={1} f={f} color={alpha(C.limb, 0.25)} width={3} dashed />
           {front.length > 1 ? <Trace pts={front} head={1} f={f} color={C.saffron} width={7} /> : null}
           {inFront ? pair : null}
@@ -311,6 +312,12 @@ const ShotDial: ShotFC<CCloser> = ({ f, len, c }) => {
         <Sky stops={["#04051A", "#070A2E", "#0B1040"]} />
         <Stars frame={f} n={110} w={1920} h={1080} color={C.starTeal} seed={47} size={2.2} twinkle={0.7} />
         <Stars frame={f} n={50} w={1920} h={1080} color={C.starGold} seed={53} size={2.6} twinkle={0.7} />
+        <OrbitStars f={f} speed={4} seed={57} streak={8} />
+      </Layer>
+      <Layer depth={0.6}>
+        <g opacity={0.55}>
+          <OrbitRings f={f + 120} cx={DX + 396} cy={1500} every={30} speed={6} />
+        </g>
       </Layer>
       <Layer depth={1}>
         {slide < 1600 ? (
@@ -344,10 +351,11 @@ const EndCardShot: React.FC<{ f: number; len: number }> = ({ f, len }) => (
         <Sky stops={CARD.sky} />
         <Stars frame={f} n={80} w={1920} h={760} color={C.starTeal} seed={21} size={1.9} twinkle={0.7} />
         <Stars frame={f} n={30} w={1920} h={760} color={C.starGold} seed={23} size={2.2} twinkle={0.7} />
+        <OrbitStars f={f} speed={3} seed={61} streak={6} y1={760} />
       </Layer>
       <Layer depth={1}>
         <g opacity={ez(f, 0, 20)}>
-          <OrbitRings f={f + 200} cx={420} cy={1180} />
+          <OrbitRings f={f + 200} cx={420} cy={1180} every={32} speed={5.5} />
         </g>
         <Motes frame={f} n={20} x={60} y={80} w={1800} h={900} color={alpha(C.limb, 0.8)} seed={9} size={3} drift={40} />
       </Layer>
