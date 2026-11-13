@@ -232,7 +232,7 @@ const e3: Shot = ({ f, n }) => (
   <g>
     <Sky stops={["#0F3B4F", "#1E6678", "#E3813F"]} x={0} y={0} w={W} h={H} />
     <Clock x={540} y={640} r={380} a={mix(0, 1 / 3, ez(f, 0, n - 8))} />
-    <Plaque x={500} y={1030} text="ABOUT 4 HOURS" size={72} bg={C.ink} fg={C.amber} scale={ez(f, 6, 14)} />
+    <Plaque x={450} y={1030} text="ABOUT 4 HOURS" size={72} bg={C.ink} fg={C.amber} scale={ez(f, 6, 14)} />
     <Tick x={930} y={1290} pxPerM={200} frame={f} pose="point" expression="surprised" facing={-1} />
   </g>
 );

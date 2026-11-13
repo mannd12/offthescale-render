@@ -257,7 +257,7 @@ const e2: Shot = ({ f, n }) => (
     <Counter x={430} y={720} value={194 * ez(f, 0, n - 8)} max={194} size={330} color={C.amber} align="middle" digits={3} />
     <T x={860} y={700} text="dB" size={130} color={C.cream} />
     <T x={540} y={880} text="ABOUT" size={70} color={C.cream} />
-    <Tick x={900} y={1290} pxPerM={260} frame={f} pose="cheer" expression="surprised" facing={-1} />
+    <Tick x={900} y={1290} pxPerM={200} frame={f} pose="cheer" expression="surprised" facing={-1} />
   </g>
 );
 
@@ -268,7 +268,7 @@ const e3: Shot = ({ f }) => (
     <Burst x={540} y={700} r0={300 + 20 * Math.sin(f / 3)} r1={520} n={18} color={C.amber} width={20} rot={f * 2} />
     <Chips f={f} n={16} y0={100} y1={1150} color={C.gold} speed={16} opacity={0.5} seed={11} />
     <T x={540} y={760} text="194" size={380} color={C.amber} />
-    <Tick x={540} y={1290} pxPerM={270} frame={f} pose="cheer" expression="happy" facing={1} />
+    <Tick x={540} y={1290} pxPerM={230} frame={f} pose="cheer" expression="happy" facing={1} />
   </g>
 );
 

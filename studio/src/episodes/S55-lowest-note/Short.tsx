@@ -196,8 +196,7 @@ const e1: Shot = ({ f }) => (
 const e2: Shot = ({ f }) => (
   <g>
     <Space f={f} />
-    <T x={540} y={540 + bob(f, 30, 14)} text="..." size={420} color={C.cream} />
-    <Tick x={540} y={1260} pxPerM={430} frame={f} pose="shrug" expression="neutral" facing={1} />
+        <Tick x={540} y={1260} pxPerM={430} frame={f} pose="shrug" expression="neutral" facing={1} />
     <Plaque x={540} y={190} text="FOR ANY EAR" size={120} bg={C.ink} fg={C.cream} />
   </g>
 );
@@ -246,7 +245,7 @@ const g2: Shot = ({ f }) => (
     <Space f={f} stops={["#06061E", "#161050", "#2A1B63"]} />
     <Cluster f={f * 1.4} cy={640} speed={8} />
     <Tick x={540} y={1290} pxPerM={190} frame={f} pose="point" expression="surprised" facing={1} />
-    <T x={540} y={960} text="A SOUND WAVE" size={96} color={C.cream} />
+    <T x={540} y={890} text="A SOUND WAVE" size={96} color={C.cream} />
   </g>
 );
 

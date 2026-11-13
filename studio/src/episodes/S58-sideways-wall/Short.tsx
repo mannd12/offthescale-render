@@ -93,7 +93,7 @@ const e: Shot = ({ f, n }) => {
 
 /** f - the speed number counts up. */
 const f_: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, n - 16);
   return (
     <g>
       <Sky stops={BG_STUDIO} x={0} y={0} w={W} h={H} />

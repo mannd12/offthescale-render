@@ -183,7 +183,8 @@ const d2: Shot = ({ f }) => {
   return (
     <g transform={shake(f, 0, 10, 14)}>
       <Sky stops={["#4B2A8C", "#E4572E", "#FFC83D"]} x={0} y={0} w={W} h={H} />
-      <PowerMeter x={540} y={640} r={400} value={v} family={EMBER} frame={f} title="SOUND OUTPUT" readout="203 dB" />
+      <PowerMeter x={540} y={640} r={400} value={v} family={EMBER} frame={f} title="SOUND OUTPUT" readout="" />
+      <Plaque x={540} y={1130} text="203 dB" size={96} bg={C.ink} fg={C.amber} w={420} />
       <Burst x={540} y={640} r0={440} r1={440 + 200 * Math.max(0, 1 - f / 12)} n={20} color={C.amber} opacity={Math.max(0, 1 - f / 12)} width={18} />
       <Tick x={mix(240, 130, ez(f, 0, 8))} y={1260} pxPerM={400} frame={f} pose="shield" expression="scared" facing={1} />
     </g>
@@ -255,10 +256,10 @@ const f1: Shot = ({ f }) => (
   <g>
     <Sky stops={["#0A3C4C", "#11707A", "#66BEAD"]} x={0} y={0} w={W} h={H} />
     {Array.from({ length: 10 }, (_, i) => (
-      <JetEngine key={i} x={170 + (i % 5) * 185} y={560 + Math.floor(i / 5) * 230} r={82} f={f + i * 3} rpm={16} family={EMBER} />
+      <JetEngine key={i} x={170 + (i % 5) * 185} y={420 + Math.floor(i / 5) * 230} r={82} f={f + i * 3} rpm={16} family={EMBER} />
     ))}
-    <Plaque x={540} y={900} text="170 dB = 10 ENGINES" size={64} bg={C.ink} fg={C.amber} scale={ez(f, 0, 8)} />
-    <Tick x={540} y={1300} pxPerM={230} frame={f} pose="cheer" expression="surprised" facing={1} />
+    <Plaque x={540} y={830} text="170 dB = 10 ENGINES" size={64} bg={C.ink} fg={C.amber} scale={ez(f, 0, 8)} />
+    <Tick x={540} y={1300} pxPerM={200} frame={f} pose="cheer" expression="surprised" facing={1} />
   </g>
 );
 
@@ -319,8 +320,8 @@ const g1: Shot = ({ f, n }) => (
 const g2: Shot = ({ f }) => (
   <g transform={shake(f, 4, 10, 10)}>
     <Sky stops={["#4B2A8C", "#E4572E", "#FFC83D"]} x={0} y={0} w={W} h={H} />
-    <PowerMeter x={540} y={640} r={400} value={200 + 3 * ez(f, 0, 10) + 1.4 * Math.sin(f / 2) * Math.max(0, 1 - f / 16)} family={EMBER} frame={f} title="SOUND OUTPUT" readout="203 dB" />
-    <Plaque x={540} y={1190} text="PAST 10,000" size={96} bg={C.ink} fg={C.amber} />
+    <PowerMeter x={540} y={640} r={400} value={200 + 3 * ez(f, 0, 10) + 1.4 * Math.sin(f / 2) * Math.max(0, 1 - f / 16)} family={EMBER} frame={f} title="SOUND OUTPUT" readout="" />
+    <Plaque x={540} y={1130} text="PAST 10,000" size={96} bg={C.ink} fg={C.amber} />
   </g>
 );
 
@@ -328,10 +329,10 @@ const g2: Shot = ({ f }) => (
 const g3: Shot = ({ f }) => (
   <g>
     <Sky stops={["#0A3C4C", "#11707A", "#66BEAD"]} x={0} y={0} w={W} h={H} />
-    <Rings f={f} cx={540} cy={520} period={14} speed={14} maxR={900} width={12} color={C.amber} glow={false} />
-    <T x={540} y={520} text="+10 dB" size={250} color={C.amber} />
-    <T x={540} y={760} text="= 10x" size={250} color={C.cream} />
-    <Tick x={540} y={1290} pxPerM={290} frame={f} pose="cheer" expression="surprised" facing={1} />
+    <Rings f={f} cx={540} cy={440} period={14} speed={14} maxR={900} width={12} color={C.amber} glow={false} />
+    <T x={540} y={460} text="+10 dB" size={250} color={C.amber} />
+    <T x={540} y={690} text="= 10x" size={250} color={C.cream} />
+    <Tick x={540} y={1290} pxPerM={260} frame={f} pose="cheer" expression="surprised" facing={1} />
   </g>
 );
 
