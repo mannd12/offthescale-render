@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "The Saturn V rocket flew in the nineteen sixties. And the internet says its sound melted concrete and set grass on fire a mile away.",
+    "file": "S53-rocket-roar/vo/cold-00.wav",
+    "seconds": 7.68,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "In twenty twenty-two, a group of acousticians went back and checked.",
+    "file": "S53-rocket-roar/vo/cold-01.wav",
+    "seconds": 3.5,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "They published their estimate in the Journal of the Acoustical Society of America.",
+    "file": "S53-rocket-roar/vo/cold-02.wav",
+    "seconds": 3.98,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Their estimate for the rocket's total sound output: about two hundred and three decibels.",
+    "file": "S53-rocket-roar/vo/cold-03.wav",
+    "seconds": 4.38,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "A physics model, and it matched the little data that survives from the nineteen sixties.",
+    "file": "S53-rocket-roar/vo/cold-04.wav",
+    "seconds": 4.67,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "For scale: a hundred and seventy decibels is about ten aircraft engines. Two hundred is ten thousand.",
+    "file": "S53-rocket-roar/vo/cold-05.wav",
+    "seconds": 5.44,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Every ten decibels is another ten times the energy, so two hundred and three is past the ten-thousand-engine mark.",
+    "file": "S53-rocket-roar/vo/cold-06.wav",
+    "seconds": 5.84,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So did its sound really melt the concrete? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S53-rocket-roar/vo/cold-07.wav",
+    "seconds": 8.44,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

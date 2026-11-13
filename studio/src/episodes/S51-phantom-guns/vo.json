@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Listen. A police chief on a small island in the Indian Ocean hears heavy guns, roaring far off to the east.",
+    "file": "S51-phantom-guns/vo/cold-00.wav",
+    "seconds": 6.61,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "The date: the twenty-seventh of August, eighteen eighty-three.",
+    "file": "S51-phantom-guns/vo/cold-01.wav",
+    "seconds": 2.72,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "The booms come back every few hours, until three in the afternoon.",
+    "file": "S51-phantom-guns/vo/cold-02.wav",
+    "seconds": 3.79,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "But there are no guns. Whatever is making that noise is almost three thousand miles away.",
+    "file": "S51-phantom-guns/vo/cold-03.wav",
+    "seconds": 5.04,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That's about four thousand eight hundred kilometres. Sound needs around four hours to cross that much ocean.",
+    "file": "S51-phantom-guns/vo/cold-04.wav",
+    "seconds": 5.34,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And it wasn't only him. People in Perth, about three thousand kilometres away, heard it too.",
+    "file": "S51-phantom-guns/vo/cold-05.wav",
+    "seconds": 5.24,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Draw the whole area where it was heard on a map, and it covers nearly one thirteenth of the planet's surface.",
+    "file": "S51-phantom-guns/vo/cold-06.wav",
+    "seconds": 6.43,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So what makes a sound that crosses an ocean? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S51-phantom-guns/vo/cold-07.wav",
+    "seconds": 8.74,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

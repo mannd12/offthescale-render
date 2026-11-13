@@ -97,6 +97,11 @@ import { ShortS47, timeline as s47 } from "./episodes/S47-crush-column/Short";
 import { ShortS48, timeline as s48 } from "./episodes/S48-sinking-giant/Short";
 import { ShortS49, timeline as s49 } from "./episodes/S49-giant-volcano/Short";
 import { ShortS50, timeline as s50 } from "./episodes/S50-too-tall-world/Short";
+import { ShortS51, timeline as s51 } from "./episodes/S51-phantom-guns/Short";
+import { ShortS52, timeline as s52 } from "./episodes/S52-air-ceiling/Short";
+import { ShortS53, timeline as s53 } from "./episodes/S53-rocket-roar/Short";
+import { ShortS54, timeline as s54 } from "./episodes/S54-barometer-laps/Short";
+import { ShortS55, timeline as s55 } from "./episodes/S55-lowest-note/Short";
 import { ShortS56, timeline as s56 } from "./episodes/S56-fall-clock/Short";
 import { ShortS57, timeline as s57 } from "./episodes/S57-air-tunnel/Short";
 import { ShortS58, timeline as s58 } from "./episodes/S58-sideways-wall/Short";
@@ -216,6 +221,11 @@ export const Root: React.FC = () => (
     <Composition id="s48-short" component={ShortS48} durationInFrames={s48.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s49-short" component={ShortS49} durationInFrames={s49.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s50-short" component={ShortS50} durationInFrames={s50.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s51-short" component={ShortS51} durationInFrames={s51.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s52-short" component={ShortS52} durationInFrames={s52.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s53-short" component={ShortS53} durationInFrames={s53.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s54-short" component={ShortS54} durationInFrames={s54.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s55-short" component={ShortS55} durationInFrames={s55.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s56-short" component={ShortS56} durationInFrames={s56.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s57-short" component={ShortS57} durationInFrames={s57.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s58-short" component={ShortS58} durationInFrames={s58.totalFrames} fps={FPS} width={1080} height={1920} />

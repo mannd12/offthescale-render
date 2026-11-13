@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Turn a sound up, and keep turning. At some point the air itself says stop.",
+    "file": "S52-air-ceiling/vo/cold-00.wav",
+    "seconds": 4.85,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Air presses on everything around you at about one hundred and one thousand pascals.",
+    "file": "S52-air-ceiling/vo/cold-01.wav",
+    "seconds": 4.28,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "A sound is a wiggle on top of that: the pressure goes a little above the line, then a little below, over and over, very fast.",
+    "file": "S52-air-ceiling/vo/cold-02.wav",
+    "seconds": 8.19,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "The quietest reference level on the scale we use in air is twenty millionths of a pascal. The air pressure is about five billion times bigger.",
+    "file": "S52-air-ceiling/vo/cold-03.wav",
+    "seconds": 7.97,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Fold that into decibels, and the biggest clean sound the air can carry is about one hundred and ninety-four.",
+    "file": "S52-air-ceiling/vo/cold-04.wav",
+    "seconds": 5.84,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "That's the ceiling for a sound in sea-level air.",
+    "file": "S52-air-ceiling/vo/cold-05.wav",
+    "seconds": 2.81,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "Pump in more energy, and you don't get a louder sound. You get something else.",
+    "file": "S52-air-ceiling/vo/cold-06.wav",
+    "seconds": 4.85,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So why does the air have a ceiling, and what happens past it? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S52-air-ceiling/vo/cold-07.wav",
+    "seconds": 10.01,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Press a note fifty-seven octaves below middle C.",
+    "file": "S55-lowest-note/vo/cold-00.wav",
+    "seconds": 2.52,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Imagine counting down from middle C: one octave, two, three, and keep going all the way to fifty-seven.",
+    "file": "S55-lowest-note/vo/cold-01.wav",
+    "seconds": 5.85,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Scientists translate the pitch of that sound into a note: B flat.",
+    "file": "S55-lowest-note/vo/cold-02.wav",
+    "seconds": 3.79,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "That is a frequency over a million billion times deeper than the limits of human hearing.",
+    "file": "S55-lowest-note/vo/cold-03.wav",
+    "seconds": 4.86,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "A sound like that is far too deep for any ear.",
+    "file": "S55-lowest-note/vo/cold-04.wav",
+    "seconds": 3.4,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Astronomers found it in a deep observation by NASA's Chandra X-ray telescope.",
+    "file": "S55-lowest-note/vo/cold-05.wav",
+    "seconds": 3.69,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "It's a real sound wave: ripples in hot gas, in a cluster two hundred and fifty million light years away.",
+    "file": "S55-lowest-note/vo/cold-06.wav",
+    "seconds": 6.23,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "And that note has stayed roughly constant for about two and a half billion years.",
+    "file": "S55-lowest-note/vo/cold-07.wav",
+    "seconds": 4.57,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "So what is making a note that deep? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S55-lowest-note/vo/cold-08.wav",
+    "seconds": 8.44,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
