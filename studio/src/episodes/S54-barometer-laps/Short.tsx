@@ -26,8 +26,8 @@ const Bg: React.FC<{ stops?: string[] }> = ({ stops = SPACE }) => <Sky stops={st
 const a1: Shot = ({ f }) => (
   <g>
     <Bg stops={["#0F3B4F", "#1E6678", "#F6B45A"]} />
-    <Barograph f={f} x={200} y={640} w={680} h={300} speed={6} spikes={[]} scale={150} family={DUSK} start={-400} />
-    <Tick x={540} y={1250} pxPerM={380} frame={f} pose="point" expression="thinking" facing={1} look={0.5} />
+    <Barograph f={f} x={200} y={380} w={680} h={280} speed={6} spikes={[]} scale={150} family={DUSK} start={-400} />
+    <Tick x={540} y={1290} pxPerM={300} frame={f} pose="point" expression="thinking" facing={1} look={0.5} />
     <Plaque x={540} y={190} text="PENS ON PAPER" size={100} bg={C.ink} fg={C.amber} />
   </g>
 );
@@ -185,7 +185,7 @@ const e3: Shot = ({ f, n }) => (
     })}
     <T x={310} y={420} text="4 OUT" size={110} color={SAFF} />
     <T x={780} y={420} text="3 BACK" size={110} color={BONE} />
-    <Tick x={540} y={1270} pxPerM={330} frame={f} pose="point" expression="determined" facing={1} tilt={bob(f, 14, 3)} />
+    <Tick x={540} y={1290} pxPerM={240} frame={f} pose="point" expression="determined" facing={1} tilt={bob(f, 14, 3)} />
   </g>
 );
 
@@ -220,10 +220,10 @@ const g1: Shot = ({ f }) => (
     ))}
     {Array.from({ length: 7 }, (_, i) => {
       const on = ramp(f, i * 3, i * 3 + 5);
-      return <circle key={i} cx={110 + i * 140} cy={mix(300, 1000, on)} r={34} fill={i < 4 ? SAFF : BONE} stroke={C.ink} strokeWidth={8} opacity={on > 0 ? 1 : 0} />;
+      return <circle key={i} cx={110 + i * 140} cy={mix(300, 960, on)} r={34} fill={i < 4 ? SAFF : BONE} stroke={C.ink} strokeWidth={8} opacity={on > 0 ? 1 : 0} />;
     })}
     <Plaque x={540} y={190} text="ABOUT FIVE DAYS" size={92} bg={C.ink} fg={C.amber} />
-    <Tick x={540} y={1270} pxPerM={310} frame={f} pose="point" expression="happy" facing={1} />
+    <Tick x={930} y={1290} pxPerM={200} frame={f} pose="point" expression="happy" facing={-1} />
   </g>
 );
 
@@ -282,7 +282,7 @@ const h2: Shot = ({ f }) => (
     <rect x={50} y={420} width={980} height={440} rx={80} fill={C.ink} opacity={0.94} />
     <T x={540} y={680} text="670-730" size={220} color={C.amber} />
     <T x={540} y={800} text="MPH" size={100} color={C.cream} />
-    <Tick x={200} y={1270} pxPerM={330} frame={f} pose="cheer" expression="surprised" facing={1} />
+    <Tick x={900} y={1290} pxPerM={230} frame={f} pose="cheer" expression="surprised" facing={-1} />
   </g>
 );
 

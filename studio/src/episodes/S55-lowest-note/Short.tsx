@@ -139,7 +139,7 @@ const c2: Shot = ({ f }) => (
       <path d="M-50 -260 V-40 Q-50 10 0 10 Q50 10 50 -40 V-260" stroke={C.cream} strokeWidth={38} fill="none" strokeLinecap="round" />
       <rect x={-18} y={10} width={36} height={300} rx={18} fill={C.cream} />
     </g>
-    <Tick x={330} y={1260} pxPerM={560} frame={f} pose="listen" expression="thinking" facing={1} />
+    <Tick x={330} y={1260} pxPerM={430} frame={f} pose="listen" expression="thinking" facing={1} />
     <T x={540} y={190} text="THE NOTE: B FLAT" size={84} color={C.amber} />
   </g>
 );
@@ -187,7 +187,7 @@ const e1: Shot = ({ f }) => (
   <g>
     <Space f={f} />
     <PressureWave f={f} y={720} x0={-40} x1={W + 40} amp={140} wavelength={1700} speed={3} color={C.mint} core={C.cream} width={14} lineColor={C.amber} />
-    <Tick x={540} y={1260} pxPerM={560} frame={f} pose="listen" expression="neutral" facing={1} />
+    <Tick x={540} y={1260} pxPerM={420} frame={f} pose="listen" expression="neutral" facing={1} />
     <Plaque x={540} y={190} text="TOO DEEP" size={130} bg={C.ink} fg={C.amber} />
   </g>
 );
@@ -197,7 +197,7 @@ const e2: Shot = ({ f }) => (
   <g>
     <Space f={f} />
     <T x={540} y={540 + bob(f, 30, 14)} text="..." size={420} color={C.cream} />
-    <Tick x={540} y={1260} pxPerM={520} frame={f} pose="shrug" expression="neutral" facing={1} />
+    <Tick x={540} y={1260} pxPerM={430} frame={f} pose="shrug" expression="neutral" facing={1} />
     <Plaque x={540} y={190} text="FOR ANY EAR" size={120} bg={C.ink} fg={C.cream} />
   </g>
 );
@@ -224,10 +224,10 @@ const f2: Shot = ({ f }) => (
 
 const Cluster: React.FC<{ f: number; cy?: number; speed?: number }> = ({ f, cy = 700, speed = 5 }) => (
   <g>
-    <Bloom x={540} y={cy} r={560} color={GAS} strength={0.7} />
+    <Bloom x={540} y={cy} r={640} color={GAS} strength={1} />
     <Bloom x={420} y={cy + 80} r={320} color="#E4572E" strength={0.5} />
     <Bloom x={680} y={cy - 60} r={300} color="#FFC83D" strength={0.4} />
-    <Rings f={f} cx={540} cy={cy} period={26} speed={speed} maxR={700} width={10} color={C.cream} glow={false} opacity={0.8} />
+    <Rings f={f} cx={540} cy={cy} period={20} speed={speed + 2} maxR={800} width={16} color={C.cream} glow={false} opacity={1} />
   </g>
 );
 
@@ -245,8 +245,8 @@ const g2: Shot = ({ f }) => (
   <g>
     <Space f={f} stops={["#06061E", "#161050", "#2A1B63"]} />
     <Cluster f={f * 1.4} cy={640} speed={8} />
-    <Tick x={540} y={1250} pxPerM={170} frame={f} pose="point" expression="surprised" facing={1} />
-    <T x={540} y={1090} text="A SOUND WAVE" size={96} color={C.cream} />
+    <Tick x={540} y={1290} pxPerM={190} frame={f} pose="point" expression="surprised" facing={1} />
+    <T x={540} y={960} text="A SOUND WAVE" size={96} color={C.cream} />
   </g>
 );
 
@@ -259,7 +259,7 @@ const g3: Shot = ({ f, n }) => (
     <circle cx={970} cy={900} r={90} fill={GAS} opacity={0.9} />
     <T x={110} y={1010} text="US" size={60} color={C.cream} />
     <Counter x={540} y={640} value={250 * ez(f, 0, n - 6)} max={250} size={300} color={C.amber} align="middle" digits={3} />
-    <T x={540} y={410} text="MILLION LIGHT YEARS" size={72} color={C.cream} />
+    <T x={540} y={300} text="MILLION LIGHT YEARS" size={72} color={C.cream} />
   </g>
 );
 

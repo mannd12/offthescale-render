@@ -88,7 +88,7 @@ const a4: Shot = ({ f }) => {
       <circle cx={760} cy={560} r={330} fill={C.cream} stroke={C.ink} strokeWidth={12} />
       <circle cx={470} cy={900} r={36} fill={C.cream} stroke={C.ink} strokeWidth={10} />
       <circle cx={400} cy={1000} r={22} fill={C.cream} stroke={C.ink} strokeWidth={10} />
-      <g transform="translate(560 570) scale(0.55)">
+      <g transform="translate(560 640) scale(0.42)">
         <Cannon x={0} y={0} s={230} family={DUSK} facing={1} recoil={k * 0.5} flash={k} />
       </g>
     </g>
@@ -114,9 +114,9 @@ const b2: Shot = ({ f, n }) => {
       <Sky stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} x={0} y={0} w={W} h={H} />
       <Chips f={f} n={12} y0={100} y1={1100} color={C.gold} speed={10} opacity={0.4} seed={8} />
       <rect x={90} y={380} width={900} height={560} rx={80} fill={C.ink} opacity={0.94} />
-      <Counter x={540} y={760} value={v} max={1883} size={300} color={C.amber} align="middle" digits={4} />
-      <T x={540} y={880} text="AUGUST 27" size={84} color={C.cream} />
-      <Tick x={220} y={1240} pxPerM={330} frame={f} pose="cheer" expression="surprised" facing={1} />
+      <T x={540} y={790} text={`${Math.round(v)}`} size={300} color={C.amber} />
+      <T x={540} y={900} text="AUGUST 27" size={84} color={C.cream} />
+      <Tick x={900} y={1290} pxPerM={220} frame={f} pose="cheer" expression="surprised" facing={-1} />
     </g>
   );
 };
@@ -187,7 +187,7 @@ const d2: Shot = ({ f, n }) => (
 /** d3 - the distance counter rolls up to almost 3,000 miles. */
 const d3: Shot = ({ f, n }) => {
   const v = 3000 * ez(f, 0, n - 6);
-  const box: MapBox = { x: 40, y: 900, w: 1000, h: 380 };
+  const box: MapBox = { x: 40, y: 830, w: 1000, h: 340 };
   return (
     <g>
       <MapBase f={f} box={box} arc={1} />
@@ -221,8 +221,8 @@ const e2: Shot = ({ f, n }) => {
       <MapBase f={f} arc={1} />
       <Rings f={f} cx={p[0]} cy={p[1]} period={10} speed={9} maxR={200} width={9} color={C.foam} glow={false} />
       <circle cx={p[0]} cy={p[1]} r={26} fill={C.cream} stroke={C.ink} strokeWidth={8} />
-      <Clock x={200} y={1230} r={150} a={t / 3} />
-      <T x={620} y={1250} text="HOURS PASS" size={70} color={C.cream} />
+      <Clock x={200} y={1120} r={120} a={t / 3} />
+      <T x={640} y={1140} text="HOURS PASS" size={70} color={C.cream} />
     </g>
   );
 };
@@ -232,8 +232,8 @@ const e3: Shot = ({ f, n }) => (
   <g>
     <Sky stops={["#0F3B4F", "#1E6678", "#E3813F"]} x={0} y={0} w={W} h={H} />
     <Clock x={540} y={640} r={380} a={mix(0, 1 / 3, ez(f, 0, n - 8))} />
-    <Plaque x={540} y={1130} text="ABOUT 4 HOURS" size={86} bg={C.ink} fg={C.amber} scale={ez(f, 6, 14)} />
-    <Tick x={880} y={1240} pxPerM={330} frame={f} pose="point" expression="surprised" facing={-1} />
+    <Plaque x={500} y={1030} text="ABOUT 4 HOURS" size={72} bg={C.ink} fg={C.amber} scale={ez(f, 6, 14)} />
+    <Tick x={930} y={1290} pxPerM={200} frame={f} pose="point" expression="surprised" facing={-1} />
   </g>
 );
 
@@ -310,7 +310,7 @@ const g2: Shot = ({ f }) => (
 
 /** g3 - the globe turns with the area pulsing; Tick on top. */
 const g3: Shot = ({ f }) => (
-  <GlobeScene f={f} rot={95 - f * 1.2} d={CAP * (1 + 0.04 * Math.sin(f / 3))} extra={<Tick x={300} y={420} pxPerM={260} frame={f} pose="cheer" expression="surprised" facing={1} tilt={-14} />} />
+  <GlobeScene f={f} rot={95 - f * 1.2} d={CAP * (1 + 0.04 * Math.sin(f / 3))} extra={<Tick x={300} y={500} pxPerM={190} frame={f} pose="cheer" expression="surprised" facing={1} tilt={-14} />} />
 );
 
 /** g4 - the edge of the area stretches round the curve. */

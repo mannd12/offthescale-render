@@ -85,11 +85,11 @@ const a4: Shot = ({ f }) => (
   <g>
     <Sky stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} x={0} y={0} w={W} h={H} />
     <Chips f={f} n={10} y0={100} y1={1100} color={C.gold} speed={9} opacity={0.4} seed={6} />
-    <rect x={100} y={320} width={880} height={560} rx={70} fill={C.cream} stroke={C.ink} strokeWidth={12} transform={`rotate(${-3 + Math.sin(f / 8) * 1.5} 540 600)`} />
-    <T x={540} y={470} text="RUMOUR" size={72} color={C.verm} halo={C.cream} />
-    <T x={540} y={600} text="MELTED CONCRETE" size={72} color={C.ink} halo={C.cream} />
-    <T x={540} y={730} text="GRASS ON FIRE, A MILE AWAY" size={50} color={C.ink} halo={C.cream} />
-    <Tick x={330} y={1250} pxPerM={480} frame={f} pose="shrug" expression="thinking" facing={1} />
+    <rect x={100} y={200} width={880} height={560} rx={70} fill={C.cream} stroke={C.ink} strokeWidth={12} transform={`rotate(${-3 + Math.sin(f / 8) * 1.5} 540 480)`} />
+    <T x={540} y={350} text="RUMOUR" size={72} color={C.verm} halo={C.cream} />
+    <T x={540} y={480} text="MELTED CONCRETE" size={72} color={C.ink} halo={C.cream} />
+    <T x={540} y={610} text="GRASS ON FIRE, A MILE AWAY" size={50} color={C.ink} halo={C.cream} />
+    <Tick x={330} y={1290} pxPerM={300} frame={f} pose="shrug" expression="thinking" facing={1} />
   </g>
 );
 
@@ -112,10 +112,10 @@ const b1: Shot = ({ f }) => (
 const b2: Shot = ({ f, n }) => (
   <g>
     <Sky stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} x={0} y={0} w={W} h={H} />
-    <rect x={110} y={330} width={860} height={700} rx={70} fill={C.cream} stroke={C.ink} strokeWidth={14} />
-    <rect x={110} y={330} width={860} height={150} rx={70} fill={C.verm} />
-    <Counter x={540} y={900} value={mix(1960, 2022, ez(f, 0, n - 6))} max={2022} size={280} color={C.ink} align="middle" digits={4} />
-    <Tick x={880} y={1250} pxPerM={330} frame={f} pose="point" expression="happy" facing={-1} />
+    <rect x={110} y={300} width={860} height={640} rx={70} fill={C.cream} stroke={C.ink} strokeWidth={14} />
+    <rect x={110} y={300} width={860} height={150} rx={70} fill={C.verm} />
+    <T x={540} y={800} text={`${Math.round(mix(1960, 2022, ez(f, 0, n - 6)))}`} size={300} color={C.ink} halo={C.cream} />
+    <Tick x={900} y={1290} pxPerM={200} frame={f} pose="point" expression="happy" facing={-1} />
   </g>
 );
 
@@ -164,8 +164,8 @@ const c3: Shot = ({ f }) => (
       <rect x={-420} y={-170} width={840} height={340} rx={50} fill="none" stroke={C.amber} strokeWidth={28} />
       <T x={0} y={50} text="PUBLISHED" size={170} color={C.amber} />
     </g>
-    <T x={540} y={1000} text="A 2022 ESTIMATE" size={80} color={C.cream} />
-    <Tick x={880} y={1250} pxPerM={340} frame={f} pose="cheer" expression="proud" facing={-1} />
+    <T x={440} y={1000} text="A 2022 ESTIMATE" size={72} color={C.cream} />
+    <Tick x={930} y={1290} pxPerM={260} frame={f} pose="cheer" expression="proud" facing={-1} />
   </g>
 );
 
@@ -173,8 +173,7 @@ const c3: Shot = ({ f }) => (
 const d1: Shot = ({ f, n }) => (
   <g>
     <Sky stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} x={0} y={0} w={W} h={H} />
-    <PowerMeter x={540} y={720} r={420} value={mix(150, 196, ez(f, 0, n))} family={EMBER} frame={f} title="SOUND OUTPUT" readout="" />
-    <T x={540} y={1210} text="THE ROCKET'S TOTAL OUTPUT" size={54} color={C.cream} />
+    <PowerMeter x={540} y={640} r={400} value={mix(150, 196, ez(f, 0, n))} family={EMBER} frame={f} title="SOUND OUTPUT" readout="" />
   </g>
 );
 
@@ -184,8 +183,8 @@ const d2: Shot = ({ f }) => {
   return (
     <g transform={shake(f, 0, 10, 14)}>
       <Sky stops={["#4B2A8C", "#E4572E", "#FFC83D"]} x={0} y={0} w={W} h={H} />
-      <PowerMeter x={540} y={720} r={420} value={v} family={EMBER} frame={f} title="SOUND OUTPUT" readout="203 dB" />
-      <Burst x={540} y={720} r0={460} r1={460 + 200 * Math.max(0, 1 - f / 12)} n={20} color={C.amber} opacity={Math.max(0, 1 - f / 12)} width={18} />
+      <PowerMeter x={540} y={640} r={400} value={v} family={EMBER} frame={f} title="SOUND OUTPUT" readout="203 dB" />
+      <Burst x={540} y={640} r0={440} r1={440 + 200 * Math.max(0, 1 - f / 12)} n={20} color={C.amber} opacity={Math.max(0, 1 - f / 12)} width={18} />
       <Tick x={mix(240, 130, ez(f, 0, 8))} y={1260} pxPerM={400} frame={f} pose="shield" expression="scared" facing={1} />
     </g>
   );
@@ -223,7 +222,7 @@ const e1: Shot = ({ f }) => (
   <g>
     <GraphBase f={f} />
     <Tick x={850} y={1260} pxPerM={350} frame={f} pose="point" expression="thinking" facing={-1} />
-    <Plaque x={540} y={1160} text="LITTLE DATA" size={70} bg={C.ink} fg={C.amber} />
+    <Plaque x={420} y={1160} text="LITTLE DATA" size={70} bg={C.ink} fg={C.amber} />
   </g>
 );
 
@@ -232,8 +231,8 @@ const e2: Shot = ({ f, n }) => (
   <g>
     <GraphBase f={f} />
     <path d={curveD} pathLength={1} strokeDasharray={`${ez(f, 0, n - 6)} 1`} stroke={C.foam} strokeWidth={22} fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    <Plaque x={540} y={1160} text="PHYSICS MODEL" size={72} bg={C.ink} fg={C.foam} scale={ez(f, 2, 10)} />
-    <Tick x={220} y={1260} pxPerM={350} frame={f} pose="cheer" expression="happy" facing={1} />
+    <Plaque x={600} y={1160} text="PHYSICS MODEL" size={66} bg={C.ink} fg={C.foam} scale={ez(f, 2, 10)} />
+    <Tick x={130} y={1290} pxPerM={300} frame={f} pose="cheer" expression="happy" facing={1} />
   </g>
 );
 
@@ -246,8 +245,8 @@ const e3: Shot = ({ f, n }) => (
       const on = ramp(f, i * 3, i * 3 + 4);
       return <path key={i} d={`M${x - 20} ${y - 70} l20 24 l36 -48`} stroke={C.green} strokeWidth={18} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={on} />;
     })}
-    <Plaque x={540} y={1160} text={f > n * 0.6 ? "IT MATCHES" : "CHECKING..."} size={72} bg={C.ink} fg={C.green} />
-    <Tick x={870} y={1260} pxPerM={350} frame={f} pose="point" expression="proud" facing={-1} />
+    <Plaque x={420} y={1160} text={f > n * 0.6 ? "IT MATCHES" : "CHECKING..."} size={66} bg={C.ink} fg={C.green} />
+    <Tick x={930} y={1290} pxPerM={300} frame={f} pose="point" expression="proud" facing={-1} />
   </g>
 );
 
@@ -258,8 +257,8 @@ const f1: Shot = ({ f }) => (
     {Array.from({ length: 10 }, (_, i) => (
       <JetEngine key={i} x={170 + (i % 5) * 185} y={560 + Math.floor(i / 5) * 230} r={82} f={f + i * 3} rpm={16} family={EMBER} />
     ))}
-    <Plaque x={540} y={1100} text="170 dB = 10 ENGINES" size={64} bg={C.ink} fg={C.amber} scale={ez(f, 0, 8)} />
-    <Tick x={540} y={1330} pxPerM={260} frame={f} pose="cheer" expression="surprised" facing={1} />
+    <Plaque x={540} y={900} text="170 dB = 10 ENGINES" size={64} bg={C.ink} fg={C.amber} scale={ez(f, 0, 8)} />
+    <Tick x={540} y={1300} pxPerM={230} frame={f} pose="cheer" expression="surprised" facing={1} />
   </g>
 );
 
@@ -312,7 +311,7 @@ const g1: Shot = ({ f, n }) => (
         </g>
       );
     })}
-    <Tick x={920} y={1260} pxPerM={330} frame={f} pose="point" expression="happy" facing={-1} />
+    <Tick x={975} y={1290} pxPerM={250} frame={f} pose="point" expression="happy" facing={-1} />
   </g>
 );
 
@@ -320,8 +319,8 @@ const g1: Shot = ({ f, n }) => (
 const g2: Shot = ({ f }) => (
   <g transform={shake(f, 4, 10, 10)}>
     <Sky stops={["#4B2A8C", "#E4572E", "#FFC83D"]} x={0} y={0} w={W} h={H} />
-    <PowerMeter x={540} y={720} r={420} value={200 + 3 * ez(f, 0, 10) + 1.4 * Math.sin(f / 2) * Math.max(0, 1 - f / 16)} family={EMBER} frame={f} title="SOUND OUTPUT" readout="203 dB" />
-    <Plaque x={540} y={1250} text="PAST 10,000" size={96} bg={C.ink} fg={C.amber} />
+    <PowerMeter x={540} y={640} r={400} value={200 + 3 * ez(f, 0, 10) + 1.4 * Math.sin(f / 2) * Math.max(0, 1 - f / 16)} family={EMBER} frame={f} title="SOUND OUTPUT" readout="203 dB" />
+    <Plaque x={540} y={1190} text="PAST 10,000" size={96} bg={C.ink} fg={C.amber} />
   </g>
 );
 
@@ -329,10 +328,10 @@ const g2: Shot = ({ f }) => (
 const g3: Shot = ({ f }) => (
   <g>
     <Sky stops={["#0A3C4C", "#11707A", "#66BEAD"]} x={0} y={0} w={W} h={H} />
-    <Rings f={f} cx={540} cy={640} period={14} speed={14} maxR={900} width={12} color={C.amber} glow={false} />
-    <T x={540} y={700} text="+10 dB" size={250} color={C.amber} />
-    <T x={540} y={900} text="= 10x" size={250} color={C.cream} />
-    <Tick x={540} y={1260} pxPerM={380} frame={f} pose="cheer" expression="surprised" facing={1} />
+    <Rings f={f} cx={540} cy={520} period={14} speed={14} maxR={900} width={12} color={C.amber} glow={false} />
+    <T x={540} y={520} text="+10 dB" size={250} color={C.amber} />
+    <T x={540} y={760} text="= 10x" size={250} color={C.cream} />
+    <Tick x={540} y={1290} pxPerM={290} frame={f} pose="cheer" expression="surprised" facing={1} />
   </g>
 );
 
@@ -348,9 +347,7 @@ const h1: Shot = ({ f }) => (
 );
 
 const h2: Shot = ({ f }) => (
-  <EndShot f={f} stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} q={["DID IT MELT", "CONCRETE?"]}>
-    <Cross x={880} y={1200} r={60} k={ez(f, 0, 10)} color={C.maroon} />
-  </EndShot>
+  <EndShot f={f} stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} q={["DID IT MELT", "CONCRETE?"]} />
 );
 
 export const ShortS53 = makeShort(timeline, [[a1, a2, a3, a4], [b1, b2], [c1, c2, c3], [d1, d2, d3], [e1, e2, e3], [f1, f2, f3], [g1, g2, g3], [h1, h2]]);

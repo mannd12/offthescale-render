@@ -93,10 +93,10 @@ const b1: Shot = ({ f, n }) => {
       <Stage />
       <Rain f={f} n={22} x0={0} x1={W} color={C.foam} speed={9} len={140} width={10} opacity={0.35} seed={3} />
       <FlatLine f={f} y={1000} />
-      <rect x={60} y={260} width={960} height={420} rx={70} fill={C.ink} opacity={0.94} />
-      <Counter x={430} y={560} value={v} max={101325} size={170} color={C.amber} align="middle" digits={6} />
-      <T x={870} y={540} text="PA" size={100} color={C.cream} />
-      <Tick x={300} y={1000} pxPerM={380} frame={f} walk={f / 18} pose="stand" expression="determined" facing={1} />
+      <rect x={60} y={120} width={960} height={400} rx={70} fill={C.ink} opacity={0.94} />
+      <Counter x={430} y={420} value={v} max={101325} size={170} color={C.amber} align="middle" digits={6} />
+      <T x={870} y={400} text="PA" size={100} color={C.cream} />
+      <Tick x={300} y={1000} pxPerM={270} frame={f} walk={f / 18} pose="stand" expression="determined" facing={1} />
     </g>
   );
 };
@@ -134,8 +134,8 @@ const c2: Shot = ({ f, n }) => (
   <g>
     <Stage stops={["#06222B", "#11707A", "#1FA69A"]} />
     <Wiggle f={f} y={780} amp={mix(90, 230, ez(f, 0, n))} speed={10} color={C.foam} />
-    <T x={540} y={1090} text="ABOVE THE LINE" size={80} color={C.amber} />
-    <T x={540} y={1190} text="BELOW THE LINE" size={80} color={C.sky} />
+    <T x={640} y={1090} text="ABOVE THE LINE" size={72} color={C.amber} />
+    <T x={640} y={1190} text="BELOW THE LINE" size={72} color={C.sky} />
     <Tick x={150} y={1250} pxPerM={330} frame={f} pose="point" expression="surprised" facing={1} />
   </g>
 );
@@ -146,7 +146,7 @@ const c3: Shot = ({ f }) => (
     <Stage />
     <Chips f={f} n={14} y0={120} y1={1150} color={C.mint} speed={18} opacity={0.35} seed={7} />
     <Wiggle f={f} y={740} amp={200} speed={20} wavelength={300} />
-    <Plaque x={540} y={1100} text="VERY FAST" size={120} bg={C.ink} fg={C.cream} scale={1 + 0.04 * Math.sin(f / 3)} />
+    <Plaque x={380} y={1100} text="VERY FAST" size={96} bg={C.ink} fg={C.cream} scale={1 + 0.04 * Math.sin(f / 3)} />
     <Tick x={880} y={1240} pxPerM={330} frame={f} pose="think" expression="thinking" facing={-1} />
   </g>
 );
@@ -179,10 +179,10 @@ const d1: Shot = ({ f, n }) => (
   <g>
     <Stage stops={["#06222B", "#4B2A8C", "#7C3FA8"]} />
     <Wiggle f={f} y={420} amp={14} speed={9} wavelength={200} color={C.foam} />
-    <rect x={70} y={560} width={940} height={520} rx={70} fill={C.ink} opacity={0.94} />
-    <Counter x={540} y={830} value={20 * ez(f, 0, n - 6)} max={20} size={250} color={C.amber} align="middle" digits={2} />
-    <T x={540} y={960} text="MILLIONTHS OF A PASCAL" size={58} color={C.cream} />
-    <Tick x={880} y={1260} pxPerM={300} frame={f} pose="point" expression="surprised" facing={-1} />
+    <rect x={70} y={480} width={940} height={500} rx={70} fill={C.ink} opacity={0.94} />
+    <Counter x={540} y={750} value={20 * ez(f, 0, n - 6)} max={20} size={250} color={C.amber} align="middle" digits={2} />
+    <T x={540} y={880} text="MILLIONTHS OF A PASCAL" size={50} color={C.cream} />
+    <Tick x={940} y={1290} pxPerM={200} frame={f} pose="point" expression="surprised" facing={-1} />
   </g>
 );
 
@@ -225,11 +225,11 @@ const d4: Shot = ({ f, n }) => (
   <g>
     <Stage stops={["#06222B", "#4B2A8C", "#E4572E"]} />
     <Chips f={f} n={12} y0={100} y1={1100} color={C.gold} speed={10} opacity={0.35} seed={9} />
-    <rect x={90} y={330} width={900} height={640} rx={80} fill={C.ink} opacity={0.94} />
-    <Counter x={430} y={720} value={5 * ez(f, 0, n - 6)} max={5} size={300} color={C.amber} align="middle" digits={1} />
-    <T x={750} y={700} text="BILLION" size={90} color={C.cream} />
-    <T x={540} y={880} text="TIMES BIGGER" size={96} color={C.cream} />
-    <Tick x={230} y={1250} pxPerM={330} frame={f} pose="shrug" expression="surprised" facing={1} />
+    <rect x={90} y={250} width={900} height={600} rx={80} fill={C.ink} opacity={0.94} />
+    <Counter x={430} y={620} value={5 * ez(f, 0, n - 6)} max={5} size={300} color={C.amber} align="middle" digits={1} />
+    <T x={750} y={600} text="BILLION" size={90} color={C.cream} />
+    <T x={540} y={780} text="TIMES BIGGER" size={96} color={C.cream} />
+    <Tick x={900} y={1290} pxPerM={230} frame={f} pose="shrug" expression="surprised" facing={1} />
   </g>
 );
 
@@ -257,7 +257,7 @@ const e2: Shot = ({ f, n }) => (
     <Counter x={430} y={720} value={194 * ez(f, 0, n - 8)} max={194} size={330} color={C.amber} align="middle" digits={3} />
     <T x={860} y={700} text="dB" size={130} color={C.cream} />
     <T x={540} y={880} text="ABOUT" size={70} color={C.cream} />
-    <Tick x={220} y={1260} pxPerM={330} frame={f} pose="cheer" expression="surprised" facing={1} />
+    <Tick x={900} y={1290} pxPerM={260} frame={f} pose="cheer" expression="surprised" facing={-1} />
   </g>
 );
 
@@ -268,7 +268,7 @@ const e3: Shot = ({ f }) => (
     <Burst x={540} y={700} r0={300 + 20 * Math.sin(f / 3)} r1={520} n={18} color={C.amber} width={20} rot={f * 2} />
     <Chips f={f} n={16} y0={100} y1={1150} color={C.gold} speed={16} opacity={0.5} seed={11} />
     <T x={540} y={760} text="194" size={380} color={C.amber} />
-    <Tick x={540} y={1250} pxPerM={430} frame={f} pose="cheer" expression="happy" facing={1} />
+    <Tick x={540} y={1290} pxPerM={270} frame={f} pose="cheer" expression="happy" facing={1} />
   </g>
 );
 
@@ -291,7 +291,7 @@ const f2: Shot = ({ f }) => (
     <Stage stops={["#06222B", "#4B2A8C", "#E4572E"]} />
     <rect x={0} y={330} width={W} height={150} fill={SAFF} stroke={C.ink} strokeWidth={10} />
     <T x={540} y={435} text="CEILING" size={110} color={C.ink} halo={SAFF} />
-    <Tick x={540} y={1250 + bob(f, 10, 6)} pxPerM={560} frame={f} pose="press" expression="determined" facing={1} />
+    <Tick x={540} y={1250 + bob(f, 10, 6)} pxPerM={420} frame={f} pose="press" expression="determined" facing={1} />
     <Plaque x={540} y={1090} text="SEA-LEVEL AIR" size={70} bg={C.ink} fg={C.cream} />
   </g>
 );
