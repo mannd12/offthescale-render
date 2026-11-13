@@ -15,10 +15,10 @@ const L14Thumb: React.FC<{ lines: [string, string] }> = ({ lines }) => (
       <KeyArt2 />
     </div>
     {/* an opaque ember panel behind the headline: it also covers any label of the shot itself */}
-    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(96deg, rgba(40,12,6,0.9) 0%, rgba(40,12,6,0.82) 36%, rgba(40,12,6,0) 56%)" }} />
+    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(96deg, rgba(40,12,6,0.88) 0%, rgba(40,12,6,0.8) 22%, rgba(40,12,6,0) 41%)" }} />
     <svg width={1280} height={720} viewBox="0 0 1280 720" style={{ position: "absolute", inset: 0 }}>
       {lines.map((l, i) => (
-        <text key={i} x={44} y={172 + i * 150} style={{ fontFamily: IF.label, fontSize: 128, letterSpacing: 2, fill: P.bone, textTransform: "uppercase", paintOrder: "stroke", stroke: "rgba(10,24,34,0.6)", strokeWidth: 6 }}>
+        <text key={i} x={44} y={150 + i * 112} style={{ fontFamily: IF.label, fontSize: 104, letterSpacing: 2, fill: P.bone, textTransform: "uppercase", paintOrder: "stroke", stroke: "rgba(10,24,34,0.6)", strokeWidth: 6 }}>
           {l}
         </text>
       ))}
@@ -29,4 +29,4 @@ const L14Thumb: React.FC<{ lines: [string, string] }> = ({ lines }) => (
 /** l14-thumb: "IT NEVER MAKES IT" (recommended). */
 export const ThumbL14: React.FC = () => <L14Thumb lines={["IT NEVER", "MAKES IT"]} />;
 /** l14-thumb-b: "42 MINUTES? NO." (Test & Compare variant, same art). */
-export const ThumbL14B: React.FC = () => <L14Thumb lines={["42 MINUTES?", "NO."]} />;
+export const ThumbL14B: React.FC = () => <L14Thumb lines={["42 MIN?", "NO."]} />;
