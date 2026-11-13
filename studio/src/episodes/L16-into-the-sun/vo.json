@@ -1,0 +1,594 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "If you flew a spacecraft straight into the Sun, how far in could it really go, and how much of what is down there has anyone actually measured?",
+    "file": "L16-into-the-sun/vo/cold-00-2f961f9eef.wav",
+    "seconds": 7.589958333333334,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Here's the strange part. One spacecraft has already flown through the Sun's atmosphere, and it came out working. The gas around it was hundreds of times hotter than the Sun's surface.",
+    "file": "L16-into-the-sun/vo/cold-01-8b0f4be1d6.wav",
+    "seconds": 9.709958333333333,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Behind its shield, the instruments sat at room temperature.",
+    "file": "L16-into-the-sun/vo/cold-02-8b87d893ba.wav",
+    "seconds": 3.0099583333333335,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "And the trip there is the real villain. It takes fifty-five times more energy to reach the Sun than to reach Mars. Why? We'll go in stage by stage, and watch Tick's stamp turn from measured to model.",
+    "file": "L16-into-the-sun/vo/cold-03-4a1d8260c2.wav",
+    "seconds": 11.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "The real spacecraft is called Parker Solar Probe. It's the fastest thing humans have ever built. It's the closest we've come, so it's our guide. Everything it measured gets a green stamp.",
+    "file": "L16-into-the-sun/vo/cold-04-3438322381.wav",
+    "seconds": 9.31,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Everything past it gets a different one.",
+    "file": "L16-into-the-sun/vo/cold-05-e17a084738.wav",
+    "seconds": 2.05,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "First, the problem with falling.",
+    "file": "L16-into-the-sun/vo/cold-06-085104e6ed.wav",
+    "seconds": 1.7,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "You'd think the Sun would be the easiest target there is. Everything in the solar system is falling around it. But Earth isn't sitting still.",
+    "file": "L16-into-the-sun/vo/l01-00-efdf5c2cf7.wav",
+    "seconds": 7.33,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "It's moving sideways around the Sun at twenty-nine point eight kilometres every second.",
+    "file": "L16-into-the-sun/vo/l01-01-1741009ba3.wav",
+    "seconds": 4.11,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "Anything launched from Earth starts with that sideways speed. NASA's figure is sixty-seven thousand miles an hour. Aim straight at the Sun, and you miss. You go around it, like Earth does.",
+    "file": "L16-into-the-sun/vo/l01-02-4109ef258b.wav",
+    "seconds": 9.97,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "To leave the solar system entirely, you need about twelve point three kilometres a second more. To fall in, you must take away all twenty-nine point eight. Dropping in is more than twice as hard as flying out.",
+    "file": "L16-into-the-sun/vo/l01-03-3b6af8a420.wav",
+    "seconds": 10.86,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "Those sums are ours, from Earth's speed and a round orbit, not NASA's. That's why NASA picked one of the most powerful rockets there is.",
+    "file": "L16-into-the-sun/vo/l01-04-890a1a19ad.wav",
+    "seconds": 6.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 5,
+    "text": "Here's the sum. At Earth's distance, escaping the Sun needs a speed of about forty-two point one kilometres a second. Earth already supplies twenty-nine point eight of it. There's no such head start for falling in.",
+    "file": "L16-into-the-sun/vo/l01-05-915553a5e1.wav",
+    "seconds": 10.71,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 6,
+    "text": "Every kilometre a second of sideways speed has to be paid back.",
+    "file": "L16-into-the-sun/vo/l01-06-a02013d7ca.wav",
+    "seconds": 3.19,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 7,
+    "text": "If you could somehow stop that sideways motion, the fall would take about sixty-five days. You'd arrive at about six hundred and sixteen kilometres a second. That's almost the Sun's escape speed.",
+    "file": "L16-into-the-sun/vo/l01-07-2ea0ac1522.wav",
+    "seconds": 9.56,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 8,
+    "text": "But a straight drop of a hundred and forty-nine point six million kilometres isn't how anyone gets there. The real trip is years of looping.",
+    "file": "L16-into-the-sun/vo/l01-08-8a75d601a8.wav",
+    "seconds": 7.12,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "Parker Solar Probe launched in August 2018 on one of the most powerful rockets in the world. NASA called a strong launch only a good start on shedding that sideways speed.",
+    "file": "L16-into-the-sun/vo/l02-00-6de70f8fdc.wav",
+    "seconds": 8.61,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "So it used Venus. A normal gravity assist speeds a spacecraft up. Parker's did the opposite: it slowed the probe down, so it could swing closer to the Sun.",
+    "file": "L16-into-the-sun/vo/l02-01-626abc16a2.wav",
+    "seconds": 8.92,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "The plan was seven Venus flybys over nearly seven years, each one shrinking the orbit a little more. The first came in October 2018. By December 2024, the probe had been looping for six years.",
+    "file": "L16-into-the-sun/vo/l02-02-21406d9cef.wav",
+    "seconds": 11.03,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "On the twenty-fourth of December, 2024, it passed three point eight million miles above the Sun's surface. That's six point one six million kilometres. It was moving at four hundred and thirty thousand miles an hour.",
+    "file": "L16-into-the-sun/vo/l02-03-6cf6e357a1.wav",
+    "seconds": 11.23,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "That's about one hundred and ninety kilometres a second, six times Earth's own speed. NASA says that's fast enough to cross from New York to Tokyo in under a minute.",
+    "file": "L16-into-the-sun/vo/l02-04-5d554db281.wav",
+    "seconds": 8.470041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "During the pass, the probe flew itself, out of contact with Earth. Two days later, a beacon tone told Earth it had come through safely.",
+    "file": "L16-into-the-sun/vo/l02-05-6ca5b5363f.wav",
+    "seconds": 6.800041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 6,
+    "text": "In September 2025, it matched the same distance and speed again, for the fourth time.",
+    "file": "L16-into-the-sun/vo/l02-06-c1f233d2ff.wav",
+    "seconds": 4.57,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "That closest pass was about nine solar radii above the Sun's surface. Counted from the Sun's centre, it was under five percent of the Earth to Sun distance.",
+    "file": "L16-into-the-sun/vo/l03-00-9974ef16ed.wav",
+    "seconds": 8.03,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "The corona is the Sun's outer atmosphere, and it's a strange place. NASA says it gets hotter the farther it stretches from the surface.",
+    "file": "L16-into-the-sun/vo/l03-01-2f98bfdebf.wav",
+    "seconds": 6.69,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "But Parker had crossed into the Sun's atmosphere years earlier. On the twenty-eighth of April, 2021, on its eighth pass, it went below a boundary called the Alfvén critical surface.",
+    "file": "L16-into-the-sun/vo/l03-02-15b8ac5a76.wav",
+    "seconds": 9.18,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "That was about thirteen million kilometres above the visible surface, or eighteen point eight solar radii. It stayed below the boundary for about five hours.",
+    "file": "L16-into-the-sun/vo/l03-03-6f902fc67f.wav",
+    "seconds": 7.72,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "NASA called it the first time a spacecraft had touched the Sun.",
+    "file": "L16-into-the-sun/vo/l03-04-05b90f2fcc.wav",
+    "seconds": 3.6,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "NASA described the boundary as the end of the solar atmosphere and the beginning of the solar wind. Material that crosses it becomes the solar wind, and races across the solar system to Earth.",
+    "file": "L16-into-the-sun/vo/l03-05-3e8b70c46c.wav",
+    "seconds": 10.42,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 6,
+    "text": "And the boundary isn't a smooth shell. NASA reported spikes and valleys in it.",
+    "file": "L16-into-the-sun/vo/l03-06-448d64a5de.wav",
+    "seconds": 4.609958333333333,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 7,
+    "text": "And even at its closest, Parker was still far above the surface. Nearly nine Sun-radii. The Sun's own radius is six hundred and ninety-five thousand seven hundred kilometres.",
+    "file": "L16-into-the-sun/vo/l03-07-03bf209f07.wav",
+    "seconds": 9.78,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 8,
+    "text": "Across its width, you could fit a hundred and nine Earths side by side.",
+    "file": "L16-into-the-sun/vo/l03-08-41a9555b22.wav",
+    "seconds": 3.64,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "Now the mystery. The Sun's visible surface is about five and a half thousand degrees Celsius. But the corona above it reaches two million. That's hundreds of times hotter. Nobody knows why.",
+    "file": "L16-into-the-sun/vo/l04-00-883d4d8a1e.wav",
+    "seconds": 10.75,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "NASA calls it one of the greatest unanswered questions in astrophysics. And heat can't just flow from a cooler place to a hotter one, so the surface can't simply be warming the corona.",
+    "file": "L16-into-the-sun/vo/l04-01-26e1c039e7.wav",
+    "seconds": 9.63,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "If you looked at temperature alone, the probe would look doomed. NASA hoped that measuring from inside the corona would help solve the heating puzzle.",
+    "file": "L16-into-the-sun/vo/l04-02-1e8f55dad6.wav",
+    "seconds": 7.07,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "So why isn't the probe melting? Because temperature and heat aren't the same. Temperature measures how fast the particles are moving. Heat is the total energy they pass on.",
+    "file": "L16-into-the-sun/vo/l04-03-bc06ef5dd4.wav",
+    "seconds": 9.16,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "NASA's comparison is a hand in a hot oven versus a hand in boiling water. In the thin air of the oven, your hand doesn't get nearly as hot as in the denser water. The corona is like that.",
+    "file": "L16-into-the-sun/vo/l04-04-9a2e50ae45.wav",
+    "seconds": 10.040041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 5,
+    "text": "It's incredibly thin, with very few particles to pass on their energy.",
+    "file": "L16-into-the-sun/vo/l04-05-88c5ca6adf.wav",
+    "seconds": 3.67,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 6,
+    "text": "The shield does the rest. It's a carbon foam sandwiched between two carbon plates. NASA says its sunward face can reach twenty-five hundred degrees Fahrenheit, about fourteen hundred Celsius.",
+    "file": "L16-into-the-sun/vo/l04-06-7fa711aa8e.wav",
+    "seconds": 9.4,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 7,
+    "text": "On the December 2024 pass, NASA expected it to warm to eighteen hundred Fahrenheit, a little under a thousand Celsius. Behind it, the instruments stay at eighty-five Fahrenheit, about thirty Celsius.",
+    "file": "L16-into-the-sun/vo/l04-07-7234e103ef.wav",
+    "seconds": 6.27,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 8,
+    "text": "The panels that power the probe retract behind the shield, but the small edge left in the light can still overheat, so a loop of water carries the heat away.",
+    "file": "L16-into-the-sun/vo/l04-08-4e3817b515.wav",
+    "seconds": 12.27,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 9,
+    "text": "Everything up to here was read off a real thermometer, aboard a real probe. This is where the stamp changes.",
+    "file": "L16-into-the-sun/vo/l04-09-866eab91dd.wav",
+    "seconds": 6.12,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "Below the probe's closest pass, the Sun has no flat floor to land on. It's a ball of plasma, and it has no solid core either. What we call the surface is the photosphere, the layer we see from Earth.",
+    "file": "L16-into-the-sun/vo/l05-00-a68fde0982.wav",
+    "seconds": 12.45,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "It's only a few hundred kilometres thick, and it's about five and a half thousand degrees. That's hot enough to boil carbon. The gas there is about ten thousand times thinner than the air we breathe.",
+    "file": "L16-into-the-sun/vo/l05-01-d3354d8a14.wav",
+    "seconds": 10.250041666666666,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "That's why a spacecraft can't land. There's nothing to land on. Averaged over the whole Sun, the density is about fourteen hundred kilograms in every cubic metre. That's heavier than water, for a ball of gas.",
+    "file": "L16-into-the-sun/vo/l05-02-960f8f237d.wav",
+    "seconds": 11.87,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "Above it sits the chromosphere, two to three thousand kilometres thick. It's hotter than the surface below it, which is surprising. And above that, the temperature leaps again, to the corona's millions.",
+    "file": "L16-into-the-sun/vo/l05-03-61c62a5439.wav",
+    "seconds": 10.310041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "Every number in this stage comes from light collected from far away, and not from a thermometer that went there.",
+    "file": "L16-into-the-sun/vo/l05-04-39d2d3ea43.wav",
+    "seconds": 6.6,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Going in, the first layer is the convection zone. It's about two hundred thousand kilometres deep. Its base sits at about seven tenths of the Sun's radius, counted from the centre.",
+    "file": "L16-into-the-sun/vo/l06-00-7edb8d79db.wav",
+    "seconds": 9.72,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "NASA says the temperature in this layer drops below two million degrees Celsius.",
+    "file": "L16-into-the-sun/vo/l06-01-5bc517b831.wav",
+    "seconds": 3.97,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "Large bubbles of hot plasma rise toward the surface. Through a telescope, the surface looks mottled, like a pot of boiling oatmeal.",
+    "file": "L16-into-the-sun/vo/l06-02-c5e8d60aec.wav",
+    "seconds": 7.22,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "How do we know? From waves in the Sun itself. The study of them is called helioseismology. One 1998 model was checked against that data, and its sound speed matched the Sun's to within about one percent.",
+    "file": "L16-into-the-sun/vo/l06-03-12c892a3ec.wav",
+    "seconds": 11.28,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "Below that is the radiative zone, starting about a quarter of the way out. Here the energy has to crawl. Light bounces from atom to atom.",
+    "file": "L16-into-the-sun/vo/l06-04-594f092065.wav",
+    "seconds": 9.02,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "NASA says it takes about a hundred and seventy thousand years to get to the top of the convection zone. Other estimates differ, because the number depends on the model.",
+    "file": "L16-into-the-sun/vo/l06-05-e8b31a4eb0.wav",
+    "seconds": 8.24,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "For comparison, the light from the surface reaches Earth in about eight minutes. So the sunlight on your window this morning spent most of its life getting out.",
+    "file": "L16-into-the-sun/vo/l06-06-0d0a2b9ff6.wav",
+    "seconds": 7.670041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 7,
+    "text": "Notice the arc of the temperature. From the core it falls from fifteen million degrees to five and a half thousand at the surface. Then it climbs again, to two million, in the corona.",
+    "file": "L16-into-the-sun/vo/l06-07-0e68a0f5ba.wav",
+    "seconds": 9.83,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "At the middle is the core. It reaches out to about a fifth of the Sun's radius, which NASA gives as a hundred and thirty-eight thousand kilometres. That's more than ten Earths, laid end to end.",
+    "file": "L16-into-the-sun/vo/l07-00-fbb625a334.wav",
+    "seconds": 10.8,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "Its temperature tops fifteen million degrees Celsius. The pressure at the centre is about two hundred and fifty billion times the air pressure at sea level.",
+    "file": "L16-into-the-sun/vo/l07-01-6fc992691e.wav",
+    "seconds": 7.67,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "Hydrogen is fused into helium here, and that is where the Sun's heat and light begin. Its density is about a hundred and fifty grams per cubic centimetre.",
+    "file": "L16-into-the-sun/vo/l07-02-56c5e01195.wav",
+    "seconds": 8,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "That's about eight times the density of gold, or thirteen times lead.",
+    "file": "L16-into-the-sun/vo/l07-03-d137c54e09.wav",
+    "seconds": 3.73,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 4,
+    "text": "We can't send a probe there, and we can't see it with light. But the core makes ghostly particles called neutrinos, and they stream straight out. Physicists call them the only direct probe of the deep interior.",
+    "file": "L16-into-the-sun/vo/l07-04-8dbd17bf44.wav",
+    "seconds": 10.99,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 5,
+    "text": "In 2020, the Borexino experiment reported the first direct evidence of neutrinos from one of the Sun's two fusion cycles.",
+    "file": "L16-into-the-sun/vo/l07-05-13e2706cde.wav",
+    "seconds": 6.54,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Let's be honest about where the data ends. From the Sun's surface to its centre is about seven hundred thousand kilometres. A probe has travelled none of it.",
+    "file": "L16-into-the-sun/vo/l08-00-de847e3507.wav",
+    "seconds": 8.22,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "Parker is the closest anything we've built has ever been. Down to about nine solar radii above the surface, the probe's own instruments sent back real readings.",
+    "file": "L16-into-the-sun/vo/l08-01-19b809bbe7.wav",
+    "seconds": 8.32,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "For the photosphere and chromosphere, we have light, taken from far away.",
+    "file": "L16-into-the-sun/vo/l08-02-a59e7cfaaa.wav",
+    "seconds": 3.21,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "For the layers inside, we have waves in the Sun, and a standard solar model that is checked against them.",
+    "file": "L16-into-the-sun/vo/l08-03-ab9dab2f9d.wav",
+    "seconds": 5.12,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 4,
+    "text": "And for the core, the neutrinos are the only direct probe we have. Everything else we say about it comes from a model checked against them.",
+    "file": "L16-into-the-sun/vo/l08-04-972346030b.wav",
+    "seconds": 7.35,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 5,
+    "text": "So here is how to read the stamps. Green means an instrument was there. Blue means light that travelled from far away. Grey means a model, checked against something we can measure.",
+    "file": "L16-into-the-sun/vo/l08-05-7257f46599.wav",
+    "seconds": 9.87,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 6,
+    "text": "Even NASA's own pages disagree in places. One gives Parker's top speed as six hundred and ninety-two thousand kilometres an hour, and a later one says six hundred and eighty-seven thousand. We used the later one.",
+    "file": "L16-into-the-sun/vo/l08-06-2da31ffdaf.wav",
+    "seconds": 11.61,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 7,
+    "text": "One page gives the shield's front as twenty-five hundred degrees Fahrenheit, and another says it was designed for twenty-six hundred. We say \"about\", and we show the ranges.",
+    "file": "L16-into-the-sun/vo/l08-07-8033793533.wav",
+    "seconds": 8.39,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 8,
+    "text": "And Parker's own future isn't settled. In September 2025, NASA said the next steps for the mission were under review.",
+    "file": "L16-into-the-sun/vo/l08-08-32ab5741d2.wav",
+    "seconds": 6.38,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "So here's the honest answer. A probe can fly into the Sun's atmosphere. It has, and it kept its instruments at room temperature, because the corona is hot but thin.",
+    "file": "L16-into-the-sun/vo/closer-00-df91a5e24f.wav",
+    "seconds": 9.56,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "It could do that only after seven Venus flybys helped shed much of the speed that Earth gave it. Past that, nobody has gone.",
+    "file": "L16-into-the-sun/vo/closer-01-959768decb.wav",
+    "seconds": 6.59,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "The surface is seen by light, the layers below it by waves, and the core by a model that neutrinos check. Every number we gave you for those stages is our best reading from outside.",
+    "file": "L16-into-the-sun/vo/closer-02-ae8814ea26.wav",
+    "seconds": 9.82,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "The Sun was the hard place to reach. Next, we turn around and go the other way.",
+    "file": "L16-into-the-sun/vo/closer-03-397544eb4e.wav",
+    "seconds": 4.54,
+    "pauseAfter": 0.55
+  }
+]
