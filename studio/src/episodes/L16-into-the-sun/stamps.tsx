@@ -49,6 +49,34 @@ const shapeD = (shape: "hex" | "circle" | "square", s: number) => {
   return "M" + pts.join(" L") + " Z";
 };
 
+/** The shared lift (art director 2026-11-14: the stamps, pills, sheets and board read as flat stickers): a small soft
+ *  drop shadow under the shape and a lit edge on its top-left, the same on dark and warm families. */
+const LitEdge: React.FC<{ d: string; width?: number; strength?: number }> = ({ d, width = 4, strength = 0.75 }) => {
+  const id = 'lit' + sid(useId());
+  return (
+    <g>
+      <defs>
+        <linearGradient id={id} x1='0' y1='0' x2='1' y2='1'>
+          <stop offset='0' stopColor='#FFFFFF' stopOpacity={strength} />
+          <stop offset='0.45' stopColor='#FFFFFF' stopOpacity={strength * 0.25} />
+          <stop offset='0.7' stopColor='#FFFFFF' stopOpacity={0} />
+        </linearGradient>
+      </defs>
+      <path d={d} fill='none' stroke={'url(#' + id + ')'} strokeWidth={width} />
+    </g>
+  );
+};
+const DropShadow: React.FC<{ d: string; dx?: number; dy?: number; opacity?: number }> = ({ d, dx = 5, dy = 8, opacity = 0.32 }) => (
+  <g transform={'translate(' + dx + ' ' + dy + ')'}>
+    <path d={d} fill='#0A0418' opacity={opacity * 0.55} transform='scale(1.03)' />
+    <path d={d} fill='#0A0418' opacity={opacity} />
+  </g>
+);
+const rrect = (x: number, y: number, w: number, h: number, r: number) => {
+  const q = Math.min(r, w / 2, h / 2);
+  return 'M' + (x + q) + ' ' + y + ' H' + (x + w - q) + ' A' + q + ' ' + q + ' 0 0 1 ' + (x + w) + ' ' + (y + q) + ' V' + (y + h - q) + ' A' + q + ' ' + q + ' 0 0 1 ' + (x + w - q) + ' ' + (y + h) + ' H' + (x + q) + ' A' + q + ' ' + q + ' 0 0 1 ' + x + ' ' + (y + h - q) + ' V' + (y + q) + ' A' + q + ' ' + q + ' 0 0 1 ' + (x + q) + ' ' + y + ' Z';
+};
+
 /** One stamp face (no transform): ink shape, inner ring, words, paper speckle gaps for the ink texture. */
 const Face: React.FC<{ state: StampState; size: number; paper: string; ghost?: boolean }> = ({ state, size, paper, ghost = false }) => {
   const st = STAMP[state];
@@ -115,7 +143,9 @@ export const StateStamp: React.FC<{
     <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
       {ring >= 0 ? <circle cx={0} cy={0} r={size / 2 + ring} fill="none" stroke={STAMP[state].color} strokeWidth={5} opacity={1 - (a - SL) / 14} /> : null}
       <g transform={`scale(${(k * sx).toFixed(3)} ${k.toFixed(3)})`} opacity={o}>
+        <DropShadow d={shapeD(STAMP[face].shape, size / 2)} dx={4} dy={7} />
         <Face state={face} size={size} paper={paper} />
+        <LitEdge d={shapeD(STAMP[face].shape, size / 2 - 2)} width={Math.max(3, size * 0.028)} />
       </g>
     </g>
   );
@@ -134,7 +164,9 @@ const OutlinePill: React.FC<PillP & { text: string; stroke: string; fill: string
   const a = sm(appear);
   return (
     <g opacity={a} transform={`translate(0 ${((1 - a) * 16).toFixed(1)})`}>
+      <DropShadow d={rrect(x0, y - h / 2, w, h, h / 2)} dx={2} dy={4} opacity={0.3} />
       <rect x={x0} y={y - h / 2} width={w} height={h} rx={h / 2} fill={fill} stroke={stroke} strokeWidth={3} />
+      <LitEdge d={rrect(x0 + 2, y - h / 2 + 2, w - 4, h - 4, h / 2 - 2)} width={2.5} strength={0.7} />
       {dot ? <circle cx={x0 + size * 0.95} cy={y} r={size * 0.26} fill={dot} /> : null}
       <text x={x0 + (dot ? size * 1.6 : size * 0.7)} y={y + size * 0.36} style={{ fontFamily: IF2.label, fontSize: size, letterSpacing: size * 0.12, fill: ink }}>
         {t}
@@ -185,6 +217,7 @@ export const Sheet: React.FC<{
   return (
     <g opacity={a} transform={`translate(${x} ${y + (1 - a) * 60}) rotate(${(tilt + sway).toFixed(2)} ${w / 2} 0)`}>
       <rect x={8} y={12} width={w} height={h} rx={14} fill="#000" opacity={0.2} />
+      <DropShadow d={rrect(0, 0, w, h, 14)} dx={5} dy={9} opacity={0.22} />
       <rect x={0} y={0} width={w} height={h} rx={14} fill={C.paper} />
       <defs>
         <clipPath id={id}>
@@ -194,6 +227,7 @@ export const Sheet: React.FC<{
       <g clipPath={`url(#${id})`}>
         <rect x={0} y={0} width={w} height={64} fill={band} />
         <rect x={0} y={64} width={w} height={6} fill={C.gold} />
+        <LitEdge d={rrect(1.5, 1.5, w - 3, h - 3, 13)} width={4} strength={0.9} />
         <rect x={w - 46} y={h - 46} width={46} height={46} fill={alpha(C.violet, 0.25)} />
       </g>
       <text x={24} y={43} style={{ fontFamily: IF2.label, fontSize: 26, letterSpacing: 3, fill: "#FFF8EC" }}>
@@ -240,6 +274,7 @@ export const Board: React.FC<{
       <rect x={10} y={16} width={w} height={h} rx={20} fill="#000" opacity={0.22} />
       <rect x={-14} y={-14} width={w + 28} height={h + 28} rx={26} fill={C.saffronDeep} />
       <rect x={-8} y={-8} width={w + 16} height={h + 16} rx={22} fill={C.gold} />
+      <LitEdge d={rrect(-12, -12, w + 24, h + 24, 24)} width={5} strength={0.85} />
       <rect x={0} y={0} width={w} height={h} rx={18} fill="#1E5A6E" />
       <defs>
         <clipPath id={id}>

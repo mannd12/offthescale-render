@@ -169,9 +169,29 @@ export const L16_FAMILIES = {
     dim: C.lavender,
     dark: true,
   }),
-  /** the evidence board, plates, charts, honesty beat: STUDIO_SET (the teal cyc), never bone */
-  studio: STUDIO_SET,
+  /** the evidence board, plates, charts, honesty beat: the OBSERVATORY (art director 2026-11-14: the kit's teal cyc read as
+   *  a different video cut into the purple/orange world). A deep indigo-violet wall rising from a warm horizon glow (the
+   *  Sun off-frame), a mauve-ember floor; mid-dark (value ≈ 0.25-0.4), light text. Cards, boards and plates are warm paper
+   *  (`L16_COLORS.paper`) so they pop. L16-local override: the kit's STUDIO_SET is untouched (other episodes use it). */
+  studio: fam({
+    name: "studio",
+    sky: ["#140C3E", "#22125A", "#361A70", "#5A2878"],
+    far: "#4A2470",
+    mid: "#3A1A5E",
+    near: "#160C36",
+    haze: "#E0703A",
+    light: "#FFE6A8",
+    shadow: "#0E0828",
+    bounce: "#F4A060",
+    second: C.gold,
+    text: "#FFF4E0",
+    dim: "#D8CCF4",
+    dark: true,
+  }),
 } as const satisfies Record<string, Family>;
+
+/** The kit's teal cyc, kept for reference only (do not use in L16 shots). */
+export const KIT_STUDIO_SET = STUDIO_SET;
 
 export type L16FamilyName = keyof typeof L16_FAMILIES;
 export const familyOf = (name: L16FamilyName): Family => L16_FAMILIES[name];

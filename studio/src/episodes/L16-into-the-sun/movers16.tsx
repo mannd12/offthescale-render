@@ -1,7 +1,7 @@
 // L16 large-area movers (BUILD.md §0, §5): the things that keep a shot ALIVE at the probe's 96×54 / 0.5-s steps. Each
 // moves a sizeable, contrasty edge at ≥ ~1.5 px/f (most at 8-36 px/f). Deterministic in `f` (the shot's frame).
-// Sprite budgets are hard caps (performance on the cloud runner): WindStreaks ≤ 90, Granules ≤ 150, ConvCells ≤ 120,
-// Neutrinos ≤ 60.
+// Sprite budgets are hard caps (performance on the cloud runner): WindStreaks ≤ 90, Granules ≤ 150, Neutrinos ≤ 60;
+// ConvCells draws ≈ 190 simple cells over three planes at the default cell = 360 (do not go below cell ≈ 260).
 // USAGE (f = the shot's frame)
 //   <WindStreaks f mode="radial" cx cy r0? rMax? a0? a1? speed?=20 count?=60 len? width? seed? opacity? />
 //        streaks fanning out from (cx, cy) between angles a0..a1 (deg, screen: 0 = right, 90 = down), gold → magenta
@@ -161,7 +161,11 @@ export const Granules: React.FC<{
 };
 
 // ---------------------------------------------------------------------------------------------------------------
-// ConvCells: whole-frame rolling convection cells (arrow loops + rising white-gold blobs)
+// ConvCells: whole-frame rolling convection with depth (art director 2026-11-14: one plane of uniform donuts read as
+// wallpaper). Three size classes on three parallax planes: far small cells hazed violet and dark, mid, near large; every
+// cell has an irregular outline, a lit top-left and a shadow side; near and mid cells carry a soft swirl rolling at
+// `speed` px/f (the large-area motion); only some near cells get an arrow; white-gold blobs rise between near cells;
+// the whole field darkens toward the bottom. `scroll` slides the near plane up at that px/f (mid 0.75×, far 0.45×).
 // ---------------------------------------------------------------------------------------------------------------
 export const ConvCells: React.FC<{
   f: number;
@@ -181,69 +185,96 @@ export const ConvCells: React.FC<{
   fills?: [string, string];
 }> = ({ f, x = 0, y = 0, w = 1920, h = 1080, cell = 360, speed = 13, scroll = 0, blobs = true, seed = 1, opacity = 1, fills = [C.tangerine, C.magenta] }) => {
   const id = "cc" + sid(useId());
-  const cols = Math.ceil(w / cell) + 1;
-  const rows = Math.ceil(h / cell) + 2;
-  const sh = mod(f * scroll, cell * 2);
-  const R = cell * 0.36;
-  const om = speed / R; // rad/f along the loop
-  const bgs: React.ReactNode[] = [];
-  const items: React.ReactNode[] = [];
-  let sprites = 0;
-  for (let r = 0; r < rows; r++)
-    for (let c = 0; c < cols; c++) {
-      const i = r * cols + c;
-      const cx = x + c * cell + cell / 2;
-      const cy = y + r * cell + cell / 2 - sh;
-      if (cy < y - cell || cy > y + h + cell) continue;
-      const dir = (c + r) % 2 ? 1 : -1; // neighbours counter-rotate (rising columns shared)
-      const fill = fills[(c + r) % 2];
-      bgs.push(
-        <g key={"c" + i}>
-          {/* round, overlapping cells on one base (kit-demo review: square tiles read as a checkerboard) */}
-          <ellipse cx={cx + (rnd(seed * 3 + i) - 0.5) * cell * 0.12} cy={cy} rx={cell * 0.6} ry={cell * 0.56} fill={fill} />
-          <circle cx={cx} cy={cy} r={cell * 0.44} fill={mixHex(fill, C.whiteGold, 0.16)} />
-          <circle cx={cx} cy={cy} r={cell * 0.2} fill={mixHex(fill, "#3A0F58", 0.25)} />
-        </g>,
-      );
-      // three arrow arcs riding the loop
-      for (let k = 0; k < 3 && sprites < 120; k++, sprites++) {
-        const a = dir * f * om + (k * Math.PI * 2) / 3 + rnd(seed + i);
-        const a2 = a - dir * 0.9;
-        const p = (t: number): Pt => [cx + Math.cos(t) * R, cy + Math.sin(t) * R];
-        const [hx, hy] = p(a);
-        const [tx, ty] = p(a2);
-        const tang = a + (dir * Math.PI) / 2;
-        items.push(
-          <g key={"a" + i + k}>
-            <path d={`M${tx.toFixed(1)} ${ty.toFixed(1)} A${R} ${R} 0 0 ${dir > 0 ? 1 : 0} ${hx.toFixed(1)} ${hy.toFixed(1)}`} fill="none" stroke={C.whiteGold} strokeWidth={cell * 0.045} strokeLinecap="round" opacity={0.85} />
-            <path
-              d={`M${(hx + Math.cos(tang) * cell * 0.06).toFixed(1)} ${(hy + Math.sin(tang) * cell * 0.06).toFixed(1)} L${(hx + Math.cos(tang + 2.5) * cell * 0.06).toFixed(1)} ${(hy + Math.sin(tang + 2.5) * cell * 0.06).toFixed(1)} L${(hx + Math.cos(tang - 2.5) * cell * 0.06).toFixed(1)} ${(hy + Math.sin(tang - 2.5) * cell * 0.06).toFixed(1)} Z`}
-              fill={C.whiteGold}
-            />
+  const deep = "#2A0A42";
+  const planes = [
+    { k: 0.55, par: 0.45, haze: 0.55, swirl: false, arrows: 0, bl: false },
+    { k: 0.78, par: 0.75, haze: 0.25, swirl: true, arrows: 0, bl: false },
+    { k: 1.0, par: 1.0, haze: 0, swirl: true, arrows: 0.35, bl: blobs },
+  ];
+  const out: React.ReactNode[] = [];
+  planes.forEach((pl, pi) => {
+    const c = cell * pl.k;
+    const travel = f * scroll * pl.par;
+    const base = Math.floor(travel / c);
+    const off = travel - base * c;
+    const cols = Math.ceil(w / c) + 2;
+    const rows = Math.ceil(h / c) + 2;
+    const R = c * 0.5;
+    for (let r = -1; r < rows; r++)
+      for (let q = -1; q < cols; q++) {
+        const gr = r + base; // persistent row identity while scrolling
+        const i = pi * 100000 + gr * 97 + q;
+        const cx = x + q * c + (gr % 2 ? c / 2 : 0) + (rnd(seed * 7 + i) - 0.5) * c * 0.3;
+        const cy = y + r * c * 0.9 - off + (rnd(seed * 11 + i) - 0.5) * c * 0.25;
+        if (cy < y - c || cy > y + h + c || cx < x - c || cx > x + w + c) continue;
+        const rr = R * (0.82 + 0.3 * rnd(seed * 13 + i));
+        const depth = Math.max(0, Math.min(1, (cy - y) / h));
+        const fill0 = fills[rnd(seed * 17 + i) > 0.5 ? 0 : 1];
+        const fill = mixHex(mixHex(fill0, "#3A0F58", pl.haze), deep, 0.35 * depth + pl.haze * 0.2);
+        const pts: Pt[] = Array.from({ length: 8 }, (_, j) => {
+          const a = (j / 8) * Math.PI * 2;
+          const q2 = rr * (0.88 + 0.22 * rnd(seed * 29 + i * 8 + j));
+          return [cx + Math.cos(a) * q2, cy + Math.sin(a) * q2 * 0.92];
+        });
+        const d = smoothPath([...pts, pts[0], pts[1]], 0.5) + " Z";
+        out.push(
+          <g key={pi + ":" + gr + ":" + q}>
+            {/* shadow side (bottom-right) */}
+            <path d={d} transform={`translate(${(rr * 0.1).toFixed(1)} ${(rr * 0.13).toFixed(1)})`} fill={deep} opacity={0.5} />
+            <path d={d} fill={fill} />
+            {/* lit top-left */}
+            <ellipse cx={cx - rr * 0.24} cy={cy - rr * 0.26} rx={rr * 0.5} ry={rr * 0.42} fill={mixHex(C.whiteGold, fill, 0.35 + pl.haze * 0.4)} opacity={0.32} />
           </g>,
         );
+        if (pl.swirl) {
+          // a soft wide swirl rolling round the cell at `speed` px/f
+          const dir = rnd(seed * 31 + i) > 0.5 ? 1 : -1;
+          const sr = rr * 0.58;
+          const a0 = dir * f * (speed / sr) + rnd(seed * 37 + i) * 6.28;
+          const a1 = a0 + dir * 2.3;
+          const p = (t: number): string => `${(cx + Math.cos(t) * sr).toFixed(1)} ${(cy + Math.sin(t) * sr).toFixed(1)}`;
+          out.push(
+            <path key={"s" + pi + ":" + gr + ":" + q} d={`M${p(a0)} A${sr.toFixed(1)} ${sr.toFixed(1)} 0 0 ${dir > 0 ? 1 : 0} ${p(a1)}`} fill="none" stroke={C.whiteGold} strokeWidth={rr * 0.16} strokeLinecap="round" opacity={0.26 - pl.haze * 0.2} />,
+          );
+          if (pl.arrows > 0 && rnd(seed * 41 + i) < pl.arrows) {
+            const tang = a1 + (dir * Math.PI) / 2;
+            const hx = cx + Math.cos(a1) * sr;
+            const hy = cy + Math.sin(a1) * sr;
+            const L = rr * 0.16;
+            out.push(
+              <path
+                key={"a" + pi + ":" + gr + ":" + q}
+                d={`M${(hx + Math.cos(tang) * L).toFixed(1)} ${(hy + Math.sin(tang) * L).toFixed(1)} L${(hx + Math.cos(tang + 2.5) * L).toFixed(1)} ${(hy + Math.sin(tang + 2.5) * L).toFixed(1)} L${(hx + Math.cos(tang - 2.5) * L).toFixed(1)} ${(hy + Math.sin(tang - 2.5) * L).toFixed(1)} Z`}
+                fill={C.whiteGold}
+                opacity={0.6}
+              />,
+            );
+          }
+        }
+        if (pl.bl && q % 2 === 0 && r % 2 === 0) {
+          const life = c * 1.3;
+          const u = mod(f * speed + rnd(seed * 9 + i) * life, life) / life;
+          const bx = cx + c * 0.5;
+          const by = cy + c * 0.6 - u * life;
+          out.push(<ellipse key={"b" + gr + ":" + q} cx={bx} cy={by} rx={c * 0.08 * (1.1 - u * 0.4)} ry={c * 0.11 * (1.1 - u * 0.4)} fill={mixHex(C.whiteGold, fill0, u * 0.6)} opacity={0.85 - u * 0.5} />);
+        }
       }
-      // a rising white-gold blob in the column between cells (rises at `speed`, fades as it cools)
-      if (blobs && c % 2 === 0 && sprites < 120) {
-        sprites++;
-        const bx = cx + cell / 2;
-        const life = cell * 1.2;
-        const u = mod(f * speed + rnd(seed * 9 + i) * life, life) / life;
-        const by = cy + cell * 0.6 - u * life;
-        items.push(<ellipse key={"b" + i} cx={bx} cy={by} rx={cell * 0.09 * (1.1 - u * 0.4)} ry={cell * 0.12 * (1.1 - u * 0.4)} fill={mixHex(C.whiteGold, fill, u * 0.7)} opacity={1 - u * 0.6} />);
-      }
-    }
+  });
   return (
     <g opacity={opacity}>
       <defs>
         <clipPath id={id}>
           <rect x={x} y={y} width={w} height={h} />
         </clipPath>
+        <linearGradient id={id + "d"} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={deep} stopOpacity={0} />
+          <stop offset="1" stopColor={deep} stopOpacity={0.45} />
+        </linearGradient>
       </defs>
       <g clipPath={`url(#${id})`}>
-        <rect x={x} y={y} width={w} height={h} fill={mixHex(fills[0], fills[1], 0.5)} />
-        {bgs}
-        {items}
+        <rect x={x} y={y} width={w} height={h} fill={mixHex(fills[1], deep, 0.5)} />
+        {out}
+        <rect x={x} y={y} width={w} height={h} fill={`url(#${id}d)`} />
       </g>
     </g>
   );
@@ -368,3 +399,37 @@ export const Photon: React.FC<{ f: number; x0: number; y0: number; x1: number; y
 
 /** 0..1 clamp, exported for scene code. */
 export const clamp01 = cl01;
+
+// ---------------------------------------------------------------------------------------------------------------
+// ObservatoryShafts: the L16 studio's sky mover (drop-in for the kit's CycClouds: same props). Warm light shafts from
+// the off-frame Sun sliding at ≈ 1.8-2.6 px/f with defined edges, plus tinted star dust drifting. Art director
+// 2026-11-14: cream clouds on the teal cyc read as another video; the observatory carries the film's own palette.
+// ---------------------------------------------------------------------------------------------------------------
+export const ObservatoryShafts: React.FC<{ f: number; y?: number; n?: number; seed?: number; opacity?: number }> = ({ f, y = 150, n = 4, seed = 1, opacity = 1 }) => {
+  const H = 1100;
+  return (
+    <g opacity={opacity}>
+      {Array.from({ length: n }, (_, i) => {
+        const w = 160 + rnd(seed * 7 + i) * 200;
+        const v = 1.8 + rnd(seed * 3 + i) * 0.8;
+        const x = mod((i / n) * 2900 + rnd(seed + i) * 300 + f * v, 2900) - 700;
+        const lean = 260 + rnd(seed * 5 + i) * 120;
+        const col = i % 2 ? C.gold : C.amber;
+        return (
+          <g key={i}>
+            <path d={`M${x} ${y - 300} L${x + w} ${y - 300} L${x + w - lean} ${y - 300 + H} L${x - lean} ${y - 300 + H} Z`} fill={col} opacity={0.13} />
+            <path d={`M${x + w * 0.3} ${y - 300} L${x + w * 0.62} ${y - 300} L${x + w * 0.62 - lean} ${y - 300 + H} L${x + w * 0.3 - lean} ${y - 300 + H} Z`} fill={col} opacity={0.12} />
+          </g>
+        );
+      })}
+      {Array.from({ length: 46 }, (_, i) => {
+        const v = 0.6 + rnd(seed * 11 + i) * 1.2;
+        const x = mod(rnd(seed * 13 + i) * 2400 + f * v, 2400) - 240;
+        const yy = y - 120 + rnd(seed * 17 + i) * 760 + Math.sin(f / 40 + i) * 6;
+        const tw = 0.45 + 0.55 * Math.abs(Math.sin(f / (10 + (i % 6) * 3) + i));
+        const c = [C.gold, C.cyan, "#C9A8FF", "#FFE6A8"][i % 4];
+        return <circle key={"d" + i} cx={x} cy={yy} r={1.6 + rnd(seed * 19 + i) * 2.6} fill={c} opacity={tw} />;
+      })}
+    </g>
+  );
+};
