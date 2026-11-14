@@ -73,7 +73,7 @@ const Disc: React.FC<{ f: number; cx: number; cy: number; r: number; id: string;
 const ShotFloor: ShotFC<CL05> = ({ f, len, c }) => {
   const ph = c.land - c.floor;
   const g = f - ph;
-  const wash = Math.min(760, 24 * Math.max(0, f - 10));
+  const front = Math.min(700, -400 + 24 * Math.max(0, f - 8));
   const cx = 960;
   const cy = 2900;
   const R = 2200;
@@ -87,16 +87,17 @@ const ShotFloor: ShotFC<CL05> = ({ f, len, c }) => {
   return (
     <Pop f={f}>
       <Stage theme={GLOW.theme} cam={cam} vignette={0.18} grain={0.4}>
-        <Layer depth={0.4}>
-          <TallSky top={-500} bottom={1200} stops={["#12063A", "#2A0E5C", "#5B1E8F", "#8E2A7E", "#C2287E"]} />
+        <Layer depth={1}>
+          <TallSky top={-700} bottom={1200} stops={["#12063A", "#2A0E5C", "#5B1E8F", "#8E2A7E", "#C2287E"]} />
           <defs>
-            <linearGradient id="l05wash" x1={0} y1={0} x2={0} y2={1}>
-              <stop offset={0} stopColor={C.tangerine} stopOpacity={0.15} />
+            <linearGradient id="l05wash" x1={0} y1={-700} x2={0} y2={front} gradientUnits="userSpaceOnUse">
+              <stop offset={0} stopColor={C.magenta} stopOpacity={0} />
+              <stop offset={0.7} stopColor={C.tangerine} stopOpacity={0.35} />
               <stop offset={1} stopColor={C.shieldRim} stopOpacity={0.75} />
             </linearGradient>
           </defs>
-          <rect x={-400} y={-500} width={2720} height={wash + 200} fill="url(#l05wash)" />
-          <rect x={-400} y={-300 + wash - 6} width={2720} height={12} fill={C.gold} opacity={wash < 760 ? 0.8 : 0} />
+          <rect x={-400} y={-700} width={2720} height={front + 700} fill="url(#l05wash)" />
+          {front < 700 ? <rect x={-400} y={front - 5} width={2720} height={10} fill={C.gold} opacity={0.9} /> : null}
         </Layer>
         <Layer depth={1}>
           <SunLimb f={f} cx={cx} cy={cy} R={R} drift={7} />
@@ -214,9 +215,9 @@ const ShotPhoto: ShotFC<CL05> = ({ f, len }) => {
   const a = (-120 + f * 4) * (Math.PI / 180);
   const arc = (a0: number, a1: number, rr: number) => `M${cx + Math.cos(a0) * rr} ${cy + Math.sin(a0) * rr} A${rr} ${rr} 0 0 1 ${cx + Math.cos(a1) * rr} ${cy + Math.sin(a1) * rr}`;
   const sl = ez(f, 6, 26);
-  const x1 = lerp(cx + r + 20, 1700, sl);
+  const x1 = lerp(cx + r + 20, 1560, sl);
   const cam = cameraAt(f, [
-    { f: 0, x: 900, y: 540, zoom: 1.14 },
+    { f: 0, x: 860, y: 540, zoom: 1.12 },
     { f: len, x: 960, y: 540, zoom: 1.0 },
   ]);
   return (
@@ -231,10 +232,10 @@ const ShotPhoto: ShotFC<CL05> = ({ f, len }) => {
           <path d={arc(a, a + 1.2, r + 8)} fill="none" stroke={C.whiteGold} strokeWidth={22} strokeLinecap="round" />
           <Bloom x={cx + Math.cos(a + 0.6) * r} y={cy + Math.sin(a + 0.6) * r} r={160} color={C.whiteGold} strength={0.8} />
           <line x1={cx + r + 20} y1={cy} x2={x1} y2={cy} stroke={C.paper} strokeWidth={6} strokeDasharray="18 14" strokeDashoffset={-f * 3} />
-          {sl > 0.98 ? <path d={`M1700 ${cy} l-34 -20 l0 40 Z`} fill={C.paper} /> : null}
-          <Bloom x={1760} y={cy} r={110} color={C.cyan} strength={0.6} />
-          <Planet x={1760} y={cy} r={26} f={f} kind="earth" />
-          <text x={1760} y={cy + 72} textAnchor="middle" style={{ fontFamily: ANTON, fontSize: 26, letterSpacing: 3, fill: C.cyan }} opacity={ez(f, 20, 30)}>
+          {sl > 0.98 ? <path d={`M1560 ${cy} l-34 -20 l0 40 Z`} fill={C.paper} /> : null}
+          <Bloom x={1620} y={cy} r={110} color={C.cyan} strength={0.6} />
+          <Planet x={1620} y={cy} r={26} f={f} kind="earth" />
+          <text x={1620} y={cy + 72} textAnchor="middle" style={{ fontFamily: ANTON, fontSize: 26, letterSpacing: 3, fill: C.cyan }} opacity={ez(f, 20, 30)}>
             EARTH
           </text>
         </Layer>
@@ -381,7 +382,7 @@ const ShotSink: ShotFC<CL05> = ({ f, len, c }) => {
         <Layer depth={1}>
           <PlasmaFlow f={f} speed={13} n={34} />
           <g transform={`translate(0 ${-out * 900})`}>
-            <circle cx={960} cy={470} r={200} fill={alpha(C.indigo, 0.45)} />
+            <circle cx={960} cy={470} r={210} fill={alpha(C.violet, 0.8)} stroke={alpha(C.whiteGold, 0.6)} strokeWidth={4} />
             <Probe x={960} y={470 + Math.sin(f / 11) * 8} size={270} f={f} variant="ghost" tilt={90} />
           </g>
           {g >= 0 ? <Cube x={cubeX} y={340} size={420} f={f} n={60} speed={10} color={C.whiteGold} glass={C.indigo} /> : null}
@@ -475,7 +476,7 @@ const ShotChromo: ShotFC<CL05> = ({ f, len, c }) => {
         <Layer depth={0}>
           <Tag x={1810} y={130} text={READ.chromo.text} F={GLOW} dot={C.gold} size={34} align="end" opacity={ez(f, 20, 32)} />
           <Tag x={1810} y={210} text="NOT TO SCALE" F={GLOW} size={26} align="end" opacity={ez(f, 30, 42)} />
-          <L16DialsHUD f={f} family={GLOW} only={["heat"]} heat={{ value: lerp(0.34, 0.56, ez(f, 30, 120)) }} />
+          <L16DialsHUD f={f} family={GLOW} theme="dark" only={["heat"]} heat={{ value: lerp(0.34, 0.56, ez(f, 30, 120)) }} />
         </Layer>
       </Stage>
     </Pop>
@@ -594,8 +595,8 @@ const ShotAfar: ShotFC<CL05> = ({ f, len, c }) => {
           ))}
           <StateStamp x={stack.x + stack.w - 30} y={stack.y + 40} state="afar" age={f - sl} size={190} rotate={-10} />
           {/* the observer's ledge near Earth */}
-          <Bloom x={1820} y={880} r={150} color={C.cyan} strength={0.6} />
-          <Planet x={1820} y={880} r={40} f={f} kind="earth" />
+          <Bloom x={1780} y={860} r={150} color={C.cyan} strength={0.6} />
+          <Planet x={1780} y={860} r={40} f={f} kind="earth" />
           <rect x={1400} y={900} width={330} height={18} rx={7} fill={mixHex(C.saffronDeep, C.indigo, 0.35)} />
           <rect x={1400} y={900} width={330} height={6} rx={3} fill={C.saffron} />
           <g transform="translate(3020 0) scale(-1 1)">

@@ -164,7 +164,7 @@ const ShotMystery: ShotFC<CL04> = ({ f, len, c }) => {
             look={0.9}
             headTilt={f > s4 ? Math.sin(f / 5) * 8 : -8}
           />
-          <L16DialsHUD f={f} family={CORONA} only={["heat"]} heat={{ value: heat, pinned: f > s3 + 50, appear: ez(f, 0, 14) }} />
+          <L16DialsHUD f={f} family={CORONA} theme="dark" only={["heat"]} heat={{ value: heat, pinned: f > s3 + 50, appear: ez(f, 0, 14) }} />
         </Layer>
       </Stage>
     </Pop>
@@ -437,6 +437,9 @@ const Cards: React.FC<{ f: number; inA?: number; inB?: number }> = ({ f, inA = 1
         const byy = POT.y + 80 + ih - (((f * 12 + rnd(i * 3 + 7) * ih) % (ih - 20)) + 10);
         return <circle key={i} cx={bxx} cy={byy} r={14 + rnd(i) * 6} fill="none" stroke="#E8FBFF" strokeWidth={4} />;
       })}
+      {[ox + OVEN.w / 2, pxx + POT.w / 2].map((hx, i) => (
+        <circle key={i} cx={hx} cy={OVEN.y - 108} r={84} fill={C.paper} stroke={C.gold} strokeWidth={4} />
+      ))}
       <HandIcon x={ox + OVEN.w / 2} y={OVEN.y - 110} size={120} />
       <HandIcon x={pxx + POT.w / 2} y={POT.y - 110} size={120} flip />
     </g>

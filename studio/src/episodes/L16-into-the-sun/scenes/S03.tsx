@@ -128,13 +128,13 @@ const ShotRadii: ShotFC<CL03> = ({ f, len, c }) => {
             <WindStreaks f={f} cx={edge - R} cy={560} r0={R + 40} rMax={R + 2600} a0={-22} a1={22} speed={22} count={70} len={180} width={7} seed={2} />
             <SideSun f={f} edge={edge} y={560} R={R} />
             <RadiiRuler f={f} y={660} origin={edge} pxPerR={80} />
-            <Probe x={probeX} y={560 + Math.sin(f / 14) * 6} size={160} f={f} />
-            <Bloom x={probeX - 40} y={560} r={130} color={C.gold} strength={0.35} />
+            <Probe x={probeX} y={470 + Math.sin(f / 14) * 6} size={160} f={f} />
+            <Bloom x={probeX - 40} y={470} r={130} color={C.gold} strength={0.35} />
           </Layer>
           <Layer depth={0}>
             <Tag x={1000} y={150} text="ABOUT 9 RADII" F={CORONA} dot={C.saffron} size={34} opacity={ez(f, 24, 36)} />
             <Tag x={1000} y={232} text="ABOVE THE SURFACE" F={CORONA} size={30} opacity={ez(f, 34, 46)} />
-            <L16DialsHUD f={f} family={CORONA} only={["distance"]} distance={{ value: distanceValue(RADII.pass), readout: READ.about9short.text, appear: ez(f, 6, 22) }} />
+            <L16DialsHUD f={f} family={CORONA} theme="dark" only={["distance"]} distance={{ value: distanceValue(RADII.pass), readout: READ.about9short.text, appear: ez(f, 6, 22) }} />
           </Layer>
         </Stage>
       </Pop>
@@ -304,11 +304,11 @@ const ShotCrossing: ShotFC<CL03> = ({ f, len, c }) => {
   const crossAt = 44;
   const bDraw = lin(f, b1 + 42, b1 + 92);
   const headX = X(18.4) + (X(0) - X(18.4)) * (bDraw * bDraw * (3 - 2 * bDraw));
-  const trackY = f > b2 ? lerp(520, 170, ez(f, b2 + 4, len)) : 520;
-  const py = f > b2 ? trackY : 520 + Math.sin(f / 12) * 5;
+  const trackY = f > b2 ? lerp(470, 170, ez(f, b2 + 4, len)) : 470;
+  const py = f > b2 ? trackY : 470 + Math.sin(f / 12) * 5;
   const px = X(rProbe) - (f > b2 ? 30 : 0);
   const hours = (READ.belowHours.value as number) * ez(f, b2 + 10, b2 + 80); // #9: about five hours
-  const k13 = ez(f, b1 + 46, b1 + 96);
+  const k13 = ez(f, b1 + 46, b1 + 66);
   const tickX = f < b1 ? 560 : bDraw > 0 ? headX + 50 : lerp(560, X(18.4) - 70, ez(f, b1 + 10, b1 + 40));
   const walking = bDraw > 0 && bDraw < 1;
   const textB = ez(f, b1 + 46, b1 + 58) * (1 - ez(f, b2, b2 + 10));
@@ -326,8 +326,8 @@ const ShotCrossing: ShotFC<CL03> = ({ f, len, c }) => {
           <Bloom x={XB} y={520} r={260} color={C.gold} strength={0.18} />
           {f - crossAt >= 0 && f - crossAt < 30 ? (
             <g>
-              <Bloom x={XB} y={520} r={60 + (f - crossAt) * 9} color={C.whiteGold} strength={1 - (f - crossAt) / 30} />
-              <circle cx={XB} cy={520} r={20 + (f - crossAt) * 10} fill="none" stroke={C.whiteGold} strokeWidth={8 * (1 - (f - crossAt) / 30) + 1} opacity={1 - (f - crossAt) / 30} />
+              <Bloom x={XB} y={470} r={60 + (f - crossAt) * 9} color={C.whiteGold} strength={1 - (f - crossAt) / 30} />
+              <circle cx={XB} cy={470} r={20 + (f - crossAt) * 10} fill="none" stroke={C.whiteGold} strokeWidth={8 * (1 - (f - crossAt) / 30) + 1} opacity={1 - (f - crossAt) / 30} />
             </g>
           ) : null}
           <RadiiRuler f={f} y={660} origin={origin} pxPerR={P} brackets={bDraw > 0 ? [{ r0: 18.4, r1: 0, draw: bDraw }] : []} />
