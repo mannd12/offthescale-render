@@ -14,11 +14,11 @@ import { ThumbL03, ThumbL03B, ThumbL03C } from "./episodes/L03-speed-levels/Thum
 import { EpisodeL04, timeline as l04 } from "./episodes/L04-internet-levels/Episode";
 import { ThumbL04, ThumbL04B, ThumbL04C } from "./episodes/L04-internet-levels/Thumbs";
 import { EpisodeL05, timeline as l05 } from "./episodes/L05-sky-levels/Episode";
-import { ThumbL05 } from "./episodes/L05-sky-levels/Thumbs";
+import { ThumbL05, ThumbL05B } from "./episodes/L05-sky-levels/Thumbs";
 import { EpisodeL06, timeline as l06 } from "./episodes/L06-earthquake-levels/Episode";
 import { ThumbL06 } from "./episodes/L06-earthquake-levels/Thumbs";
 import { EpisodeL08, timeline as l08 } from "./episodes/L08-temperature-levels/Episode";
-import { ThumbL08 } from "./episodes/L08-temperature-levels/Thumbs";
+import { ThumbL08, ThumbL08B } from "./episodes/L08-temperature-levels/Thumbs";
 import { EpisodeL07, timeline as l07 } from "./episodes/L07-volcano-levels/Episode";
 import { ThumbL07 } from "./episodes/L07-volcano-levels/Thumbs";
 import { EpisodeL09, timeline as l09 } from "./episodes/L09-asteroid-levels/Episode";
@@ -250,6 +250,8 @@ export const Root: React.FC = () => (
     <Still id="l06-thumb" component={ThumbL06} width={1280} height={720} />
     <Still id="l08-thumb" component={ThumbL08} width={1280} height={720} />
     <Still id="l05-thumb" component={ThumbL05} width={1280} height={720} />
+    <Still id="l05-thumb-b" component={ThumbL05B} width={1280} height={720} />
+    <Still id="l08-thumb-b" component={ThumbL08B} width={1280} height={720} />
     <Still id="l01-thumb" component={ThumbL01} width={1280} height={720} />
     <Still id="l01-thumb-c" component={ThumbL01C} width={1280} height={720} />
     <Still id="l02-thumb" component={ThumbL02} width={1280} height={720} />
