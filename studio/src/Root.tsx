@@ -6,6 +6,7 @@ import { ThumbA, ThumbB } from "./episodes/01-how-i-write/Thumbs";
 import { BrandAvatar, BrandBanner } from "./brand/ChannelArt";
 import { BrandFrame, BrandFrameTease, BrandShort, BrandThumbA, BrandThumbB, BrandThumbHero } from "./brand/BrandStills";
 import { EpisodeL01, SampleL01, sampleTimeline, timeline as l01 } from "./episodes/L01-ocean-levels/Episode";
+import { ThumbL01D, ThumbL02D, ThumbL03D, ThumbL04D, ThumbL06D, ThumbL07D } from "./brand/ThumbsDrawn1114";
 import { ThumbL01, ThumbL01C } from "./episodes/L01-ocean-levels/Thumbs";
 import { EpisodeL03, timeline as l03 } from "./episodes/L03-speed-levels/Episode";
 import { EpisodeL02, timeline as l02 } from "./episodes/L02-deep-sea-types/Episode";
@@ -251,6 +252,12 @@ export const Root: React.FC = () => (
     <Still id="l08-thumb" component={ThumbL08} width={1280} height={720} />
     <Still id="l05-thumb" component={ThumbL05} width={1280} height={720} />
     <Still id="l05-thumb-b" component={ThumbL05B} width={1280} height={720} />
+    <Still id="l01-thumb-d" component={ThumbL01D} width={1280} height={720} />
+    <Still id="l02-thumb-d" component={ThumbL02D} width={1280} height={720} />
+    <Still id="l03-thumb-d" component={ThumbL03D} width={1280} height={720} />
+    <Still id="l04-thumb-d" component={ThumbL04D} width={1280} height={720} />
+    <Still id="l06-thumb-d" component={ThumbL06D} width={1280} height={720} />
+    <Still id="l07-thumb-d" component={ThumbL07D} width={1280} height={720} />
     <Still id="l08-thumb-b" component={ThumbL08B} width={1280} height={720} />
     <Still id="l01-thumb" component={ThumbL01} width={1280} height={720} />
     <Still id="l01-thumb-c" component={ThumbL01C} width={1280} height={720} />
