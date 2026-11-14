@@ -3,81 +3,72 @@
     "scene": "cold",
     "index": 0,
     "text": "In eighteen eighty-three, weather stations had recording barometers: pens on paper, running day and night.",
-    "file": "S54-barometer-laps/vo/cold-00.wav",
-    "seconds": 4.87,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-00-1fb93d7405.wav",
+    "seconds": 5.63,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "After one huge explosion in eighteen eighty-three, the pen at station after station jumps.",
-    "file": "S54-barometer-laps/vo/cold-01.wav",
-    "seconds": 4.38,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-01-62ae56d960.wav",
+    "seconds": 5.25,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "Then it jumps again, from the other direction, because the wave has wrapped around the planet and come back.",
-    "file": "S54-barometer-laps/vo/cold-02.wav",
-    "seconds": 5.94,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-02-85b3eb36b6.wav",
+    "seconds": 5.149958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "At many stations, the pen jumped not fewer than seven times.",
-    "file": "S54-barometer-laps/vo/cold-03.wav",
-    "seconds": 3.5,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-03-1179b5f570.wav",
+    "seconds": 3.41,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "Four passages going out. Three coming back from the opposite side of the world.",
-    "file": "S54-barometer-laps/vo/cold-04.wav",
-    "seconds": 4.46,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-04-c9bd40c2ec.wav",
+    "seconds": 3.86,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "One lap took about thirty-six hours.",
-    "file": "S54-barometer-laps/vo/cold-05.wav",
-    "seconds": 1.94,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-05-a0d83103fd.wav",
+    "seconds": 2,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "That's three and a half times round the Earth, in about five days.",
-    "file": "S54-barometer-laps/vo/cold-06.wav",
-    "seconds": 4.08,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-06-d3393cc7c9.wav",
+    "seconds": 3.4,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "It moved at six hundred and seventy to seven hundred and thirty miles an hour.",
-    "file": "S54-barometer-laps/vo/cold-07.wav",
-    "seconds": 4.57,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-07-03e077f0d9.wav",
+    "seconds": 3.46,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 8,
     "text": "In twenty twenty-two, the wave circled the planet with the very same count. What made it this time? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S54-barometer-laps/vo/cold-08.wav",
-    "seconds": 11.65,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S54-barometer-laps/vo/cold-08-d06b46ff91.wav",
+    "seconds": 9.87,
+    "pauseAfter": 0.55
   }
 ]

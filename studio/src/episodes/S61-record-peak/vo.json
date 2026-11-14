@@ -3,81 +3,72 @@
     "scene": "cold",
     "index": 0,
     "text": "In 2012, Felix Baumgartner stepped off a balloon almost thirty-nine kilometres up.",
-    "file": "S61-record-peak/vo/cold-00.wav",
-    "seconds": 3.34,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-00-6bb825a950.wav",
+    "seconds": 5.01,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Near forty kilometres, a cubic metre of air has a mass of under four grams. That's about three hundred times thinner than at sea level.",
-    "file": "S61-record-peak/vo/cold-01.wav",
-    "seconds": 6.84,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-01-ca5ecab4e2.wav",
+    "seconds": 6.98,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "So the fall kept speeding up, and thirty-four seconds in, he passed the speed of sound.",
-    "file": "S61-record-peak/vo/cold-02.wav",
-    "seconds": 4.47,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-02-e605003ccc.wav",
+    "seconds": 4.669958333333334,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Fifty seconds in came his top speed: one thousand, three hundred and fifty-seven point six kilometres an hour.",
-    "file": "S61-record-peak/vo/cold-03.wav",
-    "seconds": 4.98,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-03-e7234a3b7b.wav",
+    "seconds": 5.78,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "That's Mach one point two five, in a fall that lasted four minutes and twenty seconds in all.",
-    "file": "S61-record-peak/vo/cold-04.wav",
-    "seconds": 4.88,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-04-a138b5cca3.wav",
+    "seconds": 4.61,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Look at the gap. He passed the speed of sound at thirty-four seconds, and kept speeding up for sixteen seconds more.",
-    "file": "S61-record-peak/vo/cold-05.wav",
-    "seconds": 5.82,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-05-57e62e0e3a.wav",
+    "seconds": 5.41,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "Then, at fifty seconds, the speed stopped growing, with the ground still a long way below.",
-    "file": "S61-record-peak/vo/cold-06.wav",
-    "seconds": 4.57,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-06-e26a260587.wav",
+    "seconds": 4.560041666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "It wasn't the sound barrier. He had passed that sixteen seconds earlier. Something else was pushing back.",
-    "file": "S61-record-peak/vo/cold-07.wav",
-    "seconds": 4.88,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-07-8d758d823c.wav",
+    "seconds": 5.2400416666666665,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 8,
     "text": "So what pushed back? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S61-record-peak/vo/cold-08.wav",
-    "seconds": 6.41,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S61-record-peak/vo/cold-08-35f313d071.wav",
+    "seconds": 5.74,
+    "pauseAfter": 0.55
   }
 ]

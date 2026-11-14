@@ -3,90 +3,80 @@
     "scene": "cold",
     "index": 0,
     "text": "Draw a line across the sky where space begins, and you get three different answers.",
-    "file": "S62-edge-lines/vo/cold-00.wav",
-    "seconds": 4.11,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-00-d2636bce1b.wav",
+    "seconds": 4.359958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "The group that keeps aviation records, the FAI, draws it at one hundred kilometres.",
-    "file": "S62-edge-lines/vo/cold-01.wav",
-    "seconds": 3.95,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-01-d6485206a6.wav",
+    "seconds": 4.6,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "The US Air Force gave astronaut wings to anyone who flew higher than fifty miles. That's about eighty kilometres.",
-    "file": "S62-edge-lines/vo/cold-02.wav",
-    "seconds": 5.21,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-02-05b7b3b5e5.wav",
+    "seconds": 5.59,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "And in 2018, the astronomer Jonathan McDowell argued for eighty kilometres as well.",
-    "file": "S62-edge-lines/vo/cold-03.wav",
-    "seconds": 3.6,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-03-272eba6f8b.wav",
+    "seconds": 4.54,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "Now measure the famous record jumps against those lines. Felix Baumgartner, in 2012, began at almost thirty-nine kilometres.",
-    "file": "S62-edge-lines/vo/cold-04.wav",
-    "seconds": 5.16,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-04-5903dad1fe.wav",
+    "seconds": 7.1,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Alan Eustace, in 2014, began at forty-one point four.",
-    "file": "S62-edge-lines/vo/cold-05.wav",
-    "seconds": 2.68,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-05-4f4e4c4654.wav",
+    "seconds": 3.51,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "That is less than half of the hundred-kilometre line, and only about half of the eighty.",
-    "file": "S62-edge-lines/vo/cold-06.wav",
-    "seconds": 4.37,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-06-97c2794e82.wav",
+    "seconds": 4.440041666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "So the jumps from the so-called edge of space started in the stratosphere, which ends at about fifty kilometres.",
-    "file": "S62-edge-lines/vo/cold-07.wav",
-    "seconds": 5.13,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-07-0954965019.wav",
+    "seconds": 5.800041666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 8,
     "text": "They never reached any of the three lines.",
-    "file": "S62-edge-lines/vo/cold-08.wav",
-    "seconds": 2.22,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-08-a575a4ee2a.wav",
+    "seconds": 1.91,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 9,
     "text": "So what is the edge, if no jump ever reached it? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S62-edge-lines/vo/cold-09.wav",
-    "seconds": 8.3,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S62-edge-lines/vo/cold-09-8b2bb8d908.wav",
+    "seconds": 7.75,
+    "pauseAfter": 0.55
   }
 ]
