@@ -282,13 +282,13 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
   const UNIT = 54; // MARS bar height; SUN = 55 × UNIT (#3)
   const hSun = Math.min(55 * UNIT, Math.max(0, g - 12) * 40);
   const top = BASE - hSun;
-  const camY = g < 0 ? 540 : 540 - Math.min(380, Math.max(0, 260 - top) * 0.4); // a gentle tilt: the base stays in frame
+  const tk = ez(g, 20, 100); // tilt up + pull back: the base stays in frame while the tower runs off the top
   const ratio = ez(g, 14, 14 + 74);
   const shown = Math.max(1, Math.round(lerp(1, 55, ratio)));
   if (ratio >= 1) assertValue(READ.energyRatio.value!, "C-07 counter");
   return (
     <AbsoluteFill>
-      <Stage theme={SPACE.theme} cam={{ x: 960, y: Math.max(-900, camY), zoom: 1 }} vignette={0.3} grain={0.5}>
+      <Stage theme={SPACE.theme} cam={{ x: lerp(960, 1100, tk), y: lerp(540, 300, tk), zoom: lerp(1, 0.62, tk) }} vignette={0.3} grain={0.5}>
         <Layer depth={0.3}>
           <SpaceField f={f} seed={6} n={90} />
         </Layer>
@@ -308,7 +308,7 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
               <rect x={1250} y={top} width={170} height={hSun} rx={10} fill={C.gold} stroke={C.whiteGold} strokeWidth={4} />
               <rect x={1250} y={top} width={60} height={hSun} rx={10} fill={C.whiteGold} opacity={0.45} />
               <Label x={1335} y={BASE + 60} text="sun" size={34} align="middle" />
-              <Label x={1450} y={Math.max(top + 40, -480)} text="sun" size={34} color={C.gold} />
+              
               <Tick
                 x={1560}
                 y={BASE}

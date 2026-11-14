@@ -92,8 +92,8 @@ const ShotFloor: ShotFC<CL05> = ({ f, len, c }) => {
           <defs>
             <linearGradient id="l05wash" x1={0} y1={-700} x2={0} y2={front} gradientUnits="userSpaceOnUse">
               <stop offset={0} stopColor={C.magenta} stopOpacity={0} />
-              <stop offset={0.7} stopColor={C.tangerine} stopOpacity={0.35} />
-              <stop offset={1} stopColor={C.shieldRim} stopOpacity={0.75} />
+              <stop offset={0.6} stopColor={C.magenta} stopOpacity={0.6} />
+              <stop offset={1} stopColor={C.amber} stopOpacity={0.9} />
             </linearGradient>
           </defs>
           <rect x={-400} y={-700} width={2720} height={front + 700} fill="url(#l05wash)" />

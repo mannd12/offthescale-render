@@ -309,7 +309,7 @@ const ShotCrossing: ShotFC<CL03> = ({ f, len, c }) => {
   const px = X(rProbe) - (f > b2 ? 30 : 0);
   const hours = (READ.belowHours.value as number) * ez(f, b2 + 10, b2 + 80); // #9: about five hours
   const k13 = ez(f, b1 + 46, b1 + 66);
-  const tickX = f < b1 ? 560 : bDraw > 0 ? headX + 50 : lerp(560, X(18.4) - 70, ez(f, b1 + 10, b1 + 40));
+  const tickX = f < b1 ? 560 : bDraw > 0 ? headX + 50 + 100 * bDraw : lerp(560, X(18.4) - 70, ez(f, b1 + 10, b1 + 40));
   const walking = bDraw > 0 && bDraw < 1;
   const textB = ez(f, b1 + 46, b1 + 58) * (1 - ez(f, b2, b2 + 10));
   const textC = ez(f, b2 + 8, b2 + 20);

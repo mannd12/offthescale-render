@@ -257,7 +257,7 @@ const FusionSite: React.FC<{ x: number; y: number; f: number; period?: number; o
   const u = mod(f + off, period);
   const a0 = rnd(seed * 7 + Math.floor((f + off) / period)) * 90;
   const H = (k: number): Pt => {
-    const d = Math.max(0, 360 * (1 - u / 20));
+    const d = Math.max(0, 420 * (1 - u / 20));
     const a = (a0 + k * 90) * D2R;
     return [x + Math.cos(a) * d * (1 + k * 0.1), y + Math.sin(a) * d * (1 + k * 0.1)];
   };
@@ -267,7 +267,7 @@ const FusionSite: React.FC<{ x: number; y: number; f: number; period?: number; o
       {u < 20
         ? [0, 1, 2, 3].map((k) => {
             const [hx, hy] = H(k);
-            return <circle key={k} cx={hx} cy={hy} r={22} fill={C.whiteGold} stroke={C.tangerine} strokeWidth={5} />;
+            return <circle key={k} cx={hx} cy={hy} r={32} fill={C.whiteGold} stroke={C.tangerine} strokeWidth={6} />;
           })
         : null}
       {age >= 0 ? (
@@ -290,7 +290,7 @@ const FusionSite: React.FC<{ x: number; y: number; f: number; period?: number; o
                 [14, 14, C.gold],
               ] as [number, number, string][]
             ).map(([dx, dy, col], i) => (
-              <circle key={i} cx={dx} cy={dy} r={19} fill={col} stroke={C.whiteGold} strokeWidth={4} />
+              <circle key={i} cx={dx * 1.5} cy={dy * 1.5} r={28} fill={col} stroke={C.whiteGold} strokeWidth={5} />
             ))}
           </g>
         </g>
@@ -308,9 +308,11 @@ const ShotFusion: ShotFC<C07> = ({ f }) => {
           <RadialField id="l07fus" cx={960} cy={540} r={1300} stops={[[0, C.amber], [0.3, C.magenta], [0.7, "#3A1470"], [1, "#1C0F52"]]} />
         </Layer>
         <Layer depth={1}>
-          <FusionSite x={640} y={470} f={f} off={0} seed={1} />
-          <FusionSite x={1200} y={680} f={f} off={18} seed={2} />
-          <FusionSite x={1500} y={330} f={f} off={36} seed={3} />
+          <FusionSite x={560} y={420} f={f} off={0} seed={1} period={44} />
+          <FusionSite x={1180} y={700} f={f} off={11} seed={2} period={44} />
+          <FusionSite x={1480} y={300} f={f} off={22} seed={3} period={44} />
+          <FusionSite x={860} y={860} f={f} off={33} seed={4} period={44} />
+          <FusionSite x={1000} y={260} f={f} off={6} seed={5} period={44} />
           <Motes frame={f} n={24} x={0} y={0} w={1920} h={1080} color={alpha(C.whiteGold, 0.8)} seed={5} size={4} drift={40} />
         </Layer>
         <Layer depth={0}>

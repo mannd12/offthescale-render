@@ -392,8 +392,8 @@ const ShotWaves: ShotFC<C06> = ({ f, len, c }) => {
 const ShotModel: ShotFC<C06> = ({ f, len, c }) => {
   const w1 = c.within - c.model;
   const X0 = 680;
-  const X1 = 1720;
-  const yOf = (u: number) => 300 + 400 * Math.pow(u, 1.5) - 40 * Math.sin(u * 5);
+  const X1 = 1630;
+  const yOf = (u: number) => 290 + 380 * Math.pow(u, 1.5) - 40 * Math.sin(u * 5);
   const gap = 70 - 64 * ez(f, 46, Math.max(80, w1 + 10));
   const N = 40;
   const data: Pt[] = Array.from({ length: N + 1 }, (_, i) => [X0 + ((X1 - X0) * i) / N, yOf(i / N)]);
@@ -679,7 +679,7 @@ const X0 = 470;
 const XS = 1360;
 const XE = 1760;
 const YB = 800;
-const yT = (lg: number) => 790 - ((lg - 3.74) / (7.18 - 3.74)) * 560;
+const yT = (lg: number) => 785 - ((lg - 3.74) / (7.18 - 3.74)) * 450;
 const INNER: [number, number][] = [
   [0, 7.18],
   [0.1, 7.12],
