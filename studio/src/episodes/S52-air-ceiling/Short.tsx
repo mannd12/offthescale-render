@@ -226,7 +226,7 @@ const d4: Shot = ({ f, n }) => (
     <Stage stops={["#06222B", "#4B2A8C", "#E4572E"]} />
     <Chips f={f} n={12} y0={100} y1={1100} color={C.gold} speed={10} opacity={0.35} seed={9} />
     <rect x={90} y={250} width={900} height={600} rx={80} fill={C.ink} opacity={0.94} />
-    <Counter x={430} y={620} value={5 * ez(f, 0, n - 6)} max={5} size={300} color={C.amber} align="middle" digits={1} />
+    <Counter x={430} y={620} value={5 * ez(f, 0, Math.round(n * 0.4))} max={5} size={300} color={C.amber} align="middle" digits={1} />
     <T x={750} y={600} text="BILLION" size={90} color={C.cream} />
     <T x={540} y={780} text="TIMES BIGGER" size={96} color={C.cream} />
     <Tick x={900} y={1290} pxPerM={230} frame={f} pose="shrug" expression="surprised" facing={1} />

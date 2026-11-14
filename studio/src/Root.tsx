@@ -40,6 +40,7 @@ import { L14KitDemo, L14_KIT_DEMO_FRAMES } from "./episodes/L14-earth-tunnel/Kit
 import { FullL15SPACEJUMP, L15SpaceJumpFrames } from "./episodes/L15-space-jump/Full";
 import { L15KitDemo, L15_KIT_DEMO_FRAMES } from "./episodes/L15-space-jump/KitDemo";
 import { FullL16INTOTHESUN, L16IntoTheSunFrames } from "./episodes/L16-into-the-sun/Full";
+import { L16KitDemo, L16_KIT_DEMO_FRAMES } from "./episodes/L16-into-the-sun/KitDemo";
 import { FullL13, KeyArt1 as KeyArtL13a, KeyArt2 as KeyArtL13b, KeyArt3 as KeyArtL13c, l13Frames } from "./episodes/L13-loudest-sound/Full";
 import { L13KitDemo, L13_KIT_DEMO_FRAMES } from "./episodes/L13-loudest-sound/KitDemo";
 import { DuskScene } from "./style-v2/Dusk";
@@ -164,6 +165,7 @@ export const Root: React.FC = () => (
     <Composition id="L15SpaceJump" component={FullL15SPACEJUMP} durationInFrames={L15SpaceJumpFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="L15KitDemo" component={L15KitDemo} durationInFrames={L15_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="L16IntoTheSun" component={FullL16INTOTHESUN} durationInFrames={L16IntoTheSunFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="L16KitDemo" component={L16KitDemo} durationInFrames={L16_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="l13" component={FullL13} durationInFrames={l13Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-1" component={KeyArtL13a} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-2" component={KeyArtL13b} width={WIDTH} height={HEIGHT} />
