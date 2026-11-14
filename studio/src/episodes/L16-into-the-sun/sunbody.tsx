@@ -342,15 +342,19 @@ export const SunCutaway: React.FC<{
       {labels
         ? (
             [
-              ["core", 0, rc * 0.2],
-              ["radiative zone", (rc + rr) / 2, 0],
-              ["convection zone", (rr + r) / 2, 0],
-            ] as [string, number, number][]
-          ).map(([t, at, dy], i) => (
-            <text key={t} x={cx - at} y={cy + dy + 8 + (i === 0 ? rc * 0.05 : 0)} textAnchor="middle" style={{ fontFamily: "'Anton', sans-serif", fontSize: Math.max(14, r * 0.055), letterSpacing: 2, fill: i === 1 ? "#3A1060" : labelColor }}>
-              {t.toUpperCase()}
-            </text>
-          ))
+              ["core", 0],
+              ["radiative zone", (rc + rr) / 2],
+              ["convection zone", (rr + r) / 2],
+            ] as [string, number][]
+          ).map(([t, at], i) => {
+            // stacked ABOVE the centre, each in its own band (kit-demo review: side-by-side labels collided)
+            const fs = Math.max(13, r * (i === 0 ? 0.06 : 0.07));
+            return (
+              <text key={t} x={cx} y={cy - at + fs * 0.36} textAnchor="middle" style={{ fontFamily: "'Anton', sans-serif", fontSize: fs, letterSpacing: 1.5, fill: i === 1 ? "#3A1060" : i === 0 ? "#6A2BB0" : labelColor }}>
+                {t.toUpperCase()}
+              </text>
+            );
+          })
         : null}
     </g>
   );

@@ -186,6 +186,7 @@ export const ConvCells: React.FC<{
   const sh = mod(f * scroll, cell * 2);
   const R = cell * 0.36;
   const om = speed / R; // rad/f along the loop
+  const bgs: React.ReactNode[] = [];
   const items: React.ReactNode[] = [];
   let sprites = 0;
   for (let r = 0; r < rows; r++)
@@ -196,10 +197,11 @@ export const ConvCells: React.FC<{
       if (cy < y - cell || cy > y + h + cell) continue;
       const dir = (c + r) % 2 ? 1 : -1; // neighbours counter-rotate (rising columns shared)
       const fill = fills[(c + r) % 2];
-      items.push(
+      bgs.push(
         <g key={"c" + i}>
-          <rect x={cx - cell / 2} y={cy - cell / 2} width={cell} height={cell} fill={fill} />
-          <circle cx={cx} cy={cy} r={cell * 0.46} fill={mixHex(fill, C.whiteGold, 0.18)} />
+          {/* round, overlapping cells on one base (kit-demo review: square tiles read as a checkerboard) */}
+          <ellipse cx={cx + (rnd(seed * 3 + i) - 0.5) * cell * 0.12} cy={cy} rx={cell * 0.6} ry={cell * 0.56} fill={fill} />
+          <circle cx={cx} cy={cy} r={cell * 0.44} fill={mixHex(fill, C.whiteGold, 0.16)} />
           <circle cx={cx} cy={cy} r={cell * 0.2} fill={mixHex(fill, "#3A0F58", 0.25)} />
         </g>,
       );
@@ -238,7 +240,11 @@ export const ConvCells: React.FC<{
           <rect x={x} y={y} width={w} height={h} />
         </clipPath>
       </defs>
-      <g clipPath={`url(#${id})`}>{items}</g>
+      <g clipPath={`url(#${id})`}>
+        <rect x={x} y={y} width={w} height={h} fill={mixHex(fills[0], fills[1], 0.5)} />
+        {bgs}
+        {items}
+      </g>
     </g>
   );
 };

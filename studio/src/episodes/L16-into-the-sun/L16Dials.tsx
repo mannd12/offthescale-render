@@ -74,8 +74,8 @@ const H = 300;
 // ---------------------------------------------------------------------------------------------------------------
 const DistanceInner: React.FC<InnerP> = ({ s, f, ink }) => {
   const cx = W / 2;
-  const cy = 160;
-  const r = 86;
+  const cy = 175;
+  const r = 80;
   const sweep = 200;
   const a0 = 90 + (360 - sweep) / 2; // 170° (left) … 370° (right)
   const ang = (v: number) => a0 + cl(v) * sweep;
@@ -88,8 +88,8 @@ const DistanceInner: React.FC<InnerP> = ({ s, f, ink }) => {
   const tip = ang(val) * D2R;
   return (
     <g>
-      <Title x={cx} y={36} text="distance" ink={ink} />
-      <text x={cx} y={56} textAnchor="middle" style={{ fontFamily: IF2.label, fontSize: 11, letterSpacing: 2, fill: ink.dim }}>
+      <Title x={cx} y={32} text="distance" ink={ink} />
+      <text x={cx} y={50} textAnchor="middle" style={{ fontFamily: IF2.label, fontSize: 11, letterSpacing: 2, fill: ink.dim }}>
         {labelCase("sun-radii above the surface")}
       </text>
       <Dial x={cx} y={cy} r={r} value={val} min={0} max={1} sweep={sweep} family={ink.face} ticks={1} format={() => ""} frame={f} />
@@ -100,12 +100,15 @@ const DistanceInner: React.FC<InnerP> = ({ s, f, ink }) => {
       {marks.map(([v, label], i) => {
         const a = ang(v) * D2R;
         assertAllowed(label, "DISTANCE tick");
-        const lx = cx + Math.cos(a) * (r - 30);
-        const ly = cy + Math.sin(a) * (r - 30);
+        // labels OUTSIDE the arc, diverging: ALFVÉN to the left of its tick, ABOUT 9 to the right (kit-demo review: inside
+        // the arc the two collided, the log scale puts them 26° apart); SURFACE inside, below its tick
+        const ro = i === 2 ? r - 26 : r + 20;
+        const lx = cx + Math.cos(a) * ro + (i === 0 ? -6 : i === 1 ? 6 : 0);
+        const ly = cy + Math.sin(a) * ro;
         return (
           <g key={label}>
-            <line x1={cx + Math.cos(a) * (r - 14)} y1={cy + Math.sin(a) * (r - 14)} x2={cx + Math.cos(a) * (r + 6)} y2={cy + Math.sin(a) * (r + 6)} stroke={i === 2 ? C.gold : C.saffron} strokeWidth={5} strokeLinecap="round" />
-            <text x={lx} y={ly + 5 + (i === 2 ? 14 : 0)} textAnchor={i === 2 ? "end" : "middle"} style={{ fontFamily: IF2.label, fontSize: 12, letterSpacing: 1.2, fill: i === 2 ? C.gold : ink.ink }}>
+            <line x1={cx + Math.cos(a) * (r - 14)} y1={cy + Math.sin(a) * (r - 14)} x2={cx + Math.cos(a) * (r + 8)} y2={cy + Math.sin(a) * (r + 8)} stroke={i === 2 ? C.gold : C.saffron} strokeWidth={5} strokeLinecap="round" />
+            <text x={lx} y={ly + 4 + (i === 2 ? 16 : 0)} textAnchor={i === 0 ? "end" : i === 1 ? "start" : "end"} style={{ fontFamily: IF2.label, fontSize: 12, letterSpacing: 1.2, fill: i === 2 ? C.gold : ink.ink }}>
               {label}
             </text>
           </g>

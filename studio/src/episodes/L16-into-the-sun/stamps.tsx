@@ -207,7 +207,11 @@ export const Sheet: React.FC<{
         </g>
       ))}
       <g transform="translate(0 70)">{children}</g>
-      {stamp ? <StateStamp x={w - 100} y={h - 100} state={stamp.state} age={stamp.age} flip={stamp.flip} ghost={stamp.ghost} f={f} size={150} /> : null}
+      {/* stamp sized to the sheet so it never covers the title band (kit-demo review) */}
+      {stamp ? (() => {
+        const ss = Math.min(150, w * 0.42, (h - 80) * 0.75);
+        return <StateStamp x={w - ss * 0.62} y={h - ss * 0.62} state={stamp.state} age={stamp.age} flip={stamp.flip} ghost={stamp.ghost} f={f} size={ss} />;
+      })() : null}
     </g>
   );
 };

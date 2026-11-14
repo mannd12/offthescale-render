@@ -420,12 +420,13 @@ export const Calendar: React.FC<{ x: number; y: number; w: number; f: number; fl
         <rect key={k} x={w * k - 5} y={-h * 0.26} width={10} height={h * 0.16} rx={5} fill={C.ink} />
       ))}
       {page(0, h, 0)}
+      {flipping > 0 ? page(0, flipH, 1, 0.95) : null}
+      {/* the text rides on top of every page (kit-demo review: under the flipping page it vanished) */}
       {text ? (
         <text x={w / 2} y={h * 0.2} textAnchor="middle" style={{ fontFamily: IF2.label, fontSize: w * 0.12, letterSpacing: 2, fill: C.ink }}>
           {text}
         </text>
       ) : null}
-      {flipping > 0 ? page(0, flipH, 1, 0.95) : null}
     </g>
   );
 };
