@@ -73,11 +73,13 @@ export const ThumbL03D: React.FC = () => (
       ].map(([x, y, w], i) => (
         <rect key={i} x={x} y={y} width={w} height={i % 2 ? 10 : 18} rx={9} fill="#FFFFFF" opacity={0.28 + i * 0.1} />
       ))}
-      <g transform="translate(1040 560) rotate(-8)">
-        <path d="M-150 -46 L 60 -46 L 130 0 L 60 46 L -150 46 Z" fill="#F2F5FF" />
-        <rect x={110} y={-70} width={26} height={140} rx={8} fill="#FFC83D" />
-        <rect x={-110} y={-110} width={90} height={64} fill="#19C3E6" stroke="#FFFFFF" strokeWidth={6} />
-        <circle cx={-40} cy={0} r={18} fill="#12062E" />
+      <g transform="translate(1030 560) rotate(-8)">
+        <rect x={-70} y={-150} width={44} height={300} rx={6} fill="#19C3E6" stroke="#FFFFFF" strokeWidth={6} />
+        <line x1={-70} y1={-75} x2={-26} y2={-75} stroke="#FFFFFF" strokeWidth={5} />
+        <line x1={-70} y1={75} x2={-26} y2={75} stroke="#FFFFFF" strokeWidth={5} />
+        <path d="M-150 -40 L 40 -40 L 100 -22 L 100 22 L 40 40 L -150 40 Z" fill="#F2F5FF" />
+        <path d="M100 -22 L 150 -96 L 176 -96 L 176 96 L 150 96 L 100 22 Z" fill="#FFC83D" />
+        <path d="M-150 -14 L -196 -30 M -150 14 L -196 30" stroke="#F2F5FF" strokeWidth={8} strokeLinecap="round" />
       </g>
     </svg>
     <div style={{ ...H, left: 44, top: 26, fontSize: 236, color: "#FFE9A8", textShadow: "0 8px 0 rgba(18,6,46,0.55)" }}>700,000</div>
