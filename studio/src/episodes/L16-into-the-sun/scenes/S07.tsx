@@ -433,8 +433,8 @@ const trappedPts = (cx: number, cy: number, r0: number, r1: number, seed: number
   let a = -45;
   for (let i = 0; i < 70; i++) {
     out.push([cx + Math.cos(a * D2R) * r, cy + Math.sin(a * D2R) * r]);
-    r += (rnd(seed * 11 + i) - 0.5) * 150;
-    a += (rnd(seed * 13 + i) - 0.5) * 22;
+    r += (rnd(seed * 11 + i) - 0.5) * 300;
+    a += (rnd(seed * 13 + i) - 0.5) * 44;
     if (r < r0) r = 2 * r0 - r;
     if (r > r1) r = 2 * r1 - r;
     if (a < -82) a = -164 - a;
@@ -451,7 +451,7 @@ const ShotTrapped: ShotFC<C07> = ({ f }) => {
   const tot = photonHead(pts, 1e9).total;
   const d = mod(f * 25, tot);
   const { head, drawn } = photonHead(pts, d);
-  const trail = drawn.slice(Math.max(0, drawn.length - 12));
+  const trail = drawn.slice(Math.max(0, drawn.length - 22));
   const pa = { x: cx + Math.cos(-45 * D2R) * (r + 70), y: cy + Math.sin(-45 * D2R) * (r + 70) };
   const x1 = ez(f, 14, 20);
   const x2 = ez(f, 22, 28);
@@ -470,7 +470,7 @@ const ShotTrapped: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={1}>
           <SunCutaway f={f} cx={cx} cy={cy} r={r} variant="quarter" wedge={-90} highlight="radiative" rotate={2.5} />
-          {trail.length > 1 ? <path d={"M" + trail.map((p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" L")} fill="none" stroke="#FFFFFF" strokeWidth={9} strokeLinejoin="round" strokeLinecap="round" /> : null}
+          {trail.length > 1 ? <path d={"M" + trail.map((p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" L")} fill="none" stroke="#FFFFFF" strokeWidth={11} strokeLinejoin="round" strokeLinecap="round" /> : null}
           {pts.slice(1).map((p, i) => {
             const at = photonHead(pts.slice(0, i + 2), 1e9).total;
             const age = (d - at) / 25;
@@ -479,6 +479,8 @@ const ShotTrapped: ShotFC<C07> = ({ f }) => {
           })}
           <Bloom x={head[0]} y={head[1]} r={60} color="#FFFFFF" strength={0.95} />
           <circle cx={head[0]} cy={head[1]} r={12} fill="#FFFFFF" stroke={C.gold} strokeWidth={3} />
+          {/* a dark disc behind the dashed ghost so it reads on the bright cutaway */}
+          <circle cx={pa.x} cy={pa.y} r={150} fill="#2A0E4A" opacity={0.78} />
           <Probe x={pa.x} y={pa.y} size={210} f={f} variant="ghost" tilt={-45} />
           {stroke(pa.x - 130, pa.y - 130, pa.x + 130, pa.y + 130, x1)}
           {stroke(pa.x + 130, pa.y - 130, pa.x - 130, pa.y + 130, x2)}

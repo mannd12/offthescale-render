@@ -270,7 +270,7 @@ const ShotHonest: ShotFC<C08> = ({ f, len, c }) => {
       </Layer>
       <Layer depth={0}>
         <g opacity={1 - ez(f, p2, p2 + 12)}>
-          <Kicker x={170} y={74} text="where the data ends" color={INK} size={30} />
+          <Kicker x={620} y={1040} text="where the data ends" color={INK} size={34} />
         </g>
         {f >= p2 ? (
           <g opacity={ez(f, p2 + 16, p2 + 26)}>
@@ -570,7 +570,7 @@ const ShotPages: ShotFC<C08> = ({ f, len, c }) => {
           ua={ez(f, c.say692 - c.pages, c.say692 - c.pages + 14)}
           ub={ez(f, c.say687 - c.pages, c.say687 - c.pages + 14)}
         />
-        {f >= p2 ? <ChalkLoop cx={TX + 1060} cy={R1 - 20} rx={270} ry={90} draw={ez(f, p2 + 2, p2 + 38)} f={f} /> : null}
+        {f >= p2 ? <ChalkLoop cx={TX + 1060} cy={R1 - 30} rx={280} ry={60} draw={ez(f, p2 + 2, p2 + 38)} f={f} /> : null}
         <Tick x={1790} y={962} pxPerM={90} frame={f} facing={-1} pose="point" expression="worried" expressionTo="thinking" expressionT={ez(f, p2, p2 + 20)} look={0.3} />
       </TableSet>
     </Stage>
@@ -598,7 +598,7 @@ const ShotShield: ShotFC<C08> = ({ f, len, c }) => {
       <Stage theme={STUDIO.theme} cam={cam} vignette={0.2} grain={0.5}>
         <TableSet f={f}>
           <TableRow f={f} y={R1} k={1} roll={1} dimA={0.6} ua={1} ub={1} a={{ v: READ.speedTen.value!, unit: "km/h", who: "8-16 speed 692" }} b={{ v: READ.speedSep.value!, unit: "km/h", who: "8-16 speed 687" }} chipA={SOURCE_CHIPS.tenThings} chipB={SOURCE_CHIPS.sep2025} />
-          <ChalkLoop cx={TX + 1060} cy={R1 - 20} rx={270} ry={90} draw={1} f={f} />
+          <ChalkLoop cx={TX + 1060} cy={R1 - 30} rx={280} ry={60} draw={1} f={f} />
           <TableRow
             f={f}
             y={R2}
@@ -613,8 +613,8 @@ const ShotShield: ShotFC<C08> = ({ f, len, c }) => {
           />
           {rangeBar(R1 + 82)}
           {rangeBar(R2 + 82)}
-          <Slam age={g} x={TX + TW / 2 - 30} y={(R1 + R2) / 2 - 10} color={C.teal} ringR={110}>
-            <AboutPill x={TX + TW / 2 - 30} y={(R1 + R2) / 2 - 10} size={44} align="middle" />
+          <Slam age={g} x={TX + TW - 170} y={TY + 40} color={C.teal} ringR={110}>
+            <AboutPill x={TX + TW - 170} y={TY + 40} size={40} align="middle" />
           </Slam>
           <Tick x={1790} y={962} pxPerM={90} frame={f} facing={-1} pose="point" expression="thinking" expressionTo="happy" expressionT={ez(f, p2, p2 + 20)} look={0.5} />
         </TableSet>
