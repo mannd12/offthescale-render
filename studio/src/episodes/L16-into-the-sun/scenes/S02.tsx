@@ -125,7 +125,7 @@ const dense = (ctrl: Pt[], n = 120): Pt[] => {
 // MOVER: the rocket rising 10 px/f + the energy bar filling + its stripes 18 px/f + clouds.
 // ================================================================================================================
 const ShotCard: ShotFC<CL02> = ({ f, len }) => {
-  const lift = Math.max(0, f - 16) * 10;
+  const lift = Math.max(0, f - 24) * 3.5; // the drawing lifts slowly off the card (stays readable)
   const fill = lin(f, 10, 40);
   return (
     <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 10, x: 1000, y: 500, zoom: 1.08 }])} vignette={0.12} grain={0.5}>
@@ -250,7 +250,7 @@ const ShotVenus: ShotFC<CL02> = ({ f, len, c }) => {
                     return <line key={i} x1={gp.p[0] - cs * off + sn * (i - 2) * 16} y1={gp.p[1] - sn * off - cs * (i - 2) * 16} x2={gp.p[0] - cs * (off + 140) + sn * (i - 2) * 16} y2={gp.p[1] - sn * (off + 140) - cs * (i - 2) * 16} stroke={C.cyan} strokeWidth={5} strokeLinecap="round" opacity={0.7} />;
                   })
                 : null}
-              <Label x={420} y={150} text="a normal assist" size={28} color={C.cyan} opacity={ez(g, 10, 24)} />
+              <Label x={640} y={330} text="a normal assist" size={28} color={C.cyan} opacity={ez(f, tTurn, tTurn + 14)} />
             </g>
           ) : null}
           <Arrow x1={p[0] + Math.cos(ang * D2R) * 70} y1={p[1] + Math.sin(ang * D2R) * 70} x2={p[0] + Math.cos(ang * D2R) * (70 + arrowL)} y2={p[1] + Math.sin(ang * D2R) * (70 + arrowL)} width={28} color={C.gold} />
@@ -499,7 +499,7 @@ const ShotTokyo: ShotFC<CL02> = ({ f, len }) => {
           ))}
           <Bloom x={dot[0]} y={dot[1]} r={70} color={C.whiteGold} strength={0.8} />
           <circle cx={dot[0]} cy={dot[1]} r={16} fill="#FFFFFF" stroke={C.gold} strokeWidth={4} />
-          <Watch x={1500} y={660} r={95} angle={watch} f={f} />
+          <Watch x={1700} y={420} r={100} angle={watch} f={f} />
           <Tick x={1720} y={900} pxPerM={150} frame={f} facing={-1} pose="hold" expression="surprised" look={0.4} />
         </StudioRoom>
         <Layer depth={0}>
@@ -591,7 +591,7 @@ const ShotFourth: ShotFC<CL02> = ({ f, len }) => {
           <path d={smoothPath(trail, 0.5)} fill="none" stroke={C.whiteGold} strokeWidth={8} strokeLinecap="round" opacity={0.8} />
           <Probe x={px} y={py} size={100} f={f} tilt={heading + 180} />
           {[0, 1, 2, 3].map((i) => (
-            <CheckStamp key={i} x={250 + i * 120} y={250} age={i < 3 ? f - 8 - i * 12 : f - PASS} size={84} lit={i === 3} />
+            <CheckStamp key={i} x={190 + i * 110} y={860} age={i < 3 ? f - 8 - i * 12 : f - PASS} size={84} lit={i === 3} />
           ))}
           <line x1={S.x - S.r - 30} y1={S.y} x2={cx - rx - 10} y2={S.y} stroke={C.saffron} strokeWidth={4} opacity={0.7} />
         </Layer>

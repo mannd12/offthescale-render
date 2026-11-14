@@ -198,9 +198,9 @@ const ShotRide: ShotFC<CL01> = ({ f, len }) => {
 // ================================================================================================================
 const ShotMiss: ShotFC<CL01> = ({ f, len }) => {
   const S = { x: 520, y: 600, r: 160 };
-  const R = 980;
+  const R = 760;
   const go = Math.max(0, f - 26);
-  const th = -go * (16 / R) / D2R; // degrees, counter-clockwise (up and over)
+  const th = -go * (13 / R) / D2R; // degrees, counter-clockwise (up and over)
   const px = S.x + Math.cos(th * D2R) * R;
   const py = S.y + Math.sin(th * D2R) * R;
   const nTrail = Math.max(2, Math.ceil(Math.abs(th) / 3) + 1);
@@ -210,7 +210,7 @@ const ShotMiss: ShotFC<CL01> = ({ f, len }) => {
   });
   return (
     <Pop f={f}>
-      <Stage theme={SPACE.theme} cam={cameraAt(f, [{ f: 0, x: 1000, y: 560, zoom: 1 }, { f: len, x: 860, y: 420, zoom: 0.9 }])} vignette={0.3} grain={0.5}>
+      <Stage theme={SPACE.theme} cam={cameraAt(f, [{ f: 0, x: 1000, y: 560, zoom: 1 }, { f: len, x: 760, y: 470, zoom: 0.64 }])} vignette={0.3} grain={0.5}>
         <Layer depth={0.3}>
           <SpaceField f={f} seed={25} n={110} />
         </Layer>
@@ -225,8 +225,8 @@ const ShotMiss: ShotFC<CL01> = ({ f, len }) => {
           <DrawnPath pts={trail} head={1} color={C.whiteGold} width={7} />
           <Arrow x1={px + Math.sin(th * D2R) * 70} y1={py - Math.cos(th * D2R) * 70} x2={px + Math.sin(th * D2R) * 330} y2={py - Math.cos(th * D2R) * 330} width={34} color={C.gold} />
           <Probe x={px} y={py} size={110} f={f} tilt={th} trail={go > 0 ? 90 : 0} />
-          <Ledge x={1490} y={960} w={240} />
-          <Tick x={1600} y={960} pxPerM={100} frame={f} facing={-1} pose="point" poseTo="shrug" poseT={ez(f, 60, 80)} expression="determined" expressionTo="worried" expressionT={ez(f, 60, 74)} staff look={0.2} />
+          <Ledge x={1330} y={1020} w={240} />
+          <Tick x={1440} y={1020} pxPerM={100} frame={f} facing={-1} pose="point" poseTo="shrug" poseT={ez(f, 60, 80)} expression="determined" expressionTo="worried" expressionT={ez(f, 60, 74)} staff look={0.2} />
         </Layer>
       </Stage>
     </Pop>
@@ -409,7 +409,7 @@ const ShotTape: ShotFC<CL01> = ({ f, len, c }) => {
   const tagY = g < 0 ? -200 : Math.min(420, -200 + g * 30);
   // Tick: on the tape's far end, hops onto the gold, then back
   const hop = (a: number, b: number) => (f >= a && f <= b ? -Math.sin(((f - a) / (b - a)) * Math.PI) * 130 : 0);
-  const tickX = g < 6 ? 1380 : h < 0 ? lerp(1380, 640, ez(g, 6, 30)) : lerp(640, 1380, ez(h, 0, 22));
+  const tickX = g < 6 ? 1380 : h < 0 ? lerp(1380, 430, ez(g, 6, 30)) : lerp(430, 1380, ez(h, 0, 22));
   const tickY = TY - 24 + hop(T12 + 6, T12 + 30) + hop(T13, T13 + 22);
   return (
     <Pop f={f}>
@@ -418,19 +418,19 @@ const ShotTape: ShotFC<CL01> = ({ f, len, c }) => {
           <Plate x={120} y={330} w={1680} h={460} fill="#1E5A6E" />
           <Tape x={TX} y={TY} len={TL} f={f} unroll={unroll} gold={gold * (1 - 0 * slide)} slide={slide} />
           {gold > 0.02 ? (
-            <g transform={`translate(${-slide * 260} ${slide * 130})`} opacity={1 - slide * 0.4}>
-              <Label x={TX + 40 + TL * gold * 0.5} y={TY + 90} text={slide > 0.5 ? READ.earthMinus.text : READ.earthSpeed.text} size={34} align="middle" raw color={C.gold} />
+            <g transform={`translate(${-slide * 200} ${slide * 60})`}>
+              <Label x={Math.max(300, TX + 40 + TL * gold * 0.5)} y={TY + 100} text={slide > 0.5 ? READ.earthMinus.text : READ.earthSpeed.text} size={34} align="middle" raw color={C.gold} />
             </g>
           ) : null}
           <Tick x={tickX} y={tickY} pxPerM={110} frame={f} facing={g >= 0 && h < 0 ? -1 : 1} pose={g >= 0 ? "cheer" : "hold"} expression={h >= 0 ? "worried" : g >= 0 ? "happy" : "neutral"} squash={impact(f, T12 + 30, 0.14, 10)} look={0.3} />
           <g>
-            <PillA x={TX + 40 + TL * share * 0.5} y={tagY} text="free head start" F={STUDIO} dot={C.gold} size={28} align="middle" opacity={g >= 0 ? 1 : 0} />
-            {h >= 0 ? <Strike x1={TX + 40 + TL * share * 0.5 - 260} y1={tagY + 22} x2={TX + 40 + TL * share * 0.5 + 260} y2={tagY - 22} k={lin(h, 4, 17)} w={12} color={C.vermilion} /> : null}
+            <PillA x={TX + 40 + TL * share * 0.66} y={tagY} text="free head start" F={STUDIO} dot={C.gold} size={28} align="middle" opacity={g >= 0 ? 1 : 0} />
+            {h >= 0 ? <Strike x1={TX + 40 + TL * share * 0.66 - 250} y1={tagY + 22} x2={TX + 40 + TL * share * 0.66 + 250} y2={tagY - 22} k={lin(h, 4, 17)} w={12} color={C.vermilion} /> : null}
           </g>
         </StudioRoom>
         <Layer depth={0}>
-          <Slab x={1260} y={250} value={rollText(READ.escape.value!, roll, 1)} unit={READ.escape.unit} size={96} F={STUDIO} check={roll >= 1} />
-          <OurSumPill x={1270} y={330} size={24} appear={ez(f, 30, 42)} />
+          <Slab x={1220} y={190} value={rollText(READ.escape.value!, roll, 1)} unit={READ.escape.unit} size={90} F={STUDIO} check={roll >= 1} />
+          <OurSumPill x={1560} y={160} size={24} appear={ez(f, 30, 42)} />
         </Layer>
       </Stage>
     </Pop>
@@ -492,7 +492,7 @@ const ShotDrop: ShotFC<CL01> = ({ f, len, c }) => {
   const push = ez(g, 0, 40);
   const roll = ez(g, 10, 80);
   const deg = lerp(0, 88, ez(g, 6, 70));
-  const streak = Math.min(520, 60 + Math.max(0, g) * 30);
+  const streak = Math.min(360, 60 + Math.max(0, g) * 30);
   const ang = (Math.atan2(end[1] - E[1], end[0] - E[0]) * 180) / Math.PI;
   return (
     <AbsoluteFill>

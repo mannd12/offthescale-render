@@ -371,7 +371,7 @@ export const SunDisc: React.FC<{ x: number; y: number; r: number; f: number; hal
   const circ = `M${x - r} ${y} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0 Z`;
   return (
     <g>
-      {halo > 0 ? <CoronaHalo f={f} cx={x} cy={y} R={r} extent={r * 0.9} loops={6} a0={-175} a1={175} intensity={halo} seed={seed} /> : null}
+      {halo > 0 ? <CoronaHalo f={f} cx={x} cy={y} R={r} extent={r * 0.9} loops={0} a0={-175} a1={175} intensity={halo} seed={seed} /> : null}
       <defs>
         <radialGradient id={id}>
           {sunGradient(r).map(([o, c], i) => (

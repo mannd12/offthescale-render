@@ -142,7 +142,7 @@ const ShotRideIn: ShotFC<CCloser> = ({ f, len }) => {
           <CoronaHalo f={f} cx={limbX} cy={560} R={1900} extent={760} loops={6} a0={-55} a1={55} />
           <WindStreaks f={f} cx={limbX} cy={560} r0={1910} rMax={3300} a0={-50} a1={50} speed={20} count={60} len={180} width={8} seed={52} opacity={0.75} />
           <SunLimb f={f} cx={limbX} cy={560} R={1900} granSize={80} drift={6} />
-          <RadiiRuler f={f} y={RY} origin={-3000} speed={14} flags={false} />
+          <RadiiRuler f={f} y={RY} origin={-8000} speed={14} flags={false} />
           <line x1={px + 70} y1={RY - 70} x2={2100} y2={RY - 70} stroke={C.stampGreen} strokeWidth={14} strokeLinecap="round" />
           <line x1={px + 70} y1={RY - 70} x2={2100} y2={RY - 70} stroke={C.stampGreen} strokeWidth={40} opacity={0.3} />
           <StateStamp x={1640} y={RY - 210} state="measured" age={f - 20} size={170} rotate={-8} />
@@ -243,8 +243,10 @@ const ShotRecap: ShotFC<CCloser> = ({ f, len, c }) => {
               </g>
             );
           })}
+          <g opacity={g >= -6 ? 1 : 0}>
           <Ledge x={800} y={1180} w={180} />
           <Tick x={890} y={1180} pxPerM={80} frame={f} facing={-1} pose="stand" expression="sleepy" look={-0.2} headTilt={20} />
+          </g>
         </Layer>
       </Stage>
     </AbsoluteFill>

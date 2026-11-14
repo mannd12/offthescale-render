@@ -96,7 +96,7 @@ const ShotLimb: ShotFC<CCold> = ({ f, len, c }) => {
     { f: len + 10, x: 1110, y: 640, zoom: 1.3 },
   ]);
   const rulerSpeed = f < T3 ? 12 : 18;
-  const rulerOrigin = f < T3 ? -2000 : -2000 + T3 * 12 - T3 * 18;
+  const rulerOrigin = f < T3 ? -8000 : -8000 + T3 * 12 - T3 * 18; // far left: the surface end never enters
   // the probe: at Tick's feet, then sliding down-right into the halo (~3 px/f on top of the push)
   const px = 1000 + Math.max(0, g) * 1.6;
   const py = 290 + Math.max(0, g) * 1.5;
@@ -282,7 +282,7 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
   const UNIT = 54; // MARS bar height; SUN = 55 × UNIT (#3)
   const hSun = Math.min(55 * UNIT, Math.max(0, g - 12) * 40);
   const top = BASE - hSun;
-  const camY = g < 0 ? 540 : 540 - Math.max(0, 260 - top) * 0.6;
+  const camY = g < 0 ? 540 : 540 - Math.min(380, Math.max(0, 260 - top) * 0.4); // a gentle tilt: the base stays in frame
   const ratio = ez(g, 14, 14 + 74);
   const shown = Math.max(1, Math.round(lerp(1, 55, ratio)));
   if (ratio >= 1) assertValue(READ.energyRatio.value!, "C-07 counter");
@@ -308,6 +308,7 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
               <rect x={1250} y={top} width={170} height={hSun} rx={10} fill={C.gold} stroke={C.whiteGold} strokeWidth={4} />
               <rect x={1250} y={top} width={60} height={hSun} rx={10} fill={C.whiteGold} opacity={0.45} />
               <Label x={1335} y={BASE + 60} text="sun" size={34} align="middle" />
+              <Label x={1450} y={Math.max(top + 40, -480)} text="sun" size={34} color={C.gold} />
               <Tick
                 x={1560}
                 y={BASE}
@@ -419,7 +420,7 @@ const ShotParker: ShotFC<CCold> = ({ f, len, c }) => {
   const probeY = lerp(430, RY - 110, k);
   const plateX = Math.max(1080, 2100 - f * 20);
   const speed = g < 0 ? 0 : h < 0 ? 20 : 14;
-  const origin = g < 0 ? -3000 : h < 0 ? -3000 : -3000 + (T11 - T10) * 20 - (T11 - T10) * 14;
+  const origin = h < 0 ? -9000 : -9000 + (T11 - T10) * 20 - (T11 - T10) * 14;
   const flagX = g < 0 ? -400 : -200 + g * 20 - Math.max(0, h) * 6;
   const greenHead = lin(h, 0, 30);
   const trailFrom = probeX + 70;
