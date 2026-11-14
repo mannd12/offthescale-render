@@ -186,7 +186,7 @@ const d2: Shot = ({ f, n }) => (
 
 /** d3 - the distance counter rolls up to almost 3,000 miles. */
 const d3: Shot = ({ f, n }) => {
-  const v = 3000 * ez(f, 0, n - 6);
+  const v = 3000 * ez(f, 0, Math.round(n * 0.4));
   const box: MapBox = { x: 40, y: 830, w: 1000, h: 340 };
   return (
     <g>

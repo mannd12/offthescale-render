@@ -100,7 +100,7 @@ const b2: Shot = ({ f, n }) => (
     <Spine />
     <LineAt km={100} k={ez(f, 0, 8)} label="THE FAI LINE" size={52} />
     <Probe x={540} y={KM(100) + 430 + Math.sin(f / 7) * 12} size={300} f={f} variant="float" lamp={false} />
-    <Count x={540} y={190} f={f} a={0} b={100} f1={n - 6} unit=" KM" w={560} size={120} />
+    <Count x={540} y={190} f={f} a={0} b={100} f1={Math.round(n * 0.4)} unit=" KM" w={560} size={120} />
   </g>
 );
 
@@ -109,7 +109,7 @@ const c1: Shot = ({ f, n }) => (
   <g>
     <SK f={f} />
     <Wings x={540} y={660} s={1.5} f={f} />
-    <Count x={540} y={190} f={f} a={0} b={50} f1={n - 6} unit=" MILES" w={640} size={110} />
+    <Count x={540} y={190} f={f} a={0} b={50} f1={Math.round(n * 0.4)} unit=" MILES" w={640} size={110} />
     <Plaque x={540} y={1090} text="AIR FORCE ASTRONAUT WINGS" size={44} bg={C.ink} fg={C.cream} />
   </g>
 );
@@ -141,7 +141,7 @@ const d1: Shot = ({ f, n }) => (
     <Spine />
     <LineAt km={100} label="FAI: 100 KM" size={44} />
     <LineAt km={80} k={ez(f, 0, 12)} color={C.mint} label="MCDOWELL: 80 KM" lx={560} size={46} />
-    <Count x={540} y={190} f={f} a={2000} b={2018} f1={n - 8} grp={false} w={440} size={130} />
+    <Count x={540} y={190} f={f} a={2000} b={2018} f1={Math.round(n * 0.4)} grp={false} w={440} size={130} />
     <Tick x={190} y={1250} pxPerM={250} frame={f} pose="point" expression="surprised" facing={1} />
   </g>
 );
@@ -213,7 +213,7 @@ const f2: Shot = ({ f, n }) => (
     <LineAt km={80} color={C.mint} />
     {bal(BAL1, 39, f)}
     {bal(BAL2, 41.4, f)}
-    <Count x={540} y={190} f={f} a={0} b={41.4} d={1} f1={n - 6} unit=" KM" w={600} size={120} />
+    <Count x={540} y={190} f={f} a={0} b={41.4} d={1} f1={Math.round(n * 0.4)} unit=" KM" w={600} size={120} />
   </g>
 );
 
@@ -268,7 +268,7 @@ const h2: Shot = ({ f, n }) => (
     {STRAT(f, 1)}
     {bal(BAL1, 39, f)}
     {bal(BAL2, 41.4, f)}
-    <Count x={540} y={190} f={f} a={0} b={50} f1={n - 6} unit=" KM" w={520} size={120} />
+    <Count x={540} y={190} f={f} a={0} b={50} f1={Math.round(n * 0.4)} unit=" KM" w={520} size={120} />
     <Plaque x={560} y={KM(50) + 190} text="ENDS ABOUT HERE" size={46} bg={C.ink} fg={C.cream} />
   </g>
 );

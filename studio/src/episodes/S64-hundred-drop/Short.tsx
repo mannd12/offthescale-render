@@ -79,7 +79,7 @@ const c1: Shot = ({ f, n }) => (
     <SK f={f} a={mix(88, 80, ez(f, 0, n))} streak={50} />
     <Probe x={540} y={720} size={380} f={f} trail={280} />
     <Plaque x={540} y={220} text="80 KM" size={140} bg={C.ink} fg={C.cream} w={460} />
-    <Count x={540} y={1090} f={f} a={0} b={618} f1={n - 8} unit=" M/S" w={720} size={120} />
+    <Count x={540} y={1090} f={f} a={0} b={618} f1={Math.round(n * 0.4)} unit=" M/S" w={720} size={120} />
     <ModelChip y={62} />
   </g>
 );
@@ -98,7 +98,7 @@ const d1: Shot = ({ f, n }) => (
     <SK f={f} a={mix(66, 58, ez(f, 0, n))} streak={60} />
     <Probe x={540} y={720} size={380} f={f} trail={320} />
     <Plaque x={540} y={220} text="60 KM" size={140} bg={C.ink} fg={C.cream} w={460} />
-    <Count x={540} y={1090} f={f} a={618} b={874} f1={n - 8} unit=" M/S" w={720} size={120} />
+    <Count x={540} y={1090} f={f} a={618} b={874} f1={Math.round(n * 0.4)} unit=" M/S" w={720} size={120} />
     <ModelChip y={62} />
   </g>
 );
@@ -107,7 +107,7 @@ const d2: Shot = ({ f, n }) => (
     <SK f={f} a={mix(54, 46, ez(f, 0, n))} streak={70} />
     <Probe x={540} y={720} size={380} f={f} trail={360} />
     <Plaque x={540} y={220} text="50 KM" size={140} bg={C.ink} fg={C.cream} w={460} />
-    <Count x={540} y={1090} f={f} a={874} b={972} f1={n - 8} unit=" M/S" w={720} size={120} />
+    <Count x={540} y={1090} f={f} a={874} b={972} f1={Math.round(n * 0.4)} unit=" M/S" w={720} size={120} />
     <ModelChip y={62} />
   </g>
 );
@@ -136,7 +136,7 @@ const e3: Shot = ({ f, n }) => (
   <g>
     <SK f={f} a={38} streak={80} />
     <Probe x={540} y={820} size={340} f={f} trail={380} />
-    <Count x={540} y={260} f={f} a={972} b={1043} f1={n - 8} unit=" M/S" w={860} size={130} />
+    <Count x={540} y={260} f={f} a={972} b={1043} f1={Math.round(n * 0.4)} unit=" M/S" w={860} size={130} />
     <ModelChip y={62} />
   </g>
 );

@@ -201,7 +201,7 @@ const f2: Shot = ({ f, n }) => (
   <g>
     <Bg stops={["#4B2A8C", "#7C3FA8", "#E4572E"]} />
     <rect x={90} y={380} width={900} height={560} rx={80} fill={C.ink} opacity={0.94} />
-    <Counter x={540} y={760} value={36 * ez(f, 0, n - 6)} max={36} size={320} color={C.amber} align="middle" digits={2} />
+    <Counter x={540} y={760} value={36 * ez(f, 0, Math.round(n * 0.35))} max={36} size={320} color={C.amber} align="middle" digits={2} />
     <T x={540} y={880} text="HOURS PER LAP" size={86} color={C.cream} />
     <Clock x={880} y={1200} r={120} a={ez(f, 0, n)} />
   </g>

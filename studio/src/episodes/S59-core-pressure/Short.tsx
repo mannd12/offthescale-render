@@ -142,7 +142,7 @@ const h: Shot = ({ f, n }) => {
 
 /** i - 3.3 million atmospheres rolls in. */
 const i_: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 18);
+  const k = ez(f, 0, Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={BG_EMBER} x={0} y={0} w={W} h={H} />
@@ -222,7 +222,7 @@ const n_: Shot = ({ f }) => (
 
 /** o - 3.3 million times the air. */
 const o: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 18);
+  const k = ez(f, 0, Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={BG_EMBER} x={0} y={0} w={W} h={H} />
