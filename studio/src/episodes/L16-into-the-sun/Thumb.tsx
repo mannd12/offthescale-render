@@ -38,10 +38,10 @@ const ArtA: React.FC = () => (
   <svg width={1920} height={1080} viewBox="0 0 1920 1080">
     <Sky id="l16skyA" />
     <Stars x0={0} x1={1920} y1={620} n={70} />
-    <CoronaHalo f={F} cx={900} cy={2330} R={1750} extent={430} loops={6} a0={-96} a1={-58} intensity={1} />
+    <CoronaHalo f={F} cx={900} cy={2330} R={1750} extent={430} loops={6} a0={-96} a1={-58} intensity={1} rays={false} />
     <SunLimb f={F} cx={900} cy={2330} R={1750} granSize={90} bloom={1} />
     {/* the probe, small, shield down toward the limb */}
-    <Probe x={1330} y={410} size={330} f={F} tilt={90} lamp={false} />
+    <Probe x={1330} y={400} size={420} f={F} tilt={-90} lamp={false} />
   </svg>
 );
 
@@ -60,9 +60,9 @@ const ArtB: React.FC = () => (
       </clipPath>
       <g clipPath="url(#l16clipB)">
         <Stars x0={960} x1={1920} y1={620} n={30} />
-        <CoronaHalo f={F} cx={1500} cy={2200} R={1600} extent={420} loops={5} a0={-104} a1={-62} />
+        <CoronaHalo f={F} cx={1500} cy={2200} R={1600} extent={420} loops={5} a0={-104} a1={-62} rays={false} />
         <SunLimb f={F} cx={1500} cy={2200} R={1600} granSize={90} />
-        <Probe x={1500} y={470} size={300} f={F} tilt={90} lamp={false} />
+        <Probe x={1500} y={470} size={340} f={F} tilt={-90} lamp={false} />
       </g>
     </g>
     <line x1={960} y1={0} x2={960} y2={1080} stroke={C.bone} strokeWidth={8} opacity={0.9} />
