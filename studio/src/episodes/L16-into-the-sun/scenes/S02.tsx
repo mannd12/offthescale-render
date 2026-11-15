@@ -126,7 +126,7 @@ const dense = (ctrl: Pt[], n = 120): Pt[] => {
 // ================================================================================================================
 const ShotCard: ShotFC<CL02> = ({ f, len }) => {
   const lift = Math.max(0, f - 24) * 3.5; // the drawing lifts slowly off the card (stays readable)
-  const fill = lin(f, 10, 40);
+  const fill = lin(f, 10, len);
   return (
     <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 10, x: 1000, y: 500, zoom: 1.08 }])} vignette={0.12} grain={0.5}>
       <StudioRoom f={f} seed={12}>
@@ -139,9 +139,12 @@ const ShotCard: ShotFC<CL02> = ({ f, len }) => {
           <rect x={770} y={668} width={560} height={36} rx={10} fill={alpha(C.saffron, 0.35)} />
           <line x1={780} y1={668} x2={1320} y2={668} stroke={C.saffronDeep} strokeWidth={4} />
         </g>
+        <ClipBox x={745} y={200} w={610} h={466}>
+          <WindStreaks f={f} mode="sweep" angle={90} box={{ x: 930, y: 668 - lift - 20, w: 140, h: 520 }} speed={20} count={16} len={110} width={14} seed={44} from={C.amber} to={C.gold} opacity={ez(f, 12, 20)} />
+        </ClipBox>
         <Rocket x={1000} y={668} size={440} f={f} lift={lift} plume={ez(f, 12, 20)} tag="Delta IV Heavy" />
         {/* the energy bar */}
-        <Label x={760} y={815} text="energy" size={28} color={INK} halo={C.paper} />
+        <Label x={760} y={815} text="energy" size={28} color={STUDIO.text} />
         <SpeedBar x={900} y={805} len={Math.max(4, 500 * fill)} h={54} f={f} color={C.gold} stripe={C.amber} />
         <Tick x={600} y={930} pxPerM={210} frame={f} facing={1} pose="heave" expression="proud" look={0.5} />
       </StudioRoom>
@@ -162,8 +165,8 @@ const ShotStub: ShotFC<CL02> = ({ f, len }) => {
   const px = O.x + Math.cos(a) * O.R;
   const py = O.y + Math.sin(a) * O.R;
   const tang = a / D2R - 90; // direction of travel (counter-clockwise → toward the upper right)
-  const L = Math.max(150, 720 - Math.max(0, f - 12) * 20);
-  const bar = Math.max(130, 620 - Math.max(0, f - 12) * 18);
+  const L = lerp(720, 150, ez(f, 8, len - 10)); // shrinks for the whole shot
+  const bar = lerp(620, 130, ez(f, 8, len - 10));
   const stub = L <= 150;
   const ax = Math.cos((tang + 180) * D2R);
   const ay = Math.sin((tang + 180) * D2R);
@@ -174,6 +177,7 @@ const ShotStub: ShotFC<CL02> = ({ f, len }) => {
           <SpaceField f={f} seed={40} n={110} />
         </Layer>
         <Layer depth={1}>
+          <WindStreaks f={f} mode="sweep" angle={tang + 180} box={{ x: -300, y: -300, w: 2520, h: 1680 }} speed={16} count={44} len={170} width={8} seed={46} from={C.gold} to={C.lavender} opacity={0.55} />
           <Bloom x={1900} y={1150} r={800} color={C.amber} strength={0.55} />
           <circle cx={O.x} cy={O.y} r={O.R} fill="none" stroke={alpha(C.lavender, 0.45)} strokeWidth={4} strokeDasharray="14 12" strokeDashoffset={-f * 2} />
           <Arrow x1={px + ax * 90} y1={py + ay * 90} x2={px + ax * (90 + L)} y2={py + ay * (90 + L)} width={46} color={C.gold} />
@@ -234,6 +238,8 @@ const ShotVenus: ShotFC<CL02> = ({ f, len, c }) => {
         </Layer>
         <Layer depth={1}>
           <Bloom x={-200} y={900} r={900} color={C.amber} strength={0.5} />
+          <WindStreaks f={f} mode="sweep" angle={0} box={{ x: -300, y: -100, w: 2520, h: 1280 }} speed={16} count={40} len={170} width={7} seed={47} from={C.gold} to={C.lavender} opacity={0.5} />
+          <g transform={`translate(${(-f * 1.7).toFixed(1)} 0)`}>
           <Bloom x={VEN.x} y={VEN.y} r={VEN.r * 2.1} color="#F6E3A8" strength={0.45} />
           <Planet x={VEN.x} y={VEN.y} r={VEN.r} f={f} kind="venus" light={200} />
           <DrawnPath pts={REAL} head={head} f={f} dashed width={6} color={alpha(CREAM, 0.8)} />
@@ -255,6 +261,7 @@ const ShotVenus: ShotFC<CL02> = ({ f, len, c }) => {
           ) : null}
           <Arrow x1={p[0] + Math.cos(ang * D2R) * 70} y1={p[1] + Math.sin(ang * D2R) * 70} x2={p[0] + Math.cos(ang * D2R) * (70 + arrowL)} y2={p[1] + Math.sin(ang * D2R) * (70 + arrowL)} width={28} color={C.gold} />
           <Probe x={p[0]} y={p[1]} size={130} f={f} tilt={ang + 180} trail={60} />
+          </g>
         </Layer>
       </Stage>
     </Pop>
@@ -333,18 +340,18 @@ const ShotFlybys: ShotFC<CL02> = ({ f, len, c }) => {
               })}
               <Probe x={qx} y={qy} size={60} f={f} tilt={0} />
               {/* the timeline */}
-              <line x1={pinA - 120} y1={800} x2={lerp(pinA - 120, pinB + 140, tlHead)} y2={800} stroke={INK} strokeWidth={10} strokeLinecap="round" />
+              <line x1={pinA - 120} y1={800} x2={lerp(pinA - 120, pinB + 140, tlHead)} y2={800} stroke={STUDIO.text} strokeWidth={10} strokeLinecap="round" />
               {tlHead < 1 && tlHead > 0 ? <circle cx={lerp(pinA - 120, pinB + 140, tlHead)} cy={800} r={16} fill={C.saffronCore} stroke={C.saffron} strokeWidth={4} /> : null}
               {[pinA, pinB].map((x, i) => {
                 const on = tlHead * (pinB + 260 - pinA) > x - pinA + 120;
                 return on ? (
                   <g key={i}>
                     <circle cx={x} cy={800} r={18} fill={i ? C.magenta : C.saffron} stroke={INK} strokeWidth={4} />
-                    <line x1={x} y1={782} x2={x} y2={720} stroke={INK} strokeWidth={4} />
+                    <line x1={x} y1={782} x2={x} y2={720} stroke={STUDIO.text} strokeWidth={4} />
                   </g>
                 ) : null;
               })}
-              {tlHead >= 1 ? <path d={`M${pinA} 860 L${pinA} 880 L${pinB} 880 L${pinB} 860`} fill="none" stroke={C.saffronDeep} strokeWidth={6} /> : null}
+              {tlHead >= 1 ? <path d={`M${pinA} 860 L${pinA} 880 L${pinB} 880 L${pinB} 860`} fill="none" stroke={C.saffron} strokeWidth={6} /> : null}
             </StudioRoom>
             <Layer depth={1}>
               <PillA x={pinA} y={700} text={READ.venus1.text} F={STUDIO} dot={C.saffron} size={26} align="middle" opacity={ez(g, 14, 24)} />

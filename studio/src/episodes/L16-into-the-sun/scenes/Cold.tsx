@@ -116,7 +116,8 @@ const ShotLimb: ShotFC<CCold> = ({ f, len, c }) => {
   const pinned = g >= 56 && g < POP + 6;
   const dist = f < T2 ? distanceValue(40) : lerp(distanceValue(40), distanceValue(14), ez(f, T2, len));
   const turn = ez(g, POP - 4, POP + 6);
-  const tickPose = g < 50 ? "hold" : g < POP + 8 ? "shield" : "lean";
+  // Tick: measuring with the staff, then pointing down the dotted line, then shielding from the halo, then peeking
+  const tickPose = f < T2 ? "hold" : g < 0 ? "point" : g < 50 ? "hold" : g < POP + 8 ? "shield" : "lean";
   return (
     <AbsoluteFill>
       <Stage theme={SPACE.theme} cam={cam} vignette={0.3} grain={0.5}>
@@ -147,15 +148,15 @@ const ShotLimb: ShotFC<CCold> = ({ f, len, c }) => {
           {g >= POP - 2 && g < POP + 16 ? <Bloom x={px - 20} y={py + 50} r={260} color={C.whiteGold} strength={0.8 * (1 - (g - POP + 2) / 18)} /> : null}
           <Probe x={px} y={py} size={130} f={f} tilt={-88} turn={turn} trail={g > 0 ? 70 : 0} />
           <Tick
-            x={860}
+            x={850}
             y={327}
-            pxPerM={72}
+            pxPerM={108}
             frame={f}
             facing={1}
             pose={tickPose}
             expression={g < 50 ? "neutral" : g < POP + 8 ? "surprised" : "happy"}
-            look={0.4}
-            headTilt={-6}
+            look={f < T3 && f >= T2 ? 0.9 : 0.4}
+            headTilt={f < T3 && f >= T2 ? 14 : -6}
             staff={g < 50}
             squash={impact(f, T3 + 56, 0.12, 10)}
           />
@@ -280,7 +281,7 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
   // the bars (phase 2)
   const BASE = 900;
   const UNIT = 54; // MARS bar height; SUN = 55 × UNIT (#3)
-  const hSun = Math.min(55 * UNIT, Math.max(0, g - 12) * 40);
+  const hSun = Math.min(55 * UNIT, Math.max(0, g - 12) * 28); // still growing through the shot
   const top = BASE - hSun;
   const tk = ez(g, 20, 100); // tilt up + pull back: the base stays in frame while the tower runs off the top
   const ratio = ez(g, 14, 14 + 74);
@@ -302,12 +303,12 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
               <rect x={760} y={BASE} width={900} height={14} rx={6} fill={C.saffron} />
               {/* MARS */}
               <rect x={860} y={BASE - UNIT * ez(g, 4, 12)} width={170} height={UNIT * ez(g, 4, 12)} rx={10} fill={C.magenta} stroke={CREAM} strokeWidth={3} />
-              <Label x={945} y={BASE + 60} text="mars" size={34} align="middle" />
+              <Label x={945} y={BASE + 60} text="mars" size={40} align="middle" color={C.magenta} halo={CREAM} />
               {/* SUN tower */}
               <Bloom x={1335} y={top} r={260} color={C.gold} strength={0.55} />
               <rect x={1250} y={top} width={170} height={hSun} rx={10} fill={C.gold} stroke={C.whiteGold} strokeWidth={4} />
               <rect x={1250} y={top} width={60} height={hSun} rx={10} fill={C.whiteGold} opacity={0.45} />
-              <Label x={1335} y={BASE + 60} text="sun" size={34} align="middle" />
+              <Label x={1335} y={BASE + 60} text="sun" size={40} align="middle" color={C.ink} halo={C.gold} />
               
               <Tick
                 x={1560}
@@ -341,8 +342,8 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
           </g>
           {g >= 14 ? (
             <g opacity={ez(g, 14, 24)}>
-              <Slab x={140} y={250} value={`×${shown}`} size={110} F={SPACE} check={ratio >= 1} />
-              <PillFor kind={READ.energyRatio.pill} x={150} y={330} size={22} />
+              <Slab x={1230} y={300} value={`×${shown}`} size={110} F={SPACE} check={ratio >= 1} />
+              <PillFor kind={READ.energyRatio.pill} x={1240} y={380} size={22} />
             </g>
           ) : null}
         </Layer>
@@ -378,6 +379,7 @@ const ShotStampCard: ShotFC<CCold> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={STUDIO.theme} cam={cam} vignette={0.12} grain={0.5}>
         <StudioRoom f={f} seed={7}>
+          <WindStreaks f={f} cx={CX} cy={CY} r0={R + 20} rMax={1500} a0={-180} a1={180} speed={16} count={60} len={150} width={8} seed={17} opacity={0.6} />
           <SunCutaway f={f} cx={CX} cy={CY} r={R} highlight={hl} rotate={4} labels />
           <g transform={`translate(0 ${bob(F1) + bob(F2) + bob(8)})`}>
             <StateStamp x={sx} y={sy} state={state} age={f - 6} flip={from ? { from, age: flipAge } : undefined} size={190} rotate={-10} />
@@ -462,16 +464,16 @@ const ShotParker: ShotFC<CCold> = ({ f, len, c }) => {
           {g < 0 ? (
             <g>
               <Ledge x={300} y={800} w={220} />
-              <Tick x={410} y={800} pxPerM={95} frame={f} facing={1} pose="wave" expression="proud" look={0.4} />
+              <Tick x={410} y={800} pxPerM={145} frame={f} facing={1} pose="wave" expression="proud" look={0.4} />
             </g>
           ) : (
             <Tick
               x={1560}
               y={RY - 3}
-              pxPerM={70}
+              pxPerM={105}
               frame={f}
               facing={-1}
-              pose={h < 10 ? "hold" : "press"}
+              pose={h < 0 ? (g < 34 ? "shield" : "hold") : h < 10 ? "hold" : "press"}
               expression={h < 18 ? "neutral" : "happy"}
               squash={impact(h, 18, 0.14, 8)}
               look={0.2}

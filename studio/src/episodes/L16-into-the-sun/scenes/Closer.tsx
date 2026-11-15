@@ -101,7 +101,8 @@ const ShotHonest: ShotFC<CCloser> = ({ f, len }) => {
   return (
     <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 10, x: 940, y: 530, zoom: 1.06 }])} vignette={0.12} grain={0.5}>
       <StudioRoom f={f} seed={21}>
-        <Board x={330} y={150} w={880} h={640} f={f} path={{ pts: [[60, 600], [300, 520], [560, 470], [820, 400]], solidTo: 0.55, draw: lin(f, 30, 80) }}>
+        <WindStreaks f={f} mode="sweep" angle={0} box={{ x: -200, y: 60, w: 2320, h: 820 }} speed={16} count={40} len={170} width={8} seed={23} from={C.gold} to={C.magenta} opacity={0.5} />
+        <Board x={330} y={150} w={880} h={640} f={f} path={{ pts: [[60, 600], [300, 520], [560, 470], [820, 400]], solidTo: 0.55, draw: lin(f, 10, len) }}>
           {sheets.map((s, i) => (
             <g key={i} transform={`translate(0 ${-drop(i)})`} opacity={drop(i) > 500 ? 0 : 1}>
               <Sheet x={s.x} y={s.y} w={340} h={200} f={f} title={s.title}>
@@ -115,7 +116,7 @@ const ShotHonest: ShotFC<CCloser> = ({ f, len }) => {
       </StudioRoom>
       <Layer depth={0}>
         <g opacity={ez(f, 4, 18)}>
-          <Kicker x={330} y={110} text="The honest answer" color={INK} size={30} />
+          <Kicker x={330} y={110} text="The honest answer" color={STUDIO.text} size={30} />
         </g>
       </Layer>
     </Stage>

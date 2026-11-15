@@ -3,10 +3,10 @@
 // (READ / assertAllowed). Readouts with units are drawn as plain text (labelCase upper-cases "km").
 import React, { useId } from "react";
 import { AbsoluteFill } from "remotion";
-import { Bloom, CycClouds, Family, HazeBand, IF2, Layer, Metric, Motes, Sky, alpha, cutPop, labelCase, mixHex, ramp, rnd, smooth, smoothPath, type Pt } from "../../../lib/illustrated";
+import { Bloom, Family, HazeBand, IF2, Layer, Metric, Motes, Sky, alpha, cutPop, labelCase, mixHex, ramp, rnd, smooth, smoothPath, type Pt } from "../../../lib/illustrated";
 import { L16_COLORS, STAR_TINTS, familyOf, pillFill, sunGradient } from "../families";
 import { assertAllowed } from "../sundata";
-import { Granules } from "../movers16";
+import { Granules, ObservatoryShafts } from "../movers16";
 import { CoronaHalo } from "../sunbody";
 import { Planet, partialPts } from "../props16";
 
@@ -188,7 +188,7 @@ export const StudioRoom: React.FC<{ f: number; children?: React.ReactNode; hud?:
       <Sky family={STUDIO} x={-600} y={-300} w={3120} h={1700} />
     </Layer>
     <Layer depth={0.2}>
-      <CycClouds f={f} y={60} n={5} seed={seed} />
+      <ObservatoryShafts f={f} y={60} n={5} seed={seed} />
     </Layer>
     <Layer depth={0.6}>
       <rect x={-1400} y={floor - 30} width={4800} height={1200} fill={mixHex(STUDIO.mid, "#FFB45A", 0.25)} />

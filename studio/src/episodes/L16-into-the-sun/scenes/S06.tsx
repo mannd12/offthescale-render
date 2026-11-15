@@ -23,7 +23,7 @@ import { AboutPill, OurSumPill, SayPill, StateStamp } from "../stamps";
 import { Bracket, Planet, Probe, Telescope, Trace, partialPts } from "../props16";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { AtomField, Bubbles, CREAM, FamSky, INK, Ledge, Plate, Pop, RadialField, Rim, RollMetric, StudioSet, Tag, TextPlate, Word, clamp01, ez, lin, mod, path1, photonHead } from "./c-parts";
+import { AtomField, Bubbles, CREAM, FamSky, INK, Ledge, Plate, PlateStripes, Pop, RadialField, Rim, RollMetric, StudioSet, Tag, TextPlate, Word, clamp01, ez, lin, mod, path1, photonHead } from "./c-parts";
 
 const C = L16_COLORS;
 const D2R = Math.PI / 180;
@@ -283,11 +283,13 @@ const SectorSun: React.FC<{ cx: number; cy: number; r: number; f: number }> = ({
   const rings = 4;
   const secs = 12;
   const flip = Math.cos(f / 6);
+  // the Sun ringing: the ring boundaries breathe in and out (each a little out of phase)
+  const rb = (i: number) => (i <= 0 ? 0 : i >= rings ? r : ((r * i) / rings) * (1 + 0.09 * Math.sin(f / 5 + i * 1.3)));
   const paths: React.ReactNode[] = [];
   for (let i = 0; i < rings; i++)
     for (let j = 0; j < secs; j++) {
-      const r0 = (r * i) / rings;
-      const r1 = (r * (i + 1)) / rings;
+      const r0 = rb(i);
+      const r1 = rb(i + 1);
       const a0 = (j / secs) * 360 * D2R;
       const a1 = ((j + 1) / secs) * 360 * D2R;
       const p = (a: number, rr: number) => `${(cx + Math.cos(a) * rr).toFixed(1)} ${(cy + Math.sin(a) * rr).toFixed(1)}`;
@@ -299,15 +301,25 @@ const SectorSun: React.FC<{ cx: number; cy: number; r: number; f: number }> = ({
   return (
     <g>
       <defs>
-        <radialGradient id="l06shade">
-          <stop offset={0.55} stopColor="#000" stopOpacity={0} />
-          <stop offset={1} stopColor="#2A0A42" stopOpacity={0.7} />
+        {/* sphere shading: lit from the upper left, a terminator toward the lower right, a rim light */}
+        <radialGradient id="l06lit" cx={0.34} cy={0.3} r={0.85}>
+          <stop offset={0} stopColor="#FFFFFF" stopOpacity={0.42} />
+          <stop offset={0.35} stopColor="#FFF3C4" stopOpacity={0.08} />
+          <stop offset={0.62} stopColor="#2A0A42" stopOpacity={0.12} />
+          <stop offset={0.9} stopColor="#1A0630" stopOpacity={0.72} />
+          <stop offset={1} stopColor="#1A0630" stopOpacity={0.85} />
         </radialGradient>
       </defs>
-      <Bloom x={cx} y={cy} r={r * 1.5} color={C.amber} strength={0.6} />
-      <g transform={`rotate(${(f * 6).toFixed(1)} ${cx} ${cy})`}>{paths}</g>
-      <circle cx={cx} cy={cy} r={r} fill="url(#l06shade)" />
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke={C.gold} strokeWidth={8} />
+      <Bloom x={cx} y={cy} r={r * (1.5 + 0.06 * Math.sin(f / 5))} color={C.amber} strength={0.6} />
+      <clipPath id="l06sph">
+        <circle cx={cx} cy={cy} r={r} />
+      </clipPath>
+      <g clipPath="url(#l06sph)">
+        <g transform={`rotate(${(f * 6).toFixed(1)} ${cx} ${cy})`}>{paths}</g>
+      </g>
+      <circle cx={cx} cy={cy} r={r} fill="url(#l06lit)" />
+      <path d={`M${cx - r * 0.98} ${cy - r * 0.2} A${r} ${r} 0 0 1 ${cx + r * 0.2} ${cy - r * 0.98}`} fill="none" stroke={C.whiteGold} strokeWidth={10} strokeLinecap="round" opacity={0.85} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke={C.gold} strokeWidth={6} opacity={0.8} />
     </g>
   );
 };
@@ -411,6 +423,7 @@ const ShotModel: ShotFC<C06> = ({ f, len, c }) => {
         <StudioSet f={f} seed={6} />
         <Layer depth={1}>
           <Plate x={600} y={150} w={1200} h={650} />
+          <PlateStripes f={f} x={600} y={150} w={1200} h={650} id="l06mstr" />
           {/* axes: words only */}
           <line x1={X0 - 20} y1={760} x2={X1 + 20} y2={760} stroke={alpha(CREAM, 0.7)} strokeWidth={4} />
           <line x1={X0 - 20} y1={220} x2={X0 - 20} y2={760} stroke={alpha(CREAM, 0.7)} strokeWidth={4} />
@@ -484,7 +497,7 @@ const ShotRadiative: ShotFC<C06> = ({ f, len, c }) => {
   const scroll = path1(f, [
     [0, 0],
     [p2, p2 * 14],
-    [len, p2 * 14 + (len - p2) * 2.5],
+    [len, p2 * 14 + (len - p2) * 8],
   ]);
   const cam = cameraAt(f, [
     { f: 0, x: 960, y: 540, zoom: 1.04 },
@@ -506,7 +519,7 @@ const ShotRadiative: ShotFC<C06> = ({ f, len, c }) => {
         <FamSky name="dense" />
       </Layer>
       <Layer depth={1}>
-        <AtomField f={f} oy={-scroll} n={44} seed={8} r={14} />
+        <AtomField f={f} oy={-scroll} n={44} seed={8} r={18} />
         {B > -100 ? (
           <g>
             <clipPath id="l06desc">
@@ -718,6 +731,7 @@ const ArcChart: React.FC<{ f: number; inner: number; outer: number; pin: number 
   return (
     <g>
       <Plate x={380} y={250} w={1440} h={650} />
+      <PlateStripes f={f} x={380} y={250} w={1440} h={650} id="l06astr" opacity={0.45} />
       {/* the layer strips along the radius axis, true proportions (SUN_R) */}
       {strip(X0, X0 + 0.2 * (XS - X0), C.whiteGold)}
       {strip(X0 + 0.2 * (XS - X0), X0 + 0.7 * (XS - X0), C.honey)}
@@ -729,6 +743,8 @@ const ArcChart: React.FC<{ f: number; inner: number; outer: number; pin: number 
       <Word x={X0} y={868} text="core" size={22} color={CREAM} />
       <Word x={XS} y={868} text="surface" size={22} color={C.gold} align="middle" />
       <Word x={XE} y={868} text="corona" size={22} color="#FFC6EA" align="end" />
+      {/* F6: the corona section is drawn above the surface, not to the radius scale */}
+      <Word x={(XS + XE) / 2 + 20} y={YB - 14} text="not to scale" size={16} color="#FFC6EA" align="middle" spacing={2} />
       <Word x={X0 + 14} y={300} text="temperature" size={20} color={alpha(CREAM, 0.85)} />
       {fillA ? <path d={fillA} fill={C.gold} opacity={0.22} /> : null}
       {fillB ? <path d={fillB} fill={C.magenta} opacity={0.35} /> : null}

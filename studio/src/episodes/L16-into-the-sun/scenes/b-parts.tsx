@@ -4,13 +4,13 @@
 // F1: Tick only on a ledge, the ruler or the studio floor (never in gas). F5: no face on the Sun. F8: nothing glows red.
 import React, { useId } from "react";
 import { AbsoluteFill } from "remotion";
-import { Bloom, CycClouds, Family, HazeBand, IF2, Layer, STUDIO_SET, Sky, Stars, Tick, alpha, cutPop, mixHex, ramp, rnd, smoothPath, type Expression, type Pose, type Pt } from "../../../lib/illustrated";
+import { Bloom, Family, HazeBand, IF2, Layer, Sky, Stars, Tick, alpha, cutPop, mixHex, ramp, rnd, smoothPath, type Expression, type Pose, type Pt } from "../../../lib/illustrated";
 import { L16_COLORS, STAR_TINTS, familyOf, pillFill, sunGradient } from "../families";
-import { Granules } from "../movers16";
+import { Granules, ObservatoryShafts } from "../movers16";
 import { assertAllowed } from "../sundata";
 
 export const C = L16_COLORS;
-export const STU = STUDIO_SET;
+export const STU = familyOf("studio");
 export const SPACE = familyOf("space");
 export const CORONA = familyOf("corona");
 export const GLOW = familyOf("glow");
@@ -126,10 +126,10 @@ export const StudioSet: React.FC<{ f: number; children?: React.ReactNode; seed?:
       <Sky family={STU} />
     </Layer>
     <Layer depth={0.2}>
-      <CycClouds f={f} y={70} n={5} seed={seed} />
+      <ObservatoryShafts f={f} y={70} n={5} seed={seed} />
     </Layer>
     <Layer depth={0.6}>
-      <rect x={-1400} y={floor - 30} width={4800} height={1200} fill={mixHex(STU.mid, "#FFE4A8", 0.15)} />
+      <rect x={-1400} y={floor - 30} width={4800} height={1200} fill={mixHex(STU.mid, STU.haze, 0.25)} />
       <HazeBand y={floor - 160} h={180} color={STU.haze} strength={0.7} x={-1400} w={4800} />
     </Layer>
     <Layer depth={1}>
@@ -138,6 +138,21 @@ export const StudioSet: React.FC<{ f: number; children?: React.ReactNode; seed?:
     </Layer>
   </>
 );
+
+/** A measuring scale band on the observatory wall, scrolling sideways at `speed` px/f (a whole-shot backdrop mover). */
+export const WallScale: React.FC<{ f: number; y?: number; speed?: number; opacity?: number }> = ({ f, y = 120, speed = 6, opacity = 0.28 }) => {
+  const step = 110;
+  const off = (((f * speed) % step) + step) % step;
+  return (
+    <g opacity={opacity} stroke={C.paper} strokeLinecap="round">
+      <line x1={-400} y1={y} x2={2320} y2={y} strokeWidth={4} />
+      {Array.from({ length: 26 }, (_, i) => {
+        const x = -300 + i * step + off;
+        return <line key={i} x1={x} y1={y} x2={x} y2={y + (i % 2 ? 40 : 80)} strokeWidth={i % 2 ? 4 : 7} />;
+      })}
+    </g>
+  );
+};
 
 /** A saturated paper-teal plate with gold and violet insets (studio panels stay saturated, storyboard §1 chroma plan). */
 export const Plate: React.FC<{ x: number; y: number; w: number; h: number; children?: React.ReactNode; tint?: string }> = ({ x, y, w, h, children, tint = "#1F7F86" }) => (
@@ -316,49 +331,38 @@ export const BendStreaks: React.FC<{ f: number; sx: number; cy: number; h: numbe
   len = 170,
   width = 7,
   seed = 5,
-  spread = 0.18,
   opacity = 0.9,
   from = C.gold,
   to = C.amber,
 }) => {
   const out: React.ReactNode[] = [];
   const N = Math.min(80, n);
+  const half = h / 2 + 34;
+  // each lane keeps its order: lanes near the axis are pushed out to just past the rim, outer lanes barely move
+  const target = (ady: number) => Math.max(ady, half + ady * 0.3);
+  const sm = (u: number) => {
+    const k = cl01(u);
+    return k * k * (3 - 2 * k);
+  };
   for (let i = 0; i < N; i++) {
     const y0 = -120 + rnd(seed * 3 + i) * 1320;
     const dy = y0 - cy;
-    const inside = Math.abs(dy) < h / 2 + 40;
     const side = dy < 0 ? -1 : 1;
-    const edgeY = cy + side * (h / 2 + 34 + Math.abs(dy) * 0.12);
-    const path: Pt[] = inside
-      ? [
-          [-300, y0],
-          [sx - 160, y0],
-          [sx - 40, lerp(y0, edgeY, 0.75)],
-          [sx + 40, edgeY],
-          [sx + 500, edgeY + side * 80 * spread * 6],
-          [2300, edgeY + side * (260 + Math.abs(dy) * spread * 2)],
-        ]
-      : [
-          [-300, y0],
-          [2300, y0 + side * Math.max(0, 300 - Math.abs(dy) + h / 2) * spread],
-        ];
-    const seg = path.slice(1).map((p, k) => Math.hypot(p[0] - path[k][0], p[1] - path[k][1]));
-    const total = seg.reduce((a, b) => a + b, 0);
+    const ady = Math.abs(dy);
+    const tg = target(ady);
+    const yAt = (x: number) => {
+      const k = sm((x - (sx - 460)) / 400);
+      const after = Math.max(0, x - sx) * 0.06 * sm((half + 200 - ady) / 200);
+      return cy + side * (lerp(ady, tg, k) + after);
+    };
     const sp = speed * (0.8 + 0.4 * rnd(seed * 7 + i));
     const L = len * (0.6 + 0.7 * rnd(seed * 11 + i));
-    const head = mod(rnd(seed * 5 + i) * (total + L) + f * sp, total + L);
-    const at = (d: number): Pt => {
-      let s = Math.max(0, Math.min(total, d));
-      for (let k = 0; k < seg.length; k++) {
-        if (s <= seg[k]) {
-          const u = s / Math.max(1, seg[k]);
-          return [lerp(path[k][0], path[k + 1][0], u), lerp(path[k][1], path[k + 1][1], u)];
-        }
-        s -= seg[k];
-      }
-      return path[path.length - 1];
-    };
-    const pts: Pt[] = Array.from({ length: 6 }, (_, k) => at(head - L + (k * L) / 5));
+    const span = 2600 + L;
+    const hx = -300 + ((((rnd(seed * 5 + i) * span + f * sp) % span) + span) % span);
+    const pts: Pt[] = Array.from({ length: 7 }, (_, k) => {
+      const x = hx - L + (k * L) / 6;
+      return [x, yAt(x)];
+    });
     const w = width * (0.6 + 0.8 * rnd(seed * 13 + i));
     out.push(<path key={i} d={smoothPath(pts, 0.5)} fill="none" stroke={mixHex(from, to, rnd(seed * 17 + i))} strokeWidth={w} strokeLinecap="round" opacity={0.55 + 0.45 * rnd(seed * 19 + i)} />);
   }

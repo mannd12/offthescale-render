@@ -42,6 +42,7 @@ import {
   Tag,
   TallSky,
   Thermo,
+  WallScale,
   cl01,
   ez,
   lerp,
@@ -194,7 +195,7 @@ const ShotQuestion: ShotFC<CL04> = ({ f, len }) => {
           <rect x={430} y={cy + 20} width={1040} height={380} rx={18} fill="none" stroke={alpha(C.violet, 0.6)} strokeWidth={3} />
           <Headline x={470} y={cy + 190} lines={["One of the greatest", "unanswered questions"]} size={78} color={C.ink} accent={C.magenta} />
           <SourceChip x={470} y={cy + 365} text="NASA" size={22} />
-          <Tick x={960} y={940} pxPerM={150} frame={f} pose="heave" expression="determined" look={0} headTilt={-6} />
+          <Tick x={960} y={lerp(1300, 885, ez(f, 0, 40))} pxPerM={150} frame={f} pose="heave" expression="determined" look={0} headTilt={-6 + Math.sin(f / 10) * 5} squash={impact(f, 40, 0.1, 10)} />
         </StudioSet>
       </Stage>
     </Pop>
@@ -398,7 +399,7 @@ const ShotTemp: ShotFC<CL04> = ({ f, len, c }) => {
                   </g>
                 );
               })}
-              <rect x={1330} y={box.y} width={90} height={box.h} rx={20} fill={alpha(C.ink, 0.6)} stroke={C.paper} strokeWidth={4} />
+              <rect x={1330} y={box.y} width={90} height={box.h} rx={20} fill={alpha(C.paper, 0.18)} stroke={C.paper} strokeWidth={4} />
               <rect x={1340} y={box.y + box.h - 10 - (box.h - 20) * ez(g, 10, 60)} width={70} height={(box.h - 20) * ez(g, 10, 60)} rx={14} fill={C.amber} />
               <text x={1375} y={box.y + box.h + 50} textAnchor="middle" style={{ fontFamily: ANTON, fontSize: 30, letterSpacing: 3, fill: STU.text }}>
                 TOTAL
@@ -452,7 +453,19 @@ const ShotOven: ShotFC<CL04> = ({ f, len }) => {
       <Stage theme={STU.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.02, panY: 0.008, frames: len + 30, seed: 7 }} vignette={0.12} grain={0.4}>
         <StudioSet f={f} seed={5} floor={900}>
           <Cards f={f} inA={ez(f, 0, 14)} inB={ez(f, 6, 20)} />
-          <Tick x={1790} y={975} pxPerM={120} frame={f} facing={-1} pose="point" staff expression="happy" look={lerp(0.2, 0.9, toPot)} headTilt={lerp(-4, 6, toPot)} tilt={lerp(-6, 4, toPot)} />
+          <Tick
+            x={lerp(lerp(1300, 940, ez(f, 10, 40)), 1010, toPot)}
+            y={990}
+            pxPerM={165}
+            frame={f}
+            facing={toPot < 0.5 ? -1 : 1}
+            pose={toPot < 0.5 ? "crouch-reach" : "shield"}
+            expression={toPot < 0.5 ? "happy" : "surprised"}
+            look={0.5}
+            tilt={toPot < 0.5 ? -8 : lerp(0, -14, toPot)}
+            headTilt={Math.sin(f / 8) * 6}
+            walk={f > 10 && f < 40 ? f / 10 : undefined}
+          />
         </StudioSet>
       </Stage>
     </Pop>
@@ -498,7 +511,7 @@ const ShotThin: ShotFC<CL04> = ({ f, len, c }) => {
                 [POT.x + POT.w + 40, wb],
               ].map(([x, h], i) => (
                 <g key={i}>
-                  <rect x={x} y={820 - 430} width={54} height={430} rx={14} fill={alpha(C.ink, 0.45)} />
+                  <rect x={x} y={820 - 430} width={54} height={430} rx={14} fill={alpha(C.paper, 0.18)} stroke={alpha(C.paper, 0.6)} strokeWidth={3} />
                   <rect x={x + 6} y={820 - 6 - h} width={42} height={h} rx={10} fill={i ? C.amber : mixHex(C.cyan, C.amber, 0.4)} />
                   <text x={x + 27} y={860} textAnchor="middle" style={{ fontFamily: ANTON, fontSize: 24, letterSpacing: 2, fill: STU.text }}>
                     WARMTH
@@ -581,34 +594,46 @@ const ShotSwing: ShotFC<CL04> = ({ f, len }) => {
 const ShieldFace: React.FC<{ f: number; cx: number; cy: number; rx: number; ry: number; front: number; drift?: number }> = ({ f, cx, cy, rx, ry, front, drift = 0 }) => {
   const x0 = cx - rx;
   const fx = x0 + 2 * rx * cl01(front);
+  const rimArc = `M${cx} ${cy - ry} A${rx} ${ry} 0 0 0 ${cx} ${cy + ry}`;
   return (
     <g>
       <defs>
         <clipPath id="l04face">
           <ellipse cx={cx} cy={cy} rx={rx} ry={ry} />
         </clipPath>
-        <linearGradient id="l04front" x1={0} y1={0} x2={1} y2={0}>
-          <stop offset={0} stopColor={C.tangerine} />
-          <stop offset={0.6} stopColor={C.amber} />
-          <stop offset={1} stopColor={C.gold} />
+        <radialGradient id="l04body" cx={0.32} cy={0.4} r={0.8}>
+          <stop offset={0} stopColor="#5A4A8E" />
+          <stop offset={0.55} stopColor={C.shield} />
+          <stop offset={1} stopColor="#120C26" />
+        </radialGradient>
+        <radialGradient id="l04heat" cx={0.3} cy={0.45} r={0.85}>
+          <stop offset={0} stopColor={C.gold} />
+          <stop offset={0.5} stopColor={C.amber} />
+          <stop offset={1} stopColor={C.tangerine} />
+        </radialGradient>
+        <linearGradient id="l04shadow" x1={0} y1={0} x2={1} y2={0}>
+          <stop offset={0.45} stopColor="#0B0828" stopOpacity={0} />
+          <stop offset={1} stopColor="#0B0828" stopOpacity={0.7} />
         </linearGradient>
       </defs>
-      <ellipse cx={cx + 18} cy={cy + 24} rx={rx} ry={ry} fill="#0B0828" opacity={0.5} />
-      <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill={C.shield} stroke={C.shieldRim} strokeWidth={8} />
+      <ellipse cx={cx + 22} cy={cy + 28} rx={rx} ry={ry} fill="#0B0828" opacity={0.5} />
+      <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="url(#l04body)" />
       <g clipPath="url(#l04face)">
-        <rect x={x0} y={cy - ry} width={Math.max(0, fx - x0)} height={2 * ry} fill="url(#l04front)" opacity={0.9} />
-        {front > 0 && front < 1 ? <rect x={fx - 10} y={cy - ry} width={20} height={2 * ry} fill={C.whiteGold} opacity={0.85} /> : null}
+        <rect x={x0} y={cy - ry} width={Math.max(0, fx - x0)} height={2 * ry} fill="url(#l04heat)" opacity={0.92} />
+        {front > 0 && front < 1 ? <rect x={fx - 12} y={cy - ry} width={24} height={2 * ry} fill={C.whiteGold} opacity={0.8} /> : null}
         {drift > 0
-          ? Array.from({ length: 7 }, (_, i) => {
-              const bx = x0 + (((i * 2 * rx) / 7 - f * drift) % (2 * rx) + 2 * rx) % (2 * rx);
-              return <rect key={i} x={bx} y={cy - ry} width={46} height={2 * ry} fill={i % 2 ? C.gold : C.tangerine} opacity={0.35} />;
+          ? Array.from({ length: 3 }, (_, i) => {
+              const span = 2 * rx + 300;
+              const hx = x0 - 150 + ((((i * span) / 3 - f * drift) % span) + span) % span;
+              return <Bloom key={i} x={hx} y={cy + Math.sin(i * 2 + f / 20) * ry * 0.4} r={rx * 0.55} color={C.whiteGold} strength={0.45} />;
             })
           : null}
-        {Array.from({ length: 9 }, (_, i) => (
-          <line key={"h" + i} x1={x0} y1={cy - ry + ((i + 1) * 2 * ry) / 10} x2={cx + rx} y2={cy - ry + ((i + 1) * 2 * ry) / 10} stroke={alpha(C.ink, 0.25)} strokeWidth={2} />
-        ))}
+        <rect x={x0} y={cy - ry} width={2 * rx} height={2 * ry} fill="url(#l04shadow)" />
       </g>
-      <Bloom x={cx} y={cy} r={Math.max(rx, ry) * 1.3} color={C.amber} strength={0.35 * cl01(front)} />
+      <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="none" stroke="#120C26" strokeWidth={6} />
+      <path d={rimArc} fill="none" stroke={C.gold} strokeWidth={28} strokeLinecap="round" opacity={0.35} />
+      <path d={rimArc} fill="none" stroke={C.whiteGold} strokeWidth={12} strokeLinecap="round" />
+      <Bloom x={cx - rx} y={cy} r={ry * 0.9} color={C.gold} strength={0.35 + 0.25 * cl01(front)} squash={0.5} />
     </g>
   );
 };
@@ -625,14 +650,29 @@ const ShotFoam: ShotFC<CL04> = ({ f, len, c }) => {
       <Pop f={f}>
         <Stage theme={STU.theme} shotFrame={f} drift={{ zoom: 1.08, panX: 0.015, panY: 0.01, frames: len + 30, seed: 10 }} vignette={0.12} grain={0.4}>
           <StudioSet f={f} seed={9}>
-            <Shield x={sx} y={500} size={540} f={f} explode={ex} />
-            <path d={`M${sx - 190} ${360} L${lerp(sx - 190, 520, lead)} ${lerp(360, 220, lead)}`} stroke={C.ink} strokeWidth={4} fill="none" opacity={lead > 0 ? 1 : 0} />
-            <path d={`M${sx} ${640} L${lerp(sx, 1260, lead)} ${lerp(640, 820, lead)}`} stroke={C.ink} strokeWidth={4} fill="none" opacity={lead > 0 ? 1 : 0} />
-            <Tick x={lerp(1420, 1520, ex)} y={940} pxPerM={130} frame={f} facing={-1} pose="crouch-reach" expression="surprised" look={0.7} headTilt={-8} />
+            <WallScale f={f} y={70} speed={6} />
+            <Shimmer f={f} x={480} y={60} w={900} h={820} n={12} speed={10} color={STU.haze} opacity={0.45} />
+            {/* a warm paper card so the dark carbon layers read on the observatory wall; a light sweep crosses it */}
+            <g transform={`translate(${sx - 900} 0)`}>
+              <defs>
+                <clipPath id="l04card">
+                  <rect x={540} y={150} width={720} height={700} rx={26} />
+                </clipPath>
+              </defs>
+              <rect x={552} y={166} width={720} height={700} rx={26} fill="#0B0828" opacity={0.4} />
+              <rect x={540} y={150} width={720} height={700} rx={26} fill={C.paper} stroke={C.gold} strokeWidth={6} />
+              <g clipPath="url(#l04card)">
+                <path d={`M${400 + ((f * 14) % 1100)} 150 l140 0 l-260 700 l-140 0 Z`} fill={C.whiteGold} opacity={0.55} />
+              </g>
+            </g>
+            <Shield x={sx} y={500} size={540} f={f} explode={ex} tilt={-6 + 12 * lin(f, 20, len)} />
+            <path d={`M${sx - 190} ${360} L${lerp(sx - 190, 500, lead)} ${lerp(360, 150, lead)}`} stroke={C.saffron} strokeWidth={5} fill="none" opacity={lead > 0 ? 1 : 0} />
+            <path d={`M${sx} ${700} L${lerp(sx, 1290, lead)} ${lerp(700, 900, lead)}`} stroke={C.saffron} strokeWidth={5} fill="none" opacity={lead > 0 ? 1 : 0} />
+            <Tick x={lerp(1420, 1360, ex)} y={950} pxPerM={170} frame={f} facing={-1} pose="crouch-reach" expression="surprised" look={0.5 + 0.4 * Math.sin(f / 11)} headTilt={-8 + Math.sin(f / 9) * 10} />
           </StudioSet>
           <Layer depth={0}>
-            <Tag x={520} y={190} text="CARBON PLATE" F={STU} dot={C.violet} size={32} align="end" opacity={ez(f, 64, 74)} />
-            <Tag x={1100} y={840} text="CARBON FOAM" F={STU} dot={C.lavender} size={32} opacity={ez(f, 66, 76)} />
+            <Tag x={500} y={150} text="CARBON PLATE" F={STU} dot={C.violet} size={32} align="end" opacity={ez(f, 64, 74)} />
+            <Tag x={1290} y={900} text="CARBON FOAM" F={STU} dot={C.lavender} size={32} opacity={ez(f, 66, 76)} />
           </Layer>
         </Stage>
       </Pop>

@@ -24,7 +24,7 @@ import { OurSumPill, SourceChip } from "../stamps";
 import { Balance, Bracket, Cube, Detector, EarthRow, GlassBox, Probe } from "../props16";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { CREAM, FamSky, INK, Ledge, Num, Pop, RadialField, Rim, Rings, RollMetric, StudioSet, Tag, TextPlate, Word, ez, mod, path1, photonHead } from "./c-parts";
+import { AtomField, CREAM, FamSky, INK, Ledge, Num, Pop, RadialField, Rim, Rings, RollMetric, StudioSet, Tag, TextPlate, Word, ez, mod, path1, photonHead } from "./c-parts";
 
 const C = L16_COLORS;
 const D2R = Math.PI / 180;
@@ -349,7 +349,7 @@ const ShotDensity: ShotFC<C07> = ({ f }) => {
             <path d="M-90 0 L90 0 L64 -70 L-64 -70 Z" fill={C.gold} stroke={C.saffronDeep} strokeWidth={5} />
             <path d="M-50 -60 L40 -60" stroke="#FFF6D0" strokeWidth={6} strokeLinecap="round" opacity={0.8} />
           </g>
-          <Word x={1110} y={810} text="gold" size={26} color={INK} align="middle" opacity={drop} />
+          <Word x={1110} y={810} text="gold" size={26} color={CREAM} align="middle" opacity={drop} />
         </Layer>
         <Layer depth={0}>
           <TextPlate x={1180} y={180} w={560} h={250} color="#0E2A3E" opacity={0.6} />
@@ -412,7 +412,7 @@ const ShotBalance: ShotFC<C07> = ({ f, c }) => {
       <Stage theme={familyOf("studio").theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.008, panY: 0, frames: 200, seed: 9 }} vignette={0.2} grain={0.5}>
         <StudioSet f={f} seed={7} floor={900} />
         <Layer depth={1}>
-          <Balance x={960} y={400} w={760} f={f} tilt={tilt} left={left} right={right} />
+          <Balance x={960} y={400} w={760} f={f} tilt={tilt} left={left} right={right} color={C.bone} />
           <Tick x={1570} y={902} pxPerM={100} frame={f} facing={-1} pose="heave" poseTo="hold" poseT={0.5 + 0.5 * Math.sin(f / 3)} expression="thinking" look={0.3} />
         </Layer>
         <Layer depth={0}>
@@ -469,9 +469,11 @@ const ShotTrapped: ShotFC<C07> = ({ f }) => {
       <Stage theme={familyOf("dense").theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.008, panY: 0.004, frames: 200, seed: 10 }} vignette={0.2} grain={0.5}>
         <Layer depth={0.05}>
           <FamSky name="dense" />
+          {/* the thick radiative crowd streaming past behind the cutaway (large-area mover for the whole shot) */}
+          <AtomField f={f} oy={-f * 14} ox={f * 4} n={40} seed={21} r={20} />
         </Layer>
         <Layer depth={1}>
-          <SunCutaway f={f} cx={cx} cy={cy} r={r} variant="quarter" wedge={-90} highlight="radiative" rotate={2.5} />
+          <SunCutaway f={f} cx={cx} cy={cy} r={r} variant="quarter" wedge={-90} highlight="radiative" rotate={4} />
           {trail.length > 1 ? <path d={"M" + trail.map((p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" L")} fill="none" stroke="#FFFFFF" strokeWidth={11} strokeLinejoin="round" strokeLinecap="round" /> : null}
           {pts.slice(1).map((p, i) => {
             const at = photonHead(pts.slice(0, i + 2), 1e9).total;
@@ -590,6 +592,8 @@ const ShotBorexino: ShotFC<C07> = ({ f }) => {
         <Layer depth={0.3}>
           <Stars frame={f} n={70} x={-200} y={-100} w={2400} h={1300} color={STAR_TINTS[0]} seed={13} />
           <Stars frame={f} n={50} x={-200} y={-100} w={2400} h={1300} color={STAR_TINTS[2]} seed={17} />
+          {/* neutrinos streaming across the dark from the off-frame Sun at the left (36 px/f) */}
+          <Neutrinos f={f} cx={-700} cy={480} count={34} speed={36} len={220} width={5} r0={500} rMax={2900} seed={9} opacity={0.75} />
         </Layer>
         <Layer depth={1}>
           {age >= 0 ? <circle cx={ex} cy={ey} r={30 + age * 20} fill="none" stroke="#E8FBFF" strokeWidth={8} opacity={Math.max(0, 1 - age / 18)} /> : null}
@@ -677,6 +681,7 @@ const ShotCycles: ShotFC<C07> = ({ f }) => {
         </Layer>
         <Layer depth={1}>
           <Bloom x={960} y={560} r={260 + 60 * breathe} color={C.whiteGold} strength={0.5 + 0.2 * breathe} />
+          <Neutrinos f={f} cx={620} cy={570} count={26} speed={36} len={170} width={5} r0={260} rMax={2200} seed={14} opacity={0.7} />
           <Loop cx={620} cy={570} r={240} f={f} lit nodes={6} />
           <Loop cx={1330} cy={570} r={200} f={f} lit={false} nodes={4} />
           <Motes frame={f} n={20} x={0} y={0} w={1920} h={1080} color={alpha(C.whiteGold, 0.8)} seed={8} size={3} drift={40} />

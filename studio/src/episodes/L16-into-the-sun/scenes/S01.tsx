@@ -175,6 +175,7 @@ const ShotRide: ShotFC<CL01> = ({ f, len }) => {
           <SpaceField f={f} seed={24} n={110} />
         </Layer>
         <Layer depth={1}>
+          <WindStreaks f={f} mode="sweep" angle={180} box={{ x: -200, y: -100, w: 2320, h: 1280 }} speed={16} count={36} len={170} width={7} seed={35} from={C.lavender} to={C.gold} opacity={0.55} />
           <Bloom x={960} y={1260} r={760} color={C.amber} strength={0.5} squash={0.5} />
           <circle cx={O.x} cy={O.y} r={O.R} fill="none" stroke={alpha(C.lavender, 0.5)} strokeWidth={4} strokeDasharray="14 12" strokeDashoffset={-f * 2} />
           <ArcArrow cx={O.x} cy={O.y} r={O.R} a0={a / D2R + 3} sweep={13} width={40} color={C.gold} />
@@ -215,7 +216,7 @@ const ShotMiss: ShotFC<CL01> = ({ f, len }) => {
           <SpaceField f={f} seed={25} n={110} />
         </Layer>
         <Layer depth={1}>
-          <WindStreaks f={f} cx={S.x} cy={S.y} r0={S.r + 20} rMax={1300} a0={-180} a1={180} speed={14} count={60} len={110} width={6} seed={25} opacity={0.5} />
+          <WindStreaks f={f} cx={S.x} cy={S.y} r0={S.r + 20} rMax={1300} a0={-180} a1={180} speed={15} count={80} len={130} width={7} seed={25} opacity={0.75} />
           <circle cx={S.x} cy={S.y} r={R} fill="none" stroke={alpha(C.lavender, 0.35)} strokeWidth={3} strokeDasharray="10 12" />
           <SunDisc x={S.x} y={S.y} r={S.r} f={f} />
           {/* the drawn line straight at the Sun (dims once the probe has gone round) */}
@@ -268,7 +269,7 @@ const ShotSums: ShotFC<CL01> = ({ f, len, c }) => {
               <Bloom x={d.x} y={560} r={420} color={i ? C.magenta : C.gold} strength={0.3} />
               <ClipBox x={d.x - 280} y={325} w={560} h={490} rx={30}>
                 <rect x={d.x - 280} y={325} width={560} height={490} fill={alpha("#0B0828", 0.85)} />
-                <WindStreaks f={f} mode="sweep" angle={d.dir} box={{ x: d.x - 300, y: 330, w: 600, h: 480 }} speed={16} count={22} len={120} width={7} seed={27 + i} from={i ? C.magenta : C.gold} to={C.violet} opacity={0.5} />
+                <WindStreaks f={f} mode="sweep" angle={d.dir} box={{ x: d.x - 300, y: 330, w: 600, h: 480 }} speed={16} count={40} len={130} width={8} seed={27 + i} from={i ? C.magenta : C.gold} to={C.violet} opacity={0.8} />
               </ClipBox>
               <SumDial x={d.x} y={600} r={190} deg={d.deg} f={f} title={d.title} plate="none" />
               <Slab x={d.x} y={790} align="middle" value={d.sign + rollText(d.r.value!, d.k, 1)} unit={d.r.unit} size={64} F={SPACE} check={d.k >= 1} />
@@ -321,6 +322,7 @@ const ShotOurs: ShotFC<CL01> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 10, x: 940, y: 520, zoom: 1.07 }])} vignette={0.12} grain={0.5}>
         <StudioRoom f={f} seed={9}>
+          <WindStreaks f={f} mode="sweep" angle={0} box={{ x: -200, y: 120, w: 2320, h: 700 }} speed={16} count={40} len={170} width={8} seed={36} from={C.gold} to={C.magenta} opacity={0.5} />
           {[
             { x: 600, deg: READ.extraKick.value! * DEG, title: "leave", dir: 0 },
             { x: 1290, deg: -READ.earthMinus.value! * DEG, title: "fall in", dir: 180 },
@@ -328,7 +330,7 @@ const ShotOurs: ShotFC<CL01> = ({ f, len }) => {
             <g key={i} transform={`translate(${shake * (i ? -1 : 1)} ${shake * 0.5})`}>
               <ClipBox x={d.x - 250} y={190} w={500} h={520} rx={30}>
                 <rect x={d.x - 250} y={190} width={500} height={520} fill="#1E5A6E" />
-                <WindStreaks f={f} mode="sweep" angle={d.dir} box={{ x: d.x - 270, y: 200, w: 540, h: 500 }} speed={16} count={20} len={110} width={7} seed={31 + i} from={i ? C.magenta : C.gold} to={C.violet} opacity={0.55} />
+                <WindStreaks f={f} mode="sweep" angle={d.dir} box={{ x: d.x - 270, y: 200, w: 540, h: 500 }} speed={16} count={34} len={120} width={8} seed={31 + i} from={i ? C.magenta : C.gold} to={C.violet} opacity={0.8} />
               </ClipBox>
               <rect x={d.x - 250} y={190} width={500} height={520} rx={30} fill="none" stroke={C.gold} strokeWidth={6} />
               <SumDial x={d.x} y={470} r={170} deg={d.deg + Math.sin(f / 7 + i) * 2} f={f} title={d.title} plate="none" />
@@ -416,6 +418,9 @@ const ShotTape: ShotFC<CL01> = ({ f, len, c }) => {
       <Stage theme={STUDIO.theme} cam={cameraAt(f, [{ f: 0, x: 960, y: 540, zoom: 1.0 }, { f: len + 10, x: 960, y: 520, zoom: 1.08 }])} vignette={0.12} grain={0.5}>
         <StudioRoom f={f} seed={10}>
           <Plate x={120} y={330} w={1680} h={460} fill="#1E5A6E" />
+          <ClipBox x={130} y={340} w={1660} h={440} rx={20}>
+            <WindStreaks f={f} mode="sweep" angle={0} box={{ x: 100, y: 350, w: 1720, h: 420 }} speed={16} count={30} len={150} width={7} seed={37} from={C.gold} to={C.violet} opacity={0.45} />
+          </ClipBox>
           <Tape x={TX} y={TY} len={TL} f={f} unroll={unroll} gold={gold * (1 - 0 * slide)} slide={slide} />
           {gold > 0.02 ? (
             <g transform={`translate(${-slide * 200} ${slide * 60})`}>
@@ -452,6 +457,7 @@ const ShotPayBack: ShotFC<CL01> = ({ f }) => {
           <SpaceField f={f} seed={30} n={110} />
         </Layer>
         <Layer depth={1}>
+          <WindStreaks f={f} mode="sweep" angle={0} box={{ x: -200, y: -100, w: 2320, h: 1280 }} speed={16} count={36} len={170} width={7} seed={38} from={C.gold} to={C.magenta} opacity={0.5} />
           <Bloom x={-200} y={540} r={700} color={C.amber} strength={0.35} />
           <Probe x={430} y={520} size={260} f={f} tilt={0} />
           <g transform="translate(560 520) scale(1.7) translate(-560 -520)">
@@ -571,8 +577,11 @@ const ShotLoop: ShotFC<CL01> = ({ f, len, c }) => {
           <WindStreaks f={f} cx={S.x} cy={S.y} r0={S.r + 20} rMax={1600} a0={-180} a1={180} speed={14} count={60} len={120} width={7} seed={34} opacity={0.5} />
           <SunDisc x={S.x} y={S.y} r={S.r} f={f} />
           <Planet x={E[0]} y={E[1]} r={50} f={f} kind="earth" light={180} />
+          <g opacity={1 - ez(g, 0, 30)}>
+            <WindStreaks f={f} mode="sweep" angle={180} box={{ x: S.x + S.r, y: S.y - 110, w: E[0] - S.x - S.r, h: 220 }} speed={18} count={40} len={170} width={9} seed={39} from={C.gold} to={C.whiteGold} opacity={0.7 * head} />
+          </g>
           <g opacity={g < 0 ? 1 : 1 - 0.55 * ez(g, 10, 30)}>
-            <DrawnPath pts={[[E[0] - 60, E[1]], [S.x + S.r + 20, S.y]]} head={head} f={f} dots width={10} color={C.saffron} march={0} />
+            <DrawnPath pts={[[E[0] - 60, E[1]], [S.x + S.r + 20, S.y]]} head={head} f={f} dots width={10} color={C.saffron} march={3} />
           </g>
           {g >= 0 ? <Strike x1={1500} y1={430} x2={900} y2={700} k={lin(g, 0, 16)} w={22} color={C.vermilion} /> : null}
           {g >= 0 ? <DrawnPath pts={spiral} head={spHead} f={f} width={12} color={C.gold} glow={0.8} /> : null}

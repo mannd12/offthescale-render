@@ -24,7 +24,7 @@ import { AboutPill, Board, OurSumPill, Sheet, SourceChip, StateStamp, type Stamp
 import { Calendar, Probe, Stamp, Telescope, Trace, partialPts } from "../props16";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { ChalkLoop, CREAM, INK, Plate, Pop, QMark, RollMetric, Slam, StudioSet, Tag, TextPlate, Word, ez, lin, mod } from "./c-parts";
+import { ChalkLoop, CREAM, INK, Plate, PlateStripes, Pop, QMark, RollMetric, Slam, StudioSet, Tag, TextPlate, Word, ez, lin, mod } from "./c-parts";
 
 const C = L16_COLORS;
 const STUDIO = familyOf("studio");
@@ -130,6 +130,24 @@ const EvidenceBoard: React.FC<{ f: number; path?: number; bar?: number; sheets: 
         );
       })}
     </Board>
+  );
+};
+
+/** Tick doing the stamping at sheet i (world coords, F1: he stands on the sheet's lower edge): wind-up (arms up, a
+ *  little hop), the slam with the stamp (age 0), a recoil step back. `age` = frames since the stamp's slam. */
+const Stamper: React.FC<{ i: number; f: number; age: number; slide: number }> = ({ i, f, age, slide }) => {
+  const [sx, sy] = SHEETS[i];
+  const k = Math.max(0, Math.min(1, slide));
+  const fx = BX + sx + 447 + 128 + (1 - k) * 600 + (age > 4 ? 30 * ez(age, 4, 16) : 0);
+  const fy = BY + sy + SH + 10 + (1 - k) * 80;
+  const hop = age < 0 && age > -14 ? -Math.sin(((age + 14) / 14) * Math.PI) * 26 : age >= 0 && age < 10 ? -Math.sin((age / 10) * Math.PI) * 14 : 0;
+  const pose = age < 0 ? "heave" : age < 6 ? "press" : "stand";
+  const poseTo = age < 0 ? undefined : age < 6 ? undefined : "hips";
+  return (
+    <g>
+      <rect x={fx - 60} y={fy} width={120} height={14} rx={7} fill={C.saffron} stroke={INK} strokeWidth={3} />
+      <Tick x={fx} y={fy + hop} pxPerM={74} frame={f} facing={-1} pose={pose} poseTo={poseTo} poseT={age >= 6 ? ez(age, 6, 18) : undefined} expression={age < 2 ? "determined" : "proud"} look={0.3} />
+    </g>
   );
 };
 
@@ -270,7 +288,7 @@ const ShotHonest: ShotFC<C08> = ({ f, len, c }) => {
       </Layer>
       <Layer depth={0}>
         <g opacity={1 - ez(f, p2, p2 + 12)}>
-          <Kicker x={620} y={1040} text="where the data ends" color={INK} size={34} />
+          <Kicker x={620} y={1040} text="where the data ends" color={CREAM} size={34} />
         </g>
         {f >= p2 ? (
           <g opacity={ez(f, p2 + 16, p2 + 26)}>
@@ -302,8 +320,10 @@ const ShotNone: ShotFC<C08> = ({ f, len }) => {
         <StudioSet f={f} seed={2} floor={960} />
         <Layer depth={1}>
           <EvidenceBoard f={f} path={1} bar={1} sheets={SHEETS.map(() => ({ slide: 1 }))} />
-          <rect x={BX + 200} y={scan - 4} width={60} height={8} fill="#FFFFFF" opacity={0.75} />
-          <Bloom x={BX + 230} y={scan} r={60} color="#FFFFFF" strength={0.4} squash={0.4} />
+          {/* a scan band falling across the whole board (22 px/f) */}
+          <rect x={BX} y={scan - 14} width={BW} height={28} fill="#FFFFFF" opacity={0.16} />
+          <rect x={BX + 200} y={scan - 6} width={60} height={12} fill="#FFFFFF" opacity={0.85} />
+          <Bloom x={BX + 230} y={scan} r={90} color="#FFFFFF" strength={0.5} squash={0.4} />
           {/* "none of it": an empty dashed outline beside the bar where a path would be */}
           <line x1={BX + 150} y1={BY + 300} x2={BX + 150} y2={BY + CENTRE} stroke={alpha(CREAM, 0.35)} strokeWidth={5} strokeDasharray="4 22" />
         </Layer>
@@ -334,10 +354,9 @@ const ShotParker: ShotFC<C08> = ({ f, len, c }) => {
         <StudioSet f={f} seed={2} floor={960} />
         <Layer depth={1}>
           <EvidenceBoard f={f} sheets={sheets} />
+          <Stamper i={0} f={f} age={f - 28} slide={slide} />
         </Layer>
         <Layer depth={0}>
-          <rect x={1560} y={1010} width={320} height={20} rx={10} fill={C.saffron} stroke={INK} strokeWidth={3} />
-          <Tick x={1700} y={1012} pxPerM={90} frame={f} facing={-1} pose="press" poseTo="stand" poseT={ez(f, 34, 50)} expression="determined" expressionTo="proud" expressionT={ez(f, 30, 44)} staff look={0.3} />
           {f >= p2 ? <Tag x={960} y={960} text={READ.about9.text /* #6 #22 */} F={STUDIO} size={30} align="middle" appear={ez(f, p2 + 8, p2 + 20)} /> : null}
         </Layer>
       </Stage>
@@ -358,13 +377,15 @@ const sheetShot = (i: 1 | 2 | 3): ShotFC<C08> =>
       { f: len, x: x + 10, y: y + 20, zoom: 1.8 },
     ]);
     const body = i === 1 ? <BodyAfar f={f} /> : i === 2 ? <BodyWaves f={f} curve={ez(f, 10, 30)} /> : <BodyNeutrinos f={f} />;
-    const sheets = restSheets(f, i).map((s, k) => (k === i ? { slide: ez(f, 0, 20), titled: true, stampAge: f - 20, body } : s));
+    const slide = ez(f, 0, 20);
+    const sheets = restSheets(f, i).map((s, k) => (k === i ? { slide, titled: true, stampAge: f - 20, body } : s));
     return (
       <Pop f={f}>
         <Stage theme={STUDIO.theme} cam={cam} vignette={0.2} grain={0.5}>
           <StudioSet f={f} seed={2} floor={960} />
           <Layer depth={1}>
             <EvidenceBoard f={f} sheets={sheets} />
+            <Stamper i={i} f={f} age={f - 20} slide={slide} />
           </Layer>
         </Stage>
       </Pop>
@@ -458,7 +479,7 @@ const ShotStamps: ShotFC<C08> = ({ f, len, c }) => {
       </Layer>
       <Layer depth={0}>
         <g opacity={1 - ez(f, p2, p2 + 10)}>
-          <Kicker x={170} y={100} text="how to read the stamps" color={INK} size={30} />
+          <Kicker x={170} y={100} text="how to read the stamps" color={CREAM} size={30} />
         </g>
       </Layer>
     </Stage>
@@ -538,6 +559,7 @@ const TableSet: React.FC<{ f: number; children: React.ReactNode }> = ({ f, child
     <StudioSet f={f} seed={11} floor={960} />
     <Layer depth={1}>
       <Plate x={TX} y={TY} w={TW} h={TH} />
+      <PlateStripes f={f} x={TX} y={TY} w={TW} h={TH} id="l08tstr" opacity={0.5} />
       <rect x={TX} y={TY} width={TW} height={80} rx={20} fill={C.tealDeep} />
       <rect x={TX} y={TY + 70} width={TW} height={10} fill={C.gold} />
       <Word x={TX + 40} y={TY + 54} text="nasa pages" size={30} color={CREAM} spacing={4} />
@@ -647,6 +669,7 @@ const ShotFuture: ShotFC<C08> = ({ f, len, c }) => {
         <StudioSet f={f} seed={13} floor={960} />
         <Layer depth={1}>
           <Plate x={160} y={300} w={1240} h={460} />
+          <PlateStripes f={f} x={160} y={300} w={1240} h={460} id="l08fstr" opacity={0.5} />
           <Word x={200} y={370} text="parker solar probe" size={30} color={CREAM} spacing={4} />
           <line x1={xs} y1={y} x2={xm} y2={y} stroke={C.stampGreen} strokeWidth={12} strokeLinecap="round" />
           {Array.from({ length: 7 }, (_, i) => (

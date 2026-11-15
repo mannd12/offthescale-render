@@ -19,7 +19,7 @@ import { AboutPill, StateStamp } from "../stamps";
 import { Balance, Cube, GlassBox, Planet, Probe, Telescope } from "../props16";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, CELLS, CORONA, GLOW, Ledge, Plate, PlasmaFlow, Pop, QTag, Readout, SPACE, STU, SpaceField, Sparks, StudioSet, Tag, TallSky, Thermo, cl01, ez, lerp, lin, rollText } from "./b-parts";
+import { C, CELLS, CORONA, GLOW, Ledge, Plate, PlasmaFlow, Pop, QTag, Readout, SPACE, STU, Shimmer, SpaceField, Sparks, StudioSet, Tag, TallSky, Thermo, WallScale, cl01, ez, lerp, lin, rollText } from "./b-parts";
 
 export const cuesL05 = (t: SceneTiming) => {
   const { at, frac, p } = cueKit(t);
@@ -352,7 +352,7 @@ const ShotThinner: ShotFC<CL05> = ({ f, len }) => {
               PHOTOSPHERE GAS
             </text>
           </g>
-          <Tick x={1800} y={960} pxPerM={110} frame={f} facing={-1} pose="point" expression="surprised" look={0.6} headTilt={Math.sin(f / 7) * 6} />
+          <Tick x={1790} y={975} pxPerM={150} frame={f} facing={-1} pose="crouch-reach" expression="surprised" look={0.6} headTilt={Math.sin(f / 7) * 8} />
         </StudioSet>
         <Layer depth={0}>
           <Tag x={960} y={830} text={READ.thinAir.text} F={STU} dot={C.gold} size={32} align="middle" opacity={ez(f, 12, 24)} />
@@ -413,10 +413,10 @@ const ShotSink: ShotFC<CL05> = ({ f, len, c }) => {
 const ShotWater: ShotFC<CL05> = ({ f, len }) => {
   const t0 = 8;
   const u = Math.max(0, f - t0);
-  const tilt = f < t0 ? 0.25 : -(1 - Math.exp(-u / 26) * Math.cos(u / 5)) * 0.9;
+  const tilt = (f < t0 ? 0.25 : -(1 - Math.exp(-u / 26) * Math.cos(u / 5)) * 0.9) + 0.16 * Math.sin(f / 8);
   const box = (gas: boolean) => (
     <g>
-      <rect x={-95} y={-190} width={190} height={190} rx={10} fill={gas ? alpha(C.gold, 0.35) : C.teal} stroke={C.ink} strokeWidth={4} />
+      <rect x={-95} y={-190} width={190} height={190} rx={10} fill={gas ? alpha(C.gold, 0.35) : C.teal} stroke={C.paper} strokeWidth={4} />
       <GlassBox x={-90} y={-185} w={180} h={180} f={f} n={gas ? 26 : 34} speed={gas ? 10 : 3} dot={7} color={gas ? C.gold : C.paper} seed={gas ? 3 : 7} frame={false} />
       <text x={0} y={-210} textAnchor="middle" style={{ fontFamily: ANTON, fontSize: 28, letterSpacing: 3, fill: STU.text }}>
         {gas ? "SUN GAS" : "WATER"}
@@ -427,7 +427,10 @@ const ShotWater: ShotFC<CL05> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={STU.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.02, panY: 0.01, frames: len + 30, seed: 5 }} vignette={0.12} grain={0.4}>
         <StudioSet f={f} seed={15}>
-          <Balance x={960} y={360} w={980} f={f} tilt={tilt} left={box(true)} right={box(false)} />
+          <WallScale f={f} y={90} speed={7} opacity={0.35} />
+          <Shimmer f={f} x={200} y={150} w={1520} h={700} n={12} speed={9} color={STU.haze} opacity={0.35} />
+          <Balance x={960} y={360} w={980} f={f} tilt={tilt} left={box(true)} right={box(false)} color={C.paper} />
+          <Tick x={1680} y={960} pxPerM={160} frame={f} facing={-1} pose={f < 40 ? "point" : "hips"} expression={f < 40 ? "thinking" : "proud"} look={0.3} headTilt={Math.sin(f / 9) * 6} />
         </StudioSet>
         <Layer depth={0}>
           <Tag x={960} y={1000} text="HEAVIER THAN WATER" F={STU} dot={C.gold} size={36} align="middle" opacity={ez(f, 26, 38)} />
