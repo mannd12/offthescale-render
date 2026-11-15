@@ -114,7 +114,7 @@ const d: Shot = ({ f, n }) => {
 
 /** e - a bar climbs the gauge, counter rolling, past 22 up to 26. */
 const e: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const base = 1180;
   return (
     <g>
@@ -283,7 +283,7 @@ const l: Shot = ({ f, n }) => {
 
 /** m - Everest's bar stops short of nine. */
 const m: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 10);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const base = 1180;
   return (
     <g>

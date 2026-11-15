@@ -164,7 +164,7 @@ const f_: Shot = ({ f }) => (
 
 /** g - the date plate: a counter rolls to 450 million years. */
 const g: Shot = ({ f, n }) => {
-  const v = 450 * ez(f, 2, n - 8);
+  const v = 450 * ez(f, 2, 2 + Math.round(n * 0.4));
   return (
     <g>
       <WarmSea f={f * 1.4} top={250} />
@@ -217,7 +217,7 @@ const i_: Shot = ({ f, n }) => {
 
 /** j - nearly nine kilometres above the ocean: counter + bracket against the big peak. */
 const j: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 8);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={["#2A8FC4", "#4FB5DE", "#9BD6E8"]} x={0} y={0} w={W} h={H} />
@@ -296,7 +296,7 @@ const m: Shot = ({ f }) => (
 
 /** n - +2 mm a year: a ruler creeps, the counter rolls. */
 const n_: Shot = ({ f, n }) => {
-  const k = ez(f, 4, n - 4);
+  const k = ez(f, 4, 4 + Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={["#1B6FA8", "#2A8FC4", "#4FB5DE"]} x={0} y={0} w={W} h={H} />

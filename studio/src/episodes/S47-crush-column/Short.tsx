@@ -139,7 +139,7 @@ const e: Shot = ({ f, n }) => (
 
 /** f - counters roll to the band's two ends. */
 const f_: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={["#7A3418", "#B04A18", "#E3813F"]} x={0} y={0} w={W} h={H} />
@@ -175,7 +175,7 @@ const g: Shot = ({ f, n }) => {
 
 /** h - a tiny air balloon against the giant pressure count. */
 const h: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 10);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={["#2A8FC4", "#4FB5DE", "#9BD6E8"]} x={0} y={0} w={W} h={H} />
@@ -232,7 +232,7 @@ const j: Shot = ({ f, n }) => {
 
 /** k - the gauge reads 8,849 m; Tick tilts back to look up. */
 const k_: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={["#1B6FA8", "#2A8FC4", "#4FB5DE"]} x={0} y={0} w={W} h={H} />
@@ -250,7 +250,7 @@ const k_: Shot = ({ f, n }) => {
 
 /** l - the needle swings up and trembles near 235. */
 const l: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 10);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={BG} x={0} y={0} w={W} h={H} />

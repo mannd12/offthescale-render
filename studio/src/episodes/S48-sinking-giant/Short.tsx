@@ -94,7 +94,7 @@ const c: Shot = ({ f }) => {
 
 /** d - the summit gauge counts up to 4,205 m above the sea. */
 const d: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const seaY = 1000;
   return (
     <g>
@@ -125,7 +125,7 @@ const e: Shot = ({ f }) => (
 
 /** f - the camera dives down the flank: sea level rushes up, depth counter rolls. */
 const f_: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 4);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const sy = mix(300, -1500, k);
   return (
     <g>
@@ -182,7 +182,7 @@ const h: Shot = ({ f, n }) => {
 
 /** i - the total reads 10,211 m; the Everest bar is shorter. */
 const i_: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const base = 1150;
   return (
     <g>
@@ -296,7 +296,7 @@ const n_: Shot = ({ f, n }) => {
 
 /** o - the depth counter: 1,335 m down. */
 const o: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   return (
     <g>
       <Sky stops={["#1B6FA8", "#0A3C4C", "#06222B"]} x={0} y={0} w={W} h={H} />

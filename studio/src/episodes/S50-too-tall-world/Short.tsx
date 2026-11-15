@@ -76,7 +76,7 @@ const a: Shot = ({ f, n }) => {
 
 /** b - the rule: a spike grows from the asteroid as the counter rolls to 340 km. */
 const b: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 8);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const cy = 940;
   const r = 263 * PX;
   return (
@@ -142,7 +142,7 @@ const e: Shot = ({ f, n }) => {
 
 /** f - a dashed line from the surface to the centre; the counter rolls to 260. */
 const f_: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 8);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const cy = 760;
   const r = 263 * PX;
   return (
@@ -283,7 +283,7 @@ const l: Shot = ({ f, n }) => {
 
 /** m - cross-section of the bowl, depth counter rolls to 19 km. */
 const m: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 8);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const top = 480;
   const depth = 340 * k; // exaggerated drawing of 19 km
   return (
@@ -333,7 +333,7 @@ const o: Shot = ({ f, n }) => {
 
 /** p - the peak's gauge reads about 20 km. */
 const p: Shot = ({ f, n }) => {
-  const k = ez(f, 0, n - 6);
+  const k = ez(f, 0, 0 + Math.round(n * 0.4));
   const base = 1180;
   return (
     <g>
