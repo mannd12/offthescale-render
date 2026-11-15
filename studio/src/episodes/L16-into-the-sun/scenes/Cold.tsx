@@ -278,18 +278,20 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
   const ev = f < 28 ? 0.32 + 0.14 * Math.sin(f / 3) : lerp(0.32, 1, ez(f, 28, 48));
   const epinned = f >= 48;
   const out = ez(g, 0, 16); // dials slide away
-  // the bars (phase 2)
-  const BASE = 900;
-  const UNIT = 54; // MARS bar height; SUN = 55 × UNIT (#3)
-  const hSun = Math.min(55 * UNIT, Math.max(0, g - 12) * 28); // still growing through the shot
+  // the bars (phase 2): wide blocks, a gentle pull-back that ends at zoom 0.75 with the base low in frame
+  const BASE = 880;
+  const UNIT = 80; // MARS bar height; SUN = 55 × UNIT (#3), drawing only
+  const hSun = Math.min(55 * UNIT, Math.max(0, g - 10) * 24); // still growing through the shot
   const top = BASE - hSun;
-  const tk = ez(g, 20, 100); // tilt up + pull back: the base stays in frame while the tower runs off the top
+  const tk = ez(g, 16, 90);
+  const camC = { x: 960, y: lerp(540, 427, tk), zoom: lerp(1, 0.75, tk) };
+  const topScreen = (top - camC.y) * camC.zoom + 540;
   const ratio = ez(g, 14, 14 + 74);
   const shown = Math.max(1, Math.round(lerp(1, 55, ratio)));
   if (ratio >= 1) assertValue(READ.energyRatio.value!, "C-07 counter");
   return (
     <AbsoluteFill>
-      <Stage theme={SPACE.theme} cam={{ x: lerp(960, 1100, tk), y: lerp(540, 300, tk), zoom: lerp(1, 0.62, tk) }} vignette={0.3} grain={0.5}>
+      <Stage theme={SPACE.theme} cam={camC} vignette={0.3} grain={0.5}>
         <Layer depth={0.3}>
           <SpaceField f={f} seed={6} n={90} />
         </Layer>
@@ -300,30 +302,26 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
           </g>
           {g >= 0 ? (
             <g>
-              <rect x={760} y={BASE} width={900} height={14} rx={6} fill={C.saffron} />
-              {/* MARS */}
-              <rect x={860} y={BASE - UNIT * ez(g, 4, 12)} width={170} height={UNIT * ez(g, 4, 12)} rx={10} fill={C.magenta} stroke={CREAM} strokeWidth={3} />
-              <Label x={945} y={BASE + 60} text="mars" size={40} align="middle" color={C.magenta} halo={CREAM} />
-              {/* SUN tower */}
-              <Bloom x={1335} y={top} r={260} color={C.gold} strength={0.55} />
-              <rect x={1250} y={top} width={170} height={hSun} rx={10} fill={C.gold} stroke={C.whiteGold} strokeWidth={4} />
-              <rect x={1250} y={top} width={60} height={hSun} rx={10} fill={C.whiteGold} opacity={0.45} />
-              <Label x={1335} y={BASE + 60} text="sun" size={40} align="middle" color={C.ink} halo={C.gold} />
-              
+              <rect x={520} y={BASE} width={980} height={18} rx={8} fill={C.saffron} />
+              {/* MARS: a short wide block */}
+              <rect x={600} y={BASE - UNIT * ez(g, 4, 12)} width={300} height={UNIT * ez(g, 4, 12)} rx={14} fill={C.magenta} stroke={CREAM} strokeWidth={5} />
+              <PillA x={750} y={BASE + 80} text="mars" F={SPACE} dot={C.magenta} size={48} align="middle" />
+              {/* SUN: the tower, still rising */}
+              <Bloom x={1150} y={top} r={340} color={C.gold} strength={0.55} />
+              <rect x={1000} y={top} width={300} height={hSun} rx={14} fill={C.gold} stroke={C.whiteGold} strokeWidth={5} />
+              <rect x={1000} y={top} width={100} height={hSun} rx={14} fill={C.whiteGold} opacity={0.45} />
+              <PillA x={1150} y={BASE + 80} text="sun" F={SPACE} dot={C.gold} size={48} align="middle" />
               <Tick
-                x={1560}
+                x={1400}
                 y={BASE}
-                pxPerM={90}
+                pxPerM={135}
                 frame={f}
                 facing={-1}
-                pose="shrug"
-                poseTo="cheer"
-                poseT={ez(g, 40, 56)}
-                expression="worried"
-                expressionTo="surprised"
-                expressionT={ez(g, 40, 50)}
-                look={0.9}
-                headTilt={-14}
+                pose="wipe-brow"
+                expression="surprised"
+                look={1}
+                headTilt={-22}
+                squash={impact(g, 10, 0.08, 10)}
               />
             </g>
           ) : (
@@ -342,8 +340,8 @@ const ShotEnergy: ShotFC<CCold> = ({ f, len, c }) => {
           </g>
           {g >= 14 ? (
             <g opacity={ez(g, 14, 24)}>
-              <Slab x={1230} y={300} value={`×${shown}`} size={110} F={SPACE} check={ratio >= 1} />
-              <PillFor kind={READ.energyRatio.pill} x={1240} y={380} size={22} />
+              <Slab x={1250} y={Math.max(220, topScreen + 120)} value={`×${shown}`} size={110} F={SPACE} check={ratio >= 1} />
+              <PillFor kind={READ.energyRatio.pill} x={1260} y={Math.max(220, topScreen + 120) + 80} size={24} />
             </g>
           ) : null}
         </Layer>
