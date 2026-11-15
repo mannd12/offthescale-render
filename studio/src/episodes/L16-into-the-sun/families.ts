@@ -59,11 +59,12 @@ export const L16_FAMILIES = {
   /** the solar system, orbits, wind, the dark teasers: THE dark family (mean value ≈ 0.2 away from its lit subject) */
   space: fam({
     name: "space",
-    sky: ["#070A2E", "#12104A", "#2A1466"],
-    far: "#1E1B6B",
-    mid: "#15124F",
-    near: "#07061F",
-    haze: "#2A1466",
+    // darkened 2026-11-14 (probe: only 1 % of samples under value 0.25): value ≈ 0.10 top → 0.22 bottom
+    sky: ["#04051A", "#0A0A2C", "#141038"],
+    far: "#18144A",
+    mid: "#0E0C34",
+    near: "#04041A",
+    haze: "#141038",
     light: C.gold,
     shadow: C.deepSpace,
     bounce: C.magenta,
@@ -156,11 +157,12 @@ export const L16_FAMILIES = {
   /** the pocket behind the shield: the other dark family (amber rim + instrument green carry the saturation) */
   shade: fam({
     name: "shade",
-    sky: ["#0B0A33", "#1C1052", "#2B1470"],
-    far: "#2B1470",
-    mid: "#1C1052",
-    near: "#0B0A33",
-    haze: "#2B1470",
+    // darkened 2026-11-14 with space: value ≈ 0.10-0.25; the amber rim and instrument green carry it
+    sky: ["#05041A", "#0C0A2C", "#161040"],
+    far: "#1E1258",
+    mid: "#0C0A2C",
+    near: "#05041A",
+    haze: "#161040",
     light: C.shieldRim,
     shadow: "#05041A",
     bounce: C.instrument,
@@ -175,11 +177,12 @@ export const L16_FAMILIES = {
    *  (`L16_COLORS.paper`) so they pop. L16-local override: the kit's STUDIO_SET is untouched (other episodes use it). */
   studio: fam({
     name: "studio",
-    sky: ["#140C3E", "#22125A", "#361A70", "#5A2878"],
-    far: "#4A2470",
-    mid: "#3A1A5E",
-    near: "#160C36",
-    haze: "#E0703A",
+    // wall value ≈ 0.15-0.24 (darkened 2026-11-14 with space); the warm horizon glow is a thin band
+    sky: ["#0B0826", "#130E36", "#1E1244", "#2E164C"],
+    far: "#3A1C5C",
+    mid: "#24103E",
+    near: "#0E0828",
+    haze: "#B85A34",
     light: "#FFE6A8",
     shadow: "#0E0828",
     bounce: "#F4A060",

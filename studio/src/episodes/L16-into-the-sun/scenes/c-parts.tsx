@@ -23,9 +23,10 @@
 //   photonHead(pts, d)          the point at distance d along a polyline
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Bloom, CycClouds, Family, IF2, Layer, Pill, Sky, alpha, cutPop, mixHex, rnd, type Pt, Counter } from "../../../lib/illustrated";
+import { Bloom, Family, IF2, Layer, Pill, Sky, alpha, cutPop, mixHex, rnd, type Pt, Counter } from "../../../lib/illustrated";
 import { L16_COLORS, familyOf, pillFill, type L16FamilyName } from "../families";
 import { assertAllowed, assertValue } from "../sundata";
+import { ObservatoryShafts } from "../movers16";
 
 export const C = L16_COLORS;
 export const STUDIO: Family = familyOf("studio");
@@ -57,14 +58,14 @@ export const Pop: React.FC<{ f: number; children: React.ReactNode }> = ({ f, chi
   <AbsoluteFill style={{ transform: `scale(${cutPop(f, 0)})`, transformOrigin: "50% 50%" }}>{children}</AbsoluteFill>
 );
 
-/** The teal cyclorama room (never bone): sky, sliding paper clouds, a warm floor. */
+/** The L16 observatory room (familyOf("studio"): dark indigo wall, warm light shafts sliding, a mauve-ember floor). */
 export const StudioSet: React.FC<{ f: number; seed?: number; floor?: number }> = ({ f, seed = 4, floor = 900 }) => (
   <>
     <Layer depth={0.05}>
       <Sky family={STUDIO} />
     </Layer>
     <Layer depth={0.2}>
-      <CycClouds f={f * 3} y={40} n={6} seed={seed} />
+      <ObservatoryShafts f={f * 3} y={40} n={6} seed={seed} />
     </Layer>
     <Layer depth={0.6}>
       <rect x={-1400} y={floor - 20} width={4800} height={1200} fill={mixHex(STUDIO.mid, "#FFB347", 0.25)} />
@@ -183,6 +184,26 @@ export const Plate: React.FC<{ x: number; y: number; w: number; h: number; fill?
     <rect x={x + w - 70} y={y + h - 70} width={60} height={60} rx={12} fill={alpha(C.violet, 0.45)} />
   </g>
 );
+
+/** Diagonal felt stripes scrolling at `speed` px/f inside a box (a plate's large-area mover for long holds). */
+export const PlateStripes: React.FC<{ f: number; x: number; y: number; w: number; h: number; speed?: number; id: string; color?: string; opacity?: number }> = ({ f, x, y, w, h, speed = 16, id, color = "#2E7C92", opacity = 0.55 }) => {
+  const gap = 90;
+  const n = Math.ceil((w + h) / gap) + 2;
+  const sh = mod(f * speed, gap);
+  return (
+    <g>
+      <clipPath id={id}>
+        <rect x={x} y={y} width={w} height={h} rx={20} />
+      </clipPath>
+      <g clipPath={`url(#${id})`} opacity={opacity}>
+        {Array.from({ length: n }, (_, i) => {
+          const x0 = x - h + i * gap + sh - gap;
+          return <path key={i} d={`M${x0} ${y + h} L${x0 + h} ${y} L${x0 + h + 34} ${y} L${x0 + 34} ${y + h} Z`} fill={color} />;
+        })}
+      </g>
+    </g>
+  );
+};
 
 /** A dark rounded plate behind a readout. */
 export const TextPlate: React.FC<{ x: number; y: number; w: number; h: number; color?: string; opacity?: number }> = ({ x, y, w, h, color = "#120A3A", opacity = 0.72 }) => (
