@@ -34,6 +34,7 @@ import { FullL12, KeyArt1, KeyArt2, KeyArt3, KeyArt4, l12Frames } from "./episod
 import { ThumbL12, ThumbL12B } from "./episodes/L12-mountain-limit/Thumb";
 import { ThumbL14, ThumbL14B } from "./episodes/L14-earth-tunnel/Thumb";
 import { ThumbL15, ThumbL15B } from "./episodes/L15-space-jump/Thumb";
+import { ThumbL16, ThumbL16B } from "./episodes/L16-into-the-sun/Thumb";
 import { ThumbL13, ThumbL13B } from "./episodes/L13-loudest-sound/Thumb";
 import { FullL14, KeyArt1 as KeyArtL14a, KeyArt2 as KeyArtL14b, KeyArt3 as KeyArtL14c, l14Frames } from "./episodes/L14-earth-tunnel/Full";
 import { L14KitDemo, L14_KIT_DEMO_FRAMES } from "./episodes/L14-earth-tunnel/KitDemo";
@@ -175,6 +176,8 @@ export const Root: React.FC = () => (
     <Still id="l14-thumb-b" component={ThumbL14B} width={1280} height={720} />
     <Still id="l15-thumb" component={ThumbL15} width={1280} height={720} />
     <Still id="l15-thumb-b" component={ThumbL15B} width={1280} height={720} />
+    <Still id="l16-thumb" component={ThumbL16} width={1280} height={720} />
+    <Still id="l16-thumb-b" component={ThumbL16B} width={1280} height={720} />
     <Still id="l13-thumb" component={ThumbL13} width={1280} height={720} />
     <Still id="l13-thumb-b" component={ThumbL13B} width={1280} height={720} />
     <Still id="l12-thumb" component={ThumbL12} width={1280} height={720} />
