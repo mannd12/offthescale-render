@@ -1,0 +1,450 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Suppose every human vanished tonight. Nothing breaks. We are just not there.",
+    "file": "L17-humans-vanish/vo/cold-00-a2dbffcd07.wav",
+    "seconds": 6.25,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Here is what we'd leave behind. Everything we've built now weighs about as much as everything alive on Earth: roughly one point one trillion tonnes of each.",
+    "file": "L17-humans-vanish/vo/cold-01-f630a145bf.wav",
+    "seconds": 11.8,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "And that pile has recently been doubling roughly every twenty years. You would expect that much stuff to last. Almost none of it will. Most of what we build is a promise that someone will keep fixing it.",
+    "file": "L17-humans-vanish/vo/cold-02-d29e9773bf.wav",
+    "seconds": 14.98,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "So what is still here after a million years? Tick's camera will climb a ladder of time, from one day up to one million years. The first rung is the shortest: one day.",
+    "file": "L17-humans-vanish/vo/cold-03-c18cc7a1e3.wav",
+    "seconds": 13.51,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "A power grid isn't a machine you switch on and leave. For the grid to stay stable, the electricity supplied has to match the electricity demanded. Think of a seesaw that must never touch the ground on either side.",
+    "file": "L17-humans-vanish/vo/l01-00-fc1da89184.wav",
+    "seconds": 14.53,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "Teams of operators watch that balance and adjust it all day, every day. They are called balancing authorities, and the whole system is built around them.",
+    "file": "L17-humans-vanish/vo/l01-01-da8128045a.wav",
+    "seconds": 9.75,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "Take the operators away, and nothing is keeping supply and demand together. Sooner or later the machines that depend on the grid lose their power.",
+    "file": "L17-humans-vanish/vo/l01-02-6c1c56a428.wav",
+    "seconds": 9.94,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "And one set of them keeps a very large amount of water out of a very large city.",
+    "file": "L17-humans-vanish/vo/l01-03-10e9138e3d.wav",
+    "seconds": 5.81,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "New York's subway has pumps. On a typical day, crews pump more than ten million gallons of water out of it. That water comes in every day, and every day it is carried out. The subway isn't dry. It is kept dry.",
+    "file": "L17-humans-vanish/vo/l02-00-1f239bd387.wav",
+    "seconds": 15.59,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "With the power off, the pumps stop. The water that was being carried out stays where it is. It doesn't take a flood or a storm. It just takes the ordinary seeping, a little more each day, with no one to move it.",
+    "file": "L17-humans-vanish/vo/l02-01-befa88943c.wav",
+    "seconds": 14.6,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "Tunnels fill from the lowest point up.",
+    "file": "L17-humans-vanish/vo/l02-02-b688573d4e.wav",
+    "seconds": 2.29,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "Rain falls on the streets above, too. And the next problem is what water does when it gets cold.",
+    "file": "L17-humans-vanish/vo/l02-03-4ad7bddbc7.wav",
+    "seconds": 5.75,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "Water does something odd when it freezes. Ice is about nine percent less dense than liquid water. Our sum is that frozen water needs about a tenth more room.",
+    "file": "L17-humans-vanish/vo/l03-00-7646618087.wav",
+    "seconds": 10.34,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "Picture a crack in a wall, half full of water on a cold night. As the water freezes, it has to push on something, and the wall is what it pushes on.",
+    "file": "L17-humans-vanish/vo/l03-01-53c2563e8b.wav",
+    "seconds": 10.640041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "When it thaws, the crack stays a little wider, and takes in more water the next time. Every winter, one more nudge. A thousand winters is a lot of nudges.",
+    "file": "L17-humans-vanish/vo/l03-02-0d4e4b209d.wav",
+    "seconds": 14.36,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "That is how a crack becomes a gap. And a gap is an open door to the thing that holds up most of our buildings: steel. But metal needs care, and the best-known iron tower in the world shows how much.",
+    "file": "L17-humans-vanish/vo/l03-03-a9a6183953.wav",
+    "seconds": 16.93,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "The Eiffel Tower has been repainted twenty times in one hundred thirty-six years: an average of once every seven years. That is twenty paint campaigns, over more than a century, on one tower.",
+    "file": "L17-humans-vanish/vo/l04-00-64d0329181.wav",
+    "seconds": 14.21,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "Each repaint takes sixty tonnes of paint.",
+    "file": "L17-humans-vanish/vo/l04-01-8f087aaffa.wav",
+    "seconds": 3.14,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "And between repaints, about fifteen tonnes of paint wears off. So even the most famous iron tower on Earth is on a schedule.",
+    "file": "L17-humans-vanish/vo/l04-02-7f28ffc98a.wav",
+    "seconds": 8.41,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "Skip a few of those sevens, with no one there to paint, and the paint is gone from the metal beneath. That's the next problem, and it's inside almost everything we build.",
+    "file": "L17-humans-vanish/vo/l04-03-f0ae735223.wav",
+    "seconds": 11.5,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "Most modern buildings, bridges and roads are concrete with steel bars inside. Where salt and water reach the steel, it rusts. Rust takes more room than the steel it came from.",
+    "file": "L17-humans-vanish/vo/l05-00-f992360216.wav",
+    "seconds": 13.24,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "As it expands, it cracks the concrete around it.",
+    "file": "L17-humans-vanish/vo/l05-01-c413d2b124.wav",
+    "seconds": 3.21,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "A spall, engineers call it: a piece that breaks away beside the bar. And a broken-off piece leaves the bar bare, so more water reaches it, and it rusts more. The damage feeds itself.",
+    "file": "L17-humans-vanish/vo/l05-02-5726533d6c.wav",
+    "seconds": 14.8,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "Give those cracks enough time, and the walls and floors go. But there is one kind of concrete that shouldn't be here at all.",
+    "file": "L17-humans-vanish/vo/l05-03-baa2c90e34.wav",
+    "seconds": 8.05,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Ancient Roman concrete has survived millennia. In 2023, researchers studied the white lumps of lime scattered through it.",
+    "file": "L17-humans-vanish/vo/l06-00-7a6d1b28f2.wav",
+    "seconds": 8.96,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "They think those lumps act as a repair kit. When water gets in, they supply calcium that can fill the crack. In a lab, modern concrete made with the lumps showed that self-healing potential.",
+    "file": "L17-humans-vanish/vo/l06-01-0ce533e016.wav",
+    "seconds": 12.85,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "So the oldest recipe outlasts the newest one. The paper doesn't claim magic. It proposes a mechanism, tests it, and points at walls that are still standing. Ours needs people to patch it.",
+    "file": "L17-humans-vanish/vo/l06-02-4363d6d48d.wav",
+    "seconds": 16.190041666666666,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "Rome's may, in part, patch itself. But Rome's best is some thousands of years. For longer, we need something that barely changes at all.",
+    "file": "L17-humans-vanish/vo/l06-03-c81ec688e7.wav",
+    "seconds": 11.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 0,
+    "text": "At Mount Rushmore, the National Park Service says the granite erodes at only one inch every ten thousand years. The softer rock beside it wears away much faster, into gullies.",
+    "file": "L17-humans-vanish/vo/l07-00-03e0f86144.wav",
+    "seconds": 13.02,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l07",
+    "index": 1,
+    "text": "At that rate, a million years takes off about a hundred inches, around eight feet. That sum is ours, and it assumes the rate never changes. Worn, but not gone.",
+    "file": "L17-humans-vanish/vo/l07-01-cb56d5554b.wav",
+    "seconds": 13.96,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 2,
+    "text": "Stone barely moves. But there is something we put into the air that doesn't wear away either. NOAA says much of the carbon dioxide we've released will keep warming the atmosphere for thousands of years.",
+    "file": "L17-humans-vanish/vo/l07-02-541eaf3fb0.wav",
+    "seconds": 13.76,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l07",
+    "index": 3,
+    "text": "So the longest-lasting thing from our time might not be an object. It might be a change to the air, and it needs no one to maintain it. And for objects, the best bet is deep and sealed.",
+    "file": "L17-humans-vanish/vo/l07-03-f67a1bbcd0.wav",
+    "seconds": 14.62,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 0,
+    "text": "Finland has dug tunnels into bedrock about one point eight billion years old.",
+    "file": "L17-humans-vanish/vo/l08-00-297a3057e5.wav",
+    "seconds": 4.690041666666667,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 1,
+    "text": "The company that runs them has a safety case that looks ahead through thousands, then hundreds of thousands of years, up to a million, including ice ages that come and go.",
+    "file": "L17-humans-vanish/vo/l08-01-6e9f1cd53e.wav",
+    "seconds": 10.55,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l08",
+    "index": 2,
+    "text": "Its builders say the plan depends on keeping the intact parts of that rock suitable for the job. That's a plan, not a result. Nobody has watched a tunnel for a hundred thousand years.",
+    "file": "L17-humans-vanish/vo/l08-02-49879f397a.wav",
+    "seconds": 10.92,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l08",
+    "index": 3,
+    "text": "But it shows what lasts: deep, sealed, buried, in rock. Now let's climb the last rung.",
+    "file": "L17-humans-vanish/vo/l08-03-e650fc78f9.wav",
+    "seconds": 7.61,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 0,
+    "text": "On the Moon, NASA says the Apollo footprints will probably last for millions of years, barring a chance meteorite.",
+    "file": "L17-humans-vanish/vo/l09-00-4ffbad3f2b.wav",
+    "seconds": 8.21,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 1,
+    "text": "Back on Earth, among the oldest tools we've found are stone ones. At Lomekwi, in Kenya, the chipped stones are three point three million years old. That is more than three times our rung.",
+    "file": "L17-humans-vanish/vo/l09-01-d8a8b04883.wav",
+    "seconds": 12.75,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 2,
+    "text": "Those tools came before the next known tool tradition, the Oldowan, by seven hundred thousand years. Stone has had a very long head start on us.",
+    "file": "L17-humans-vanish/vo/l09-02-9a15d38f37.wav",
+    "seconds": 9.45,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 3,
+    "text": "And geologists already read our era in the ground. Aluminium, concrete and plastics are turning up in sediments, and they call them technofossils.",
+    "file": "L17-humans-vanish/vo/l09-03-e734a6bdc4.wav",
+    "seconds": 9.16,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l09",
+    "index": 4,
+    "text": "Technofossils are the preservable remains of our machines, and the paper says that record now reaches beyond the planet.",
+    "file": "L17-humans-vanish/vo/l09-04-a582908fd3.wav",
+    "seconds": 8.86,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l09",
+    "index": 5,
+    "text": "So after a million years, our best bet is three kinds of things: things left on the Moon, things buried in sediment, and things made of stone. Not the towers.",
+    "file": "L17-humans-vanish/vo/l09-05-af2f323501.wav",
+    "seconds": 12.500041666666666,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 0,
+    "text": "Let's be honest about how we know. Some of this we have seen. Roman concrete has stood for millennia. Stone tools have lasted three point three million years.",
+    "file": "L17-humans-vanish/vo/l10-00-49928495c4.wav",
+    "seconds": 11.49,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 1,
+    "text": "And there is one place where people left and the record has been kept.",
+    "file": "L17-humans-vanish/vo/l10-01-a7da1cc895.wav",
+    "seconds": 4.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 2,
+    "text": "After the Chernobyl accident, one hundred sixteen thousand people left a zone of four thousand two hundred square kilometres.",
+    "file": "L17-humans-vanish/vo/l10-02-c59ccf70d1.wav",
+    "seconds": 7.9,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 3,
+    "text": "Nearly three decades later, counts of elk, roe deer, red deer and wild boar there were similar to those in nearby nature reserves. Wolves were more than seven times as common.",
+    "file": "L17-humans-vanish/vo/l10-03-ba74554610.wav",
+    "seconds": 12.32,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 4,
+    "text": "That's evidence of what nature does when the people leave. But it is one place, for a few decades. It tells us what animals do, not what concrete does, and nothing about a million years.",
+    "file": "L17-humans-vanish/vo/l10-04-08c173a16f.wav",
+    "seconds": 12.67,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 5,
+    "text": "Here is the ladder with its stamps. The Eiffel Tower's seven-year paint cycle is on record. Rust cracking concrete is documented by bridge engineers, but how long it takes in an empty city isn't. Rome is seen.",
+    "file": "L17-humans-vanish/vo/l10-05-72a60a7dc7.wav",
+    "seconds": 14.47,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 6,
+    "text": "The mountain's rate is an estimate. The tunnel is a plan. The footprints are NASA's best guess. The stone tools are seen.",
+    "file": "L17-humans-vanish/vo/l10-06-bc397a6a75.wav",
+    "seconds": 8.11,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 7,
+    "text": "The early rungs are modelled. We don't have a clock on a grid with no operators, or on rust in a building no one repairs. The grid and the pumps come from how those systems work, not from anyone watching them fail.",
+    "file": "L17-humans-vanish/vo/l10-07-550335535b.wav",
+    "seconds": 12.92,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l10",
+    "index": 8,
+    "text": "And on plastic, NOAA says you may hear hundreds of years, but items can break down quickly, or not at all.",
+    "file": "L17-humans-vanish/vo/l10-08-2efc237889.wav",
+    "seconds": 7.52,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l10",
+    "index": 9,
+    "text": "Even geologists haven't agreed on how to name this. In 2024, they voted not to make the Anthropocene a formal epoch. The body that sets the geologic time scale approved that vote, and also said the word will stay in use.",
+    "file": "L17-humans-vanish/vo/l10-09-7bf4accf15.wav",
+    "seconds": 14.230041666666667,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "So the honest answer is this. A million years from now, our towers and roads are probably long gone. What is likely still here are footprints on the Moon, a thin band in the mud, and stones.",
+    "file": "L17-humans-vanish/vo/closer-00-c5be5c1deb.wav",
+    "seconds": 18.159958333333332,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "Everything that needed a person to keep it going is the first to go, and everything that only needed to sit still is what stays.",
+    "file": "L17-humans-vanish/vo/closer-01-c63920bfed.wav",
+    "seconds": 9.42,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "Among the oldest tools ever found are three point three million years old, and they were still lying where they were left.",
+    "file": "L17-humans-vanish/vo/closer-02-c0f6c114ad.wav",
+    "seconds": 8.935,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "If you could leave one thing to last a million years, what would it be, and where would you bury it?",
+    "file": "L17-humans-vanish/vo/closer-03-0880e5e647.wav",
+    "seconds": 7.370041666666666,
+    "pauseAfter": 0.55
+  }
+]
