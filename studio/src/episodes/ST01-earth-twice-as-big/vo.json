@@ -1,0 +1,466 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Suppose Earth were twice as wide. Same rock, same oceans, same air, just twice the planet.",
+    "file": "ST01-earth-twice-as-big/vo/cold-00-c8dca87707.wav",
+    "seconds": 8.51,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Twice as wide sounds like a big change. It's much bigger than that. Make a cube twice as wide, and you need two layers of four: eight of the small ones. Balls work the same way.",
+    "file": "ST01-earth-twice-as-big/vo/cold-01-b5174c85ca.wav",
+    "seconds": 14.830041666666666,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "A ball twice as wide holds eight times as much stuff. So this Earth would have eight times the mass, and the ground would pull on you twice as hard.",
+    "file": "ST01-earth-twice-as-big/vo/cold-02-c978ed3c1a.wav",
+    "seconds": 12.04,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "By the top of this ladder, the air will be squeezed against the ground, the mountains will have sunk, and getting a rocket into space will take seven times the fuel.",
+    "file": "ST01-earth-twice-as-big/vo/cold-03-19404e9c0f.wav",
+    "seconds": 11.06,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "And at the very end, we'll find out why a planet this size probably wouldn't look like Earth at all.",
+    "file": "ST01-earth-twice-as-big/vo/cold-04-373c1c778e.wav",
+    "seconds": 6.79,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "We won't jump straight there. We'll grow the planet one rung at a time, and watch what breaks first. One rule: the rock stays the same, so the planet's pull grows exactly as fast as its size.",
+    "file": "ST01-earth-twice-as-big/vo/cold-05-43c095a3e5.wav",
+    "seconds": 14.75,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "First rung: ten percent bigger.",
+    "file": "ST01-earth-twice-as-big/vo/cold-06-0365f19719.wav",
+    "seconds": 2.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 0,
+    "text": "At ten percent bigger, everything weighs ten percent more. Your backpack, your bike, your own body. You'd notice it the way you notice a heavy coat.",
+    "file": "ST01-earth-twice-as-big/vo/l01-00-059074f87d.wav",
+    "seconds": 12,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 1,
+    "text": "You'd also get more planet to stand on. A planet ten percent wider has about a fifth more surface. More coastline, more forest, more room for everything.",
+    "file": "ST01-earth-twice-as-big/vo/l01-01-71533fc8ac.wav",
+    "seconds": 11.87,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 2,
+    "text": "Some things get nicer. On a bigger ball the ground curves away more gently, so the horizon moves out. Standing on a beach today, your eyes see about four point seven kilometres of sea before it curves out of sight.",
+    "file": "ST01-earth-twice-as-big/vo/l01-02-c71dc020de.wav",
+    "seconds": 16.4,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l01",
+    "index": 3,
+    "text": "On this Earth you'd see a little further. Bigger planet, bigger view.",
+    "file": "ST01-earth-twice-as-big/vo/l01-03-3ac56b02b9.wav",
+    "seconds": 5.32,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l01",
+    "index": 4,
+    "text": "So far, it's just heavier. That changes on the next rung, when you try to leave the ground.",
+    "file": "ST01-earth-twice-as-big/vo/l01-04-61c0f7e4fa.wav",
+    "seconds": 7.04,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 0,
+    "text": "A quarter bigger means a quarter more pull. Your legs push off the ground with the same strength as before, but now they're lifting more weight. Think of jumping while wearing a backpack full of books.",
+    "file": "ST01-earth-twice-as-big/vo/l02-00-b54d98ddf2.wav",
+    "seconds": 13.93,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 1,
+    "text": "You can still do it. You just don't get as high, and you get tired sooner.",
+    "file": "ST01-earth-twice-as-big/vo/l02-01-a851741bc6.wav",
+    "seconds": 4.96,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 2,
+    "text": "If you can jump fifty centimetres today, here you'd get about forty. Basketball hoops would feel taller. Every staircase would feel like one more flight.",
+    "file": "ST01-earth-twice-as-big/vo/l02-02-d29c06b3dd.wav",
+    "seconds": 12.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 3,
+    "text": "And what goes up comes down harder. Anything that falls lands faster than it would today, because the planet is pulling it the whole way down. Cups break more easily. Trips hurt more.",
+    "file": "ST01-earth-twice-as-big/vo/l02-03-07b36ff5cc.wav",
+    "seconds": 15.24,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 4,
+    "text": "A planet's pull touches everything you drop.",
+    "file": "ST01-earth-twice-as-big/vo/l02-04-68f2e728f1.wav",
+    "seconds": 3.15,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 5,
+    "text": "It touches everything we build, too. Every beam in every building, every bridge, every shelf on your wall would be holding up a quarter more weight than it was made for.",
+    "file": "ST01-earth-twice-as-big/vo/l02-05-352bddb6e4.wav",
+    "seconds": 11.46,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l02",
+    "index": 6,
+    "text": "Builders on this planet would make everything a little thicker, a little stronger, a little lower.",
+    "file": "ST01-earth-twice-as-big/vo/l02-06-cf05da0975.wav",
+    "seconds": 6.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l02",
+    "index": 7,
+    "text": "But the biggest change isn't on the ground. It's in the air above it.",
+    "file": "ST01-earth-twice-as-big/vo/l02-07-d1f59abb08.wav",
+    "seconds": 4.22,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 0,
+    "text": "Air has weight too. The planet pulls it down, and the stronger the pull, the more tightly the air is squeezed against the ground.",
+    "file": "ST01-earth-twice-as-big/vo/l03-00-c4c64a2479.wav",
+    "seconds": 8.61,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 1,
+    "text": "On Earth today, the air thins out over a height of about eight and a half kilometres. Scientists call it the scale height. Climb one scale height, and only about a third of the air is left above you.",
+    "file": "ST01-earth-twice-as-big/vo/l03-01-d1d95c18dd.wav",
+    "seconds": 14.04,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 2,
+    "text": "Climb another, and a third of that third. On this planet, at the same temperature, that height shrinks to under six. The air at the bottom feels about the same. Climb a little, and it disappears fast.",
+    "file": "ST01-earth-twice-as-big/vo/l03-02-c24267fe6d.wav",
+    "seconds": 13.83,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 3,
+    "text": "The mountains change too. Rock can only hold up so much weight before the bottom of a mountain gives way, so stronger gravity means shorter mountains. Mars shows the opposite side of that rule.",
+    "file": "ST01-earth-twice-as-big/vo/l03-03-59b55f2441.wav",
+    "seconds": 14.75,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l03",
+    "index": 4,
+    "text": "It pulls with about two fifths of our gravity, and its biggest volcano stands roughly three times as tall as Everest. Gravity isn't the whole reason, but it's part of it.",
+    "file": "ST01-earth-twice-as-big/vo/l03-04-0134da3402.wav",
+    "seconds": 10.44,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l03",
+    "index": 5,
+    "text": "Now pull the lever all the way.",
+    "file": "ST01-earth-twice-as-big/vo/l03-05-e4ac02f951.wav",
+    "seconds": 2.13,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 0,
+    "text": "Twice as wide. Eight times the mass. Twice the pull. Everything you own now weighs double. A bucket of water feels like two buckets. And you weigh double too.",
+    "file": "ST01-earth-twice-as-big/vo/l04-00-8f749b405f.wav",
+    "seconds": 11.910041666666666,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 1,
+    "text": "Walking around all day would feel like carrying a second copy of yourself on your back.",
+    "file": "ST01-earth-twice-as-big/vo/l04-01-c9f08559ed.wav",
+    "seconds": 4.76,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 2,
+    "text": "The view is wider: about six and a half kilometres to the horizon from the same beach. There is four times as much surface: four times the land, four times the sea. More room than we'd ever fill.",
+    "file": "ST01-earth-twice-as-big/vo/l04-02-19390a39cf.wav",
+    "seconds": 15.51,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 3,
+    "text": "But the air would hug the ground twice as tightly. Today, the top of Everest has about a third of the air you breathe at sea level. On this Earth, at that same height, you'd have about an eighth.",
+    "file": "ST01-earth-twice-as-big/vo/l04-03-a1549b6e3e.wav",
+    "seconds": 15.68,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 4,
+    "text": "Just five kilometres up, the air would already be as thin as the top of Everest is today. And the mountains themselves would only stand about half as tall.",
+    "file": "ST01-earth-twice-as-big/vo/l04-04-b931755771.wav",
+    "seconds": 11.56,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 5,
+    "text": "Leaving would be the hardest part. To throw anything away from Earth for good today, you have to hurl it at about eleven kilometres a second. Here, you'd need twice that: more than twenty-two.",
+    "file": "ST01-earth-twice-as-big/vo/l04-05-92c69cde16.wav",
+    "seconds": 13.92,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 6,
+    "text": "To reach orbit here, a rocket needs to fly about fifteen point eight kilometres a second, twice what it needs today. And rockets pay for speed in a cruel way. Every extra bit of speed multiplies the fuel you need.",
+    "file": "ST01-earth-twice-as-big/vo/l04-06-79f4c7fd7a.wav",
+    "seconds": 15.78,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 7,
+    "text": "Even with a perfect rocket, burning hydrogen, the fuel to reach orbit today weighs about five times the empty rocket. Here it would weigh about thirty-five times as much.",
+    "file": "ST01-earth-twice-as-big/vo/l04-07-58aad191f9.wav",
+    "seconds": 11.79,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l04",
+    "index": 8,
+    "text": "A space program on this planet is a very expensive dream.",
+    "file": "ST01-earth-twice-as-big/vo/l04-08-d6b3fa0b3f.wav",
+    "seconds": 4.07,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 9,
+    "text": "Even the Moon would hurry. Held at the same distance by eight times the pull, it would race around us in under ten days instead of twenty-seven. A month would be a week and a half.",
+    "file": "ST01-earth-twice-as-big/vo/l04-09-ee38b60973.wav",
+    "seconds": 12.72,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l04",
+    "index": 10,
+    "text": "So could people live here? Yes. It would be heavy, tiring work, but it's not the limit.",
+    "file": "ST01-earth-twice-as-big/vo/l04-10-2c77dd4a6b.wav",
+    "seconds": 6.81,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 0,
+    "text": "Physicists have asked how strong gravity could get before people simply couldn't walk. They tried two ways.",
+    "file": "ST01-earth-twice-as-big/vo/l05-00-ddfec4cb60.wav",
+    "seconds": 6.58,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 1,
+    "text": "One asked how much load bones and muscles can take before they fail, or before muscles can't lift the body at all.",
+    "file": "ST01-earth-twice-as-big/vo/l05-01-b4e49dffdf.wav",
+    "seconds": 7.57,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 2,
+    "text": "The other treated each step as a swinging pendulum and asked how much energy walking costs as gravity climbs.",
+    "file": "ST01-earth-twice-as-big/vo/l05-02-16ce089f41.wav",
+    "seconds": 7.03,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l05",
+    "index": 3,
+    "text": "Their answer: with hard training, humans could walk normally at up to about four times Earth's gravity, and no more.",
+    "file": "ST01-earth-twice-as-big/vo/l05-03-a4b80f5dc3.wav",
+    "seconds": 7.88,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 4,
+    "text": "On our same-rock planet, four times the gravity means four times the width. So twice as big is a hard place to live, and four times as big is the end of the walk.",
+    "file": "ST01-earth-twice-as-big/vo/l05-04-15a34cea83.wav",
+    "seconds": 11.65,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 5,
+    "text": "Life that grew up here would probably be built for it. Some scientists have guessed it would be lower and stockier than ours. That's an educated guess, not a measurement, and nobody has a heavy planet to check it on.",
+    "file": "ST01-earth-twice-as-big/vo/l05-05-da61278706.wav",
+    "seconds": 14.89,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l05",
+    "index": 6,
+    "text": "Which brings us to the planets we can actually check.",
+    "file": "ST01-earth-twice-as-big/vo/l05-06-e2931e5772.wav",
+    "seconds": 3.33,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 0,
+    "text": "Our planet grew by one rule: same rock, same density. Real rock doesn't work that way. Pile more of it together and its own weight squeezes it smaller.",
+    "file": "ST01-earth-twice-as-big/vo/l06-00-5ab4999043.wav",
+    "seconds": 11.74,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 1,
+    "text": "It's like a stack of pillows: the more you pile on, the flatter the bottom ones get. A real bigger Earth would be heavier inside than our make-believe one, and smaller for its weight.",
+    "file": "ST01-earth-twice-as-big/vo/l06-01-2f6bb575f7.wav",
+    "seconds": 12.37,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 2,
+    "text": "Astronomers have worked out how big a rocky planet gets for its mass. With Earth's mix of iron and rock, eight Earths of mass makes a planet only about one and three quarter times as wide.",
+    "file": "ST01-earth-twice-as-big/vo/l06-02-6302decef1.wav",
+    "seconds": 12.38,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 3,
+    "text": "And its gravity would be stronger than our make-believe one: about two and a half times Earth's. To be truly twice as wide, a rock planet would need even more than eight Earths of mass.",
+    "file": "ST01-earth-twice-as-big/vo/l06-03-f350fce79d.wav",
+    "seconds": 11.66,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 4,
+    "text": "And there's a stranger clue. Telescopes have now measured thousands of planets around other stars. Among the small ones close to their stars, there is a gap.",
+    "file": "ST01-earth-twice-as-big/vo/l06-04-0dc332666e.wav",
+    "seconds": 9.81,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 5,
+    "text": "Plenty of planets are smaller than one and a half Earths, and plenty are two to three times as wide, but there are far fewer in between.",
+    "file": "ST01-earth-twice-as-big/vo/l06-05-4c15f3c9f5.wav",
+    "seconds": 8.29,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 6,
+    "text": "And when astronomers weigh close-in planets about one and a half Earths wide or bigger, most turn out too light to be solid rock and iron. They seem to be wrapped in something lighter: thick layers of gas, maybe water.",
+    "file": "ST01-earth-twice-as-big/vo/l06-06-238c5da782.wav",
+    "seconds": 14.09,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "l06",
+    "index": 7,
+    "text": "So if nature built a planet twice as wide as ours, it probably wouldn't be a bigger Earth at all. It would more likely be a small world wrapped in a deep, heavy sky.",
+    "file": "ST01-earth-twice-as-big/vo/l06-07-614e0f30fc.wav",
+    "seconds": 10.4,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 8,
+    "text": "And if someone did live on a rocky one, they could still reach space with ordinary rockets, as long as it weighed less than about ten Earths, but every launch would be a fight.",
+    "file": "ST01-earth-twice-as-big/vo/l06-08-d399953344.wav",
+    "seconds": 11.07,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "l06",
+    "index": 9,
+    "text": "The fuel you need doesn't grow in step with gravity. It snowballs. A little more pull means a lot more fuel, and a lot more pull means rockets that are almost nothing but fuel.",
+    "file": "ST01-earth-twice-as-big/vo/l06-09-39bf7ea57d.wav",
+    "seconds": 11.9,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 0,
+    "text": "Ten percent heavier. A quarter heavier. Thin air, short mountains, a ten-day month, and rockets that are mostly fuel. We live on the one rung where the sky is thick, the mountains are tall, and the door to space is open.",
+    "file": "ST01-earth-twice-as-big/vo/closer-00-131a8f9c9d.wav",
+    "seconds": 21.82,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 1,
+    "text": "Out of all the sizes a rocky planet could be, ours is light enough to leave, and big enough to hold on to its air. That's not nothing.",
+    "file": "ST01-earth-twice-as-big/vo/closer-01-d6b9d7d7e4.wav",
+    "seconds": 11.31,
+    "pauseAfter": 0.25
+  },
+  {
+    "scene": "closer",
+    "index": 2,
+    "text": "Among the small planets we've measured, the rocky ones mostly stop at about one and a half Earths.",
+    "file": "ST01-earth-twice-as-big/vo/closer-02-948ad5a2fd.wav",
+    "seconds": 7.3,
+    "pauseAfter": 0.55
+  },
+  {
+    "scene": "closer",
+    "index": 3,
+    "text": "So which rung would you stop at, and what would you miss first?",
+    "file": "ST01-earth-twice-as-big/vo/closer-03-1d99cfca16.wav",
+    "seconds": 5.14,
+    "pauseAfter": 0.55
+  }
+]
