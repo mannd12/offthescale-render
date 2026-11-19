@@ -117,6 +117,8 @@ import { ShortS63, timeline as s63 } from "./episodes/S63-sound-moves/Short";
 import { ShortS64, timeline as s64 } from "./episodes/S64-hundred-drop/Short";
 import { ShortS65, timeline as s65 } from "./episodes/S65-station-drop/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
+// Suppose Then (second channel, Desktop\What If): voice audition only; its kit lives in lib/suppose with its own entry
+import { AUDITIONS as SUPPOSE_AUDITIONS } from "./lib/suppose/audition";
 
 export const Root: React.FC = () => (
   <>
@@ -308,5 +310,8 @@ export const Root: React.FC = () => (
     <Composition id="ep01" component={Episode01} durationInFrames={ep01.totalFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Still id="ep01-thumb-a" component={ThumbA} width={1280} height={720} />
     <Still id="ep01-thumb-b" component={ThumbB} width={1280} height={720} />
+    {SUPPOSE_AUDITIONS.map((a) => (
+      <Composition key={a.id} id={a.id} component={a.C} durationInFrames={a.frames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    ))}
   </>
 );

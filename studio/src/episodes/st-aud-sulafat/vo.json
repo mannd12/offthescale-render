@@ -1,0 +1,38 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Suppose Earth were twice as wide. Same rock, same oceans, same air, just twice the planet.",
+    "file": "st-aud-sulafat/vo/cold-00.wav",
+    "seconds": 7.06,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Twice as wide sounds like a big change. It's much bigger than that. Make a cube twice as wide, and you need two layers of four: eight of the small ones. Balls work the same way. A ball twice as wide holds eight times as much stuff. So this Earth would have eight times the mass, and the ground would pull on you twice as hard.",
+    "file": "st-aud-sulafat/vo/cold-01.wav",
+    "seconds": 27.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "By the top of this ladder, the air will be squeezed against the ground, the mountains will have sunk, and getting a rocket into space will take seven times the fuel. And at the very end, we'll find out why a planet this size probably wouldn't look like Earth at all.",
+    "file": "st-aud-sulafat/vo/cold-02.wav",
+    "seconds": 21.16,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "We won't jump straight there. We'll grow the planet one rung at a time, and watch what breaks first. One rule: the rock stays the same, so the planet's pull grows exactly as fast as its size. First rung: ten percent bigger.",
+    "file": "st-aud-sulafat/vo/cold-03.wav",
+    "seconds": 17.92,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
