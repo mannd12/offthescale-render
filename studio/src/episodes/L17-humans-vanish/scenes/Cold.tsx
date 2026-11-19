@@ -200,7 +200,7 @@ const thetaAt = (f: number, land: number) => {
   if (f < land) return 12 + Math.sin(f / 6) * 0.8;
   if (f < land + 8) return lerp(12, -10, (f - land) / 8);
   const u = f - land - 8;
-  return -10 * Math.exp(-u / 70) * Math.cos(u * 0.1) + 1.4 * Math.sin(f * 0.12);
+  return -10 * Math.exp(-u / 70) * Math.cos(u * 0.1) + 2.6 * Math.sin(f * 0.14);
 };
 const ShotScale: ShotFC<CCold> = ({ f, c }) => {
   const T4 = c.c04 - c.c03;
@@ -218,7 +218,7 @@ const ShotScale: ShotFC<CCold> = ({ f, c }) => {
   const tx = lerp(1180, PIV.x + 6, hop);
   const ty = lerp(floor, PIV.y - 26, hop) - Math.sin(hop * Math.PI) * 120 - (hop >= 1 ? Math.abs(th - thPrev) * 6 : 0);
   return (
-    <Stage theme={DUSK.theme} cam={{ x: 960 - f * 0.3, y: 470, zoom: 0.84 + f * 0.0005 }} vignette={0.22} grain={0.5}>
+    <Stage theme={DUSK.theme} cam={{ x: 1060 - f * 1.4, y: 470, zoom: 0.84 + f * 0.0006 }} vignette={0.22} grain={0.5}>
       <Sky family={DUSK} />
       <DuskWorld f={f} floor={floor} />
       <Layer depth={1}>
@@ -253,7 +253,7 @@ const ShotScale: ShotFC<CCold> = ({ f, c }) => {
 const ShotPlates: ShotFC<CCold> = ({ f }) => {
   const k = ez(f, 26, 84);
   const plateY = (d: number) => Math.min(0, -600 + Math.max(0, f - d) * 30);
-  const bob = (d: number) => (f > d + 20 ? Math.sin((f - d - 20) / 3) * 9 * Math.exp(-(f - d - 20) / 30) : 0);
+  const bob = (d: number) => (f > d + 20 ? Math.sin((f - d - 20) / 3) * 9 * Math.exp(-(f - d - 20) / 30) : 0) + Math.sin(f / 7 + d) * 16;
   const pan = (x: number, d: number, word: string, child: React.ReactNode) => {
     const y = 700 + bob(d);
     return (
@@ -273,7 +273,7 @@ const ShotPlates: ShotFC<CCold> = ({ f }) => {
   };
   return (
     <Pop f={f}>
-      <Stage theme={DUSK.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.02, panY: 0.01, frames: 160, seed: 2 }} vignette={0.24} grain={0.5}>
+      <Stage theme={DUSK.theme} cam={{ x: 900 + f * 1.8, y: 540, zoom: 1.02 + f * 0.0006 }} vignette={0.24} grain={0.5}>
         <Sky family={DUSK} />
         <Layer depth={0.2}>
           <Bloom x={300} y={220} r={480} color="#FFCF73" core={50} coreColor="#FFF2C8" strength={0.85} />
@@ -405,7 +405,7 @@ const ShotRibbon: ShotFC<CCold> = ({ f }) => {
   ];
   return (
     <Pop f={f}>
-      <Stage theme={DUSK.theme} cam={{ x: 980, y: 560 + f * 1.4, zoom: 1.02 + f * 0.0008 }} vignette={0.24} grain={0.5}>
+      <Stage theme={DUSK.theme} cam={{ x: 980, y: 560 + f * 2.4, zoom: 1.02 + f * 0.001 }} vignette={0.24} grain={0.5}>
         <Sky family={DUSK} />
         <Layer depth={0.2}>
           <Bloom x={360} y={260} r={500} color="#FFCF73" core={50} coreColor="#FFF2C8" strength={0.8} />
@@ -417,8 +417,8 @@ const ShotRibbon: ShotFC<CCold> = ({ f }) => {
             <rect x={900} y={-100} width={180} height={1700} rx={12} fill="#FFF6E6" />
             <rect x={900} y={-100} width={14} height={1700} fill="#E0A93A" />
             <rect x={1066} y={-100} width={14} height={1700} fill="#E0A93A" />
-            {Array.from({ length: 5 }, (_, i) => (
-              <text key={i} x={990} y={140 + i * 380} textAnchor="middle" transform={`rotate(90 990 ${140 + i * 380})`} style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 52, letterSpacing: 2, fill: C.ink }}>
+            {Array.from({ length: 6 }, (_, i) => (
+              <text key={i} x={990} y={140 + i * 380 + ((f * 10) % 380) - 380} textAnchor="middle" transform={`rotate(90 990 ${140 + i * 380 + ((f * 10) % 380) - 380})`} style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 52, letterSpacing: 2, fill: C.ink }}>
                 KEEP FIXING
               </text>
             ))}
@@ -515,7 +515,7 @@ const ShotLadder: ShotFC<CCold> = ({ f, len, c }) => {
       from={0}
       behind={(fr) => (
         <Layer depth={0.5}>
-          <Skyline f={fr} family={NIGHT} ground={860} scale={0.8} lights={0.12} wave={14} seed={2} />
+          <Skyline f={fr} family={NIGHT} ground={860} scale={0.8} lights={0.35} wave={24} seed={2} />
         </Layer>
       )}
     />

@@ -137,8 +137,8 @@ const ShotSalt: ShotFC<CL05> = ({ f }) => {
 // 5-03 · a clean bar beside a rusted bar of the same length; a bracket on each measures (opening 12 px/f); the rusted one
 // swells and sheds scale
 // ================================================================================================================
-const ShotSwell: ShotFC<CL05> = ({ f }) => {
-  const sw = ez(f, 10, 100);
+const ShotSwell: ShotFC<CL05> = ({ f, len }) => {
+  const sw = lin(f, 6, len);
   const th = (32 + 34 * sw) * 2.4;
   const yC = 380;
   const yR = 740;
@@ -151,11 +151,13 @@ const ShotSwell: ShotFC<CL05> = ({ f }) => {
   );
   return (
     <Pop f={f}>
-      <Stage theme={RUST.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.012, panY: 0, frames: 150, seed: 3 }} vignette={0.24} grain={0.5}>
+      <Stage theme={RUST.theme} cam={{ x: 960 + f * 1.8, y: 540, zoom: 1.02 + f * 0.0008 }} vignette={0.24} grain={0.5}>
         <RustRoom f={f} />
         <Layer depth={1}>
-          <rect x={260} y={yC - 38} width={1200} height={77} rx={38} fill={C.steel} />
+          <DotStream f={f} from={[860, yR - 60]} to={[900, yR - 520]} n={50} speed={16} spread={700} color={C.lever} size={11} seed={6} />
+          <rect x={260} y={yC - 38} width={1200} height={77} rx={38} fill="#4F9AB4" />
           <rect x={260} y={yC - 38} width={1200} height={20} rx={10} fill="#CFE6EA" opacity={0.6} />
+          <ellipse cx={260 + wrap(f * 24, 1200)} cy={yC - 20} rx={90} ry={12} fill="#FFFFFF" opacity={0.85} />
           {caliper(1500, yC, 77)}
           <g transform={`translate(260 ${yR}) scale(2.4) translate(-260 ${-yR})`}>
             <RustBar x={260} y={yR} w={500} swell={sw} f={f * 3} seed={4} />
@@ -172,7 +174,7 @@ const ShotSwell: ShotFC<CL05> = ({ f }) => {
 // ================================================================================================================
 // 5-04 · cracks fan out from the swollen bar (50 px/f) with dust puffs (12 px/f)
 // ================================================================================================================
-const ShotCracks: ShotFC<CL05> = ({ f }) => {
+const ShotCracks: ShotFC<CL05> = ({ f, len }) => {
   const fans = [-60, -30, 0, 30, 60, 160, 190, 220];
   return (
     <Pop f={f}>
@@ -181,8 +183,9 @@ const ShotCracks: ShotFC<CL05> = ({ f }) => {
         <Layer depth={1}>
           <RebarBlock x={140} y={180} w={1640} h={720} bars={1} rust={[1]} seed={6} />
           {fans.map((a, i) => (
-            <CrackDraw key={i} x={960 + (i - 3.5) * 110} y={540} rotate={a - 90} seed={i + 3} length={360} draw={crackDrawFor(f, 4 + i * 5, 360, 50)} width={7} color="#240A04" branches={2} />
+            <CrackDraw key={i} x={960 + (i - 3.5) * 110} y={540} rotate={a - 90} seed={i + 3} length={700} draw={crackDrawFor(f, 2 + i * Math.max(4, (len - 20) / 8), 700, 50)} widen={lin(f, 20 + i * 8, len) * 0.5} width={9} color="#240A04" branches={3} />
           ))}
+          <DotStream f={f} from={[960, 560]} to={[960, 920]} n={60} speed={16} spread={1300} color="#F2C8A4" size={8} gravity={1} seed={9} />
           {[0, 1, 2].map((i) => (
             <Puffs key={i} frame={f} x={700 + i * 260} y={420} color={alpha("#F2C8A4", 0.6)} period={18} size={24} rise={0.6} drift={2} life={40} seed={i + 2} />
           ))}
@@ -207,10 +210,16 @@ const ShotSpall: ShotFC<CL05> = ({ f }) => {
   const caught = fall >= 1;
   return (
     <Pop f={f}>
-      <Stage theme={RUST.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.012, panY: 0, frames: 150, seed: 4 }} vignette={0.24} grain={0.5}>
+      <Stage theme={RUST.theme} cam={{ x: 960 - f * 1.6, y: 540, zoom: 1.02 + f * 0.0008 }} vignette={0.24} grain={0.5}>
         <RustRoom f={f} />
         <Layer depth={1}>
           <Floor y={1000} color="#3A1208" foot="#240A04" lip="#E3813F" />
+          {f > 16 ? <DotStream f={f} from={[1140, 400]} to={[1140, 1000]} n={40} speed={18} spread={120} color="#F2C8A4" size={9} gravity={1} seed={4} /> : null}
+          {f > 70 ? (
+            <g transform={`translate(1040 ${Math.min(950, 330 + (f - 70) * 24)}) rotate(${Math.min((f - 70) * 6, 200)})`}>
+              <Form d="M-60 -50 L50 -60 L70 10 L10 60 L-60 40 Z" fill="#D9B07A" light={225} shadow="#5A3A20" shadowOpacity={0.5} inset={10} rim="#FFF6E6" hard />
+            </g>
+          ) : null}
           <ClipBox x={-200} y={0} w={1580} h={1200}>
             <RebarBlock x={-120} y={120} w={1440} h={560} bars={1} rust={[1]} seed={7} />
             {/* the hole the chunk left */}
@@ -235,22 +244,22 @@ const ShotSpall: ShotFC<CL05> = ({ f }) => {
 // ================================================================================================================
 // 5-06 · water drops hit the bare bar (20 px/f); rust spreads (14 px/f) and loosens the next chunk
 // ================================================================================================================
-const ShotBare: ShotFC<CL05> = ({ f }) => {
-  const spread = Math.min(700, 80 + f * 14);
-  const wob = f > 70 ? Math.sin(f * 0.8) * 3 : 0;
+const ShotBare: ShotFC<CL05> = ({ f, len }) => {
+  const spread = 80 + 1800 * lin(f, 0, len);
+  const wob = Math.sin(f * 0.8) * (2 + 8 * lin(f, 0, len));
   return (
     <Pop f={f}>
-      <Stage theme={RUST.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.015, panY: 0.01, frames: 150, seed: 5 }} vignette={0.26} grain={0.5}>
+      <Stage theme={RUST.theme} cam={{ x: 960 + f * 1.6, y: 540, zoom: 1.03 + f * 0.0008 }} vignette={0.26} grain={0.5}>
         <RustRoom f={f} />
         <Layer depth={1}>
-          <rect x={-200} y={200} width={2400} height={720} fill="#8F8670" />
+          <rect x={-200} y={200} width={2400} height={720} fill="#D9B07A" />
           <path d="M700 380 L1240 380 L1240 700 L700 700 Z" fill="#3A1208" />
-          <rect x={-200} y={510} width={2400} height={70} rx={35} fill={C.steel} />
+          <rect x={-200} y={510} width={2400} height={70} rx={35} fill="#4F9AB4" />
           <rect x={960 - spread / 2} y={505} width={spread} height={80} rx={40} fill={C.rust} />
           <rect x={960 - spread / 2} y={505} width={spread} height={18} rx={9} fill={C.lever} opacity={0.6} />
           {Array.from({ length: 5 }, (_, i) => {
             const y = 120 + wrap(f * 20 + i * 90, 400);
-            return <ellipse key={i} cx={820 + i * 80} cy={y} rx={12} ry={20} fill="#3FA9C8" />;
+            return <ellipse key={i} cx={820 + i * 80} cy={y} rx={22} ry={34} fill="#3FA9C8" stroke="#BFF0F2" strokeWidth={4} />;
           })}
           {/* the next chunk loosening */}
           <g transform={`translate(${wob} ${wob * 0.5})`}>
@@ -295,13 +304,15 @@ const ShotLoop: ShotFC<CL05> = ({ f }) => {
             const ay = O.y + Math.sin(ang) * R;
             return <path key={k} d={`M${ax} ${ay} l${-Math.sin(ang) * 0 - 22} ${-14} l${44} ${14} l${-44} ${14} Z`} fill="#1E4A5C" transform={`rotate(${(ang / D2R) + 90} ${ax} ${ay})`} />;
           })}
+          <path d={`M${O.x + Math.cos(a - 1.4) * R} ${O.y + Math.sin(a - 1.4) * R} A${R} ${R} 0 0 1 ${px} ${py}`} fill="none" stroke={C.saffronCore} strokeWidth={thick + 22} strokeLinecap="round" opacity={0.85} />
           <circle cx={px} cy={py} r={44} fill={C.saffronCore} opacity={0.4} />
           <circle cx={px} cy={py} r={22} fill="#FFFFFF" />
           {nodes.map((n, i) => {
             const nx = O.x + Math.cos(n.a * D2R) * R;
             const ny = O.y + Math.sin(n.a * D2R) * R;
+            const sw = 1 + 0.2 * Math.max(0, 1 - Math.hypot(px - nx, py - ny) / 180);
             return (
-              <g key={i}>
+              <g key={i} transform={`translate(${nx} ${ny}) scale(${sw}) translate(${-nx} ${-ny})`}>
                 <Form d={`M${nx - 110} ${ny} a110 110 0 1 0 220 0 a110 110 0 1 0 -220 0 Z`} fill={n.col} light={225} shadow="#1E4A5C" shadowOpacity={0.5} inset={14} rim="#FFF4DE" hard />
                 <Label x={nx} y={ny + 12} text={n.t} size={32} color={CREAM} />
               </g>
@@ -318,8 +329,8 @@ const ShotLoop: ShotFC<CL05> = ({ f }) => {
 // 5-08 · night: cracks fan like a river delta (40 px/f); a dark building leans and folds gently (1 deg/f) with dust puffs
 // (12 px/f); no windows lit (OUR REASONING)
 // ================================================================================================================
-const ShotFold: ShotFC<CL05> = ({ f }) => {
-  const lean = Math.min(18, Math.max(0, f - 30) * 1);
+const ShotFold: ShotFC<CL05> = ({ f, len }) => {
+  const lean = Math.min(30, Math.max(0, f - 20) * 1);
   const sink = Math.max(0, f - 60) * 4;
   const hinge = { x: 1220, y: 640 };
   return (
@@ -340,7 +351,7 @@ const ShotFold: ShotFC<CL05> = ({ f }) => {
             <Block x={820} base={hinge.y} w={400} h={460} floors={5} />
           </g>
           {[0, 1, 2, 3, 4].map((i) => (
-            <CrackDraw key={i} x={1020} y={640} rotate={110 + i * 22} seed={i + 9} length={420} draw={crackDrawFor(f, 6 + i * 6, 420, 40)} width={6} color="#020B10" branches={3} />
+            <CrackDraw key={i} x={1020} y={640} rotate={110 + i * 22} seed={i + 9} length={900} draw={crackDrawFor(f, 4 + i * Math.max(4, (len - 30) / 5), 900, 40)} width={7} color="#020B10" branches={3} />
           ))}
           {f > 40
             ? [0, 1, 2].map((i) => (

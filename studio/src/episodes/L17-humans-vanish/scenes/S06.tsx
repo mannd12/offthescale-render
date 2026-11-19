@@ -61,12 +61,12 @@ const NoonSky: React.FC<{ f: number }> = ({ f }) => (
 /** Roman concrete in close-up: warm mortar with dark aggregate and white lime lumps (`lumps` 0..1 shows them). */
 const RomanFace: React.FC<{ x: number; y: number; w: number; h: number; seed?: number; lumps?: number; lumpAge?: number }> = ({ x, y, w, h, seed = 1, lumps = 1, lumpAge }) => (
   <g>
-    <rect x={x} y={y} width={w} height={h} fill="#D9C7A0" />
+    <rect x={x} y={y} width={w} height={h} fill="#EBC27E" />
     {Array.from({ length: 70 }, (_, i) => {
       const ax = x + rnd(seed * 7 + i) * w;
       const ay = y + rnd(seed * 11 + i) * h;
       const r = 10 + rnd(seed * 3 + i) * 26;
-      return <ellipse key={i} cx={ax} cy={ay} rx={r} ry={r * 0.7} fill={mixHex("#8F7A5A", "#5A4A30", rnd(i))} opacity={0.75} transform={`rotate(${i * 37} ${ax} ${ay})`} />;
+      return <ellipse key={i} cx={ax} cy={ay} rx={r} ry={r * 0.7} fill={mixHex("#B0602A", "#7A3A18", rnd(i))} opacity={0.75} transform={`rotate(${i * 37} ${ax} ${ay})`} />;
     })}
     {Array.from({ length: 22 }, (_, i) => {
       const lx = x + rnd(seed * 19 + i) * w;

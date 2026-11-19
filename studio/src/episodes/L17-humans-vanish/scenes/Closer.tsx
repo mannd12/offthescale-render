@@ -49,8 +49,8 @@ const NIGHT = familyOf("night");
 const VOID = familyOf("void");
 const DUSK = familyOf("dusk");
 const DEEP = familyOf("deep");
-const MUD = ["#8F5A36", "#6E4630", "#A8703E", "#5A3A2A", "#7A5236", "#4A2E22"];
-const SOIL = ["#4A1C16", "#3A1812", "#5A2A1E", "#2E1114"];
+const MUD = ["#B8642A", "#8A4A20", "#C98238", "#6E3A1A", "#A8582A", "#5A2E14"];
+const SOIL = ["#6A2212", "#4E1810", "#7A2A16", "#3E120C"];
 
 // ===============================================================================================================
 // Z-01 · quiet: the empty rail, the camera, the dial settling at one million with a rattle; Tick stands beside it,
@@ -292,7 +292,7 @@ const ShotStone: ShotFC<CCloser> = ({ f, len, c }) => {
   const cam = cameraAt(f, [
     { f: 0, x: 960, y: 600, zoom: 0.82 },
     { f: p8, x: 960, y: 560, zoom: 1.18 },
-    { f: len, x: 990, y: 550, zoom: 1.24 },
+    { f: len, x: 1060, y: 540, zoom: 1.42 },
   ]);
   return (
     <Stage theme={DEEP.theme} cam={cam} vignette={0.35} grain={0.5}>
@@ -317,8 +317,8 @@ const ShotStone: ShotFC<CCloser> = ({ f, len, c }) => {
         ) : null}
       </Layer>
       <Layer depth={1.2}>
-        <Wind f={f} y0={420} y1={720} n={10} speed={14} color="#E0B49A" opacity={0.45 * ez(f, p8 - 20, p8)} />
-        <DotStream f={f} from={[-100, 650]} to={[2100, 620]} n={30} speed={12} spread={40} color="#E0B49A" size={3} seed={17} />
+        <Wind f={f} y0={380} y1={760} n={16} speed={14} color="#F2C8A4" width={6} opacity={0.75 * ez(f, p8 - 20, p8)} />
+        <DotStream f={f} from={[-100, 650]} to={[2100, 620]} n={50} speed={12} spread={60} color="#F2C8A4" size={6} seed={17} />
       </Layer>
       <Layer depth={0}>
         <g opacity={ez(f, 4, 16) * (1 - ez(f, p8 - 12, p8))}>
@@ -338,10 +338,9 @@ const ShotFlag: ShotFC<CCloser> = ({ f, len }) => {
   const camY = path1(f, [
     [0, -260],
     [8, -220],
-    [64, 560],
-    [len, 600],
+    [len, 640],
   ]);
-  const stop = 70;
+  const stop = 84;
   const tx = 360 + Math.min(f, stop) * 5;
   const plant = ez(f, stop + 4, stop + 22);
   return (
@@ -366,11 +365,11 @@ const ShotFlag: ShotFC<CCloser> = ({ f, len }) => {
 // ===============================================================================================================
 const ShotDig: ShotFC<CCloser> = ({ f, len }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 560, zoom: 1.0 },
-    { f: len, x: 1000, y: 580, zoom: 1.1 },
+    { f: 0, x: 900, y: 540, zoom: 1.0 },
+    { f: len, x: 1060, y: 640, zoom: 1.22 },
   ]);
   const hole = ez(f, 0, 40);
-  const boxY = 740 + Math.max(0, f - 50) * 10;
+  const boxY = 700 + Math.max(0, f - 16) * 10;
   return (
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.45}>
@@ -381,7 +380,7 @@ const ShotDig: ShotFC<CCloser> = ({ f, len }) => {
           <ellipse cx={1080} cy={900} rx={150 * hole} ry={44 * hole} fill="#1A140C" />
           <ellipse cx={1080} cy={904} rx={130 * hole} ry={34 * hole} fill="#0C0906" />
           <path d={`M720 ${930} Q790 ${930 - 70 * hole} 860 930 Z`} fill="#8C7552" />
-          <DotStream f={f} from={[790, 760]} to={[790, 905]} n={24} speed={14} spread={40} gravity={1} color="#C9B086" size={6} seed={21} />
+          <DotStream f={f} from={[790, 760]} to={[790, 905]} n={34} speed={14} spread={60} gravity={1} color="#E2B46C" size={10} seed={21} />
           <clipPath id="zdigclip">
             <rect x={900} y={0} width={360} height={900} />
             <ellipse cx={1080} cy={900} rx={150} ry={44} />
@@ -391,7 +390,7 @@ const ShotDig: ShotFC<CCloser> = ({ f, len }) => {
             <rect x={1020} y={boxY - 100} width={120} height={18} rx={8} fill="#FFE6A8" />
           </g>
           <ellipse cx={930} cy={914} rx={70} ry={12} fill="#1A140C" opacity={0.5} />
-          <Tick x={930} y={910} pxPerM={200} frame={f} pose={f < 50 ? "crouch-reach" : "crouch"} expression="thinking" look={0.2} />
+          <Tick x={930} y={910} pxPerM={200} frame={f} pose={Math.floor(f / 9) % 2 ? "crouch-reach" : "crouch"} expression="thinking" look={0.2} />
         </Layer>
         <Layer depth={0}>
           <Headline x={110} y={300} lines={["WHERE WOULD", "YOU BURY IT?"]} size={104} color={CREAM} accent={C.saffronCore} />
@@ -407,8 +406,8 @@ const ShotDig: ShotFC<CCloser> = ({ f, len }) => {
 // ===============================================================================================================
 const ShotPull: ShotFC<CCloser> = ({ f, len }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 1040, y: 760, zoom: 1.35 },
-    { f: len, x: 960, y: 520, zoom: 0.8 },
+    { f: 0, x: 1060, y: 820, zoom: 1.6 },
+    { f: len, x: 960, y: 500, zoom: 0.78 },
   ]);
   return (
     <Pop f={f}>
@@ -423,9 +422,10 @@ const ShotPull: ShotFC<CCloser> = ({ f, len }) => {
           <ellipse cx={1080} cy={904} rx={130} ry={34} fill="#0C0906" />
           <path d="M720 930 Q790 860 860 930 Z" fill="#8C7552" />
           <TimeCamera x={620} y={930} size={180} f={f} family={VOID} dial={{ value: 1, word: "ONE MILLION YEARS" }} />
+          <DotStream f={f} from={[1080, 780]} to={[1080, 900]} n={30} speed={6} spread={160} gravity={1} color={C.moonDust} size={7} seed={25} />
         </Layer>
         <Layer depth={0}>
-          <rect x={0} y={0} width={1920} height={1080} fill="#020A0E" opacity={ez(f, len - 26, len)} />
+          <rect x={0} y={0} width={1920} height={1080} fill="#020A0E" opacity={ez(f, len - 14, len)} />
         </Layer>
       </Stage>
     </Pop>

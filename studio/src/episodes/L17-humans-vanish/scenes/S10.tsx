@@ -17,7 +17,8 @@ import { SceneTiming } from "../../../lib/timeline";
 import { cueKit } from "../cues";
 import { familyOf } from "../families";
 import { READ } from "../data17";
-import { TimeLadder } from "../ladder";
+import { RailTicks, TimeLadder } from "../ladder";
+import { DotStream } from "../movers17";
 import { Board, SeenStamp, Sheet, SourceChip, Stamp17, TagStamp, WordPill, type StampKind } from "../stamps17";
 import { BottleIcon, DomeIcon, EiffelIcon, GearIcon, LampIcon, PrintIcon, PumpIcon, StoneIcon } from "../icons17";
 import { ShotDef, ShotFC, playShots } from "../shots";
@@ -182,6 +183,21 @@ const LadderWorld: React.FC<{
         <TimeLadder x={LX} y0={LY0} y1={LY1} f={f} family={STUDIO} labels="left" width={150} size={2.0} />
         <RungIcons f={f} rust={rust} ruler={ruler} dashes={dashes} />
       </g>
+      {draw >= 1 ? (
+        (() => {
+          const span = LY1 - LY0 + 120;
+          const ph = mod(f * 20, 2 * span);
+          const yy = LY0 - 60 + (ph < span ? ph : 2 * span - ph);
+          return (
+            <g>
+              <rect x={LX - 110} y={yy - 70} width={220} height={140} rx={30} fill={C.saffron} opacity={0.22} />
+              <rect x={LX - 95} y={yy - 9} width={190} height={18} rx={9} fill={C.saffronCore} />
+              <circle cx={LX - 75} cy={yy} r={18} fill={C.saffron} />
+              <circle cx={LX + 75} cy={yy} r={18} fill={C.saffron} />
+            </g>
+          );
+        })()
+      ) : null}
       {draw > 0 && draw < 1 ? (
         <g>
           <circle cx={LX - 75} cy={dTop + dH} r={14} fill={C.saffronCore} />
@@ -313,6 +329,7 @@ const Notebook: React.FC<{ f: number; x: number; y: number; speed?: number }> = 
 const ZoneBoard: React.FC<{ f: number; children: React.ReactNode }> = ({ f, children }) => (
   <Board x={80} y={60} w={1760} h={960} f={f}>
     <Sheet x={70} y={60} w={1620} h={850} f={f} title="WHAT WE SAW" band="green" />
+    <rect x={70} y={130} width={1620} height={780} rx={14} fill="#FFC870" opacity={0.3} />
     <g transform="translate(-80 -60)">{children}</g>
   </Board>
 );
@@ -410,6 +427,7 @@ const WR = 60; // wolves' reserve bar height (its own scale)
 const ChartBoard: React.FC<{ f: number; grow: (i: number, which: 0 | 1) => number; similar: (i: number) => number; wolf: number; trot: number; wolfOnly?: boolean }> = ({ f, grow, similar, wolf, trot, wolfOnly = false }) => (
   <Board x={80} y={60} w={1760} h={960} f={f}>
     <Sheet x={70} y={60} w={1620} h={850} f={f} title="ANIMAL COUNTS" band="teal" />
+    <rect x={70} y={130} width={1620} height={780} rx={14} fill="#FFC870" opacity={0.3} />
     <g transform="translate(-80 -60)">
       {/* legend */}
       <rect x={260} y={232} width={30} height={30} rx={6} fill={C.tealDeep} />
@@ -540,6 +558,7 @@ const ShotDecades: ShotFC<C10> = ({ f, len }) => {
         <Layer depth={1}>
           <Board x={80} y={60} w={1760} h={960} f={f}>
             <Sheet x={70} y={60} w={1620} h={850} f={f} title="ONE PLACE, A FEW DECADES" band="green" />
+            <rect x={70} y={130} width={1620} height={780} rx={14} fill="#FFC870" opacity={0.3} />
             <g transform="translate(-80 -60)">
               <line x1={220} x2={1760} y1={700} y2={700} stroke={INK} strokeWidth={6} opacity={e} />
               {Array.from({ length: 34 }, (_, i) => {
@@ -627,12 +646,13 @@ const ShotLadder: ShotFC<C10> = ({ f, len, c }) => {
   const p15 = c.romeSeen - c.ladder;
   const cam = cameraAt(f, [
     { f: 0, x: 1150, y: ry(8) - 120, zoom: 0.82 },
-    { f: p13, ...camOn("3") },
-    { f: p14, ...camOn("3") },
-    { f: p14 + 13, ...camOn("4"), x: 1260 },
-    { f: p15, ...camOn("4"), x: 1260 },
-    { f: p15 + 13, ...camOn("5") },
-    { f: len, ...camOn("5", 1.04) },
+    { f: p13, ...camOn("3"), y: ry(3) + 120 },
+    { f: p13 + 12, ...camOn("3") },
+    { f: p14, ...camOn("3"), y: ry(3) - 60, x: 1200 },
+    { f: p14 + 22, ...camOn("4"), x: 1260 },
+    { f: p15, ...camOn("4"), x: 1300, y: ry(4) - 70 },
+    { f: p15 + 14, ...camOn("5") },
+    { f: len, ...camOn("5", 1.1), y: ry(5) - 50 },
   ]);
   const slams = { "3": p13 + 10, "4": p14 + 22, "5": p15 + 14 };
   return (
@@ -664,14 +684,14 @@ const ShotTop: ShotFC<C10> = ({ f, len, c }) => {
   const p19 = c.tools2 - c.mountain;
   const cam = cameraAt(f, [
     { f: 0, ...camOn("6"), y: ry(6) + 140 },
-    { f: 12, ...camOn("6") },
-    { f: p17, ...camOn("6") },
-    { f: p17 + 13, ...camOn("7") },
-    { f: p18, ...camOn("7") },
-    { f: p18 + 13, ...camOn("8a") },
-    { f: p19, ...camOn("8a") },
-    { f: p19 + 22, ...camOn("8b") },
-    { f: len, ...camOn("8b", 1.04) },
+    { f: 16, ...camOn("6") },
+    { f: p17, ...camOn("6"), y: ry(6) - 70 },
+    { f: p17 + 14, ...camOn("7") },
+    { f: p18, ...camOn("7"), y: ry(7) - 70 },
+    { f: p18 + 14, ...camOn("8a") },
+    { f: p19, ...camOn("8a"), x: 1360 },
+    { f: p19 + 24, ...camOn("8b") },
+    { f: len, ...camOn("8b", 1.1), x: 1760 },
   ]);
   const slams = { "3": -400, "4": -400, "5": -400, "6": 16, "7": p17 + 14, "8a": p18 + 14, "8b": p19 + 24 };
   return (
@@ -699,8 +719,8 @@ const ShotTop: ShotFC<C10> = ({ f, len, c }) => {
 // ===============================================================================================================
 const ShotEarly: ShotFC<C10> = ({ f, len }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 1080, y: ry(1) + 30, zoom: 0.88 },
-    { f: len, x: 1110, y: ry(1) + 10, zoom: 0.98 },
+    { f: 0, x: 1040, y: ry(2) + 40, zoom: 0.86 },
+    { f: len, x: 1160, y: ry(0) - 40, zoom: 1.08 },
   ]);
   return (
     <Pop f={f}>
@@ -739,15 +759,16 @@ const ShotClock: ShotFC<C10> = ({ f, len }) => {
         <FloorSet f={f}>
           <ellipse cx={tx} cy={ty + 6} rx={130} ry={16} fill="#000" opacity={0.2} />
           <Tick x={tx} y={ty} pxPerM={300} frame={f} pose="heave" poseTo="shrug" poseT={shrug} expression="worried" look={0.4} />
-          <ClockFace x={tx + 110} y={ty - 560 * lift - 60 * (1 - lift)} r={100} hour={f * 12} minute={f * 30} />
+          <ClockFace x={tx + 110} y={ty - 560 * lift - 60 * (1 - lift) + Math.sin(f / 3) * 22 * lift} r={120} hour={f * 12} minute={f * 30} />
           {/* the wall tag */}
           <g transform={`rotate(${Math.sin(f / 10) * 2} 1340 360)`}>
             <line x1={1340} y1={300} x2={1340} y2={360} stroke={INK} strokeWidth={3} />
             <rect x={1130} y={360} width={420} height={230} rx={22} fill={C.concrete} stroke={INK} strokeWidth={4} />
-            <ellipse cx={1250} cy={540} rx={30 + 110 * lin(f, 6, 6 + 110 / 10)} ry={14 + 26 * lin(f, 6, 6 + 110 / 10)} fill={C.rust} opacity={0.85} />
-            <ellipse cx={1240} cy={536} rx={14 + 60 * lin(f, 6, 6 + 110 / 10)} ry={6 + 14 * lin(f, 6, 6 + 110 / 10)} fill="#D86A2A" opacity={0.8} />
+            <ellipse cx={1250} cy={540} rx={30 + 110 * lin(f, 6, len)} ry={14 + 26 * lin(f, 6, len)} fill={C.rust} opacity={0.85} />
+            <ellipse cx={1240} cy={536} rx={14 + 60 * lin(f, 6, len)} ry={6 + 14 * lin(f, 6, len)} fill="#D86A2A" opacity={0.8} />
             <Label x={1340} y={440} text="NO CLOCK" size={48} color={INK} align="middle" />
           </g>
+          <DotStream f={f} from={[1250, 590]} to={[1250, 930]} n={30} speed={12} spread={110} color={C.rust} size={8} seed={5} />
         </FloorSet>
       </Stage>
     </Pop>
@@ -757,8 +778,8 @@ const ShotClock: ShotFC<C10> = ({ f, len }) => {
 // 10-22 · two cards GRID and PUMPS, gears turning (10 deg/f); an eye crossed out (40 px/f). Pill 'FROM HOW THEY WORK'.
 const ShotWork: ShotFC<C10> = ({ f, len }) => {
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 560, zoom: 1.0 },
-    { f: len, x: 990, y: 540, zoom: 1.08 },
+    { f: 0, x: 860, y: 580, zoom: 1.0 },
+    { f: len, x: 1100, y: 520, zoom: 1.12 },
   ]);
   return (
     <Pop f={f}>
@@ -774,6 +795,7 @@ const ShotWork: ShotFC<C10> = ({ f, len }) => {
               <GearIcon x={200} y={260} size={240} f={f} speed={-10} />
               <PumpIcon x={400} y={400} size={150} f={f} />
             </Sheet>
+            <DotStream f={f} from={[260, 760]} to={[1240, 760]} n={36} speed={16} spread={20} color={C.amberDeep} size={10} seed={7} />
             <g transform="translate(-80 -60)">
               <rect x={1400} y={300} width={330} height={300} rx={24} fill={C.paper} />
               <Eye x={1565} y={450} size={200} slash={lin(f, 30, 30 + 300 / 40)} />
@@ -794,7 +816,7 @@ const ShotBalloon: ShotFC<C10> = ({ f }) => {
   const text = "HUNDREDS OF YEARS";
   const n = Math.max(0, Math.min(text.length, Math.floor((f - 14) * 1.1)));
   const by = Math.max(330, 900 - f * 22) + Math.sin(f / 7) * 28;
-  const bx = 1110;
+  const bx = 1110 + Math.sin(f / 11) * 60;
   return (
     <Pop f={f}>
       <Stage theme={ST} shotFrame={f} drift={{ zoom: 1.04, panX: -0.008, panY: 0, frames: 200, seed: 17 }} vignette={0.12} grain={0.45}>
@@ -816,7 +838,7 @@ const ShotBalloon: ShotFC<C10> = ({ f }) => {
 // 10-24 · two bottles: one crumbles to dots fast, the other stays whole; tags QUICKLY and NOT AT ALL slide in (24 px/f);
 // source chip NOAA (#17 A).
 const ShotBottles: ShotFC<C10> = ({ f }) => {
-  const p = lin(f, 8, 60);
+  const p = lin(f, 6, 120);
   const lx = 620;
   const rx = 1300;
   const by = 640;
@@ -836,7 +858,7 @@ const ShotBottles: ShotFC<C10> = ({ f }) => {
           </g>
           {Array.from({ length: 60 }, (_, i) => {
             const u = (i + rnd(i * 3)) / 60;
-            const birth = 8 + u * 52;
+            const birth = 6 + u * 114;
             const age = f - birth;
             if (age < 0) return null;
             const x0 = lx - 70 + rnd(i * 7) * 140;
@@ -863,7 +885,7 @@ const ShotBottles: ShotFC<C10> = ({ f }) => {
 // Tick scratches his visor. #15 A.
 const ShotName: ShotFC<C10> = ({ f }) => {
   const layers = ["#8F5A36", "#A8703E", "#6E4630", "#94603A", "#F2B544"];
-  const sw = Math.sin(f / 7) * 18;
+  const sw = Math.sin(f / 6) * 26;
   return (
     <Pop f={f}>
       <Stage theme={ST} shotFrame={f} drift={{ zoom: 1.04, panX: 0.008, panY: 0, frames: 200, seed: 21 }} vignette={0.12} grain={0.45}>
@@ -878,7 +900,7 @@ const ShotName: ShotFC<C10> = ({ f }) => {
             return f >= s ? <rect key={i} x={820 + dx} y={y} width={640} height={h} rx={10} fill={col} /> : null;
           })}
           {/* the blank tag swinging from the bright top layer */}
-          <g transform={`rotate(${sw} 1440 300)`} opacity={ez(f, 70, 80)}>
+          <g transform={`rotate(${sw} 1440 300)`} opacity={ez(f, 8, 18)}>
             <line x1={1440} y1={300} x2={1440} y2={420} stroke={INK} strokeWidth={4} />
             <rect x={1360} y={420} width={160} height={110} rx={16} fill={C.paper} stroke={INK} strokeWidth={5} />
             <circle cx={1440} cy={440} r={8} fill={INK} />
@@ -902,7 +924,7 @@ const ShotVote: ShotFC<C10> = ({ f }) => {
     if (u < 8) return 40 - ((u - 4) / 4) * 40;
     return 0;
   };
-  const ang = 40 - Math.max(strike(12), strike(40));
+  const ang = 40 - Math.max(strike(12), strike(40), strike(92), strike(122));
   const px = 760;
   const py = 700;
   return (
@@ -913,7 +935,7 @@ const ShotVote: ShotFC<C10> = ({ f }) => {
           <rect x={px - 300} y={py} width={600} height={90} rx={14} fill={C.saffronDeep} />
           <rect x={px - 300} y={py} width={600} height={70} rx={14} fill={C.saffron} />
           <Label x={px} y={py + 48} text="ANTHROPOCENE" size={38} color={INK} align="middle" />
-          {[16, 44].map((t0, i) => (f >= t0 ? <g key={i}>{f - t0 < 24 ? <ellipse cx={px} cy={py} rx={60 + (f - t0) * 14} ry={(60 + (f - t0) * 14) * 0.25} fill="none" stroke={C.saffronCore} strokeWidth={5} opacity={1 - (f - t0) / 24} /> : null}</g> : null))}
+          {[16, 44, 96, 126].map((t0, i) => (f >= t0 ? <g key={i}>{f - t0 < 24 ? <ellipse cx={px} cy={py} rx={60 + (f - t0) * 14} ry={(60 + (f - t0) * 14) * 0.25} fill="none" stroke={C.saffronCore} strokeWidth={5} opacity={1 - (f - t0) / 24} /> : null}</g> : null))}
           {/* the gavel, pivoting at its handle end */}
           <g transform={`rotate(${ang} ${px + 420} ${py - 40})`}>
             <rect x={px + 40} y={py - 52} width={380} height={24} rx={12} fill="#7A4A2E" />
@@ -947,6 +969,7 @@ const ShotStay: ShotFC<C10> = ({ f, len }) => {
           <g transform={`translate(${Math.max(0, 900 - (f - 50) * 24 * 1.6)} 0)`} opacity={f > 50 ? 1 : 0}>
             <WordPill x={440} y={640} text="WILL STAY IN USE" size={48} fill={alpha("#1E4A5C", 0.92)} dot={C.saffron} />
           </g>
+          <RailTicks f={f} y={760} x0={420} x1={1380} speed={20} color={C.paper} gap={48} />
           <ellipse cx={1500} cy={936} rx={120} ry={16} fill="#000" opacity={0.2} />
           <Tick x={1500} y={930} pxPerM={290} frame={f} facing={-1} pose={f < len - 70 ? "hold" : "stand"} expression={f < len - 70 ? "thinking" : "neutral"} look={0.3} />
           {f < len - 70 ? <rect x={1500 - 36 * 2.9 - 4} y={930 - 104 * 2.9 - 30} width={10} height={60} rx={4} fill={C.saffron} transform={`rotate(20 ${1500 - 36 * 2.9} ${930 - 104 * 2.9})`} /> : <rect x={1380} y={924} width={70} height={10} rx={4} fill={C.saffron} />}

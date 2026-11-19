@@ -441,9 +441,9 @@ export const MoonGround: React.FC<{ horizon: number; x0?: number; x1?: number; s
     <g>
       <defs>
         <linearGradient id={id} x1="0" y1={horizon} x2="0" y2={horizon + 520} gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#4E3F2C" />
-          <stop offset="0.35" stopColor="#8C7552" />
-          <stop offset="1" stopColor="#C9B086" />
+          <stop offset="0" stopColor="#5A3E1C" />
+          <stop offset="0.35" stopColor="#A87A3E" />
+          <stop offset="1" stopColor="#E2B46C" />
         </linearGradient>
       </defs>
       <path d={`M${x0} ${horizon + 8} Q${x0 + W * 0.25} ${horizon - 18} ${x0 + W * 0.5} ${horizon + 4} T${x1} ${horizon} L${x1} ${bottom} L${x0} ${bottom} Z`} fill={`url(#${id})`} />
@@ -827,7 +827,7 @@ export const MoonSet: React.FC<{
   seed?: number;
 }> = ({ f, shift = 0, horizon = 760, earth = { x: 1480, y: 230, r: 64 }, prints = false, starSpeed = 2, seed = 4 }) => (
   <g>
-    <Sky stops={["#020A0E", "#07161E", "#0E2A36"]} x={-1200} y={-1600} w={4320} h={2400 + horizon} />
+    <Sky stops={["#021218", "#06232E", "#0E3A48"]} x={-1200} y={-1600} w={4320} h={2400 + horizon} />
     <g>
       {Array.from({ length: 120 }, (_, i) => {
         const W = 2600;

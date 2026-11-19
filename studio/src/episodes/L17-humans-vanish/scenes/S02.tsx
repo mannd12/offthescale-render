@@ -65,13 +65,14 @@ const Tunnel: React.FC<{ f: number; travel: number; lamps?: number }> = ({ f, tr
       <circle cx={VP.x} cy={VP.y} r={60} fill="#0C0405" />
       {rings.map(({ z, s, k }) => {
         const shade = Math.min(1, 1.2 / z);
-        const col = mixHex("#1A0A0C", k % 2 ? "#5A2A1E" : "#4A1C16", shade);
+        const col = mixHex("#1A0A0C", k % 2 ? "#8A3A1E" : "#6A2414", shade);
         const fy = VP.y + 520 * s;
         return (
           <g key={k} opacity={Math.min(1, (N + 0.4 - z) / 1.2)}>
             <path d={arch(s)} fill={col} />
             <path d={arch(s * 0.94)} fill={mixHex("#1A0A0C", "#2E1114", shade)} />
-            <path d={arch(s * 0.97)} fill="none" stroke={C.lantern} strokeWidth={Math.max(1.5, 7 * s)} opacity={0.35 * shade} />
+            <path d={arch(s * 0.97)} fill="none" stroke="#FF7A30" strokeWidth={Math.max(6, 40 * s)} opacity={0.22 * shade} />
+            <path d={arch(s * 0.97)} fill="none" stroke={C.lantern} strokeWidth={Math.max(2.5, 14 * s)} opacity={0.85 * shade} />
             <rect x={VP.x - 420 * s} y={fy - 8 * s} width={840 * s} height={16 * s} fill="#5A2A1E" opacity={shade} />
             {/* rails on the floor of this ring */}
             <rect x={VP.x - 300 * s} y={fy - 14 * s} width={600 * s} height={10 * s} fill="#3A1812" />
@@ -89,7 +90,9 @@ const Tunnel: React.FC<{ f: number; travel: number; lamps?: number }> = ({ f, tr
           </g>
         );
       })}
-      {/* the rails, converging */}
+      {/* the floor under the rails, then the rails converging on it */}
+      <path d={`M${VP.x - 70} ${VP.y + 70} L${VP.x + 70} ${VP.y + 70} L2300 1200 L-380 1200 Z`} fill="#3A1812" />
+      <path d={`M${VP.x - 70} ${VP.y + 70} L${VP.x + 70} ${VP.y + 70} L2300 1200 L-380 1200 Z`} fill="none" stroke={C.lantern} strokeWidth={4} opacity={0.4} />
       {[-160, 160].map((dx) => (
         <path key={dx} d={`M${VP.x + dx * 0.15} ${VP.y + 80} L${VP.x + dx * 3.2} 1200`} stroke="#B9A898" strokeWidth={14} />
       ))}

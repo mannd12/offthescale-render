@@ -38,7 +38,7 @@ export type C08 = ReturnType<typeof cuesL08>;
 
 const DEEP = familyOf("deep");
 const NOON = familyOf("noon");
-const ROCK = ["#5A2A1E", "#3A1812", "#4A1C16", "#2E1114", "#6A3020", "#3A1812"];
+const ROCK = ["#7A2A16", "#4E1810", "#6A2212", "#3E120C", "#94381A", "#4E1810"];
 
 /** A lantern hanging from (x, y), swinging by `ang` degrees; its glow lights the tunnel. */
 const Lantern: React.FC<{ x: number; y: number; ang: number; len?: number; glow?: number }> = ({ x, y, ang, len = 46, glow = 1 }) => {
@@ -72,7 +72,7 @@ const ShotTunnel: ShotFC<C08> = ({ f, c }) => {
   const tx = Math.min(f, stopAt) * vx;
   const ty = groundY(tx);
   const walking = f < stopAt;
-  const cam = { x: tx + 260 + 120 * ez(f, stopAt - 30, stopAt + 30), y: ty - 140 + 40 * ez(f, stopAt - 30, stopAt + 30), zoom: 1 + 0.08 * ez(f, stopAt, stopAt + 120) };
+  const cam = { x: tx + 260 + 120 * ez(f, stopAt - 30, stopAt + 30) + Math.max(0, f - stopAt) * 3, y: ty - 140 + 40 * ez(f, stopAt - 30, stopAt + 30), zoom: 1 + 0.16 * ez(f, stopAt, stopAt + 150) };
   const ppm = 170;
   const swing = Math.sin(f / 5.5) * (walking ? 16 : 9);
   // hand position (hold pose front hand, facing +x): [36, -104] local units, 100 units = 1 m
@@ -260,9 +260,9 @@ const ShotScan: ShotFC<C08> = ({ f }) => {
 // 8-05 · an A PLAN tag stamps beside a dashed tunnel outline that draws itself (30 px/f); Tick stamps it, steps back.
 // ===============================================================================================================
 const PLAN_D = "M260 300 L760 590 L1180 590 M820 590 L820 760 M960 590 L960 760 M1100 590 L1100 760 M760 590 L760 760 L1180 760 L1180 590";
-const ShotPlan: ShotFC<C08> = ({ f }) => (
+const ShotPlan: ShotFC<C08> = ({ f, len }) => (
   <Pop f={f}>
-    <Stage theme={DEEP.theme} shotFrame={f} drift={{ zoom: 1.05, panX: -0.008, panY: 0, frames: 200, seed: 7 }} vignette={0.35} grain={0.5}>
+    <Stage theme={DEEP.theme} cam={cameraAt(f, [{ f: 0, x: 900, y: 520, zoom: 1.0 }, { f: len, x: 1060, y: 560, zoom: 1.16 }])} vignette={0.35} grain={0.5}>
       <Layer depth={0.05}>
         <FamSky name="deep" />
       </Layer>
@@ -328,13 +328,13 @@ const ShotWatch: ShotFC<C08> = ({ f, len }) => {
 // 8-07 · four words slide in over the tunnel (24 px/f, stagger 10 f) as a plug door slides shut (18 px/f); a seal
 // ring pulses round the door; dust falls. Words: DEEP · SEALED · BURIED · IN ROCK (#10 A).
 // ===============================================================================================================
-const ShotSeal: ShotFC<C08> = ({ f }) => {
+const ShotSeal: ShotFC<C08> = ({ f, len }) => {
   const doorX = 1840 - 560 * ez(f, 10, 10 + 560 / 18);
   const shut = doorX <= 1300;
   const words = ["DEEP", "SEALED", "BURIED", "IN ROCK"];
   return (
     <Pop f={f}>
-      <Stage theme={DEEP.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.008, panY: 0, frames: 200, seed: 9 }} vignette={0.35} grain={0.5}>
+      <Stage theme={DEEP.theme} cam={cameraAt(f, [{ f: 0, x: 980, y: 560, zoom: 1.0 }, { f: len, x: 1180, y: 540, zoom: 1.2 }])} vignette={0.35} grain={0.5}>
         <Layer depth={0.05}>
           <FamSky name="deep" />
         </Layer>
@@ -360,7 +360,7 @@ const ShotSeal: ShotFC<C08> = ({ f }) => {
           {shut ? <Rings f={f - 42} cx={1280} cy={540} r0={300} every={22} speed={8} maxR={480} color={C.lantern} width={6} /> : null}
         </Layer>
         <Layer depth={1.3}>
-          <DotStream f={f} from={[960, -80]} to={[960, 1160]} n={26} speed={15} spread={980} color="#E0B49A" size={3} seed={17} />
+          <DotStream f={f} from={[960, -80]} to={[960, 1160]} n={50} speed={15} spread={980} color="#F2C8A4" size={6} seed={17} />
         </Layer>
         <Layer depth={0}>
           {words.map((w, i) => {
@@ -393,8 +393,8 @@ const ShotRise: ShotFC<C08> = ({ f, len }) => (
         <g>
           {Array.from({ length: 3 }, (_, i) => {
             const w = 460 + rnd(i * 7) * 220;
-            const x = mod(i * 900 + 200 - fr * 9, 2700) - 500;
-            return <ellipse key={i} cx={x} cy={180 + i * 90} rx={w / 2} ry={w * 0.13} fill="#FFF8EA" opacity={0.85} />;
+            const x = mod(i * 900 + 200 - fr * 16, 2700) - 500;
+            return <ellipse key={i} cx={x} cy={180 + i * 90} rx={w / 2 + 80} ry={w * 0.16} fill="#FFF8EA" opacity={0.9} />;
           })}
           <path d={`M-100 ${880 + off * 0.2} Q500 ${820 + off * 0.2} 1000 ${870 + off * 0.2} T2100 ${850 + off * 0.2} L2100 1200 L-100 1200 Z`} fill={NOON.mid} opacity={ez(fr, 20, 50)} />
           <g transform={`translate(0 ${off})`}>

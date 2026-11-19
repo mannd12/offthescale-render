@@ -569,7 +569,7 @@ const ShotMaint: ShotFC<C07> = ({ f }) => (
 // 7-12 · the dive: the camera falls through the ground into dark maroon rock. MOVER: strata sliding up (24 px/f) +
 // dust falling (16 px/f) + amber mineral glints riding with the rock.
 // ===============================================================================================================
-const DEEP_PAL = ["#5A2A1E", "#3A1812", "#4A1C16", "#2E1114", "#6A3020", "#1A0A0C", "#3A1812"];
+const DEEP_PAL = ["#7A2A16", "#4E1810", "#6A2212", "#3E120C", "#94381A", "#2A0C08", "#4E1810"];
 const ShotDive: ShotFC<C07> = ({ f }) => {
   const scroll = f * 24;
   return (

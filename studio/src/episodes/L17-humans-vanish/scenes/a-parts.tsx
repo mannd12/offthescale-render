@@ -601,8 +601,8 @@ export const RebarBlock: React.FC<{ x: number; y: number; w: number; h: number; 
   h,
   bars = 3,
   glint,
-  concrete = C.concrete,
-  steel = C.steel,
+  concrete = "#D9B07A",
+  steel = "#4F9AB4",
   rust = [],
   seed = 1,
 }) => {
@@ -644,7 +644,7 @@ export const RustBar: React.FC<{ x: number; y: number; w: number; swell: number;
   for (let i = 20; i >= 0; i--) pts.push([x + (w * i) / 20, y + th / 2 + Math.sin(i * 2.3 + seed) * 6 * s]);
   return (
     <g>
-      <path d={smoothPath(pts) + " Z"} fill={mixHex(C.steel, C.rust, 0.3 + 0.7 * s)} stroke="#3A1208" strokeWidth={3} />
+      <path d={smoothPath(pts) + " Z"} fill={mixHex("#4F9AB4", C.rust, 0.3 + 0.7 * s)} stroke="#3A1208" strokeWidth={3} />
       <path d={smoothPath(pts.slice(0, 21))} fill="none" stroke={C.lever} strokeWidth={6} opacity={0.7} />
       {Array.from({ length: 14 }, (_, i) => {
         const t = wrap(f * 0.012 + rnd(seed * 9 + i), 1);
@@ -657,7 +657,7 @@ export const RustBar: React.FC<{ x: number; y: number; w: number; swell: number;
 };
 
 /** A generic domed building (no name, F3): drum, colonnaded portico, round dome; `sun` shades it from the right. */
-export const DomeHall: React.FC<{ x: number; base: number; w: number; fill?: string; shade?: string; lit?: string; seed?: number }> = ({ x, base, w, fill = "#F4E6C8", shade = "#C9A27A", lit = "#FFF8E8" }) => {
+export const DomeHall: React.FC<{ x: number; base: number; w: number; fill?: string; shade?: string; lit?: string; seed?: number }> = ({ x, base, w, fill = "#F6D79A", shade = "#D08A4A", lit = "#FFF4D0" }) => {
   const h = w * 0.62;
   const drumW = w * 0.62;
   const drumY = base - h * 0.56;

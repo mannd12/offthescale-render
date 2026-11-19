@@ -78,7 +78,7 @@ const VOID = familyOf("void");
 const NOON = familyOf("noon");
 const DUSK = familyOf("dusk");
 const STUDIO_T = familyOf("studio").theme;
-const MUD = ["#8F5A36", "#6E4630", "#A8703E", "#5A3A2A", "#7A5236", "#4A2E22", "#94603A"];
+const MUD = ["#B8642A", "#8A4A20", "#C98238", "#6E3A1A", "#A8582A", "#5A2E14", "#C07436"];
 
 // ===============================================================================================================
 // 9-01 + 9-02 · the YEARS dial spins and lands on ONE MILLION YEARS; the camera rises off the world (the Earth shrinks
@@ -358,6 +358,12 @@ const ShotTrack: ShotFC<C09> = ({ f, len }) => {
           {Array.from({ length: 30 }, (_, i) => (
             <line key={"t" + i} x1={-600 + i * 220} y1={890} x2={-600 + i * 220} y2={930} stroke="#A8703E" strokeWidth={6} />
           ))}
+          {Array.from({ length: 7 }, (_, i) => (
+            <g key={"m" + i}>
+              <rect x={1100 + i * 480} y={560} width={16} height={160} fill={C.paper} />
+              <rect x={1116 + i * 480} y={560} width={70} height={44} fill={i % 2 ? C.teal : C.amber} />
+            </g>
+          ))}
           <rect x={560} y={716} width={14} height={168} fill={C.paper} />
           <Label x={567} y={700} text="START" size={26} color={INK} align="middle" />
           <ellipse cx={460} cy={806} rx={80} ry={12} fill="#000" opacity={0.2} />
@@ -399,7 +405,7 @@ const ShotStrata: ShotFC<C09> = ({ f, len }) => {
     [8, -760],
     [52, 200],
     [66, 250],
-    [len, 330],
+    [len, 250 + (len - 66) * 4],
   ]);
   return (
     <Pop f={f}>
@@ -462,9 +468,11 @@ const ShotTechno: ShotFC<C09> = ({ f }) => {
     <Pop f={f}>
       <Stage theme={DUSK.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.01, panY: 0, frames: 200, seed: 14 }} vignette={0.22} grain={0.5}>
         <Layer depth={1}>
+          <g transform={`translate(0 ${-f * 3})`}>
           <Strata y0={-700} depth={1220} palette={MUD} seed={15} minH={90} maxH={170} />
           <Band y={bandY} h={bandH} f={f} />
           <Strata y0={bandY + bandH} depth={1200} palette={MUD.slice(2)} seed={17} minH={90} maxH={170} />
+          </g>
           {piece(0, 560, (y) => <Can x={560} y={y} />)}
           {piece(1, 980, (y) => <Chunk x={980} y={y} />)}
           {piece(2, 1400, (y) => <Strip x={1400} y={y} />)}
@@ -618,7 +626,7 @@ const BoardSet: React.FC<{ f: number; children: React.ReactNode }> = ({ f, child
 );
 const ShotCards: ShotFC<C09> = ({ f }) => (
   <Pop f={f}>
-    <Stage theme={VOID.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.008, panY: 0, frames: 200, seed: 20 }} vignette={0.3} grain={0.45}>
+    <Stage theme={VOID.theme} cam={{ x: 880 + f * 2.2, y: 560, zoom: 1 + f * 0.0012 }} vignette={0.3} grain={0.45}>
       <BoardSet f={f}>
         {CARDS.map((cd, i) => {
           const s = 4 + i * 10 + i * 14;
@@ -634,7 +642,7 @@ const ShotCards: ShotFC<C09> = ({ f }) => (
 );
 const ShotFlip: ShotFC<C09> = ({ f }) => (
   <Pop f={f}>
-    <Stage theme={VOID.theme} shotFrame={f} drift={{ zoom: 1.05, panX: -0.008, panY: 0, frames: 200, seed: 22 }} vignette={0.3} grain={0.45}>
+    <Stage theme={VOID.theme} cam={{ x: 1100 - f * 2.2, y: 540, zoom: 1.02 + f * 0.0012 }} vignette={0.3} grain={0.45}>
       <BoardSet f={f}>
         {CARDS.map((cd, i) => {
           const s = 6 + i * 20;

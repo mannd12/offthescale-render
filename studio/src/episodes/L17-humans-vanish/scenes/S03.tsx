@@ -46,8 +46,8 @@ export const cuesL03 = (t: SceneTiming) => {
 export type CL03 = ReturnType<typeof cuesL03>;
 
 // the cold stone of this scene (frost light: pale cyan-lit stone, deep-teal joints)
-const STONE = { fill: "#A9C4C4", joint: "#1D4F60", lit: "#F4F8F0", shade: "#2F6F80" };
-const NSTONE = { fill: "#3F6A70", joint: "#06151D", lit: "#9FC8C6", shade: "#0B2530" };
+const STONE = { fill: "#8ED2DE", joint: "#0E5A70", lit: "#EAFCFF", shade: "#1F86A4" };
+const NSTONE = { fill: "#1F6A7A", joint: "#04121A", lit: "#5FD0D8", shade: "#08303C" };
 
 /** The crack in close-up: a jagged wedge between two stone faces, `gap` px wide at its mouth, centred on cx. */
 const crackShape = (cx: number, top: number, bot: number, gap: number) => {
@@ -509,16 +509,16 @@ const SteelFrame: React.FC<{ sweep: number; rust?: number; rustAt?: Pt }> = ({ s
   <g>
     {[200, 560, 920].map((y, i) => (
       <g key={i}>
-        <rect x={-400} y={y - 40} width={2720} height={80} fill="#26525F" />
-        <rect x={-400} y={y - 40} width={2720} height={14} fill="#3F7F8E" />
+        <rect x={-400} y={y - 40} width={2720} height={80} fill="#1A6478" />
+        <rect x={-400} y={y - 40} width={2720} height={14} fill="#3FB0C8" />
         <rect x={-400} y={y + 26} width={2720} height={14} fill="#14414F" />
         <ellipse cx={wrap(sweep + i * 500, 2720) - 400} cy={y - 30} rx={220} ry={8} fill={C.amber} opacity={0.75} />
       </g>
     ))}
     {[180, 780, 1380].map((x, i) => (
       <g key={i}>
-        <rect x={x - 40} y={-200} width={80} height={1500} fill="#1B414C" />
-        <rect x={x - 40} y={-200} width={12} height={1500} fill="#3F7F8E" />
+        <rect x={x - 40} y={-200} width={80} height={1500} fill="#14505E" />
+        <rect x={x - 40} y={-200} width={12} height={1500} fill="#3FB0C8" />
       </g>
     ))}
     {rust > 0 && rustAt ? (
