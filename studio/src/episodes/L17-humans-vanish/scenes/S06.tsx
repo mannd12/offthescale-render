@@ -127,8 +127,20 @@ const ShotLumps: ShotFC<CL06> = ({ f }) => {
           <RomanFace x={-200} y={120} w={2400} h={1000} seed={3} lumps={0.25} />
           <Loupe x={mx} y={560} r={250}>
             <g transform={`translate(${mx} 560) scale(1.8) translate(${-mx} -560)`}>
-              <RomanFace x={-200} y={120} w={2400} h={1000} seed={3} lumpAge={f - 6} />
+              <RomanFace x={-200} y={120} w={2400} h={1000} seed={3} lumps={0} />
             </g>
+            {Array.from({ length: 20 }, (_, i) => {
+              const lx = 280 + i * 70;
+              const ly = 560 + (rnd(i * 13) - 0.5) * 300;
+              const age = (mx - lx + 120) / 20;
+              const s = age < 0 ? 0 : age < 6 ? age / 6 + Math.sin((age / 6) * Math.PI) * 0.3 : 1;
+              return s > 0 ? (
+                <g key={i}>
+                  <ellipse cx={lx} cy={ly} rx={30 * s} ry={22 * s} fill="#FFFBEA" stroke="#C9B88A" strokeWidth={3} />
+                  <ellipse cx={lx - 8 * s} cy={ly - 7 * s} rx={10 * s} ry={6 * s} fill="#FFFFFF" />
+                </g>
+              ) : null;
+            })}
           </Loupe>
         </Layer>
         <Layer depth={0}>

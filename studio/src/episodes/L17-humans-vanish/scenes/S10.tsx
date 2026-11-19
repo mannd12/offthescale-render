@@ -219,7 +219,7 @@ const tickAt = (rung: number, x = 1600) => ({ x, y: ry(rung) + 120 });
 // ===============================================================================================================
 const ShotHonest: ShotFC<C10> = ({ f, c }) => {
   const p2 = c.rome - c.honest;
-  const wide = { x: 1050, y: -380, zoom: 0.37 };
+  const wide = { x: 1050, y: -375, zoom: 0.34 };
   const cam = cameraAt(f, [
     { f: 0, ...wide, zoom: 0.35 },
     { f: p2, ...wide },
@@ -241,7 +241,7 @@ const ShotHonest: ShotFC<C10> = ({ f, c }) => {
       </Layer>
       <Layer depth={0}>
         <g opacity={1 - ez(f, p2 - 6, p2 + 6)}>
-          <Kicker x={80} y={90} text="WHAT WE SAW · WHAT WE MODELLED" color={INK} size={30} />
+          <Kicker x={80} y={1040} text="WHAT WE SAW · WHAT WE MODELLED" color={INK} size={30} />
           <ellipse cx={1660} cy={1030} rx={110} ry={14} fill="#000" opacity={0.18} />
           <Tick x={1660} y={1025} pxPerM={250} frame={f} facing={-1} pose={f < 40 ? "press" : "point"} expression="neutral" look={0.6} />
         </g>
@@ -269,7 +269,7 @@ const ShotTools: ShotFC<C10> = ({ f, len }) => {
         </Layer>
         <Layer depth={0}>
           <TextPlate x={80} y={830} w={940} h={170} color="#1E4A5C" opacity={0.85} />
-          <RollDec x={120} y={950} value={READ.lomekwi.value! /* #12 A */} k={ez(f, 20, 70)} unit="MILLION YEARS" size={110} who="10-03 tools" />
+          <RollDec x={120} y={950} value={READ.lomekwi.value! /* #12 A */} k={ez(f, 14, 44)} unit="MILLION YEARS" size={110} who="10-03 tools" />
         </Layer>
       </Stage>
     </Pop>
@@ -354,7 +354,7 @@ const ShotZone: ShotFC<C10> = ({ f }) => {
       <Label x={ZC.x} y={ZC.y - ZC.r - 38} text="CHERNOBYL EXCLUSION ZONE" size={32} color={INK} align="middle" />
       <Notebook f={f} x={1360} y={420} speed={0.5} />
       <TextPlate x={1010} y={700} w={760} h={170} color="#1E4A5C" opacity={0.88} />
-      <RollInt x={1040} y={815} value={READ.zonePeople.value! /* #16 A */} k={ez(f, 8, 80)} unit="PEOPLE LEFT" size={96} who="10-05 people" />
+      <RollInt x={1040} y={815} value={READ.zonePeople.value! /* #16 A */} k={ez(f, 6, 46)} unit="PEOPLE LEFT" size={96} who="10-05 people" />
     </ZoneShot>
   );
 };
@@ -744,8 +744,8 @@ const ShotClock: ShotFC<C10> = ({ f, len }) => {
           <g transform={`rotate(${Math.sin(f / 10) * 2} 1340 360)`}>
             <line x1={1340} y1={300} x2={1340} y2={360} stroke={INK} strokeWidth={3} />
             <rect x={1130} y={360} width={420} height={230} rx={22} fill={C.concrete} stroke={INK} strokeWidth={4} />
-            <ellipse cx={1250} cy={500} rx={30 + 110 * lin(f, 6, 6 + 110 / 10)} ry={18 + 50 * lin(f, 6, 6 + 110 / 10)} fill={C.rust} opacity={0.85} />
-            <ellipse cx={1240} cy={494} rx={14 + 60 * lin(f, 6, 6 + 110 / 10)} ry={8 + 24 * lin(f, 6, 6 + 110 / 10)} fill="#D86A2A" opacity={0.8} />
+            <ellipse cx={1250} cy={540} rx={30 + 110 * lin(f, 6, 6 + 110 / 10)} ry={14 + 26 * lin(f, 6, 6 + 110 / 10)} fill={C.rust} opacity={0.85} />
+            <ellipse cx={1240} cy={536} rx={14 + 60 * lin(f, 6, 6 + 110 / 10)} ry={6 + 14 * lin(f, 6, 6 + 110 / 10)} fill="#D86A2A" opacity={0.8} />
             <Label x={1340} y={440} text="NO CLOCK" size={48} color={INK} align="middle" />
           </g>
         </FloorSet>
@@ -898,11 +898,11 @@ const ShotVote: ShotFC<C10> = ({ f }) => {
   const strike = (t0: number) => {
     const u = f - t0;
     if (u < 0) return 0;
-    if (u < 4) return (u / 4) * 70;
-    if (u < 8) return 70 - ((u - 4) / 4) * 70;
+    if (u < 4) return (u / 4) * 40;
+    if (u < 8) return 40 - ((u - 4) / 4) * 40;
     return 0;
   };
-  const ang = -40 + Math.max(strike(12), strike(40));
+  const ang = 40 - Math.max(strike(12), strike(40));
   const px = 760;
   const py = 700;
   return (

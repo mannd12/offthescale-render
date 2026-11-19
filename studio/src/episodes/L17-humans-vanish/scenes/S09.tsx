@@ -115,7 +115,7 @@ const ShotMoon: ShotFC<C09> = ({ f, c }) => {
         ) : (
           <g>
             <MoonSet f={f} shift={shift} horizon={760} earth={{ x: 1480, y: 230, r: 64 }} prints={{ x0: 180, y: 905, n: 10, gap: 180, size: 132 }} starSpeed={1.5} />
-            <Meteor a={[1780, 70]} b={[1180, 560]} t={lin(g, 46, 66)} puff={lin(g, 66, 100)} />
+            <Meteor a={[1300, 60]} b={[1760, 742]} t={lin(g, 46, 66)} puff={lin(g, 66, 100)} />
             <DotStream f={g} from={[tx + 150, 820]} to={[tx + 150, 912]} n={18} speed={3} spread={50} gravity={1} color={C.moonDust} size={4} seed={8} />
             <RigidFlag x={tx + 150} y={912} h={250} plant={plant} />
             <ellipse cx={tx + 6} cy={914} rx={70} ry={12} fill="#1A140C" opacity={0.5} />
@@ -223,9 +223,9 @@ const ShotPit: ShotFC<C09> = ({ f }) => (
           );
         })}
         {/* the site sign */}
-        <rect x={1540} y={420} width={14} height={260} fill="#7A4A2E" />
-        <rect x={1440} y={380} width={330} height={110} rx={10} fill={C.paper} stroke="#7A4A2E" strokeWidth={6} />
-        <Label x={1605} y={448} text={READ.lomekwiSign.text /* #12 A */} size={30} color={INK} align="middle" />
+        <rect x={190} y={420} width={14} height={180} fill="#7A4A2E" />
+        <rect x={30} y={330} width={340} height={110} rx={10} fill={C.paper} stroke="#7A4A2E" strokeWidth={6} />
+        <Label x={200} y={398} text={READ.lomekwiSign.text /* #12 A */} size={30} color={INK} align="middle" />
         <ellipse cx={1520} cy={566} rx={80} ry={12} fill="#000" opacity={0.2} />
         <Tick x={1500} y={560} pxPerM={210} frame={f} facing={-1} pose="crouch-reach" expression={f > 60 ? "surprised" : "neutral"} look={0.3} />
       </Layer>
@@ -235,7 +235,7 @@ const ShotPit: ShotFC<C09> = ({ f }) => (
       </Layer>
       <Layer depth={0}>
         <TextPlate x={90} y={830} w={960} h={170} color="#1F4F4C" opacity={0.82} />
-        <RollDec x={130} y={952} value={READ.lomekwi.value! /* #12 A */} k={ez(f, 14, 70)} unit="MILLION YEARS" size={110} who="9-04 lomekwi" />
+        <RollDec x={130} y={952} value={READ.lomekwi.value! /* #12 A */} k={ez(f, 10, 40)} unit="MILLION YEARS" size={110} who="9-04 lomekwi" />
       </Layer>
     </Stage>
   </Pop>
@@ -496,7 +496,7 @@ const Wheel: React.FC<{ x: number; y: number; r: number; f: number }> = ({ x, y,
 const ShotLens: ShotFC<C09> = ({ f }) => {
   const bandY = 420;
   const bandH = 260;
-  const lx = 160 + Math.min(f, 58) * 28 * 1.0;
+  const lx = 200 + Math.abs(mod(f * 28 + 1300, 2 * 1500) - 1500);
   const ly = bandY + bandH / 2;
   const R = 200;
   const things = (sc: number) => (
@@ -572,7 +572,7 @@ const ShotBeyond: ShotFC<C09> = ({ f }) => {
           <path d={arcD} fill="none" stroke={C.saffronCore} strokeWidth={10} strokeDasharray="2 20" strokeLinecap="round" clipPath="url(#l09arc)" />
           {/* the mud we rose out of, sliding down out of frame */}
           <g transform={`translate(0 ${up})`}>
-            <Strata y0={-1200} depth={1300} palette={MUD} seed={25} minH={90} maxH={180} />
+            <Strata y0={-160} depth={1300} palette={MUD} seed={25} minH={90} maxH={180} />
           </g>
         </Layer>
         <Layer depth={0}>

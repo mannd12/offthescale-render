@@ -180,11 +180,11 @@ const Desk: React.FC<{ f: number; dim?: boolean; spread?: number; disc?: number;
     <g>
       {/* the sun-moon disc behind the wall */}
       <g transform={`rotate(${disc.toFixed(1)} 960 300)`}>
-        <path d="M660 300 A300 300 0 0 1 1260 300 Z" fill={dim ? "#5A4A2A" : "#F2B544"} />
+        <path d="M660 300 A300 300 0 0 1 1260 300 Z" fill={dim ? "#5A4A2A" : "#E3813F"} />
         <path d="M660 300 A300 300 0 0 0 1260 300 Z" fill={dim ? "#14414F" : "#2A6E78"} />
         <circle cx={1060} cy={420} r={50} fill={dim ? "#26525F" : "#BFE3D6"} />
         {Array.from({ length: 8 }, (_, i) => (
-          <line key={i} x1={960 + Math.cos(-(i + 0.5) * 0.39) * 320} y1={300 + Math.sin(-(i + 0.5) * 0.39) * 320} x2={960 + Math.cos(-(i + 0.5) * 0.39) * 370} y2={300 + Math.sin(-(i + 0.5) * 0.39) * 370} stroke={dim ? "#5A4A2A" : "#F2B544"} strokeWidth={14} strokeLinecap="round" />
+          <line key={i} x1={960 + Math.cos(-(i + 0.5) * 0.39) * 320} y1={300 + Math.sin(-(i + 0.5) * 0.39) * 320} x2={960 + Math.cos(-(i + 0.5) * 0.39) * 370} y2={300 + Math.sin(-(i + 0.5) * 0.39) * 370} stroke={dim ? "#5A4A2A" : "#E3813F"} strokeWidth={14} strokeLinecap="round" />
         ))}
       </g>
       <Form d={rrect(300, 330, 1320, 380, 30)} fill={panel} light={225} shadow="#06151D" shadowOpacity={0.55} inset={20} rim={top} />
@@ -307,8 +307,8 @@ const ShotDim: ShotFC<CL01> = ({ f, c }) => {
     </Stage>
   );
   const g = Math.max(0, f - T7);
-  const drain = drainFor(g, 4, 620, 30);
-  const wireLit = 1 - Math.min(1, Math.max(0, g - 8) * 28 / 1600);
+  const drain = lin(g, 6, 120);
+  const wireLit = 1 - lin(g, 16, 140);
   const B = (
     <Stage theme={NIGHT.theme} cam={{ x: 960, y: 540, zoom: 1.02 + g * 0.0006 }} vignette={0.36} grain={0.5}>
       <Sky family={NIGHT} />
@@ -316,7 +316,7 @@ const ShotDim: ShotFC<CL01> = ({ f, c }) => {
         <StarsTint f={g} n={100} speed={2} h={500} seed={9} />
       </Layer>
       <Layer depth={0.5}>
-        <Skyline f={g} family={NIGHT} ground={820} scale={1.1} lights={0.95} wave={0} drain={drain} seed={4} />
+        <Skyline f={g} family={NIGHT} ground={860} scale={1.4} lights={0.95} wave={0} drain={drain} seed={4} />
       </Layer>
       <Layer depth={0.8}>
         <PylonRow f={g * 0.1} base={900} h={520} gap={760} speed={0} lit={wireLit} seed={5} ink="#04121A" />

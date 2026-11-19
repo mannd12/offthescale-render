@@ -218,7 +218,7 @@ const ShotScale: ShotFC<CCold> = ({ f, c }) => {
   const tx = lerp(1180, PIV.x + 6, hop);
   const ty = lerp(floor, PIV.y - 26, hop) - Math.sin(hop * Math.PI) * 120 - (hop >= 1 ? Math.abs(th - thPrev) * 6 : 0);
   return (
-    <Stage theme={DUSK.theme} cam={{ x: 960 - f * 0.6, y: 560, zoom: 1.02 + f * 0.0004 }} vignette={0.22} grain={0.5}>
+    <Stage theme={DUSK.theme} cam={{ x: 960 - f * 0.3, y: 470, zoom: 0.84 + f * 0.0005 }} vignette={0.22} grain={0.5}>
       <Sky family={DUSK} />
       <DuskWorld f={f} floor={floor} />
       <Layer depth={1}>
@@ -319,7 +319,7 @@ const ShotDouble: ShotFC<CCold> = ({ f }) => {
         </Layer>
         <Layer depth={0}>
           <Wheel x={300} y={760} r={150} angle={ringA} notches={4} hot={[0]} fill={C.paper} />
-          <Label x={300} y={772} text="20 years" size={30} color={C.ink} />
+          <Label x={300} y={968} text="20 years" size={34} color={CREAM} />
           <WordPill x={120} y={110} text={READ.doubling.text} size={26} appear={ez(f, 8, 20)} />
         </Layer>
       </Stage>
@@ -417,8 +417,8 @@ const ShotRibbon: ShotFC<CCold> = ({ f }) => {
             <rect x={900} y={-100} width={180} height={1700} rx={12} fill="#FFF6E6" />
             <rect x={900} y={-100} width={14} height={1700} fill="#E0A93A" />
             <rect x={1066} y={-100} width={14} height={1700} fill="#E0A93A" />
-            {Array.from({ length: 6 }, (_, i) => (
-              <text key={i} x={990} y={40 + i * 270} textAnchor="middle" transform={`rotate(90 990 ${40 + i * 270})`} style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 52, letterSpacing: 2, fill: C.ink }}>
+            {Array.from({ length: 5 }, (_, i) => (
+              <text key={i} x={990} y={140 + i * 380} textAnchor="middle" transform={`rotate(90 990 ${140 + i * 380})`} style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 52, letterSpacing: 2, fill: C.ink }}>
                 KEEP FIXING
               </text>
             ))}

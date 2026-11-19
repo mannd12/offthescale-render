@@ -131,7 +131,7 @@ const ShotFreeze: ShotFC<CL03> = ({ f }) => {
           <rect x={700} y={556} width={700} height={8} fill="#BFF0F2" />
           <IceFeathers x0={760} x1={1320} y={560} head={Math.max(0, f - 20) * 12} />
         </ClipPath>
-        <Thermo x={1700} y={900} h={520} level={0.8 - 0.55 * lin(f, 10, 50) - 0.15 * lin(f, 50, 130)} ink="#12323C" />
+        <Thermo x={1560} y={900} h={520} level={0.8 - 0.55 * lin(f, 10, 50) - 0.15 * lin(f, 50, 130)} ink="#12323C" />
         <IceLever x={430} y={980} angle={-18 + 6 * Math.sin(f / 18)} />
         <Tick x={300} y={980} pxPerM={200} frame={f} facing={1} pose="lean" expression="thinking" look={0.5} />
         <Floor y={980} color="#7FBFD0" foot="#2F6F80" lip="#FFFFFF" x={-600} w={1280} />

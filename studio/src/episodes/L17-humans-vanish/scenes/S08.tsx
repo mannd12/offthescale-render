@@ -148,7 +148,7 @@ const ShotTunnel: ShotFC<C08> = ({ f, c }) => {
         <RungBadge f={f} rung={7} family={DEEP} from={6} />
         <g opacity={ez(f, 20, 34) * (1 - ez(f, p2 - 14, p2))}>
           <TextPlate x={1060} y={830} w={790} h={160} color="#1A0A0C" opacity={0.78} />
-          <RollDec x={1095} y={942} value={READ.bedrockAge.value! /* #10 A */} k={ez(f, 24, 70)} unit="BILLION YEARS OLD" size={96} color={CREAM} unitColor={C.lantern} who="8-01 bedrock" />
+          <RollDec x={1095} y={942} value={READ.bedrockAge.value! /* #10 A */} k={ez(f, 22, 48)} unit="BILLION YEARS OLD" size={96} color={CREAM} unitColor={C.lantern} who="8-01 bedrock" />
         </g>
         {g > -10 ? (
           <g opacity={ez(g, -10, 4)}>

@@ -145,7 +145,7 @@ const ShotPrints: ShotFC<CCloser> = ({ f }) => {
 // ===============================================================================================================
 const ShotBand: ShotFC<CCloser> = ({ f }) => {
   const lit = Math.max(0, f - 4) * 24;
-  const sx = Math.max(1480, 2300 - Math.max(0, f - 30) * 20);
+  const sx = Math.max(1480, 2300 - Math.max(0, f - 4) * 20);
   return (
     <Pop f={f}>
       <Stage theme={DUSK.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.008, panY: 0, frames: 220, seed: 9 }} vignette={0.25} grain={0.5}>
@@ -323,7 +323,7 @@ const ShotStone: ShotFC<CCloser> = ({ f, len, c }) => {
       <Layer depth={0}>
         <g opacity={ez(f, 4, 16) * (1 - ez(f, p8 - 12, p8))}>
           <TextPlate x={80} y={830} w={940} h={170} color="#1A0A0C" opacity={0.82} />
-          <RollDec x={120} y={950} value={READ.lomekwi.value! /* #12 A */} k={ez(f, 8, 70)} unit="MILLION YEARS" size={110} unitColor={C.lantern} who="Z-07 tools" />
+          <RollDec x={120} y={950} value={READ.lomekwi.value! /* #12 A */} k={ez(f, 6, 40)} unit="MILLION YEARS" size={110} unitColor={C.lantern} who="Z-07 tools" />
         </g>
       </Layer>
     </Stage>
@@ -375,7 +375,7 @@ const ShotDig: ShotFC<CCloser> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={VOID.theme} cam={cam} vignette={0.3} grain={0.45}>
         <Layer depth={1}>
-          <MoonSet f={f} horizon={560} earth={{ x: 1600, y: 160, r: 70 }} starSpeed={1.2} seed={6} />
+          <MoonSet f={f} horizon={660} earth={{ x: 1600, y: 160, r: 70 }} starSpeed={1.2} seed={6} />
           <HeroStone x={1460} y={860} size={220} dark />
           {/* the hole and the soil pile */}
           <ellipse cx={1080} cy={900} rx={150 * hole} ry={44 * hole} fill="#1A140C" />
@@ -417,7 +417,7 @@ const ShotPull: ShotFC<CCloser> = ({ f, len }) => {
           <StarsTint f={f} x={-600} y={-700} w={3200} h={1300} n={140} speed={14} seed={23} />
         </Layer>
         <Layer depth={1}>
-          <MoonSet f={f} horizon={560} earth={false} starSpeed={0} seed={6} />
+          <MoonSet f={f} horizon={700} earth={false} starSpeed={0} seed={6} />
           <HeroStone x={1460} y={860} size={220} dark />
           <ellipse cx={1080} cy={900} rx={150} ry={44} fill="#1A140C" />
           <ellipse cx={1080} cy={904} rx={130} ry={34} fill="#0C0906" />

@@ -370,7 +370,7 @@ const DomeSet: React.FC<{ f: number; x?: number }> = ({ f, x = 1180 }) => (
       ))}
     </Layer>
     <Layer depth={1}>
-      <Floor y={900} color={NOON.mid} foot={NOON.near} lip="#FFF3C8" />
+      <Floor y={900} color={NOON.mid} foot={NOON.near} lip="#FFF3C8" x={-800} w={5200} />
       <DomeHall x={x} base={900} w={760} />
     </Layer>
   </g>

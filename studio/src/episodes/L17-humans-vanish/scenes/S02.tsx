@@ -71,6 +71,8 @@ const Tunnel: React.FC<{ f: number; travel: number; lamps?: number }> = ({ f, tr
           <g key={k} opacity={Math.min(1, (N + 0.4 - z) / 1.2)}>
             <path d={arch(s)} fill={col} />
             <path d={arch(s * 0.94)} fill={mixHex("#1A0A0C", "#2E1114", shade)} />
+            <path d={arch(s * 0.97)} fill="none" stroke={C.lantern} strokeWidth={Math.max(1.5, 7 * s)} opacity={0.35 * shade} />
+            <rect x={VP.x - 420 * s} y={fy - 8 * s} width={840 * s} height={16 * s} fill="#5A2A1E" opacity={shade} />
             {/* rails on the floor of this ring */}
             <rect x={VP.x - 300 * s} y={fy - 14 * s} width={600 * s} height={10 * s} fill="#3A1812" />
             {[-160, 160].map((dx) => (
@@ -363,7 +365,7 @@ const ShotCalendar: ShotFC<CL02> = ({ f }) => {
 // ================================================================================================================
 const ShotU: ShotFC<CL02> = ({ f }) => {
   const outer = "M-100 470 L420 470 Q760 470 860 840 Q960 980 1060 840 Q1160 470 1500 470 L2020 470 L2020 600 L1540 600 Q1240 600 1150 900 Q960 1100 770 900 Q680 600 380 600 L-100 600 Z";
-  const lv = 0.08 + 0.5 * lin(f, 0, 90);
+  const lv = 0.2 + 0.45 * lin(f, 0, 90);
   return (
     <Pop f={f}>
       <Stage theme={DEEP.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.015, panY: 0, frames: 150, seed: 6 }} vignette={0.36} grain={0.5}>

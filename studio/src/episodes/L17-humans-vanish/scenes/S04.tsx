@@ -140,7 +140,7 @@ const ShotTimeline: ShotFC<CL04> = ({ f, c }) => {
   const hopK = (f % 3) / 3;
   const x0 = 220;
   const gap = 78;
-  const bx = x0 + (hop + (f / 3 >= 19 ? 0 : hopK)) * gap;
+  const bx = x0 + (hop + (f / 3 >= 19 ? 0 : hopK)) * gap - gap / 2;
   const A = (
     <Stage theme={NOON.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.015, panY: 0, frames: 140, seed: 3 }} vignette={0.1} grain={0.5}>
       <NoonField f={f} />
@@ -157,7 +157,6 @@ const ShotTimeline: ShotFC<CL04> = ({ f, c }) => {
           );
         })}
         <path d={`M${bx - 30} 440 L${bx - 30} 420 L${bx + gap + 30} 420 L${bx + gap + 30} 440`} fill="none" stroke={C.ink} strokeWidth={8} strokeLinejoin="round" transform={`translate(0 ${-Math.sin(hopK * Math.PI) * 30})`} />
-        <LatticeTower x={1640} base={900} h={360} ink={INKT} />
       </Layer>
       <Layer depth={0}>
         <WordPill x={120} y={110} text={READ.everySeven.text} size={28} appear={ez(f, 6, 18)} />
