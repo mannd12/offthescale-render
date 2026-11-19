@@ -1,0 +1,266 @@
+{
+  "title": "ST01 · What If Earth Were Twice as Big?",
+  "_source": "Desktop/What If/episodes/ST01-earth-twice-as-big/script.md (Suppose Then, second channel) - copied here and converted with scripts/script-md-to-json.mjs; edit the What If copy, then re-copy.",
+  "engine": "google",
+  "voice": "en-US-Chirp3-HD-Sulafat",
+  "speed": 1,
+  "scenes": [
+    {
+      "id": "cold",
+      "name": "Cold open",
+      "lines": [
+        {
+          "text": "Suppose Earth were twice as wide. Same rock, same oceans, same air, just twice the planet.",
+          "pause": 0.55
+        },
+        {
+          "text": "Twice as wide sounds like a big change. It's much bigger than that. Make a cube twice as wide, and you need two layers of four: eight of the small ones. Balls work the same way."
+        },
+        {
+          "text": "A ball twice as wide holds eight times as much stuff. So this Earth would have eight times the mass, and the ground would pull on you twice as hard.",
+          "pause": 0.55
+        },
+        {
+          "text": "By the top of this ladder, the air will be squeezed against the ground, the mountains will have sunk, and getting a rocket into space will take seven times the fuel."
+        },
+        {
+          "text": "And at the very end, we'll find out why a planet this size probably wouldn't look like Earth at all.",
+          "pause": 0.55
+        },
+        {
+          "text": "We won't jump straight there. We'll grow the planet one rung at a time, and watch what breaks first. One rule: the rock stays the same, so the planet's pull grows exactly as fast as its size."
+        },
+        {
+          "text": "First rung: ten percent bigger.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l01",
+      "name": "Ten percent bigger",
+      "lines": [
+        {
+          "text": "At ten percent bigger, everything weighs ten percent more. Your backpack, your bike, your own body. You'd notice it the way you notice a heavy coat.",
+          "pause": 0.55
+        },
+        {
+          "text": "You'd also get more planet to stand on. A planet ten percent wider has about a fifth more surface. More coastline, more forest, more room for everything.",
+          "pause": 0.55
+        },
+        {
+          "text": "Some things get nicer. On a bigger ball the ground curves away more gently, so the horizon moves out. Standing on a beach today, your eyes see about four point seven kilometres of sea before it curves out of sight."
+        },
+        {
+          "text": "On this Earth you'd see a little further. Bigger planet, bigger view.",
+          "pause": 0.55
+        },
+        {
+          "text": "So far, it's just heavier. That changes on the next rung, when you try to leave the ground.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l02",
+      "name": "A quarter bigger",
+      "lines": [
+        {
+          "text": "A quarter bigger means a quarter more pull. Your legs push off the ground with the same strength as before, but now they're lifting more weight. Think of jumping while wearing a backpack full of books."
+        },
+        {
+          "text": "You can still do it. You just don't get as high, and you get tired sooner.",
+          "pause": 0.55
+        },
+        {
+          "text": "If you can jump fifty centimetres today, here you'd get about forty. Basketball hoops would feel taller. Every staircase would feel like one more flight.",
+          "pause": 0.55
+        },
+        {
+          "text": "And what goes up comes down harder. Anything that falls lands faster than it would today, because the planet is pulling it the whole way down. Cups break more easily. Trips hurt more."
+        },
+        {
+          "text": "A planet's pull touches everything you drop.",
+          "pause": 0.55
+        },
+        {
+          "text": "It touches everything we build, too. Every beam in every building, every bridge, every shelf on your wall would be holding up a quarter more weight than it was made for."
+        },
+        {
+          "text": "Builders on this planet would make everything a little thicker, a little stronger, a little lower.",
+          "pause": 0.55
+        },
+        {
+          "text": "But the biggest change isn't on the ground. It's in the air above it.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l03",
+      "name": "Half again as big",
+      "lines": [
+        {
+          "text": "Air has weight too. The planet pulls it down, and the stronger the pull, the more tightly the air is squeezed against the ground.",
+          "pause": 0.55
+        },
+        {
+          "text": "On Earth today, the air thins out over a height of about eight and a half kilometres. Scientists call it the scale height. Climb one scale height, and only about a third of the air is left above you."
+        },
+        {
+          "text": "Climb another, and a third of that third. On this planet, at the same temperature, that height shrinks to under six. The air at the bottom feels about the same. Climb a little, and it disappears fast.",
+          "pause": 0.55
+        },
+        {
+          "text": "The mountains change too. Rock can only hold up so much weight before the bottom of a mountain gives way, so stronger gravity means shorter mountains. Mars shows the opposite side of that rule."
+        },
+        {
+          "text": "It pulls with about two fifths of our gravity, and its biggest volcano stands roughly three times as tall as Everest. Gravity isn't the whole reason, but it's part of it.",
+          "pause": 0.55
+        },
+        {
+          "text": "Now pull the lever all the way.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l04",
+      "name": "Twice as big",
+      "lines": [
+        {
+          "text": "Twice as wide. Eight times the mass. Twice the pull. Everything you own now weighs double. A bucket of water feels like two buckets. And you weigh double too."
+        },
+        {
+          "text": "Walking around all day would feel like carrying a second copy of yourself on your back.",
+          "pause": 0.55
+        },
+        {
+          "text": "The view is wider: about six and a half kilometres to the horizon from the same beach. There is four times as much surface: four times the land, four times the sea. More room than we'd ever fill.",
+          "pause": 0.55
+        },
+        {
+          "text": "But the air would hug the ground twice as tightly. Today, the top of Everest has about a third of the air you breathe at sea level. On this Earth, at that same height, you'd have about an eighth."
+        },
+        {
+          "text": "Just five kilometres up, the air would already be as thin as the top of Everest is today. And the mountains themselves would only stand about half as tall.",
+          "pause": 0.55
+        },
+        {
+          "text": "Leaving would be the hardest part. To throw anything away from Earth for good today, you have to hurl it at about eleven kilometres a second. Here, you'd need twice that: more than twenty-two."
+        },
+        {
+          "text": "To reach orbit here, a rocket needs to fly about fifteen point eight kilometres a second, twice what it needs today. And rockets pay for speed in a cruel way. Every extra bit of speed multiplies the fuel you need."
+        },
+        {
+          "text": "Even with a perfect rocket, burning hydrogen, the fuel to reach orbit today weighs about five times the empty rocket. Here it would weigh about thirty-five times as much."
+        },
+        {
+          "text": "A space program on this planet is a very expensive dream.",
+          "pause": 0.55
+        },
+        {
+          "text": "Even the Moon would hurry. Held at the same distance by eight times the pull, it would race around us in under ten days instead of twenty-seven. A month would be a week and a half.",
+          "pause": 0.55
+        },
+        {
+          "text": "So could people live here? Yes. It would be heavy, tiring work, but it's not the limit.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l05",
+      "name": "The last rung we could walk on",
+      "lines": [
+        {
+          "text": "Physicists have asked how strong gravity could get before people simply couldn't walk. They tried two ways."
+        },
+        {
+          "text": "One asked how much load bones and muscles can take before they fail, or before muscles can't lift the body at all."
+        },
+        {
+          "text": "The other treated each step as a swinging pendulum and asked how much energy walking costs as gravity climbs."
+        },
+        {
+          "text": "Their answer: with hard training, humans could walk normally at up to about four times Earth's gravity, and no more.",
+          "pause": 0.55
+        },
+        {
+          "text": "On our same-rock planet, four times the gravity means four times the width. So twice as big is a hard place to live, and four times as big is the end of the walk.",
+          "pause": 0.55
+        },
+        {
+          "text": "Life that grew up here would probably be built for it. Some scientists have guessed it would be lower and stockier than ours. That's an educated guess, not a measurement, and nobody has a heavy planet to check it on.",
+          "pause": 0.55
+        },
+        {
+          "text": "Which brings us to the planets we can actually check.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l06",
+      "name": "What it really means",
+      "lines": [
+        {
+          "text": "Our planet grew by one rule: same rock, same density. Real rock doesn't work that way. Pile more of it together and its own weight squeezes it smaller."
+        },
+        {
+          "text": "It's like a stack of pillows: the more you pile on, the flatter the bottom ones get. A real bigger Earth would be heavier inside than our make-believe one, and smaller for its weight.",
+          "pause": 0.55
+        },
+        {
+          "text": "Astronomers have worked out how big a rocky planet gets for its mass. With Earth's mix of iron and rock, eight Earths of mass makes a planet only about one and three quarter times as wide."
+        },
+        {
+          "text": "And its gravity would be stronger than our make-believe one: about two and a half times Earth's. To be truly twice as wide, a rock planet would need even more than eight Earths of mass.",
+          "pause": 0.55
+        },
+        {
+          "text": "And there's a stranger clue. Telescopes have now measured thousands of planets around other stars. Among the small ones close to their stars, there is a gap."
+        },
+        {
+          "text": "Plenty of planets are smaller than one and a half Earths, and plenty are two to three times as wide, but there are far fewer in between.",
+          "pause": 0.55
+        },
+        {
+          "text": "And when astronomers weigh close-in planets about one and a half Earths wide or bigger, most turn out too light to be solid rock and iron. They seem to be wrapped in something lighter: thick layers of gas, maybe water.",
+          "pause": 0.55
+        },
+        {
+          "text": "So if nature built a planet twice as wide as ours, it probably wouldn't be a bigger Earth at all. It would more likely be a small world wrapped in a deep, heavy sky."
+        },
+        {
+          "text": "And if someone did live on a rocky one, they could still reach space with ordinary rockets, as long as it weighed less than about ten Earths, but every launch would be a fight."
+        },
+        {
+          "text": "The fuel you need doesn't grow in step with gravity. It snowballs. A little more pull means a lot more fuel, and a lot more pull means rockets that are almost nothing but fuel.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "closer",
+      "name": "Closer",
+      "lines": [
+        {
+          "text": "Ten percent heavier. A quarter heavier. Thin air, short mountains, a ten-day month, and rockets that are mostly fuel. We live on the one rung where the sky is thick, the mountains are tall, and the door to space is open."
+        },
+        {
+          "text": "Out of all the sizes a rocky planet could be, ours is light enough to leave, and big enough to hold on to its air. That's not nothing."
+        },
+        {
+          "text": "Among the small planets we've measured, the rocky ones mostly stop at about one and a half Earths.",
+          "pause": 0.55
+        },
+        {
+          "text": "So which rung would you stop at, and what would you miss first?",
+          "pause": 0.55
+        }
+      ]
+    }
+  ],
+  "style": "Read slowly and calmly, like a patient nature-documentary narrator. Take your time with every number. Leave a short, natural pause after every sentence. Never rush"
+}
