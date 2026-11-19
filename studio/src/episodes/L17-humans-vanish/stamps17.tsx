@@ -242,7 +242,8 @@ export const Sheet: React.FC<{
   return (
     <g opacity={a} transform={`translate(${x} ${y + (1 - a) * 60}) rotate(${(tilt + sway).toFixed(2)} ${w / 2} 0)`}>
       <DropShadow d={rrect(0, 0, w, h, 14)} dx={6} dy={10} opacity={0.26} />
-      <rect x={0} y={0} width={w} height={h} rx={14} fill={C.paper} />
+      {/* warm saturated sheet paper (probe 2026-11-19: chroma 0.27 < 0.30; near-white sheets were the main drag) */}
+      <rect x={0} y={0} width={w} height={h} rx={14} fill="#F6DFAE" />
       <defs>
         <clipPath id={id}>
           <rect x={0} y={0} width={w} height={h} rx={14} />
