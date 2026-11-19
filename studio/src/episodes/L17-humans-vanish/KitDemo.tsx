@@ -83,7 +83,7 @@ const Sheet1: React.FC<{ f: number }> = ({ f }) => {
       <Panel id="k4" x={PW * 3} y={0} fam="noon" label="4 noon · YearsDial light · RungBadge · glow">
         <RungBadge f={f % 78} rung={5} family={familyOf("noon")} x={PW * 3 + 20} y={100} />
         <YearsDial x={PW * 3 + 170} y={330} r={120} value={rungValue(5) + Math.sin(f / 6) * 0.05} word="MILLENNIA" family={familyOf("noon")} f={f} />
-        <TimeLadder x={PW * 3 + 410} y0={160} y1={520} f={f} family={familyOf("noon")} lit={5.0001} glow={5} labels="left" width={40} size={0.6} />
+        <TimeLadder x={PW * 3 + 410} y0={160} y1={520} f={f} family={familyOf("noon")} lit={6} glow={5} labels="left" width={40} size={0.6} />
       </Panel>
       {/* 5 · deep: seep on the tunnel wall (18 px/f), the pump spinning, the U-section filling from the lowest point */}
       <Panel id="k5" x={0} y={PH} fam="deep" label="5 deep · Seep · PumpIcon · FillFront U">

@@ -60,26 +60,25 @@ const Art: React.FC = () => (
       const gy = HORIZON + 10 + rnd(i * 17 + 5) ** 0.8 * (H - HORIZON - 10);
       return <circle key={i} cx={rnd(i * 19 + 2) * W} cy={gy} r={0.8 + ((gy - HORIZON) / (H - HORIZON)) * 2.2} fill={i % 3 ? "#7A6A50" : "#FFF4DC"} opacity={0.4} />;
     })}
-    {/* the bootprint: a pressed hollow, lit far rim, shadowed near rim, sharp tread bars */}
-    <g transform="translate(560 560) rotate(-62) scale(1 0.62)">
+    {/* the bootprint (kit-r1 fix: was small and read as a canister): a big boot sole lying in the dust in perspective
+        (rotate, then squash vertically), a pressed hollow with a shadowed near wall and a lit far rim, chevron tread on the
+        toe and heel, a smooth arch. The pale cool floor makes it the brightest cool mark (package.md). */}
+    <g transform="translate(470 575) scale(1 0.5) rotate(-72)">
       {(() => {
-        const s = 3.1;
-        const sole = `M${-14 * s} ${-46 * s} Q0 ${-54 * s} ${14 * s} ${-46 * s} L${18 * s} ${-6 * s} Q${16 * s} ${4 * s} ${12 * s} ${10 * s} L${13 * s} ${42 * s} Q0 ${52 * s} ${-13 * s} ${42 * s} L${-12 * s} ${10 * s} Q${-16 * s} ${4 * s} ${-18 * s} ${-6 * s} Z`;
+        const s = 5.2;
+        const P = (x: number, y: number) => `${(x * s).toFixed(1)} ${(y * s).toFixed(1)}`;
+        const sole = `M${P(-20, -38)} C${P(-20, -56)} ${P(20, -56)} ${P(20, -38)} L${P(19, -8)} C${P(17, 2)} ${P(13, 6)} ${P(13, 12)} L${P(14, 40)} C${P(14, 53)} ${P(-14, 53)} ${P(-14, 40)} L${P(-13, 12)} C${P(-13, 6)} ${P(-17, 2)} ${P(-19, -8)} Z`;
+        const bars = [-44, -37, -30, -23, -16, 18, 25, 32, 39];
         return (
           <g>
-            <path d={sole} fill="#FFF6E0" transform="translate(-7 -9)" opacity={0.9} />
-            <path d={sole} fill="#4A3E2C" transform="translate(6 8)" />
-            <path d={sole} fill="#A8946C" />
-            {Array.from({ length: 9 }, (_, i) => {
-              const ty = -40 + i * 9.5;
-              const hw = ty < 0 ? 13 : 10.5;
-              return (
-                <g key={i}>
-                  <rect x={-hw * s} y={ty * s} width={2 * hw * s} height={4.2 * s} rx={1} fill="#5E4E36" />
-                  <rect x={-hw * s} y={ty * s - 3} width={2 * hw * s} height={2.2} fill="#E8D7B0" opacity={0.8} />
-                </g>
-              );
+            <path d={sole} fill="#FFF8E6" transform="translate(-10 -6)" />
+            <path d={sole} fill="#3A3226" transform="translate(9 7)" />
+            <path d={sole} fill="#DCE6E0" />
+            {bars.map((ty) => {
+              const hw = ty < 0 ? 16 : 11;
+              return <path key={ty} d={`M${P(-hw, ty)} L${P(0, ty + 2.4)} L${P(hw, ty)} L${P(hw, ty + 3)} L${P(0, ty + 5.4)} L${P(-hw, ty + 3)} Z`} fill="#56606A" />;
             })}
+            <path d={`M${P(-12, -4)} C${P(-10, 4)} ${P(-9, 8)} ${P(-9, 12)}`} fill="none" stroke="#9AA8A8" strokeWidth={6} strokeLinecap="round" />
           </g>
         );
       })()}

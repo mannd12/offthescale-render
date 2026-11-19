@@ -76,7 +76,9 @@ export const YearsDial: React.FC<{
     const [bx, by] = pt(d1, rr);
     return `M${ax.toFixed(1)} ${ay.toFixed(1)} A${rr} ${rr} 0 ${d1 - d0 > 180 ? 1 : 0} 1 ${bx.toFixed(1)} ${by.toFixed(1)}`;
   };
-  const ww = Math.max(r * 0.9, shown.length * r * 0.075 + r * 0.2);
+  // the word window never grows past the face (kit-r1: "A HUNDRED THOUSAND YEARS" overflowed the plate); long words shrink
+  const wfs = Math.min(r * 0.15, (r * 1.45) / Math.max(1, shown.length * 0.5));
+  const ww = Math.min(r * 1.6, Math.max(r * 0.9, shown.length * wfs * 0.5 + r * 0.2));
   return (
     <g>
       {/* plate: drop shadow, saffron bezel with a lit edge, face */}
@@ -126,7 +128,7 @@ export const YearsDial: React.FC<{
       </text>
       {/* word window */}
       <rect x={x - ww / 2} y={y + r * 0.34} width={ww} height={r * 0.26} rx={r * 0.06} fill={plate === "dark" ? "#020B10" : "#E9DCC4"} stroke={alpha(ink, 0.3)} strokeWidth={1.5} />
-      <text x={x} y={y + r * 0.52} textAnchor="middle" style={{ fontFamily: IF2.label, fontSize: r * 0.15, letterSpacing: r * 0.012, fill: plate === "dark" ? C.amber : C.ink }}>
+      <text x={x} y={y + r * 0.47 + wfs * 0.35} textAnchor="middle" style={{ fontFamily: IF2.label, fontSize: wfs, letterSpacing: r * 0.012, fill: plate === "dark" ? C.amber : C.ink }}>
         {shown}
       </text>
       {/* needle: vermilion with a short tail, hub */}
@@ -318,7 +320,7 @@ export const RungCard: React.FC<{
       </g>
       <RailTicks f={frame} y={930} color={F.dark ? "#CFE6E2" : alpha(C.ink, 0.7)} />
       <YearsDial x={1360} y={520} r={210} value={v} family={F} f={frame} plate={F.dark ? "dark" : "light"} word={RUNGS[rung].word} />
-      {ladder ? <TimeLadder f={frame} family={F} lit={rung + 0.0001} glow={rung} labels="left" x={1835} /> : null}
+      {ladder ? <TimeLadder f={frame} family={F} lit={rung + 1} glow={rung} labels="left" x={1835} /> : null}
       <g opacity={a} transform={`translate(0 ${rise.toFixed(2)})`}>
         <Kicker x={160} y={y0 - size * 1.05} text={kicker} color={F.dim} size={24} />
         {lines.map((l, i) => (

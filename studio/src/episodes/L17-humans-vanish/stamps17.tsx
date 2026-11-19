@@ -77,7 +77,8 @@ const LitEdge: React.FC<{ d: string; width?: number; strength?: number }> = ({ d
 };
 const DropShadow: React.FC<{ d: string; dx?: number; dy?: number; opacity?: number }> = ({ d, dx = 5, dy = 8, opacity = 0.32 }) => (
   <g transform={`translate(${dx} ${dy})`}>
-    <path d={d} fill="#04161C" opacity={opacity * 0.55} transform="scale(1.03)" />
+    {/* soft outer edge: a stroke, not a scale (a scale about the origin shifted absolute-coordinate pills: kit-r1) */}
+    <path d={d} fill="none" stroke="#04161C" strokeWidth={5} strokeLinejoin="round" opacity={opacity * 0.55} />
     <path d={d} fill="#04161C" opacity={opacity} />
   </g>
 );
