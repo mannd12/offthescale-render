@@ -9,6 +9,7 @@ import { CHALK, INK, LIME, ST_FONT } from "./palette";
 import voSulafat from "../../episodes/st-aud-sulafat/vo.json";
 import voSadaltager from "../../episodes/st-aud-sadaltager/vo.json";
 import voCharon from "../../episodes/st-aud-charon/vo.json";
+import { FullST01, ST01Frames } from "../../episodes/ST01-earth-twice-as-big/Full";
 
 
 const make = (voice: string, vo: VoLine[]) => {
@@ -43,4 +44,6 @@ export const AUDITIONS = [
   { id: "st-aud-sulafat", ...make("Sulafat", voSulafat as VoLine[]) },
   { id: "st-aud-sadaltager", ...make("Sadaltager", voSadaltager as VoLine[]) },
   { id: "st-aud-charon", ...make("Charon", voCharon as VoLine[]) },
+  // Suppose Then episodes ride the same list so Root.tsx needs no further edits
+  { id: "ST01EarthTwice", C: FullST01, frames: ST01Frames },
 ];

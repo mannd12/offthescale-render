@@ -13,9 +13,11 @@ const out = oi >= 0 ? args.splice(oi, 2)[1] : path.join(WHATIF, "channel", "styl
 const ids = args.length ? args : ["st-key-pull", "st-key-air", "st-key-gap", "st-channel-picture", "st-banner"];
 fs.mkdirSync(out, { recursive: true });
 const serveUrl = await bundle({ entryPoint: path.join(HERE, "entry.tsx"), publicDir: path.resolve(HERE, "../../../public") });
-for (const id of ids) {
+// "id" = frame 0; "id@123" = frame 123 (review stills of a moving composition)
+for (const spec of ids) {
+  const [id, fr] = spec.split("@");
   const composition = await selectComposition({ serveUrl, id });
-  const output = path.join(out, `${id}.png`);
-  await renderStill({ serveUrl, composition, output, frame: 0 });
+  const output = path.join(out, fr ? `${id}-f${fr}.png` : `${id}.png`);
+  await renderStill({ serveUrl, composition, output, frame: fr ? Number(fr) : 0 });
   console.log("wrote", output);
 }
