@@ -338,7 +338,8 @@ const ShotFlag: ShotFC<CCloser> = ({ f, len }) => {
   const camY = path1(f, [
     [0, -260],
     [8, -220],
-    [len, 640],
+    [56, 560],
+    [len, 700],
   ]);
   const stop = 84;
   const tx = 360 + Math.min(f, stop) * 5;
