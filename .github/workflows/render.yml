@@ -92,6 +92,9 @@ jobs:
           cache-dependency-path: studio/package-lock.json
 
       - name: Install dependencies
+        # runners have no GPU; onnxruntime-node 1.21.0's CUDA tarball URL returns 404 since 2026-11-19
+        env:
+          ONNXRUNTIME_NODE_INSTALL_CUDA: skip
         run: npm ci
 
       # Fonts + licensed images/footage live in assets/manifest.json and are fetched HERE,

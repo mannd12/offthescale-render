@@ -42,6 +42,9 @@ import { FullL15SPACEJUMP, L15SpaceJumpFrames } from "./episodes/L15-space-jump/
 import { L15KitDemo, L15_KIT_DEMO_FRAMES } from "./episodes/L15-space-jump/KitDemo";
 import { FullL16INTOTHESUN, L16IntoTheSunFrames } from "./episodes/L16-into-the-sun/Full";
 import { L16KitDemo, L16_KIT_DEMO_FRAMES } from "./episodes/L16-into-the-sun/KitDemo";
+import { FullL17HUMANSVANISH, KeyArt1 as KeyArtL17a, KeyArt2 as KeyArtL17b, KeyArt3 as KeyArtL17c, L17HumansVanishFrames } from "./episodes/L17-humans-vanish/Full";
+import { L17KitDemo, L17_KIT_DEMO_FRAMES } from "./episodes/L17-humans-vanish/KitDemo";
+import { ThumbL17A, ThumbL17B } from "./episodes/L17-humans-vanish/Thumb";
 import { FullL13, KeyArt1 as KeyArtL13a, KeyArt2 as KeyArtL13b, KeyArt3 as KeyArtL13c, l13Frames } from "./episodes/L13-loudest-sound/Full";
 import { L13KitDemo, L13_KIT_DEMO_FRAMES } from "./episodes/L13-loudest-sound/KitDemo";
 import { DuskScene } from "./style-v2/Dusk";
@@ -169,6 +172,13 @@ export const Root: React.FC = () => (
     <Composition id="L15KitDemo" component={L15KitDemo} durationInFrames={L15_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="L16IntoTheSun" component={FullL16INTOTHESUN} durationInFrames={L16IntoTheSunFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="L16KitDemo" component={L16KitDemo} durationInFrames={L16_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="L17HumansVanish" component={FullL17HUMANSVANISH} durationInFrames={L17HumansVanishFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="L17HumansVanish-kit-demo" component={L17KitDemo} durationInFrames={L17_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Still id="l17-key-1" component={KeyArtL17a} width={WIDTH} height={HEIGHT} />
+    <Still id="l17-key-2" component={KeyArtL17b} width={WIDTH} height={HEIGHT} />
+    <Still id="l17-key-3" component={KeyArtL17c} width={WIDTH} height={HEIGHT} />
+    <Still id="L17HumansVanish-thumb-a" component={ThumbL17A} width={1280} height={720} />
+    <Still id="L17HumansVanish-thumb-b" component={ThumbL17B} width={1280} height={720} />
     <Composition id="l13" component={FullL13} durationInFrames={l13Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-1" component={KeyArtL13a} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-2" component={KeyArtL13b} width={WIDTH} height={HEIGHT} />
