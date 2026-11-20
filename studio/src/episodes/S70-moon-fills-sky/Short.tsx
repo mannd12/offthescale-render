@@ -56,6 +56,7 @@ const a1: Shot = ({ f, n }) => (
     <MoonFace f={f} x={CX} y={bowlXY(90)[1] + 30} radius={16} />
     <Plaque x={540} y={190} text="ABOUT HALF" size={100} bg={C.ink} fg={C.amber} scale={0.94 + 0.06 * ez(f, 0, Math.round(n * 0.3))} />
     <Plaque x={540} y={350} text="A DEGREE WIDE, TODAY" size={56} bg={C.ink} fg={C.cream} />
+    <OurSumPill x={540} y={72} size={32} align="middle" />
   </g>
 );
 const a2: Shot = ({ f }) => (
@@ -164,7 +165,7 @@ const f2: Shot = ({ f, n }) => (
   <g>
     <SkyBg f={f} />
     <MoonFace f={f} x={540} y={900} radius={420} scroll={4} dir={90} />
-    <Plaque x={540} y={190} text="ABOUT" size={70} bg={C.ink} fg={C.cream} />
+    <Plaque x={540} y={200} text="ABOUT" size={70} bg={C.ink} fg={C.cream} />
     <Count x={540} y={480} f={f} b={150} f1={Math.round(n * 0.4)} unit="× WIDER" w={800} size={160} />
     <OurSumPill x={540} y={72} size={32} align="middle" />
   </g>

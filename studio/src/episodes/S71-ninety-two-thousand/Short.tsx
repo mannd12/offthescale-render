@@ -79,8 +79,8 @@ const a2: Shot = ({ f }) => (
 const b1: Shot = ({ f, n }) => (
   <g>
     <Bg f={f} />
-    <Pair f={f} moonX={900} earthR={150} moonR={80} arrow={false} />
-    <Bracket x1={400} y1={1000} x2={820} y2={1000} draw={ez(f, 0, Math.round(n * 0.6))} color={C.amber} />
+    <Pair f={f} moonX={900} earthR={190} moonR={100} arrow={false} />
+    <Bracket x1={450} y1={1060} x2={820} y2={1000} draw={ez(f, 0, Math.round(n * 0.6))} color={C.amber} />
     <Count x={540} y={190} f={f} b={384400} f1={Math.round(n * 0.4)} unit=" KM" w={820} size={110} />
     <Plaque x={540} y={350} text="ABOUT, TODAY" size={50} bg={C.ink} fg={C.cream} />
   </g>
@@ -100,8 +100,8 @@ const b2: Shot = ({ f }) => (
 const c1: Shot = ({ f, n }) => (
   <g>
     <Bg f={f} />
-    <Pair f={f} moonX={mix(900, 560, ez(f, 0, Math.round(n * 0.7)))} earthR={210} moonR={100} />
-    <Count x={540} y={190} f={f} a={384400} b={8500} f1={Math.round(n * 0.6)} unit=" KM" w={760} size={110} />
+    <Pair f={f} moonX={mix(900, 720, ez(f, 0, Math.round(n * 0.4)))} earthR={190} moonR={95} />
+    <Count x={540} y={190} f={f} a={384400} b={8500} f1={Math.round(n * 0.35)} unit=" KM" w={760} size={110} />
     <Plaque x={540} y={350} text="ABOUT, TO EARTH'S CENTER" size={46} bg={C.ink} fg={C.cream} />
     <OurSumPill x={540} y={72} size={32} align="middle" />
   </g>
@@ -121,7 +121,7 @@ const c2: Shot = ({ f }) => (
 const d1: Shot = ({ f, n }) => (
   <g>
     <Bg f={f} />
-    <PullBar x={330} y={1060} h={620} t={ez(f, 0, Math.round(n * 0.45))} f={f} readKey="pull92k" w={420} color={C.amber} />
+    <PullBar x={330} y={1080} h={560} t={ez(f, 0, Math.round(n * 0.4))} f={f} readKey="pull92k" w={420} color={C.amber} />
     <Plaque x={540} y={190} text="ABOUT" size={70} bg={C.ink} fg={C.cream} />
     <Plaque x={540} y={330} text="TIMES TODAY'S PULL" size={58} bg={C.ink} fg={C.amber} />
     <OurSumPill x={540} y={72} size={32} align="middle" />
@@ -131,8 +131,8 @@ const d2: Shot = ({ f, n }) => (
   <g>
     <Bg f={f} dark />
     <EarthLimb f={f} y={1020} cx={540} cloudSpeed={14} />
-    <MoonFace f={f} x={540} y={640} radius={250} scroll={3} />
-    <Arrow18 x0={540} y0={910} x1={540} y1={960} color={C.orange} width={60 + 14 * Math.sin(f / 4)} />
+    <MoonFace f={f} x={540} y={620} radius={220} scroll={3} />
+    <Arrow18 x0={540} y0={860} x1={540} y1={1010} color={C.orange} width={64 + 14 * Math.sin(f / 4)} />
     <Count x={540} y={190} f={f} b={92000} f1={Math.round(n * 0.4)} unit="×" w={720} size={140} />
     <Plaque x={540} y={350} text="TODAY'S TIDAL PULL" size={50} bg={C.ink} fg={C.cream} />
   </g>
@@ -154,7 +154,7 @@ const e2: Shot = ({ f }) => {
     <g>
       <Bg f={f} />
       <path d={wave} fill="none" stroke={C.sky} strokeWidth={34} strokeLinecap="round" />
-      <path d={`${wave} L1080 1100 L0 1100 Z`} fill={C.sea} opacity={0.55} />
+      <path d={`${wave} L1080 1500 L0 1500 Z`} fill={C.sea} opacity={0.55} />
       <path d="M390 520 L690 900 M690 520 L390 900" stroke={C.verm} strokeWidth={46} strokeLinecap="round" />
       <Plaque x={540} y={190} text="NOT A MEASURED" size={80} bg={C.ink} fg={C.amber} />
       <Plaque x={540} y={350} text="TIDE" size={110} bg={C.ink} fg={C.cream} />
@@ -189,7 +189,7 @@ const g1: Shot = ({ f }) => (
   <g>
     <Bg f={f} />
     <TidalBall x={500} y={780} r={250} f={f} stretch={0.45 + 0.25 * Math.sin(f / 7)} spin={3} />
-    <Qmark f={f} x={880} y={560} size={320} />
+    <Qmark f={f} x={900} y={700} size={320} />
     <Plaque x={540} y={190} text="WOULD IT HOLD" size={90} bg={C.ink} fg={C.amber} />
     <Plaque x={540} y={350} text="TOGETHER?" size={90} bg={C.ink} fg={C.cream} />
   </g>
