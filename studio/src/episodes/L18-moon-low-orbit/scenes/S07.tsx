@@ -19,7 +19,7 @@ import { StarsTint18 } from "../movers18";
 import { Clipboard } from "../icons18";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, FamSky, Label, NightSky, Num, Plate, Pop, ReadHead, Readout, RollInt, Slam, alpha, ez, fr, lin, logLerp } from "./b-parts";
+import { C, FamSky, Label, NightSky, Num, Plate, Pop, ReadHead, Readout, RollInt, Slam, alpha, ez, fr, lin, logLerp , BandField } from "./b-parts";
 
 export const cuesL07 = (t: SceneTiming) => {
   const { at, p } = cueKit(t);
@@ -88,11 +88,13 @@ const Ladder: ShotFC<C07> = ({ f, c }) => {
   };
   const leanBack = f >= T6 + 30 ? ez(f, T6 + 30, T6 + 46) : 0;
   return (
-    <Stage theme={F.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.004, panY: 0, frames: 260, seed: 31 }} vignette={0.18} grain={0.5}>
+    <Stage theme={F.theme} shotFrame={f - (f >= T6 ? T6 : f >= T4 ? T4 : f >= T2 ? T2 : 0)} drift={{ zoom: 1.14, panX: 0.04, panY: 0.02, frames: 120, seed: 31 }} vignette={0.18} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky />
+        <BandField f={f} k="abyss" />
         <g opacity={light}>
           <FamSky name="gauge" />
+          <BandField f={f} k="gauge" />
         </g>
       </Layer>
       <Layer depth={0.3}>
@@ -101,8 +103,8 @@ const Ladder: ShotFC<C07> = ({ f, c }) => {
         </g>
       </Layer>
       <Layer depth={1}>
-        <Bloom x={1240} y={railY(tok, center, decade)} r={300} color={C.amber} strength={0.35} />
-        <DistGauge f={f} family={F} center={center} decade={decade} x={1240} token={tok} tokenR={34} speed={16} lit={lit} lines={f >= T4 ? ["fluid"] : []} lineDraw={lin(f, T4 + 30, T4 + 60)} lineFrom={1000} />
+        <Bloom x={1240} y={railY(tok, center, decade)} r={420} color={C.amber} strength={0.5 + 0.2 * Math.sin(f * 0.25)} />
+        <DistGauge f={f} family={F} center={center} decade={decade} x={1240} token={tok} tokenR={58} speed={16} lit={lit} lines={f >= T4 ? ["fluid"] : []} lineDraw={lin(f, T4 + 30, T4 + 60)} lineFrom={1000} />
       </Layer>
       <Layer depth={0.9}>
         {bar(0, 1, undefined, T5, 120)}
@@ -167,6 +169,16 @@ const Ladder: ShotFC<C07> = ({ f, c }) => {
     </Stage>
   );
 };
+/** The ladder world played from a scene cue: a hard cut with its pop (probe pass: 35 s of one shot read as 40 % alive). */
+const LadderAt = (key: "s701" | "s702" | "s704" | "s706"): ShotFC<C07> => {
+  const S: ShotFC<C07> = ({ f, len, c }) => (
+    <Pop f={f}>
+      <Ladder f={f + c[key]} len={len} c={c} />
+    </Pop>
+  );
+  return S;
+};
+
 // ===============================================================================================================
 // 7-07 · dark: the token sits at the foot of the rail; the last bar rises in gold out of the top of the frame and the camera
 // tilts up after it (cam 540 → -1100, the rail streams down); ABOUT 92,000 TIMES + OUR SUM.
@@ -180,6 +192,7 @@ const Shot707: ShotFC<C07> = ({ f, len }) => {
       <Stage theme={ABY.theme} cam={{ x: 960, y: camY, zoom: 1 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
+          <BandField f={f} k="abyss" />
         </Layer>
         <Layer depth={0.35}>
           <StarsTint18 f={f} x={-400} y={-2200} w={2720} h={3600} n={200} speed={4} angle={90} seed={15} />
@@ -218,9 +231,10 @@ const Shot708: ShotFC<C07> = ({ f }) => {
   const speed = 9;
   return (
     <Pop f={f}>
-      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.05, panX: -0.006, panY: 0, frames: 140, seed: 32 }} vignette={0.14} grain={0.5}>
+      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: -0.04, panY: 0, frames: 140, seed: 32 }} vignette={0.14} grain={0.5}>
         <Layer depth={0.1}>
           <FamSky name="gauge" />
+          <BandField f={f} k="gauge" />
         </Layer>
         <Layer depth={1}>
           <DistGauge f={f} family={GAU} center={center} decade={decade} x={1500} speed={12} lit={ORDER} />
@@ -260,7 +274,7 @@ const Shot709: ShotFC<C07> = ({ f }) => {
   const look = Math.sin(f * 0.09);
   return (
     <Pop f={f}>
-      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: 0.004, frames: 100, seed: 33 }} vignette={0.14} grain={0.5}>
+      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0.004, frames: 100, seed: 33 }} vignette={0.14} grain={0.5}>
         <Layer depth={0.1}>
           <FamSky name="gauge" />
           <Bloom x={960} y={200} r={700} color="#FFD27A" strength={0.35} />
@@ -293,7 +307,10 @@ export const SceneL07: React.FC<{ t: SceneTiming }> = ({ t }) => {
   const f = useCurrentFrame();
   const c = cuesL07(t);
   const shots: ShotDef<C07>[] = [
-    { from: 0, S: Ladder, id: "7-01" }, // + 7-02 … 7-06 (PUSH / SLIDE: one rail, one camera)
+    { from: 0, S: LadderAt("s701"), id: "7-01" }, // probe pass: the one rail is now cut at the lights (7-02), the FLUID slide (7-04) and the dark (7-06)
+    { from: c.s702, S: LadderAt("s702"), id: "7-02" }, // + 7-03
+    { from: c.s704, S: LadderAt("s704"), id: "7-04" }, // + 7-05
+    { from: c.s706, S: LadderAt("s706"), id: "7-06" },
     { from: c.s707, S: Shot707, id: "7-07" },
     { from: c.s708, S: Shot708, id: "7-08" },
     { from: c.s709, S: Shot709, id: "7-09" },
@@ -317,6 +334,9 @@ export const soundL07 = (t: SceneTiming): Cue[] => {
     ...run(c.s705 + 2, 3, 10, 0.08),
     { at: c.s705 + 20, file: SFX.boom, vol: 0.16, dur: 80, fadeOut: 30 },
     { at: c.s706 + 20, file: SFX.boom, vol: 0.22, dur: 100, fadeOut: 30 },
+    ...cutHit(c.s702),
+    ...cutHit(c.s704),
+    ...cutHit(c.s706),
     ...cutHit(c.s707),
     { at: c.s707 + 4, file: SFX.boom, vol: 0.26, dur: 110, fadeOut: 40 },
     ...cutHit(c.s708),

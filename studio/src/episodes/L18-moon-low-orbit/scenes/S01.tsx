@@ -26,7 +26,7 @@ import { Trail, trailOf } from "../movers18";
 import { READ } from "../data18";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { BOWL, BowlGround, BowlSky, C, CloudBand, MetricA, Phase, Pop, Readout, cl01, ez, lin, tri, wrap } from "./a-parts";
+import { BOWL, BowlGround, BowlSky, C, ClipCircle, CloudBand, DriftBands, MetricA, Phase, Pop, Readout, cl01, ez, lin, tri, wrap } from "./a-parts";
 
 export const cuesL01 = (t: SceneTiming) => {
   const { at, p } = cueKit(t);
@@ -209,6 +209,9 @@ const ShotSkyMap: ShotFC<CL01> = ({ f }) => {
         <Layer depth={0.35}>
           <Bloom x={960} y={720} r={1300} color={C.moonRim} strength={0.4} squash={0.3} />
           <MoonFace f={f} x={960} y={-640} radius={1350} scroll={22} grid />
+          <ClipCircle cx={960} cy={-640} r={1350}>
+            <DriftBands f={f} color="#8A3E14" opacity={0.3} speed={22} n={3} w={380} angle={-15} seed={6} />
+          </ClipCircle>
         </Layer>
         <Layer depth={0.7}>
           <CloudBand f={f} y={900} speed={14} n={9} seed={7} h={90} />
@@ -234,6 +237,8 @@ const ShotMotion: ShotFC<CL01> = ({ f, c }) => {
       <BowlSky f={f} seed={7} />
       <Layer depth={1}>
         <MoonFace f={f} x={960} y={540} radius={2600} scroll={26} grid terminator={0.33 - f * 0.0069} />
+        <DriftBands f={f} color="#FFE7A0" opacity={0.28} speed={18} n={2} w={420} angle={12} seed={7} />
+        <DriftBands f={f} color="#8A3E14" opacity={0.3} speed={26} n={2} w={340} angle={-20} seed={9} />
       </Layer>
     </Stage>
   );

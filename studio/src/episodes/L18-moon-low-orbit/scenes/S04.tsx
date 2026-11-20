@@ -366,7 +366,7 @@ const ShotRoll: ShotFC<CL04> = ({ f }) => {
         <Paper f={f} scroll={16} table={table} seed={3} />
         <Layer depth={1}>
           <ellipse cx={720} cy={table + 6} rx={160} ry={16} fill={TANG.shadow} opacity={0.35} />
-          <StiffBall x={720} y={table - r} r={r} f={f} spin={(16 / r) * 57.3} />
+          <StiffBall x={720} y={table - r} r={r} f={f} spin={(21 / r) * 57.3} />
           <circle cx={1420} cy={380} r={230} fill="none" stroke={C.ink} strokeWidth={6} strokeDasharray={f < 50 ? `${(circ * lin(f, 0, 50)).toFixed(1)} ${circ}` : "22 14"} strokeDashoffset={f < 50 ? 0 : -f * 3} transform="rotate(-90 1420 380)" />
           <EarthDisc x={1420} y={380} r={80} f={f} />
         </Layer>

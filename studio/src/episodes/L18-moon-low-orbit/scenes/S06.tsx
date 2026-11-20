@@ -22,7 +22,7 @@ import { MoonFace } from "../sky";
 import { RockChip } from "../icons18";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { BROWN, C, CheckMark, FamSky, GlowRings, Label, NightSky, PaperGrid, Pop, Readout, RockBlock, alpha, ez, lin, logLerp, mod, rnd, runOf, sm } from "./b-parts";
+import { BROWN, C, CheckMark, FamSky, GlowRings, Label, NightSky, PaperGrid, Pop, Readout, RockBlock, alpha, ez, lin, logLerp, mod, rnd, runOf, sm , BandField } from "./b-parts";
 
 export const cuesL06 = (t: SceneTiming) => {
   const { at, p } = cueKit(t);
@@ -71,9 +71,10 @@ const Shot601: ShotFC<C06> = ({ f }) => {
   const yF = 540 - (Math.log10(18400) - Math.log10(center)) * decade;
   return (
     <Pop f={f}>
-      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.008, panY: 0, frames: 170, seed: 21 }} vignette={0.12} grain={0.5}>
+      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 170, seed: 21 }} vignette={0.12} grain={0.5}>
         <Layer depth={0.15}>
           <FamSky name="tangerine" />
+          <BandField f={f} k="tangerine" />
           <Bloom x={300} y={-80} r={760} color="#FFE08A" strength={0.7} />
         </Layer>
         <Layer depth={0.4}>
@@ -120,6 +121,7 @@ const ChipWorld: React.FC<{ f: number; len: number; c: C06 }> = ({ f, c }) => {
     <Stage theme={TAN.theme} cam={cam} vignette={0.12} grain={0.5}>
       <Layer depth={0.1}>
         <FamSky name="tangerine" />
+        <BandField f={f} k="tangerine" />
       </Layer>
       <Layer depth={0.35}>
         <PaperGrid f={f} />
@@ -199,9 +201,10 @@ const Shot604: ShotFC<C06> = ({ f, c }) => {
   const count = f < t7 ? 9 : 9 + 13 * ez(f, t7, t7 + 60);
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0.012, panY: 0, frames: 420, seed: 22 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 420, seed: 22 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
+          <BandField f={f} k="abyss" />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={110} speed={12} angle={190} seed={4} />
@@ -245,7 +248,7 @@ const Shot608: ShotFC<C06> = ({ f, len }) => {
   const r = 30 + 300 * ez(f, 0, len * 0.9);
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: -0.006, panY: 0, frames: 110, seed: 23 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: -0.04, panY: 0, frames: 110, seed: 23 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
         </Layer>
@@ -269,7 +272,7 @@ const Shot608: ShotFC<C06> = ({ f, len }) => {
 // drained, dashes marching 18 px/f) under a bobbing vermilion "?".
 // ===============================================================================================================
 const Real: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
-  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 90, seed: 24 }} vignette={0.22} grain={0.5}>
+  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 90, seed: 24 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
       <NightSky lift={0.7} />
     </Layer>
@@ -289,7 +292,7 @@ const Real: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
   </Stage>
 );
 const Ghost: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
-  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: -0.004, frames: 100, seed: 25 }} vignette={0.22} grain={0.5}>
+  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: -0.004, frames: 100, seed: 25 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
       <NightSky lift={0.7} />
     </Layer>
@@ -343,7 +346,7 @@ const Card: React.FC<{ x: number; f: number; at: number; title: string; idea: 1 
 };
 const Shot611: ShotFC<C06> = ({ f }) => (
   <Pop f={f}>
-    <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.008, panY: 0, frames: 100, seed: 26 }} vignette={0.12} grain={0.5}>
+    <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 100, seed: 26 }} vignette={0.12} grain={0.5}>
       <Layer depth={0.15}>
         <FamSky name="tangerine" />
         <Bloom x={700} y={560} r={600} color="#FFE08A" strength={0.4} />
@@ -382,7 +385,7 @@ const Idea1: React.FC<{ f: number; len: number; c: C06 }> = ({ f, len }) => {
   const my = PY + Math.sin((th * Math.PI) / 180) * rr;
   const peel = lin(f, cross, len + 30);
   return (
-    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: 0, frames: 120, seed: 27 }} vignette={0.22} grain={0.5}>
+    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 120, seed: 27 }} vignette={0.22} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky lift={0.7} />
       </Layer>
@@ -402,7 +405,7 @@ const Idea1: React.FC<{ f: number; len: number; c: C06 }> = ({ f, len }) => {
   );
 };
 const Idea2: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
-  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0, panY: 0, frames: 170, seed: 28 }} vignette={0.22} grain={0.5}>
+  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 170, seed: 28 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
       <NightSky lift={0.7} />
     </Layer>
@@ -453,7 +456,7 @@ const Shot614: ShotFC<C06> = ({ f }) => {
   });
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 110, seed: 29 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 110, seed: 29 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
         </Layer>
@@ -486,7 +489,7 @@ const Shot614: ShotFC<C06> = ({ f }) => {
 // ===============================================================================================================
 const Shot615: ShotFC<C06> = ({ f }) => (
   <Pop f={f}>
-    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0, panY: 0.004, frames: 110, seed: 30 }} vignette={0.22} grain={0.5}>
+    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0.004, frames: 110, seed: 30 }} vignette={0.22} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky />
       </Layer>

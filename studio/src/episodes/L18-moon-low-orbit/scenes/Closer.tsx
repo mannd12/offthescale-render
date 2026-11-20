@@ -22,7 +22,7 @@ import { MoonFace } from "../sky";
 import { Clipboard } from "../icons18";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, FamSky, GlowRings, NightSky, Pop, ReadHead, Readout, alpha, ez, lin, logLerp, mod, runOf } from "./b-parts";
+import { C, FamSky, GlowRings, NightSky, Pop, ReadHead, Readout, alpha, ez, lin, logLerp, mod, runOf , BandField } from "./b-parts";
 
 /** Frames after the last line for the 20-s end card (EndCard from the kit, drawn by Full.tsx). */
 export const closerTail = 600;
@@ -64,9 +64,10 @@ const RailUp: React.FC<{ f: number; len: number; c: CZ; drift?: boolean }> = ({ 
   const ty = railY(tok, center, decade);
   const pulse = 10 * Math.sin(f * 0.35);
   return (
-    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: -0.006, frames: 160, seed: 51 }} vignette={0.24} grain={0.5}>
+    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: -0.006, frames: 160, seed: 51 }} vignette={0.24} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky lift={0.5} />
+        <BandField f={f} k="abyss" />
       </Layer>
       <Layer depth={0.3}>
         <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={110} speed={14} angle={90} seed={31} />
@@ -100,9 +101,10 @@ const WideRing: React.FC<{ f: number; len: number; c: CZ }> = ({ f }) => {
   const mx = ex + Math.cos(a) * 1280;
   const my = ey + Math.sin(a) * 640;
   return (
-    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.006, panY: 0, frames: 120, seed: 52 }} vignette={0.24} grain={0.5}>
+    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 120, seed: 52 }} vignette={0.24} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky />
+        <BandField f={f} k="abyss" />
       </Layer>
       <Layer depth={0.3}>
         <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={110} speed={12} angle={180} seed={32} />
@@ -111,8 +113,8 @@ const WideRing: React.FC<{ f: number; len: number; c: CZ }> = ({ f }) => {
         <ellipse cx={ex} cy={ey} rx={1280} ry={640} fill="none" stroke={alpha(C.moonRim, 0.5)} strokeWidth={4} strokeDasharray="16 12" strokeDashoffset={-f * 2} />
         <EarthDisc x={ex} y={ey} r={230} f={f} spin={6} />
         <Bloom x={mx} y={my} r={240} color={C.moonRim} strength={0.4} />
-        <GlowRings f={f} cx={mx} cy={my} every={20} speed={5} maxR={150} color={C.moonRim} width={5} />
-        <MoonToken x={mx} y={my} r={62} f={f} spin={3} />
+        <GlowRings f={f} cx={mx} cy={my} every={20} speed={6} maxR={240} color={C.moonRim} width={5} />
+        <MoonToken x={mx} y={my} r={110} f={f} spin={3} />
       </Layer>
       <Layer depth={0}>
         <WordPill x={90} y={110} text="HOLDS TOGETHER" size={30} appear={lin(f, 4, 14)} />
@@ -138,9 +140,10 @@ const ShotZ04: ShotFC<CZ> = ({ f, len }) => {
   const pulse = 0.5 + 0.5 * Math.sin(f * 0.3);
   return (
     <Pop f={f}>
-      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.05, panX: -0.006, panY: 0, frames: 150, seed: 53 }} vignette={0.14} grain={0.5}>
+      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: -0.04, panY: 0, frames: 150, seed: 53 }} vignette={0.14} grain={0.5}>
         <Layer depth={0.1}>
           <FamSky name="gauge" />
+          <BandField f={f} k="gauge" />
         </Layer>
         <Layer depth={1}>
           <SweepFront x={120} y={yF} w={1120} h={yS - yF} level={ez(f, 4, 42)} dir="left" color={C.amber} f={f} />
@@ -175,9 +178,10 @@ const Depends: React.FC<{ f: number; len: number; c: CZ }> = ({ f }) => {
   const bx = 1120;
   const r = 100;
   return (
-    <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.006, panY: 0, frames: 120, seed: 54 }} vignette={0.14} grain={0.5}>
+    <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 120, seed: 54 }} vignette={0.14} grain={0.5}>
       <Layer depth={0.1}>
         <FamSky name="gauge" />
+        <BandField f={f} k="gauge" />
       </Layer>
       <Layer depth={1}>
         <rect x={760} y={yF} width={760} height={yS - yF} fill={C.moonGlow} />
@@ -212,9 +216,10 @@ const Flood: React.FC<{ f: number; len: number; c: CZ }> = ({ f, len }) => {
   const yS = railY(MARKS.stiff.km, center, decade);
   const h = Math.max(10, 1100 - yS);
   return (
-    <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: 0.006, frames: 130, seed: 55 }} vignette={0.14} grain={0.5}>
+    <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0.006, frames: 130, seed: 55 }} vignette={0.14} grain={0.5}>
       <Layer depth={0.1}>
         <FamSky name="gauge" />
+        <BandField f={f} k="gauge" />
       </Layer>
       <Layer depth={1}>
         <SweepFront x={120} y={yS} w={1120} h={h} level={ez(f, 4, 34)} dir="down" color={C.lever} f={f} />
@@ -245,9 +250,10 @@ const ShotZ07: ShotFC<CZ> = ({ f, len }) => {
   const yk = yT - (yT - yS) * k;
   return (
     <Pop f={f}>
-      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 90, seed: 56 }} vignette={0.14} grain={0.5}>
+      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 90, seed: 56 }} vignette={0.14} grain={0.5}>
         <Layer depth={0.1}>
           <FamSky name="gauge" />
+          <BandField f={f} k="gauge" />
         </Layer>
         <Layer depth={1}>
           <DistGauge f={f} family={GAU} center={center} decade={decade} x={1300} speed={10} lit={["station", "stiff"]} lines={["stiff", "station"]} lineFrom={1000} />
@@ -270,7 +276,7 @@ const ShotZ07: ShotFC<CZ> = ({ f, len }) => {
 // OUR SUM. Z-09: its colour drains to a dashed ghost (dashes march 18 px/f) and NOT POSSIBLE slams on; the surface keeps sliding.
 // ===============================================================================================================
 const SkyMoon: React.FC<{ f: number; len: number; ghost?: number; crack?: number; separate?: number; scroll?: number; children?: React.ReactNode; tick?: React.ReactNode }> = ({ f, ghost = 0, crack = 0, separate = 0, scroll = 22, children, tick }) => (
-  <Stage theme={BOWL.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.004, panY: 0.004, frames: 150, seed: 57 }} vignette={0.16} grain={0.5}>
+  <Stage theme={BOWL.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0.004, frames: 150, seed: 57 }} vignette={0.16} grain={0.5}>
     <Layer depth={0.1}>
       <Sky stops={["#1FA8C9", "#F59A3B", "#FFC65C"]} x={-400} y={-300} w={2720} h={1360} />
     </Layer>
@@ -345,9 +351,10 @@ const Slide: React.FC<{ f: number; len: number; c: CZ }> = ({ f, len }) => {
   const cy = 810;
   const lit = ORDER.filter((m) => MARKS[m].km >= tok * 0.98);
   return (
-    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 90, seed: 58 }} vignette={0.22} grain={0.5}>
+    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 90, seed: 58 }} vignette={0.22} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky />
+        <BandField f={f} k="abyss" />
       </Layer>
       <Layer depth={0.3}>
         <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={110} speed={16} angle={270} seed={33} />
@@ -388,6 +395,7 @@ const ShotZ12: ShotFC<CZ> = ({ f, len }) => {
       <Stage theme={ABY.theme} cam={{ x: 1100, y: 560, zoom }} vignette={0.26} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
+          <BandField f={f} k="abyss" />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-700} y={-500} w={3320} h={2080} n={180} speed={14} angle={200} seed={34} />

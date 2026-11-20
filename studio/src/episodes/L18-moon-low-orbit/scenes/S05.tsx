@@ -46,6 +46,7 @@ import {
   mixHex,
   mod,
   runOf,
+  BandField,
 } from "./b-parts";
 
 export const cuesL05 = (t: SceneTiming) => {
@@ -177,7 +178,7 @@ const Cone: React.FC<{ f: number; len: number; c: C05 }> = ({ f }) => {
   const tx = 420 + mod(f * 14, 1300);
   return (
     <>
-      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.01, panY: 0, frames: 160, seed: 3 }} vignette={0.12} grain={0.5}>
+      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 160, seed: 3 }} vignette={0.12} grain={0.5}>
         <Layer depth={0.15}>
           <FamSky name="tangerine" />
         </Layer>
@@ -327,9 +328,10 @@ const Shot507: ShotFC<C05> = ({ f, len }) => {
   const landedAge = ph - T;
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: -0.008, panY: 0, frames: 150, seed: 6 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: -0.04, panY: 0, frames: 150, seed: 6 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
+          <BandField f={f} k="abyss" />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1300} n={80} speed={12} angle={180} seed={3} />
@@ -391,9 +393,10 @@ const Shot508: ShotFC<C05> = ({ f }) => {
   };
   return (
     <Pop f={f}>
-      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.006, panY: 0, frames: 120, seed: 8 }} vignette={0.12} grain={0.5}>
+      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 120, seed: 8 }} vignette={0.12} grain={0.5}>
         <Layer depth={0.15}>
           <FamSky name="tangerine" />
+          <BandField f={f} k="tangerine" />
           <Bloom x={300} y={-60} r={700} color="#FFE08A" strength={0.6} />
         </Layer>
         <Layer depth={0.4}>
@@ -442,6 +445,7 @@ const NearSide: React.FC<{ f: number; len: number; c: C05 }> = ({ f, c }) => {
     <Stage theme={TAN.theme} cam={{ x: 940, y: 540, zoom }} vignette={0.12} grain={0.5}>
       <Layer depth={0.15}>
         <FamSky name="tangerine" />
+        <BandField f={f} k="tangerine" />
         <Bloom x={1400} y={-80} r={700} color="#FFE08A" strength={0.55} />
       </Layer>
       <Layer depth={0.4}>
@@ -480,9 +484,10 @@ const NearSide: React.FC<{ f: number; len: number; c: C05 }> = ({ f, c }) => {
 // 5-11 · on the dark field a patch on the near side lifts toward the Earth (a new patch every 40 f) and dust streams after it
 // (22 px/f). No Tick (F11). Dark weight 0.35.
 const PatchLift: React.FC<{ f: number; len: number; c: C05 }> = ({ f }) => (
-  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.06, panX: -0.01, panY: 0, frames: 160, seed: 11 }} vignette={0.22} grain={0.5}>
+  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: -0.04, panY: 0, frames: 160, seed: 11 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
       <NightSky />
+      <BandField f={f} k="abyss" />
     </Layer>
     <Layer depth={0.3}>
       <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={80} speed={10} angle={0} seed={8} />
@@ -512,9 +517,10 @@ const Shot512: ShotFC<C05> = ({ f }) => {
   const flash = 0.5 + 0.5 * Math.sin(f * 0.4);
   return (
     <Pop f={f}>
-      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.006, panY: -0.004, frames: 110, seed: 12 }} vignette={0.12} grain={0.5}>
+      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: -0.004, frames: 110, seed: 12 }} vignette={0.12} grain={0.5}>
         <Layer depth={0.15}>
           <FamSky name="tangerine" />
+          <BandField f={f} k="tangerine" />
         </Layer>
         <Layer depth={0.4}>
           <PaperGrid f={f} floor={base} />
@@ -559,9 +565,10 @@ const Shot513: ShotFC<C05> = ({ f, len }) => {
   const L2 = (80 + (320 - 80) * eq) * br;
   return (
     <Pop f={f}>
-      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0.004, frames: 110, seed: 13 }} vignette={0.14} grain={0.5}>
+      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0.004, frames: 110, seed: 13 }} vignette={0.14} grain={0.5}>
         <Layer depth={0.1}>
           <FamSky name="gauge" />
+          <BandField f={f} k="gauge" />
           <Bloom x={1300} y={sy} r={520} color={C.amber} strength={0.35} />
         </Layer>
         <Layer depth={1}>
@@ -597,9 +604,10 @@ const Shot514: ShotFC<C05> = ({ f, len }) => {
   const top = Math.max(-200, Math.min(1300, sy));
   return (
     <Pop f={f}>
-      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.03, panX: 0, panY: 0, frames: 90, seed: 14 }} vignette={0.14} grain={0.5}>
+      <Stage theme={GAU.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 90, seed: 14 }} vignette={0.14} grain={0.5}>
         <Layer depth={0.1}>
           <FamSky name="gauge" />
+          <BandField f={f} k="gauge" />
         </Layer>
         <Layer depth={1}>
           <rect x={260} y={-300} width={960} height={top + 300} fill={HOLD} opacity={0.62} />
@@ -628,9 +636,10 @@ const Shot515: ShotFC<C05> = ({ f, len }) => {
   const sL = 170 + 600 * ez(f, 6, len * 0.85) + 10 * Math.sin(f * 0.3);
   return (
     <Pop f={f}>
-      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0.006, frames: 110, seed: 15 }} vignette={0.12} grain={0.5}>
+      <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0.006, frames: 110, seed: 15 }} vignette={0.12} grain={0.5}>
         <Layer depth={0.15}>
           <FamSky name="tangerine" />
+          <BandField f={f} k="tangerine" />
         </Layer>
         <Layer depth={0.4}>
           <PaperGrid f={f} floor={960} />

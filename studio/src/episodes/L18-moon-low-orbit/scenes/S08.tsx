@@ -24,7 +24,7 @@ import { DotFlow, StarsTint18 } from "../movers18";
 import { LaserDots, Tape } from "../icons18";
 import { ShotDef, ShotFC, playShots } from "../shots";
 import { Cue, SFX, cutHit } from "./cue-types";
-import { C, FamSky, INK, Label, NightSky, PaperGrid, Pop, ReadHead, Readout, StrikeX, alpha, clamp01, drawn, ez, fr, lin, logLerp, mod, ping, rnd, runOf } from "./b-parts";
+import { C, FamSky, INK, Label, NightSky, PaperGrid, Pop, ReadHead, Readout, StrikeX, alpha, clamp01, drawn, ez, fr, lin, logLerp, mod, ping, rnd, runOf , BandField } from "./b-parts";
 
 export const cuesL08 = (t: SceneTiming) => {
   const { at, p } = cueKit(t);
@@ -424,8 +424,8 @@ const Shot810: ShotFC<C08> = ({ f, len, c }) => {
 const Shot811: ShotFC<C08> = ({ f, len, c }) => {
   const [x, y] = ctr(SH.H, 10);
   const cam = cameraAt(f, [
-    { f: 0, x: x - 160, y, zoom: 1.8 },
-    { f: len, x: x + 100, y: y - 10, zoom: 1.95 },
+    { f: 0, x: x - 200, y, zoom: 1.75 },
+    { f: len, x: x + 160, y: y - 20, zoom: 2.15 },
   ]);
   return (
     <Pop f={f}>
@@ -444,9 +444,10 @@ const Shot812: ShotFC<C08> = ({ f, len, c }) => {
   const rattle = f > 30 ? Math.max(0, 1 - (f - 30) / 40) : 0;
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.006, panY: 0, frames: 150, seed: 41 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 150, seed: 41 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
+          <BandField f={f} k="abyss" />
           <g opacity={1 - lin(f, 0, 14)}>
             <FamSky name="board" />
           </g>
@@ -458,7 +459,7 @@ const Shot812: ShotFC<C08> = ({ f, len, c }) => {
         </Layer>
         <Layer depth={1}>
           <DistGauge f={f} family={ABY} center={center} decade={300} x={1300} speed={16} token={MARKS.today.km} tokenR={34} lit={["station"]} />
-          <FlipTag x={760} y={40} word="NOT POSSIBLE" prev="MODEL" f={f} swing={8} flip={fl} rattle={rattle} size={1.3} cord={110} />
+          <FlipTag x={760} y={40} word="NOT POSSIBLE" prev="MODEL" f={f} swing={16} flip={fl} rattle={rattle} size={1.3} cord={110} />
           <Tick x={420} y={1000} pxPerM={170} frame={f} facing={1} pose="point" expression="determined" look={0.5} />
         </Layer>
       </Stage>
@@ -475,9 +476,10 @@ const Shot813: ShotFC<C08> = ({ f, len }) => {
   const pulse = 10 * Math.sin(f * 0.35);
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 110, seed: 42 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 110, seed: 42 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky lift={0.6} />
+          <BandField f={f} k="abyss" />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={100} speed={10} angle={90} seed={22} />
@@ -507,9 +509,10 @@ const Shot814: ShotFC<C08> = ({ f, len }) => {
   const tx = caseX - 40 - L - 30;
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.004, panY: 0, frames: 170, seed: 43 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 170, seed: 43 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky />
+          <BandField f={f} k="abyss" />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={100} speed={6} angle={90} seed={23} />
@@ -534,9 +537,10 @@ const Shot814: ShotFC<C08> = ({ f, len }) => {
 // hits the limb, debris sprays; then on the survey paper a time strip scrolls (24 px/f) and ABOUT 4.5 BILLION YEARS AGO rolls up.
 // ===============================================================================================================
 const Fountain: React.FC<{ f: number; len: number; c: C08 }> = ({ f }) => (
-  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: -0.006, frames: 110, seed: 44 }} vignette={0.22} grain={0.5}>
+  <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: -0.006, frames: 110, seed: 44 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
       <NightSky />
+      <BandField f={f} k="abyss" />
     </Layer>
     <Layer depth={0.3}>
       <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={90} speed={12} angle={180} seed={24} />
@@ -565,9 +569,10 @@ const Impact: React.FC<{ f: number; len: number; c: C08 }> = ({ f }) => {
   const after = Math.max(0, f - hit);
   const flash = f >= hit ? Math.max(0, 1 - after / 16) : 0;
   return (
-    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: 0, frames: 90, seed: 45 }} vignette={0.22} grain={0.5}>
+    <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 90, seed: 45 }} vignette={0.22} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky />
+        <BandField f={f} k="abyss" />
       </Layer>
       <Layer depth={0.3}>
         <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={90} speed={12} angle={180} seed={25} />
@@ -597,7 +602,7 @@ const TimeStrip18: React.FC<{ f: number; len: number; c: C08 }> = ({ f }) => {
   const off = mod(f * 24, 240);
   const cols = ["#C4501A", "#9A3C14", "#FFC04E", "#EE8A2C", "#17A8A0"];
   return (
-    <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 90, seed: 46 }} vignette={0.12} grain={0.5}>
+    <Stage theme={TAN.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 90, seed: 46 }} vignette={0.12} grain={0.5}>
       <Layer depth={0.15}>
         <FamSky name="tangerine" />
       </Layer>
@@ -633,9 +638,10 @@ const Shot818: ShotFC<C08> = ({ f }) => {
   const clump = 0.5 + 0.5 * Math.sin(f * 0.08);
   return (
     <Pop f={f}>
-      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0, panY: 0, frames: 170, seed: 47 }} vignette={0.22} grain={0.5}>
+      <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.12, panX: 0.04, panY: 0, frames: 170, seed: 47 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
           <NightSky lift={0.6} />
+          <BandField f={f} k="abyss" />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={110} speed={10} angle={200} seed={26} />
@@ -666,8 +672,8 @@ const Shot819: ShotFC<C08> = ({ f, len }) => {
   const up = lin(f, 6, 26);
   const dn = lin(f, 20, 40);
   const cam = cameraAt(f, [
-    { f: 0, x: 960, y: 560, zoom: 1.0 },
-    { f: len, x: 1000, y: 600, zoom: 1.1 },
+    { f: 0, x: 900, y: 540, zoom: 1.0 },
+    { f: len, x: 1120, y: 620, zoom: 1.24 },
   ]);
   return (
     <Pop f={f}>

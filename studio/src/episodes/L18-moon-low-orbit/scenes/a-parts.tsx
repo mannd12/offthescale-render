@@ -108,37 +108,79 @@ export const ClipCircle: React.FC<{ cx: number; cy: number; r: number; children:
 // ---------------------------------------------------------------------------------------------------------------
 // backgrounds (storyboard §1 hexes, used exactly; nothing grey, cream or blue-grey)
 // ---------------------------------------------------------------------------------------------------------------
-/** The dark field: petrol-black top (#01121B) to #022B40, tinted stars streaming. Dark weight: with lift 0 the whole
- *  field is under V 0.3 (the really-dark shots); lift 1 = the abyss family's own stops (#07608A at the foot, dark weight
- *  ≈ 0.55: the orbit diagrams and the lit-limb shots, storyboard weights 0.35-0.45). */
-export const AbyssField: React.FC<{ f: number; speed?: number; angle?: number; n?: number; lift?: number; seed?: number }> = ({ f, speed = 12, angle = 90, n = 110, lift = 0, seed = 1 }) => (
+/**
+ * The big background mover (probe fix pass 2026-11-20): wide soft-edged diagonal bands of light sliding across the frame
+ * at `speed` px/f, wrapping forever. The probe (96×54 grey, > 3 % of cells changing luma > 0.04 per 0.5 s) does not see
+ * stars, thin ticks or digits; a 420-px band whose edges travel 75 px per half-second over the whole frame height does.
+ */
+export const DriftBands: React.FC<{ f: number; color: string; opacity?: number; speed?: number; n?: number; w?: number; angle?: number; seed?: number }> = ({
+  f,
+  color,
+  opacity = 0.3,
+  speed = 5,
+  n = 3,
+  w = 420,
+  angle = 22,
+  seed = 1,
+}) => {
+  const id = "db" + sid(useId());
+  const span = 3600;
+  return (
+    <g>
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor={color} stopOpacity={0} />
+          <stop offset="0.3" stopColor={color} stopOpacity={opacity} />
+          <stop offset="0.7" stopColor={color} stopOpacity={opacity} />
+          <stop offset="1" stopColor={color} stopOpacity={0} />
+        </linearGradient>
+      </defs>
+      <g transform={`rotate(${angle} 960 540)`}>
+        {Array.from({ length: n }, (_, i) => {
+          const x = wrap(i * (span / n) + rnd(seed * 7 + i) * 300 + f * speed, span) - 1100;
+          const ww = w * (0.8 + 0.5 * rnd(seed * 3 + i));
+          return <rect key={i} x={x} y={-900} width={ww} height={2880} fill={`url(#${id})`} />;
+        })}
+      </g>
+    </g>
+  );
+};
+
+/** The dark field: petrol-black top (#01121B) to #022B40, tinted stars streaming, and two wide petrol-teal bands drifting
+ *  (5 px/f; their lit centre stays under V 0.3, so the dark weight holds). lift 0 = the really-dark shots (whole field
+ *  under V 0.3); lift 1 = the abyss family's own stops (#07608A at the foot, dark weight ≈ 0.55). */
+export const AbyssField: React.FC<{ f: number; speed?: number; angle?: number; n?: number; lift?: number; seed?: number; bands?: number }> = ({ f, speed = 12, angle = 90, n = 110, lift = 0, seed = 1, bands = 5 }) => (
   <g>
     <Sky stops={lift > 0 ? ["#01121B", mixHex("#01121B", "#022B40", lift), mixHex("#022B40", "#07608A", lift)] : ["#01121B", "#01121B", "#022B40"]} />
+    {bands > 0 ? <DriftBands f={f} color="#0F7A98" opacity={0.42} speed={bands} n={3} w={520} angle={-28} seed={seed} /> : null}
     <StarsTint18 f={f} x={-200} y={-200} w={2320} h={1480} n={n} speed={speed} angle={angle} seed={seed} size={2.4} />
   </g>
 );
 
-/** The lit rail room (gauge): chart-teal wall, panel seams, an amber lamp row, the floor plane with a lit lip. */
-export const GaugeRoom: React.FC<{ f: number; floor?: number; lamps?: number; dim?: number; seed?: number }> = ({ f, floor = 980, lamps = 1, dim = 0, seed = 1 }) => (
+/** The lit rail room (gauge): chart-teal wall whose panels (far / mid stops, seams every 240 px) slide past at `pan` px/f
+ *  (the room drifts: the probe's big mover), an amber lamp row riding with them, a wide warm light band sweeping, the floor
+ *  plane with a lit lip. */
+export const GaugeRoom: React.FC<{ f: number; floor?: number; lamps?: number; dim?: number; seed?: number; pan?: number }> = ({ f, floor = 980, lamps = 1, dim = 0, seed = 1, pan = 5 }) => (
   <g>
     <Sky family={GAUGE} />
-    {/* far wall panels: far / mid stops, seams every 240 px */}
-    {Array.from({ length: 10 }, (_, i) => (
-      <rect key={i} x={-120 + i * 240} y={-40} width={232} height={floor + 40} fill={i % 2 ? GAUGE.far : mixHex(GAUGE.far, GAUGE.mid, 0.35)} opacity={0.55} />
-    ))}
-    {/* the lamp row along the top of the wall */}
-    {Array.from({ length: 9 }, (_, i) => {
-      const on = cl01(lamps * 9 - i);
+    {Array.from({ length: 12 }, (_, i) => {
+      const x = wrap(i * 240 - f * pan + seed * 60, 2880) - 480;
+      return <rect key={i} x={x} y={-40} width={232} height={floor + 40} fill={i % 2 ? GAUGE.far : GAUGE.mid} opacity={0.75} />;
+    })}
+    {Array.from({ length: 13 }, (_, i) => {
+      const x = wrap(i * 220 - f * pan + seed * 60 + 120, 2860) - 470;
+      const k = cl01((x + 100) / 2020);
+      const on = cl01(lamps * 9 - k * 9);
       const pulse = 0.8 + 0.2 * Math.sin(f / 7 + i * 1.3 + seed);
       return (
         <g key={"l" + i}>
-          <circle cx={120 + i * 220} cy={70} r={34 * pulse} fill={C.amber} opacity={0.22 * on} />
-          <circle cx={120 + i * 220} cy={70} r={11} fill={on > 0.5 ? "#FFE7A0" : mixHex(C.amber, GAUGE.near, 0.6)} stroke={C.amber} strokeWidth={3} />
+          <circle cx={x} cy={70} r={34 * pulse} fill={C.amber} opacity={0.22 * on} />
+          <circle cx={x} cy={70} r={11} fill={on > 0.5 ? "#FFE7A0" : mixHex(C.amber, GAUGE.near, 0.6)} stroke={C.amber} strokeWidth={3} />
         </g>
       );
     })}
+    <DriftBands f={f} color="#FFD27A" opacity={0.22} speed={pan * 1.6} n={2} w={460} angle={18} seed={seed + 4} />
     <Bloom x={420} y={180} r={700} color={C.moonRim} strength={0.22} />
-    {/* the floor */}
     <rect x={-400} y={floor} width={2720} height={700} fill={GAUGE.near} />
     <rect x={-400} y={floor} width={2720} height={7} fill={mixHex(GAUGE.light, GAUGE.mid, 0.25)} />
     <rect x={-400} y={floor + 7} width={2720} height={60} fill={mixHex(GAUGE.near, GAUGE.mid, 0.5)} opacity={0.6} />
@@ -147,23 +189,30 @@ export const GaugeRoom: React.FC<{ f: number; floor?: number; lamps?: number; di
   </g>
 );
 
-/** Survey paper (tangerine): oxide-orange to saffron, a faint chart grid that can scroll (`scroll` px/f), a table plane. */
-export const Paper: React.FC<{ f: number; scroll?: number; table?: number; seed?: number }> = ({ f, scroll = 0, table = 930, seed = 1 }) => {
-  const off = wrap(f * scroll, 120);
+/** Survey paper (tangerine): oxide-orange to saffron, wide chart columns in the mid stop and the chart grid sliding at
+ *  `pan` + `scroll` px/f (the big mover), a warm light band sweeping, the table plane. */
+export const Paper: React.FC<{ f: number; scroll?: number; table?: number; seed?: number; pan?: number }> = ({ f, scroll = 0, table = 930, seed = 1, pan = 5 }) => {
+  const v = scroll + pan;
+  const off = wrap(f * v, 120);
   return (
     <g>
       <Sky family={TANG} angle={100} />
+      {Array.from({ length: 8 }, (_, i) => {
+        const x = wrap(i * 360 - f * v + seed * 90, 2880) - 480;
+        return <rect key={"c" + i} x={x} y={-20} width={180} height={table + 20} fill={TANG.mid} opacity={0.32} />;
+      })}
       {Array.from({ length: 20 }, (_, i) => (
-        <line key={"v" + i} x1={-120 + i * 120 - off} y1={-20} x2={-120 + i * 120 - off} y2={table} stroke={TANG.mid} strokeWidth={2} opacity={0.35} />
+        <line key={"v" + i} x1={-120 + i * 120 - off} y1={-20} x2={-120 + i * 120 - off} y2={table} stroke={TANG.mid} strokeWidth={3} opacity={0.4} />
       ))}
       {Array.from({ length: 9 }, (_, i) => (
         <line key={"h" + i} x1={-40} y1={60 + i * 120} x2={1960} y2={60 + i * 120} stroke={TANG.mid} strokeWidth={2} opacity={0.3} />
       ))}
+      <DriftBands f={f} color="#FFE08A" opacity={0.3} speed={v * 1.4} n={2} w={460} angle={18} seed={seed + 2} />
       <Bloom x={360} y={160} r={760} color={TANG.light} strength={0.28} />
       <rect x={-400} y={table} width={2720} height={600} fill={TANG.far} />
       <rect x={-400} y={table} width={2720} height={8} fill={TANG.light} opacity={0.8} />
       {Array.from({ length: 14 }, (_, i) => {
-        const x = wrap(i * 190 - f * scroll * 1.3, 2660) - 370;
+        const x = wrap(i * 190 - f * v * 1.3, 2660) - 370;
         return <rect key={"t" + i} x={x} y={table + 40 + (i % 3) * 38} width={90} height={8} rx={4} fill={TANG.near} opacity={0.5} />;
       })}
       <Motes frame={f} n={12} w={1920} h={table} color={alpha(TANG.light, 0.6)} seed={seed + 5} />

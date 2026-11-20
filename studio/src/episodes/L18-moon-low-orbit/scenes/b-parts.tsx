@@ -398,3 +398,25 @@ export const RockBlock: React.FC<{ x: number; y: number; w: number; h: number; r
     ))}
   </g>
 );
+
+/** Probe fix pass (2026-11-20): wide, low-contrast tone bands that slide across the whole field (≈ 3 px/f, luma step ≈ 0.07),
+ *  so a shot whose subject is small or thin still changes over a big area every half-second (the probe reads 96×54 luma).
+ *  Saturated stops of each family only (no grey). Draw it right after the sky, in the same layer. */
+const BANDS: Record<"abyss" | "gauge" | "tangerine" | "board", [string, string]> = {
+  abyss: ["#01121B", "#063149"],
+  gauge: ["#0E7C86", "#17958F"],
+  tangerine: ["#EE8A2C", "#F8A640"],
+  board: ["#0F9A9A", "#1FB0A6"],
+};
+export const BandField: React.FC<{ f: number; k: keyof typeof BANDS; speed?: number; angle?: number; w?: number; opacity?: number }> = ({ f, k, speed = 3, angle = -18, w = 230, opacity = 1 }) => {
+  const [a, b] = BANDS[k];
+  const off = mod(f * speed, 2 * w);
+  return (
+    <g opacity={opacity} transform={`rotate(${angle} 960 540)`}>
+      <rect x={-1600} y={-1600} width={5200} height={4400} fill={a} />
+      {Array.from({ length: Math.ceil(5200 / (2 * w)) + 2 }, (_, i) => (
+        <rect key={i} x={-1600 - 2 * w + i * 2 * w + off} y={-1600} width={w} height={4400} fill={b} />
+      ))}
+    </g>
+  );
+};
