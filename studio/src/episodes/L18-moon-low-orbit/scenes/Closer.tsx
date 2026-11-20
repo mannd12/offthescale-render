@@ -222,12 +222,13 @@ const Flood: React.FC<{ f: number; len: number; c: CZ }> = ({ f, len }) => {
         <BandField f={f} k="gauge" />
       </Layer>
       <Layer depth={1}>
-        <SweepFront x={120} y={yS} w={1120} h={h} level={ez(f, 4, 34)} dir="down" color={C.lever} f={f} />
+        {/* main-session pre-final fix 2026-11-20: the flood reaches the rail and carries its tag, so it reads as a zone, not a blank box */}
+        <SweepFront x={60} y={yS} w={1240} h={h} level={ez(f, 4, 34)} dir="down" color={C.lever} f={f} />
         <DistGauge f={f} family={GAU} center={center} decade={decade} x={1300} speed={18} lit={["stiff", "station"]} lines={["stiff"]} lineFrom={120} />
       </Layer>
       <Layer depth={0}>
-        <WordPill x={90} y={110} text="EVEN A STIFF MOON LOSES" size={30} fill={alpha(GAU.shadow, 0.85)} appear={lin(f, 14, 24)} />
-        <OurSumPill x={96} y={176} appear={lin(f, 18, 28)} />
+        <WordPill x={140} y={Math.min(860, yS + 70)} text="EVEN A STIFF MOON LOSES" size={44} fill={alpha(GAU.shadow, 0.9)} appear={lin(f, 14, 24)} />
+        <OurSumPill x={146} y={Math.min(860, yS + 70) + 84} appear={lin(f, 18, 28)} />
       </Layer>
     </Stage>
   );
