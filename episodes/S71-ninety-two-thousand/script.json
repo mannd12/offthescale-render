@@ -20,7 +20,7 @@
           "cue": "caption: 384,400 KM AWAY"
         },
         {
-          "text": "Lower it to the height of the space station, and its center would be about eighty-five hundred kilometers from the Earth's center.",
+          "text": "Lower it to the space station's height, and its center is about eighty-five hundred kilometers from the Earth's center.",
           "pause": 0.55,
           "cue": "caption: ABOUT 8,500 KM FROM THE CENTER"
         },
@@ -30,12 +30,12 @@
           "cue": "caption: ABOUT 92,000 TIMES TODAY'S PULL"
         },
         {
-          "text": "That's our own sum, from a simple model, and not a measured tide.",
+          "text": "That's our own sum from a simple model, not a measured tide.",
           "pause": 0.55,
           "cue": "caption: OUR SUM, NOT A MEASURED TIDE"
         },
         {
-          "text": "But the Moon is a ball three thousand four hundred seventy-six kilometers across. Its near side would be pulled more than twice as hard as its far side.",
+          "text": "But the Moon is a ball three thousand four hundred seventy-six kilometers across. Its near side is pulled more than twice as hard as its far side.",
           "pause": 0.55,
           "cue": "caption: NEAR SIDE: MORE THAN 2x THE FAR SIDE"
         },
