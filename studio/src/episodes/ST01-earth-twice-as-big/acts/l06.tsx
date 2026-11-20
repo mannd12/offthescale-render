@@ -614,13 +614,13 @@ export const SHOTS_L06: ShotMap = {
 
   // ---------------------------------------------------------------- 6-18 · a rocket that is almost all tank
   "6-18": ({ t, f }) => {
-    const MF = SUPPOSE.moss;
+    const MF = SUPPOSE.sage;
     const ground = 960;
     const tank = mix(200, 700, ease(t, 14, 170));
     const x = 900;
     const capTop = ground - tank - 80;
     return (
-      <ShotStage fam="moss" t={t} f={f}>
+      <ShotStage fam="sage" t={t} f={f}>
         <Bloom x={x} y={capTop} r={360} color={MF.light} strength={0.18} />
         <path d={smoothPath([[-40, ground + 10], [600, ground - 10], [1300, ground + 6], [1960, ground - 6]]) + " L 1960 1100 L -40 1100 Z"} fill={MF.near} />
         <path d={smoothPath([[-40, ground + 10], [600, ground - 10], [1300, ground + 6], [1960, ground - 6]])} stroke={MF.bounce} strokeWidth={4} fill="none" opacity={0.5} />
@@ -631,7 +631,7 @@ export const SHOTS_L06: ShotMap = {
         </g>
         <path d={`M ${x + 40} ${capTop + 46} L ${x + 150} ${capTop + 10} H ${x + 190}`} stroke={MF.text} strokeWidth={3} fill="none" />
         {T(x + 200, capTop + 20, "PAYLOAD", 34, MF.text, "start")}
-        <Lev x={1300} y={ground - 4} h={118} frame={f} facing={-1} pose="stand" eyes="up" tilt={-12 - 14 * ease(t, 14, 170)} wind={0.4} shade="#AFC4B5" />
+        <Lev x={1300} y={ground - 4} h={118} frame={f} facing={-1} pose="stand" eyes="up" tilt={-12 - 14 * ease(t, 14, 170)} wind={0.4} shade="#B9CBB0" outline={INK} />
       </ShotStage>
     );
   },

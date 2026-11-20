@@ -298,17 +298,17 @@ export const SHOTS_L05: ShotMap = {
     // hands on the side of the hanging housing (within Lev's reach), lifting it onto the hook
     const hand: P2 = [(hx - 4 - 70 - levX) / s, (hy + 244 + lift * 90 - ground) / s];
     return (
-      <ShotStage fam="moss" t={t} f={f}>
+      <ShotStage fam="sage" t={t} f={f}>
         <Drift t={t}>
           <Bloom x={hx} y={hy + 120} r={460} color={BRASS} strength={0.28} />
-          <path d={rrect(hx - 340, hy - 70, 680, 70, 22)} fill={MOSS.near} stroke={MOSS.mid} strokeWidth={4} />
+          <path d={rrect(hx - 340, hy - 70, 680, 70, 22)} fill={SUPPOSE.sage.near} stroke={SUPPOSE.sage.mid} strokeWidth={4} />
           <path d={`M ${hx} ${hy - 30} v 26 q 0 26 -18 26`} stroke={BRASS_DARK} strokeWidth={12} fill="none" strokeLinecap="round" />
           <path d={`M ${hx} ${hy - 30} v 26 q 0 26 -18 26`} stroke={BRASS} strokeWidth={6} fill="none" strokeLinecap="round" />
-          <rect x={-100} y={ground} width={2120} height={300} fill={MOSS.near} />
-          <path d={`M -100 ${ground} H 2020`} stroke={MOSS.bounce} strokeWidth={4} opacity={0.6} />
+          <rect x={-100} y={ground} width={2120} height={300} fill={SUPPOSE.sage.near} />
+          <path d={`M -100 ${ground} H 2020`} stroke={SUPPOSE.sage.bounce} strokeWidth={4} opacity={0.6} />
           <HangingLever hx={hx - 4} hy={hy - 2} angle={ang} plate="SIZE" dy={lift * 90} />
           <Lev x={levX} y={ground} h={levH} frame={f} pose={holding ? "pull" : "stand"} eyes={holding ? "squint" : "happy"} lean={holding ? -4 : 0}
-            hands={holding ? { front: hand, back: [hand[0] - 8, hand[1] + 14] } : undefined} shade="#9FB7A6" wind={0.5} />
+            hands={holding ? { front: hand, back: [hand[0] - 8, hand[1] + 14] } : undefined} shade="#B9CBB0" outline={INK} wind={0.5} />
         </Drift>
         <RungLadder x={1700} top={250} bottom={980} labels={LADDER_RUNGS} lit={5} frame={f} opacity={1 - ease(t, 0, Math.min(60, d))} />
       </ShotStage>

@@ -734,10 +734,10 @@ export const SHOTS_L04: ShotMap = {
     const k = 0.5 - 0.5 * Math.cos(t / 9);
     const front: Pt = [mix(24, 46, k), mix(-58, -100, k)];
     const back: Pt = [mix(-24, -46, k), mix(-58, -100, k)];
-    const fam = SUPPOSE.moss;
+    const fam = SUPPOSE.sage;
     const TW = 280, TH = 690;
     return (
-      <ShotStage fam="moss" t={t} f={f} counter={C2}>
+      <ShotStage fam="sage" t={t} f={f} counter={C2}>
         <Push t={t}>
           <path d={`M -60 ${ground} C 500 ${ground - 16} 1400 ${ground - 8} 1980 ${ground + 6} L 1980 1100 L -60 1100 Z`} fill={fam.near} />
           <path d={`M -60 ${ground} C 500 ${ground - 16} 1400 ${ground - 8} 1980 ${ground + 6}`} stroke={fam.bounce} strokeWidth={5} fill="none" opacity={0.7} />
@@ -755,7 +755,7 @@ export const SHOTS_L04: ShotMap = {
               <path key={u} d={rrect(1000 - TW / 2 - 6, tb - 40 - TH + TH * u, TW + 12, 22, 10)} fill={BRASS} opacity={0.9} />
             ))}
           </g>
-          <Lev x={700} y={ground - 2} h={130} frame={f} pose="stand" hands={{ front, back }} eyes={k > 0.6 ? "closed" : "open"} tilt={k * 12} wind={0.3} shade="#9FB7A6" />
+          <Lev x={700} y={ground - 2} h={130} frame={f} pose="stand" hands={{ front, back }} eyes={k > 0.6 ? "closed" : "open"} tilt={k * 12} wind={0.3} shade="#B9CBB0" outline={INK} />
         </Push>
       </ShotStage>
     );

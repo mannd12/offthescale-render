@@ -405,17 +405,17 @@ export const SHOTS_COLD: ShotMap = {
     const slosh = (x: number) => Math.sin(x / 18 + t * 0.4) * 6 * (t > 18 ? 1 : 0.3);
     const bx0 = 1150, bx1 = 1280;
     return (
-      <ShotStage fam="moss" t={t} f={f}>
+      <ShotStage fam="sage" t={t} f={f}>
         <g>
-          <rect x={-60} y={base} width={2040} height={260} fill={MOSS.near} />
-          <path d={`M -60 ${base + 2} H 1980`} stroke={MOSS.bounce} strokeWidth={4} opacity={0.6} />
-          <rect x={600} y={base - 14} width={200} height={14} rx={6} fill={MOSS.mid} />
+          <rect x={-60} y={base} width={2040} height={260} fill={SUPPOSE.sage.near} />
+          <path d={`M -60 ${base + 2} H 1980`} stroke={SUPPOSE.sage.bounce} strokeWidth={4} opacity={0.6} />
+          <rect x={600} y={base - 14} width={200} height={14} rx={6} fill={SUPPOSE.sage.mid} />
           <g transform={`translate(${Math.sin(t * 1.3) * (t > 18 && t < 50 ? 2 : 0)} 0)`}>
             <Rocket x={700} base={base - 14} h={260} frame={f} />
           </g>
           {/* today's fuel (ghost) */}
-          <rect x={960} y={base - unit * k1} width={130} height={unit * k1} rx={10} fill="none" stroke={CHALK} strokeWidth={4} strokeDasharray="12 9" opacity={0.85} />
-          <text x={1025} y={base + 50} textAnchor="middle" fontFamily={ST_FONT} fontWeight={900} fontSize={26} letterSpacing={3} fill={MOSS.dim}>TODAY</text>
+          <rect x={960} y={base - unit * k1} width={130} height={unit * k1} rx={10} fill="none" stroke={INK} strokeWidth={4} strokeDasharray="12 9" opacity={0.85} />
+          <text x={1025} y={base + 50} textAnchor="middle" fontFamily={ST_FONT} fontWeight={900} fontSize={26} letterSpacing={3} fill={SUPPOSE.sage.dim}>TODAY</text>
           {/* the new bar */}
           <path d={`M ${bx0} ${base} L ${bx0} ${top + slosh(bx0)} ${Array.from({ length: 9 }, (_, i) => { const x = bx0 + ((i + 1) * (bx1 - bx0)) / 9; return `L ${x} ${top + slosh(x)}`; }).join(" ")} L ${bx1} ${base} Z`} fill={TERRA} />
           <rect x={bx0 + 14} y={top + 12} width={16} height={Math.max(0, hBar - 24)} rx={8} fill="#F2A07E" opacity={0.6} />
@@ -423,13 +423,13 @@ export const SHOTS_COLD: ShotMap = {
             const age = (t * 2.2 + i * 17) % Math.max(1, hBar);
             return t > 46 ? <circle key={i} cx={bx0 + 30 + rnd(i) * 80} cy={base - 10 - age} r={4 + rnd(i * 3) * 3} fill="#F2A07E" opacity={0.7} /> : null;
           })}
-          <path d={`M ${bx0 - 30} ${base - unit} H ${bx1 + 30}`} stroke={CHALK} strokeWidth={3} strokeDasharray="8 8" opacity={0.6 * k1} />
+          <path d={`M ${bx0 - 30} ${base - unit} H ${bx1 + 30}`} stroke={INK} strokeWidth={3} strokeDasharray="8 8" opacity={0.6 * k1} />
         </g>
         <g transform={`translate(1320 ${top + 70}) scale(${pop(t, 44, 14)})`}>
-          <text x={0} y={30} fontFamily={ST_FONT} fontWeight={900} fontSize={150} fill={MOSS.text}>×7</text>
+          <text x={0} y={30} fontFamily={ST_FONT} fontWeight={900} fontSize={150} fill={SUPPOSE.sage.text}>×7</text>
         </g>
         <g transform={`translate(1330 ${top + 150}) scale(${pop(t, 52, 12)})`}>
-          <STPill x={0} y={0} text="OUR SUM" />
+          <STPill x={0} y={0} text="OUR SUM" dark={false} />
         </g>
       </ShotStage>
     );
