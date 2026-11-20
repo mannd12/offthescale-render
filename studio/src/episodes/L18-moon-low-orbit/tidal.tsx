@@ -99,8 +99,8 @@ export const TidalBall: React.FC<{
                 const cr = c.s * r;
                 return (
                   <g key={`${t}-${i}`}>
-                    <circle cx={cx} cy={c.v * ry * 1.6} r={cr} fill={C.moonCrater} opacity={0.6} />
-                    <circle cx={cx - cr * 0.15} cy={c.v * ry * 1.6 - cr * 0.15} r={cr * 0.78} fill="none" stroke={C.moonGlow} strokeWidth={Math.max(1.5, r * 0.018)} opacity={0.85} />
+                    <circle cx={cx} cy={c.v * ry * 1.6} r={cr} fill={C.moonCrater} opacity={0.75} />
+                    <path d={`M${cx + cr * 0.95} ${c.v * ry * 1.6 - cr * 0.3} A${cr} ${cr} 0 0 1 ${cx - cr * 0.3} ${c.v * ry * 1.6 + cr * 0.95}`} fill="none" stroke={C.moonGlow} strokeWidth={Math.max(1.5, cr * 0.16)} strokeLinecap="round" />
                   </g>
                 );
               }),
@@ -255,10 +255,11 @@ export const PullBar: React.FC<{ x: number; y: number; h: number; t: number; f: 
       <rect x={x} y={top} width={w} height={14} rx={7} fill={mixHex(color, "#FFFFFF", 0.45)} />
       {readKey ? (
         <g>
-          <text x={x + w / 2 - 6} y={top - 26} textAnchor="end" style={{ fontFamily: IF2.num, fontWeight: 800, fontSize: 54, fill: textColor }}>
+          {/* kit-r1: the readout ran off to the right of the bar; it now starts at the bar's left edge */}
+          <text x={x} y={top - 26} style={{ fontFamily: IF2.num, fontWeight: 800, fontSize: 54, fill: textColor }}>
             ×
           </text>
-          <Counter x={x + w / 2} y={top - 26} value={target * k} max={target} size={54} color={textColor} />
+          <Counter x={x + 38} y={top - 26} value={target * k} max={target} size={54} color={textColor} />
         </g>
       ) : null}
       {label ? (

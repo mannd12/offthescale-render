@@ -163,7 +163,9 @@ export const SkyBowl: React.FC<{
 };
 
 type Crater = { u: number; v: number; r: number; k: number };
-const CRATERS: Crater[] = Array.from({ length: 16 }, (_, i) => ({ u: rnd(i * 7 + 3), v: rnd(i * 11 + 5), r: 0.05 + 0.13 * Math.pow(rnd(i * 13 + 1), 1.6), k: rnd(i * 17 + 2) }));
+// kit-r1: 16 even craters with a lit upper-left rim read as BUBBLES. A crater is a hollow: dark floor, the shadow on the
+// inner wall nearest the light (upper left), the lit wall opposite (lower right). Fewer, with a wide size range.
+const CRATERS: Crater[] = Array.from({ length: 9 }, (_, i) => ({ u: rnd(i * 7 + 3), v: rnd(i * 11 + 5), r: 0.03 + 0.15 * Math.pow(rnd(i * 13 + 1), 2.2), k: rnd(i * 17 + 2) }));
 
 export const MoonFace: React.FC<{
   f: number;
@@ -209,10 +211,11 @@ export const MoonFace: React.FC<{
           if (cxp + cr < bx0 || cxp - cr > bx1 || cyp + cr < by0 || cyp - cr > by1) return;
           tiles.push(
             <g key={`${i}-${j}-${k}`}>
-              <circle cx={cxp} cy={cyp} r={cr} fill={C.moonCrater} opacity={0.55} />
-              <circle cx={cxp + cr * 0.12} cy={cyp + cr * 0.12} r={cr * 0.82} fill={C.moonMid} opacity={0.8} />
-              <path d={`M${cxp - cr} ${cyp} A${cr} ${cr} 0 0 1 ${cxp + cr * 0.7} ${cyp - cr * 0.7}`} fill="none" stroke={C.moonGlow} strokeWidth={Math.max(2, cr * 0.12)} opacity={0.9} />
-              <path d={`M${cxp + cr} ${cyp} A${cr} ${cr} 0 0 1 ${cxp - cr * 0.7} ${cyp + cr * 0.7}`} fill="none" stroke={C.moonShade} strokeWidth={Math.max(2, cr * 0.1)} opacity={0.9} />
+              <circle cx={cxp} cy={cyp} r={cr * 1.12} fill={C.moonGlow} opacity={0.35} />
+              <circle cx={cxp} cy={cyp} r={cr} fill={c.k > 0.5 ? C.moonShade : C.moonMid} />
+              <path d={`M${cxp - cr * 0.98} ${cyp + cr * 0.2} A${cr} ${cr} 0 0 1 ${cxp + cr * 0.2} ${cyp - cr * 0.98} A${cr * 0.9} ${cr * 0.9} 0 0 0 ${cxp - cr * 0.98} ${cyp + cr * 0.2} Z`} fill={C.moonCrater} />
+              <path d={`M${cxp - cr * 0.98} ${cyp + cr * 0.2} A${cr} ${cr} 0 0 1 ${cxp + cr * 0.2} ${cyp - cr * 0.98} L${cxp + cr * 0.05} ${cyp - cr * 0.55} A${cr * 0.75} ${cr * 0.75} 0 0 0 ${cxp - cr * 0.55} ${cyp + cr * 0.05} Z`} fill="#8A3E14" opacity={0.75} />
+              <path d={`M${cxp + cr * 0.95} ${cyp - cr * 0.3} A${cr} ${cr} 0 0 1 ${cxp - cr * 0.3} ${cyp + cr * 0.95}`} fill="none" stroke={C.moonGlow} strokeWidth={Math.max(2, cr * 0.13)} strokeLinecap="round" />
             </g>,
           );
         });
@@ -247,9 +250,9 @@ export const MoonFace: React.FC<{
         {gridEls}
         {termX != null ? (
           <g>
-            <rect x={termX} y={y - r - 10} width={2 * r + 40} height={2 * r + 20} fill={C.moonShade} opacity={0.55} />
-            <rect x={termX - r * 0.06} y={y - r - 10} width={r * 0.06} height={2 * r + 20} fill={C.moonShade} opacity={0.3} />
-            <line x1={termX} y1={y - r} x2={termX} y2={y + r} stroke={C.moonGlow} strokeWidth={Math.max(3, r * 0.012)} opacity={0.7} />
+            {/* kit-r1: a straight terminator read as a seam; it is a curved edge (half an ellipse) with a soft band */}
+            <path d={`M${x + r * 1.2} ${y - r * 1.1} L${termX} ${y - r * 1.1} A${r * 0.35} ${r * 1.1} 0 0 1 ${termX} ${y + r * 1.1} L${x + r * 1.2} ${y + r * 1.1} Z`} fill="#8A3E14" opacity={0.5} />
+            <path d={`M${x + r * 1.2} ${y - r * 1.1} L${termX + r * 0.06} ${y - r * 1.1} A${r * 0.35} ${r * 1.1} 0 0 1 ${termX + r * 0.06} ${y + r * 1.1} L${x + r * 1.2} ${y + r * 1.1} Z`} fill="#6A2A0C" opacity={0.3} />
           </g>
         ) : null}
       </g>

@@ -231,8 +231,8 @@ const Sheet2: React.FC<{ f: number }> = ({ f }) => {
         <RockChip x={PW * 3 + 100} y={PH + 40} size={44} rotate={g * 4} />
         <Clipboard x={PW * 3 + 160} y={PH + 44} size={52} />
         <Magnifier x={PW * 3 + 230} y={PH + 36} size={52} rotate={Math.sin(g / 8) * 12} />
-        <Tape x={PW * 3 + 300} y={PH + 40} length={110} unroll={fr(g / 50)} f={f} />
-        <Tape x={PW * 3 + 80} y={PH + 110} length={170} unroll={1} f={f} label={READ.recede38.text} />
+        <Tape x={PW * 3 + 320} y={PH + 40} length={120} unroll={fr(g / 50)} f={f} caseR={20} />
+        <Tape x={PW * 3 + 50} y={PH + 110} length={150} unroll={1} f={f} label={READ.recede38.text} caseR={22} />
         {tbl.rows.map((r, i) => (
           <text key={r.name} x={PW * 3 + 20} y={PH + 180 + i * 34} style={{ fontFamily: IF2.num, fontWeight: 700, fontSize: 22, fill: r.mix >= 0.4 ? "#FFEFC8" : C.vermilion }}>
             {`${r.name.padEnd(10, " ")} mix ${r.mix.toFixed(2)}  V ${r.value.toFixed(2)}  sky ${r.sky.map((c) => c.toFixed(2)).join(" ")}`}

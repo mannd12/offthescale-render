@@ -5,7 +5,7 @@
 //   <Clipboard x y size? rotate? />                Tick's clipboard (C-01); a pencil line on it
 //   <LaserDots x0 y0 x1 y1 f period?=36 />         a pulse that flies out to (x1,y1) and back (8-02, the ranging dot); loops
 //   <Magnifier x y size? rotate? />                a lens (8-05: looking closely)
-//   <Tape x y length unroll={0..1} f rotate? label?={a data18 text} />   a tape measure unrolling from its case; the ticks
+//   <Tape x y length unroll={0..1} f rotate? label?={a data18 text} caseR?=44 />   a tape measure unrolling from its case; the ticks
 //          on the tape crawl as it pays out; `label` sits at the tape's end (8-14: 3.8 CM A YEAR)
 import React from "react";
 import { IF2 } from "../../lib/illustrated";
@@ -78,7 +78,8 @@ export const Magnifier: React.FC<{ x: number; y: number; size?: number; rotate?:
   );
 };
 
-export const Tape: React.FC<{ x: number; y: number; length: number; unroll: number; f: number; rotate?: number; label?: string }> = ({ x, y, length, unroll, f, rotate = 0, label }) => {
+export const Tape: React.FC<{ x: number; y: number; length: number; unroll: number; f: number; rotate?: number; label?: string; caseR?: number }> = ({ x, y, length, unroll, f, rotate = 0, label, caseR = 44 }) => {
+  const k = caseR / 44;
   const L = length * cl(unroll);
   const tickGap = 22;
   const crawl = ((L % tickGap) + tickGap) % tickGap;
@@ -91,10 +92,10 @@ export const Tape: React.FC<{ x: number; y: number; length: number; unroll: numb
         return <line key={i} x1={tx} y1={-12} x2={tx} y2={i % 5 === 0 ? 6 : -2} stroke={C.ink} strokeWidth={2} />;
       })}
       <rect x={L - 4} y={-18} width={10} height={36} rx={2} fill="#7A3A0C" />
-      <g transform={`rotate(${(-f * 6) % 360} -40 0)`}>
-        <circle cx={-40} cy={0} r={44} fill={C.amber} stroke="#7A3A0C" strokeWidth={4} />
-        <circle cx={-40} cy={0} r={14} fill="#7A3A0C" />
-        <line x1={-40} y1={-30} x2={-40} y2={-18} stroke="#7A3A0C" strokeWidth={5} strokeLinecap="round" />
+      <g transform={`translate(${-40 * k} 0) rotate(${(-f * 6) % 360}) scale(${k})`}>
+        <circle cx={0} cy={0} r={44} fill={C.amber} stroke="#7A3A0C" strokeWidth={4} />
+        <circle cx={0} cy={0} r={14} fill="#7A3A0C" />
+        <line x1={0} y1={-30} x2={0} y2={-18} stroke="#7A3A0C" strokeWidth={5} strokeLinecap="round" />
       </g>
       {label ? (
         <text x={L + 18} y={10} style={{ fontFamily: IF2.num, fontWeight: 800, fontSize: 34, fill: C.lemon }}>

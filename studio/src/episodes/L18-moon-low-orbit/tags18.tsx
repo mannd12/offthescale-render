@@ -267,7 +267,7 @@ export const Board18: React.FC<{ x: number; y: number; w: number; h: number; f: 
         </g>
       ))}
       {columns.map((c, i) => (
-        <FlipTag key={c} x={w * (i === 0 ? 0.25 : 0.75)} y={14} word={c} f={f + i * 9} swing={5} drop={cl(header * 1.2 - i * 0.2)} size={0.72} cord={40} />
+        <FlipTag key={c} x={w * (i === 0 ? 0.25 : 0.75)} y={14} word={c} f={f + i * 9} swing={5} drop={cl(header * 1.2 - i * 0.2)} size={Math.min(0.9, w / 700)} cord={40} />
       ))}
       <g>{children}</g>
     </g>
