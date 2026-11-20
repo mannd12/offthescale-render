@@ -74,7 +74,7 @@ const RailUp: React.FC<{ f: number; len: number; c: CZ; drift?: boolean }> = ({ 
       <Layer depth={1}>
         <Bloom x={1240} y={ty} r={260} color={C.moonRim} strength={0.35} />
         <DistGauge f={f} family={ABY} center={center} decade={decade} x={1240} speed={12} token={tok} tokenR={44} lit={["today"]} />
-        <Arrow18 x0={1320} y0={ty + 20} x1={1320} y1={ty - 90 - pulse} color={C.moonRim} width={12} outline="#000A10" />
+        <Arrow18 x0={1170} y0={ty + 20} x1={1170} y1={ty - 90 - pulse} color={C.moonRim} width={12} outline="#000A10" />
         {!drift ? (
           <g>
             <rect x={760} y={1000} width={420} height={14} rx={7} fill={C.amber} />
@@ -180,7 +180,7 @@ const Depends: React.FC<{ f: number; len: number; c: CZ }> = ({ f }) => {
         <FamSky name="gauge" />
       </Layer>
       <Layer depth={1}>
-        <rect x={760} y={yF} width={760} height={yS - yF} fill={C.moonGlow} opacity={0.75} />
+        <rect x={760} y={yF} width={760} height={yS - yF} fill={C.moonGlow} />
         <DistGauge f={f} family={GAU} center={center} decade={decade} x={1500} speed={12} lit={["stiff", "fluid"]} lines={["stiff", "fluid"]} lineFrom={760} band={["stiff", "fluid"]} />
         <g opacity={1 - m}>
           <TidalBall x={bx} y={ym} r={r} f={f} spin={4} />
