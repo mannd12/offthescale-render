@@ -108,11 +108,12 @@ export const ClipCircle: React.FC<{ cx: number; cy: number; r: number; children:
 // ---------------------------------------------------------------------------------------------------------------
 // backgrounds (storyboard §1 hexes, used exactly; nothing grey, cream or blue-grey)
 // ---------------------------------------------------------------------------------------------------------------
-/** The dark field: petrol-black top (#01121B) to #022B40, tinted stars streaming. `lift` 0..1 brings in the family's
- *  third stop at the bottom (for the lit-limb shots). Dark weight: with lift 0 the whole field is under V 0.3. */
+/** The dark field: petrol-black top (#01121B) to #022B40, tinted stars streaming. Dark weight: with lift 0 the whole
+ *  field is under V 0.3 (the really-dark shots); lift 1 = the abyss family's own stops (#07608A at the foot, dark weight
+ *  ≈ 0.55: the orbit diagrams and the lit-limb shots, storyboard weights 0.35-0.45). */
 export const AbyssField: React.FC<{ f: number; speed?: number; angle?: number; n?: number; lift?: number; seed?: number }> = ({ f, speed = 12, angle = 90, n = 110, lift = 0, seed = 1 }) => (
   <g>
-    <Sky stops={lift > 0 ? ["#01121B", "#01121B", "#022B40", mixHex("#022B40", "#07608A", lift)] : ["#01121B", "#01121B", "#022B40"]} />
+    <Sky stops={lift > 0 ? ["#01121B", mixHex("#01121B", "#022B40", lift), mixHex("#022B40", "#07608A", lift)] : ["#01121B", "#01121B", "#022B40"]} />
     <StarsTint18 f={f} x={-200} y={-200} w={2320} h={1480} n={n} speed={speed} angle={angle} seed={seed} size={2.4} />
   </g>
 );
@@ -266,7 +267,7 @@ export const Readout: React.FC<{
   return (
     <g>
       {prefix ? (
-        <text x={x + 3} y={y - size * 0.92} style={{ fontFamily: IF2.label, fontSize: size * 0.3, letterSpacing: size * 0.04, fill: color }}>
+        <text x={x + 3} y={y - size * 1.12} style={{ fontFamily: IF2.label, fontSize: size * 0.3, letterSpacing: size * 0.04, fill: color }}>
           {prefix}
         </text>
       ) : null}

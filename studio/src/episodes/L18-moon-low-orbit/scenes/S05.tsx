@@ -130,7 +130,7 @@ const RulerSet: React.FC<{ f: number; len: number; c: C05 }> = ({ f, c }) => {
         <Motes frame={f} n={16} w={1920} h={1080} color="#FFE08A" seed={5} size={3} drift={24} />
       </Layer>
       <Layer depth={0}>
-        <WordPill x={90} y={190} text={READ.surface400.text /* #3, #8 */} appear={lin(f, 20, 34)} size={24} fill={alpha(TAN.shadow, 0.78)} />
+        <WordPill x={90} y={240} text={READ.surface400.text /* #3, #8 */} appear={lin(f, 20, 34)} size={24} fill={alpha(TAN.shadow, 0.78)} />
         {f >= a ? (
           <g>
             <OurSumPill x={96} y={738} appear={lin(f, a, a + 10)} />
@@ -469,7 +469,7 @@ const NearSide: React.FC<{ f: number; len: number; c: C05 }> = ({ f, c }) => {
         {f >= b ? (
           <g>
             <OurSumPill x={96} y={100} appear={lin(f, b, b + 10)} />
-            <Readout x={80} y={136} value={READ.stretch22.value! /* #11 C 2.24 */} k={lin(f, b + 4, b + 36)} pre="ABOUT" unit="M/S2" dec w={560} appear={lin(f, b, b + 10)} who="5-10 stretch" />
+            <Readout x={80} y={136} value={READ.stretch22.value! /* #11 C 2.24 */} k={lin(f, b + 4, b + 26)} pre="ABOUT" unit="M/S2" dec w={560} appear={lin(f, b, b + 10)} who="5-10 stretch" />
           </g>
         ) : null}
       </Layer>
@@ -537,7 +537,7 @@ const Shot512: ShotFC<C05> = ({ f }) => {
         </Layer>
         <Layer depth={0}>
           <OurSumPill x={1296} y={150} appear={lin(f, 4, 14)} />
-          <Readout x={1280} y={190} value={READ.times14.value! /* #11 C 1.38 */} k={lin(f, 18, 52)} pre="ABOUT" unit="TIMES TOO MUCH" dec size={84} w={600} appear={lin(f, 4, 14)} who="5-12 overshoot" />
+          <Readout x={1280} y={190} value={READ.times14.value! /* #11 C 1.38 */} k={lin(f, 14, 34)} pre="ABOUT" unit="TIMES TOO MUCH" dec size={84} w={600} appear={lin(f, 4, 14)} who="5-12 overshoot" />
         </Layer>
       </Stage>
     </Pop>
@@ -602,8 +602,8 @@ const Shot514: ShotFC<C05> = ({ f, len }) => {
           <FamSky name="gauge" />
         </Layer>
         <Layer depth={1}>
-          <rect x={260} y={-300} width={960} height={top + 300} fill={alpha(HOLD, 0.3)} />
-          <rect x={260} y={top} width={960} height={1600} fill={alpha(PULL, 0.34)} />
+          <rect x={260} y={-300} width={960} height={top + 300} fill={HOLD} opacity={0.62} />
+          <rect x={260} y={top} width={960} height={1600} fill={PULL} opacity={0.82} />
           <Label x={300} y={Math.max(60, top - 30)} text="HOLDING WINS" size={26} color={C.ink} opacity={top > 90 ? 1 : 0} />
           <Label x={300} y={Math.min(1050, top + 52)} text="STRETCH WINS" size={26} color={C.ink} opacity={top < 1020 ? 1 : 0} />
           <DistGauge f={f} family={GAU} center={center} decade={decade} x={1300} token={center} tokenR={40} speed={6} lit={f > cross ? ["stiff"] : []} lines={["stiff"]} lineFrom={260} />

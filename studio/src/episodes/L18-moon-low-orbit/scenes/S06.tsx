@@ -89,8 +89,8 @@ const Shot601: ShotFC<C06> = ({ f }) => {
             <RockChip x={0} y={0} size={110} />
           </g>
           {/* the strength meter in the chip */}
-          <rect x={hx - 60} y={hy - 150} width={200} height={30} rx={15} fill="#3A1406" opacity={0.8} />
-          <rect x={hx - 56} y={hy - 146} width={192 * fill} height={22} rx={11} fill={C.lemon} />
+          <rect x={hx + 130} y={hy - 46} width={200} height={30} rx={15} fill="#3A1406" opacity={0.8} />
+          <rect x={hx + 134} y={hy - 42} width={192 * fill} height={22} rx={11} fill={C.lemon} />
         </Layer>
         <Layer depth={1.2}>
           <Motes frame={f} n={14} w={1920} h={1080} color="#FFE08A" seed={3} size={3} drift={22} />
@@ -126,7 +126,7 @@ const ChipWorld: React.FC<{ f: number; len: number; c: C06 }> = ({ f, c }) => {
       </Layer>
       <Layer depth={1}>
         <TidalBall x={1180} y={560} r={380} f={f} spin={6} dir={180} />
-        <Tick x={CHIP[0] + 70} y={CHIP[1] + 16} pxPerM={14} frame={f} facing={1} pose={u > 0.5 ? "cheer" : "stand"} expression="surprised" outline="#3A1406" />
+        <Tick x={CHIP[0] + 150} y={CHIP[1] + 16} pxPerM={14} frame={f} facing={1} pose={u > 0.5 ? "cheer" : "stand"} expression="surprised" outline="#3A1406" />
         {/* the close-up, authored at screen scale around (960, 540) and shrunk around the chip */}
         <g transform={`translate(${CHIP[0]} ${CHIP[1]}) scale(${1 / Z0}) translate(-960 -540)`}>
           <DotFlow f={f} mode="line" from={[960, 540]} to={[160, 300]} n={40} speed={12} spread={90} colors={[C.moonGlow, C.starApricot]} size={8} />
@@ -271,7 +271,7 @@ const Shot608: ShotFC<C06> = ({ f, len }) => {
 const Real: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
   <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 90, seed: 24 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
-      <NightSky />
+      <NightSky lift={0.7} />
     </Layer>
     <Layer depth={0.3}>
       <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={100} speed={12} angle={180} seed={7} />
@@ -291,7 +291,7 @@ const Real: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
 const Ghost: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
   <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: -0.004, frames: 100, seed: 25 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
-      <NightSky />
+      <NightSky lift={0.7} />
     </Layer>
     <Layer depth={0.3}>
       <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={100} speed={12} angle={160} seed={8} />
@@ -384,7 +384,7 @@ const Idea1: React.FC<{ f: number; len: number; c: C06 }> = ({ f, len }) => {
   return (
     <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0, panY: 0, frames: 120, seed: 27 }} vignette={0.22} grain={0.5}>
       <Layer depth={0.1}>
-        <NightSky />
+        <NightSky lift={0.7} />
       </Layer>
       <Layer depth={0.3}>
         <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={100} speed={8} angle={200} seed={9} />
@@ -404,7 +404,7 @@ const Idea1: React.FC<{ f: number; len: number; c: C06 }> = ({ f, len }) => {
 const Idea2: React.FC<{ f: number; len: number; c: C06 }> = ({ f }) => (
   <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0, panY: 0, frames: 170, seed: 28 }} vignette={0.22} grain={0.5}>
     <Layer depth={0.1}>
-      <NightSky />
+      <NightSky lift={0.7} />
     </Layer>
     <Layer depth={0.3}>
       <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={100} speed={8} angle={200} seed={10} />
@@ -515,7 +515,7 @@ const Shot615: ShotFC<C06> = ({ f }) => (
 const Shot616: ShotFC<C06> = ({ f, len }) => {
   const zoom = logLerp(1.28, 1.0, lin(f, 0, len));
   const sp = 0.22 + 0.78 * ez(f, 0, 80);
-  const R = 300;
+  const R = 240;
   const ring = R * (8516 / 6378); // #8: the ring at the Moon's centre distance, Earth radius 300 px
   return (
     <Pop f={f}>
@@ -528,9 +528,12 @@ const Shot616: ShotFC<C06> = ({ f, len }) => {
         </Layer>
         <Layer depth={1}>
           <Bloom x={960} y={600} r={620} color={C.moonRim} strength={0.18} />
-          <DebrisRing cx={960} cy={600} f={f} radius={ring} n={160} speed={2.4} spread={sp} tilt={0.26} thickness={12} start={200} part="back" />
+          <ellipse cx={960} cy={600} rx={ring} ry={ring * 0.26} fill="none" stroke={C.moonGlow} strokeWidth={18} opacity={0.16 * sp} />
+          <DebrisRing cx={960} cy={600} f={f} radius={ring} n={160} speed={2.4} spread={sp} tilt={0.26} thickness={20} start={200} part="back" />
+          <DebrisRing cx={960} cy={600} f={f} radius={ring * 1.04} n={120} speed={2.2} spread={sp * 0.9} tilt={0.26} thickness={16} start={140} part="back" colors={[C.starApricot, C.moonRim]} />
           <EarthDisc x={960} y={600} r={R} f={f} spin={5} />
-          <DebrisRing cx={960} cy={600} f={f} radius={ring} n={160} speed={2.4} spread={sp} tilt={0.26} thickness={12} start={200} part="front" />
+          <DebrisRing cx={960} cy={600} f={f} radius={ring} n={160} speed={2.4} spread={sp} tilt={0.26} thickness={20} start={200} part="front" />
+          <DebrisRing cx={960} cy={600} f={f} radius={ring * 1.04} n={120} speed={2.2} spread={sp * 0.9} tilt={0.26} thickness={16} start={140} part="front" colors={[C.starApricot, C.moonRim]} />
           <FlipTag x={1600} y={40} word="MODEL" f={f + 30} swing={14} size={0.95} cord={110} />
         </Layer>
       </Stage>

@@ -57,7 +57,7 @@ const ShotRail: ShotFC<CCold> = ({ f, c }) => {
       <AbyssField f={f} speed={12} n={130} />
       <Layer depth={1}>
         <Bloom x={1240} y={railY(384400, center, dec) - 40} r={520} color={C.moonRim} strength={0.35 * cl01((f - 60) / 60)} />
-        <DistGauge f={f} family={ABYSS} center={center} decade={dec} x={1240} top={-60} bottom={1140} draw={lin(f, 0, 32)} speed={22} token={384400} tokenR={46} lit={["today"]} />
+        <DistGauge f={f} family={ABYSS} center={center} decade={dec} x={1240} top={-60} bottom={1140} draw={lin(f, 0, 32)} speed={22} token={384400} tokenR={46} lit={["today"]} labels={false} />
         <rect x={980} y={tickY} width={360} height={14} rx={7} fill={C.tealDeep} />
         <rect x={980} y={tickY} width={360} height={4} rx={2} fill={C.amber} opacity={0.8} />
         <Tick x={1100} y={tickY} pxPerM={110} frame={f} pose="hold" expression="neutral" look={0.3} headTilt={-8} />
@@ -72,7 +72,7 @@ const ShotRail: ShotFC<CCold> = ({ f, c }) => {
   const R = 2600;
   const B = (
     <Stage theme={ABYSS.theme} shotFrame={g} drift={{ zoom: 1.05, panX: 0.02, panY: 0, frames: 150, seed: 2 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={f} speed={8} n={110} seed={3} />
+      <AbyssField f={f} speed={8} n={110} seed={3} lift={1} />
       <Layer depth={0.9}>
         <EarthLimb f={g} y={LY} R={R} cloudSpeed={10} />
         <path d={`M-200 ${limbY(-200, LY, R) - 130} Q960 ${LY - 210} 2120 ${limbY(2120, LY, R) - 130}`} fill="none" stroke={alpha(C.amber, 0.45)} strokeWidth={3} strokeDasharray="14 12" strokeDashoffset={-g * 3} />
@@ -101,7 +101,7 @@ const ShotRush: ShotFC<CCold> = ({ f, len }) => {
         <AbyssField f={f} speed={18} n={140} seed={4} />
         <Layer depth={1}>
           <Bloom x={1300} y={-120 + 640 * u} r={700} color={C.moonRim} strength={0.2 + 0.35 * u} />
-          <DistGauge f={f} family={ABYSS} center={center} decade={dec} x={1300} top={-60} bottom={1140} speed={30} token={384400} tokenR={64} lit={["today"]} />
+          <DistGauge f={f} family={ABYSS} center={center} decade={dec} x={1300} top={-60} bottom={1140} speed={30} token={384400} tokenR={64} lit={["today"]} labels={false} />
         </Layer>
         <Layer depth={0}>
           <Readout x={120} y={620} k={center / 384400} rkey="moonKm" unit="KM" size={120} />
@@ -125,7 +125,7 @@ const ShotShove: ShotFC<CCold> = ({ f, c }) => {
       <AbyssField f={f} speed={14} angle={270} n={130} seed={5} />
       <Layer depth={1}>
         <Bloom x={1100} y={540} r={420} color={C.moonRim} strength={0.35} />
-        <DistGauge f={f} family={ABYSS} center={km} decade={dec} x={1100} top={-60} bottom={1140} speed={-28} token={km} tokenR={92} />
+        <DistGauge f={f} family={ABYSS} center={km} decade={dec} x={1100} top={-60} bottom={1140} speed={-28} token={km} tokenR={92} labels={false} />
         <Tick x={1100} y={448} pxPerM={118} frame={f} pose="press" expression="determined" look={0.4} />
       </Layer>
       <Layer depth={0}>
@@ -148,7 +148,7 @@ const ShotShove: ShotFC<CCold> = ({ f, c }) => {
   const lead = lin(g, 12, 32);
   const B = (
     <Stage theme={ABYSS.theme} shotFrame={g} drift={{ zoom: 1.05, panX: 0.012, panY: 0.01, frames: 150, seed: 5 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={f} speed={6} n={100} seed={6} />
+      <AbyssField f={f} speed={6} n={100} seed={6} lift={1} />
       <Layer depth={1}>
         <Bloom x={960} y={my} r={560} color={C.moonRim} strength={0.3} />
         <MoonFace f={g} x={ECX} y={my} radius={300} scroll={5} />
@@ -184,7 +184,7 @@ const ShotCenters: ShotFC<CCold> = ({ f }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.04, panX: -0.012, panY: 0, frames: 180, seed: 6 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={10} angle={180} n={120} seed={7} />
+        <AbyssField f={f} speed={10} angle={180} n={120} seed={7} lift={1} />
         <Layer depth={1}>
           <EarthDisc x={ex} y={ey} r={478} f={f} spin={4} />
           <Bloom x={mx} y={ey} r={260} color={C.moonRim} strength={0.4} />
@@ -218,13 +218,13 @@ const ShotPlacards: ShotFC<CCold> = ({ f, c }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.012, panY: 0, frames: 170, seed: 7 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={10} n={120} seed={8} />
+        <AbyssField f={f} speed={10} n={120} seed={8} lift={1} />
         <Layer depth={1}>
           <Bloom x={960} y={360} r={760} color={C.moonRim} strength={0.22} />
           <rect x={300} y={96} width={1320} height={14} rx={7} fill={C.tealDeep} />
           <rect x={300} y={96} width={1320} height={4} rx={2} fill={C.amber} opacity={0.7} />
           <FlipTag x={640} y={104} word="MEASURED" f={f} swing={18} drop={drop(0)} size={1.4} cord={130} />
-          <FlipTag x={1260} y={104} word="MODEL" prev="MEASURED" f={f + 9} swing={18} flip={flipFor(f, fl, 15)} drop={drop(1)} size={1.4} cord={130} />
+          <FlipTag x={1260} y={104} word="MODEL" prev="MODEL" f={f + 9} swing={18} flip={flipFor(f, fl, 15)} drop={drop(1)} size={1.4} cord={130} />
           <Tick x={1540} y={1010} pxPerM={210} frame={f} facing={-1} pose="point" expression="happy" look={0.2} />
         </Layer>
         <Layer depth={0}>{f >= fl + 20 ? <OurSumPill x={980} y={pillY} size={44} align="middle" /> : null}</Layer>

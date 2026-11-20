@@ -136,7 +136,7 @@ const ShotNear: ShotFC<CL04> = ({ f, len }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.04, panX: -0.01, panY: 0, frames: 200, seed: 2 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={8} angle={0} n={120} seed={31} />
+        <AbyssField f={f} speed={8} angle={0} n={120} seed={31} lift={1} />
         <Layer depth={0.9}>
           <Bloom x={-120} y={560} r={700} color={C.earthLimb} strength={0.35} />
           <EarthDisc x={-160} y={560} r={430} f={f} spin={4} />
@@ -162,8 +162,8 @@ const ShotCrack: ShotFC<CL04> = ({ f }) => {
   const ex = 560;
   const ey = 560;
   const a = (-25 - f * 0.9) * (Math.PI / 180);
-  const bx = ex + Math.cos(a) * 300;
-  const by = ey + Math.sin(a) * 270;
+  const bx = ex + Math.cos(a) * 320;
+  const by = ey + Math.sin(a) * 300;
   const dirDeg = (Math.atan2(ey - by, ex - bx) * 180) / Math.PI;
   const sep = Math.max(0, f - 62) * 1.6;
   const away: [number, number] = [bx + (bx - ex) * 1.3, by + (by - ey) * 1.3];
@@ -172,12 +172,12 @@ const ShotCrack: ShotFC<CL04> = ({ f }) => {
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.012, panY: 0, frames: 170, seed: 3 }} vignette={0.3} grain={0.5}>
         <AbyssField f={f} speed={6} angle={200} n={130} seed={32} />
         <Layer depth={1}>
-          <circle cx={ex} cy={ey} r={440} fill={alpha(C.lever, 0.06)} stroke={C.lever} strokeWidth={5} strokeDasharray="22 14" strokeDashoffset={-f * 3} />
+          <circle cx={ex} cy={ey} r={470} fill={alpha(C.lever, 0.06)} stroke={C.lever} strokeWidth={5} strokeDasharray="22 14" strokeDashoffset={-f * 3} />
           <Bloom x={ex} y={ey} r={300} color={C.earthLimb} strength={0.35} />
-          <EarthDisc x={ex} y={ey} r={150} f={f} />
+          <EarthDisc x={ex} y={ey} r={115} f={f} />
           {f > 55 ? <DotFlow f={f} mode="line" from={[bx, by]} to={away} n={36} speed={12} spread={60} colors={[C.moonLit, C.moonMid, C.moonGlow]} size={6} /> : null}
           <Bloom x={bx} y={by} r={260} color={C.moonRim} strength={0.4} />
-          <TidalBall x={bx} y={by} r={130} f={f} dir={dirDeg} stretch={0.35} crack={lin(f, 18, 58)} separate={sep} spin={3} />
+          <TidalBall x={bx} y={by} r={100} f={f} dir={dirDeg} stretch={0.35} crack={lin(f, 18, 58)} separate={sep} spin={3} />
         </Layer>
         <Layer depth={0}>
           <AgencyPill x={1300} y={140} agency="NASA SAYS" size={30} appear={lin(f, 4, 14)} />
@@ -492,7 +492,7 @@ const ShotSafe: ShotFC<CL04> = ({ f }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.01, panY: 0, frames: 140, seed: 14 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={8} angle={200} n={130} seed={34} lift={0.5} />
+        <AbyssField f={f} speed={8} angle={200} n={130} seed={34} lift={1} />
         <Layer depth={1}>
           <Halo x={mx} y={my} r={40} f={f} />
           <Orbiter cx={960} cy={470} r={760} tilt={0.24} angle={ang} kind="moon" size={40} f={f} trail={60} />
@@ -531,7 +531,7 @@ const ShotDive: ShotFC<CL04> = ({ f, c }) => {
         <text x={644} y={960 - 700 * u - 110} style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 30, letterSpacing: 3, fill: "#FFEFC8" }}>
           ABOUT
         </text>
-        <OurSumPill x={110} y={140} size={30} appear={lin(f, 20, 30)} />
+        <OurSumPill x={830} y={960 - 700 * u - 44} size={30} appear={lin(f, 20, 30)} />
       </Layer>
     </Stage>
   );

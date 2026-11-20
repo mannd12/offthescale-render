@@ -73,7 +73,7 @@ const ShotRings: ShotFC<CL02> = ({ f, c }) => {
   const aS = -90 - f * 8;
   return (
     <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.01, panY: 0, frames: 240, seed: 1 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={f} speed={6} angle={200} n={120} seed={11} />
+      <AbyssField f={f} speed={6} angle={200} n={120} seed={11} lift={1} />
       <Layer depth={1}>
         {g > 0 ? <ellipse cx={OX} cy={OY} rx={430} ry={430} fill="none" stroke={alpha(C.moonRim, 0.22 * (1 - drop))} strokeWidth={3} strokeDasharray="10 10" /> : null}
         <Orbiter cx={OX} cy={OY} r={125} angle={aS} kind="station" size={22} f={f} trail={90} color={C.amber} />
@@ -142,7 +142,7 @@ const ShotBars: ShotFC<CL02> = ({ f, c }) => {
   const aM = 200 - f * 5.5;
   const A = (
     <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.01, panY: 0, frames: 160, seed: 2 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={f} speed={6} angle={200} n={110} seed={12} />
+      <AbyssField f={f} speed={6} angle={200} n={110} seed={12} lift={1} />
       <Layer depth={1}>
         <Orbiter cx={ox} cy={oy} r={120} angle={aS} kind="station" size={20} f={f} trail={90} color={C.amber} />
         <Orbiter cx={ox} cy={oy} r={172} angle={aM} kind="moon" size={30} f={f} trail={70} />
@@ -159,7 +159,7 @@ const ShotBars: ShotFC<CL02> = ({ f, c }) => {
   const w = Math.min(7 * UNIT, g * 40);
   const B = (
     <Stage theme={ABYSS.theme} shotFrame={g} drift={{ zoom: 1.04, panX: -0.01, panY: 0, frames: 160, seed: 3 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={g} speed={22} angle={180} n={130} seed={13} />
+      <AbyssField f={g} speed={22} angle={180} n={130} seed={13} lift={1} />
       <Layer depth={1}>
         <Streaks x={330} y={560} f={g} angle={180} n={12} len={120} speed={30} spread={50} color={C.moonRim} width={6} />
         <SpeedBar x={420} y={560} w={w} f={g} />
@@ -188,7 +188,7 @@ const ShotToday: ShotFC<CL02> = ({ f }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.01, panY: 0, frames: 100, seed: 4 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={14} angle={180} n={120} seed={14} />
+        <AbyssField f={f} speed={14} angle={180} n={120} seed={14} lift={1} />
         <Layer depth={1}>
           <Streaks x={330} y={380} f={f} angle={180} n={12} len={110} speed={22} spread={44} color={C.moonRim} width={5} />
           <SpeedBar x={420} y={380} w={7 * UNIT} f={f} crawl={8} />
@@ -223,7 +223,7 @@ const ShotClocks: ShotFC<CL02> = ({ f, c }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.005, panY: 0, frames: 150, seed: 5 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={6} angle={200} n={110} seed={15} />
+        <AbyssField f={f} speed={6} angle={200} n={110} seed={15} lift={1} />
         <Layer depth={1}>
           <DayClock x={xa} y={470} r={230} f={f} progress={((f + 4) * 12) / 360} laps={11} family={ABYSS} label={READ.laps11.text} />
           <MoonToken x={xa + 190} y={250} r={34} f={f} />
@@ -275,7 +275,7 @@ const ShotSpin: ShotFC<CL02> = ({ f }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.01, panY: 0, frames: 130, seed: 6 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={6} angle={200} n={120} seed={16} />
+        <AbyssField f={f} speed={6} angle={200} n={120} seed={16} lift={1} />
         <Layer depth={1}>
           <Orbiter cx={760} cy={560} r={340} angle={mA} kind="moon" size={38} f={f} trail={70} />
           <TurningEarth x={760} y={560} r={180} f={f} angle={eA} />
@@ -305,7 +305,7 @@ const ShotCross: ShotFC<CL02> = ({ f, c }) => {
   const sinceLast = passes > 0 ? (-rel - (passes - 1) * 360) / 8.18 : 99;
   const A = (
     <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.05, panX: -0.01, panY: 0, frames: 140, seed: 7 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={f} speed={6} angle={200} n={120} seed={17} />
+      <AbyssField f={f} speed={6} angle={200} n={120} seed={17} lift={1} />
       <Layer depth={1}>
         <Orbiter cx={760} cy={560} r={340} angle={mA} kind="moon" size={38} f={f} trail={80} />
         <TurningEarth x={760} y={560} r={180} f={f} angle={eA} />
@@ -397,13 +397,13 @@ const ShotLightsOn: ShotFC<CL02> = ({ f }) => {
   const center = centerFor(MARKS.geo.km, yGeo, dec);
   const lift = ez(f, 12, 42);
   const tx = 1384 + (RX - 1384) * lift;
-  const ty = 628 + (yGeo - 628) * lift;
+  const ty = 628 + (330 - 628) * lift; // the token rises to the rail at y 330; the GEOSTATIONARY mark comes down to it
   return (
     <Pop f={f}>
       <Stage theme={GAUGE.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.01, panY: 0, frames: 110, seed: 10 }} vignette={0.2} grain={0.5}>
         <GaugeRoom f={f} floor={1000} lamps={lin(f, 4, 44)} dim={1 - ez(f, 2, 14)} seed={2} />
         <Layer depth={1}>
-          <DistGauge f={f} family={GAUGE} center={center} decade={dec} x={RX} speed={24} lit={f > 78 ? ["geo"] : []} />
+          <DistGauge f={f} family={GAUGE} center={center} decade={dec} x={RX} speed={24} bottom={440} lit={f > 78 ? ["geo"] : []} />
           <Bloom x={tx} y={ty} r={140} color={C.moonRim} strength={0.5} />
           <MoonToken x={tx} y={ty} r={36} f={f} />
           <Tick x={1240} y={1062} pxPerM={270} frame={f} pose="heave" poseTo="cheer" poseT={ez(f, 46, 64)} expression="determined" expressionTo="happy" expressionT={ez(f, 70, 84)} look={0.3} />

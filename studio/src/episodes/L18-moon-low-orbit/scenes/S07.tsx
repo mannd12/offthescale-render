@@ -272,8 +272,8 @@ const Shot709: ShotFC<C07> = ({ f }) => {
           </g>
         </Layer>
         <Layer depth={1}>
-          <FlipTag x={520} y={30} word="MEASURED" prev="MEASURED" f={f} swing={18} flip={fr(f / 46)} size={1.7} cord={150} />
-          <FlipTag x={1400} y={30} word="MODEL" prev="MODEL" f={f + 17} swing={18} flip={fr((f + 23) / 46)} size={1.7} cord={150} />
+          <FlipTag x={520} y={30} word="MEASURED" prev="MEASURED" f={f} swing={18} flip={Math.min(1, fr(f / 60) / 0.3)} size={1.7} cord={150} />
+          <FlipTag x={1400} y={30} word="MODEL" prev="MODEL" f={f + 17} swing={18} flip={Math.min(1, fr((f + 30) / 60) / 0.3)} size={1.7} cord={150} />
           <QuestionTag x={960} y={330} f={f} size={110} />
           <rect x={-200} y={1040} width={2320} height={300} fill={GAU.near} />
           <rect x={-200} y={1040} width={2320} height={8} fill={alpha(C.amber, 0.7)} />

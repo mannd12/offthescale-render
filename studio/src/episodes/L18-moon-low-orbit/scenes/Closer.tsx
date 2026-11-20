@@ -8,7 +8,7 @@
 // FAR BELOW (#8), NOT POSSIBLE (#4: "our real Moon will never give us"), MODEL (Q5).
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { Bloom, Headline, Layer, Motes, Stage, Tick } from "../../../lib/illustrated";
+import { Bloom, Headline, Layer, Motes, Sky, Stage, Tick } from "../../../lib/illustrated";
 import { SceneTiming } from "../../../lib/timeline";
 import { cueKit } from "../cues";
 import { familyOf } from "../families";
@@ -66,7 +66,7 @@ const RailUp: React.FC<{ f: number; len: number; c: CZ; drift?: boolean }> = ({ 
   return (
     <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: -0.006, frames: 160, seed: 51 }} vignette={0.24} grain={0.5}>
       <Layer depth={0.1}>
-        <NightSky />
+        <NightSky lift={0.5} />
       </Layer>
       <Layer depth={0.3}>
         <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={110} speed={14} angle={90} seed={31} />
@@ -96,7 +96,7 @@ const RailUp2: React.FC<{ f: number; len: number; c: CZ }> = (p) => <RailUp {...
 const WideRing: React.FC<{ f: number; len: number; c: CZ }> = ({ f }) => {
   const ex = 420;
   const ey = 900;
-  const a = ((-150 + f * 0.8) * Math.PI) / 180;
+  const a = ((-96 + f * 0.8) * Math.PI) / 180;
   const mx = ex + Math.cos(a) * 1280;
   const my = ey + Math.sin(a) * 640;
   return (
@@ -143,7 +143,7 @@ const ShotZ04: ShotFC<CZ> = ({ f, len }) => {
           <FamSky name="gauge" />
         </Layer>
         <Layer depth={1}>
-          <SweepFront x={120} y={yF} w={1120} h={yS - yF} level={ez(f, 4, 42)} dir="left" color={alpha(C.amber, 0.55)} f={f} />
+          <SweepFront x={120} y={yF} w={1120} h={yS - yF} level={ez(f, 4, 42)} dir="left" color={C.amber} f={f} />
           <line x1={120} y1={yS} x2={1240} y2={yS} stroke={C.lever} strokeWidth={6 + 6 * pulse} opacity={0.9} />
           <line x1={120} y1={yF} x2={1240} y2={yF} stroke={C.model} strokeWidth={6 + 6 * (1 - pulse)} strokeDasharray="22 12" strokeDashoffset={-f * 3} />
           <DistGauge f={f} family={GAU} center={center} decade={decade} x={1300} speed={14} lit={["stiff", "fluid"]} band={["stiff", "fluid"]} />
@@ -180,7 +180,7 @@ const Depends: React.FC<{ f: number; len: number; c: CZ }> = ({ f }) => {
         <FamSky name="gauge" />
       </Layer>
       <Layer depth={1}>
-        <rect x={760} y={yF} width={760} height={yS - yF} fill={alpha(C.amber, 0.3)} />
+        <rect x={760} y={yF} width={760} height={yS - yF} fill={C.moonGlow} opacity={0.75} />
         <DistGauge f={f} family={GAU} center={center} decade={decade} x={1500} speed={12} lit={["stiff", "fluid"]} lines={["stiff", "fluid"]} lineFrom={760} band={["stiff", "fluid"]} />
         <g opacity={1 - m}>
           <TidalBall x={bx} y={ym} r={r} f={f} spin={4} />
@@ -217,7 +217,7 @@ const Flood: React.FC<{ f: number; len: number; c: CZ }> = ({ f, len }) => {
         <FamSky name="gauge" />
       </Layer>
       <Layer depth={1}>
-        <SweepFront x={120} y={yS} w={1120} h={h} level={ez(f, 4, 34)} dir="down" color={alpha(C.lever, 0.62)} f={f} />
+        <SweepFront x={120} y={yS} w={1120} h={h} level={ez(f, 4, 34)} dir="down" color={C.lever} f={f} />
         <DistGauge f={f} family={GAU} center={center} decade={decade} x={1300} speed={18} lit={["stiff", "station"]} lines={["stiff"]} lineFrom={120} />
       </Layer>
       <Layer depth={0}>
@@ -272,7 +272,7 @@ const ShotZ07: ShotFC<CZ> = ({ f, len }) => {
 const SkyMoon: React.FC<{ f: number; len: number; ghost?: number; crack?: number; separate?: number; scroll?: number; children?: React.ReactNode; tick?: React.ReactNode }> = ({ f, ghost = 0, crack = 0, separate = 0, scroll = 22, children, tick }) => (
   <Stage theme={BOWL.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.004, panY: 0.004, frames: 150, seed: 57 }} vignette={0.16} grain={0.5}>
     <Layer depth={0.1}>
-      <FamSky name="bowl" />
+      <Sky stops={["#1FA8C9", "#F59A3B", "#FFC65C"]} x={-400} y={-300} w={2720} h={1360} />
     </Layer>
     <Layer depth={0.6}>
       <Bloom x={960} y={-560} r={1700} color={C.moonRim} strength={0.32 * (1 - ghost)} />

@@ -108,7 +108,7 @@ const ShotRung: ShotFC<CL03> = ({ f, c }) => {
     <Stage theme={GAUGE.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.01, panY: 0, frames: 120, seed: 1 }} vignette={0.2} grain={0.5}>
       <GaugeRoom f={f} floor={1010} seed={5} />
       <Layer depth={1}>
-        <DistGauge f={f} family={GAUGE} center={center} decade={dec} x={RX} speed={22} lit={["geo"]} />
+        <DistGauge f={f} family={GAUGE} center={center} decade={dec} x={RX} speed={22} bottom={MY + 150} lit={["geo"]} />
         <Bloom x={RX} y={MY + bounce} r={150} color={C.moonRim} strength={0.5} />
         <MoonToken x={RX} y={MY - 6 + bounce} r={38} f={f} />
         <Tick x={1330} y={1012} pxPerM={190} frame={f} pose="point" expression={f < 40 ? "surprised" : "happy"} look={0.3} />
@@ -146,7 +146,7 @@ const ShotRung: ShotFC<CL03> = ({ f, c }) => {
   const pa = (pinA * Math.PI) / 180;
   const Cc = (
     <Stage theme={ABYSS.theme} shotFrame={h} drift={{ zoom: 1.04, panX: -0.01, panY: 0, frames: 200, seed: 3 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={h} speed={5} angle={200} n={120} seed={21} />
+      <AbyssField f={h} speed={5} angle={200} n={120} seed={21} lift={1} />
       <Layer depth={1}>
         <circle cx={EX} cy={EY} r={GR} fill="none" stroke={alpha(C.moonRim, 0.6)} strokeWidth={3} />
         <path d={`M${EX + Math.cos(pa + 0.9) * GR} ${EY + Math.sin(pa + 0.9) * GR} A${GR} ${GR} 0 0 0 ${sx} ${sy}`} fill="none" stroke={C.model} strokeWidth={9} strokeLinecap="round" opacity={0.6} />
@@ -178,7 +178,7 @@ const ShotSame: ShotFC<CL03> = ({ f, c }) => {
   return (
     <Pop f={f}>
       <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.05, panX: 0.01, panY: 0, frames: 120, seed: 4 }} vignette={0.3} grain={0.5}>
-        <AbyssField f={f} speed={5} angle={200} n={120} seed={22} />
+        <AbyssField f={f} speed={5} angle={200} n={120} seed={22} lift={1} />
         <Layer depth={1}>
           <circle cx={EX} cy={EY} r={GR} fill="none" stroke={alpha(C.moonRim, 0.6)} strokeWidth={3} />
           <path d={`M${EX + Math.cos(pa + 0.9) * GR} ${EY + Math.sin(pa + 0.9) * GR} A${GR} ${GR} 0 0 0 ${sx} ${sy}`} fill="none" stroke={C.moonRim} strokeWidth={12} strokeLinecap="round" opacity={0.55} />
@@ -207,9 +207,9 @@ const ShotSame: ShotFC<CL03> = ({ f, c }) => {
 // ================================================================================================================
 const ShotCube: ShotFC<CL03> = ({ f }) => {
   const L = 900 - 600 * lin(f, 8, 78);
-  const s = 46;
-  const X0 = 1300;
-  const Y0 = 520;
+  const s = 84;
+  const X0 = 1340;
+  const Y0 = 560;
   const cubes: { a: number; b: number; c: number }[] = [];
   for (let cc = 0; cc < 3; cc++) for (let bb = 2; bb >= 0; bb--) for (let aa = 2; aa >= 0; aa--) cubes.push({ a: aa, b: bb, c: cc });
   // draw order back → front: lower layers first, then larger a+b in front
@@ -221,15 +221,15 @@ const ShotCube: ShotFC<CL03> = ({ f }) => {
         <GaugeRoom f={f} floor={960} seed={7} />
         <Layer depth={1}>
           {/* the distance bar */}
-          <rect x={150} y={500} width={900} height={60} rx={30} fill="rgba(1,18,27,0.5)" stroke={C.amber} strokeWidth={3} strokeDasharray="12 10" />
-          <rect x={150} y={500} width={L} height={60} rx={30} fill={C.amber} />
+          <rect x={150} y={600} width={900} height={60} rx={30} fill="rgba(1,18,27,0.5)" stroke={C.amber} strokeWidth={3} strokeDasharray="12 10" />
+          <rect x={150} y={600} width={L} height={60} rx={30} fill={C.amber} />
           {Array.from({ length: 24 }, (_, i) => {
             const x = 150 + wrap(i * 40 + f * 6, 960) - 40;
-            return x > 160 && x < 150 + L - 20 ? <line key={i} x1={x} y1={556} x2={x + 22} y2={504} stroke="#FFE08A" strokeWidth={8} opacity={0.55} /> : null;
+            return x > 160 && x < 150 + L - 20 ? <line key={i} x1={x} y1={656} x2={x + 22} y2={604} stroke="#FFE08A" strokeWidth={8} opacity={0.55} /> : null;
           })}
-          <circle cx={150} cy={530} r={40} fill={C.earthLimb} stroke={C.cloud} strokeWidth={4} />
-          <MoonToken x={150 + L + 30} y={530} r={34} f={f} />
-          <text x={150} y={630} style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 30, letterSpacing: 3, fill: "#FFEFC8" }}>
+          <circle cx={150} cy={630} r={40} fill={C.earthLimb} stroke={C.cloud} strokeWidth={4} />
+          <MoonToken x={150 + L + 30} y={630} r={34} f={f} />
+          <text x={150} y={730} style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 30, letterSpacing: 3, fill: "#FFEFC8" }}>
             DISTANCE
           </text>
           {/* the big cube's wireframe and the small cubes dropping in */}
@@ -249,7 +249,7 @@ const ShotCube: ShotFC<CL03> = ({ f }) => {
           })()}
           {shown.map((q) => {
             const t0 = 16 + q.i * 4;
-            const fall = Math.max(0, 150 - (f - t0) * 30);
+            const fall = Math.max(0, 240 - (f - t0) * 30);
             const [x, y] = [X0 + (q.a - q.b) * s * 0.866, Y0 + (q.a + q.b) * s * 0.5 - q.c * s - s * 0.5];
             return <IsoCube key={q.i} x={x} y={y - fall} s={s * 0.5} color={q.c === 2 ? C.lever : C.amber} />;
           })}
@@ -362,7 +362,7 @@ const ShotBall: ShotFC<CL03> = ({ f, c }) => {
   const bead = bx - br + Math.abs(wrap((f - 22) * 24, 4 * br) - 2 * br);
   const A = (
     <Stage theme={ABYSS.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0.01, panY: 0, frames: 200, seed: 9 }} vignette={0.32} grain={0.5}>
-      <AbyssField f={f} speed={8} angle={180} n={120} seed={24} />
+      <AbyssField f={f} speed={8} angle={180} n={120} seed={24} lift={1} />
       <Layer depth={1}>
         <Bloom x={bx} y={by} r={540} color={C.moonRim} strength={0.35} />
         <TidalBall x={bx} y={by} r={br} f={f} spin={14} />
@@ -392,7 +392,7 @@ const ShotBall: ShotFC<CL03> = ({ f, c }) => {
   const tickX = 1380;
   const B = (
     <Stage theme={ABYSS.theme} shotFrame={g} drift={{ zoom: 1.04, panX: -0.01, panY: 0, frames: 200, seed: 10 }} vignette={0.3} grain={0.5}>
-      <AbyssField f={g} speed={6} n={100} seed={25} lift={0.4} />
+      <AbyssField f={g} speed={6} n={100} seed={25} lift={1} />
       <Layer depth={1}>
         <EarthLimb f={g} y={LY} R={2600} cloudSpeed={14} />
         <Bloom x={900} y={350} r={420} color={C.moonRim} strength={0.35} />

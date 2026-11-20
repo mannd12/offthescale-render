@@ -184,7 +184,6 @@ const BoardWorld: React.FC<{ F: number; c: C08; header?: "MEASURED" | "MODEL"; h
   return (
     <g>
       <Board18 x={40} y={40} w={1840} h={1000} f={F} header={ez(F, 0, 20)} />
-      <FlipTag x={960} y={54} word={header} prev={header === "MODEL" ? "MEASURED" : "MODEL"} f={F} swing={6} flip={headerFlip} size={0.85} cord={36} />
       <Sheet18 {...SH.A} f={F} title="DISTANCE" band="lemon" appear={sheetA} pin={pinA} sway={0.6}>
         {bodyA}
       </Sheet18>
@@ -344,7 +343,7 @@ const Shot806: ShotFC<C08> = ({ f, len, c }) => {
   ]);
   return (
     <Pop f={f}>
-      <BoardShot f={f} F={c.s806 + f} c={c} cam={cam} header="MODEL" hud={<WordPill x={90} y={110} text="SOMEWHERE BETWEEN" size={28} fill={PF} appear={lin(f, 6, 16)} />} />
+      <BoardShot f={f} F={c.s806 + f} c={c} cam={cam} header="MODEL" hud={<WordPill x={90} y={1010} text="SOMEWHERE BETWEEN" size={28} fill={PF} appear={lin(f, 6, 16)} />} />
     </Pop>
   );
 };
@@ -361,7 +360,7 @@ const Shot807: ShotFC<C08> = ({ f, c }) => {
     { f: b + 12, x: fx - 10, y: fy, zoom: 2.0 },
     { f: b + 120, x: fx + 30, y: fy - 10, zoom: 2.1 },
   ]);
-  const hud = f < b ? <WordPill x={90} y={110} text="ONE POINT, ONE CIRCLE" size={28} fill={PF} appear={lin(f, 4, 14)} /> : null;
+  const hud = f < b ? <WordPill x={90} y={1010} text="ONE POINT, ONE CIRCLE" size={28} fill={PF} appear={lin(f, 4, 14)} /> : null;
   return (
     <Pop f={f}>
       <BoardShot f={f} F={c.s807 + f} c={c} cam={cam} header="MODEL" hud={hud} />
@@ -387,7 +386,7 @@ const Shot809: ShotFC<C08> = ({ f, len, c }) => {
         cam={cam}
         header="MODEL"
         fg={<Tick x={1560} y={1120} pxPerM={170} frame={f} facing={-1} pose="hips" expression="determined" look={0.2 + 0.6 * shake} headTilt={10 * shake} />}
-        hud={<WordPill x={90} y={110} text="NO TIDE HEIGHT GIVEN" size={28} fill={PF} appear={lin(f, 4, 14)} />}
+        hud={<WordPill x={90} y={1010} text="NO TIDE HEIGHT GIVEN" size={28} fill={PF} appear={lin(f, 4, 14)} />}
       />
     </Pop>
   );
@@ -414,7 +413,7 @@ const Shot810: ShotFC<C08> = ({ f, len, c }) => {
           <ReadHead x0={rx} y0={ry0} x1={rx} y1={ry1} f={f} speed={7} r={6} color={C.lever} />
         </Layer>
         <Layer depth={0}>
-          <WordPill x={90} y={110} text="THE SCALING STOPS WORKING" size={28} fill={PF} appear={lin(f, 4, 14)} />
+          <WordPill x={90} y={1010} text="THE SCALING STOPS WORKING" size={28} fill={PF} appear={lin(f, 4, 14)} />
         </Layer>
       </Stage>
     </Pop>
@@ -430,7 +429,7 @@ const Shot811: ShotFC<C08> = ({ f, len, c }) => {
   ]);
   return (
     <Pop f={f}>
-      <BoardShot f={f} F={c.s811 + f} c={c} cam={cam} header="MODEL" hud={<WordPill x={90} y={110} text="A SIMULATION QUESTION" size={28} fill={PF} appear={lin(f, 4, 14)} />} />
+      <BoardShot f={f} F={c.s811 + f} c={c} cam={cam} header="MODEL" hud={<WordPill x={90} y={1010} text="A SIMULATION QUESTION" size={28} fill={PF} appear={lin(f, 4, 14)} />} />
     </Pop>
   );
 };
@@ -478,7 +477,7 @@ const Shot813: ShotFC<C08> = ({ f, len }) => {
     <Pop f={f}>
       <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.04, panX: 0, panY: 0, frames: 110, seed: 42 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
-          <NightSky />
+          <NightSky lift={0.6} />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={100} speed={10} angle={90} seed={22} />
@@ -636,7 +635,7 @@ const Shot818: ShotFC<C08> = ({ f }) => {
     <Pop f={f}>
       <Stage theme={ABY.theme} shotFrame={f} drift={{ zoom: 1.06, panX: 0, panY: 0, frames: 170, seed: 47 }} vignette={0.22} grain={0.5}>
         <Layer depth={0.1}>
-          <NightSky />
+          <NightSky lift={0.6} />
         </Layer>
         <Layer depth={0.3}>
           <StarsTint18 f={f} x={-300} y={-300} w={2520} h={1680} n={110} speed={10} angle={200} seed={26} />
@@ -683,11 +682,11 @@ const Shot819: ShotFC<C08> = ({ f, len }) => {
           <Arrow18 x0={1060} y0={1000} x1={1060} y1={1000 - (1000 - sy - 30) * up} color={C.lever} width={18} outline={INK} />
           <Arrow18 x0={980} y0={260} x1={980} y1={260 + (sy - 290) * dn} color={C.model} width={18} outline={INK} />
           <Label x={1000} y={240} text="BROUGHT IN" size={24} color={INK} align="end" />
-          <Label x={1040} y={1000} text="FORMED HERE" size={24} color={INK} align="end" />
-          <StrikeX x={1020} y={(sy + 1000) / 2 + 30} r={36} k={lin(f, 44, 56)} width={12} />
+          <Label x={1030} y={1028} text="FORMED HERE" size={24} color={INK} align="end" />
+          <StrikeX x={1060} y={(sy + 1000) / 2} r={36} k={lin(f, 44, 56)} width={12} />
           <StrikeX x={980} y={(260 + sy) / 2} r={36} k={lin(f, 58, 70)} width={12} />
           <StrikeX x={1180} y={sy} r={60} k={lin(f, 74, 90)} width={20} />
-          <FlipTag x={480} y={110} word="NOT POSSIBLE" f={f} swing={14} drop={ez(f, 0, 16)} size={1.1} cord={100} />
+          <FlipTag x={1560} y={330} word="NOT POSSIBLE" f={f} swing={14} drop={ez(f, 0, 16)} size={1.1} cord={90} />
           <Tick x={720} y={1000} pxPerM={200} frame={f} facing={1} pose={f > 40 && f < 92 ? "point" : "hold"} expression="determined" look={0.5} />
         </Layer>
         <Layer depth={1.25}>
