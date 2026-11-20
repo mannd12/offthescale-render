@@ -80,7 +80,7 @@ const b1: Shot = ({ f, n }) => (
   <g>
     <Bg f={f} />
     <Pair f={f} moonX={900} earthR={190} moonR={100} arrow={false} />
-    <Bracket x1={450} y1={1060} x2={820} y2={1000} draw={ez(f, 0, Math.round(n * 0.6))} color={C.amber} />
+    <Bracket x1={450} y1={1060} x2={850} y2={1060} draw={ez(f, 0, Math.round(n * 0.6))} color={C.amber} />
     <Count x={540} y={190} f={f} b={384400} f1={Math.round(n * 0.4)} unit=" KM" w={820} size={110} />
     <Plaque x={540} y={350} text="ABOUT, TODAY" size={50} bg={C.ink} fg={C.cream} />
   </g>
