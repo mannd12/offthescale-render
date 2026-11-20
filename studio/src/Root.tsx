@@ -45,6 +45,9 @@ import { L16KitDemo, L16_KIT_DEMO_FRAMES } from "./episodes/L16-into-the-sun/Kit
 import { FullL17HUMANSVANISH, KeyArt1 as KeyArtL17a, KeyArt2 as KeyArtL17b, KeyArt3 as KeyArtL17c, L17HumansVanishFrames } from "./episodes/L17-humans-vanish/Full";
 import { L17KitDemo, L17_KIT_DEMO_FRAMES } from "./episodes/L17-humans-vanish/KitDemo";
 import { ThumbL17A, ThumbL17B } from "./episodes/L17-humans-vanish/Thumb";
+import { FullL18MOONLOWORBIT, KeyArt1 as KeyArtL18a, KeyArt2 as KeyArtL18b, KeyArt3 as KeyArtL18c, L18MoonLowOrbitFrames } from "./episodes/L18-moon-low-orbit/Full";
+import { L18KitDemo, L18_KIT_DEMO_FRAMES } from "./episodes/L18-moon-low-orbit/KitDemo";
+import { ThumbL18A, ThumbL18B } from "./episodes/L18-moon-low-orbit/Thumb";
 import { FullL13, KeyArt1 as KeyArtL13a, KeyArt2 as KeyArtL13b, KeyArt3 as KeyArtL13c, l13Frames } from "./episodes/L13-loudest-sound/Full";
 import { L13KitDemo, L13_KIT_DEMO_FRAMES } from "./episodes/L13-loudest-sound/KitDemo";
 import { DuskScene } from "./style-v2/Dusk";
@@ -183,6 +186,13 @@ export const Root: React.FC = () => (
     <Still id="l17-key-3" component={KeyArtL17c} width={WIDTH} height={HEIGHT} />
     <Still id="L17HumansVanish-thumb-a" component={ThumbL17A} width={1280} height={720} />
     <Still id="L17HumansVanish-thumb-b" component={ThumbL17B} width={1280} height={720} />
+    <Composition id="L18MoonLowOrbit" component={FullL18MOONLOWORBIT} durationInFrames={L18MoonLowOrbitFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="L18MoonLowOrbit-kit-demo" component={L18KitDemo} durationInFrames={L18_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Still id="l18-key-1" component={KeyArtL18a} width={WIDTH} height={HEIGHT} />
+    <Still id="l18-key-2" component={KeyArtL18b} width={WIDTH} height={HEIGHT} />
+    <Still id="l18-key-3" component={KeyArtL18c} width={WIDTH} height={HEIGHT} />
+    <Still id="L18MoonLowOrbit-thumb-a" component={ThumbL18A} width={1280} height={720} />
+    <Still id="L18MoonLowOrbit-thumb-b" component={ThumbL18B} width={1280} height={720} />
     <Composition id="l13" component={FullL13} durationInFrames={l13Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-1" component={KeyArtL13a} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-2" component={KeyArtL13b} width={WIDTH} height={HEIGHT} />
@@ -329,7 +339,7 @@ export const Root: React.FC = () => (
     <Still id="ep01-thumb-a" component={ThumbA} width={1280} height={720} />
     <Still id="ep01-thumb-b" component={ThumbB} width={1280} height={720} />
     {SUPPOSE_AUDITIONS.map((a) => (
-      <Composition key={a.id} id={a.id} component={a.C} durationInFrames={a.frames} fps={FPS} width={WIDTH} height={HEIGHT} />
+      <Composition key={a.id} id={a.id} component={a.C} durationInFrames={a.frames} fps={FPS} width={a.w ?? WIDTH} height={a.h ?? HEIGHT} />
     ))}
   </>
 );

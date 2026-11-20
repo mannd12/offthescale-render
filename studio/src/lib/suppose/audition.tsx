@@ -10,6 +10,8 @@ import voSulafat from "../../episodes/st-aud-sulafat/vo.json";
 import voSadaltager from "../../episodes/st-aud-sadaltager/vo.json";
 import voCharon from "../../episodes/st-aud-charon/vo.json";
 import { FullST01, ST01Frames } from "../../episodes/ST01-earth-twice-as-big/Full";
+import { FullST02, ST02Frames } from "../../episodes/ST02-every-toilet/Full";
+import { ST01_SHORTS } from "../../episodes/ST01-shorts";
 
 
 const make = (voice: string, vo: VoLine[]) => {
@@ -40,10 +42,14 @@ const make = (voice: string, vo: VoLine[]) => {
   return { C, frames: timeline.totalFrames + 30 };
 };
 
-export const AUDITIONS = [
+export type SupposeComp = { id: string; C: React.FC; frames: number; w?: number; h?: number };
+export const AUDITIONS: SupposeComp[] = [
   { id: "st-aud-sulafat", ...make("Sulafat", voSulafat as VoLine[]) },
   { id: "st-aud-sadaltager", ...make("Sadaltager", voSadaltager as VoLine[]) },
   { id: "st-aud-charon", ...make("Charon", voCharon as VoLine[]) },
   // Suppose Then episodes ride the same list so Root.tsx needs no further edits
   { id: "ST01EarthTwice", C: FullST01, frames: ST01Frames },
+  { id: "ST02EveryToilet", C: FullST02, frames: ST02Frames },
+  // vertical Shorts (1080x1920; Root reads w/h)
+  ...ST01_SHORTS.map((s) => ({ id: s.id, C: s.C, frames: s.frames, w: s.w, h: s.h })),
 ];

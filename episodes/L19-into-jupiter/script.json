@@ -25,7 +25,7 @@
           "pause": 0.55
         },
         {
-          "text": "And that probe fell through a spot so dry that scientists joked it had landed in a desert. Did it show us Jupiter, or just one strange place on it? Let's go down and find out.",
+          "text": "And that probe fell through a spot so dry that scientists compared it to a desert. Did it show us Jupiter, or just one strange place on it? Let's go down and find out.",
           "pause": 0.55
         },
         {
@@ -63,7 +63,7 @@
       "name": "Clouds that weren't there",
       "lines": [
         {
-          "text": "Jupiter's clouds are usually described in three layers, which NASA says together span about seventy-one kilometres. That is less than half the distance the probe fell."
+          "text": "Jupiter's clouds are usually described in three layers, which NASA says together span about seventy-one kilometres. That is less than half the distance the probe fell, though the two are not measured from the same starting height."
         },
         {
           "text": "But the probe found only one distinct cloud structure, and it was of modest size. Even the lightning was scarce: about a tenth as often as on Earth.",
@@ -87,14 +87,14 @@
       "name": "The wind that didn't fade",
       "lines": [
         {
-          "text": "At the cloud tops, the winds blew at about eighty to a hundred metres a second. Going down, they speeded up. By four bar they reached about one hundred seventy metres a second."
+          "text": "At the cloud tops, the winds blew at about eighty to a hundred metres a second. Going down, they speeded up. Between one and four bar they rose sharply, to about one hundred seventy metres a second."
         },
         {
           "text": "That is about six hundred and ten kilometres an hour, by our sum.",
           "pause": 0.55
         },
         {
-          "text": "Then something odd. They stayed almost that fast all the way down to twenty-one bar, the deepest the wind could be followed. The wind did not fade."
+          "text": "Then something odd. They stayed near that speed all the way down to twenty-one bar. The wind did not fade."
         },
         {
           "text": "The scientists who studied the data said it was still unclear whether sunlight or heat from the inside was driving it.",
@@ -104,7 +104,7 @@
           "text": "Decades later, the Juno orbiter's gravity data suggested the jet streams reach about three thousand kilometres down. That is about twenty times deeper than the probe fell."
         },
         {
-          "text": "The authors estimate that moving layer holds about one percent of Jupiter's mass. The probe had only touched the top of it. Juno's gravity data also limits the Great Red Spot to a depth of about five hundred kilometres."
+          "text": "The authors estimate that moving layer holds about one percent of Jupiter's mass. The probe had only touched the top of it. NASA puts the Great Red Spot's depth at only about five hundred kilometres."
         },
         {
           "text": "Even that storm is a thin skin on the planet.",
@@ -120,7 +120,7 @@
           "text": "Now the mystery. The probe found dry air. Was Jupiter dry, or was the probe unlucky? NASA's later reports from the orbiter helped."
         },
         {
-          "text": "The place the probe entered was a dry spot, a gap in the clouds through which deeper, warmer layers can be seen. Scientists suspected it had landed in the Sahara Desert of Jupiter.",
+          "text": "The place the probe entered was a dry spot, a gap in the clouds through which deeper, warmer layers can be seen. Scientists said it had landed in the Sahara Desert of Jupiter.",
           "pause": 0.55
         },
         {
@@ -134,10 +134,10 @@
           "text": "The authors said the probe had entered a meteorologically anomalous site. But they also noted it is still unconfirmed whether the equator speaks for the whole planet."
         },
         {
-          "text": "Juno's radiometer looked at roughly the same pressures the probe fell through, about seven tenths of a bar down to thirty."
+          "text": "Juno's radiometer looked from about seven tenths of a bar down to thirty, deeper than the probe's last reading."
         },
         {
-          "text": "The difference is that it looked from orbit, across many latitudes, instead of one dive at one spot.",
+          "text": "The difference is that it looked from orbit, along the whole equatorial zone, instead of one dive at one spot.",
           "pause": 0.55
         },
         {
@@ -179,7 +179,7 @@
           "text": "Deeper still, models say hydrogen may begin to carry electricity like a metal, which may help make Jupiter's magnetic field."
         },
         {
-          "text": "Most models include a layer of this metallic hydrogen, with helium separating out at the top of it as a kind of rain. There is no sharp boundary. The change is gradual.",
+          "text": "Most models include a layer of this metallic hydrogen, with helium separating out at the top of it as a kind of rain.",
           "pause": 0.55
         },
         {
@@ -216,7 +216,7 @@
       "name": "What we heard, and what we modelled",
       "lines": [
         {
-          "text": "Let's be honest about where the data ends. A probe has been, at most, a hundred and fifty-six kilometres in.",
+          "text": "Let's be honest about where the data ends. A probe has been about a hundred and fifty-six kilometres in.",
           "pause": 0.55
         },
         {
@@ -241,7 +241,7 @@
           "text": "Even NASA's own pages differ on how far the probe went. One says a hundred and fifty-six kilometres. Another says about two hundred. We used the first, because it is tied to the instruments' data."
         },
         {
-          "text": "The same goes for the last reading. Some reference sites give twenty-two atmospheres and a hundred fifty-three Celsius. We used NASA's own wording, twenty-three and over three hundred Fahrenheit.",
+          "text": "The same goes for the last reading. Some reference sites give slightly different numbers. We used NASA's own wording, twenty-three and over three hundred Fahrenheit.",
           "pause": 0.55
         },
         {
