@@ -11,7 +11,7 @@
 //            with the craters} terminator?={-1..1, x of the shadow edge across the disc; animate it} rim?=1 ghost?={0..1 colour
 //            drains to a dashed outline marching 18 px/f} crack?={0..1 the crack draws, 50 px/f on a big disc}
 //            separate?={px the halves drift apart} seed? />
-// The crater set is tiled (tile ≈ radius × 0.55, ≥ 180 px), drawn only where the disc meets the frame, so a radius-1400
+// The crater set is tiled (tile ≈ radius × 0.6, ≥ 180 px; 4 soft maria per 3×3-tile super-tile), drawn only where the disc meets the frame, so a radius-1400
 // sky Moon stays cheap.
 import React, { useId } from "react";
 import { Family, IF2, alpha, mixHex, rnd } from "../../lib/illustrated";
@@ -165,7 +165,36 @@ export const SkyBowl: React.FC<{
 type Crater = { u: number; v: number; r: number; k: number };
 // kit-r1: 16 even craters with a lit upper-left rim read as BUBBLES. A crater is a hollow: dark floor, the shadow on the
 // inner wall nearest the light (upper left), the lit wall opposite (lower right). Fewer, with a wide size range.
-const CRATERS: Crater[] = Array.from({ length: 9 }, (_, i) => ({ u: rnd(i * 7 + 3), v: rnd(i * 11 + 5), r: 0.03 + 0.15 * Math.pow(rnd(i * 13 + 1), 2.2), k: rnd(i * 17 + 2) }));
+// kit-r2 (main-session review): evenly spaced round craters on a flat tan disc read as SWISS CHEESE. The face now has
+// 3-4 large soft burnt-umber maria (a darker stop of the tan, irregular, soft-edged), about half the craters, thin rims.
+const CRATERS: Crater[] = Array.from({ length: 5 }, (_, i) => ({ u: rnd(i * 7 + 3), v: rnd(i * 11 + 5), r: 0.03 + 0.13 * Math.pow(rnd(i * 13 + 1), 2.2), k: rnd(i * 17 + 2) }));
+/** Maria per super-tile (u, v, size as fractions of the super-tile; seed for the outline). */
+const MARIA = [
+  { u: 0.24, v: 0.28, s: 0.2, seed: 3 },
+  { u: 0.6, v: 0.2, s: 0.13, seed: 7 },
+  { u: 0.5, v: 0.6, s: 0.24, seed: 11 },
+  { u: 0.14, v: 0.74, s: 0.11, seed: 17 },
+];
+const MARE = "#A85A26"; // burnt-umber stop of the regolith tan (chroma 0.51: dark, never grey)
+/** An irregular closed blob (smoothed through 11 jittered points). */
+const blobD = (cx: number, cy: number, rr: number, seed: number) => {
+  const n = 11;
+  const pts = Array.from({ length: n }, (_, k) => {
+    const a = (k / n) * Math.PI * 2;
+    const q = rr * (0.72 + 0.5 * rnd(seed * 13 + k)) * (k % 2 ? 1 : 0.9);
+    return [cx + Math.cos(a) * q * 1.25, cy + Math.sin(a) * q * 0.85];
+  });
+  const mid = (a: number[], b: number[]) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+  let d = "";
+  for (let k = 0; k < n; k++) {
+    const p0 = pts[k];
+    const p1 = pts[(k + 1) % n];
+    const m0 = mid(pts[(k + n - 1) % n], p0);
+    const m1 = mid(p0, p1);
+    d += (k === 0 ? `M${m0[0].toFixed(1)} ${m0[1].toFixed(1)}` : "") + ` Q${p0[0].toFixed(1)} ${p0[1].toFixed(1)} ${m1[0].toFixed(1)} ${m1[1].toFixed(1)}`;
+  }
+  return d + " Z";
+};
 
 export const MoonFace: React.FC<{
   f: number;
@@ -183,9 +212,12 @@ export const MoonFace: React.FC<{
   seed?: number;
 }> = ({ f, x, y, radius: r, scroll = 0, dir = 0, grid = false, terminator, rim = 1, ghost = 0, crack = 0, separate = 0, seed = 1 }) => {
   const id = "mf" + sid(useId());
-  const T = Math.max(180, r * 0.55);
+  const T = Math.max(180, r * 0.6);
   const ux = Math.cos(dir * D2R);
   const uy = Math.sin(dir * D2R);
+  const M = T * 3; // the maria super-tile (wraps with the same scroll)
+  const mox = (((ux * f * scroll) % M) + M) % M;
+  const moy = (((uy * f * scroll) % M) + M) % M;
   const ox = (((ux * f * scroll) % T) + T) % T;
   const oy = (((uy * f * scroll) % T) + T) % T;
   // visible box (disc ∩ a generous frame)
@@ -194,6 +226,23 @@ export const MoonFace: React.FC<{
   const by0 = Math.max(y - r, -300);
   const by1 = Math.min(y + r, 1380);
   const g = cl(ghost);
+  const maria: React.ReactNode[] = [];
+  if (r >= 30 && bx1 > bx0 && by1 > by0) {
+    for (let i = Math.floor((bx0 - x - mox) / M) - 1; i <= Math.ceil((bx1 - x - mox) / M); i++)
+      for (let j = Math.floor((by0 - y - moy) / M) - 1; j <= Math.ceil((by1 - y - moy) / M); j++)
+        MARIA.forEach((m, k) => {
+          const mx = x + mox + i * M + m.u * M;
+          const my = y + moy + j * M + m.v * M;
+          const mr = m.s * M;
+          if (mx + mr * 1.6 < bx0 || mx - mr * 1.6 > bx1 || my + mr < by0 || my - mr > by1) return;
+          maria.push(
+            <g key={`m${i}-${j}-${k}`}>
+              <path d={blobD(mx, my, mr * 1.18, m.seed + seed)} fill={`url(#${id}m)`} opacity={0.55} />
+              <path d={blobD(mx + mr * 0.05, my, mr * 0.92, m.seed + seed + 5)} fill={`url(#${id}m)`} opacity={0.75} />
+            </g>,
+          );
+        });
+  }
   const tiles: React.ReactNode[] = [];
   if (r >= 40 && bx1 > bx0 && by1 > by0) {
     const i0 = Math.floor((bx0 - x - ox) / T) - 1;
@@ -211,11 +260,9 @@ export const MoonFace: React.FC<{
           if (cxp + cr < bx0 || cxp - cr > bx1 || cyp + cr < by0 || cyp - cr > by1) return;
           tiles.push(
             <g key={`${i}-${j}-${k}`}>
-              <circle cx={cxp} cy={cyp} r={cr * 1.12} fill={C.moonGlow} opacity={0.35} />
-              <circle cx={cxp} cy={cyp} r={cr} fill={c.k > 0.5 ? C.moonShade : C.moonMid} />
-              <path d={`M${cxp - cr * 0.98} ${cyp + cr * 0.2} A${cr} ${cr} 0 0 1 ${cxp + cr * 0.2} ${cyp - cr * 0.98} A${cr * 0.9} ${cr * 0.9} 0 0 0 ${cxp - cr * 0.98} ${cyp + cr * 0.2} Z`} fill={C.moonCrater} />
-              <path d={`M${cxp - cr * 0.98} ${cyp + cr * 0.2} A${cr} ${cr} 0 0 1 ${cxp + cr * 0.2} ${cyp - cr * 0.98} L${cxp + cr * 0.05} ${cyp - cr * 0.55} A${cr * 0.75} ${cr * 0.75} 0 0 0 ${cxp - cr * 0.55} ${cyp + cr * 0.05} Z`} fill="#8A3E14" opacity={0.75} />
-              <path d={`M${cxp + cr * 0.95} ${cyp - cr * 0.3} A${cr} ${cr} 0 0 1 ${cxp - cr * 0.3} ${cyp + cr * 0.95}`} fill="none" stroke={C.moonGlow} strokeWidth={Math.max(2, cr * 0.13)} strokeLinecap="round" />
+              <circle cx={cxp} cy={cyp} r={cr} fill={c.k > 0.5 ? C.moonMid : C.moonShade} opacity={0.7} />
+              <path d={`M${cxp - cr * 0.98} ${cyp + cr * 0.2} A${cr} ${cr} 0 0 1 ${cxp + cr * 0.2} ${cyp - cr * 0.98} A${cr * 0.9} ${cr * 0.9} 0 0 0 ${cxp - cr * 0.98} ${cyp + cr * 0.2} Z`} fill={C.moonCrater} opacity={0.7} />
+              <path d={`M${cxp + cr * 0.95} ${cyp - cr * 0.3} A${cr} ${cr} 0 0 1 ${cxp - cr * 0.3} ${cyp + cr * 0.95}`} fill="none" stroke={C.moonGlow} strokeWidth={Math.max(1.5, cr * 0.05)} strokeLinecap="round" opacity={0.85} />
             </g>,
           );
         });
@@ -246,6 +293,7 @@ export const MoonFace: React.FC<{
     <g>
       <circle cx={x} cy={y} r={r} fill={`url(#${id}g)`} />
       <g clipPath={`url(#${id}c)`}>
+        {maria}
         {tiles}
         {gridEls}
         {termX != null ? (
@@ -274,6 +322,11 @@ export const MoonFace: React.FC<{
         <clipPath id={id + "c"}>
           <circle cx={x} cy={y} r={r} />
         </clipPath>
+        <radialGradient id={id + "m"} cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor={MARE} />
+          <stop offset="0.6" stopColor={MARE} stopOpacity={0.85} />
+          <stop offset="1" stopColor={MARE} stopOpacity={0} />
+        </radialGradient>
         <clipPath id={id + "t"}>
           <path d={halfTop} />
         </clipPath>
