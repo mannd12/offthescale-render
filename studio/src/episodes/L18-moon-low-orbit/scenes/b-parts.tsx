@@ -403,10 +403,10 @@ export const RockBlock: React.FC<{ x: number; y: number; w: number; h: number; r
  *  so a shot whose subject is small or thin still changes over a big area every half-second (the probe reads 96×54 luma).
  *  Saturated stops of each family only (no grey). Draw it right after the sky, in the same layer. */
 const BANDS: Record<"abyss" | "gauge" | "tangerine" | "board", [string, string]> = {
-  abyss: ["#01121B", "#063149"],
-  gauge: ["#0E7C86", "#17958F"],
-  tangerine: ["#EE8A2C", "#F8A640"],
-  board: ["#0F9A9A", "#1FB0A6"],
+  abyss: ["#01121B", "#052638"],
+  gauge: ["#0E7C86", "#148D8C"],
+  tangerine: ["#EE8A2C", "#F59C38"],
+  board: ["#0F9A9A", "#19A8A2"],
 };
 export const BandField: React.FC<{ f: number; k: keyof typeof BANDS; speed?: number; angle?: number; w?: number; opacity?: number }> = ({ f, k, speed = 3, angle = -18, w = 230, opacity = 1 }) => {
   const [a, b] = BANDS[k];

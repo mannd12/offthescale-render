@@ -88,7 +88,7 @@ const Ladder: ShotFC<C07> = ({ f, c }) => {
   };
   const leanBack = f >= T6 + 30 ? ez(f, T6 + 30, T6 + 46) : 0;
   return (
-    <Stage theme={F.theme} shotFrame={f - (f >= T6 ? T6 : f >= T4 ? T4 : f >= T2 ? T2 : 0)} drift={{ zoom: 1.14, panX: 0.04, panY: 0.02, frames: 120, seed: 31 }} vignette={0.18} grain={0.5}>
+    <Stage theme={F.theme} shotFrame={f - (f >= T6 ? T6 : f >= T4 ? T4 : f >= T2 ? T2 : 0)} drift={{ zoom: 1.14, panX: 0.04, panY: 0.02, frames: 120, seed: 32 }} vignette={0.18} grain={0.5}>
       <Layer depth={0.1}>
         <NightSky />
         <BandField f={f} k="abyss" />
