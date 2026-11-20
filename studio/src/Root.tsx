@@ -119,6 +119,10 @@ import { ShortS62, timeline as s62 } from "./episodes/S62-edge-lines/Short";
 import { ShortS63, timeline as s63 } from "./episodes/S63-sound-moves/Short";
 import { ShortS64, timeline as s64 } from "./episodes/S64-hundred-drop/Short";
 import { ShortS65, timeline as s65 } from "./episodes/S65-station-drop/Short";
+import { ShortS66, timeline as s66 } from "./episodes/S66-probe-stays-cool/Short";
+import { ShortS67, timeline as s67 } from "./episodes/S67-fifty-five-times/Short";
+import { ShortS68, timeline as s68 } from "./episodes/S68-tower-paint/Short";
+import { ShortS69, timeline as s69 } from "./episodes/S69-million-years/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 // Suppose Then (second channel, Desktop\What If): voice audition only; its kit lives in lib/suppose with its own entry
 import { AUDITIONS as SUPPOSE_AUDITIONS } from "./lib/suppose/audition";
@@ -261,6 +265,10 @@ export const Root: React.FC = () => (
     <Composition id="s63-short" component={ShortS63} durationInFrames={s63.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s64-short" component={ShortS64} durationInFrames={s64.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s65-short" component={ShortS65} durationInFrames={s65.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s66-short" component={ShortS66} durationInFrames={s66.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s67-short" component={ShortS67} durationInFrames={s67.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s68-short" component={ShortS68} durationInFrames={s68.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s69-short" component={ShortS69} durationInFrames={s69.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 

@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "NASA says it takes fifty-five times more energy to reach the Sun than to reach Mars.",
+    "file": "S67-fifty-five-times/vo/cold-00.wav",
+    "seconds": 6.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "That sounds backwards. Everything in the solar system is falling around the Sun.",
+    "file": "S67-fifty-five-times/vo/cold-01.wav",
+    "seconds": 5.56,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Hold a rock still, one hundred and forty-nine point six million kilometres out, and let go.",
+    "file": "S67-fifty-five-times/vo/cold-02.wav",
+    "seconds": 6.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "It would fall straight in, in about sixty-five days. That sum is ours.",
+    "file": "S67-fifty-five-times/vo/cold-03.wav",
+    "seconds": 5.66,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "It would arrive at about six hundred and sixteen kilometres every second.",
+    "file": "S67-fifty-five-times/vo/cold-04.wav",
+    "seconds": 4.98,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "But Parker Solar Probe launched in August 2018 and made its closest pass in December 2024. Over six years, not sixty-five days.",
+    "file": "S67-fifty-five-times/vo/cold-05.wav",
+    "seconds": 9.26,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what makes the Sun so hard to reach? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S67-fifty-five-times/vo/cold-06.wav",
+    "seconds": 11.74,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
