@@ -127,23 +127,6 @@ const e3: Shot = ({ f, n }) => (
   </g>
 );
 
-/** f - a warm day, inside the Sun's own atmosphere. */
-const f1: Shot = ({ f }) => (
-  <g>
-    <SunScene f={f} top={1150} />
-    <Probe x={540} y={700 + Math.sin(f / 12) * 10} size={520} f={f} tilt={-90} lamp={false} />
-    <Plaque x={540} y={190} text="A WARM DAY" size={110} bg={C.ink} fg={C.amber} />
-  </g>
-);
-const f2: Shot = ({ f }) => (
-  <g>
-    <SunScene f={f} top={1050} />
-    <Probe x={540} y={640} size={340} f={f} tilt={-90} lamp={false} />
-    <Plaque x={540} y={190} text="INSIDE THE SUN'S" size={76} bg={C.ink} fg={C.cream} />
-    <Plaque x={540} y={330} text="OWN ATMOSPHERE" size={76} bg={C.ink} fg={C.amber} />
-  </g>
-);
-
 const q: Shot = ({ f }) => (
   <g>
     <SunScene f={f} top={1300} />
@@ -159,4 +142,4 @@ const end: Shot = ({ f }) => (
   </EndShot>
 );
 
-export const ShortS66 = makeShort(timeline, [[a1, a2], [b1, b2], [c1, c2], [d1, d2], [e1, e2, e3], [f1, f2], [q, end]]);
+export const ShortS66 = makeShort(timeline, [[a1, a2], [b1, b2], [c1, c2], [d1], [e1, e2, e3], [q, end]]);

@@ -2,9 +2,9 @@
   {
     "scene": "cold",
     "index": 0,
-    "text": "At a site called Lomekwi, researchers found stone tools that are three point three million years old.",
+    "text": "Researchers found stone tools that are three point three million years old.",
     "file": "S69-million-years/vo/cold-00.wav",
-    "seconds": 7.08,
+    "seconds": 4.98,
     "pauseAfter": 0.55,
     "estimated": true
   },
@@ -38,9 +38,9 @@
   {
     "scene": "cold",
     "index": 4,
-    "text": "On the Moon, NASA says the Apollo footprints will probably last millions of years, barring a chance meteorite.",
+    "text": "NASA says the Apollo footprints on the Moon will probably last millions of years.",
     "file": "S69-million-years/vo/cold-04.wav",
-    "seconds": 7.58,
+    "seconds": 5.78,
     "pauseAfter": 0.55,
     "estimated": true
   },

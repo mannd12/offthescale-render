@@ -29,18 +29,18 @@
   {
     "scene": "cold",
     "index": 3,
-    "text": "It would fall straight in, in about sixty-five days. That sum is ours.",
+    "text": "By our own sum, it would fall straight in, in about sixty-five days.",
     "file": "S67-fifty-five-times/vo/cold-03.wav",
-    "seconds": 5.66,
+    "seconds": 5.58,
     "pauseAfter": 0.55,
     "estimated": true
   },
   {
     "scene": "cold",
     "index": 4,
-    "text": "It would arrive at about six hundred and sixteen kilometres every second.",
+    "text": "And it would arrive at about six hundred and sixteen kilometres every second.",
     "file": "S67-fifty-five-times/vo/cold-04.wav",
-    "seconds": 4.98,
+    "seconds": 5.38,
     "pauseAfter": 0.55,
     "estimated": true
   },

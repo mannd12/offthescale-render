@@ -29,18 +29,18 @@
   {
     "scene": "cold",
     "index": 3,
-    "text": "Each repaint takes sixty tonnes of paint, and about fifteen tonnes wears away between coats.",
+    "text": "Each repaint takes sixty tonnes of paint. About fifteen tonnes wears away between coats.",
     "file": "S68-tower-paint/vo/cold-03.wav",
-    "seconds": 6.28,
+    "seconds": 5.96,
     "pauseAfter": 0.55,
     "estimated": true
   },
   {
     "scene": "cold",
     "index": 4,
-    "text": "Skip a few of those sevens, with no one there to paint, and the paint is gone from the metal beneath.",
+    "text": "So the most famous iron tower on Earth is on a schedule. Skip a few of those sevens, with no one there to paint, and the paint is gone from the metal beneath.",
     "file": "S68-tower-paint/vo/cold-04.wav",
-    "seconds": 8.78,
+    "seconds": 13.76,
     "pauseAfter": 0.55,
     "estimated": true
   },

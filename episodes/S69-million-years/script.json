@@ -10,7 +10,7 @@
       "name": "Cold open",
       "lines": [
         {
-          "text": "At a site called Lomekwi, researchers found stone tools that are three point three million years old.",
+          "text": "Researchers found stone tools that are three point three million years old.",
           "pause": 0.55,
           "cue": "caption: 3.3 MILLION YEARS OLD"
         },
@@ -30,7 +30,7 @@
           "cue": "caption: STILL WHERE THEY WERE LEFT"
         },
         {
-          "text": "On the Moon, NASA says the Apollo footprints will probably last millions of years, barring a chance meteorite.",
+          "text": "NASA says the Apollo footprints on the Moon will probably last millions of years.",
           "pause": 0.55,
           "cue": "caption: MOON FOOTPRINTS: MILLIONS OF YEARS"
         },

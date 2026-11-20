@@ -2,9 +2,9 @@
   {
     "scene": "cold",
     "index": 0,
-    "text": "On the twenty-eighth of April, 2021, a spacecraft called Parker Solar Probe flew into the Sun's atmosphere.",
+    "text": "In April 2021, Parker Solar Probe flew into the Sun's atmosphere.",
     "file": "S66-probe-stays-cool/vo/cold-00.wav",
-    "seconds": 7.18,
+    "seconds": 4.68,
     "pauseAfter": 0.55,
     "estimated": true
   },
@@ -20,44 +20,35 @@
   {
     "scene": "cold",
     "index": 2,
-    "text": "The visible surface is about five and a half thousand degrees Celsius. The atmosphere above it, the corona, reaches up to two million.",
+    "text": "The surface is about five thousand five hundred degrees Celsius. The atmosphere above it reaches up to two million.",
     "file": "S66-probe-stays-cool/vo/cold-02.wav",
-    "seconds": 9.76,
+    "seconds": 7.96,
     "pauseAfter": 0.55,
     "estimated": true
   },
   {
     "scene": "cold",
     "index": 3,
-    "text": "That's hundreds of times hotter than the surface.",
+    "text": "That's hundreds of times hotter.",
     "file": "S66-probe-stays-cool/vo/cold-03.wav",
-    "seconds": 3.38,
+    "seconds": 2.18,
     "pauseAfter": 0.55,
     "estimated": true
   },
   {
     "scene": "cold",
     "index": 4,
-    "text": "Behind its heat shield, the instruments stayed at a cosy eighty-five degrees Fahrenheit. That's about thirty Celsius.",
+    "text": "Behind its heat shield, the instruments stayed at eighty-five degrees Fahrenheit. That's about thirty Celsius.",
     "file": "S66-probe-stays-cool/vo/cold-04.wav",
-    "seconds": 7.26,
+    "seconds": 6.46,
     "pauseAfter": 0.55,
     "estimated": true
   },
   {
     "scene": "cold",
     "index": 5,
-    "text": "A warm day, inside the Sun's own atmosphere.",
-    "file": "S66-probe-stays-cool/vo/cold-05.wav",
-    "seconds": 3.48,
-    "pauseAfter": 0.55,
-    "estimated": true
-  },
-  {
-    "scene": "cold",
-    "index": 6,
     "text": "So how did it stay that cool? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S66-probe-stays-cool/vo/cold-06.wav",
+    "file": "S66-probe-stays-cool/vo/cold-05.wav",
     "seconds": 10.94,
     "pauseAfter": 0.55,
     "estimated": true
