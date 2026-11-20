@@ -3,612 +3,544 @@
     "scene": "cold",
     "index": 0,
     "text": "At eight o'clock tonight, every toilet in New York City flushes in the same second.",
-    "file": "ST02-every-toilet/vo/cold-00.wav",
-    "seconds": 6.85,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/cold-00-f847501b7d.wav",
+    "seconds": 6.7199583333333335,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Every home. Every office tower. Every school. Millions of people, one handle each. Do the pipes burst? Does the city run dry? Does the river of water just stop? Here is the strange part.",
-    "file": "ST02-every-toilet/vo/cold-01.wav",
-    "seconds": 16.43,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/cold-01-a55ee9a0e9.wav",
+    "seconds": 17.99,
+    "pauseAfter": 0.25
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "New York can almost answer this already, because it practises. Every year, when the Super Bowl halftime show ends, hundreds of thousands of New Yorkers flush within minutes. The water department watches it like a sport.",
-    "file": "ST02-every-toilet/vo/cold-02.wav",
-    "seconds": 16.61,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/cold-02-b5ecdfed3e.wav",
+    "seconds": 16.79,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "So we will climb a ladder, from one flush to the whole country. Each rung is bigger than the last, and each one ends on the problem that opens the next. Rung one is the smallest. One flush.",
-    "file": "ST02-every-toilet/vo/cold-03.wav",
-    "seconds": 17.56,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/cold-03-bec05bcec0.wav",
+    "seconds": 16.87,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 0,
     "text": "The federal standard is one point six gallons per flush. A modern water-saving model uses one point two eight gallons or less.",
-    "file": "ST02-every-toilet/vo/l01-00.wav",
-    "seconds": 10,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l01-00-bc9ff94cbc.wav",
+    "seconds": 10.22,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l01",
     "index": 1,
     "text": "Older toilets used more: about three and a half gallons for those installed from 1980 to 1994, and about five gallons before 1980.",
-    "file": "ST02-every-toilet/vo/l01-01.wav",
-    "seconds": 10.45,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l01-01-5f16983246.wav",
+    "seconds": 11.64,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 2,
     "text": "An American uses about eighty-two gallons of water a day at home. Toilets are nearly thirty percent of the indoor part of that.",
-    "file": "ST02-every-toilet/vo/l01-02.wav",
-    "seconds": 10.43,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l01-02-bd91ec5caa.wav",
+    "seconds": 9.86,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l01",
     "index": 3,
     "text": "Our sum: a single flush of one point six gallons is about two percent of one person's home day.",
-    "file": "ST02-every-toilet/vo/l01-03.wav",
-    "seconds": 8.6,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l01-03-cb785d3566.wav",
+    "seconds": 8.37,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 4,
     "text": "Toilets are still where the savings are. The EPA says replacing all the inefficient toilets in the country could save more than two hundred sixty billion gallons a year.",
-    "file": "ST02-every-toilet/vo/l01-04.wav",
-    "seconds": 13.06,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l01-04-6ef2764d73.wav",
+    "seconds": 11.99,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l01",
     "index": 5,
     "text": "That tells you how much water toilets move, week after week, without anyone noticing.",
-    "file": "ST02-every-toilet/vo/l01-05.wav",
-    "seconds": 6.51,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l01-05-78879e18ab.wav",
+    "seconds": 6.08,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l01",
     "index": 6,
     "text": "One flush is nothing. But the pipe that feeds it is shared with everyone else. Next rung: one building, where that shared pipe gets tested.",
-    "file": "ST02-every-toilet/vo/l01-06.wav",
-    "seconds": 11.69,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l01-06-d4c66d1f2b.wav",
+    "seconds": 10.14,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 0,
     "text": "Here is the scary idea. Engineers call it water hammer. It is a pressure surge that follows a sudden change in how fast water moves in a pipe. It most often happens when a valve closes quickly or a pump stops.",
-    "file": "ST02-every-toilet/vo/l02-00.wav",
-    "seconds": 18.68,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l02-00-b9231956dc.wav",
+    "seconds": 15.45,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l02",
     "index": 1,
     "text": "The surge can be severe enough to rupture a pipe.",
-    "file": "ST02-every-toilet/vo/l02-01.wav",
-    "seconds": 4.56,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l02-01-2aa3d0b5a5.wav",
+    "seconds": 3.12,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 2,
     "text": "Engineers asked about this scenario said simultaneous flushing could pull air into some pipes and cause serious water hammer. That is a judgment, not a measurement.",
-    "file": "ST02-every-toilet/vo/l02-02.wav",
-    "seconds": 11.85,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l02-02-e3e72a6da2.wav",
+    "seconds": 10.93,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 3,
     "text": "Real mains do burst. In 1998 a hundred-year-old, forty-eight-inch main broke on Fifth Avenue.",
-    "file": "ST02-every-toilet/vo/l02-03.wav",
-    "seconds": 6.59,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l02-03-3a226caddf.wav",
+    "seconds": 7.330041666666666,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l02",
     "index": 4,
     "text": "In 2009 a power loss stopped the pumps in fourteen waterworks in Hamburg, and when they restarted, sixteen water mains ruptured. Neither was a toilet. We found no record of flushing breaking a main.",
-    "file": "ST02-every-toilet/vo/l02-04.wav",
-    "seconds": 15.63,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l02-04-be7da1eb77.wav",
+    "seconds": 15.39,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l02",
     "index": 5,
     "text": "That is a gap in our search, not proof.",
-    "file": "ST02-every-toilet/vo/l02-05.wav",
-    "seconds": 4.22,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l02-05-26919aaf49.wav",
+    "seconds": 3.45,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l02",
     "index": 6,
     "text": "A tower is not a city. To see a real city flush at once, we need real data. Next rung: Seattle.",
-    "file": "ST02-every-toilet/vo/l02-06.wav",
-    "seconds": 9.94,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l02-06-ee81f8fa63.wav",
+    "seconds": 8.81,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 0,
     "text": "When the halftime show ended, Seattle's water demand rose by six thousand, four hundred seventy-seven gallons per minute over fifteen minutes.",
-    "file": "ST02-every-toilet/vo/l03-00.wav",
-    "seconds": 9.58,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l03-00-c8cd7d7023.wav",
+    "seconds": 9.07,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l03",
     "index": 1,
     "text": "The city's utility said that could equal about sixty thousand, seven hundred twenty-two toilet flushes.",
-    "file": "ST02-every-toilet/vo/l03-01.wav",
-    "seconds": 6.85,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l03-01-18f65813a7.wav",
+    "seconds": 6.87,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 2,
     "text": "Our sum: that is ninety-seven thousand, one hundred fifty-five gallons, and divided by sixty thousand, seven hundred twenty-two flushes it comes to one point six gallons a flush, the federal figure.",
-    "file": "ST02-every-toilet/vo/l03-02.wav",
-    "seconds": 14.26,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l03-02-a85e5ebc71.wav",
+    "seconds": 13.71,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l03",
     "index": 3,
     "text": "So the flush count is a conversion of gallons, not a head count of toilets.",
-    "file": "ST02-every-toilet/vo/l03-03.wav",
-    "seconds": 6.85,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l03-03-3bca86accc.wav",
+    "seconds": 4.66,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 4,
     "text": "Miami-Dade checked pressure before, during and after the show and found no discernible change.",
-    "file": "ST02-every-toilet/vo/l03-04.wav",
-    "seconds": 6.41,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l03-04-97b348eddf.wav",
+    "seconds": 6.38,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l03",
     "index": 5,
     "text": "Sixty thousand flushes is a big town. Next rung is the biggest measured flush we could find.",
-    "file": "ST02-every-toilet/vo/l03-05.wav",
-    "seconds": 7.81,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l03-05-bc23dfa23c.wav",
+    "seconds": 6.43,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 0,
     "text": "New York's water department reported that in the fifteen minutes after the 2026 halftime show, water use spiked to the equivalent of seven hundred sixty-one thousand, seven hundred nineteen toilets flushing.",
-    "file": "ST02-every-toilet/vo/l04-00.wav",
-    "seconds": 13.96,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l04-00-adf4fbd1dd.wav",
+    "seconds": 15.54,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 1,
     "text": "The year before, the spike after the final whistle was four hundred sixty-seven thousand, eight hundred eighty-one. During the show itself, water use fell across the city.",
-    "file": "ST02-every-toilet/vo/l04-01.wav",
-    "seconds": 12.48,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l04-01-795b58a985.wav",
+    "seconds": 12.3,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 2,
     "text": "Our sum: at one point six gallons each, that is about one point two million gallons. The department says the surges come at three moments: the start of halftime, the end of halftime, and the end of the game.",
-    "file": "ST02-every-toilet/vo/l04-02.wav",
-    "seconds": 17.94,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l04-02-af48c73dec.wav",
+    "seconds": 15.66,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 3,
     "text": "It sends extra water to a reservoir called Hillview ahead of time, and customers don't notice a drop in pressure. The city says the sewers cope because the flushes are spread out across town.",
-    "file": "ST02-every-toilet/vo/l04-03.wav",
-    "seconds": 15.35,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l04-03-2f5d633a85.wav",
+    "seconds": 12.24,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 4,
     "text": "That is the first real staggering. A toilet near the plant and one at the far edge are on different timers. Rung five makes that idea the star.",
-    "file": "ST02-every-toilet/vo/l04-04.wav",
-    "seconds": 12.8,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l04-04-45f323f9a3.wav",
+    "seconds": 10.9,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 0,
     "text": "Here is how a one-second flush becomes a ten-minute flow. Every toilet starts at the same moment. But every toilet sits a different distance from the main. A flush at the street corner reaches the big pipe first.",
-    "file": "ST02-every-toilet/vo/l05-00.wav",
-    "seconds": 17.36,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l05-00-463bd920b8.wav",
+    "seconds": 15.46,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 1,
     "text": "A flush at the far end of a long line gets there later.",
-    "file": "ST02-every-toilet/vo/l05-01.wav",
-    "seconds": 5.87,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l05-01-1e2269b254.wav",
+    "seconds": 6.23,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 2,
     "text": "So the same crowd that started as one spike arrives as a long smear. One expert called it a smooth curve of contributions rather than a peak.",
-    "file": "ST02-every-toilet/vo/l05-02.wav",
-    "seconds": 12.18,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l05-02-628f5c06ae.wav",
+    "seconds": 12.09,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 3,
     "text": "We have no measured travel times for New York, so the pictures here are a model, not data.",
-    "file": "ST02-every-toilet/vo/l05-03.wav",
-    "seconds": 8.26,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l05-03-74df249393.wav",
+    "seconds": 6.309958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 4,
     "text": "The water side is the opposite problem. In our model, every tank asks for water at the very start, with no stagger at all. That is why the water department plans ahead. It adds extra water to Hillview before the game.",
-    "file": "ST02-every-toilet/vo/l05-04.wav",
-    "seconds": 18.88,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l05-04-3548c24493.wav",
+    "seconds": 16.24,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l05",
     "index": 5,
     "text": "Hillview is a holding tank that lets the department meet the city's daily peak demand. It is built for rushes, and this is a rush we can see coming.",
-    "file": "ST02-every-toilet/vo/l05-05.wav",
-    "seconds": 13.16,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l05-05-c7d517b8f5.wav",
+    "seconds": 10.8,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 6,
     "text": "Staggering lowers the peak. It does not lower the total. Next rung: the total, for the whole city.",
-    "file": "ST02-every-toilet/vo/l05-06.wav",
-    "seconds": 8.62,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l05-06-2cb4f07331.wav",
+    "seconds": 8.02,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 0,
     "text": "The department counts about eight point eight million people living in the city. Suppose each flushes once. At one point six gallons, that is about fourteen million gallons.",
-    "file": "ST02-every-toilet/vo/l06-00.wav",
-    "seconds": 12.9,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l06-00-7ad28a0fdb.wav",
+    "seconds": 11.31,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 1,
     "text": "The city supplies more than a billion gallons on an ordinary day. So our sum puts the flush at no more than about one and a half percent of one day's supply.",
-    "file": "ST02-every-toilet/vo/l06-01.wav",
-    "seconds": 14.37,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l06-01-19ed5440d6.wav",
+    "seconds": 10.4,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 2,
     "text": "Make every toilet an old five-gallon one, and our sum is about forty-four million gallons, still under five percent of a day. And the whole-city flush is about twelve times the real halftime spike.",
-    "file": "ST02-every-toilet/vo/l06-02.wav",
-    "seconds": 15.45,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l06-02-04af1d87b9.wav",
+    "seconds": 15.71,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 3,
     "text": "Those gallons have somewhere to go. The city runs about seven thousand miles of water mains, tunnels and aqueducts, and about seven thousand five hundred miles of sewer lines with ninety-six pump stations.",
-    "file": "ST02-every-toilet/vo/l06-03.wav",
-    "seconds": 15.01,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l06-03-d21ac9b8bb.wav",
+    "seconds": 12.94,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 4,
     "text": "Fourteen million gallons spread over that much pipe is a thin film, not a wall. That is our picture, not a measurement.",
-    "file": "ST02-every-toilet/vo/l06-04.wav",
-    "seconds": 10.2,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l06-04-cebf93d6ff.wav",
+    "seconds": 9.09,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 5,
     "text": "Sums are tidy. Pipes are not. Next rung: where it might hurt.",
-    "file": "ST02-every-toilet/vo/l06-05.wav",
-    "seconds": 5.9,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l06-05-133e636292.wav",
+    "seconds": 5.61,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 0,
     "text": "If a flush does cause trouble, the trouble is local. One engineer said that if there are bottlenecks in a system, they could perhaps be overwhelmed.",
-    "file": "ST02-every-toilet/vo/l07-00.wav",
-    "seconds": 11.95,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-00-f3956a747e.wav",
+    "seconds": 9.76,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 1,
     "text": "Some apartment buildings might back up if everyone flushes at once, depending on their pipes.",
-    "file": "ST02-every-toilet/vo/l07-01.wav",
-    "seconds": 6.85,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-01-1e26deca1e.wav",
+    "seconds": 5.53,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 2,
     "text": "In towns where tanks depend on pumps rather than stored water, some toilets could be left waiting for a refill. That is the heart of the old burst-pipe worry.",
-    "file": "ST02-every-toilet/vo/l07-02.wav",
-    "seconds": 13.16,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-02-bd967875c3.wav",
+    "seconds": 10.97,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 3,
     "text": "An empty toilet lets air in, and air in a pressurised line is what makes water hammer worse.",
-    "file": "ST02-every-toilet/vo/l07-03.wav",
-    "seconds": 8.16,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-03-df77be10ac.wav",
+    "seconds": 8.11,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 4,
     "text": "One engineer sized it for a town of twenty-five thousand people on one tank: forty thousand gallons, about a small pool. Our sum agrees: twenty-five thousand times one point six is forty thousand.",
-    "file": "ST02-every-toilet/vo/l07-04.wav",
-    "seconds": 15.11,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-04-b6792809d6.wav",
+    "seconds": 13.92,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 5,
     "text": "A small pool is not a disaster. It is a lot of water in a short time.",
-    "file": "ST02-every-toilet/vo/l07-05.wav",
-    "seconds": 7.81,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-05-c0e080dc27.wav",
+    "seconds": 4.6,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 6,
     "text": "Still, those are engineers' judgments. They are not measured events.",
-    "file": "ST02-every-toilet/vo/l07-06.wav",
-    "seconds": 4.84,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-06-d9eee111d2.wav",
+    "seconds": 4.25,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 7,
     "text": "A famous story blames the Super Bowl flush for a water main break in Salt Lake City in 1984.",
-    "file": "ST02-every-toilet/vo/l07-07.wav",
-    "seconds": 8.5,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-07-c170c9eb0b.wav",
+    "seconds": 6.07,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 8,
     "text": "The city's infrastructure was old, and one sewer district says the odds of a major city's sewer being unable to handle the flow are slim to none. The worst case is a bad day on a few streets, not a drained city.",
-    "file": "ST02-every-toilet/vo/l07-08.wav",
-    "seconds": 18.95,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-08-c470d611a0.wav",
+    "seconds": 16.1,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 9,
     "text": "One city is fine. Now the country.",
-    "file": "ST02-every-toilet/vo/l07-09.wav",
-    "seconds": 3.43,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l07-09-b55f46fd15.wav",
+    "seconds": 3.78,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 0,
     "text": "The Census Bureau estimates about three hundred forty-one point eight million people live in the United States. One flush each at one point six gallons is about five hundred forty-seven million gallons.",
-    "file": "ST02-every-toilet/vo/l08-00.wav",
-    "seconds": 14.37,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l08-00-213675f297.wav",
+    "seconds": 15.43,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 1,
     "text": "That sounds enormous. But it is not one pipe.",
-    "file": "ST02-every-toilet/vo/l08-01.wav",
-    "seconds": 4.3,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l08-01-f4c4b59e6a.wav",
+    "seconds": 4.199958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 2,
     "text": "Each city has its own water supply, so the effects would be local. That is why a national flush never becomes one national event.",
-    "file": "ST02-every-toilet/vo/l08-02.wav",
-    "seconds": 10.97,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l08-02-9315477906.wav",
+    "seconds": 9.35,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 3,
     "text": "Our sum: set against the roughly eighty-two gallons each of us uses at home in a day, the whole flush is about two percent of a single day's home use. A big number, spread across many pipes.",
-    "file": "ST02-every-toilet/vo/l08-03.wav",
-    "seconds": 16.86,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l08-03-aa1009a6d2.wav",
+    "seconds": 15.22,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 0,
     "text": "Here is what we saw, and what we only worked out.",
-    "file": "ST02-every-toilet/vo/l09-00.wav",
-    "seconds": 5.1,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-00-20dfc03420.wav",
+    "seconds": 3.0299583333333335,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 1,
     "text": "Measured: New York's real spike, Seattle's real spike, and Miami-Dade's flat pressure. And the gallons per flush set by the federal standard.",
-    "file": "ST02-every-toilet/vo/l09-01.wav",
-    "seconds": 10.3,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-01-4b7eb4ad23.wav",
+    "seconds": 10.02,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 2,
     "text": "Modelled: everything bigger than that. The fourteen million gallons, the forty-four million, the five hundred forty-seven million are our arithmetic, built on one flush per person.",
-    "file": "ST02-every-toilet/vo/l09-02.wav",
-    "seconds": 12.15,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-02-4991e87d31.wav",
+    "seconds": 12.88,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 3,
     "text": "The burst-pipe warnings are expert judgment. Nobody has measured a whole city flushing in one second, and we found no source that counts the toilets in the country, so we did not use one.",
-    "file": "ST02-every-toilet/vo/l09-03.wav",
-    "seconds": 15.45,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-03-1456118585.wav",
+    "seconds": 11.89,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 4,
     "text": "One more correction. You may have heard of the British \"TV pickup.\" It is real, but it is electricity, from kettles switched on at the end of a show. Water has its own version.",
-    "file": "ST02-every-toilet/vo/l09-04.wav",
-    "seconds": 15.81,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-04-c9cb2c0d34.wav",
+    "seconds": 12,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 5,
     "text": "During an England match, one water company saw demand run one point two three million litres above normal at half-time, and three point three four million above after extra time.",
-    "file": "ST02-every-toilet/vo/l09-05.wav",
-    "seconds": 13.52,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-05-e2d7a5afe5.wav",
+    "seconds": 12.54,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 6,
     "text": "A big crowd, a shared moment, and the system coped. Those litres are the water company's own, from its own pipes, for one match.",
-    "file": "ST02-every-toilet/vo/l09-06.wav",
-    "seconds": 11.27,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-06-05a396e50e.wav",
+    "seconds": 9.16,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 7,
     "text": "We do not turn them into a flush count, because the page does not say how much of that water went down toilets.",
-    "file": "ST02-every-toilet/vo/l09-07.wav",
-    "seconds": 10.35,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-07-7d995d0d61.wav",
+    "seconds": 6.54,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 8,
     "text": "So what would change the answer? Older, bigger toilets would raise the totals, and our worst case shows by how much. A weak pump or a narrow pipe would move the trouble to one street.",
-    "file": "ST02-every-toilet/vo/l09-08.wav",
-    "seconds": 16.07,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-08-04b5cb1aa4.wav",
+    "seconds": 12.99,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l09",
     "index": 9,
     "text": "And a smaller town with one tank would feel it more than a city with a giant reservoir. Those are the knobs. None of them turns the flush into a flood.",
-    "file": "ST02-every-toilet/vo/l09-09.wav",
-    "seconds": 14.12,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-09-6d2c82ee2e.wav",
+    "seconds": 10.07,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 10,
     "text": "So the answer is less dramatic than the stories. The water holds. A few old buildings sulk. And most of the crowd is rescued by the fact that pipes have different lengths.",
-    "file": "ST02-every-toilet/vo/l09-10.wav",
-    "seconds": 14.73,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-10-440a69c68a.wav",
+    "seconds": 12.05,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l09",
     "index": 11,
     "text": "If your whole city could do one thing in the same second, what would you pick?",
-    "file": "ST02-every-toilet/vo/l09-11.wav",
-    "seconds": 7.29,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "ST02-every-toilet/vo/l09-11-9e81e3e305.wav",
+    "seconds": 5.050041666666667,
+    "pauseAfter": 0.55
   }
 ]
