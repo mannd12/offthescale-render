@@ -3,54 +3,48 @@
     "scene": "cold",
     "index": 0,
     "text": "In April 2021, Parker Solar Probe flew into the Sun's atmosphere.",
-    "file": "S66-probe-stays-cool/vo/cold-00.wav",
-    "seconds": 4.68,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S66-probe-stays-cool/vo/cold-00-b2b1493389.wav",
+    "seconds": 8.08,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "It stayed inside for about five hours, thirteen million kilometres above the Sun's visible surface.",
-    "file": "S66-probe-stays-cool/vo/cold-01.wav",
-    "seconds": 6.28,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S66-probe-stays-cool/vo/cold-01-de510174c1.wav",
+    "seconds": 9.82,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "The surface is about five thousand five hundred degrees Celsius. The atmosphere above it reaches up to two million.",
-    "file": "S66-probe-stays-cool/vo/cold-02.wav",
-    "seconds": 7.96,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S66-probe-stays-cool/vo/cold-02-41c392aaca.wav",
+    "seconds": 11.78,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "That's hundreds of times hotter.",
-    "file": "S66-probe-stays-cool/vo/cold-03.wav",
-    "seconds": 2.18,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S66-probe-stays-cool/vo/cold-03-74973c26bc.wav",
+    "seconds": 2.43,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "Behind its heat shield, the instruments stayed at eighty-five degrees Fahrenheit. That's about thirty Celsius.",
-    "file": "S66-probe-stays-cool/vo/cold-04.wav",
-    "seconds": 6.46,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S66-probe-stays-cool/vo/cold-04-f5ab452b91.wav",
+    "seconds": 8.52,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "So how did it stay that cool? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S66-probe-stays-cool/vo/cold-05.wav",
-    "seconds": 10.94,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S66-probe-stays-cool/vo/cold-05-f5d4ddb94f.wav",
+    "seconds": 9.490041666666666,
+    "pauseAfter": 0.55
   }
 ]

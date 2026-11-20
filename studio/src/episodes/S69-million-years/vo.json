@@ -3,72 +3,64 @@
     "scene": "cold",
     "index": 0,
     "text": "Researchers found stone tools that are three point three million years old.",
-    "file": "S69-million-years/vo/cold-00.wav",
-    "seconds": 4.98,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-00-e4c51c4d1f.wav",
+    "seconds": 7.1,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "That's more than three times a million years.",
-    "file": "S69-million-years/vo/cold-01.wav",
-    "seconds": 3.38,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-01-f996a77bc5.wav",
+    "seconds": 3.2500416666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "They came seven hundred thousand years before the next known tool tradition, the Oldowan.",
-    "file": "S69-million-years/vo/cold-02.wav",
-    "seconds": 5.88,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-02-513c82c278.wav",
+    "seconds": 7.24,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "And they were still lying where they were left.",
-    "file": "S69-million-years/vo/cold-03.wav",
-    "seconds": 3.78,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-03-bdfda450a2.wav",
+    "seconds": 2.99,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "NASA says the Apollo footprints on the Moon will probably last millions of years.",
-    "file": "S69-million-years/vo/cold-04.wav",
-    "seconds": 5.78,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-04-c6b8b0d23b.wav",
+    "seconds": 7.32,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "Now suppose every human vanished. After a million years, our best bet is three kinds of things.",
-    "file": "S69-million-years/vo/cold-05.wav",
-    "seconds": 7.26,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-05-b32fff34ca.wav",
+    "seconds": 8.42,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "Stone is one. The Moon is another. The third is already in the ground on Earth.",
-    "file": "S69-million-years/vo/cold-06.wav",
-    "seconds": 6.94,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-06-9e40abdd88.wav",
+    "seconds": 7.5,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "So what is the third? The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S69-million-years/vo/cold-07.wav",
-    "seconds": 10.14,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S69-million-years/vo/cold-07-07ca0fdd07.wav",
+    "seconds": 7.38,
+    "pauseAfter": 0.55
   }
 ]

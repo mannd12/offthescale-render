@@ -55,7 +55,7 @@
           "pause": 0.55
         },
         {
-          "text": "The Earth turns once in about twenty-four hours. So the Moon would lap the planet's own spin. It would rise in the west and set in the east, and cross the whole sky in minutes.",
+          "text": "The Earth turns once in about twenty-four hours. So the Moon would lap the planet's own spin. Like Mars's fast moon Phobos, which also outruns its planet's spin, it would rise in the west, and cross the whole sky in minutes.",
           "pause": 0.55
         },
         {
@@ -83,7 +83,7 @@
           "text": "But so far we've treated the Moon as a point. It is a ball, three thousand four hundred seventy-six kilometers across. The side facing Earth is closer than the side facing away."
         },
         {
-          "text": "So the Earth pulls the near side harder than the far side. At today's distance, that difference is less than two percent. At this rung it is still small."
+          "text": "So the Earth pulls the near side harder than the far side. At today's distance, that difference is less than two percent. At this rung it grows, but not yet enough to break the Moon."
         },
         {
           "text": "But watch what it does as we go down, because that small difference is the whole story from here.",
@@ -116,7 +116,7 @@
           "pause": 0.55
         },
         {
-          "text": "Today's Moon is about twenty-one times farther out than even the generous line. So it is safe, and has been for a very long time.",
+          "text": "Today's Moon is about twenty-one times farther out than even the generous line. So today's Moon is safe.",
           "pause": 0.55
         },
         {
@@ -158,7 +158,7 @@
       "name": "What the model says happens",
       "lines": [
         {
-          "text": "Rock does have strength, which is why the real Moon sits between the two textbook lines. NASA says smaller objects are not pulled apart by this difference."
+          "text": "Rock does have strength, which is why the real limit for a rocky moon sits between the two textbook lines. NASA says smaller objects are not pulled apart by this difference."
         },
         {
           "text": "But the Moon is a ball three thousand four hundred kilometers across. That is not a small object.",
@@ -211,23 +211,23 @@
           "pause": 0.55
         },
         {
-          "text": "And here is what is a model. The two Roche lines come from a formula with two idealized extremes, and the real Moon is somewhere between them."
+          "text": "And here is what is a model. The two Roche lines come from a formula with two idealized extremes, and the real Moon's limit is somewhere between them."
         },
         {
           "text": "The tidal numbers treat the Earth as a single point and the Moon's orbit as a circle. They ignore that the Earth would be stretched too."
         },
         {
-          "text": "And we don't give a tide height, because the simple scaling stops working this close. Nobody has seen a moon this size cross this line."
+          "text": "And we don't give a tide height, because the simple scaling stops working this close."
         },
         {
           "text": "How the pieces would spread is a simulation question, and we won't give numbers for it.",
           "pause": 0.55
         },
         {
-          "text": "And there is a bigger honesty point. The Moon could never be lowered to this height. Measurements show it is moving the other way, away from us, at about three point eight centimeters a year."
+          "text": "And there is a bigger honesty point. The real Moon is not coming closer. Measurements show it is moving the other way, away from us, at about three point eight centimeters a year."
         },
         {
-          "text": "NASA's account is that it formed from debris thrown up when a huge object hit the young Earth, about four and a half billion years ago. And material inside the Roche limit tends to stay as a ring, not gather into a moon."
+          "text": "NASA's account is that it formed from debris thrown up when a huge object hit the young Earth, about four and a half billion years ago. And one NASA idea for Saturn's rings is that material inside the Roche limit stays a ring, instead of gathering into a moon."
         },
         {
           "text": "So the station's height is a place the Moon could neither have formed nor be brought to.",
@@ -243,10 +243,10 @@
           "text": "So the honest answer is this. The Moon in the sky is far enough away to hold together, and it is still drifting farther, about three point eight centimeters every year."
         },
         {
-          "text": "Between about nine and a half thousand and eighteen and a half thousand kilometers, the answer depends on what the Moon is made of. Below nine and a half thousand, even a perfectly stiff Moon loses."
+          "text": "Between about nine and a half thousand and eighteen thousand four hundred kilometers, the answer depends on what the Moon is made of. Below nine and a half thousand, even a perfectly stiff Moon loses."
         },
         {
-          "text": "The station's height is far below that line. So the sky at the start of this video, a Moon seventy-eight degrees wide, is a sight no real Moon could ever give us."
+          "text": "The station's height is far below that line. So the sky at the start of this video, a Moon seventy-eight degrees wide, is a sight our real Moon will never give us."
         },
         {
           "text": "It is the picture of a Moon that would already be coming apart.",
