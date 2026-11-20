@@ -17,7 +17,7 @@ import vo from "./vo.json";
  */
 export const timeline = buildTimeline(vo as VoLine[]);
 
-const Space: React.FC<{ f: number; top?: number }> = ({ f, top = 1250 }) => (
+const Space: React.FC<{ f: number; top?: number }> = ({ f, top = 1080 }) => (
   <g>
     <Sky stops={BG_DEEP} x={0} y={0} w={W} h={H} />
     <Chips f={f} n={10} y0={120} y1={1100} color={C.foam} speed={4} opacity={0.22} seed={6} len={46} width={6} />
@@ -40,7 +40,7 @@ const a1: Shot = ({ f, n }) => (
   <g>
     <Space f={f} top={1500} />
     <UpBar x={260} base={1150} w={190} h={mix(0, 60, ez(f, 0, 6))} color={C.teal} />
-    <UpBar x={700} base={1150} w={300} h={mix(0, 860, ez(f, 4, Math.round(n * 0.6)))} color={C.amber} />
+    <UpBar x={700} base={1150} w={300} h={mix(0, 780, ez(f, 4, Math.round(n * 0.6)))} color={C.amber} />
     <Plaque x={260} y={1230} text="MARS" size={50} bg={C.ink} fg={C.cream} />
     <Plaque x={700} y={1230} text="THE SUN" size={50} bg={C.ink} fg={C.cream} />
     <Count x={540} y={190} f={f} b={55} f1={Math.round(n * 0.4)} unit="×" w={420} size={150} />
@@ -99,15 +99,15 @@ const b2: Shot = ({ f }) => (
 /** c - hold a rock still 149.6 million km out and let go. */
 const c1: Shot = ({ f, n }) => (
   <g>
-    <Space f={f} top={1250} />
+    <Space f={f} top={1080} />
     <Rock x={300} y={420} r={80} spin={Math.sin(f / 18) * 4} />
-    <Bracket x1={820} y1={420} x2={820} y2={1230} draw={ez(f, 0, Math.round(n * 0.5))} color={C.amber} />
+    <Bracket x1={820} y1={420} x2={820} y2={1060} draw={ez(f, 0, Math.round(n * 0.5))} color={C.amber} />
     <Count x={540} y={190} f={f} b={149.6} d={1} f1={Math.round(n * 0.4)} unit=" MILLION KM" w={900} size={84} />
   </g>
 );
 const c2: Shot = ({ f, n }) => (
   <g>
-    <Space f={f} top={1250} />
+    <Space f={f} top={1080} />
     <Rock x={540} y={mix(480, 700, ez(f, Math.round(n * 0.4), n))} r={100} />
     <Plaque x={540} y={190} text="LET GO FROM REST" size={72} bg={C.ink} fg={C.amber} />
   </g>
@@ -116,9 +116,9 @@ const c2: Shot = ({ f, n }) => (
 /** d - about 65 days (our sum). */
 const d1: Shot = ({ f, n }) => (
   <g>
-    <Space f={f} top={1250} />
-    <line x1={540} y1={460} x2={540} y2={1220} stroke={C.cream} strokeWidth={8} strokeDasharray="4 20" strokeLinecap="round" opacity={0.6} />
-    <Rock x={540} y={mix(480, 1100, ez(f, 0, n))} r={90} spin={f * 3} />
+    <Space f={f} top={1080} />
+    <line x1={540} y1={460} x2={540} y2={1060} stroke={C.cream} strokeWidth={8} strokeDasharray="4 20" strokeLinecap="round" opacity={0.6} />
+    <Rock x={540} y={mix(480, 960, ez(f, 0, n))} r={90} spin={f * 3} />
     <OurSum />
     <Count x={540} y={290} f={f} b={65} f1={Math.round(n * 0.4)} unit=" DAYS" w={560} size={120} />
     <Plaque x={540} y={440} text="ABOUT" size={48} bg={C.ink} fg={C.cream} />
@@ -126,9 +126,9 @@ const d1: Shot = ({ f, n }) => (
 );
 const d2: Shot = ({ f, n }) => (
   <g>
-    <Space f={f} top={1180} />
-    <Bloom x={540} y={1160} r={mix(100, 420, ez(f, 4, n))} color="#FFF3C4" strength={0.9} />
-    <Rock x={540} y={mix(900, 1130, ez(f, 0, 8))} r={90} />
+    <Space f={f} top={1050} />
+    <Bloom x={540} y={1040} r={mix(100, 420, ez(f, 4, n))} color="#FFF3C4" strength={0.9} />
+    <Rock x={540} y={mix(820, 980, ez(f, 0, 8))} r={90} />
     <OurSum />
     <Plaque x={540} y={290} text="FALLS STRAIGHT IN" size={72} bg={C.ink} fg={C.amber} />
   </g>
@@ -145,7 +145,7 @@ const e1: Shot = ({ f, n }) => (
 );
 const e2: Shot = ({ f }) => (
   <g>
-    <Space f={f} top={1250} />
+    <Space f={f} top={1080} />
     <Rain f={f} n={14} x0={200} x1={880} color={C.gold} speed={40} len={380} width={12} opacity={0.7} seed={8} />
     <Rock x={540} y={760} r={110} spin={f * 5} />
     <OurSum />
@@ -174,9 +174,9 @@ const Spiral: React.FC<{ k: number; f: number }> = ({ k, f }) => {
 };
 const f1: Shot = ({ f, n }) => (
   <g>
-    <Space f={f} top={1250} />
+    <Space f={f} top={1100} />
     <Plaque x={540} y={300} text="LAUNCH: AUG 2018" size={62} bg={C.ink} fg={C.cream} />
-    <Plaque x={540} y={1030} text="CLOSEST PASS: DEC 2024" size={54} bg={C.ink} fg={C.amber} />
+    <Plaque x={540} y={1010} text="CLOSEST PASS: DEC 2024" size={54} bg={C.ink} fg={C.amber} />
     <line x1={540} y1={420} x2={540} y2={940} stroke={C.cream} strokeWidth={8} strokeDasharray="4 20" strokeLinecap="round" opacity={0.6} />
     <Probe x={540} y={mix(480, 880, ez(f, 0, n))} size={300} f={f} tilt={-90} lamp={false} />
   </g>
@@ -203,15 +203,15 @@ const f3: Shot = ({ f, n }) => (
 
 const q: Shot = ({ f }) => (
   <g>
-    <Space f={f} top={1350} />
-    <Probe x={300} y={720} size={300} f={f} tilt={-90} lamp={false} />
+    <Space f={f} top={1120} />
+    <Probe x={300} y={680} size={300} f={f} tilt={-90} lamp={false} />
     <Qmark f={f} x={700} y={1020} size={520} />
     <Plaque x={540} y={190} text="SO HARD TO REACH?" size={64} bg={C.ink} fg={C.amber} />
   </g>
 );
 const end: Shot = ({ f }) => (
   <EndShot f={f} stops={BG_EMBER} q={["WHY IS THE SUN", "SO HARD TO REACH?"]}>
-    <Probe x={880} y={1230} size={240} f={f} tilt={-90} lamp={false} />
+    <Probe x={930} y={1290} size={170} f={f} tilt={-90} lamp={false} />
   </EndShot>
 );
 

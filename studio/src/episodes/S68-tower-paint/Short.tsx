@@ -213,7 +213,7 @@ const q: Shot = ({ f }) => (
 const end: Shot = ({ f }) => (
   <EndShot f={f} stops={SKY} q={["WHAT HAPPENS TO", "BARE STEEL?"]}>
     <g opacity={0.9}>
-      <EiffelIcon x={900} y={1220} size={300} ink={C.brick} />
+      <EiffelIcon x={940} y={1300} size={260} ink={C.brick} />
     </g>
   </EndShot>
 );

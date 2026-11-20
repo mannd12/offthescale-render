@@ -83,10 +83,10 @@ const c1: Shot = ({ f, n }) => (
     <line x1={140} y1={760} x2={940} y2={760} stroke={C.ink} strokeWidth={14} strokeLinecap="round" />
     <StoneIcon x={170} y={650} size={170} />
     <StoneIcon x={900} y={650} size={170} fill="#E3813F" />
-    <Plaque x={230} y={870} text="LOMEKWI" size={42} bg={C.ink} fg={C.cream} />
-    <Plaque x={850} y={870} text="OLDOWAN" size={42} bg={C.ink} fg={C.amber} />
+    <Plaque x={250} y={870} text="LOMEKWI" size={42} bg={C.ink} fg={C.cream} w={250} />
+    <Plaque x={800} y={870} text="OLDOWAN" size={42} bg={C.ink} fg={C.amber} w={250} />
     <Bracket x1={170} y1={980} x2={900} y2={980} draw={ez(f, 0, Math.round(n * 0.5))} color={C.ink} />
-    <Count x={540} y={190} f={f} b={700000} f1={Math.round(n * 0.4)} unit=" YEARS" w={780} size={110} />
+    <Count x={540} y={190} f={f} b={700000} f1={Math.round(n * 0.4)} unit=" YEARS" w={900} size={96} />
   </g>
 );
 const c2: Shot = ({ f }) => (
@@ -94,8 +94,8 @@ const c2: Shot = ({ f }) => (
     <Desert f={f} />
     <StoneIcon x={300} y={800} size={380} />
     <StoneIcon x={790} y={800} size={380} fill="#E3813F" />
-    <Plaque x={540} y={190} text="BEFORE THE OLDOWAN" size={62} bg={C.ink} fg={C.amber} />
-    <Plaque x={540} y={340} text="THE NEXT TOOL TRADITION" size={46} bg={C.ink} fg={C.cream} />
+    <Plaque x={540} y={190} text="BEFORE THE OLDOWAN" size={60} bg={C.ink} fg={C.amber} w={900} />
+    <Plaque x={540} y={340} text="THE NEXT TOOL TRADITION" size={44} bg={C.ink} fg={C.cream} w={860} />
   </g>
 );
 
@@ -124,15 +124,15 @@ const d2: Shot = ({ f }) => (
 const e1: Shot = ({ f }) => (
   <g>
     <Moon f={f} />
-    <PrintIcon x={540} y={760 + Math.sin(f / 16) * 5} size={620} rotate={-12} />
+    <PrintIcon x={540} y={760 + Math.sin(f / 16) * 5} size={620} rotate={-12} fill="#F2C36B" ink="#5A3A10" />
     <Plaque x={540} y={190} text="ON THE MOON" size={96} bg={C.ink} fg={C.amber} />
   </g>
 );
 const e2: Shot = ({ f }) => (
   <g>
     <Moon f={f} />
-    <PrintIcon x={300} y={900} size={300} rotate={-12} />
-    <PrintIcon x={760} y={780} size={300} rotate={8} />
+    <PrintIcon x={300} y={900} size={300} rotate={-12} fill="#F2C36B" ink="#5A3A10" />
+    <PrintIcon x={760} y={780} size={300} rotate={8} fill="#F2C36B" ink="#5A3A10" />
     <Plaque x={540} y={190} text="APOLLO FOOTPRINTS" size={70} bg={C.ink} fg={C.cream} />
     <Plaque x={540} y={340} text="NASA: PROBABLY MILLIONS OF YEARS" size={36} bg={C.ink} fg={C.amber} />
   </g>
@@ -201,7 +201,7 @@ const g2: Shot = ({ f }) => (
   <g>
     <Moon f={f} />
     <Card n={2} label="THE MOON" f={f}>
-      <PrintIcon x={540} y={740} size={440} rotate={-10} />
+      <PrintIcon x={540} y={740} size={440} rotate={-10} fill="#F2C36B" ink="#5A3A10" />
     </Card>
     <Plaque x={540} y={190} text="THE MOON IS ANOTHER" size={58} bg={C.ink} fg={C.cream} />
   </g>
@@ -223,7 +223,7 @@ const q: Shot = ({ f }) => (
       <rect x={60} y={520} width={300} height={400} rx={30} fill={C.cream} stroke={C.ink} strokeWidth={10} />
       <StoneIcon x={210} y={700} size={190} />
       <rect x={390} y={520} width={300} height={400} rx={30} fill={C.cream} stroke={C.ink} strokeWidth={10} />
-      <PrintIcon x={540} y={720} size={230} rotate={-10} />
+      <PrintIcon x={540} y={720} size={230} rotate={-10} fill="#F2C36B" ink="#5A3A10" />
       <rect x={720} y={520} width={300} height={400} rx={30} fill={C.ink} stroke={C.amber} strokeWidth={10} strokeDasharray="22 14" />
     </g>
     <Qmark f={f} x={870} y={860} size={300} />
@@ -232,7 +232,7 @@ const q: Shot = ({ f }) => (
 );
 const end: Shot = ({ f }) => (
   <EndShot f={f} stops={["#0A3C4C", "#11707A", "#1FA69A"]} q={["WHAT'S THE", "THIRD ONE?"]}>
-    <StoneIcon x={900} y={1230} size={170} />
+    <StoneIcon x={950} y={1300} size={140} />
   </EndShot>
 );
 

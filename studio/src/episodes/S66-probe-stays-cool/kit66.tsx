@@ -9,7 +9,7 @@ import { BG_EMBER } from "../S56-fall-clock/kit56";
 export { BG_EMBER };
 
 /** The Sun's limb: a huge disc whose top edge sits at y = top. Gold inside, amber, tangerine, vermilion rim. */
-export const SunLimb: React.FC<{ f: number; top?: number; R?: number; cx?: number; glow?: number }> = ({ f, top = 1250, R = 1500, cx = 540, glow = 0.75 }) => {
+export const SunLimb: React.FC<{ f: number; top?: number; R?: number; cx?: number; glow?: number }> = ({ f, top = 1060, R = 1500, cx = 540, glow = 0.75 }) => {
   const id = "sl" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const cy = top + R;
   return (
@@ -30,7 +30,7 @@ export const SunLimb: React.FC<{ f: number; top?: number; R?: number; cx?: numbe
 };
 
 /** Ember sky + the Sun's limb along the bottom, with a few drifting glints higher up. */
-export const SunScene: React.FC<{ f: number; top?: number; glints?: boolean }> = ({ f, top = 1250, glints = true }) => (
+export const SunScene: React.FC<{ f: number; top?: number; glints?: boolean }> = ({ f, top = 1060, glints = true }) => (
   <g>
     <Sky stops={BG_EMBER} x={0} y={0} w={W} h={H} />
     {glints ? <Chips f={f} n={10} y0={120} y1={Math.max(300, top - 100)} color={C.gold} speed={4} opacity={0.28} seed={4} len={50} width={6} /> : null}
