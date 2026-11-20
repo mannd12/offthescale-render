@@ -1,0 +1,292 @@
+{
+  "title": "ST02 · What If Every Toilet Flushed at the Same Second?",
+  "_source": "Desktop/What If/episodes/ST02-every-toilet/script.md (Suppose Then) - copied here and converted with scripts/script-md-to-json.mjs; edit the What If copy, then re-copy.",
+  "engine": "google",
+  "voice": "en-US-Chirp3-HD-Sulafat",
+  "speed": 1,
+  "scenes": [
+    {
+      "id": "cold",
+      "name": "Cold open",
+      "lines": [
+        {
+          "text": "At eight o'clock tonight, every toilet in New York City flushes in the same second.",
+          "pause": 0.55
+        },
+        {
+          "text": "Every home. Every office tower. Every school. Millions of people, one handle each. Do the pipes burst? Does the city run dry? Does the river of water just stop? Here is the strange part."
+        },
+        {
+          "text": "New York can almost answer this already, because it practises. Every year, when the Super Bowl halftime show ends, hundreds of thousands of New Yorkers flush within minutes. The water department watches it like a sport.",
+          "pause": 0.55
+        },
+        {
+          "text": "So we will climb a ladder, from one flush to the whole country. Each rung is bigger than the last, and each one ends on the problem that opens the next. Rung one is the smallest. One flush.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l01",
+      "name": "One flush",
+      "lines": [
+        {
+          "text": "The federal standard is 1.6 gallons per flush. A modern water-saving model uses 1.28 gallons or less. Older toilets used more: about 3.5 gallons for those installed from 1980 to 1994, and about five gallons before 1980.",
+          "pause": 0.55
+        },
+        {
+          "text": "An American uses about 82 gallons of water a day at home. Toilets are nearly thirty percent of the indoor part of that. Our sum: one 1.6-gallon flush is about two percent of one person's home day.",
+          "pause": 0.55
+        },
+        {
+          "text": "Toilets are still where the savings are. The EPA says replacing all the inefficient toilets in the country could save more than 260 billion gallons a year."
+        },
+        {
+          "text": "That tells you how much water toilets move, week after week, without anyone noticing.",
+          "pause": 0.55
+        },
+        {
+          "text": "One flush is nothing. But the pipe that feeds it is shared with everyone else. Next rung: one building, where that shared pipe gets tested.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l02",
+      "name": "One building",
+      "lines": [
+        {
+          "text": "Here is the scary idea. Engineers call it water hammer. It is a pressure surge that follows a sudden change in how fast water moves in a pipe. It most often happens when a valve closes quickly or a pump stops."
+        },
+        {
+          "text": "The surge can be severe enough to rupture a pipe.",
+          "pause": 0.55
+        },
+        {
+          "text": "Engineers asked about this scenario said simultaneous flushing could pull air into some pipes and cause serious water hammer. That is a judgment, not a measurement.",
+          "pause": 0.55
+        },
+        {
+          "text": "Real mains do burst. In 1998 a hundred-year-old, 48-inch main broke on Fifth Avenue. In 2009 a power loss stopped the pumps in 14 waterworks in Hamburg, and when they restarted, 16 water mains ruptured."
+        },
+        {
+          "text": "Neither was a toilet. We found no record of flushing breaking a main. That is a gap in our search, not proof.",
+          "pause": 0.55
+        },
+        {
+          "text": "A tower is not a city. To see a real city flush at once, we need real data. Next rung: Seattle.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l03",
+      "name": "One city, measured: Seattle",
+      "lines": [
+        {
+          "text": "When the halftime show ended, Seattle's water demand rose by 6,477 gallons per minute over fifteen minutes. The city's utility said that could equal about 60,722 toilet flushes.",
+          "pause": 0.55
+        },
+        {
+          "text": "Our sum: that is 97,155 gallons, and divided by 60,722 flushes it comes to 1.6 gallons a flush, the federal figure. So the flush count is a conversion of gallons, not a head count of toilets.",
+          "pause": 0.55
+        },
+        {
+          "text": "Miami-Dade checked pressure before, during and after the show and found no discernible change.",
+          "pause": 0.55
+        },
+        {
+          "text": "Sixty thousand flushes is a big town. Next rung is the biggest measured flush we could find.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l04",
+      "name": "New York, measured",
+      "lines": [
+        {
+          "text": "New York's water department reported that in the fifteen minutes after the 2026 halftime show, water use spiked to the equivalent of 761,719 toilets flushing."
+        },
+        {
+          "text": "The year before, the spike after the final whistle was 467,881. During the show itself, water use fell across the city.",
+          "pause": 0.55
+        },
+        {
+          "text": "Our sum: at 1.6 gallons each, that is about 1.2 million gallons. The department says the surges come at three moments: the start of halftime, the end of halftime, and the end of the game."
+        },
+        {
+          "text": "It sends extra water to a reservoir called Hillview ahead of time, and customers don't notice a drop in pressure. The city says the sewers cope because the flushes are spread out across town.",
+          "pause": 0.55
+        },
+        {
+          "text": "That is the first real staggering. A toilet near the plant and one at the far edge are on different timers. Rung five makes that idea the star.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l05",
+      "name": "The stagger",
+      "lines": [
+        {
+          "text": "Here is how a one-second flush becomes a ten-minute flow. Every toilet starts at the same moment. But every toilet sits a different distance from the main. A flush at the street corner reaches the big pipe first."
+        },
+        {
+          "text": "A flush at the far end of a long line gets there later.",
+          "pause": 0.55
+        },
+        {
+          "text": "So the same crowd that started as one spike arrives as a long smear. One expert called it a smooth curve of contributions rather than a peak."
+        },
+        {
+          "text": "We have no measured travel times for New York, so the pictures here are a model, not data.",
+          "pause": 0.55
+        },
+        {
+          "text": "The water side is the opposite problem. In our model, every tank asks for water at the very start, with no stagger at all. That is why the water department plans ahead. It adds extra water to Hillview before the game."
+        },
+        {
+          "text": "Hillview is a holding tank that lets the department meet the city's daily peak demand. It is built for rushes, and this is a rush we can see coming.",
+          "pause": 0.55
+        },
+        {
+          "text": "Staggering lowers the peak. It does not lower the total. Next rung: the total, for the whole city.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l06",
+      "name": "All of New York",
+      "lines": [
+        {
+          "text": "The department counts about 8.8 million people living in the city. Suppose each flushes once. At 1.6 gallons, that is about 14 million gallons. The city supplies more than a billion gallons on an ordinary day."
+        },
+        {
+          "text": "So our sum puts the flush at no more than about one and a half percent of one day's supply.",
+          "pause": 0.55
+        },
+        {
+          "text": "Make every toilet an old five-gallon one, and our sum is about 44 million gallons, still under five percent of a day. And the whole-city flush is about twelve times the real halftime spike.",
+          "pause": 0.55
+        },
+        {
+          "text": "Those gallons have somewhere to go. The city runs about seven thousand miles of water mains, tunnels and aqueducts, and about 7,500 miles of sewer lines with 96 pump stations."
+        },
+        {
+          "text": "Fourteen million gallons spread over that much pipe is a thin film, not a wall. That is our picture, not a measurement.",
+          "pause": 0.55
+        },
+        {
+          "text": "Sums are tidy. Pipes are not. Next rung: where it might hurt.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l07",
+      "name": "The weak spot",
+      "lines": [
+        {
+          "text": "If a flush does cause trouble, the trouble is local. One engineer said that if there are bottlenecks in a system, they could perhaps be overwhelmed."
+        },
+        {
+          "text": "Some apartment buildings might back up if everyone flushes at once, depending on their pipes.",
+          "pause": 0.55
+        },
+        {
+          "text": "In towns where tanks depend on pumps rather than stored water, some toilets could be left waiting for a refill. That is the heart of the old burst-pipe worry."
+        },
+        {
+          "text": "An empty toilet lets air in, and air in a pressurised line is what makes water hammer worse.",
+          "pause": 0.55
+        },
+        {
+          "text": "One engineer sized it for a town of 25,000 people on one tank: 40,000 gallons, about a small pool. Our sum agrees: 25,000 times 1.6 is 40,000. A small pool is not a disaster. It is a lot of water in a short time.",
+          "pause": 0.55
+        },
+        {
+          "text": "Still, those are engineers' judgments. They are not measured events.",
+          "pause": 0.55
+        },
+        {
+          "text": "A famous story blames the Super Bowl flush for a water main break in Salt Lake City in 1984."
+        },
+        {
+          "text": "The city's infrastructure was old, and one sewer district says the odds of a major city's sewer being unable to handle the flow are slim to none. The worst case is a bad day on a few streets, not a drained city.",
+          "pause": 0.55
+        },
+        {
+          "text": "One city is fine. Now the country.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l08",
+      "name": "The country",
+      "lines": [
+        {
+          "text": "The Census Bureau estimates about 341.8 million people live in the United States. One flush each at 1.6 gallons is about 547 million gallons. That sounds enormous. But it is not one pipe.",
+          "pause": 0.55
+        },
+        {
+          "text": "Each city has its own water supply, so the effects would be local. That is why a national flush never becomes one national event.",
+          "pause": 0.55
+        },
+        {
+          "text": "Our sum: set against the roughly 82 gallons each of us uses at home in a day, the whole flush is about two percent of a single day's home use. A big number, spread across many pipes.",
+          "pause": 0.55
+        }
+      ]
+    },
+    {
+      "id": "l09",
+      "name": "What it really means",
+      "lines": [
+        {
+          "text": "Here is what we saw, and what we only worked out.",
+          "pause": 0.55
+        },
+        {
+          "text": "Measured: New York's real spike, Seattle's real spike, and Miami-Dade's flat pressure. And the gallons per flush set by the federal standard.",
+          "pause": 0.55
+        },
+        {
+          "text": "Modelled: everything bigger than that. The 14 million gallons, the 44 million, the 547 million are our arithmetic, built on one flush per person. The burst-pipe warnings are expert judgment."
+        },
+        {
+          "text": "Nobody has measured a whole city flushing in one second, and we found no source that counts the toilets in the country, so we did not use one.",
+          "pause": 0.55
+        },
+        {
+          "text": "One more correction. You may have heard of the British \"TV pickup.\" It is real, but it is electricity, from kettles switched on at the end of a show. Water has its own version."
+        },
+        {
+          "text": "During an England match, one water company saw demand run 1.23 million litres above normal at half-time, and 3.34 million above after extra time. A big crowd, a shared moment, and the system coped."
+        },
+        {
+          "text": "Those litres are the water company's own, from its own pipes, for one match. We do not turn them into a flush count, because the page does not say how much of that water went down toilets.",
+          "pause": 0.55
+        },
+        {
+          "text": "So what would change the answer? Older, bigger toilets would raise the totals, and our worst case shows by how much. A weak pump or a narrow pipe would move the trouble to one street."
+        },
+        {
+          "text": "And a smaller town with one tank would feel it more than a city with a giant reservoir. Those are the knobs. None of them turns the flush into a flood.",
+          "pause": 0.55
+        },
+        {
+          "text": "So the answer is less dramatic than the stories. The water holds. A few old buildings sulk. And most of the crowd is rescued by the fact that pipes have different lengths.",
+          "pause": 0.55
+        },
+        {
+          "text": "If your whole city could do one thing in the same second, what would you pick?",
+          "pause": 0.55
+        }
+      ]
+    }
+  ],
+  "style": "Read slowly and calmly, like a patient nature-documentary narrator. Take your time with every number. Leave a short, natural pause after every sentence. Never rush"
+}
