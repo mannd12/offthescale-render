@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "Tides come from a pull that gets weaker with the cube of the distance.",
+    "file": "S71-ninety-two-thousand/vo/cold-00.wav",
+    "seconds": 5.78,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "Today the Moon is about three hundred eighty-four thousand kilometers away.",
+    "file": "S71-ninety-two-thousand/vo/cold-01.wav",
+    "seconds": 4.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Lower it to the height of the space station, and its center would be about eighty-five hundred kilometers from the Earth's center.",
+    "file": "S71-ninety-two-thousand/vo/cold-02.wav",
+    "seconds": 9.08,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Cube that change in distance, and the tidal pull comes out about ninety-two thousand times today's.",
+    "file": "S71-ninety-two-thousand/vo/cold-03.wav",
+    "seconds": 6.68,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "That's our own sum, from a simple model, and not a measured tide.",
+    "file": "S71-ninety-two-thousand/vo/cold-04.wav",
+    "seconds": 5.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "But the Moon is a ball three thousand four hundred seventy-six kilometers across. Its near side would be pulled more than twice as hard as its far side.",
+    "file": "S71-ninety-two-thousand/vo/cold-05.wav",
+    "seconds": 11.56,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So would the Moon hold together?",
+    "file": "S71-ninety-two-thousand/vo/cold-06.wav",
+    "seconds": 2.58,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S71-ninety-two-thousand/vo/cold-07.wav",
+    "seconds": 7.96,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

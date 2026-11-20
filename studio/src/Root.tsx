@@ -126,6 +126,8 @@ import { ShortS66, timeline as s66 } from "./episodes/S66-probe-stays-cool/Short
 import { ShortS67, timeline as s67 } from "./episodes/S67-fifty-five-times/Short";
 import { ShortS68, timeline as s68 } from "./episodes/S68-tower-paint/Short";
 import { ShortS69, timeline as s69 } from "./episodes/S69-million-years/Short";
+import { ShortS70, timeline as s70 } from "./episodes/S70-moon-fills-sky/Short";
+import { ShortS71, timeline as s71 } from "./episodes/S71-ninety-two-thousand/Short";
 import { SkitX01, timeline as x01 } from "./episodes/X01-skit-sharks/Skit";
 // Suppose Then (second channel, Desktop\What If): voice audition only; its kit lives in lib/suppose with its own entry
 import { AUDITIONS as SUPPOSE_AUDITIONS } from "./lib/suppose/audition";
@@ -279,6 +281,8 @@ export const Root: React.FC = () => (
     <Composition id="s67-short" component={ShortS67} durationInFrames={s67.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s68-short" component={ShortS68} durationInFrames={s68.totalFrames} fps={FPS} width={1080} height={1920} />
     <Composition id="s69-short" component={ShortS69} durationInFrames={s69.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s70-short" component={ShortS70} durationInFrames={s70.totalFrames} fps={FPS} width={1080} height={1920} />
+    <Composition id="s71-short" component={ShortS71} durationInFrames={s71.totalFrames} fps={FPS} width={1080} height={1920} />
     {/* experiment, owner 2026-10-23: animated two-character skit pilot (episodes/X01-skit-sharks) */}
     <Composition id="x01-skit" component={SkitX01} durationInFrames={x01.totalFrames} fps={FPS} width={1080} height={1920} />
 
