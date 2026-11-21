@@ -2,7 +2,7 @@
   {
     "scene": "cold",
     "index": 0,
-    "text": "In 1995, a probe dropped into Jupiter's clouds and started measuring the air.",
+    "text": "This probe fell into Jupiter and landed in what scientists called a desert.",
     "file": "S73-jupiter-sahara/vo/cold-00.wav",
     "seconds": 5.66,
     "pauseAfter": 0.55,
@@ -11,7 +11,7 @@
   {
     "scene": "cold",
     "index": 1,
-    "text": "The air was drier than anyone expected.",
+    "text": "It was 1995, and the air it measured was drier than anyone expected.",
     "file": "S73-jupiter-sahara/vo/cold-01.wav",
     "seconds": 3.08,
     "pauseAfter": 0.55,

@@ -2,7 +2,7 @@
   {
     "scene": "cold",
     "index": 0,
-    "text": "In December 1995, a real probe fell into Jupiter, and it kept talking for fifty-eight minutes.",
+    "text": "This probe fell into Jupiter for fifty-eight minutes. It got less than one percent of the way in.",
     "file": "S72-quarter-percent/vo/cold-00.wav",
     "seconds": 7,
     "pauseAfter": 0.55,
@@ -11,7 +11,7 @@
   {
     "scene": "cold",
     "index": 1,
-    "text": "In that time, it sent back data from a fall of one hundred fifty-six kilometres.",
+    "text": "It was December 1995, and it sent back data from a fall of one hundred fifty-six kilometres.",
     "file": "S72-quarter-percent/vo/cold-01.wav",
     "seconds": 6.49,
     "pauseAfter": 0.55,

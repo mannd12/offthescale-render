@@ -60,13 +60,13 @@ const Probe: React.FC<{ f: number; x: number; y: number; r?: number; chips?: num
 const MAP = { x: 60, y: 430, w: 960, h: 640 };
 const HOLE: [number, number] = [0.62, 0.55];
 
-/** a - 1995: a probe dropped into Jupiter's clouds and started measuring the air. */
+/** a - hook (2026-11-21 rule: claim first, date second): fell into Jupiter and "landed in the Sahara Desert of Jupiter" (NASA JPL 1997, row 6). */
 const a1: Shot = ({ f, n }) => (
   <g>
     <Space f={f} />
     <VLimb f={f} cy={2450} R={1500} />
     <Probe f={f} x={540} y={mix(520, 760, ez(f, 0, n))} r={62} chips={0} />
-    <Plaque x={540} y={190} text="JUPITER, 1995" size={96} bg={C.ink} fg={C.amber} />
+    <Plaque x={540} y={190} text="IT FELL INTO JUPITER" size={72} bg={C.ink} fg={C.amber} />
   </g>
 );
 const a2: Shot = ({ f, n }) => (
@@ -74,7 +74,7 @@ const a2: Shot = ({ f, n }) => (
     <Clouds f={f} />
     <Wisps f={f} x={0} y={0} w={W} h={1300} n={10} speed={26} />
     <Probe f={f} x={540} y={780} r={110} chips={6 * ez(f, 0, Math.round(n * 0.7))} />
-    <Plaque x={540} y={190} text="MEASURING THE AIR" size={80} bg={C.ink} fg={C.amber} />
+    <Plaque x={540} y={190} text="AND LANDED IN A DESERT?" size={62} bg={C.ink} fg={C.amber} />
   </g>
 );
 
@@ -92,7 +92,7 @@ const b1: Shot = ({ f, n }) => (
     <Card x={300} label="EXPECTED" drop={300} f={f} />
     <Card x={780} label="FOUND" drop={mix(300, 110, ez(f, 4, Math.round(n * 0.7)))} f={f} />
     <Plaque x={540} y={190} text="DRIER" size={110} bg={C.ink} fg={C.amber} />
-    <Plaque x={540} y={350} text="THAN EXPECTED" size={60} bg={C.ink} fg={C.cream} />
+    <Plaque x={540} y={350} text="THAN EXPECTED, 1995" size={56} bg={C.ink} fg={C.cream} />
   </g>
 );
 const b2: Shot = ({ f, n }) => (

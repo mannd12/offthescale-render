@@ -57,14 +57,14 @@ const Probe: React.FC<{ f: number; x: number; y: number; r?: number; dead?: numb
   </g>
 );
 
-/** a - December 1995: a real probe fell into Jupiter and kept talking for 58 minutes. */
+/** a - hook (2026-11-21 rule: claim first, date second): fell for 58 minutes, under 1 % of the way in (156 / 71,492 = 0.22 %). */
 const a1: Shot = ({ f, n }) => (
   <g>
     <Space f={f} />
     <VLimb f={f} cy={2500} R={1500} />
     <Probe f={f} x={540} y={mix(560, 760, ez(f, 0, n))} r={60} />
-    <Plaque x={540} y={190} text="DEC 1995" size={90} bg={C.ink} fg={C.amber} />
-    <Plaque x={540} y={330} text="A PROBE FALLS INTO JUPITER" size={50} bg={C.ink} fg={C.cream} />
+    <Plaque x={540} y={190} text="58 MINUTES INTO JUPITER" size={64} bg={C.ink} fg={C.amber} />
+    <Plaque x={540} y={330} text="UNDER 1 % OF THE WAY IN" size={54} bg={C.ink} fg={C.cream} />
   </g>
 );
 const a2: Shot = ({ f, n }) => (
@@ -92,7 +92,7 @@ const b2: Shot = ({ f, n }) => (
     <Probe f={f} x={420} y={mix(560, 900, ez(f, 0, n))} r={66} />
     <Bracket x1={760} y1={470} x2={760} y2={1050} draw={ez(f, 0, Math.round(n * 0.5))} color={L19_COLORS.heard} />
     <Plaque x={760} y={760} text="156 KM" size={56} bg={C.ink} fg={C.amber} />
-    <Plaque x={540} y={190} text="OF DATA ON THE WAY DOWN" size={56} bg={C.ink} fg={C.cream} />
+    <Plaque x={540} y={190} text="OF DATA, DECEMBER 1995" size={56} bg={C.ink} fg={C.cream} />
   </g>
 );
 

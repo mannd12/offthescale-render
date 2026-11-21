@@ -10,12 +10,12 @@
       "name": "Cold open",
       "lines": [
         {
-          "text": "In 1995, a probe dropped into Jupiter's clouds and started measuring the air.",
+          "text": "This probe fell into Jupiter and landed in what scientists called a desert.",
           "pause": 0.55,
           "cue": "caption: JUPITER, 1995"
         },
         {
-          "text": "The air was drier than anyone expected.",
+          "text": "It was 1995, and the air it measured was drier than anyone expected.",
           "pause": 0.55,
           "cue": "caption: DRIER THAN EXPECTED"
         },

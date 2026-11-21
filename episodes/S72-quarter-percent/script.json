@@ -10,12 +10,12 @@
       "name": "Cold open",
       "lines": [
         {
-          "text": "In December 1995, a real probe fell into Jupiter, and it kept talking for fifty-eight minutes.",
+          "text": "This probe fell into Jupiter for fifty-eight minutes. It got less than one percent of the way in.",
           "pause": 0.55,
           "cue": "caption: 58 MINUTES"
         },
         {
-          "text": "In that time, it sent back data from a fall of one hundred fifty-six kilometres.",
+          "text": "It was December 1995, and it sent back data from a fall of one hundred fifty-six kilometres.",
           "pause": 0.55,
           "cue": "caption: 156 KM"
         },
