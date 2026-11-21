@@ -174,7 +174,7 @@ const ShotMass: ShotFC<CCold> = ({ f, len }) => {
           })}
         </Layer>
         <Layer depth={0}>
-          <Roll x={110} y={560} k={lin(f, 6, len - 20)} rkey="mass300" prefix="MORE THAN" suffix="TIMES EARTH'S MASS" size={170} />
+          <Roll x={110} y={560} k={lin(f, 6, 40)} rkey="mass300" prefix="MORE THAN" suffix="TIMES EARTH'S MASS" size={170} />
         </Layer>
       </Stage>
     </Pop>
@@ -317,7 +317,7 @@ const ShotSection: ShotFC<CCold> = ({ f, c }) => {
       </Layer>
       <Layer depth={0}>
         <rect x={80} y={110} width={820} height={260} rx={30} fill="rgba(26,4,2,0.55)" />
-        <Roll x={110} y={290} k={lin(f, 8, 90)} rkey="pct025" prefix="LESS THAN" unit="%" dec={2} size={130} />
+        <Roll x={110} y={290} k={lin(f, 8, 40)} rkey="pct025" prefix="LESS THAN" unit="%" dec={2} size={130} />
         <OurSumPill x={120} y={340} size={30} appear={lin(f, 30, 40)} />
         <Plate x={1010} y={440} text="156 KM" size={28} appear={lin(f, 10, 20)} />
       </Layer>

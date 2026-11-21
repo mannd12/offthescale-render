@@ -116,7 +116,7 @@ const ShotWinds: ShotFC<CL03> = ({ f }) => (
     <Descent f={f} fam="crest" speed={4} shear={[24, -26, 28, -22, 26, -24]} seed={61} />
     <Layer depth={1}>
       <WindStreaks f={f} bands={[{ y: 380, h: 150, dir: 1 }, { y: 590, h: 150, dir: -1 }, { y: 800, h: 170, dir: 1 }]} speed={24} />
-      <Probe f={f} x={980} y={260} r={74} sway={8} />
+      <Probe f={f} x={980} y={345} r={74} sway={8} />
       <WindBar f={f} x={1700} y={960} h={Math.min(240, 40 + f * 30)} />
     </Layer>
     <Layer depth={0}>
@@ -141,7 +141,7 @@ const ShotSpeedUp: ShotFC<CL03> = ({ f, c }) => {
           <WindStreaks f={f} bands={[{ y: 360, h: 150, dir: 1 }]} speed={24} seed={3} />
           <WindStreaks f={f} bands={[{ y: 580, h: 150, dir: -1 }]} speed={32} seed={4} />
           <WindStreaks f={f} bands={[{ y: 800, h: 170, dir: 1 }]} speed={40} seed={5} />
-          <Probe f={f} x={960} y={250} r={66} />
+          <Probe f={f} x={960} y={330} r={66} />
           <WindBar f={f} x={1700} y={960} h={lerp(240, 420, lin(f, 0, T3))} />
         </Layer>
       </Stage>
@@ -153,7 +153,7 @@ const ShotSpeedUp: ShotFC<CL03> = ({ f, c }) => {
       <Descent f={f} fam="deep" speed={16} shear={[30, -34, 36, -32, 38, -30]} seed={63} />
       <Layer depth={1}>
         <WindStreaks f={f} bands={[{ y: 120, h: 220, dir: 1 }, { y: 420, h: 220, dir: -1 }, { y: 760, h: 220, dir: 1 }]} speed={40} />
-        <Probe f={f} x={440} y={230} r={56} />
+        <Probe f={f} x={440} y={260} r={56} />
         <WindBar f={f} x={820} y={920} h={Math.min(640, 420 + g * 36)} />
         <BarDial f={g} cx={1400} cy={460} r={300} needle={needleTo(1, 4, lin(g, 4, 30))} lit={12} sweep={12} />
       </Layer>
@@ -192,7 +192,7 @@ const ShotConvert: ShotFC<CL03> = ({ f, len }) => {
         </Layer>
         <Layer depth={0}>
           <rect x={1150} y={360} width={720} height={330} rx={30} fill="rgba(58,8,6,0.6)" />
-          <Roll x={1190} y={560} k={lin(f, 20, len - 40)} rkey="kmh610" prefix="ABOUT" unit="KM/H" size={140} />
+          <Roll x={1190} y={560} k={lin(f, 20, 50)} rkey="kmh610" prefix="ABOUT" unit="KM/H" size={140} />
           <OurSumPill x={1200} y={640} size={32} appear={lin(f, 40, 50)} />
         </Layer>
       </Stage>
@@ -226,7 +226,7 @@ const ShotHold21: ShotFC<CL03> = ({ f, c, len }) => {
         <Descent f={f} fam="deep" speed={18} shear={[30, -34, 36, -32, 38, -30]} seed={65} />
         <Layer depth={1}>
           <WindStreaks f={f} bands={[{ y: 120, h: 220, dir: 1 }, { y: 760, h: 220, dir: -1 }]} speed={40} />
-          <Probe f={f} x={300} y={220} r={50} />
+          <Probe f={f} x={300} y={240} r={50} />
           <WindBar f={f} x={620} y={940} h={640} />
           <line x1={420} y1={300} x2={900} y2={300} stroke="#FFF0A0" strokeWidth={8} strokeDasharray="30 18" strokeDashoffset={-f * 36} />
           <BarDial f={f} cx={1360} cy={460} r={300} needle={needleTo(4, 21, lin(f, 4, 40))} lit={12} sweep={12} />
@@ -384,7 +384,7 @@ const ShotJuno: ShotFC<CL03> = ({ f }) => {
         <SpaceField f={f} speed={10} n={100} seed={70} />
         <Layer depth={1}>
           <Limb f={f} cx={960} cy={top + 3000} R={3000} shear={[18, -16, 20, -18, 16, -20]} seed={70} />
-          <Orbiter x={2000 - f * 24} y={170} kind="juno" f={f} size={1} />
+          <Orbiter x={2000 - f * 12} y={150} kind="juno" f={f} size={1} />
           <line x1={1100} y1={top} x2={1100} y2={top + L * d} stroke="#FFF0A0" strokeWidth={12} strokeDasharray="30 20" strokeDashoffset={-f * 20} />
           {d < 1 ? <circle cx={1100} cy={top + L * d} r={18} fill={C.goldHot} /> : <line x1={1060} y1={top + L} x2={1140} y2={top + L} stroke="#FFF0A0" strokeWidth={10} />}
         </Layer>
@@ -520,9 +520,9 @@ const ShotGRS: ShotFC<CL03> = ({ f, c }) => {
       </Layer>
       <Layer depth={0}>
         <Plate x={ox + 300} y={oy + 30} text="GREAT RED SPOT" size={34} appear={lin(f, 4, 12)} />
-        <rect x={1000} y={720} width={820} height={300} rx={30} fill="rgba(43,9,5,0.62)" />
-        <AgencyPill x={1040} y={780} agency="NASA SAYS" size={32} appear={lin(f, 10, 20)} />
-        <Roll x={1030} y={960} k={lin(f, 12, 70)} rkey="grs500" prefix="ABOUT" unit="KM" size={130} />
+        <rect x={1000} y={690} width={820} height={340} rx={30} fill="rgba(43,9,5,0.62)" />
+        <AgencyPill x={1040} y={740} agency="NASA SAYS" size={32} appear={lin(f, 10, 20)} />
+        <Roll x={1030} y={985} k={lin(f, 12, 45)} rkey="grs500" prefix="ABOUT" unit="KM" size={130} />
       </Layer>
     </Stage>
   );

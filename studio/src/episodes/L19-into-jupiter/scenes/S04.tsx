@@ -239,7 +239,7 @@ const ShotSahara: ShotFC<CL04> = ({ f }) => {
       <Stage theme={CREST.theme} shotFrame={f} drift={DRIFT(5, 1.1, 0.04)} vignette={0.2} grain={0.5}>
         <Descent f={f} fam="crest" speed={0} shear={[16, -14, 16, -12, 14, -16]} seed={85} />
         <Layer depth={1}>
-          <DryPatch f={f} x={1180} y={540} r={320} open={1} props />
+          <DryPatch f={f} x={1180} y={540} r={320} open={1} />
           <HeatWaves f={f} x={900} y={160} w={560} h={360} n={5} speed={20} />
           {[0, 1, 2].map((k) => {
             const y = 850 + k * 70;
@@ -249,7 +249,7 @@ const ShotSahara: ShotFC<CL04> = ({ f }) => {
             }).join(" ");
             return <path key={k} d={`${d} L2300 1200 L-100 1200 Z`} fill={k === 0 ? "#FFC247" : k === 1 ? "#F2A31B" : "#E8731C"} />;
           })}
-          <Cactus x={1560} y={900} size={170} />
+          <Cactus x={1080} y={640} size={170} />
           <Tumbleweed x={tw} y={880} size={90} rotate={f * 14} />
           <Tick x={380} y={1050} pxPerM={254} frame={f} pose="wipe-brow" expression="happy" look={0.4} />
           <Clipboard x={540} y={640} size={110} rotate={-20 + 24 * Math.sin(f * 0.45)} />

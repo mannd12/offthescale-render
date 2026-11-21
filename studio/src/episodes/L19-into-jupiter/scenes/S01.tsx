@@ -172,7 +172,7 @@ const ShotG: ShotFC<CL01> = ({ f, len }) => {
           <Capsule x={1380 + sh} y={430 - sh * 0.5} r={70} f={f} chips={6} glow={0.6} tilt={sh} />
         </Layer>
         <Layer depth={0}>
-          <Roll x={110} y={250} k={lin(f, 6, len - 30)} rkey="g200" prefix="MORE THAN" suffix="TIMES GRAVITY" size={120} />
+          <Roll x={110} y={250} k={lin(f, 6, 36)} rkey="g200" prefix="MORE THAN" suffix="TIMES GRAVITY" size={120} />
         </Layer>
       </Stage>
     </Pop>
@@ -188,7 +188,7 @@ const ShotBrake: ShotFC<CL01> = ({ f, c }) => {
   const T6 = c.c06 - c.c05;
   const g = Math.max(0, f - T6);
   const out = ez(f, T6, T6 + 16);
-  const py = 330 - 110 * ez(g, 0, 5) + 20 * ez(g, 5, 30);
+  const py = 460 - 110 * ez(g, 0, 5) + 20 * ez(g, 5, 30);
   return (
     <Pop f={f}>
       <Stage theme={DEEP.theme} shotFrame={f} drift={DRIFT(4, g > 0 ? 0.94 : 1.08, 0.03)} vignette={0.2} grain={0.5}>
@@ -361,7 +361,7 @@ const ShotGauge: ShotFC<CL01> = ({ f, c, len }) => {
           <TapeTrace f={f} x={820} y={780} w={600} h={80} mode="wave" speed={24} />
         </g>
         <Reel x={1580} y={790} r={100} f={f} />
-        <Tick x={1220} y={1050} pxPerM={170} frame={f} pose="think" expression="neutral" look={-0.4} />
+        <Tick x={1760} y={1050} pxPerM={150} frame={f} facing={-1} pose="think" expression="neutral" look={-0.4} />
       </Layer>
     </Stage>
   );
