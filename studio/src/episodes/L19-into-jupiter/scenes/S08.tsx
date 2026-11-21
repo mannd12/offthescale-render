@@ -107,7 +107,7 @@ const Board: React.FC<{ f: number; y?: number; marker?: number; drift?: number; 
     ) : null}
   </>
 );
-const Furnace: React.FC<{ f: number; glow?: number }> = ({ f, glow = 0.32 }) => (
+const Furnace: React.FC<{ f: number; glow?: number }> = ({ f, glow = 0.26 }) => (
   <>
     <Layer depth={0.1}>
       <DarkSky name="furnace" />
@@ -237,7 +237,7 @@ const Shot805: ShotFC<C08> = ({ f, len }) => {
         <Layer depth={1}>
           <g transform={`translate(${-1400 * out} 0)`}>
             <Sheet x={900} y={260} w={1000} h={600} f={f} swing={4} kind="heard">
-              <MarkLines x={90} y={120} w={820} n={10} f={f} slide={f * 26 * 0.3} gap={44} />
+              <MarkLines x={90} y={120} w={820} n={10} f={f} gap={44} />
             </Sheet>
           </g>
           <g transform={`translate(${1500 * turn} 0) rotate(${-50 * turn} 1000 300)`}>
@@ -357,9 +357,8 @@ const NumCard: React.FC<{ x: number; y: number; text: string; color: string; who
   </g>
 );
 const Shot809: ShotFC<C08> = ({ f }) => {
-  const span = 2600;
-  const a = -500 + mod(f * 30, span);
-  const b = 2100 - mod(f * 30 + 900, span);
+  const a = 900 + 620 * Math.sin(f * 0.05);
+  const b = 900 - 620 * Math.sin(f * 0.05);
   return (
     <Pop f={f}>
       <Stage theme={SC.theme} shotFrame={f} drift={DRIFT(89)} vignette={0.14} grain={0.5}>
@@ -531,7 +530,7 @@ const Shot814: ShotFC<C08> = ({ f }) => (
               <circle cx={cx} cy={600} r={270} fill={C.liquid} opacity={0.9} />
               <circle cx={cx} cy={600} r={240} fill={C.gold} />
               <circle cx={cx} cy={600} r={270} fill="none" stroke={C.goldRim} strokeWidth={6} />
-              <Fog f={f + i * 30} cx={cx} cy={600} r={r} n={50} spread={1} speed={16} />
+              <Fog f={f + i * 30} cx={cx} cy={600} r={r} n={60} spread={1} speed={16} color={C.liquid} />
             </g>
           );
         })}
@@ -641,7 +640,7 @@ const Shot818: ShotFC<C08> = ({ f }) => (
         <Capsule x={620} y={500} r={140} f={f} chips={Math.min(6, Math.max(0, (f - 4) / 8))} />
         <Sheet x={1340} y={220} w={620} h={560} f={f} swing={8} kind="apricot">
           <Num x={310} y={330} text={READ.km156.text /* #4 A */} size={110} color={INK} align="middle" who="8-18 156" />
-          <CheckPen x={460} y={300} k={lin(f, 40, 40 + 380 / 44)} s={0.8} />
+          <CheckPen x={310} y={460} k={lin(f, 40, 40 + 380 / 44)} s={0.8} />
         </Sheet>
       </Layer>
       <Layer depth={0}>
@@ -782,6 +781,9 @@ const Shot822: ShotFC<C08> = ({ f, len }) => {
       <Layer depth={1}>
         <Bloom x={-60 + 2040 * SOLID * 0.5} y={520} r={700} color={C.heard} strength={0.35 + 0.15 * Math.sin(f * 0.4)} />
         <Ledger f={f} x0={-60} x1={1980} y={520} solidTo={SOLID} marker={m} drift={30} pins={[0.06, 0.25, 0.45, 0.7, 0.92]} />
+        <TapeTicket x={420} y={300} word="HEARD" f={f} swing={12} size={1.2} />
+        <Capsule x={-60 + 2040 * SOLID} y={760} r={70} f={f} chips={6} />
+        <QuestionTag x={1500} y={760} f={f} size={90} />
       </Layer>
       <Dust f={f} seed={103} />
     </Stage>
@@ -794,7 +796,7 @@ const Shot822: ShotFC<C08> = ({ f, len }) => {
 // ===============================================================================================================
 const Shot823: ShotFC<C08> = ({ f }) => (
   <Stage theme={FU.theme} shotFrame={f} drift={DRIFT(104)} vignette={0.24} grain={0.5}>
-    <Furnace f={f} glow={0.36} />
+    <Furnace f={f} glow={0.28} />
     <Layer depth={0.8}>
       <Section f={f} cx={900} cy={1400} radius={1000} layers={["gas", "liquid", "metal"]} core="dilute" swirl={0.9} />
     </Layer>

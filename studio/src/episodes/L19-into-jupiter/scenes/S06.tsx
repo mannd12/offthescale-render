@@ -44,7 +44,7 @@ const SC = familyOf("scope");
 const LI = familyOf("limb");
 
 /** The furnace field: dark crimson-brown, its tone bands sliding, glow bands rising (the models' world). */
-const Furnace: React.FC<{ f: number; glow?: number; speed?: number }> = ({ f, glow = 0.34, speed = 22 }) => (
+const Furnace: React.FC<{ f: number; glow?: number; speed?: number }> = ({ f, glow = 0.26, speed = 22 }) => (
   <>
     <Layer depth={0.1}>
       <DarkSky name="furnace" />
@@ -88,7 +88,7 @@ const Shot601: ShotFC<C06> = ({ f, len }) => {
               </g>
             );
           })}
-          <GhostProbe x={900} y={300 + 90 * lin(f, 0, len)} r={84} f={f} />
+          <GhostProbe x={900} y={300 + 90 * lin(f, 0, len)} r={115} f={f} />
           <Embers frame={f} x0={100} x1={1800} y={1100} n={36} color={C.goldHot} seed={61} />
         </Layer>
         <Layer depth={0}>

@@ -66,7 +66,7 @@ export type C07 = ReturnType<typeof cuesL07>;
 const FU = familyOf("furnace");
 const SC = familyOf("scope");
 
-const Furnace: React.FC<{ f: number; glow?: number }> = ({ f, glow = 0.32 }) => (
+const Furnace: React.FC<{ f: number; glow?: number }> = ({ f, glow = 0.26 }) => (
   <>
     <Layer depth={0.1}>
       <DarkSky name="furnace" />
@@ -230,7 +230,7 @@ const Shot706: ShotFC<C07> = ({ f, len }) => {
   const top = 160;
   const base = 940;
   const H = base - top;
-  const fill = 0.18 * ez(f, 6, len * 0.55);
+  const fill = 0.18 * ez(f, 6, len * 0.3);
   const fy = base - H * fill;
   return (
     <Pop f={f}>
@@ -262,7 +262,7 @@ const Shot706: ShotFC<C07> = ({ f, len }) => {
           <Sparks f={f} x={560} y={1100} w={500} h={600} n={16} speed={22} angle={-90} seed={76} />
         </Layer>
         <Layer depth={0}>
-          <Readout x={70} y={60} value={READ.m18.value! /* #12 A */} k={ez(f, 6, len * 0.55)} pre="ABOUT" unit="% OF THE MASS" size={80} w={720} appear={lin(f, 0, 10)} who="7-06 18" />
+          <Readout x={70} y={60} value={READ.m18.value! /* #12 A */} k={ez(f, 6, len * 0.3)} pre="ABOUT" unit="% OF THE MASS" size={80} w={720} appear={lin(f, 0, 10)} who="7-06 18" />
           <TapeTicket x={1560} y={1000} word="MODEL" f={f} slam={lin(f, 10, 22)} swing={10} size={0.8} />
         </Layer>
       </Stage>
@@ -368,7 +368,7 @@ const Shot709: ShotFC<C07> = ({ f, len }) => {
           <Motes frame={f} n={14} w={1920} h={1080} color="#FFE7A0" seed={79} size={3} drift={20} />
         </Layer>
         <Layer depth={0}>
-          <Readout x={1000} y={60} value={READ.km26k.value! /* #13 C (26,452; model) */} k={lin(f, 2, len * 0.7)} pre="MORE THAN" unit="KM" size={80} w={680} appear={lin(f, 0, 10)} who="7-09 26,000" />
+          <Readout x={1000} y={60} value={READ.km26k.value! /* #13 C (26,452; model) */} k={lin(f, 2, 36)} pre="MORE THAN" unit="KM" size={80} w={680} appear={lin(f, 0, 10)} who="7-09 26,000" />
           <OurSumPill x={1010} y={240} size={28} appear={lin(f, 8, 18)} />
         </Layer>
       </Stage>
@@ -396,7 +396,7 @@ const Shot710: ShotFC<C07> = ({ f, len }) => {
         <Label x={SX - 30 / zoom} y={RTOP - 40 / zoom} text="156 KM" size={30 / Math.sqrt(zoom)} color={C.heard} halo="#002A1A" align="end" />
       </Layer>
       <Layer depth={0}>
-        <Readout x={1000} y={60} value={READ.times170.value! /* #13 C */} k={lin(f, 4, len * 0.7)} pre="ABOUT" unit="TIMES" size={80} w={560} appear={lin(f, 0, 10)} who="7-10 170" />
+        <Readout x={1000} y={60} value={READ.times170.value! /* #13 C */} k={lin(f, 4, 34)} pre="ABOUT" unit="TIMES" size={80} w={560} appear={lin(f, 0, 10)} who="7-10 170" />
         <OurSumPill x={1010} y={240} size={28} appear={lin(f, 8, 18)} />
       </Layer>
     </Stage>

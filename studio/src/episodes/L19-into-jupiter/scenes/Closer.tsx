@@ -70,7 +70,7 @@ const Furnace: React.FC<{ f: number }> = ({ f }) => (
       <BandField19 f={f} k="furnace" />
     </Layer>
     <Layer depth={0.5}>
-      <GlowBands f={f} speed={22} opacity={0.34} />
+      <GlowBands f={f} speed={22} opacity={0.26} />
     </Layer>
   </>
 );
@@ -445,7 +445,7 @@ const ShotZ09: ShotFC<CZ> = ({ f }) => {
 // ===============================================================================================================
 const ShotZ10: ShotFC<CZ> = ({ f, len }) => {
   const zoom = 1.3 - 0.3 * ez(f, 0, 180);
-  const away = f * 24;
+  const away = f * 8;
   return (
     <Pop f={f}>
       <Stage theme={LI.theme} cam={{ x: 960, y: 560, zoom }} vignette={0.26} grain={0.5}>

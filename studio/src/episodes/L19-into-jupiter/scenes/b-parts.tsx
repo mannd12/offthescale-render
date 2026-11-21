@@ -91,8 +91,8 @@ export const DarkSky: React.FC<{ name: "limb" | "furnace" }> = ({ name }) => {
 /** L18 probe lesson: wide low-contrast tone bands sliding across the whole field (luma step ≈ 0.06-0.09). Dark pairs stay
  *  under V 0.3. Draw right after the sky. */
 const BANDS: Record<L19FamilyName, [string, string]> = {
-  limb: ["#2A0804", "#4A1408"],
-  furnace: ["#300802", "#4C1406"],
+  limb: ["#220602", "#3E1004"],
+  furnace: ["#240602", "#3E1004"],
   deepdeck: ["#D8381C", "#EE5424"],
   crest: ["#FF9A2E", "#FFB848"],
   scope: ["#00A35A", "#12BA6C"],
@@ -580,9 +580,9 @@ export const MarkLines: React.FC<{ x: number; y: number; w: number; n: number; f
 );
 
 export const arcPt = (t: number) => {
-  const P0 = [1880, -120];
-  const P1 = [1060, 560];
-  const P2 = [1880, 1220];
+  const P0 = [1700, -150];
+  const P1 = [900, 560];
+  const P2 = [1700, 1230];
   const u = 1 - t;
   return [u * u * P0[0] + 2 * u * t * P1[0] + t * t * P2[0], u * u * P0[1] + 2 * u * t * P1[1] + t * t * P2[1]];
 };

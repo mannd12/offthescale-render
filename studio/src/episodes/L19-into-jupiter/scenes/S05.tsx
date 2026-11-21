@@ -99,7 +99,7 @@ const Shot502: ShotFC<C05> = ({ f, len }) => {
         <DeepWorld f={f} speed={18} />
         <Layer depth={1}>
           <Bloom x={640} y={640} r={420} color={C.glow} strength={0.4 + 0.15 * Math.sin(f * 0.5)} />
-          <BarDial f={f} cx={640} cy={650} r={250} needle={23} lit={12} heat={0.35 + 0.65 * lin(f, 0, len * 0.8)} />
+          <BarDial f={f} cx={640} cy={650} r={250} needle={23} lit={12} heat={0.35 + 0.65 * lin(f, 0, len * 0.8)} heatMark={false} />
           <Bloom x={1320} y={y300} r={260} color="#FF7A30" strength={(0.35 + 0.2 * Math.sin(f * 0.7)) * cl((level - 0.6) * 4)} />
           <Thermo x={1320} y={bulb} h={H} level={level} f={f} />
           <line x1={1250} y1={y300} x2={1420} y2={y300} stroke={C.goldHot} strokeWidth={6} />
@@ -118,8 +118,8 @@ const Shot502: ShotFC<C05> = ({ f, len }) => {
 // 5-03 · the F → C slider: the puck slides 32 px/f along a lemon track whose ticks stream; the counter rolls 300 → 150
 // ===============================================================================================================
 const Shot503: ShotFC<C05> = ({ f, len }) => {
-  const x0 = 220;
-  const x1 = 1480;
+  const x0 = 320;
+  const x1 = 1360;
   const k = ez(f, 2, Math.min(len - 6, 2 + (x1 - x0) / 32));
   const px = x0 + (x1 - x0) * k;
   return (
@@ -273,7 +273,7 @@ const Shot507: ShotFC<C05> = ({ f, len }) => {
         <BandField19 f={f} k="furnace" />
       </Layer>
       <Layer depth={0.5}>
-        <GlowBands f={f} speed={20} opacity={0.32} />
+        <GlowBands f={f} speed={20} opacity={0.26} />
         <Bloom x={900} y={1250} r={900} color={C.glow} strength={0.4} />
       </Layer>
       <Layer depth={1}>
@@ -283,7 +283,7 @@ const Shot507: ShotFC<C05> = ({ f, len }) => {
           <Capsule x={900} y={gy} r={90} f={f} glow={1} dead={6} />
         </g>
         <g opacity={ez(f, len * 0.2, len * 0.6)}>
-          <GhostProbe x={900} y={gy} r={90} f={f} />
+          <GhostProbe x={900} y={gy} r={110} f={f} />
         </g>
         <Sparks f={f} x={900} y={gy - 40} w={500} h={700} n={40} speed={26} angle={-90} seed={7} />
         <Embers frame={f} x0={200} x1={1700} y={1100} n={40} color={C.goldHot} seed={57} />
@@ -320,18 +320,18 @@ const Shot508: ShotFC<C05> = ({ f, len }) => {
           <BandField19 f={f} k="furnace" />
         </Layer>
         <Layer depth={0.5}>
-          <GlowBands f={f} speed={20} opacity={0.32} />
+          <GlowBands f={f} speed={20} opacity={0.26} />
           <Bloom x={1100} y={1200} r={800} color={C.glow} strength={0.4} />
         </Layer>
         <Layer depth={1}>
-          <TapeTrace f={f + 200} x={-120} y={300} w={1300} h={100} mode="flat" speed={0} head={false} />
+          <TapeTrace f={f + 200} x={-120} y={300} w={1300} h={100} mode="flat" speed={8} head={false} />
           {[0, 1, 2].map((i) => (
             <rect key={i} x={1210 + i * 44} y={292} width={26} height={16} rx={8} fill={C.heard} opacity={0.9 - i * 0.25} />
           ))}
           <g transform={`translate(${tx} ${300 - 110 + off * off * 0.004}) rotate(${off * 0.12})`}>
             <TapeTicket x={0} y={0} word="HEARD" f={f} size={1} />
           </g>
-          <GhostProbe x={1150} y={600 + 160 * lin(f, 0, len)} r={80} f={f} />
+          <GhostProbe x={1150} y={600 + 160 * lin(f, 0, len)} r={110} f={f} />
           <Embers frame={f} x0={300} x1={1700} y={1100} n={30} color={C.goldHot} seed={58} />
         </Layer>
       </Stage>
@@ -345,7 +345,7 @@ const Shot508: ShotFC<C05> = ({ f, len }) => {
 // ===============================================================================================================
 const Shot509: ShotFC<C05> = ({ f, len }) => {
   const draw = lin(f, 4, 4 + 840 / 40);
-  const gy = 560 + 200 * lin(f, 0, len);
+  const gy = 600 + 160 * lin(f, 0, len);
   return (
     <Pop f={f}>
       <Stage theme={FU.theme} shotFrame={f} drift={DRIFT(59)} vignette={0.26} grain={0.5}>
@@ -354,14 +354,15 @@ const Shot509: ShotFC<C05> = ({ f, len }) => {
           <BandField19 f={f} k="furnace" />
         </Layer>
         <Layer depth={0.5}>
-          <GlowBands f={f} speed={20} opacity={0.3} />
-          <Bloom x={820} y={1260} r={980} color={C.glow} strength={0.55} />
-          <Bloom x={820} y={1180} r={560} color={C.goldHot} strength={0.3 + 0.08 * Math.sin(f * 0.2)} />
+          <GlowBands f={f} speed={20} opacity={0.26} />
+          <Bloom x={820} y={1240} r={1000} color={C.glow} strength={0.6} />
+          <Bloom x={820} y={1140} r={700} color={C.goldHot} strength={0.32 + 0.06 * Math.sin(f * 0.2)} />
+          <Bloom x={820} y={640} r={300} color={C.model} strength={0.3} />
         </Layer>
         <Layer depth={1}>
-          <TapeTrace f={f + 200} x={-120} y={250} w={1700} h={104} mode="dashed" speed={28} />
-          <TapeTicket x={1040} y={250} word="MODEL" f={f} draw={draw} swing={draw >= 1 ? 14 : 0} size={1.25} />
-          <GhostProbe x={760} y={gy} r={96} f={f} />
+          <TapeTrace f={f + 200} x={-120} y={230} w={1700} h={110} mode="dashed" speed={28} />
+          <TapeTicket x={1080} y={230} word="MODEL" f={f} draw={draw} swing={draw >= 1 ? 14 : 0} size={1.45} />
+          <GhostProbe x={820} y={gy} r={150} f={f} />
           <Sparks f={f} x={820} y={1120} w={600} h={800} n={34} speed={24} angle={-90} seed={9} />
           <Embers frame={f} x0={100} x1={1700} y={1100} n={46} color={C.goldHot} seed={59} />
         </Layer>
