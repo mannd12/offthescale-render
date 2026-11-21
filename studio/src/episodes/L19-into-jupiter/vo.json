@@ -34,9 +34,9 @@
   {
     "scene": "cold",
     "index": 4,
-    "text": "And that probe fell through a spot so dry that scientists joked it had landed in a desert. Did it show us Jupiter, or just one strange place on it? Let's go down and find out.",
-    "file": "L19-into-jupiter/vo/cold-04-b2f33b19e6.wav",
-    "seconds": 12.45,
+    "text": "And that probe fell through a spot so dry that scientists compared it to a desert. Did it show us Jupiter, or just one strange place on it? Let's go down and find out.",
+    "file": "L19-into-jupiter/vo/cold-04-b25937863c.wav",
+    "seconds": 13.43,
     "pauseAfter": 0.55
   },
   {
@@ -90,9 +90,9 @@
   {
     "scene": "l02",
     "index": 0,
-    "text": "Jupiter's clouds are usually described in three layers, which NASA says together span about seventy-one kilometres. That is less than half the distance the probe fell.",
-    "file": "L19-into-jupiter/vo/l02-00-5d82f554a4.wav",
-    "seconds": 9.66,
+    "text": "Jupiter's clouds are usually described in three layers, which NASA says together span about seventy-one kilometres. That is less than half the distance the probe fell, though the two are not measured from the same starting height.",
+    "file": "L19-into-jupiter/vo/l02-00-4b1da8462d.wav",
+    "seconds": 15.09,
     "pauseAfter": 0.25
   },
   {
@@ -130,9 +130,9 @@
   {
     "scene": "l03",
     "index": 0,
-    "text": "At the cloud tops, the winds blew at about eighty to a hundred metres a second. Going down, they speeded up. By four bar they reached about one hundred seventy metres a second.",
-    "file": "L19-into-jupiter/vo/l03-00-a4d562e8f8.wav",
-    "seconds": 13.15,
+    "text": "At the cloud tops, the winds blew at about eighty to a hundred metres a second. Going down, they speeded up. Between one and four bar they rose sharply, to about one hundred seventy metres a second.",
+    "file": "L19-into-jupiter/vo/l03-00-2cc7e58d2e.wav",
+    "seconds": 14.69,
     "pauseAfter": 0.25
   },
   {
@@ -146,9 +146,9 @@
   {
     "scene": "l03",
     "index": 2,
-    "text": "Then something odd. They stayed almost that fast all the way down to twenty-one bar, the deepest the wind could be followed. The wind did not fade.",
-    "file": "L19-into-jupiter/vo/l03-02-9dd8875d25.wav",
-    "seconds": 10.62,
+    "text": "Then something odd. They stayed near that speed all the way down to twenty-one bar. The wind did not fade.",
+    "file": "L19-into-jupiter/vo/l03-02-923e28413d.wav",
+    "seconds": 7.65,
     "pauseAfter": 0.25
   },
   {
@@ -170,9 +170,9 @@
   {
     "scene": "l03",
     "index": 5,
-    "text": "The authors estimate that moving layer holds about one percent of Jupiter's mass. The probe had only touched the top of it. Juno's gravity data also limits the Great Red Spot to a depth of about five hundred kilometres.",
-    "file": "L19-into-jupiter/vo/l03-05-c59d40a010.wav",
-    "seconds": 14.87,
+    "text": "The authors estimate that moving layer holds about one percent of Jupiter's mass. The probe had only touched the top of it. NASA puts the Great Red Spot's depth at only about five hundred kilometres.",
+    "file": "L19-into-jupiter/vo/l03-05-9003ecb954.wav",
+    "seconds": 15.02,
     "pauseAfter": 0.25
   },
   {
@@ -194,9 +194,9 @@
   {
     "scene": "l04",
     "index": 1,
-    "text": "The place the probe entered was a dry spot, a gap in the clouds through which deeper, warmer layers can be seen. Scientists suspected it had landed in the Sahara Desert of Jupiter.",
-    "file": "L19-into-jupiter/vo/l04-01-2d09e0af79.wav",
-    "seconds": 11.5,
+    "text": "The place the probe entered was a dry spot, a gap in the clouds through which deeper, warmer layers can be seen. Scientists said it had landed in the Sahara Desert of Jupiter.",
+    "file": "L19-into-jupiter/vo/l04-01-36871008bc.wav",
+    "seconds": 10.96,
     "pauseAfter": 0.55
   },
   {
@@ -220,243 +220,216 @@
     "index": 4,
     "text": "The authors said the probe had entered a meteorologically anomalous site. But they also noted it is still unconfirmed whether the equator speaks for the whole planet.",
     "file": "L19-into-jupiter/vo/l04-04-808f65ede5.wav",
-    "seconds": 8.526315789473685,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 11.99,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 5,
-    "text": "Juno's radiometer looked at roughly the same pressures the probe fell through, about seven tenths of a bar down to thirty.",
-    "file": "L19-into-jupiter/vo/l04-05-b68191ea98.wav",
-    "seconds": 6.631578947368421,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "text": "Juno's radiometer looked from about seven tenths of a bar down to thirty, deeper than the probe's last reading.",
+    "file": "L19-into-jupiter/vo/l04-05-a8b580815b.wav",
+    "seconds": 6.79,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l04",
     "index": 6,
-    "text": "The difference is that it looked from orbit, across many latitudes, instead of one dive at one spot.",
-    "file": "L19-into-jupiter/vo/l04-06-b2c2b287f7.wav",
-    "seconds": 5.684210526315789,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "text": "The difference is that it looked from orbit, along the whole equatorial zone, instead of one dive at one spot.",
+    "file": "L19-into-jupiter/vo/l04-06-d7b6f88406.wav",
+    "seconds": 7.4,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l04",
     "index": 7,
     "text": "So the dryness was real, and local. That is the first lesson of a single probe.",
     "file": "L19-into-jupiter/vo/l04-07-1c3689b990.wav",
-    "seconds": 5.052631578947368,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.55,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 0,
     "text": "At fifty-eight minutes, pressure had reached twenty-three atmospheres. The temperature topped three hundred degrees Fahrenheit, which is about a hundred and fifty Celsius, by our conversion. The transmitters went silent.",
     "file": "L19-into-jupiter/vo/l05-00-7dc3cdfe49.wav",
-    "seconds": 9.473684210526315,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 14.250041666666666,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 1,
     "text": "That pressure was more than twice what the mission required. It was a good run. Then there was nothing to hear.",
     "file": "L19-into-jupiter/vo/l05-01-70f75d571e.wav",
-    "seconds": 6.631578947368421,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 6.21,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l05",
     "index": 2,
     "text": "NASA says the probe was eventually vaporized in the deeper atmosphere. No instrument told us that. It is a model, so from here on the stamp changes.",
     "file": "L19-into-jupiter/vo/l05-02-4b1944834f.wav",
-    "seconds": 8.526315789473685,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 9.51,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 0,
     "text": "Jupiter has no true surface. There is no floor to land on. Its average density is about one point three times that of water, so the whole planet is a bit heavier than a ball of water.",
     "file": "L19-into-jupiter/vo/l06-00-5fe75c100f.wav",
-    "seconds": 11.68421052631579,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 10.97,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 1,
     "text": "Going down, pressure and temperature rise until the hydrogen is squeezed into a liquid.",
     "file": "L19-into-jupiter/vo/l06-01-0cd4626647.wav",
-    "seconds": 4.421052631578947,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.68,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 2,
     "text": "Deeper still, models say hydrogen may begin to carry electricity like a metal, which may help make Jupiter's magnetic field.",
     "file": "L19-into-jupiter/vo/l06-02-3b15a8c4c4.wav",
-    "seconds": 6.315789473684211,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 8.160041666666666,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l06",
     "index": 3,
-    "text": "Most models include a layer of this metallic hydrogen, with helium separating out at the top of it as a kind of rain. There is no sharp boundary. The change is gradual.",
-    "file": "L19-into-jupiter/vo/l06-03-ade6371f79.wav",
-    "seconds": 10.105263157894736,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "text": "Most models include a layer of this metallic hydrogen, with helium separating out at the top of it as a kind of rain.",
+    "file": "L19-into-jupiter/vo/l06-03-7fe1b24493.wav",
+    "seconds": 7.78,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l06",
     "index": 4,
     "text": "Nothing in this stage has ever been measured by an instrument inside it. It comes from physics, and from how Jupiter pulls on a passing spacecraft.",
     "file": "L19-into-jupiter/vo/l06-04-e8060598d6.wav",
-    "seconds": 8.210526315789474,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 8.18,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 0,
     "text": "That pull is what Juno measured. Conventional models, with a distinct rock-and-ice core, predicted some gravity values larger than Juno saw.",
     "file": "L19-into-jupiter/vo/l07-00-5f23f4af29.wav",
-    "seconds": 6.631578947368421,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 8.69,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 1,
     "text": "Models with a dilute core, with heavy elements mixed in with the hydrogen and helium, fit better.",
     "file": "L19-into-jupiter/vo/l07-01-cbca6b779d.wav",
-    "seconds": 5.368421052631579,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 5.66,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 2,
     "text": "In the best-fit models, that dilute core reaches out to about sixty-three percent of the radius, with heavy elements at only about eighteen percent of the mass.",
     "file": "L19-into-jupiter/vo/l07-02-ef3ac0cb05.wav",
-    "seconds": 8.526315789473685,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 12.66,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l07",
     "index": 3,
     "text": "NASA now describes the core as larger than expected and not solid, with no clear line between it and the metallic hydrogen. That fuzzy zone starts more than twenty-six thousand kilometres down.",
     "file": "L19-into-jupiter/vo/l07-03-0dadf993b6.wav",
-    "seconds": 10.105263157894736,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 14.65,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l07",
     "index": 4,
     "text": "That is about a hundred and seventy times deeper than the probe got. Both numbers are our sums.",
     "file": "L19-into-jupiter/vo/l07-04-b8316d620a.wav",
-    "seconds": 5.684210526315789,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 7.19,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 0,
-    "text": "Let's be honest about where the data ends. A probe has been, at most, a hundred and fifty-six kilometres in.",
-    "file": "L19-into-jupiter/vo/l08-00-b7b63b148b.wav",
-    "seconds": 6.315789473684211,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "text": "Let's be honest about where the data ends. A probe has been about a hundred and fifty-six kilometres in.",
+    "file": "L19-into-jupiter/vo/l08-00-064a82cb7a.wav",
+    "seconds": 6.45,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 1,
     "text": "First, what was heard. Winds, temperature, pressure, helium, a thin cloud, and dry air, all measured by instruments until the signal ended. Even that evolved.",
     "file": "L19-into-jupiter/vo/l08-01-5fb44240f1.wav",
-    "seconds": 7.894736842105263,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 12.92,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 2,
     "text": "The first public summary, in January 1996, said winds of perhaps up to three hundred thirty miles an hour.",
     "file": "L19-into-jupiter/vo/l08-02-7fea9153bd.wav",
-    "seconds": 6,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 7.69,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 3,
     "text": "A reanalysis in 1997 settled on about one hundred seventy metres a second, and its cloud-top speeds agree with the images from Voyager. The numbers moved as people checked them.",
     "file": "L19-into-jupiter/vo/l08-03-c3ec612f19.wav",
-    "seconds": 9.473684210526315,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 13.37,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 4,
     "text": "Second, a single spot. This was one dry patch, at one moment, on a planet that could hold more than thirteen hundred Earths. Juno's equatorial water readings differ, and still have wide error bars.",
     "file": "L19-into-jupiter/vo/l08-04-6192f6ed5f.wav",
-    "seconds": 10.736842105263158,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 15.08,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 5,
     "text": "Third, the models. They match Juno's gravity data, but different assumptions about hydrogen give different cores. The sixty-three percent is one model's best fit, not a reading.",
     "file": "L19-into-jupiter/vo/l08-05-286c31b382.wav",
-    "seconds": 8.526315789473685,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 12.08,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 6,
     "text": "Even NASA's own pages differ on how far the probe went. One says a hundred and fifty-six kilometres. Another says about two hundred. We used the first, because it is tied to the instruments' data.",
     "file": "L19-into-jupiter/vo/l08-06-2045373d9c.wav",
-    "seconds": 11.052631578947368,
-    "pauseAfter": 0.25,
-    "estimated": true
+    "seconds": 12.35,
+    "pauseAfter": 0.25
   },
   {
     "scene": "l08",
     "index": 7,
-    "text": "The same goes for the last reading. Some reference sites give twenty-two atmospheres and a hundred fifty-three Celsius. We used NASA's own wording, twenty-three and over three hundred Fahrenheit.",
-    "file": "L19-into-jupiter/vo/l08-07-7835b6d869.wav",
-    "seconds": 9.157894736842106,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "text": "The same goes for the last reading. Some reference sites give slightly different numbers. We used NASA's own wording, twenty-three and over three hundred Fahrenheit.",
+    "file": "L19-into-jupiter/vo/l08-07-66599c2bfe.wav",
+    "seconds": 9.98,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 8,
     "text": "Where sources differ, we say about, and we show the range.",
     "file": "L19-into-jupiter/vo/l08-08-461376d2b6.wav",
-    "seconds": 3.473684210526316,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 3.79,
+    "pauseAfter": 0.55
   },
   {
     "scene": "l08",
     "index": 9,
     "text": "And so the probe's descent is known, but what it means for the whole planet is not settled.",
     "file": "L19-into-jupiter/vo/l08-09-1b4a23d123.wav",
-    "seconds": 5.684210526315789,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "seconds": 5.75,
+    "pauseAfter": 0.55
   },
   {
     "scene": "closer",

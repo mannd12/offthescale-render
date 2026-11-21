@@ -3,72 +3,64 @@
     "scene": "cold",
     "index": 0,
     "text": "Tides come from a pull that gets weaker with the cube of the distance.",
-    "file": "S71-ninety-two-thousand/vo/cold-00.wav",
-    "seconds": 5.78,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-00-a24cd8bf43.wav",
+    "seconds": 5.269958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Today the Moon is about three hundred eighty-four thousand kilometers away.",
-    "file": "S71-ninety-two-thousand/vo/cold-01.wav",
-    "seconds": 4.58,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-01-2e8f9aa514.wav",
+    "seconds": 5.2,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "Lower it to the space station's height, and its center is about eighty-five hundred kilometers from the Earth's center.",
-    "file": "S71-ninety-two-thousand/vo/cold-02.wav",
-    "seconds": 7.88,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-02-90582c493a.wav",
+    "seconds": 7.579958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "Cube that change in distance, and the tidal pull comes out about ninety-two thousand times today's.",
-    "file": "S71-ninety-two-thousand/vo/cold-03.wav",
-    "seconds": 6.68,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-03-9596912833.wav",
+    "seconds": 8.11,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "That's our own sum from a simple model, not a measured tide.",
-    "file": "S71-ninety-two-thousand/vo/cold-04.wav",
-    "seconds": 5.08,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-04-c606310eb3.wav",
+    "seconds": 4.22,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "But the Moon is a ball three thousand four hundred seventy-six kilometers across. Its near side is pulled more than twice as hard as its far side.",
-    "file": "S71-ninety-two-thousand/vo/cold-05.wav",
-    "seconds": 11.16,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-05-3c1001b827.wav",
+    "seconds": 10.620041666666667,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "So would the Moon hold together?",
-    "file": "S71-ninety-two-thousand/vo/cold-06.wav",
-    "seconds": 2.58,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-06-daafb84ffb.wav",
+    "seconds": 2.49,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S71-ninety-two-thousand/vo/cold-07.wav",
-    "seconds": 7.96,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S71-ninety-two-thousand/vo/cold-07-c4390c983c.wav",
+    "seconds": 5.35,
+    "pauseAfter": 0.55
   }
 ]

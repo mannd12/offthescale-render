@@ -3,72 +3,64 @@
     "scene": "cold",
     "index": 0,
     "text": "Today the Moon is about half a degree wide, about the width of a small pea held at arm's length.",
-    "file": "S70-moon-fills-sky/vo/cold-00.wav",
-    "seconds": 8.28,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-00-6c61001954.wav",
+    "seconds": 7.48,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 1,
     "text": "Now sink it until its surface is four hundred kilometers above ours, the height of the space station.",
-    "file": "S70-moon-fills-sky/vo/cold-01.wav",
-    "seconds": 7.48,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-01-86a71ff66b.wav",
+    "seconds": 6.98,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 2,
     "text": "Straight underneath it, the Moon would be about seventy-eight degrees wide.",
-    "file": "S70-moon-fills-sky/vo/cold-02.wav",
-    "seconds": 4.68,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-02-8c5b973576.wav",
+    "seconds": 4.699958333333333,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 3,
     "text": "The sky from one horizon to the other is a hundred eighty degrees.",
-    "file": "S70-moon-fills-sky/vo/cold-03.wav",
-    "seconds": 5.38,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-03-57b8a132ab.wav",
+    "seconds": 5.09,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 4,
     "text": "So one Moon would stretch across nearly half of it.",
-    "file": "S70-moon-fills-sky/vo/cold-04.wav",
-    "seconds": 4.18,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-04-d3e13e1b41.wav",
+    "seconds": 3.58,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 5,
     "text": "That's about one hundred fifty times wider than the Moon you know.",
-    "file": "S70-moon-fills-sky/vo/cold-05.wav",
-    "seconds": 4.98,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-05-6d34de6592.wav",
+    "seconds": 4.03,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 6,
     "text": "And it would not sit still. So which way would it cross the sky, and how fast?",
-    "file": "S70-moon-fills-sky/vo/cold-06.wav",
-    "seconds": 7.26,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-06-7196d9b55e.wav",
+    "seconds": 5.7400416666666665,
+    "pauseAfter": 0.55
   },
   {
     "scene": "cold",
     "index": 7,
     "text": "The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
-    "file": "S70-moon-fills-sky/vo/cold-07.wav",
-    "seconds": 7.96,
-    "pauseAfter": 0.55,
-    "estimated": true
+    "file": "S70-moon-fills-sky/vo/cold-07-c4390c983c.wav",
+    "seconds": 4.8,
+    "pauseAfter": 0.55
   }
 ]
