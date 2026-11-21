@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "In December 1995, a real probe fell into Jupiter, and it kept talking for fifty-eight minutes.",
+    "file": "S72-quarter-percent/vo/cold-00.wav",
+    "seconds": 7,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "In that time, it sent back data from a fall of one hundred fifty-six kilometres.",
+    "file": "S72-quarter-percent/vo/cold-01.wav",
+    "seconds": 6.49,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Sounds deep. But Jupiter's radius is more than seventy-one thousand kilometres.",
+    "file": "S72-quarter-percent/vo/cold-02.wav",
+    "seconds": 4.91,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "So the probe covered less than a quarter of one percent of the way to the centre, by our sum.",
+    "file": "S72-quarter-percent/vo/cold-03.wav",
+    "seconds": 8.56,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Shrink that trip to a hundred metres, and the probe got about twenty-two centimetres.",
+    "file": "S72-quarter-percent/vo/cold-04.wav",
+    "seconds": 6.07,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "Then the signal stopped, at twenty-three times the air pressure at Earth's surface. Nothing more was heard.",
+    "file": "S72-quarter-percent/vo/cold-05.wav",
+    "seconds": 7.49,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So what fills the rest of the way down, and is there anything at the bottom to land on?",
+    "file": "S72-quarter-percent/vo/cold-06.wav",
+    "seconds": 8.14,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S72-quarter-percent/vo/cold-07.wav",
+    "seconds": 8.22,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]

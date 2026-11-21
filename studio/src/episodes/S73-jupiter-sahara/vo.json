@@ -1,0 +1,83 @@
+[
+  {
+    "scene": "cold",
+    "index": 0,
+    "text": "In 1995, a probe dropped into Jupiter's clouds and started measuring the air.",
+    "file": "S73-jupiter-sahara/vo/cold-00.wav",
+    "seconds": 5.66,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 1,
+    "text": "The air was drier than anyone expected.",
+    "file": "S73-jupiter-sahara/vo/cold-01.wav",
+    "seconds": 3.08,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 2,
+    "text": "Jupiter's clouds are usually described in three layers. It found just one, of modest size.",
+    "file": "S73-jupiter-sahara/vo/cold-02.wav",
+    "seconds": 6.67,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 3,
+    "text": "Later, NASA explained why. The probe had fallen through a dry spot, a gap in the clouds.",
+    "file": "S73-jupiter-sahara/vo/cold-03.wav",
+    "seconds": 7.59,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 4,
+    "text": "Scientists said it had landed in the Sahara Desert of Jupiter.",
+    "file": "S73-jupiter-sahara/vo/cold-04.wav",
+    "seconds": 4.73,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 5,
+    "text": "And dry spots like that cover less than one percent of the planet's atmosphere.",
+    "file": "S73-jupiter-sahara/vo/cold-05.wav",
+    "seconds": 5.97,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 6,
+    "text": "So out of a whole planet, the probe found one rare patch.",
+    "file": "S73-jupiter-sahara/vo/cold-06.wav",
+    "seconds": 5.25,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 7,
+    "text": "So how much water does the rest of Jupiter hold? Another spacecraft went to find out.",
+    "file": "S73-jupiter-sahara/vo/cold-07.wav",
+    "seconds": 6.98,
+    "pauseAfter": 0.55,
+    "estimated": true
+  },
+  {
+    "scene": "cold",
+    "index": 8,
+    "text": "The full video on our channel has the answer. Like and subscribe so you don't miss the next one.",
+    "file": "S73-jupiter-sahara/vo/cold-08.wav",
+    "seconds": 8.22,
+    "pauseAfter": 0.55,
+    "estimated": true
+  }
+]
