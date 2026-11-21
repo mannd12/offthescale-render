@@ -91,7 +91,7 @@ const Sheet1: React.FC<{ f: number }> = ({ f }) => {
           lit={(f / 5) % 13}
           arcs={[
             { from: 0.7, to: 30, draw: cl(f / 50), color: C.model, dashed: true },
-            { from: 4, to: 23, draw: cl((f - 10) / 40), color: C.heard, inset: 1.6, width: 0.06 },
+            { from: 4, to: 23, draw: cl((f - 10) / 40), color: C.heard, inset: 1.2, width: 0.06 },
           ]}
           marker={10}
           heat={cl(f / 60)}
@@ -184,7 +184,7 @@ const Sheet2: React.FC<{ f: number }> = ({ f }) => {
         <WordPill x={PW * 2 + 20} y={PH + 215} text="NO FLOOR" size={20} F={familyOf("scope")} />
         <WordPill x={PW * 2 + 190} y={PH + 215} text="NOT THE SAME LEVEL" size={18} F={familyOf("scope")} />
         <QuestionTag x={PW * 2 + 430} y={PH + 230} f={g} size={46} />
-        <ErrorBar x={PW * 2 + 120} y={PH + 490} f={g} value={140} grow={cl(g / 25)} whisk={cl((g - 20) / 20)} up={124} down={88} label={READ.water27.text} />
+        <ErrorBar x={PW * 2 + 120} y={PH + 490} f={g} value={90} grow={cl(g / 25)} whisk={cl((g - 20) / 20)} up={80} down={57} label={READ.water27.text} />
         <Check x={PW * 2 + 340} y={PH + 380} size={110} draw={fr(g / 40)} />
       </Panel>
       {/* 8 · scope: the icon shelf and the chroma table (lit-frame mix per family, dark-frame mix, gold, F11 hues) */}
@@ -194,7 +194,7 @@ const Sheet2: React.FC<{ f: number }> = ({ f }) => {
         <SunIcon x={PW * 3 + 165} y={PH + 44} size={56} f={g} />
         <Compass x={PW * 3 + 235} y={PH + 44} size={56} f={g} />
         <Magnifier x={PW * 3 + 300} y={PH + 40} size={52} rotate={Math.sin(g / 8) * 12} />
-        <Sparks f={g} x={PW * 3 + 340} y={PH + 20} w={130} h={50} mode="zigzag" n={6} />
+        <Sparks f={g} x={PW * 3 + 360} y={PH + 520} w={110} h={10} mode="zigzag" n={3} />
         {tbl.rows.map((r, i) => (
           <text key={r.name} x={PW * 3 + 14} y={PH + 120 + i * 34} style={{ fontFamily: IF2.num, fontWeight: 700, fontSize: 21, fill: r.mix >= 0.4 ? C.ink : C.vermilion }}>
             {`${r.name.padEnd(9, " ")} mix ${r.mix.toFixed(2)} V ${r.value.toFixed(2)}${r.dark != null ? `  dark ${r.dark.toFixed(2)} V ${r.darkV!.toFixed(2)}` : ""}`}

@@ -121,7 +121,8 @@ export const Section: React.FC<{
           <circle cx={cx} cy={cy} r={R * cl(ring)} fill="none" stroke={C.model} strokeWidth={R * 0.014} strokeDasharray={`${R * 0.04} ${R * 0.025}`} strokeDashoffset={-f * 3} />
         ) : null}
       </g>
-      <circle cx={cx} cy={cy} r={R} fill="none" stroke={C.goldHot} strokeWidth={Math.max(2, R * 0.006)} opacity={0.8} />
+      {/* rim line; with toScale it drops to 1 px of dark rust so the 2-px lemon hair is the brightest thing on the rim */}
+      <circle cx={cx} cy={cy} r={R} fill="none" stroke={toScale ? "#5A1206" : C.goldHot} strokeWidth={toScale ? 1 : Math.max(2, R * 0.006)} opacity={0.8} />
       {toScale ? (
         <g>
           {/* the hair: a lemon arc exactly `hair` px thick on the rim top, plus leader arms that reach out so it can be found */}

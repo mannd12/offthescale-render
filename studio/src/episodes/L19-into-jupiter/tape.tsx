@@ -67,7 +67,7 @@ export const TapeTrace: React.FC<{
         width={printed}
         height={h}
         rx={10}
-        fill={ghost ? "rgba(58,168,224,0.22)" : C.heard}
+        fill={ghost ? C.modelDeep : C.heard}
         stroke={ghost ? C.model : C.lemonDeep}
         strokeWidth={ghost ? 5 : 3}
         strokeDasharray={ghost ? "22 14" : undefined}
@@ -188,7 +188,7 @@ export const Ledger: React.FC<{ f: number; x0: number; x1: number; y: number; so
       </defs>
       <rect x={x0 + 6} y={y - h / 2 + 10} width={W} height={h} rx={12} fill="#002A1A" opacity={0.35} />
       {/* MODEL stretch */}
-      <rect x={xs} y={y - h / 2} width={Math.max(0, x1 - xs)} height={h} rx={12} fill="rgba(58,168,224,0.3)" stroke={C.model} strokeWidth={5} strokeDasharray="22 14" strokeDashoffset={-f * drift} />
+      <rect x={xs} y={y - h / 2} width={Math.max(0, x1 - xs)} height={h} rx={12} fill={C.modelDeep} stroke={C.model} strokeWidth={5} strokeDasharray="22 14" strokeDashoffset={-f * drift} />
       {/* HEARD stretch with a moving glow band */}
       <rect x={x0 - 14} y={y - h / 2 - 14} width={Math.max(0, xs - x0) + 28} height={h + 28} rx={24} fill={C.heard} opacity={0.18 + 0.12 * glow} />
       <rect x={x0} y={y - h / 2} width={Math.max(0, xs - x0)} height={h} rx={12} fill={C.heard} />
@@ -201,7 +201,7 @@ export const Ledger: React.FC<{ f: number; x0: number; x1: number; y: number; so
       {Array.from({ length: Math.ceil(W / 60) + 1 }, (_, i) => {
         const hx = x0 + ((i * 60 + off) % W);
         const solid = hx < xs;
-        return <rect key={i} x={hx} y={y - h / 2 + 6} width={18} height={10} rx={3} fill={solid ? "#B07A10" : C.model} opacity={0.75} />;
+        return <rect key={i} x={hx} y={y - h / 2 + 6} width={18} height={10} rx={3} fill={solid ? "#B07A10" : C.modelLabel} opacity={solid ? 0.75 : 0.45} />;
       })}
       {label ? (
         <text x={x0 + 20} y={y + 14} style={{ fontFamily: IF2.label, fontSize: 36, letterSpacing: 4, fill: C.ink }}>

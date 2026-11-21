@@ -3,7 +3,7 @@
 // amber bezel with rim lamps, lemon numerals and a vermilion-free needle (the needle is hot gold; vermilion stays on Tick).
 // USAGE (f = the shot's frame)
 //   <BarDial f cx cy r?=220 needle={bar value, log-mapped 0.5..30; 0 = rest} lit?={0..12 lamps lit, fractional = the next
-//            lamp fading in} arc?={[a, b] in bar} arcDraw?={0..1 with a drawing head} arcs?={DialArc[]} marker?={bar value of
+//            lamp fading in} arc?={[a, b] in bar} arcDraw?={0..1 with a drawing head} arcs?={DialArc[]; `inset` 1.2 puts a second arc inside the first, clear of the numerals} marker?={bar value of
 //            the MISSION REQUIREMENT notch; no numeral} heat?={0..1 HeatRing fill} heatMark?={true: the 300 F notch} label?="BAR" sweep?={px/f of the face's
 //            scanning band; default 6} />
 //   dialAngle(v)               → the angle (deg, SVG) of a bar value on the dial (for leaders and tags placed by callers)
@@ -85,7 +85,7 @@ export const BarDial: React.FC<{
         const s = dialAngle(a.from);
         const e = s + (dialAngle(a.to) - s) * cl(a.draw ?? 1);
         if (e - s < 0.5) return null;
-        const rr = r * (0.8 - (a.inset ?? 0) * 0.1 * (i + 0));
+        const rr = r * (0.8 - (a.inset ?? 0) * 0.1); // inset 1.2 → 0.68 r: inside the track, outside the numerals
         const [hx, hy] = pt(cx, cy, rr, e);
         return (
           <g key={i}>
@@ -99,7 +99,7 @@ export const BarDial: React.FC<{
         const a = dialAngle(v);
         const [x0, y0] = pt(cx, cy, r * 0.68, a);
         const [x1, y1] = pt(cx, cy, r * 0.88, a);
-        const [lx, ly] = pt(cx, cy, r * 0.53, a);
+        const [lx, ly] = pt(cx, cy, r * 0.47, a);
         return (
           <g key={v}>
             <line x1={x0} y1={y0} x2={x1} y2={y1} stroke={C.heard} strokeWidth={r * 0.025} strokeLinecap="round" />
@@ -176,7 +176,7 @@ export const Thermo: React.FC<{ x: number; y: number; h?: number; level: number;
   return (
     <g>
       <rect x={x - w / 2 + 6} y={top + 8} width={w} height={h} rx={w / 2} fill="#1A0402" opacity={0.3} />
-      <rect x={x - w / 2} y={top} width={w} height={h} rx={w / 2} fill="#FFE8B0" opacity={0.28} stroke={C.apricot} strokeWidth={4} />
+      <rect x={x - w / 2} y={top} width={w} height={h} rx={w / 2} fill={C.apricot} opacity={0.38} stroke={C.apricot} strokeWidth={4} />
       <rect x={x - w * 0.22} y={lv} width={w * 0.44} height={y - lv} fill={color} />
       <rect x={x - w * 0.22} y={lv - 4} width={w * 0.44} height={10} rx={5} fill={C.goldHot} opacity={shimmer} />
       <circle cx={x} cy={y} r={w * 0.95} fill={color} stroke={C.apricot} strokeWidth={4} />

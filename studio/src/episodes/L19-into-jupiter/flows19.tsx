@@ -63,8 +63,8 @@ export const Sparks: React.FC<{ f: number; x: number; y: number; w: number; h: n
         const pts = Array.from({ length: 6 }, (_, k) => `${(hx - k * 26).toFixed(1)},${(yy + (k % 2 ? 16 : -16) * (0.6 + rnd(i * 7 + k) * 0.8)).toFixed(1)}`);
         return (
           <g key={i}>
-            <polyline points={pts.join(" ")} stroke={C.glow} strokeWidth={10} opacity={0.35} />
-            <polyline points={pts.join(" ")} stroke={i % 2 ? color : "#FFF0A0"} strokeWidth={4} />
+            <polyline points={pts.join(" ")} stroke="#8E1A18" strokeWidth={11} opacity={0.55} />
+            <polyline points={pts.join(" ")} stroke={i % 2 ? color : "#FFF6C8"} strokeWidth={4.5} />
           </g>
         );
       })}

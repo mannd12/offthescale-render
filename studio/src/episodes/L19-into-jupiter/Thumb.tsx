@@ -48,7 +48,7 @@ const ArtA: React.FC = () => {
           <circle cx={cx} cy={cy} r={R} />
         </clipPath>
         <radialGradient id="thA-glow" cx="0.43" cy="0.5" r="0.6">
-          <stop offset="0" stopColor="#FFD27A" stopOpacity={0.55} />
+          <stop offset="0" stopColor="#FFC247" stopOpacity={0.3} />
           <stop offset="1" stopColor="#FFD27A" stopOpacity={0} />
         </radialGradient>
       </defs>
@@ -65,7 +65,7 @@ const ArtA: React.FC = () => {
       </g>
       <circle cx={cx} cy={cy} r={R} fill="none" stroke="#FFD27A" strokeWidth={8} opacity={0.85} />
       {/* the lemon tape trailing up from the probe to the limb */}
-      <path d="M1495 770 C1470 690 1540 640 1500 560" fill="none" stroke={C.heard} strokeWidth={14} strokeLinecap="round" />
+      <path d="M1500 735 C1470 650 1540 560 1500 470" fill="none" stroke={C.heard} strokeWidth={14} strokeLinecap="round" />
       <Canopy x={1500} y={800} r={34} unfurl={1} f={0} sway={0} />
       <Capsule x={1500} y={800} r={34} f={0} chips={6} />
       <Words words={[READ.min58.text.split(" ")[0], "MINUTES"]} first={C.heard} second="#FFE2A8" stroke="#2A0804" />
