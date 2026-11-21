@@ -6,7 +6,7 @@
 //   <Pop f>                        the hard-cut scale pop around a whole shot
 //   <FamSky name /> <DarkSky name />   oversized family sky; the dark field from a family's first two stops (V < 0.3)
 //   <BandField19 f k />            the L18 probe lesson: wide low-contrast tone bands sliding across the whole field (4 px/f)
-//   <GlowBands f />                wide soft glow bands rising (20 px/f): the furnace's "glow flowing"
+//   <GlowBands f />                wide soft glow bands rising (2 px/f): the furnace's "glow flowing"
 //   <Limb f />  <Planet cx cy r f />   Jupiter's limb / a striped disc, bands shearing in opposite directions
 //   <Num> <Label> <RollInt> <RollDec> <Readout>   asserted text and readouts (units as their own span, F13)
 //   <Plate> <Slam> <Bracket19> <CheckPen> <GlowRings> <Floor> <Console> <Sheet> <ValueBar> <ChipRow> <LedgerIcon>
@@ -91,13 +91,13 @@ export const DarkSky: React.FC<{ name: "limb" | "furnace" }> = ({ name }) => {
 /** L18 probe lesson: wide low-contrast tone bands sliding across the whole field (luma step ≈ 0.06-0.09). Dark pairs stay
  *  under V 0.3. Draw right after the sky. */
 const BANDS: Record<L19FamilyName, [string, string]> = {
-  limb: ["#220602", "#3E1004"],
-  furnace: ["#240602", "#3E1004"],
+  limb: ["#160402", "#340C04"], // art-director pass: mean V 0.15 (was 0.19), grey step 0.052 kept (above the probe's 0.04)
+  furnace: ["#160402", "#340C04"],
   deepdeck: ["#D8381C", "#EE5424"],
   crest: ["#FF9A2E", "#FFB848"],
   scope: ["#00A35A", "#12BA6C"],
 };
-export const BandField19: React.FC<{ f: number; k: L19FamilyName; speed?: number; angle?: number; w?: number; opacity?: number }> = ({ f, k, speed = 4, angle = -18, w = 230, opacity = 1 }) => {
+export const BandField19: React.FC<{ f: number; k: L19FamilyName; speed?: number; angle?: number; w?: number; opacity?: number }> = ({ f, k, speed = 3, angle = -18, w = 340, opacity = 1 }) => {
   const [a, b] = BANDS[k];
   const off = mod(f * speed, 2 * w);
   return (
@@ -113,7 +113,7 @@ export const BandField19: React.FC<{ f: number; k: L19FamilyName; speed?: number
 /** Wide soft glow bands that rise (dir -1) or sink (dir 1) at `speed` px/f: the furnace's "glow flowing". */
 export const GlowBands: React.FC<{ f: number; speed?: number; color?: string; period?: number; h?: number; opacity?: number; dir?: 1 | -1 }> = ({
   f,
-  speed = 20,
+  speed = 2, // art-director pass: 20 px/f changed most of the frame every 0.5 s; at 2 the glow flows and the frame stays calm
   color = C.glow,
   period = 460,
   h = 190,
@@ -161,8 +161,16 @@ export const Limb: React.FC<{ f: number; cx?: number; cy?: number; r?: number; s
           <circle cx={cx} cy={cy} r={r} />
         </clipPath>
       </defs>
+      <defs>
+        <linearGradient id={id + "n"} gradientUnits="userSpaceOnUse" x1={0} y1={top + 50} x2={0} y2={top + 430}>
+          <stop offset="0" stopColor="#1E0603" stopOpacity={0} />
+          <stop offset="1" stopColor="#1E0603" stopOpacity={0.62} />
+        </linearGradient>
+      </defs>
       <g clipPath={`url(#${id})`}>
         <DeckBands f={f} speed={speed} shear={shear} x={cx - r} y={top} w={2 * r} h={Math.min(2 * r, 1500 - top)} belt seed={7} />
+        {/* art-director pass: the night side below a lit crescent */}
+        <rect x={cx - r} y={top} width={2 * r} height={Math.min(2 * r, 1500 - top)} fill={`url(#${id}n)`} />
       </g>
       <circle cx={cx} cy={cy} r={r} fill="none" stroke={rim} strokeWidth={6} opacity={0.85} />
     </g>

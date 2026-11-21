@@ -49,8 +49,8 @@ const DeepWorld: React.FC<{ f: number; speed?: number; dim?: number }> = ({ f, s
       <FamSky name="deepdeck" />
     </Layer>
     <Layer depth={0.4}>
-      <DeckBands f={f} speed={speed} shear={[16, -14, 20, -18, 14, -16]} x={-400} y={-300} w={2720} h={1680} colors={DEEP_COLS} belt />
-      <Wisps f={f} x={-300} y={-200} w={2520} h={1480} n={10} speed={speed + 8} />
+      <DeckBands f={f} speed={speed * 0.15} shear={[5, -4, 6, -5, 4, -5]} scale={2.4} streak={0.5} x={-400} y={-300} w={2720} h={1680} colors={DEEP_COLS} belt />
+      <Wisps f={f} x={-300} y={-200} w={2520} h={1480} n={6} speed={speed + 8} />
       {dim > 0 ? <rect x={-600} y={-600} width={3120} height={2280} fill="#2A0604" opacity={dim} /> : null}
     </Layer>
   </>
@@ -273,7 +273,7 @@ const Shot507: ShotFC<C05> = ({ f, len }) => {
         <BandField19 f={f} k="furnace" />
       </Layer>
       <Layer depth={0.5}>
-        <GlowBands f={f} speed={20} opacity={0.26} />
+        <GlowBands f={f} opacity={0.26} />
         <Bloom x={900} y={1250} r={900} color={C.glow} strength={0.4} />
       </Layer>
       <Layer depth={1}>
@@ -320,7 +320,7 @@ const Shot508: ShotFC<C05> = ({ f, len }) => {
           <BandField19 f={f} k="furnace" />
         </Layer>
         <Layer depth={0.5}>
-          <GlowBands f={f} speed={20} opacity={0.26} />
+          <GlowBands f={f} opacity={0.26} />
           <Bloom x={1100} y={1200} r={800} color={C.glow} strength={0.4} />
         </Layer>
         <Layer depth={1}>
@@ -354,7 +354,7 @@ const Shot509: ShotFC<C05> = ({ f, len }) => {
           <BandField19 f={f} k="furnace" />
         </Layer>
         <Layer depth={0.5}>
-          <GlowBands f={f} speed={20} opacity={0.26} />
+          <GlowBands f={f} opacity={0.26} />
           <Bloom x={820} y={1240} r={1000} color={C.glow} strength={0.6} />
           <Bloom x={820} y={1140} r={700} color={C.goldHot} strength={0.32 + 0.06 * Math.sin(f * 0.2)} />
           <Bloom x={820} y={640} r={300} color={C.model} strength={0.3} />

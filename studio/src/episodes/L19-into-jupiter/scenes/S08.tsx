@@ -114,7 +114,7 @@ const Furnace: React.FC<{ f: number; glow?: number }> = ({ f, glow = 0.26 }) => 
       <BandField19 f={f} k="furnace" />
     </Layer>
     <Layer depth={0.5}>
-      <GlowBands f={f} speed={20} opacity={glow} />
+      <GlowBands f={f} opacity={glow} />
     </Layer>
   </>
 );

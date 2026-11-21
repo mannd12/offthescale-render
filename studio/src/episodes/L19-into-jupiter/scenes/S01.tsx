@@ -194,7 +194,7 @@ const ShotBrake: ShotFC<CL01> = ({ f, c }) => {
       <Stage theme={DEEP.theme} shotFrame={f} drift={DRIFT(4, g > 0 ? 0.94 : 1.08, 0.03)} vignette={0.2} grain={0.5}>
         <Descent f={f} fam="deep" speed={g > 0 ? 20 : 26} seed={24} />
         <Layer depth={1}>
-          <Wisps f={f} x={0} y={0} w={1920} h={1080} n={10} speed={g > 0 ? 20 : 30} color="#FFD27A" />
+          <Wisps f={f} x={0} y={0} w={1920} h={1080} n={6} speed={g > 0 ? 20 : 30} color="#FFD27A" />
           {g <= 0 ? <Sparks f={f} x={1180} y={330} w={700} h={200} n={40} mode="trail" angle={270} speed={26} /> : null}
           <Flare x={1180} y={py} r={70} f={f} angle={90} strength={1 - lin(f, 0, T6)} />
           <Canopy x={1180} y={py} r={80} unfurl={lin(g, 0, 16)} f={f} />

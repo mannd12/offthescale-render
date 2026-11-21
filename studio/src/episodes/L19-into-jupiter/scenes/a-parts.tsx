@@ -126,7 +126,8 @@ export const DriftBands: React.FC<{ f: number; color: string; opacity?: number; 
  *  stars sliding. */
 export const SpaceField: React.FC<{ f: number; speed?: number; angle?: number; n?: number; seed?: number; bands?: number }> = ({ f, speed = 12, angle = 180, n = 90, seed = 1, bands = 5 }) => (
   <g>
-    <Sky family={LIMB} />
+    {/* art-director pass: held at the first stop (the frame reads sky[0] to sky[1], never the third stop) */}
+    <Sky stops={[LIMB.sky[0], LIMB.sky[0], LIMB.sky[1]]} />
     {bands > 0 ? <DriftBands f={f} color="#7A1A08" opacity={0.55} speed={bands} n={3} w={560} angle={-26} seed={seed} /> : null}
     <StarsTint f={f} x={-100} y={-100} w={2120} h={1280} n={n} speed={speed} angle={angle} seed={seed} size={2.6} />
   </g>
@@ -139,7 +140,7 @@ const LIMB_COLORS = [C.stripeOrange, C.stripeAmber, C.stripeRust, "#F28A1E", "#F
  * a soft terminator shading toward the bottom. Only the part inside the frame is drawn. Keep ≥ 25 % of the frame on it
  * (foundation note: empty limb space measures chroma 0.36).
  */
-export const Limb: React.FC<{ f: number; cx: number; cy: number; R: number; shear?: number[]; scroll?: number; belt?: boolean; glow?: number; shade?: number; seed?: number; colors?: string[] }> = ({
+export const Limb: React.FC<{ f: number; cx: number; cy: number; R: number; shear?: number[]; scroll?: number; belt?: boolean; glow?: number; shade?: number; night?: number; seed?: number; colors?: string[] }> = ({
   f,
   cx,
   cy,
@@ -149,6 +150,7 @@ export const Limb: React.FC<{ f: number; cx: number; cy: number; R: number; shea
   belt = true,
   glow = 1,
   shade = 0.35,
+  night = 0.62,
   seed = 1,
   colors = LIMB_COLORS,
 }) => {
@@ -165,12 +167,18 @@ export const Limb: React.FC<{ f: number; cx: number; cy: number; R: number; shea
           <stop offset="0.55" stopColor="#2A0804" stopOpacity={0} />
           <stop offset="1" stopColor="#2A0804" stopOpacity={shade} />
         </radialGradient>
+        {/* art-director pass: the night side. A lit crescent along the rim, the disc falling into shadow below it */}
+        <linearGradient id={id + "n"} gradientUnits="userSpaceOnUse" x1={0} y1={cy - R + 50} x2={0} y2={cy - R + 430}>
+          <stop offset="0" stopColor="#1E0603" stopOpacity={0} />
+          <stop offset="1" stopColor="#1E0603" stopOpacity={night} />
+        </linearGradient>
       </defs>
-      {glow > 0 ? <Bloom x={cx} y={cy} r={R * 1.08} color="#FF8A3D" strength={0.32 * glow} /> : null}
+      {glow > 0 ? <Bloom x={cx} y={cy} r={R * 1.08} color="#FF8A3D" strength={0.24 * glow} /> : null}
       <circle cx={cx} cy={cy} r={R + 14} fill="none" stroke="#F0601A" strokeWidth={26} opacity={0.35 * glow} />
       <ClipCircle cx={cx} cy={cy} r={R}>
         <DeckBands f={f} speed={scroll} shear={shear} x={x0} y={y0} w={x1 - x0} h={y1 - y0} belt={belt} seed={seed} colors={colors} />
         <circle cx={cx} cy={cy} r={R} fill={`url(#${id}s)`} />
+        {night > 0 ? <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill={`url(#${id}n)`} /> : null}
       </ClipCircle>
       <circle cx={cx} cy={cy} r={R} fill="none" stroke="#FFD27A" strokeWidth={6} opacity={0.85} />
     </g>
@@ -195,8 +203,10 @@ export const Descent: React.FC<{ f: number; fam: "crest" | "deep"; speed: number
 }) => (
   <g>
     <Sky family={fam === "crest" ? CREST : DEEP} />
-    <DeckBands f={f} speed={speed} shear={shear} y={y} h={h} colors={fam === "crest" ? CREST_COLORS : DEEP_COLORS} belt={belt} ghost={ghost} ghostDraw={ghostDraw} fill={fill} seed={seed} />
-    <DriftBands f={f} color={fam === "crest" ? "#FFF0A0" : "#FFB347"} opacity={fam === "crest" ? 0.22 : 0.2} speed={6} n={2} w={480} angle={-18} seed={seed + 2} />
+    {/* art-director pass: the probe (2026-11-21) measured 65-79 % of the frame changing every 0.5 s here. Scroll x0.15, shear x0.3,
+        bands 2.4x taller, streaks at half: the decks still rise and shear (2-4 px/f, 5-11 px/f), the wisps carry the speed of the fall */}
+    <DeckBands f={f} speed={speed * 0.15} shear={shear.map((s) => s * 0.3)} scale={2.4} streak={0.5} y={y} h={h} colors={fam === "crest" ? CREST_COLORS : DEEP_COLORS} belt={belt} ghost={ghost} ghostDraw={ghostDraw} fill={fill} seed={seed} />
+    <DriftBands f={f} color={fam === "crest" ? "#FFF0A0" : "#FFB347"} opacity={fam === "crest" ? 0.22 : 0.2} speed={3} n={2} w={480} angle={-18} seed={seed + 2} />
   </g>
 );
 
@@ -229,7 +239,7 @@ export const Station: React.FC<{ f: number; desk?: number; pan?: number; seed?: 
         </g>
       );
     })}
-    <DriftBands f={f} color="#FFE08A" opacity={0.24} speed={pan * 1.6} n={2} w={460} angle={18} seed={seed + 4} />
+    <DriftBands f={f} color="#FFE08A" opacity={0.24} speed={pan} n={1} w={460} angle={18} seed={seed + 4} />
     {win ? (
       <g>
         <rect x={win.x - 14} y={win.y - 14} width={win.w + 28} height={win.h + 28} rx={30} fill={C.emeraldDeep} />

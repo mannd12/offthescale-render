@@ -44,7 +44,7 @@ const SC = familyOf("scope");
 const LI = familyOf("limb");
 
 /** The furnace field: dark crimson-brown, its tone bands sliding, glow bands rising (the models' world). */
-const Furnace: React.FC<{ f: number; glow?: number; speed?: number }> = ({ f, glow = 0.26, speed = 22 }) => (
+const Furnace: React.FC<{ f: number; glow?: number; speed?: number }> = ({ f, glow = 0.26, speed = 2 }) => (
   <>
     <Layer depth={0.1}>
       <DarkSky name="furnace" />

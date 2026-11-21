@@ -73,7 +73,7 @@ const Furnace: React.FC<{ f: number; glow?: number }> = ({ f, glow = 0.26 }) => 
       <BandField19 f={f} k="furnace" />
     </Layer>
     <Layer depth={0.5}>
-      <GlowBands f={f} speed={20} opacity={glow} />
+      <GlowBands f={f} opacity={glow} />
     </Layer>
   </>
 );
@@ -387,7 +387,7 @@ const Shot710: ShotFC<C07> = ({ f, len }) => {
     <Stage theme={SC.theme} cam={{ x: 960 + (SX + 20 - 960) * u, y: 540 + (RTOP + 30 - 540) * u, zoom }} vignette={0.14} grain={0.5}>
       <Layer depth={0.1}>
         <FamSky name="scope" />
-        <BandField19 f={f} k="scope" speed={6} />
+        <BandField19 f={f} k="scope" speed={3} />
       </Layer>
       <Layer depth={1}>
         <ScaleSection f={f} />

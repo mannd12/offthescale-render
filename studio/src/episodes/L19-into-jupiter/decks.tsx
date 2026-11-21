@@ -27,7 +27,7 @@ const DEFAULT_COLORS = [C.stripeOrange, C.stripeAmber, C.stripeRust, "#F28A1E", 
 const H_SET = [150, 110, 170, 90, 130, 120];
 
 /** One band: a wavy top edge, a lit lip and sliding cloud streaks inside. */
-const Band: React.FC<{ x: number; w: number; top: number; h: number; color: string; shift: number; seed: number }> = ({ x, w, top, h, color, shift, seed }) => {
+const Band: React.FC<{ x: number; w: number; top: number; h: number; color: string; shift: number; seed: number; streak?: number }> = ({ x, w, top, h, color, shift, seed, streak = 1 }) => {
   const wl = 260 + rnd(seed) * 160;
   const amp = 10 + rnd(seed + 3) * 12;
   const pts: string[] = [];
@@ -44,7 +44,7 @@ const Band: React.FC<{ x: number; w: number; top: number; h: number; color: stri
         const sx = x - 220 + mod(i * 220 + shift * (0.8 + rnd(seed + i) * 0.4), nStreak * 220);
         const sy = top + h * (0.3 + rnd(seed * 7 + i) * 0.45);
         const len = 120 + rnd(seed * 11 + i) * 160;
-        return <ellipse key={i} cx={sx} cy={sy} rx={len / 2} ry={7 + rnd(seed + i * 3) * 9} fill={i % 2 ? "#FFE8B0" : "#5A1206"} opacity={i % 2 ? 0.22 : 0.14} />;
+        return <ellipse key={i} cx={sx} cy={sy} rx={len / 2} ry={7 + rnd(seed + i * 3) * 9} fill={i % 2 ? "#FFE8B0" : "#5A1206"} opacity={(i % 2 ? 0.22 : 0.14) * streak} />;
       })}
     </g>
   );
@@ -65,9 +65,13 @@ export const DeckBands: React.FC<{
   fill?: number;
   seed?: number;
   opacity?: number;
-}> = ({ f, speed, shear, x = 0, y = 0, w = 1920, h = 1080, colors = DEFAULT_COLORS, belt = false, ghost, ghostDraw = 1, fill, seed = 1, opacity = 1 }) => {
+  /** band height multiplier (taller bands = fewer edges = calmer; art-director pass) */
+  scale?: number;
+  /** opacity multiplier of the cloud streaks inside each band */
+  streak?: number;
+}> = ({ f, speed, shear, x = 0, y = 0, w = 1920, h = 1080, colors = DEFAULT_COLORS, belt = false, ghost, ghostDraw = 1, fill, seed = 1, opacity = 1, scale = 1, streak = 1 }) => {
   const cols = belt ? [...colors.slice(0, 3), C.belt, ...colors.slice(3)] : colors;
-  const hs = cols.map((_, i) => H_SET[i % H_SET.length]);
+  const hs = cols.map((_, i) => H_SET[i % H_SET.length] * scale);
   const P = hs.reduce((a, b) => a + b, 0);
   const scroll = mod(f * speed, P);
   const bands: React.ReactNode[] = [];
@@ -78,7 +82,7 @@ export const DeckBands: React.FC<{
     const i = k % cols.length;
     const top = cursor;
     if (top + hs[i] + 60 > y - 40)
-      bands.push(<Band key={k} x={x} w={w} top={top} h={hs[i] + 40} color={cols[i]} shift={f * (shear[i % shear.length] ?? 0)} seed={seed * 31 + i} />);
+      bands.push(<Band key={k} x={x} w={w} top={top} h={hs[i] + 40} color={cols[i]} shift={f * (shear[i % shear.length] ?? 0)} seed={seed * 31 + i} streak={streak} />);
     cursor += hs[i];
     k++;
   }

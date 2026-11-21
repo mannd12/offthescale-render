@@ -90,7 +90,7 @@ const ShotGhost: ShotFC<CL02> = ({ f, c, len }) => {
     <Stage theme={CREST.theme} shotFrame={f} drift={DRIFT(1, 1.12, 0.04, 0.02)} vignette={0.2} grain={0.5}>
       <Descent f={f} fam="crest" speed={18} ghost={["HIGH", "MIDDLE", "LOW"]} ghostDraw={lin(f, 6, 46)} seed={41} />
       <Layer depth={1}>
-        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={12} speed={24} />
+        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={7} speed={24} />
         <Probe f={f} x={1500} y={290} r={62} />
       </Layer>
       <Layer depth={0}>
@@ -107,7 +107,7 @@ const ShotGhost: ShotFC<CL02> = ({ f, c, len }) => {
     <Stage theme={CREST.theme} shotFrame={g} drift={DRIFT(2, 1.1, 0.04)} vignette={0.2} grain={0.5}>
       <Descent f={f} fam="crest" speed={18} seed={42} />
       <Layer depth={1}>
-        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={10} speed={24} />
+        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={6} speed={24} />
         <Probe f={f} x={420} y={250} r={50} />
         <rect x={1040} y={200} width={760} height={840} rx={36} fill="rgba(43,9,5,0.55)" />
         <line x1={1080} y1={260} x2={1340} y2={260} stroke="#FFF0A0" strokeWidth={4} strokeDasharray="10 12" />
@@ -140,7 +140,7 @@ const ShotOneDeck: ShotFC<CL02> = ({ f, c }) => {
     <Stage theme={CREST.theme} shotFrame={f} drift={DRIFT(3, 1.1, 0.03, 0.02)} vignette={0.2} grain={0.5}>
       <Descent f={f} fam="crest" speed={14} ghost={["HIGH", "MIDDLE", "LOW"]} ghostDraw={1} fill={lin(f, 4, 56)} seed={43} />
       <Layer depth={1}>
-        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={14} speed={28} />
+        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={8} speed={28} />
         <Probe f={f} x={960} y={260} r={56} />
       </Layer>
       <Layer depth={0}>
@@ -240,7 +240,7 @@ const ShotCards: ShotFC<CL02> = ({ f, c }) => {
     <Stage theme={CREST.theme} shotFrame={g} drift={DRIFT(6, 1.1, 0.03, 0.02)} vignette={0.2} grain={0.5}>
       <Descent f={f} fam="crest" speed={18} seed={46} />
       <Layer depth={1}>
-        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={8} speed={20} />
+        <Wisps f={f} x={0} y={0} w={1920} h={1080} n={5} speed={20} />
         <Probe f={f} x={380} y={350} r={64} />
         <Flask x={1040} y={600} size={420} level={1} f={g} />
         <Flask x={1500} y={600} size={420} level={half} f={g} />
@@ -393,7 +393,7 @@ const ShotDiveAgain: ShotFC<CL02> = ({ f, len }) => {
       <Stage theme={CREST.theme} shotFrame={f} drift={DRIFT(11, 1.14, 0.02, 0.04)} vignette={0.2} grain={0.5}>
         <Descent f={f} fam="crest" speed={28} shear={sh} seed={51} />
         <Layer depth={1}>
-          <Wisps f={f} x={0} y={0} w={1920} h={1080} n={12} speed={30} />
+          <Wisps f={f} x={0} y={0} w={1920} h={1080} n={7} speed={30} />
           <Probe f={f} x={960} y={300} r={60} />
           <rect x={70} y={690} width={420} height={340} rx={30} fill={C.emeraldDeep} />
           <ClipBox x={86} y={706} w={388} h={308} rx={20}>

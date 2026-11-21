@@ -68,7 +68,7 @@ export const L19_FAMILIES = {
   /** space around the limb: the cold open, the orbiters, the closer, the end card. Dark (warm-black to crimson, never black) */
   limb: fam({
     name: "limb",
-    sky: ["#2A0804", "#5A1206", "#A8300C"],
+    sky: ["#1E0603", "#2A0804", "#4A1006"], // art-director pass 2026-11-21: was #2A0804, #5A1206, #A8300C (3 % dark frames)
     far: C.stripeOrange,
     mid: C.stripeAmber,
     near: C.stripeRust,
