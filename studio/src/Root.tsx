@@ -48,6 +48,9 @@ import { ThumbL17A, ThumbL17B } from "./episodes/L17-humans-vanish/Thumb";
 import { FullL18MOONLOWORBIT, KeyArt1 as KeyArtL18a, KeyArt2 as KeyArtL18b, KeyArt3 as KeyArtL18c, L18MoonLowOrbitFrames } from "./episodes/L18-moon-low-orbit/Full";
 import { L18KitDemo, L18_KIT_DEMO_FRAMES } from "./episodes/L18-moon-low-orbit/KitDemo";
 import { ThumbL18A, ThumbL18B } from "./episodes/L18-moon-low-orbit/Thumb";
+import { FullL19INTOJUPITER, KeyArt1 as KeyArtL19a, KeyArt2 as KeyArtL19b, KeyArt3 as KeyArtL19c, L19IntoJupiterFrames } from "./episodes/L19-into-jupiter/Full";
+import { L19KitDemo, L19_KIT_DEMO_FRAMES } from "./episodes/L19-into-jupiter/KitDemo";
+import { ThumbL19A, ThumbL19B } from "./episodes/L19-into-jupiter/Thumb";
 import { FullL13, KeyArt1 as KeyArtL13a, KeyArt2 as KeyArtL13b, KeyArt3 as KeyArtL13c, l13Frames } from "./episodes/L13-loudest-sound/Full";
 import { L13KitDemo, L13_KIT_DEMO_FRAMES } from "./episodes/L13-loudest-sound/KitDemo";
 import { DuskScene } from "./style-v2/Dusk";
@@ -195,6 +198,13 @@ export const Root: React.FC = () => (
     <Still id="l18-key-3" component={KeyArtL18c} width={WIDTH} height={HEIGHT} />
     <Still id="L18MoonLowOrbit-thumb-a" component={ThumbL18A} width={1280} height={720} />
     <Still id="L18MoonLowOrbit-thumb-b" component={ThumbL18B} width={1280} height={720} />
+    <Composition id="L19IntoJupiter" component={FullL19INTOJUPITER} durationInFrames={L19IntoJupiterFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="L19IntoJupiter-kit-demo" component={L19KitDemo} durationInFrames={L19_KIT_DEMO_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Still id="l19-key-1" component={KeyArtL19a} width={WIDTH} height={HEIGHT} />
+    <Still id="l19-key-2" component={KeyArtL19b} width={WIDTH} height={HEIGHT} />
+    <Still id="l19-key-3" component={KeyArtL19c} width={WIDTH} height={HEIGHT} />
+    <Still id="L19IntoJupiter-thumb-a" component={ThumbL19A} width={1280} height={720} />
+    <Still id="L19IntoJupiter-thumb-b" component={ThumbL19B} width={1280} height={720} />
     <Composition id="l13" component={FullL13} durationInFrames={l13Frames} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-1" component={KeyArtL13a} width={WIDTH} height={HEIGHT} />
     <Still id="l13-key-2" component={KeyArtL13b} width={WIDTH} height={HEIGHT} />
