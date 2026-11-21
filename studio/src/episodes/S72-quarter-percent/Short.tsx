@@ -193,7 +193,7 @@ const e2: Shot = ({ f }) => (
     <rect x={500} y={BOT - 8} width={80} height={6} fill={L19_COLORS.heard} />
     <circle cx={540} cy={BOT - 2} r={34 + 6 * Math.sin(f / 5)} fill="none" stroke={L19_COLORS.heard} strokeWidth={8} />
     <Tick x={190} y={1170} pxPerM={250} frame={f} pose="point" expression="surprised" facing={1} />
-    <Plaque x={810} y={1060} text="22 CM" size={56} bg={C.ink} fg={C.amber} />
+    <Plaque x={885} y={1110} text="22 CM" size={56} bg={C.ink} fg={C.amber} />
     <Plaque x={540} y={190} text="ABOUT 22 CM" size={100} bg={C.ink} fg={C.amber} />
     <OurSumPill x={540} y={72} size={32} align="middle" />
   </g>
@@ -222,7 +222,7 @@ const Below: React.FC<{ f: number; mark: string; rate: number }> = ({ f, mark, r
   <g>
     <Sky stops={[DEEP.sky[2], LIMB.sky[2], LIMB.sky[0]]} x={0} y={0} w={W} h={H} />
     <StarsTint f={f} x={-200} y={-200} w={W + 400} h={H + 400} n={40} speed={-8} angle={90} seed={73} size={1.2} />
-    <GhostProbe x={420 + Math.sin(f / rate) * 30} y={520 + ((f * 3) % 120)} r={70} f={f} />
+    <GhostProbe x={400 + Math.sin(f / rate) * 30} y={560 + ((f * 3) % 120)} r={110} f={f} />
     <Qmark f={f} x={720} y={900} size={420} />
     <Plaque x={540} y={190} text={mark} size={74} bg={C.ink} fg={C.amber} />
   </g>

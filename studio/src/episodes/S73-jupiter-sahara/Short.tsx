@@ -27,8 +27,8 @@ const SCOPE = familyOf("scope");
 const CREST_COLS = ["#F28A1E", "#FFC247", "#E2571F", "#FFE066", "#F2A31B", "#B8431A"];
 
 /** The cloud tops: decks scrolling up and shearing (L19's free mover). */
-const Clouds: React.FC<{ f: number; speed?: number; ghost?: ("HIGH" | "MIDDLE" | "LOW")[]; ghostDraw?: number; fill?: number }> = ({ f, speed = 20, ghost, ghostDraw, fill }) => (
-  <DeckBands f={f} speed={speed} shear={[18, -22, 24, -16, 20, -26]} x={-200} y={0} w={W + 400} h={H} colors={CREST_COLS} belt scale={1.6} ghost={ghost} ghostDraw={ghostDraw} fill={fill} />
+const Clouds: React.FC<{ f: number; speed?: number }> = ({ f, speed = 20 }) => (
+  <DeckBands f={f} speed={speed} shear={[18, -22, 24, -16, 20, -26]} x={-200} y={0} w={W + 400} h={H} colors={CREST_COLS} belt scale={1.6} />
 );
 const Space: React.FC<{ f: number }> = ({ f }) => (
   <g>
@@ -105,17 +105,37 @@ const b2: Shot = ({ f, n }) => (
   </g>
 );
 
-/** c - three layers usually described; it found just one, of modest size. */
+/** c - three layers usually described; it found just one, of modest size. Our own dashed outlines (L19's ghost-deck look),
+ *  full width so the labels stay in frame; only the top one fills in. */
+const DECKS = ["HIGH", "MIDDLE", "LOW"];
+const Ghosts: React.FC<{ f: number; draw: number; fill: number }> = ({ f, draw, fill }) => (
+  <g>
+    {DECKS.map((label, i) => {
+      const y = 560 + i * 220;
+      const L = 900 * draw;
+      return (
+        <g key={label}>
+          <rect x={90} y={y - 50} width={L} height={100} rx={50} fill="rgba(43,9,5,0.35)" />
+          {i === 0 ? <rect x={90} y={y - 50} width={900 * fill} height={100} rx={50} fill="#FFE8B0" opacity={0.92} /> : null}
+          <rect x={90} y={y - 50} width={L} height={100} rx={50} fill="none" stroke="#FFF6DC" strokeWidth={7} strokeDasharray="26 16" strokeDashoffset={-f * 6} />
+          {draw > 0.3 ? <Plaque x={540} y={y + 2} text={label} size={44} bg={C.ink} fg={i === 0 && fill > 0.5 ? C.amber : C.cream} /> : null}
+        </g>
+      );
+    })}
+  </g>
+);
 const c1: Shot = ({ f, n }) => (
   <g>
-    <Clouds f={f} speed={8} ghost={["HIGH", "MIDDLE", "LOW"]} ghostDraw={ez(f, 0, Math.round(n * 0.6))} />
+    <Clouds f={f} speed={8} />
+    <Ghosts f={f} draw={ez(f, 0, Math.round(n * 0.6))} fill={0} />
     <Plaque x={540} y={190} text="THREE LAYERS" size={96} bg={C.ink} fg={C.amber} />
     <Plaque x={540} y={340} text="USUALLY DESCRIBED" size={56} bg={C.ink} fg={C.cream} />
   </g>
 );
 const c2: Shot = ({ f, n }) => (
   <g>
-    <Clouds f={f} speed={8} ghost={["HIGH", "MIDDLE", "LOW"]} ghostDraw={1} fill={ez(f, 0, Math.round(n * 0.5))} />
+    <Clouds f={f} speed={8} />
+    <Ghosts f={f} draw={1} fill={ez(f, 0, Math.round(n * 0.5))} />
     <Plaque x={540} y={190} text="ONE FOUND" size={110} bg={C.ink} fg={C.amber} />
     <Plaque x={540} y={350} text="OF MODEST SIZE" size={60} bg={C.ink} fg={C.cream} />
   </g>
