@@ -162,9 +162,9 @@ export const Limb: React.FC<{ f: number; cx?: number; cy?: number; r?: number; s
         </clipPath>
       </defs>
       <defs>
-        <linearGradient id={id + "n"} gradientUnits="userSpaceOnUse" x1={0} y1={top + 50} x2={0} y2={top + 430}>
+        <linearGradient id={id + "n"} gradientUnits="userSpaceOnUse" x1={0} y1={top + 20} x2={0} y2={top + 240}>
           <stop offset="0" stopColor="#1E0603" stopOpacity={0} />
-          <stop offset="1" stopColor="#1E0603" stopOpacity={0.62} />
+          <stop offset="1" stopColor="#1E0603" stopOpacity={0.75} />
         </linearGradient>
       </defs>
       <g clipPath={`url(#${id})`}>

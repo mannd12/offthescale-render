@@ -128,7 +128,7 @@ export const SpaceField: React.FC<{ f: number; speed?: number; angle?: number; n
   <g>
     {/* art-director pass: held at the first stop (the frame reads sky[0] to sky[1], never the third stop) */}
     <Sky stops={[LIMB.sky[0], LIMB.sky[0], LIMB.sky[1]]} />
-    {bands > 0 ? <DriftBands f={f} color="#7A1A08" opacity={0.55} speed={bands} n={3} w={560} angle={-26} seed={seed} /> : null}
+    {bands > 0 ? <DriftBands f={f} color="#5A1206" opacity={0.5} speed={bands} n={3} w={560} angle={-26} seed={seed} /> : null}
     <StarsTint f={f} x={-100} y={-100} w={2120} h={1280} n={n} speed={speed} angle={angle} seed={seed} size={2.6} />
   </g>
 );
@@ -150,7 +150,7 @@ export const Limb: React.FC<{ f: number; cx: number; cy: number; R: number; shea
   belt = true,
   glow = 1,
   shade = 0.35,
-  night = 0.62,
+  night = 0.75,
   seed = 1,
   colors = LIMB_COLORS,
 }) => {
@@ -168,7 +168,7 @@ export const Limb: React.FC<{ f: number; cx: number; cy: number; R: number; shea
           <stop offset="1" stopColor="#2A0804" stopOpacity={shade} />
         </radialGradient>
         {/* art-director pass: the night side. A lit crescent along the rim, the disc falling into shadow below it */}
-        <linearGradient id={id + "n"} gradientUnits="userSpaceOnUse" x1={0} y1={cy - R + 50} x2={0} y2={cy - R + 430}>
+        <linearGradient id={id + "n"} gradientUnits="userSpaceOnUse" x1={0} y1={cy - R + 20} x2={0} y2={cy - R + 240}>
           <stop offset="0" stopColor="#1E0603" stopOpacity={0} />
           <stop offset="1" stopColor="#1E0603" stopOpacity={night} />
         </linearGradient>
