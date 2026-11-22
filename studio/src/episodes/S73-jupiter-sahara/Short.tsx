@@ -66,7 +66,7 @@ const a1: Shot = ({ f, n }) => (
     <Space f={f} />
     <VLimb f={f} cy={2450} R={1500} />
     <Probe f={f} x={540} y={mix(520, 760, ez(f, 0, n))} r={62} chips={0} />
-    <Plaque x={540} y={190} text="IT FELL INTO JUPITER" size={72} bg={C.ink} fg={C.amber} />
+    <Plaque x={540} y={190} text="IT FELL INTO JUPITER" size={78} bg={C.ink} fg={C.amber} />
   </g>
 );
 const a2: Shot = ({ f, n }) => (
